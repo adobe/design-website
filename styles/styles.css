@@ -1,1 +1,46 @@
+/*
+ *   Copyright (c) 2021 Busy Human LLC
+ *   All rights reserved.
+ *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
+ */
 /* above the fold CSS goes here */
+body {
+    background:#E91D25;
+}
+
+.hero-carousel {
+    display:block;
+    width:100%;
+    padding:40px;
+    box-sizing: border-box;
+}
+
+/* Slides */
+.hero-carousel > div {
+    display: flex;
+    flex-direction:row;
+    width:100%;
+}
+
+/* Slide Image */
+.hero-carousel > div > div {
+    display: inline-block;
+    padding:10px;
+    flex-grow:1;
+    flex-basis:0;
+}
+
+.hero-carousel > div > :first-child img {
+    width:100%;
+}
+
+.profile > div > div > p:first-child {
+    display:inline-block;
+    position:absolute;
+    padding:5px;
+    border-bottom:solid 4px black;
+}
+
+.profile img {
+    width:50vw;
+}
