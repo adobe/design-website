@@ -335,6 +335,14 @@ function setLCPTrigger(doc, postLCP) {
   }
 }
 
+function decorateScoreboards() {
+  const doc = window.document;
+  const $boards = doc.querySelectorAll(".scoreboards.block > div");
+  for(const board of $boards) {
+    board.classList.add("scoreboard");
+  }
+}
+
 /**
  * Decorates the page.
  * @param {Window} win The window
@@ -351,7 +359,11 @@ async function decoratePage(win = window) {
       loadCSS('/styles/lazy-styles.css');
       addFavIcon('/favicon.svg');
     });
+
+    decorateScoreboards();
   }
 }
 
 decoratePage(window);
+
+
