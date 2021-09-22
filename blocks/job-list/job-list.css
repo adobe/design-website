@@ -3,7 +3,7 @@
  *   All rights reserved.
  *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
  */
-.job-list.block{
+.joblist.block{
     display: flex;
     flex-direction: column;
     color: #0B1C40;
@@ -11,8 +11,13 @@
     width: 50%;
 }
 
-.job-list.block p{
+.joblist.block p{
     font-size: 20px;
+}
+
+.job-listing h3{
+    margin: 0;
+    
 }
 
 .job-listing{
@@ -21,5 +26,26 @@
 
 .job-listing .job-title{
     font-size: 45px;
+    width: 60%;
+    margin: 0;
 }
 
+.location{
+    display: flex;
+    justify-content: flex-end;
+    color: orange;
+}
+
+.experience{
+    color: blue;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#sr-experience-designer-1{
+    margin: 0;
+    color: purple;
+}
+.job-title{
+    margin: 0;
+}
