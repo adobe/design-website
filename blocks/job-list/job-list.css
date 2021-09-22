@@ -15,11 +15,11 @@
     font-size: 20px;
 }
 
-.joblisting{
+.job-listing{
     border-bottom: solid 2px #0B1C40;
 }
 
-#sr-experience-designer{
+.job-listing .job-title{
     font-size: 45px;
 }
 
