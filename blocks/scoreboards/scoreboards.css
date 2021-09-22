@@ -1,4 +1,43 @@
 /* A single scoreboard */
-.scoreboard .number {
-    font-size:80px;
+.scoreboards.block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+}
+.scoreboards > div{
+    width: 895px;
+    height: 919px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.scoreboards > div:first-child{
+    background-color:  #FAECE7;
+    color: #0B1C40;
+}
+.scoreboards > div:nth-child(2){
+    background-color: #0B1C40;
+    color: white;
+}
+.scoreboards > div:nth-child(3){
+    background-color: #FFFAE2;
+    color: #0B1C40;
+}
+.scoreboards .number {
+    font-size: 250px;
+}
+.scoreboards .caption{
+    font-size: 25px;
+    
+}
+.scoreboards .tag{
+    font-size: 20px;
+    border-bottom: solid 4px #0B1C40;
+    
+}
+.scoreboards > div:nth-child(2) .tag{
+    border-bottom: solid 4px white;
 }
