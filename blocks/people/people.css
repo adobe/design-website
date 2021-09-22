@@ -1,0 +1,9 @@
+.image p:first-child {
+    display:inline-block;
+    position:absolute;
+    padding:5px;
+    border-bottom:solid 4px black;
+}
+.person .image img {
+    width:50vw;
+}
