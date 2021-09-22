@@ -1,0 +1,46 @@
+/* Beginning of navbar styling */
+.tagline {
+    display:flex;
+    width:100%;
+    padding:40px;
+}
+
+.tagline.block > div:nth-child(2) {
+    font-family: 'Roboto', sans-serif;
+    margin-left: 5em;
+    color: #FFFFFF;
+    width: 19vw;
+}
+
+.tagline.block > div:nth-child(3) {
+    font-family: 'Roboto', sans-serif;
+    margin-left: 5em;
+    color: #FFFFFF;
+    position: fixed;
+    right: 30em;
+}
+
+.tagline.block > div:nth-child(4) {
+    font-family: 'Roboto', sans-serif;
+    margin-left: 5em;
+    color: #FFFFFF;
+    position: fixed;
+    right: 25em;
+}
+
+.tagline.block > div:nth-child(5) {
+    font-family: 'Roboto', sans-serif;
+    margin-left: 5em;
+    color: #FFFFFF;
+    position: fixed;
+    right: 20em;
+}
+
+.tagline.block > div:nth-child(6) {
+    font-family: 'Roboto', sans-serif;
+    margin-left: 5em;
+    color: #FFFFFF;
+    position: fixed;
+    right: 15em;
+}
+/* End of navbar styling */
