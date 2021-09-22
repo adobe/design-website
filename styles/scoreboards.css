@@ -5,6 +5,16 @@
  */
 
 /* A single scoreboard */
-.scoreboards > div {
-    
+
+.scoreboards{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color:  #FAECE7;
 }
+
+.scoreboards .number {
+    color: #0B1C40;
+    font-size: 250px;
+}
+
