@@ -31,12 +31,12 @@
 }
 .scoreboards .caption{
     font-size: 25px;
-    
 }
 .scoreboards .tag{
     font-size: 20px;
     border-bottom: solid 4px #0B1C40;
-    
+    position: absolute;
+    padding-top: 40em;
 }
 .scoreboards > div:nth-child(2) .tag{
     border-bottom: solid 4px white;
