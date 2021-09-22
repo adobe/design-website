@@ -1,9 +1,42 @@
-.image p:first-child {
-    display:inline-block;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.people {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.person .tag {
+    display: inline;
     position:absolute;
-    padding:5px;
+    padding: 5px 0 10px 25px;
+}
+
+.person .tag:before {
+    content : "";
+    position: absolute;
+    bottom  : 0px;
+    height  : 1px;
+    width   : 80%;  /* or 100px */
     border-bottom:solid 4px black;
 }
-.person .image img {
-    width:50vw;
+
+.image {
+    width:31vw;
+}
+
+.person {
+    background: #ffffff;
+    width: fit-content;
+}
+
+.name {
+    font-size: clamp(2rem, 3vw, 5rem);
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pad {
+    margin-top: 0;
 }
