@@ -67,16 +67,16 @@ export function toClassName(name) {
  * Wraps each section in an additional {@code div}.
  * @param {[Element]} $sections The sections
  */
-function wrapSections($sections) {
-  $sections.forEach(($div) => {
-    if (!$div.id) {
-      const $wrapper = document.createElement('div');
-      $wrapper.className = 'section-wrapper';
-      $div.parentNode.appendChild($wrapper);
-      $wrapper.appendChild($div);
-    }
-  });
-}
+// function wrapSections($sections) {
+//   $sections.forEach(($div) => {
+//     if (!$div.id) {
+//       const $wrapper = document.createElement('div');
+//       $wrapper.className = 'section-wrapper';
+//       $div.parentNode.appendChild($wrapper);
+//       $wrapper.appendChild($div);
+//     }
+//   });
+// }
 
 /**
  * Decorates a block.
@@ -287,7 +287,7 @@ export function normalizeHeadings($elem, allowedHeadings) {
  * @param {Element} $main The main element
  */
 export function decorateMain($main) {
-  wrapSections($main.querySelectorAll(':scope > div'));
+  // wrapSections($main.querySelectorAll(':scope > div'));
   checkWebpFeature(() => {
     webpPolyfill($main);
   });
