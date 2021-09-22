@@ -66,3 +66,14 @@ body {
     padding-top: 5em;
     margin-left: 4em;
 }
+
+.hero-carousel.block > div:nth-child(2) > div:nth-child(2) {
+    font-family: 'Roboto', sans-serif;
+    color: #F0E8DD;
+    position: absolute;
+    right: 5em;
+}
+
+.hero-carousel.block > div:nth-child(2) > div:nth-child(2) > picture {
+    padding-left: 20px;
+}

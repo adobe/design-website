@@ -16,7 +16,7 @@
     font-family: 'Roboto', sans-serif;
     margin-left: 5em;
     color: #FFFFFF;
-    position: fixed;
+    position: absolute;
     right: 30em;
 }
 
@@ -24,7 +24,7 @@
     font-family: 'Roboto', sans-serif;
     margin-left: 5em;
     color: #FFFFFF;
-    position: fixed;
+    position: absolute;
     right: 25em;
 }
 
@@ -32,7 +32,7 @@
     font-family: 'Roboto', sans-serif;
     margin-left: 5em;
     color: #FFFFFF;
-    position: fixed;
+    position: absolute;
     right: 20em;
 }
 
@@ -40,7 +40,7 @@
     font-family: 'Roboto', sans-serif;
     margin-left: 5em;
     color: #FFFFFF;
-    position: fixed;
+    position: absolute;
     right: 15em;
 }
 /* End of navbar styling */
