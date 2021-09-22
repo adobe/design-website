@@ -24,5 +24,10 @@ npm tst
 1. Open the `design-website` directory in your favorite IDE and start coding :)
 
 
+## Code to run your local server
+    
+    hlx up --pages-url="https://main--adobe-design-helix--busy-human.hlx3.page/"
 
-hlx up --pages-url="https://main--adobe-design-helix--busy-human.hlx3.page/"
+## Bookmarklet "Sidekick"
+
+    https://www.hlx.live/tools/sidekick/?giturl=https://github.com/adobe/design-website&project=Design

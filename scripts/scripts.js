@@ -335,8 +335,6 @@ function setLCPTrigger(doc, postLCP) {
   }
 }
 
-console.log('Hello World');
-
 /**
  * Decorates the page.
  * @param {Window} win The window
