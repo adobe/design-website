@@ -2,9 +2,9 @@
 .scoreboards.block{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-end;
     text-align: center;
+
 }
 .scoreboards > div{
     width: 895px;

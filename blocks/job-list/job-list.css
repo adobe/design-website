@@ -3,3 +3,23 @@
  *   All rights reserved.
  *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
  */
+.job-list.block{
+    display: flex;
+    flex-direction: column;
+    color: #0B1C40;
+    background-color: #ffffff;
+    width: 50%;
+}
+
+.job-list.block p{
+    font-size: 20px;
+}
+
+.joblisting{
+    border-bottom: solid 2px #0B1C40;
+}
+
+#sr-experience-designer{
+    font-size: 45px;
+}
+
