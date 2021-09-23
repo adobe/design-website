@@ -8,5 +8,19 @@
 /* above the fold CSS goes here */
 body {
     background:#E91D25;
+    font-family:sans-serif;
 }
 
+
+.tag-link {
+    color: #D8D8D8;
+    border-bottom: solid 4px#D8D8D8;
+    display: inline;
+    font-family: 'Roboto', sans-serif;
+}
+.tag-link.black {
+    color: #17212D;
+    border-bottom: solid 4px#17212D;
+    display: inline;
+    font-family: 'Roboto', sans-serif;
+}
