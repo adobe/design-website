@@ -3,7 +3,7 @@
  *   All rights reserved.
  *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
  */
-.joblist.block{
+ .job-list.block{
     display: flex;
     flex-direction: column;
     color: #0B1C40;
@@ -11,41 +11,66 @@
     width: 50%;
 }
 
-.joblist.block p{
-    font-size: 20px;
+#join-us{
+    color: red;
+    background-color: white;
+    width: 50%;
+    font-size: 300px;
+    width: 50%;
+    text-align: center;
 }
-
-.job-listing h3{
-    margin: 0;
-    
+.job-list.block p{
+    font-size: 20px;
 }
 
 .job-listing{
     border-bottom: solid 2px #0B1C40;
 }
 
-.job-listing .job-title{
+.job-listing div:first-child{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 40px 40px 40px 40px 40px;
+}
+
+.job-listing h3{
+    grid-column-start: 2;
+    grid-column-end: 2;
+
+    grid-row-start: 1;
+    grid-row-end: 3;
     font-size: 45px;
-    width: 60%;
-    margin: 0;
 }
 
-.location{
-    display: flex;
-    justify-content: flex-end;
-    color: orange;
+.job-listing p{
+    grid-column-start: 5;
+    grid-row-start: 2
+
+}
+.job-listing p:nth-child(3){
+    grid-row-start: 3;
 }
 
-.experience{
-    color: blue;
-    display: flex;
-    justify-content: flex-end;
+.job-listing p:nth-child(4){
+    grid-column-start: 2;
+    grid-row-start: 4;
+    
 }
 
-#sr-experience-designer-1{
-    margin: 0;
-    color: purple;
+.all-jobs.block{
+    color: #0B1C40;
+    background-color: white;
+    font-size: 20px;
+    padding-top: 150px;
+    width: 50%;
 }
-.job-title{
-    margin: 0;
-}
+
+
+
+
+
+
+
+
+
+

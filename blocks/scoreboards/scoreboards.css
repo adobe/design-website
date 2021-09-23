@@ -7,7 +7,7 @@
 
 }
 .scoreboards > div{
-    width: 895px;
+    width: 50%;
     height: 919px;
     display: flex;
     flex-direction: column;
