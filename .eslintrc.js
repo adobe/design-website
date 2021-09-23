@@ -14,6 +14,7 @@ module.exports = {
     // allow reassigning param
     quotes: "off",
     "space-in-parens": "off",
+    "key-spacing": "off",
     indent: "off",
     "no-plusplus": "off",
     "no-trailing-spaces": "off",
