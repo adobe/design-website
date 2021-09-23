@@ -10,6 +10,7 @@ export default function decorate($block) {
 
     console.log(result.properties);
     $block.style.backgroundColor = result.properties.background;
+    $block.style.color = result.properties.textcolor;
     result.image.remove();
 
     if (!result.properties["image-side"] || result.properties["image-side"] === "left") {
