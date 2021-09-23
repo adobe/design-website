@@ -10,5 +10,6 @@ export default function decorate($block) {
       board.querySelector("div p:nth-child(2)").classList.add("experience");
       board.querySelector("div p:nth-child(3)").classList.add("location");
       board.querySelector("div p:nth-child(4)").classList.add("position");
+      board.querySelector("div:first-child div").classList.add("all-jobs");
     }
 }
