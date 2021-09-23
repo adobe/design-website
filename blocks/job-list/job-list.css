@@ -10,15 +10,14 @@
     align-items: center;
     color: #0B1C40;
     background-color: #ffffff;
-    width: 50%;
+    width: 100%;
 }
 
 #join-us{
     color: red;
     background-color: white;
-    width: 50%;
+    width: 100%;
     font-size: 300px;
-    width: 50%;
     text-align: center;
     margin: 0;
 }
