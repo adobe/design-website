@@ -5,7 +5,16 @@
     align-items: flex-end;
     text-align: center;
 
+
 }
+
+
+body{
+    background: rgb(231,204,222);
+    background: linear-gradient(0deg, rgba(231,204,222,1) 16%, rgba(251,109,33,1) 28%, rgba(250,89,61,1) 37%, rgba(255,186,148,1) 45%, rgba(14,188,151,1) 52%, rgba(255,186,11,1) 55%, rgba(255,186,11,1) 61%, rgba(255,65,34,1) 81%, rgba(255,65,34,1) 100%);
+
+}
+
 .scoreboards > div{
     width: 50%;
     height: 919px;
@@ -31,6 +40,7 @@
 }
 .scoreboards .caption{
     font-size: 25px;
+    width: 500px;
 }
 .scoreboards .tag{
     font-size: 20px;
