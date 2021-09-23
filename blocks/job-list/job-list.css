@@ -17,8 +17,11 @@
     color: red;
     background-color: white;
     width: 100%;
-    font-size: 300px;
+    font-size: 150px;
+    padding:200px 20px;
+    box-sizing: border-box;
     text-align: center;
+    display:block;
     margin: 0;
 }
 .job-list.block p{

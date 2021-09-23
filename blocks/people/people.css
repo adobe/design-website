@@ -23,12 +23,15 @@
 }
 
 .image {
-    width:31vw;
+    width:100%;
 }
 
 .person {
     background: #ffffff;
     width: fit-content;
+    flex-basis:0;
+    flex-grow:1;
+    margin:10px;
 }
 
 .name {

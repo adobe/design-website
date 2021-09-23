@@ -11,6 +11,14 @@ body {
     font-family:sans-serif;
 }
 
+main {
+    max-width:90vw;
+    width:1800px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 
 .tag-link {
     color: #D8D8D8;
