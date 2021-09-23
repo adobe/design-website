@@ -23,7 +23,7 @@
     text-align: center;
     display:block;
     margin: 0;
-    height: 2000px;
+    min-height:500px;
 }
 
 #join-us > h2{

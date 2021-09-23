@@ -1,15 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import "body-styles.css";
 @import "navbar-styles.css";
-@import "scoreboards.css";
-@import "hero-carousel.css";
+@import "article.css";
+
+@import "home.css";
+@import "article.css";
 
 
-/* above the fold CSS goes here */
-body {
-    background:#E91D25;
-    font-family:sans-serif;
-}
 
 main {
     max-width:90vw;
