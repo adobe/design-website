@@ -4,6 +4,10 @@
  *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
  */
 
+.article-card {
+    margin-bottom:10px;
+}
+
 .article-card .block-content {
     display:flex;
     flex-direction: row;
@@ -26,7 +30,7 @@
 
 .article-card .text a {
     text-decoration: none;
-    color:#17212D;
+    color:inherit;
     font-size:100px;
     line-height:105px;
 }
