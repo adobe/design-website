@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import "body-styles.css";
 @import "navbar-styles.css";
-@import "article.css";
 
-@import "home.css";
-@import "article.css";
+@import "./page-types/home.css";
+@import "./page-types/article.css";
 
 
 
