@@ -35,6 +35,14 @@
     font-size: clamp(2rem, 3vw, 5rem);
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
+    padding: 20px 0 30px 20px;
+}
+
+.title {
+    font-size: clamp(1rem, 1vw, 2rem);
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px 0 30px 20px;
 }
 
 .pad {
