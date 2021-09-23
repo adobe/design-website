@@ -23,6 +23,11 @@
     text-align: center;
     display:block;
     margin: 0;
+    height: 2000px;
+}
+
+#join-us > h2{
+    color: blue;
 }
 .job-list.block p{
     font-size: 20px;
