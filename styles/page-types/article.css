@@ -1,3 +1,43 @@
 body.page-type-article {
-    background:whitesmoke;
+    text-align: center;
+    background: rgb(224,194,208);
+    background: linear-gradient(0deg, rgba(224,194,208,1) 0%, rgba(255,111,22,1) 70%, rgba(255,80,42,1) 100%);
+    margin: 0;
+}
+body > main > div{
+    background: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+h1{
+    color: black;
+    margin: 100px;
+    text-align: start;
+    font-size: 60px;
+}
+h2{
+
+    font-size: 30px;
+    padding: 2rem;
+    margin: 0;
+}
+p{
+    padding: 2rem;
+    font-size: 20px;
+}
+ul{
+
+    margin: 0;
+}
+li{
+    list-style: none;
+    padding-bottom: 1rem;
+}
+a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
 }
