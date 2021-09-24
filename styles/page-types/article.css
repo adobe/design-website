@@ -6,10 +6,51 @@ body.page-type-article {
 }
 body > main > div{
     background: whitesmoke;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0;
+}
+
+body > main > div > div > div.header.block > div{
+    background: #FF502A;
+}
+
+body > main > div > div > div.header.block > div > div:nth-child(1) > picture > img{
+    position: absolute;
+    top: 750px;
+   left: 50%;
+   width: 1000px;
+   height: 800px;
+   margin-top: -400px; /* Half the height */
+   margin-left: -500px; /* Half the width */
+
+}
+#whiteboard-101-seize-the-marker{
+    height: 600px;
+    color: whitesmoke;
+    padding-bottom: 10%;
+}
+
+body > main > div > div > div:nth-child(3) > div > div{
+    padding-top: 300px;
+    font-size: 40px;
+    margin: 0 7%;
+    padding-bottom: 10%;
+    text-align: justify;
+}
+
+body > main > div > div > div.chapters.block > div:nth-child(1) > div:nth-child(2){
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+body > main > div > div > div.chapters.block > div:nth-child(1) > div:nth-child(2) > p:nth-child(5) > picture > img{
+    width: 200px;
+}
+body > main > div > div > div.chapters.block > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > picture > img{
+    width: 200px;
+}
+body > main > div > div > div.chapters.block > div:nth-child(1) > div:nth-child(2) > p:nth-child(1){
+    
 }
 
 h1{
@@ -20,13 +61,14 @@ h1{
 }
 h2{
 
-    font-size: 30px;
+    font-size: 50px;
     padding: 2rem;
     margin: 0;
 }
 p{
-    padding: 2rem;
+    padding-bottom: 2rem;
     font-size: 20px;
+
 }
 ul{
 
