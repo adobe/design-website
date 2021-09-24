@@ -1,7 +1,7 @@
 body.page-type-article {
     text-align: center;
     background: rgb(224,194,208);
-    background: linear-gradient(0deg, rgba(224,194,208,1) 0%, rgba(255,111,22,1) 70%, rgba(255,80,42,1) 100%);
+    background: linear-gradient(0deg, rgba(224,194,208,1) 50%, rgba(255,111,22,1) 90%, rgba(255,80,42,1) 100%);
     margin: 0;
 }
 body > main > div{
@@ -11,6 +11,10 @@ body > main > div{
 
 body > main > div > div > div.header.block > div{
     background: #FF502A;
+}
+.header.block h1{
+    text-align: start;
+    margin-top: 7%;
 }
 
 body > main > div > div > div.header.block > div > div:nth-child(1) > picture > img{
@@ -27,15 +31,27 @@ body > main > div > div > div.header.block > div > div:nth-child(1) > picture > 
     height: 600px;
     color: whitesmoke;
     padding-bottom: 10%;
+    font-size: 60px;
 }
 
 body > main > div > div > div:nth-child(3) > div > div{
     padding-top: 300px;
     font-size: 40px;
-    margin: 0 7%;
+    margin: 0 10%;
     padding-bottom: 10%;
+    line-height: 1.5;
     text-align: justify;
 }
+
+#why-go-to-the-whiteboard{
+    padding: 0;
+    margin: 0;
+    font-size: 50px;
+    text-align: end;
+    
+}
+
+
 
 .chapter{
     display: flex;
@@ -44,33 +60,45 @@ body > main > div > div > div:nth-child(3) > div > div{
     margin: 0 10%;
 }
 .chapter-heading{
-    width: 50%;
+    padding-right: 5%;
+}
+.chapter-heading h2{
+    margin-top: 0;
+    padding: 0;
 }
 .chapter-content{
     width: 50%;
 }
+.chapter-content p{
+    margin: 0;
+    padding: 0;
+    line-height: 2;
+}
+.additional-reading.block{
+    display: flex;
+    margin: 10%;
+}
+.additional-reading.block p{
+    font-size: 30px;
+    text-align: justify;
+}
+.additional-reading.block a{
+    font-size: 20px;
+}
 
 body > main > div > div > div.chapters.block > div:nth-child(1) > div:nth-child(2) > p:nth-child(5) > picture > img{
-    width: 50%;
+    width: 100%;
+    height: auto;
 }
 body > main > div > div > div.chapters.block > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) > picture > img{
-    width: 50%;
+    width: 100%;
+    height: auto;
 }
 
 
 
-h1{
-    color: black;
-    margin: 100px;
-    text-align: start;
-    font-size: 60px;
-}
-h2{
 
-    font-size: 50px;
-    padding: 2rem;
-    margin: 0;
-}
+
 p{
 
     font-size: 20px;
