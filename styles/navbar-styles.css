@@ -68,7 +68,9 @@
         color: #FFFFFF;
         position: relative;
         margin: 0;
-
+        width: 100%;
+        right: 0;
+        padding-top: 2em;
     }
     
     .tagline.block > div:nth-child(4) {
@@ -76,7 +78,9 @@
         color: #FFFFFF;
         position: relative;
         margin: 0;
-
+        width: 100%;
+        right: 0;
+        padding-top: 2em;
     }
     
     .tagline.block > div:nth-child(5) {
@@ -84,7 +88,9 @@
         color: #FFFFFF;
         position: relative;
         margin: 0;
-
+        width: 100%;
+        right: 0;
+        padding-top: 2em;
     }
     
     .tagline.block > div:nth-child(6) {
@@ -92,7 +98,9 @@
         color: #FFFFFF;
         position: relative;
         margin: 0;
-
+        width: 100%;
+        right: 0;
+        padding-top: 2em;
     }
 }
 /* End of navbar styling */

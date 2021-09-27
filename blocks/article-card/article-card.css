@@ -33,7 +33,7 @@
 .article-card .text a {
     text-decoration: none;
     color:inherit;
-    font-size:100px;
+    font-size:.5em;
     line-height:105px;
 }
 

@@ -55,6 +55,7 @@ body {
 @media only screen and (max-width: 375px) {
     .hero-carousel.block{
         width: 100vw;
+        margin-left: 0;
     }
     .hero-carousel {
         text-align: center;
@@ -88,10 +89,11 @@ body {
     
     .hero-carousel .title {
         color: #F0E8DD;
-        font-size: clamp(2rem, 6vw, 8rem);
+        font-size: 2em;
         width: 100vw;
         font-family: 'Roboto', sans-serif;
-        margin-bottom: 40px;
+        margin: 0;
+        top: 0;
     }
     
     .hero-carousel .author {
