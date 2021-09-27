@@ -5,7 +5,7 @@ body.page-type-article {
     margin: 0;
 }
 body > main > div{
-    background: whitesmoke;
+    /* background: whitesmoke; */
     margin: 0;
 }
 .header.block{
