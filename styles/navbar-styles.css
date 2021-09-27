@@ -50,8 +50,12 @@
         flex-direction: column;
         justify-content: center;
         width:100vw;
-        padding:40px;
+        padding: 0;
         text-align: center;
+    }
+
+    .tagline.block{
+        margin-right: 0;
     }
     
     .tagline.block > div:nth-child(2) {

@@ -96,6 +96,27 @@
 
     }
 }
+@media only screen and (max-width: 375px){
+    #join-us{
+        font-size: 6em;
+        width: 100%;
+    }
+    .job-listing .job-title{
+        font-size: 2em;
+        margin-right: 0;
+    }
+    .job-listing .experience{
+        font-size: .5em;
+    }
+
+    .job-listing div:first-child{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
 
 
 

@@ -74,14 +74,12 @@ body {
         justify-content: center;
         align-items: center;
         width:100vw;
-        flex-grow: 1;
-        flex-basis:0;
-        padding:10px;
+        margin: 0;
     }
     
     .hero-carousel .image img {
         width: 100%;
-        float: none;
+
         margin: 0;
     }
     

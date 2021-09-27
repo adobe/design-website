@@ -55,7 +55,7 @@
 
 @media only screen and (max-width: 375px){
     .article-card.block{
-        margin-left: 2.3em;
+        margin-left: 0;
         width: 100%;
     }
 }

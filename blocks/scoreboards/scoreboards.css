@@ -50,3 +50,16 @@ body{
 .scoreboards > div:nth-child(2) .tag{
     border-bottom: solid 4px white;
 }
+
+@media only screen and (max-width: 375px){
+    .scoreboards.block{
+        width: 100vw;
+    }
+    .scoreboards .number{
+        font-size: 5em;
+    }
+    .scoreboards .caption{
+        font-size: 1.5em;
+        width: 100%;
+    }
+}
