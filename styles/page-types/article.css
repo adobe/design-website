@@ -58,10 +58,10 @@ body > main > div{
 .chapter-content p{
     margin: 0;
     padding: 0;
+    padding-bottom: 5%;
     line-height: 2;
 }
 .additional-reading.block{
-    display: flex;
     margin: 10%;
 }
 .additional-reading.block p{
@@ -86,7 +86,7 @@ li{
     padding-bottom: 1rem;
 }
 a{
-    text-decoration: none;
-    color: black;
     cursor: pointer;
+    text-decoration: none;
 }
+

@@ -51,3 +51,61 @@ body {
     padding-top: 5em;
     margin-left: 4em;
 }
+
+@media only screen and (max-width: 375px) {
+    .hero-carousel {
+        display:block;
+        width:100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Slides */
+    .hero-carousel .slide {
+        display: flex;
+        flex-direction:row;
+        justify-content: center;
+        width:100%;
+        flex-grow: 1;
+        flex-basis:0;
+        padding:10px;
+    }
+    
+    .hero-carousel .image img {
+        width: 5vw;
+        float: right;
+        margin-right: 0;
+    }
+    
+    .profile img {
+        width:50vw;
+    }
+    
+    .hero-carousel .title {
+        color: #F0E8DD;
+        font-size: clamp(2rem, 6vw, 8rem);
+        width: 25vw;
+        font-family: 'Roboto', sans-serif;
+        margin-bottom: 40px;
+    }
+    
+    .hero-carousel .author {
+        font-family: 'Roboto', sans-serif;
+        color: #F0E8DD;
+    }
+    
+    /* container for all of carousel text */
+    .hero-carousel.block > div:nth-child(1) > div:nth-child(2) {
+        padding-top: 0;
+        margin-left: 0;
+    }
+    .tagline.block{
+        padding: 0;
+    }
+    .hero-carousel.block{
+        padding: 0;
+    }
+    body > main > div > div > div.hero-carousel.block > div:nth-child(1) > div:nth-child(2){
+        margin: 0;
+    }
+}
