@@ -1,9 +1,15 @@
 .two-column.block > div {
     display:flex;
-    flex-direction:row;
+    flex-direction:row;;
 }
 
 .two-column.block > div > div {
     flex-grow:1;
     flex-basis:0;
+}
+
+@media (max-width: 767px) {
+    .two-column.block > div {
+        flex-direction: column;
+    }
 }
