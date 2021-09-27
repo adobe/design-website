@@ -1,8 +1,14 @@
+import { processDivisions } from "../../scripts/helpers.js";
+
 /**
  *
  * @param {HTMLElement} $block
  */
 export default function decorate($block) {
+    const result = processDivisions($block, {
+        text:       ($div) => $div.textContent,
+        image:      null,
+    });
     const $slides = $block.querySelectorAll(':scope > div');
     $slides.forEach((slide) => {
         slide.classList.add('slide');

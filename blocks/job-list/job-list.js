@@ -1,8 +1,10 @@
+import { processDivisions } from "../../scripts/helpers.js";
 /**
  * 
  * @param {HTMLElement} $block 
  */
 export default function decorate($block) {
+    const { properties } = processDivisions($block);
     const $boards = $block.querySelectorAll(":scope > div");
     for(const board of $boards) {
       board.classList.add("job-listing");

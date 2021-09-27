@@ -1,5 +1,8 @@
+import { processDivisions } from "../../scripts/helpers.js";
+
 
 export default function decorate($block) {
+   const { properties } = processDivisions($block);
    const $people = $block.querySelectorAll(':scope > div');
    for(const person of $people) {
        person.classList.add("person");

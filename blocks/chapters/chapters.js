@@ -1,8 +1,11 @@
+import { processDivisions } from "../../scripts/helpers.js";
+
 /**
  * 
  * @param {HTMLElement} $block 
  */
 export default function decorate($block) {
+    const { properties } = processDivisions($block);
     const $chapters = $block.querySelectorAll(":scope > div");
     $chapters.forEach(($chapter) => {
         $chapter.classList.add("chapter");

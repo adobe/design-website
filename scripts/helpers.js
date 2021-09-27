@@ -133,13 +133,39 @@ export function extractProperties($block, $propBlock) {
     return props;
 }
 
+function arrayToDefinitions( arr ) {
+    var def = {};
+    for(let i = 0; i < arr.length; i++) {
+        var name = arr[i];
+        def[name] = `:nth-child(${i + 1})`;
+    }
+    return def;
+}
+
 /**
- *
+ * You can divide a block into multiple "divisions" (divs).
+ * This originates in the document as columns in the table.
+ * You can either return a fully-qualified definition object;
+ * OR you can return just the selector string that it expects to find;
+ * OR you can return an array of names if the beahvior is defined only by their order;
+ * OR you can return null if the element is the "remainder" after others are specified;
+ * OR if you only want the properties column and don't care about the rest, omit the definitions
  * @param {HTMLElement} $block
  * @param {object} definitions
+ * @example const result = processDivisions($block, {
+        text:       ($div) => $div.textContent,
+        image:      null,
+    });
+ * @example processDivisions($block, ["image", "text"]);
  */
 export function processDivisions($block, definitions) {
     const results = {};
+    if (!definitions) {
+        definitions = {};
+    }
+    if (definitions instanceof Array) {
+        definitions = arrayToDefinitions(definitions);
+    }
     if (definitions.properties) {
         throw new Error(`'properties' cannot be used as a division name`);
     }

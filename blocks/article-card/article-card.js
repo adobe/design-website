@@ -5,11 +5,13 @@ import { convertToBackground, decorateLink, decorateTagLink, processDivisions } 
  * @param {HTMLElement} $block
  */
 export default function decorate($block) {
+    // Get the properties and identify the blocks
     const result = processDivisions($block, {
         text:       ($div) => $div.textContent,
         image:      null,
     });
 
+    // Apply the properties to the block
     $block.style.backgroundColor = result.properties.background;
     $block.style.color = result.properties.textcolor;
     result.image.remove();
