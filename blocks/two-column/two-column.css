@@ -1,6 +1,6 @@
 .two-column.block > div {
     display:flex;
-    flex-direction:row;;
+    flex-direction:row;
 }
 
 .two-column.block > div > div {
