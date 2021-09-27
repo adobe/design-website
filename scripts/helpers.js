@@ -35,7 +35,7 @@ export function decorateTagLink($el, _modifiers) {
  * @param {string} partialSelector
  * @param {function} fn
  */
-export function matchDivision($block, _divs, matcherSeed) {
+export function matchDivision($block, _divs, matcherSeed, options) {
     let match;
     let $divs;
     if (!(_divs instanceof Array)) {
@@ -61,7 +61,11 @@ export function matchDivision($block, _divs, matcherSeed) {
         const $div = $divs[i];
         let qualified = true;
         if (matcher.selector) {
-            qualified = ($div === $block.querySelector(`:scope > div > ${matcher.selector}`));
+            if (options.level === "block") {
+                qualified = ($div === $block.querySelector(`:scope > div > ${matcher.selector}`));
+            } else if (options.level === "child") {
+                qualified = ($div === $block.querySelector(`:scope > ${matcher.selector}`));
+            }
         }
         if (qualified && matcher.test) {
             qualified = matcher.test($div);
@@ -158,11 +162,16 @@ function arrayToDefinitions( arr ) {
     });
  * @example processDivisions($block, ["image", "text"]);
  */
-export function processDivisions($block, definitions) {
+export function processDivisions($block, definitions, options) {
     const results = {};
     if (!definitions) {
         definitions = {};
     }
+    if (!options) {
+        options = {
+            level: "block",
+        };
+    }    
     if (definitions instanceof Array) {
         definitions = arrayToDefinitions(definitions);
     }
@@ -184,15 +193,24 @@ export function processDivisions($block, definitions) {
     }); 
 
     const $divs = [];
-    $block.querySelectorAll(":scope > div > div").forEach((div) => {
-        $divs.push(div);
-    });
-    results.blockContent = $block.querySelector(":scope > div");
-    results.blockContent.classList.add("block-content");
+    if (options.level === "block") {
+        $block.querySelectorAll(":scope > div > div").forEach((div) => {
+            $divs.push(div);
+        });        
+        results.blockContent = $block.querySelector(":scope > div");
+        results.blockContent.classList.add("block-content");
+    } else if (options.level === "child") {
+        $block.querySelectorAll(":scope > div").forEach((div) => {
+            $divs.push(div);
+        });
+    } else { 
+        throw new Error(`Unrecognized level: "${options.level}"`);
+    }
+
     for (let i = 0; i < names.length; i++) {
         const name = names[i];
         const matcher = definitions[name];
-        const $match = matchDivision($block, $divs, matcher);
+        const $match = matchDivision($block, $divs, matcher, options);
         if ($match) {
             if (name === "properties") {
                 results.properties = extractProperties($block, $match);
