@@ -90,3 +90,92 @@ a{
     text-decoration: none;
 }
 
+@media only screen and (max-width: 375px) {
+    body.page-type-article {
+        text-align: center;
+        background: rgb(224,194,208);
+        background: linear-gradient(0deg, rgba(224,194,208,1) 50%, rgba(255,111,22,1) 90%, rgba(255,80,42,1) 100%);
+        margin: 0;
+    }
+    body > main > div{
+        /* background: whitesmoke; */
+        margin: 0;
+    }
+    .header.block{
+        background: #FF502A;
+    }
+    .header.block h1{
+        text-align: start;
+        margin-top: 7%;
+    }
+    .header.block img{
+      
+    }
+    #whiteboard-101-seize-the-marker{
+        height: 600px;
+        color: whitesmoke;
+        padding-bottom: 10%;
+        font-size: 60px;
+    }
+    .lede.block > div{
+        display: flex;
+        justify-content: center;
+        padding-top: 300px;
+        font-size: 2em;
+        margin: 0 10%;
+        padding-bottom: 10%;
+        line-height: 1.5;
+        text-align: justify;
+    }
+    .chapter{
+        display: flex;
+        justify-content: flex-end;
+        text-align: justify;
+        margin: 0 10%;
+    }
+    .chapter-heading{
+        padding-right: 5%;
+    }
+    .chapter-heading h2{
+        margin-top: 0;
+        padding: 0;
+        font-size: 49px;
+    }
+    .chapter-content{
+        width: 50%;
+    }
+    .chapter-content p{
+        margin: 0;
+        padding: 0;
+        padding-bottom: 5%;
+        line-height: 2;
+    }
+    .additional-reading.block{
+        margin: 10%;
+    }
+    .additional-reading.block p{
+        font-size: 30px;
+        text-align: justify;
+    }
+    .additional-reading.block a{
+        font-size: 20px;
+    }
+    .chapter-content img{
+        width: 100%;
+        height: auto;
+    }
+    p{
+        font-size: 1rem;
+    }
+    ul{
+        margin: 0;
+    }
+    li{
+        list-style: none;
+        padding-bottom: 1rem;
+    }
+    a{
+        cursor: pointer;
+        text-decoration: none;
+    }
+}

@@ -55,7 +55,10 @@ body {
 @media only screen and (max-width: 375px) {
     .hero-carousel.block{
         width: 100vw;
-        margin-left: 0;
+        margin: 0;
+        margin-left: 1.8em;
+        padding: 0;
+
     }
     .hero-carousel {
         text-align: center;
@@ -77,15 +80,16 @@ body {
     }
     
     .hero-carousel .image img {
-        width: 100vw;
+        width: 100%;
         float: none;
         margin: 0;
     }
     
-    .profile img {
-        width:100vw;
-        margin-right: 0;
+    #illustrator-for-ipad{
+        margin: auto;
     }
+  
+
     
     .hero-carousel .title {
         color: #F0E8DD;
@@ -100,6 +104,8 @@ body {
         font-family: 'Roboto', sans-serif;
         color: #F0E8DD;
         width: 100vw;
+        text-align: center;
+        margin: 0;
     }
     
     /* container for all of carousel text */

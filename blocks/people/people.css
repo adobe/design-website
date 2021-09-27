@@ -73,3 +73,14 @@
         top: -190px;
     }
 }
+
+@media only screen and (max-width: 375px){
+    .people.block{
+        width: 100%;
+        margin-left: 2.3em;
+        
+    }
+    .person{
+        background: #E91D25;
+    }
+}

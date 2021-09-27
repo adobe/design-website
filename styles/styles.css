@@ -32,6 +32,9 @@ main {
 @media only screen and (max-width: 375px){
     main{
         max-width: 100vw;
-        width: 100%;
+        width: 375%;
+    }
+    html{
+        width: 100vw;
     }
 }
