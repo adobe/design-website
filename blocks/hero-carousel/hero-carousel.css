@@ -53,38 +53,43 @@ body {
 }
 
 @media only screen and (max-width: 375px) {
+    .hero-carousel.block{
+        width: 100vw;
+    }
     .hero-carousel {
-        display:block;
-        width:100%;
-        padding: 0;
+        text-align: center;
+        width:100vw;
+        padding:40px;
         box-sizing: border-box;
     }
     
     /* Slides */
     .hero-carousel .slide {
         display: flex;
-        flex-direction:row;
+        flex-direction:column;
         justify-content: center;
-        width:100%;
+        align-items: center;
+        width:100vw;
         flex-grow: 1;
         flex-basis:0;
         padding:10px;
     }
     
     .hero-carousel .image img {
-        width: 5vw;
-        float: right;
-        margin-right: 0;
+        width: 100vw;
+        float: none;
+        margin: 0;
     }
     
     .profile img {
-        width:50vw;
+        width:100vw;
+        margin-right: 0;
     }
     
     .hero-carousel .title {
         color: #F0E8DD;
         font-size: clamp(2rem, 6vw, 8rem);
-        width: 25vw;
+        width: 100vw;
         font-family: 'Roboto', sans-serif;
         margin-bottom: 40px;
     }
@@ -92,20 +97,12 @@ body {
     .hero-carousel .author {
         font-family: 'Roboto', sans-serif;
         color: #F0E8DD;
+        width: 100vw;
     }
     
     /* container for all of carousel text */
     .hero-carousel.block > div:nth-child(1) > div:nth-child(2) {
         padding-top: 0;
         margin-left: 0;
-    }
-    .tagline.block{
-        padding: 0;
-    }
-    .hero-carousel.block{
-        padding: 0;
-    }
-    body > main > div > div > div.hero-carousel.block > div:nth-child(1) > div:nth-child(2){
-        margin: 0;
     }
 }

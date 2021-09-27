@@ -43,4 +43,56 @@
     position: absolute;
     right: 15em;
 }
+
+@media only screen and (max-width: 375px) {
+    .tagline {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        width:100vw;
+        padding:40px;
+        text-align: center;
+    }
+    
+    .tagline.block > div:nth-child(2) {
+        font-family: 'Roboto', sans-serif;
+        color: #FFFFFF;
+        text-align: center;
+        width: 100vw;
+        margin: 0;
+        padding-top: 2em;
+    }
+    
+    .tagline.block > div:nth-child(3) {
+        font-family: 'Roboto', sans-serif;
+        color: #FFFFFF;
+        position: relative;
+        margin: 0;
+
+    }
+    
+    .tagline.block > div:nth-child(4) {
+        font-family: 'Roboto', sans-serif;
+        color: #FFFFFF;
+        position: relative;
+        margin: 0;
+
+    }
+    
+    .tagline.block > div:nth-child(5) {
+        font-family: 'Roboto', sans-serif;
+        color: #FFFFFF;
+        position: relative;
+        margin: 0;
+
+    }
+    
+    .tagline.block > div:nth-child(6) {
+        font-family: 'Roboto', sans-serif;
+        color: #FFFFFF;
+        position: relative;
+        margin: 0;
+
+    }
+}
 /* End of navbar styling */
