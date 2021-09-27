@@ -51,3 +51,25 @@
 .pad {
     margin-top: 0;
 }
+
+@media (max-width: 767px) {
+    .people {
+        display: inherit;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .person {
+        margin: 10px 0 10px 0;
+    }
+    .name {
+        text-align: center;
+        font-size: 3em;
+        position: relative;
+        top: -150px;
+    }
+    .title {
+        text-align: center;
+        position: relative;
+        top: -190px;
+    }
+}

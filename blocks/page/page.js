@@ -43,12 +43,12 @@ function applyPathClassesToPage({ name }) {
 }
 
 export default function decorate($block) {
-    const result = processDivisions($block, {});
-    PagePropertiesController.setProperties( result.properties );
+    const { properties } = processDivisions($block, null);
+    PagePropertiesController.setProperties( properties );
 
-    if (result.properties.type) {
-        const pageTypeClass = `page-type-${normalizePropertyName(result.properties.type)}`;
+    if (properties.type) {
+        const pageTypeClass = `page-type-${normalizePropertyName(properties.type)}`;
         document.body.classList.add(pageTypeClass);
     }
-    applyPathClassesToPage({ name: result.properties.name });
+    applyPathClassesToPage({ name: properties.name });
 }
