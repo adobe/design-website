@@ -6,14 +6,18 @@
 @import "./page-types/article.css";
 
 
-
-main {
-    max-width:90vw;
-    width:1800px;
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
+main{
+ margin: 0;
+ width: auto;
 }
+
+html, body{
+    width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
 
 
 .tag-link {
@@ -31,15 +35,7 @@ main {
 
 @media only screen and (max-width: 375px){
     main{
-        max-width: 100vw;
-        width: 375%;
-    }
-    html, body{
-        width: 100vw;
-        overflow-x: hidden;
-    }
-    ul{
-        display: none;
+        margin: 1em 1em;
     }
    
 }

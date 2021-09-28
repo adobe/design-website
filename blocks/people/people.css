@@ -60,6 +60,8 @@
     }
     .person {
         margin: 10px 0 10px 0;
+        background: #E91D25;
+        height: 23em;
     }
     .name {
         text-align: center;
@@ -74,14 +76,32 @@
     }
 }
 
+@media only screen and (max-width: 769px){
+    body > main > div > div > div.people.block{
+        margin: 0;
+    }
+
+    body > main > div > div > div.people.block > div:nth-child(1) > div.content > p.tag{
+        top: 300em;
+    }
+    body > main > div > div > div.people.block > div:nth-child(2) > div.content > p.tag{
+        top: 300em;
+    }
+    body > main > div > div > div.people.block > div:nth-child(3) > div.content > p.tag{
+        top: 300em;
+    }
+}
+
 @media only screen and (max-width: 375px){
     .people.block{
-        width: 100%;
+
         margin-left: 0;
         
     }
     .person{
         background: #E91D25;
-        height: 23em;
+        height: 21em;
     }
 }
+
+

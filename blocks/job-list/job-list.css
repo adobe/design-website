@@ -96,6 +96,39 @@
 
     }
 }
+@media only screen and (max-width: 769px){
+    .job-listing .job-title{
+        font-size: 2em;
+    }
+    .joblist.block{
+        display: flex;
+        flex-direction: column;
+    }
+    body > main > div > div > div.two-column.block > div > div:nth-child(1) > div.job-list.block > div:nth-child(1) > div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    body > main > div > div > div.two-column.block > div > div:nth-child(1) > div.job-list.block > div:nth-child(2) > div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    body > main > div > div > div.two-column.block > div > div:nth-child(1) > div.job-list.block > div:nth-child(3) > div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    body > main > div > div > div.two-column.block > div > div:nth-child(1) > div.job-list.block > div:nth-child(4) > div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
 @media only screen and (max-width: 375px){
     #join-us{
         font-size: 6em;

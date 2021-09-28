@@ -8,7 +8,7 @@
     flex-basis:0;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 769px) {
     .two-column.block > div {
         flex-direction: column;
     }

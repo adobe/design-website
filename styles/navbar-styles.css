@@ -43,7 +43,47 @@
     position: absolute;
     right: 15em;
 }
-
+@media only screen and (max-width: 769px) {
+    .tagline.block{
+        margin: 0;
+        padding: 0;
+    }
+    .tagline.block > div:nth-child(2) {
+        text-align: center;
+        width: 100vw;
+        margin: 0;
+        padding-right: 1em;
+    }
+    
+    .tagline.block > div:nth-child(3) {
+        position: static;
+        margin: 0;
+        padding-right: 1em;
+    }
+    
+    .tagline.block > div:nth-child(4) {
+        position: static;
+        margin: 0;
+        padding-right: 1em;
+    }
+    
+    .tagline.block > div:nth-child(5) {
+        position: static;
+        margin: 0;
+        padding-right: 1em;
+    }
+    
+    .tagline.block > div:nth-child(6) {
+        position: static;
+        margin: 0;
+        padding-right: 1em;
+    }
+    body > main > div > div > div.tagline.block > div:nth-child(2) > div{
+        width: 300px;
+        margin-top: 0;
+        display: inline;
+    }
+}
 @media only screen and (max-width: 375px) {
     .tagline {
         display:flex;
@@ -57,53 +97,36 @@
     .tagline.block{
         margin-right: 0;
     }
+
     
     .tagline.block > div:nth-child(2) {
-        font-family: 'Roboto', sans-serif;
-        color: #FFFFFF;
         text-align: center;
-        width: 100vw;
+        width: 20em;
         margin: 0;
         padding-top: 2em;
     }
     
     .tagline.block > div:nth-child(3) {
-        font-family: 'Roboto', sans-serif;
-        color: #FFFFFF;
-        position: relative;
+        position: static;
         margin: 0;
-        width: 100%;
-        right: 0;
         padding-top: 2em;
     }
     
     .tagline.block > div:nth-child(4) {
-        font-family: 'Roboto', sans-serif;
-        color: #FFFFFF;
-        position: relative;
+        position: static;
         margin: 0;
-        width: 100%;
-        right: 0;
         padding-top: 2em;
     }
     
     .tagline.block > div:nth-child(5) {
-        font-family: 'Roboto', sans-serif;
-        color: #FFFFFF;
-        position: relative;
+        position: static;
         margin: 0;
-        width: 100%;
-        right: 0;
         padding-top: 2em;
     }
     
     .tagline.block > div:nth-child(6) {
-        font-family: 'Roboto', sans-serif;
-        color: #FFFFFF;
-        position: relative;
+        position: static;
         margin: 0;
-        width: 100%;
-        right: 0;
         padding-top: 2em;
     }
 }
