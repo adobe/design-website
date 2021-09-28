@@ -78,11 +78,46 @@
         margin: 0;
         padding-right: 1em;
     }
-    body > main > div > div > div.tagline.block > div:nth-child(2) > div{
-        width: 300px;
-        margin-top: 0;
-        display: inline;
+    
+    @media only screen and (max-width: 425px){
+        .tagline {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        width:100vw;
+        padding: 0;
+        text-align: center;
     }
+    .tagline.block{
+        margin-right: 0;
+    }
+    .tagline.block > div:nth-child(2) {
+        text-align: center;
+        width: 20em;
+        margin: 0;
+        padding-top: 2em;
+    }
+    .tagline.block > div:nth-child(3) {
+        position: static;
+        margin: 0;
+        padding-top: 2em;
+    }
+    .tagline.block > div:nth-child(4) {
+        position: static;
+        margin: 0;
+        padding-top: 2em;
+    }
+    .tagline.block > div:nth-child(5) {
+        position: static;
+        margin: 0;
+        padding-top: 2em;
+    }
+    .tagline.block > div:nth-child(6) {
+        position: static;
+        margin: 0;
+        padding-top: 2em;
+    }
+    
 }
 @media only screen and (max-width: 375px) {
     .tagline {
@@ -129,5 +164,6 @@
         margin: 0;
         padding-top: 2em;
     }
+}
 }
 /* End of navbar styling */

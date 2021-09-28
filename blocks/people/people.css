@@ -77,31 +77,52 @@
 }
 
 @media only screen and (max-width: 769px){
-    body > main > div > div > div.people.block{
+    .people.block{
         margin: 0;
     }
 
-    body > main > div > div > div.people.block > div:nth-child(1) > div.content > p.tag{
-        top: 300em;
+    .people.block > .tag:nth-child(1){
+        position: static;
     }
-    body > main > div > div > div.people.block > div:nth-child(2) > div.content > p.tag{
-        top: 300em;
+    .people.block > .tag:nth-child(2){
+        position: static;
     }
-    body > main > div > div > div.people.block > div:nth-child(3) > div.content > p.tag{
-        top: 300em;
+    .people.block > .tag:nth-child(3){
+        position: static;
     }
 }
-
+@media only screen and (max-width: 425px){
+    .person{
+        height: 26em;
+    }
+    .people.block > .tag:nth-child(1){
+        position: absolute;
+        top: 300em;
+    }
+    .people.block > .tag:nth-child(2){
+        position: absolute;
+        top: 310em;
+    }
+    .people.block > .tag:nth-child(3){
+        position: absolute;
+        top: 355em;
+    }
+}
 @media only screen and (max-width: 375px){
     .people.block{
-
         margin-left: 0;
-        
     }
     .person{
         background: #E91D25;
         height: 21em;
     }
 }
-
-
+    .people.block > .tag:nth-child(1){
+    top: 310em;
+}
+    .people.block > .tag:nth-child(2){
+    top: 333em;
+}
+    .people.block > .tag:nth-child(3){
+    top: 355em;
+}

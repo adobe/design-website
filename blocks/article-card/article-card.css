@@ -53,6 +53,7 @@
         background-image: url('');
 
     }
+    /* Background image on the article cards */
     body > main > div > div > div:nth-child(7) > div > div.text{
         background-image: url('http://localhost:3000/media_15fa917e7e257d5eb3ea5d2a817739ad4c13a64dc.png?width=2000&format=webply&optimize=medium');
         color: white;
@@ -60,6 +61,7 @@
     body > main > div > div > div:nth-child(9) > div > div.text{
         background-image: url('http://localhost:3000/media_197495475a15db073237415575f5430e18eb8521f.png?width=2000&format=webply&optimize=medium');
     }
+
 }
 @media only screen and (max-width: 375px){
     .article-card.block{

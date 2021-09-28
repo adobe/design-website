@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 /* above the fold CSS goes here */
+/*
 body {
     background:#E91D25;
 }
-
+*/
 .hero-carousel {
     display:block;
     width:100%;
@@ -64,19 +65,14 @@ body {
         justify-content: space-around;
         align-items:center;
     }
-
     /* Container for the img */
-    body > main > div > div > div.hero-carousel.block > div > div.image{
+    .hero-carousel.block .image{
         width: 1em;
     }
-    body > main > div > div > div.hero-carousel.block > div > div.image > picture > img{
+    .hero-carousel.block .image img{
         margin-right: 0;
         width: 15em;
         float: none;
-    }
-    /* Black placeholder text*/
-    body > main > div > div > div.hero-carousel.block > div > div:nth-child(3){
-        display: none;
     }
     #illustrator-for-ipad{
         margin: 0;
@@ -85,8 +81,31 @@ body {
         width: auto;
         padding: 0;
     }
-}
+    /* Black placeholder text*/
+    body > main > div > div > div.hero-carousel.block > div > div:nth-child(3){
+        display: none;
+    }
 
+}
+@media only screen and (max-width: 425px){
+    .hero-carousel.block{
+        margin-left: 0;
+    }
+    .hero-carousel.block .slide{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-carousel.block .slide .image {
+        justify-self: center;
+        width: 60%;
+    }
+    .hero-carousel.block > div:nth-child(1) > div:nth-child(2){
+        margin-left: 0;
+
+    }
+
+}
 @media only screen and (max-width: 375px) {
     .hero-carousel.block{
         margin: 0;
@@ -105,33 +124,26 @@ body {
         padding: 0;
     }
     /* Container for the img */
-    body > main > div > div > div.hero-carousel.block > div > div.image{
+    .hero-carousel.block .image{
         width: auto;
         padding-top: 2em;
     }
-    
-    body > main > div > div > div.hero-carousel.block > div > div.image > picture > img{
-
-    }
     /* Div for #PROCESS, Illustrator for Ipad, Gabe Campbell | CTO */
     .hero-carousel.block > div:nth-child(1) > div:nth-child(2){
-        margin-top: 0;
-        margin: 0
+        width: 50%;
     }
     /* #PROCESS */
-    body > main > div > div > div.hero-carousel.block > div > div:nth-child(2) > p.tag-link{
+    .hero-carousel.block p.tag-link{
         border-bottom: none;
         text-decoration: underline;
     }
-    /* Black placeholder text*/
-    body > main > div > div > div.hero-carousel.block > div > div:nth-child(3){
-        display: none;
-    }
- 
     #illustrator-for-ipad{
         margin: 0;
         margin-right: 0;
         position: static;
-        width: 100%;
+    }
+     /* Black placeholder text*/
+     body > main > div > div > div.hero-carousel.block > div > div:nth-child(3){
+        display: none;
     }
 }
