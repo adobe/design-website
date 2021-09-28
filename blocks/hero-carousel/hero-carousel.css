@@ -63,52 +63,25 @@ body {
     .hero-carousel {
         text-align: center;
         width:100vw;
-        padding:40px;
-        box-sizing: border-box;
-    }
-    
-    /* Slides */
-    .hero-carousel .slide {
-        display: flex;
-        flex-direction:column;
-        justify-content: center;
-        align-items: center;
-        width:100vw;
-        margin: 0;
+        padding: 0;
     }
     
     .hero-carousel .image img {
-        width: 100%;
-
+        width: 80%;
+        float: left;
         margin: 0;
     }
-    
-    #illustrator-for-ipad{
-        margin: auto;
+    body > main > div > div > div.hero-carousel.block > div > div:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 4em;
     }
-  
-
-    
-    .hero-carousel .title {
-        color: #F0E8DD;
-        font-size: 2em;
-        width: 100vw;
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        top: 0;
+    body > main > div > div > div.hero-carousel.block > div > div:nth-child(2) > p.tag-link{
+        border-bottom: none;
+        text-decoration: underline;
     }
-    
-    .hero-carousel .author {
-        font-family: 'Roboto', sans-serif;
-        color: #F0E8DD;
-        width: 100vw;
-        text-align: center;
-        margin: 0;
-    }
-    
-    /* container for all of carousel text */
-    .hero-carousel.block > div:nth-child(1) > div:nth-child(2) {
-        padding-top: 0;
-        margin-left: 0;
+    body > main > div > div > div.hero-carousel.block > div > div:nth-child(3){
+        display: none;
     }
 }
