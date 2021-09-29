@@ -18,25 +18,32 @@ html, body{
 
 .header.block{
     background: #FF502A;
+    height: 50em;
+}
+.header.block > div{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 10% ;
 }
 .header.block h1{
     text-align: start;
     margin-top: 7%;
 }
 .header.block img{
-    position: absolute;
-    top: 750px;
-   left: 50%;
-   width: 1000px;
-   height: 800px;
-   margin-top: -400px; /* Half the height */
-   margin-left: -500px; /* Half the width */
+    position: static;
+        width: 40%;
+        margin: 0;
+}
+.header.block > div > div:nth-child(1){
+    grid-row-start: 2;
+    margin: 0 10%;
 }
 #whiteboard-101-seize-the-marker{
-    height: 600px;
+    font-size: 4em;
+    grid-row-start: 1;
+    grid-column-start: 1;
     color: whitesmoke;
-    padding-bottom: 10%;
-    font-size: 60px;
+    margin-bottom: 15em;
 }
 .lede.block > div{
     padding-top: 300px;
@@ -59,9 +66,6 @@ html, body{
     margin-top: 0;
     padding: 0;
     font-size: 3em;
-}
-.chapter-content{
-    width: 50%;
 }
 .chapter-content p{
     margin: 0;
@@ -100,6 +104,7 @@ a{
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
     .header.block{
         height: 40em;
+
     }
     .header.block > div{
         display: grid;
@@ -148,6 +153,7 @@ a{
         grid-row-start: 1;
         grid-column-start: 1;
         margin: 0 10%;
+        margin-bottom: 10em;
     }
     .header.block > div > div:nth-child(1){
         grid-row-start: 2;
@@ -192,7 +198,7 @@ a{
 
     }
     .header.block{
-        height: 24em;
+        height: 18em;
     }
     .header.block > div{
         display: grid;
@@ -204,6 +210,7 @@ a{
         grid-row-start: 1;
         grid-column-start: 1;
         margin: 0 10%;
+        margin-bottom: 10em;
     }
     .header.block > div > div:nth-child(1){
         grid-row-start: 2;
@@ -249,7 +256,7 @@ a{
 
     }
     .header.block{
-        height: 19em;
+        height: 15em;
     }
     .header.block > div{
         display: grid;
@@ -261,6 +268,7 @@ a{
         grid-row-start: 1;
         grid-column-start: 1;
         margin: 0 10%;
+        margin-bottom: 10em;
     }
     .header.block > div > div:nth-child(1){
         grid-row-start: 2;
