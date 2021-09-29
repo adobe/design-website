@@ -84,9 +84,7 @@ html, body{
     width: 100%;
     height: auto;
 }
-p{
 
-}
 ul{
     margin: 0;
 }
@@ -102,7 +100,6 @@ a{
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
     .header.block{
         height: 40em;
-
     }
     .header.block > div{
         display: grid;
@@ -117,6 +114,10 @@ a{
         grid-row-start: 1;
         grid-column-start: 1;
     }
+    #why-go-to-the-whiteboard{
+        text-align: right;
+        padding-right: 1.5em;
+    }
     .header.block > div > div:nth-child(1){
         grid-row-start: 2;
     }
@@ -126,10 +127,13 @@ a{
         height: auto;
         margin: 0;
     }
+    .chapter-content p{
+        text-align: left;
+    }
    
-    
 }
 @media only screen and (min-width: 426px) and (max-width: 768px) {
+
     .header.block{
         height: 33em;
 
@@ -156,7 +160,6 @@ a{
         margin: 0;
     }
     .lede.block{
-
         padding: 1em;
     }
     .lede.block div{
@@ -167,7 +170,6 @@ a{
     .chapter{
         display: block;
         margin: 0;
-
         padding: 1em;
     }
     .chapter-content{
@@ -191,7 +193,6 @@ a{
     }
     .header.block{
         height: 24em;
-
     }
     .header.block > div{
         display: grid;
@@ -215,18 +216,17 @@ a{
         margin: 0;
     }
     .lede.block{
-
         padding: 1em;
     }
     .lede.block div{
         margin: 0;
         font-size: 1.3em;
         padding-top: 3em;
+        text-align: left;
     }    
     .chapter{
         display: block;
         margin: 0;
-
         padding: 1em;
     }
     .chapter-content{
@@ -234,9 +234,9 @@ a{
     }
     .chapter-content p{
         font-size: 1.5em;
+        text-align: left;
     }
     .additional-reading.block{
-
         margin: 0;
         padding: 1em;
     }
@@ -250,7 +250,6 @@ a{
     }
     .header.block{
         height: 19em;
-
     }
     .header.block > div{
         display: grid;
@@ -281,11 +280,11 @@ a{
         margin: 0;
         font-size: 1.3em;
         padding-top: 3em;
+        text-align: left;
     }    
     .chapter{
         display: block;
         margin: 0;
-
         padding: 1em;
     }
     .chapter-content{
@@ -293,9 +292,9 @@ a{
     }
     .chapter-content p{
         font-size: 1.5em;
+        text-align: left;
     }
     .additional-reading.block{
-
         margin: 0;
         padding: 1em;
     }
