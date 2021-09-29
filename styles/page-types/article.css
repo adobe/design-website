@@ -2,12 +2,20 @@ body.page-type-article {
     text-align: center;
     background: rgb(224,194,208);
     background: linear-gradient(0deg, rgba(224,194,208,1) 50%, rgba(255,111,22,1) 90%, rgba(255,80,42,1) 100%);
-    margin: 0;
 }
 body > main > div{
     /* background: whitesmoke; */
     margin: 0;
+    background: whitesmoke;
 }
+
+html, body{
+    width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
 .header.block{
     background: #FF502A;
 }
@@ -50,7 +58,7 @@ body > main > div{
 .chapter-heading h2{
     margin-top: 0;
     padding: 0;
-    font-size: 49px;
+    font-size: 3em;
 }
 .chapter-content{
     width: 50%;
@@ -60,6 +68,7 @@ body > main > div{
     padding: 0;
     padding-bottom: 5%;
     line-height: 2;
+    font-size: 2em;
 }
 .additional-reading.block{
     margin: 10%;
@@ -76,7 +85,7 @@ body > main > div{
     height: auto;
 }
 p{
-    font-size: 1rem;
+
 }
 ul{
     margin: 0;
@@ -90,89 +99,207 @@ a{
     text-decoration: none;
 }
 
-@media only screen and (max-width: 375px) {
-    body.page-type-article {
-        text-align: center;
-        background: rgb(224,194,208);
-        background: linear-gradient(0deg, rgba(224,194,208,1) 50%, rgba(255,111,22,1) 90%, rgba(255,80,42,1) 100%);
-        margin: 0;
-    }
-    body > main > div{
-        /* background: whitesmoke; */
-        margin: 0;
-    }
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
     .header.block{
-        background: #FF502A;
+        height: 40em;
+
     }
-    .header.block h1{
-        text-align: start;
-        margin-top: 7%;
+    .header.block > div{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 20% 10% ;
+    }
+    body > main > div > div > div.header.block > div > div:nth-child(2){
+        margin: 0 15%;
     }
     #whiteboard-101-seize-the-marker{
-        height: 600px;
-        color: whitesmoke;
-        padding-bottom: 10%;
-        font-size: 60px;
+        font-size: 4em;
+        grid-row-start: 1;
+        grid-column-start: 1;
     }
-    .lede.block > div{
-        display: flex;
-        justify-content: center;
-        padding-top: 300px;
-        font-size: 2em;
-        margin: 0 10%;
-        padding-bottom: 10%;
-        line-height: 1.5;
-        text-align: justify;
+    .header.block > div > div:nth-child(1){
+        grid-row-start: 2;
     }
-    .chapter{
-        display: flex;
-        justify-content: flex-end;
-        text-align: justify;
-        margin: 0 10%;
-    }
-    .chapter-heading{
-        padding-right: 5%;
-    }
-    .chapter-heading h2{
-        margin-top: 0;
-        padding: 0;
-        font-size: 49px;
-    }
-    .chapter-content{
-        width: 50%;
-    }
-    .chapter-content p{
+    .header.block img{
+        position: static;
+        width: 70%;
+        height: auto;
         margin: 0;
-        padding: 0;
-        padding-bottom: 5%;
-        line-height: 2;
     }
-    .additional-reading.block{
-        margin: 10%;
+   
+    
+}
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+    .header.block{
+        height: 33em;
+
     }
-    .additional-reading.block p{
-        font-size: 30px;
-        text-align: justify;
+    .header.block > div{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 20% 10% ;
     }
-    .additional-reading.block a{
-        font-size: 20px;
+    #whiteboard-101-seize-the-marker{
+        font-size: 4em;
+        grid-row-start: 1;
+        grid-column-start: 1;
+        margin: 0 10%;
     }
-    .chapter-content img{
+    .header.block > div > div:nth-child(1){
+        grid-row-start: 2;
+        margin: 0 10%;
+    }
+    .header.block img{
+        position: static;
         width: 100%;
         height: auto;
-    }
-    p{
-        font-size: 1rem;
-    }
-    ul{
         margin: 0;
     }
-    li{
-        list-style: none;
-        padding-bottom: 1rem;
+    .lede.block{
+
+        padding: 1em;
     }
-    a{
-        cursor: pointer;
-        text-decoration: none;
+    .lede.block div{
+        margin: 0;
+        font-size: 1.3em;
+        padding-top: 5em;
+    }    
+    .chapter{
+        display: block;
+        margin: 0;
+
+        padding: 1em;
+    }
+    .chapter-content{
+        width: 100%;
+    }
+    .chapter-content p{
+        font-size: 1.5em;
+    }
+    .additional-reading.block{
+
+        margin: 0;
+        padding: 1em;
+    }
+    .additional-reading.block ul{
+        padding: 0;
+    }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+    main{
+
+    }
+    .header.block{
+        height: 24em;
+
+    }
+    .header.block > div{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 20% 10% ;
+    }
+    #whiteboard-101-seize-the-marker{
+        font-size: 2em;
+        grid-row-start: 1;
+        grid-column-start: 1;
+        margin: 0 10%;
+    }
+    .header.block > div > div:nth-child(1){
+        grid-row-start: 2;
+        margin: 0 10%;
+    }
+    .header.block img{
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+    .lede.block{
+
+        padding: 1em;
+    }
+    .lede.block div{
+        margin: 0;
+        font-size: 1.3em;
+        padding-top: 3em;
+    }    
+    .chapter{
+        display: block;
+        margin: 0;
+
+        padding: 1em;
+    }
+    .chapter-content{
+        width: 100%;
+    }
+    .chapter-content p{
+        font-size: 1.5em;
+    }
+    .additional-reading.block{
+
+        margin: 0;
+        padding: 1em;
+    }
+    .additional-reading.block ul{
+        padding: 0;
+    }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+    main > div > div{
+
+    }
+    .header.block{
+        height: 19em;
+
+    }
+    .header.block > div{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 20% 10% ;
+    }
+    #whiteboard-101-seize-the-marker{
+        font-size: 2em;
+        grid-row-start: 1;
+        grid-column-start: 1;
+        margin: 0 10%;
+    }
+    .header.block > div > div:nth-child(1){
+        grid-row-start: 2;
+        margin: 0 10%;
+    }
+    .header.block img{
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+    .lede.block{
+
+        padding: 1em;
+    }
+    .lede.block div{
+        margin: 0;
+        font-size: 1.3em;
+        padding-top: 3em;
+    }    
+    .chapter{
+        display: block;
+        margin: 0;
+
+        padding: 1em;
+    }
+    .chapter-content{
+        width: 100%;
+    }
+    .chapter-content p{
+        font-size: 1.5em;
+    }
+    .additional-reading.block{
+
+        margin: 0;
+        padding: 1em;
+    }
+    .additional-reading.block ul{
+        padding: 0;
     }
 }
