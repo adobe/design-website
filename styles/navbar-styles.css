@@ -89,7 +89,7 @@
         text-align: center;
     }
     .tagline.block{
-        margin-right: 0;
+        display: grid
     }
     .tagline.block > div:nth-child(2) {
         text-align: center;

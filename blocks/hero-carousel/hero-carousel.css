@@ -89,58 +89,65 @@ body {
 }
 @media only screen and (max-width: 425px){
     .hero-carousel.block{
-        margin-left: 0;
+        margin: 5em 0;
+
     }
     .hero-carousel.block .slide{
-        display: flex;
-        flex-direction: column;
+        display: block;
+        width: 100%;
+        padding: 0;
+        text-align: center;
     }
 
     .hero-carousel.block .slide .image {
-        justify-self: center;
-        width: 60%;
+        width: 100%;
+        margin-bottom: 2em;
+        
     }
     .hero-carousel.block > div:nth-child(1) > div:nth-child(2){
+
+        padding: 0;
+        padding-top: 0;
         margin-left: 0;
-
     }
-
+    #illustrator-for-ipad{
+        margin-top: .5em;
+        position: static;
+    }
+    
 }
 @media only screen and (max-width: 375px) {
-    .hero-carousel.block{
-        margin: 0;
-        padding: 0;
-        margin-top: 0;
-    }
     .hero-carousel {
         text-align: center;
-        padding: 0;
     }
-    .hero-carousel .slide{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 0;
+    .hero-carousel.block .slide{
+        display: block;
+        width: 95%;
         padding: 0;
+        box-sizing: unset;
     }
     /* Container for the img */
-    .hero-carousel.block .image{
-        width: auto;
-        padding-top: 2em;
+    .hero-carousel.block .slide .image{
+        width: 100%;
     }
+    .hero-carousel.block .picture{
+        width: 100%;
+    }
+    .hero-carousel.block .image img{
+        width: 50%;
+    }
+    
     /* Div for #PROCESS, Illustrator for Ipad, Gabe Campbell | CTO */
     .hero-carousel.block > div:nth-child(1) > div:nth-child(2){
-        width: 50%;
+        padding-top: 1em;
     }
     /* #PROCESS */
     .hero-carousel.block p.tag-link{
-        border-bottom: none;
-        text-decoration: underline;
+
     }
     #illustrator-for-ipad{
-        margin: 0;
-        margin-right: 0;
         position: static;
+        margin-top: .5em;
     }
      /* Black placeholder text*/
      body > main > div > div > div.hero-carousel.block > div > div:nth-child(3){
