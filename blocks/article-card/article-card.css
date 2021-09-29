@@ -13,6 +13,7 @@
 .article-card .block-content {
     display:flex;
     flex-direction: row;
+
 }
 
 .article-card .image {
