@@ -3,8 +3,6 @@
 .people {
     display: flex;
     justify-content: space-evenly;
-    margin-left: 1em;
-    margin-right: 1em;
 }
 
 .person .tag {

@@ -52,7 +52,25 @@ body {
     padding-top: 5em;
     margin-left: 4em;
 }
+/* Black placeholder text*/
+body > main > div > div > div.hero-carousel.block > div > div:nth-child(3){
+    display: none;
+}
+@media only screen and (max-width: 1024px){
+    .hero-carousel.block{
+        display: grid;
+    }
+    .hero-carousel.block .slide .image{
+        width: auto;
+    }
+    .hero-carousel.block > div:nth-child(1) > div:nth-child(2){
+        padding: 0;
+    }
+    #illustrator-for-ipad{
+        padding: 0;
+    }
 
+}
 @media only screen and (max-width: 769px){
     .hero-carousel.block{
         width: 100vw;

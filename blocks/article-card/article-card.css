@@ -46,7 +46,9 @@
 .article-card .text .link-wrapper + h2 {
     font-size:50px;
 }
+@media (max-width: 1024px){
 
+}
 @media (max-width: 769px) {
     .article-card .block-content {
         flex-direction: column;
