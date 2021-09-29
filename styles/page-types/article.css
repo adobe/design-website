@@ -3,10 +3,10 @@ body.page-type-article {
     background: rgb(224,194,208);
     background: linear-gradient(0deg, rgba(224,194,208,1) 50%, rgba(255,111,22,1) 90%, rgba(255,80,42,1) 100%);
 }
-body > main > div{
-    /* background: whitesmoke; */
-    margin: 0;
+body.page-type-article > main > div{
     background: whitesmoke;
+    margin: 0;
+    /* background: whitesmoke; */
 }
 
 html, body{
