@@ -41,7 +41,11 @@
 .scoreboards > div:nth-child(2) .tag{
     border-bottom: solid 4px white;
 }
-
+@media (max-width: 425px){
+    .scoreboards .caption{
+        width: 95%;
+    }
+}
 @media only screen and (max-width: 375px){
     .scoreboards .number{
         font-size: 5em;
