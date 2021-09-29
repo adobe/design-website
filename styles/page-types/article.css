@@ -45,6 +45,7 @@ html, body{
     color: whitesmoke;
     margin-bottom: 15em;
 }
+
 .lede.block > div{
     padding-top: 300px;
     font-size: 40px;
@@ -53,6 +54,7 @@ html, body{
     line-height: 1.5;
     text-align: justify;
 }
+
 .chapter{
     display: flex;
     justify-content: flex-end;
@@ -74,6 +76,7 @@ html, body{
     line-height: 2;
     font-size: 2em;
 }
+
 .additional-reading.block{
     margin: 10%;
 }
@@ -101,10 +104,11 @@ a{
     text-decoration: none;
 }
 
+/* RESPONSIVE */
+
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
     .header.block{
         height: 40em;
-
     }
     .header.block > div{
         display: grid;
@@ -141,7 +145,6 @@ a{
 
     .header.block{
         height: 33em;
-
     }
     .header.block > div{
         display: grid;
@@ -165,6 +168,7 @@ a{
         height: auto;
         margin: 0;
     }
+
     .lede.block{
         padding: 1em;
     }
@@ -172,7 +176,8 @@ a{
         margin: 0;
         font-size: 1.3em;
         padding-top: 5em;
-    }    
+    } 
+
     .chapter{
         display: block;
         margin: 0;
@@ -184,6 +189,7 @@ a{
     .chapter-content p{
         font-size: 1.5em;
     }
+
     .additional-reading.block{
 
         margin: 0;
@@ -194,9 +200,7 @@ a{
     }
 }
 @media only screen and (min-width: 376px) and (max-width: 425px) {
-    main{
 
-    }
     .header.block{
         height: 18em;
     }
@@ -222,6 +226,7 @@ a{
         height: auto;
         margin: 0;
     }
+
     .lede.block{
         padding: 1em;
     }
@@ -230,7 +235,8 @@ a{
         font-size: 1.3em;
         padding-top: 3em;
         text-align: left;
-    }    
+    }   
+
     .chapter{
         display: block;
         margin: 0;
@@ -243,6 +249,7 @@ a{
         font-size: 1.5em;
         text-align: left;
     }
+
     .additional-reading.block{
         margin: 0;
         padding: 1em;
@@ -252,9 +259,7 @@ a{
     }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px) {
-    main > div > div{
 
-    }
     .header.block{
         height: 15em;
     }
@@ -280,8 +285,8 @@ a{
         height: auto;
         margin: 0;
     }
-    .lede.block{
 
+    .lede.block{
         padding: 1em;
     }
     .lede.block div{
@@ -289,7 +294,8 @@ a{
         font-size: 1.3em;
         padding-top: 3em;
         text-align: left;
-    }    
+    }  
+
     .chapter{
         display: block;
         margin: 0;
@@ -302,6 +308,7 @@ a{
         font-size: 1.5em;
         text-align: left;
     }
+    
     .additional-reading.block{
         margin: 0;
         padding: 1em;
