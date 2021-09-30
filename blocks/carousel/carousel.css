@@ -1,5 +1,48 @@
-/*
- *   Copyright (c) 2021 Busy Human LLC
- *   All rights reserved.
- *   This file, its contents, concepts, methods, behavior, and operation  (collectively the \"Software\") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by  the license agreement.
- */
+.carousel {
+    overflow: hidden;
+    max-width: 100em;
+    position: relative;
+}
+
+.carousel .carousel__item,
+.carousel .carousel__item--hidden {
+    display: none;
+}
+
+.carousel .carousel__item img {
+    width: 100%;
+    max-width: 50em;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel .carousel__item--visible {
+    display: block;
+}
+
+.carousel .carousel__actions {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+}
+
+.carousel .carousel__actions div {
+    font-size: 5em;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+
+.carousel .carousel__actions div.carousel__button--prev {
+    margin-left: 1em;
+}
+
+.carousel .carousel__actions div.carousel__button--next {
+    margin-right: 1em;
+}
