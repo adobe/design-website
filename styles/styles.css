@@ -5,10 +5,9 @@
 @import "./page-types/home.css";
 @import "./page-types/article.css";
 
-
-main{
- margin: 0;
- width: auto;
+main > div{
+    width: auto;
+    margin: 3em;
 }
 
 html, body{
@@ -17,9 +16,6 @@ html, body{
     margin: 0;
     padding: 0;
 }
-
-
-
 
 .tag-link {
     color: #D8D8D8;
@@ -34,9 +30,28 @@ html, body{
     font-family: 'Roboto', sans-serif;
 }
 
-@media only screen and (max-width: 375px){
-    main{
-        margin: 1em 1em;
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    main > div{
+        width: auto;
+        margin: 1em;
+    }
+}
+@media only screen and (min-width: 425px) and (max-width: 768px){
+    main > div{
+        width: auto;
+        margin: 1em;
+    }
+}
+@media only screen and (min-width: 375px) and (max-width: 425px){
+    main > div{
+        width: auto;
+        margin: 1em;
+    }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px){
+    main > div{
+        width: auto;
+        margin: 1em;
     }
    
 }
