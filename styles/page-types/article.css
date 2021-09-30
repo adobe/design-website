@@ -1,319 +1,86 @@
 body.page-type-article {
-    text-align: center;
+    text-align: justify;
     background: rgb(224,194,208);
-    background: linear-gradient(0deg, rgba(224,194,208,1) 50%, rgba(255,111,22,1) 90%, rgba(255,80,42,1) 100%);
+    background: linear-gradient(0deg, rgba(224,194,208,1) 50%, rgba(255,111,22,1) 70%, rgba(255,80,42,1) 100%);
 }
 body.page-type-article > main > div{
     background: whitesmoke;
-    margin: 0;
+    margin: 1em;
+    width: auto;
+    line-height: 2em;
     /* background: whitesmoke; */
-}
-
-html, body{
-    width: 100vw;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-}
-
-.header.block{
-    background: #FF502A;
-    height: 50em;
 }
 .header.block > div{
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 20% 10% ;
-}
-.header.block h1{
-    text-align: start;
-    margin-top: 7%;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto ;
+    background: #FF502A;
+    text-align: center;
 }
 .header.block img{
-    position: static;
-        width: 40%;
-        margin: 0;
+        width: 90%;
 }
 .header.block > div > div:nth-child(1){
     grid-row-start: 2;
-    margin: 0 10%;
+
 }
 #whiteboard-101-seize-the-marker{
-    font-size: 4em;
     grid-row-start: 1;
     grid-column-start: 1;
     color: whitesmoke;
-    margin-bottom: 15em;
+}
+.lede.block{
+    text-align: justify;
+    padding: 0 1em;
+    padding-top: 5em;
 }
 
-.lede.block > div{
-    padding-top: 300px;
-    font-size: 40px;
-    margin: 0 10%;
-    padding-bottom: 10%;
-    line-height: 1.5;
-    text-align: justify;
+.chapters.block{
+    padding: 0 1em;
 }
-
-.chapter{
-    display: flex;
-    justify-content: flex-end;
-    text-align: justify;
-    margin: 0 10%;
-}
-.chapter-heading{
-    padding-right: 5%;
-}
-.chapter-heading h2{
-    margin-top: 0;
-    padding: 0;
-    font-size: 3em;
-}
-.chapter-content p{
-    margin: 0;
-    padding: 0;
-    padding-bottom: 5%;
-    line-height: 2;
-    font-size: 2em;
-}
-
-.additional-reading.block{
-    margin: 10%;
-}
-.additional-reading.block p{
-    font-size: 30px;
-    text-align: justify;
-}
-.additional-reading.block a{
-    font-size: 20px;
-}
-.chapter-content img{
+.chapters.block img{
     width: 100%;
-    height: auto;
 }
+@media (min-width: 1440px) {
 
-ul{
-    margin: 0;
-}
-li{
-    list-style: none;
-    padding-bottom: 1rem;
-}
-a{
-    cursor: pointer;
-    text-decoration: none;
-}
-
-/* RESPONSIVE */
-
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-    .header.block{
-        height: 40em;
+    body.page-type-article > main > div{
+        margin: 1em;
+        line-height: 2;
     }
-    .header.block > div{
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 20% 10% ;
-    }
-    body > main > div > div > div.header.block > div > div:nth-child(2){
-        margin: 0 15%;
-    }
+    .header.block img{
+        width: 50%;
+}
     #whiteboard-101-seize-the-marker{
-        font-size: 4em;
-        grid-row-start: 1;
-        grid-column-start: 1;
+        font-size: 5em;
+        color: whitesmoke;
+}
+    .lede.block{
+        font-size: 3em;
+        text-align: left;
+        padding: 5em 4em 5em 4em;
     }
-    #why-go-to-the-whiteboard{
+    .chapters.block .chapter{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        margin: 0;
+    }
+    .chapters.block .chapter-heading{
         text-align: right;
-        padding-right: 1.5em;
-    }
-    .header.block > div > div:nth-child(1){
-        grid-row-start: 2;
-    }
-    .header.block img{
-        position: static;
-        width: 70%;
-        height: auto;
-        margin: 0;
-    }
-    .chapter-content p{
-        text-align: left;
-    }
-   
-}
-@media only screen and (min-width: 426px) and (max-width: 768px) {
-
-    .header.block{
-        height: 33em;
-    }
-    .header.block > div{
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 20% 10% ;
-    }
-    #whiteboard-101-seize-the-marker{
-        font-size: 4em;
-        grid-row-start: 1;
-        grid-column-start: 1;
-        margin: 0 10%;
-        margin-bottom: 10em;
-    }
-    .header.block > div > div:nth-child(1){
-        grid-row-start: 2;
-        margin: 0 10%;
-    }
-    .header.block img{
-        position: static;
-        width: 100%;
-        height: auto;
-        margin: 0;
-    }
-
-    .lede.block{
-        padding: 1em;
-    }
-    .lede.block div{
-        margin: 0;
-        font-size: 1.3em;
-        padding-top: 5em;
-    } 
-
-    .chapter{
-        display: block;
-        margin: 0;
-        padding: 1em;
-    }
-    .chapter-content{
-        width: 100%;
-    }
-    .chapter-content p{
-        font-size: 1.5em;
-    }
-
-    .additional-reading.block{
-
-        margin: 0;
-        padding: 1em;
-    }
-    .additional-reading.block ul{
-        padding: 0;
-    }
-}
-@media only screen and (min-width: 376px) and (max-width: 425px) {
-
-    .header.block{
-        height: 18em;
-    }
-    .header.block > div{
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 20% 10% ;
-    }
-    #whiteboard-101-seize-the-marker{
+        padding-right: 5em;
         font-size: 2em;
-        grid-row-start: 1;
-        grid-column-start: 1;
-        margin: 0 10%;
-        margin-bottom: 10em;
     }
-    .header.block > div > div:nth-child(1){
-        grid-row-start: 2;
-        margin: 0 10%;
-    }
-    .header.block img{
-        position: static;
-        width: 100%;
-        height: auto;
+    .chapters.block h2{
         margin: 0;
     }
-
-    .lede.block{
-        padding: 1em;
-    }
-    .lede.block div{
+    .chapters.block p{
         margin: 0;
-        font-size: 1.3em;
-        padding-top: 3em;
-        text-align: left;
-    }   
-
-    .chapter{
-        display: block;
-        margin: 0;
-        padding: 1em;
-    }
-    .chapter-content{
-        width: 100%;
-    }
-    .chapter-content p{
-        font-size: 1.5em;
-        text-align: left;
-    }
-
-    .additional-reading.block{
-        margin: 0;
-        padding: 1em;
-    }
-    .additional-reading.block ul{
-        padding: 0;
-    }
-}
-@media only screen and (min-width: 321px) and (max-width: 375px) {
-
-    .header.block{
-        height: 15em;
-    }
-    .header.block > div{
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 20% 10% ;
-    }
-    #whiteboard-101-seize-the-marker{
         font-size: 2em;
-        grid-row-start: 1;
-        grid-column-start: 1;
-        margin: 0 10%;
-        margin-bottom: 10em;
-    }
-    .header.block > div > div:nth-child(1){
-        grid-row-start: 2;
-        margin: 0 10%;
-    }
-    .header.block img{
-        position: static;
-        width: 100%;
-        height: auto;
-        margin: 0;
-    }
-
-    .lede.block{
-        padding: 1em;
-    }
-    .lede.block div{
-        margin: 0;
-        font-size: 1.3em;
-        padding-top: 3em;
-        text-align: left;
-    }  
-
-    .chapter{
-        display: block;
-        margin: 0;
-        padding: 1em;
-    }
-    .chapter-content{
-        width: 100%;
-    }
-    .chapter-content p{
-        font-size: 1.5em;
         text-align: left;
     }
-    
-    .additional-reading.block{
-        margin: 0;
-        padding: 1em;
+
+    body > main > div > div > div.chapters.block > div:nth-child(1) > div.chapter-content > p:nth-child(3){
+
     }
-    .additional-reading.block ul{
-        padding: 0;
-    }
+
 }
