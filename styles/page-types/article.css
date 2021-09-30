@@ -16,6 +16,7 @@ body.page-type-article > main > div{
     grid-template-rows: auto auto ;
     background: #FF502A;
     text-align: center;
+
 }
 .header.block img{
         width: 90%;
@@ -41,6 +42,13 @@ body.page-type-article > main > div{
 .chapters.block img{
     width: 100%;
 }
+.additional-reading.block{
+    text-align: center;
+    margin: 1em;
+}
+.additional-reading.block li{
+    list-style: none;
+}
 @media (min-width: 1440px) {
 
     body.page-type-article > main > div{
@@ -63,7 +71,7 @@ body.page-type-article > main > div{
         display: grid;
         grid-template-columns: 50% 50%;
         grid-template-rows: auto;
-        margin: 0;
+        margin: 0 10em;
     }
     .chapters.block .chapter-heading{
         text-align: right;
@@ -81,6 +89,10 @@ body.page-type-article > main > div{
 
     body > main > div > div > div.chapters.block > div:nth-child(1) > div.chapter-content > p:nth-child(3){
 
+    }
+    .additional-reading.block{
+        font-size: 1.5em;;
+        margin: 2em 3em;
     }
 
 }
