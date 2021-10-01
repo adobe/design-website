@@ -34,10 +34,37 @@ export default function decorate($block) {
     const totalSlides = slides.length;
 
     next[0].addEventListener("click", function() {
-      console.log('WORK')
+      moveToNextSlide();
     })
 
     prev[0].addEventListener("click", function() {
-      console.log('PLEASE')
+      moveToPrevSlide();
     })
+
+    function updateSlidePosition() {
+      for (let slide of slides) {
+        slide.classList.remove('carousel__item--visible');
+        slide.classList.add('carousel__item--hidden');
+      }
+
+      slides[slidePosition].classList.add('carousel__item--visible');
+    }
+
+    function moveToNextSlide() {     
+      if (slidePosition === totalSlides - 1) {
+        slidePosition = 0;
+      } else {
+        slidePosition++;
+      }
+      updateSlidePosition();
+    }
+    
+    function moveToPrevSlide() {
+      if (slidePosition === 0) {
+        slidePosition = totalSlides - 1;
+      } else {
+        slidePosition--;
+      }
+      updateSlidePosition();
+    }
 }
