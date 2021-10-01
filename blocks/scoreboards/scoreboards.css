@@ -41,17 +41,54 @@
 .scoreboards > div:nth-child(2) .tag{
     border-bottom: solid 4px white;
 }
-@media (max-width: 425px){
-    .scoreboards .caption{
-        width: 95%;
-    }
-}
-@media only screen and (max-width: 375px){
+@media (max-width: 1024px) and (min-width: 769px){
     .scoreboards .number{
-        font-size: 5em;
+        font-size: 13em;
     }
     .scoreboards .caption{
         font-size: 1.5em;
-        width: 100%;
+        width: 80%;
     }
+}
+
+@media (max-width: 425px){
+    
+    .scoreboards .number{
+        font-size: 10em;
+    }
+    .scoreboards .caption{
+        font-size: 1.5em;
+        width: 90%;
+    }
+    .scoreboards .tag{
+        font-size: 1em;
+        padding-top: 25em;
+    }
+
+    .scoreboards > div{
+        height: 30em;
+    }
+}
+@media only screen and (max-width: 375px){
+
+    .scoreboards .caption{
+        font-size: 1em;
+        width: 80%;
+    }
+    
+    
+}
+@media only screen and (max-width: 320px){
+    .scoreboards .number{
+        font-size: 5em;
+    }
+
+    .scoreboards > div{
+        height: 20em;
+    }
+
+    .scoreboards .tag{
+        padding-top: 15em;
+    }
+
 }
