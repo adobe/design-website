@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .carousel {
     overflow: hidden;
     position: relative;
@@ -9,7 +11,7 @@
 }
 
 .carousel .carousel__item img {
-    width: 30%;
+    width: 60%;
     max-width: 70em;
     height: auto;
     display: block;
@@ -17,9 +19,36 @@
     margin-right: auto;
 }
 
+.carousel .carousel__item .image {
+    height: 35em;
+}
+
 .carousel .carousel__item--visible {
     display: flex;
     animation: fadeVisibility 0.5s;
+}
+
+/* tag-line styles */
+.carousel .carousel__item--visible p:first-child {
+    color: #D8D8D8;
+    border-bottom: solid 4px#D8D8D8;
+    display: inline;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* title styles */
+.carousel .carousel__item--visible h2 {
+    color: #F0E8DD;
+    font-size: clamp(2rem, 6vw, 8rem);
+    width: 25vw;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 40px;
+}
+
+/* person styles */
+.carousel .carousel__item--visible p:last-child {
+    font-family: 'Roboto', sans-serif;
+    color: #F0E8DD;
 }
 
 .carousel .carousel__actions {
@@ -48,6 +77,7 @@
 .carousel .carousel__actions div.carousel__button--next {
     margin-right: 1em;
 }
+
 
 @keyframes fadeVisibility {
     0% {
