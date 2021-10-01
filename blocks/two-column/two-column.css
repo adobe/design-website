@@ -7,18 +7,20 @@
     flex-grow:1;
     flex-basis:0;
 }
-@media (max-width: 1024px) and (min-width: 769px){
+@media (max-width: 1440px) and (min-width: 769px){
     .job-listing div:first-child{
         grid-template-columns: auto;
     }
+}
+
+@media (max-width: 1024px) and (min-width: 769px){
+    
     .job-listing h3{
         margin-top: .8em;
+        font-size: 2.3em;
     }
     .job-listing p{
         margin: 0;
-    }
-    #sr-experience-designer{
-        font-size: 2.3em;
     }
 }
 @media (max-width: 769px) {

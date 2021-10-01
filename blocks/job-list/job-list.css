@@ -38,6 +38,12 @@
 .job-list.block p{
     font-size: 20px;
 }
+.job-list div:last-child{
+    border-bottom: none;
+}
+.job-list div:last-child > h2{
+    text-decoration: underline 4px #0B1C40;
+}
 
 .job-listing{
     border-bottom: solid 2px #0B1C40;
@@ -48,7 +54,7 @@
 .job-listing div:first-child{
     display: grid;
     grid-template-columns: 600px;
-    grid-template-rows: 40px 40px 40px 40px 40px 40px;
+    grid-template-rows: repeat(6, 40px);
 }
 
 .job-listing h3{
@@ -129,8 +135,9 @@
         align-items: center;
     }
 }
-@media only screen and (max-width: 375px){
+@media only screen and (max-width: 425px){
     #join-us{
+        height: 5em;
         font-size: 6em;
         width: 100%;
     }
@@ -149,6 +156,13 @@
         align-items: center;
         text-align: center;
     }
+}
+
+@media only screen and (max-width: 320px){
+    .job-listing .job-title{
+        font-size: 1.5em;
+    }
+
 }
 
 
