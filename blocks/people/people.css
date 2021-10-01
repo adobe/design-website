@@ -20,8 +20,8 @@
     border-bottom:solid 4px black;
 }
 
-.image {
-    width:100%;
+.person .image{
+    width: 100%;
 }
 
 .person {
@@ -91,6 +91,7 @@
 }
 @media only screen and (max-width: 425px){
     .person{
+        background: none;
         height: 26em;
     }
     .people.block > .tag:nth-child(1){
@@ -111,7 +112,7 @@
         margin-left: 0;
     }
     .person{
-        background: #E91D25;
+        background: none;
         height: 21em;
     }
 }
