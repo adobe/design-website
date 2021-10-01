@@ -35,7 +35,6 @@ body.page-type-article > main > div{
     padding: 0 1em;
     padding-top: 5em;
 }
-
 .chapters.block{
     padding: 0 1em;
 }
@@ -48,6 +47,48 @@ body.page-type-article > main > div{
 }
 .additional-reading.block li{
     list-style: none;
+}
+@media (min-width: 1024px){
+    body.page-type-article > main > div{
+        margin: 1em;
+        line-height: 1.5;
+    }
+    .header.block img{
+        width: 70%;
+}
+    #whiteboard-101-seize-the-marker{
+        font-size: 3.5em;
+        color: whitesmoke;
+
+}
+    .lede.block{
+        font-size: 3em;
+        text-align: left;
+        padding: 3em 2em;
+    }
+    .chapters.block .chapter{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        margin: 0 3em;
+    }
+    .chapters.block .chapter-heading{
+        text-align: right;
+        padding-right: 2em;
+        font-size: 2em;
+    }
+    .chapters.block h2{
+        margin: 0;
+    }
+    .chapters.block p{
+        margin: 0;
+        font-size: 2em;
+        text-align: left;
+    }
+    .additional-reading.block{
+        font-size: 1.5em;;
+        margin: 2em 3em;
+    }
 }
 @media (min-width: 1440px) {
 
@@ -85,10 +126,6 @@ body.page-type-article > main > div{
         margin: 0;
         font-size: 2em;
         text-align: left;
-    }
-
-    body > main > div > div > div.chapters.block > div:nth-child(1) > div.chapter-content > p:nth-child(3){
-
     }
     .additional-reading.block{
         font-size: 1.5em;;
