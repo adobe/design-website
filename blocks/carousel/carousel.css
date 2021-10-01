@@ -3,6 +3,7 @@
 .carousel {
     overflow: hidden;
     position: relative;
+    margin: 5em 0 15em 0;
 }
 
 .carousel .carousel__item,
