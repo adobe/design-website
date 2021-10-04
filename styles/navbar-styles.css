@@ -44,6 +44,9 @@
     right: 15em;
 }
 @media only screen and (max-width: 1024px) and (min-width: 767px) {
+    .tagline {
+        padding: 0;
+    }
     .tagline.block{
         display: grid;
         grid-template-rows: 5em;
@@ -53,12 +56,11 @@
         grid-row-start: 1;
         grid-column-start:2 ;
         width: 100%;
-        margin-left: 2em;
+        margin-left: 10px;
     }
     .tagline.block > div:nth-child(3){
         grid-column-start: 3;
         grid-row-start: 1;
-        margin-left: 0;
         position: static;
 
     }
@@ -81,7 +83,9 @@
         grid-row-start: 1;
         margin-left: 0;
         position: static;
-
+    }
+    .tagline.block > div:nth-child(1) > div > picture > img {
+        max-width: 75%;
     }
 }
 @media only screen and (max-width: 767px) {

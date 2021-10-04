@@ -102,6 +102,41 @@
     }
 }
 
+@media only screen and (max-width: 1024px) and (min-width: 767px) {
+    .carousel {
+        margin: 4em 0 1em 0;
+    }
+
+    .carousel .carousel__item img {
+        width: 60%;
+        max-width: 25em;
+        height: auto;
+        display: block;
+        margin-left: 10em;
+        margin-right: auto;
+    }
+
+    .carousel .carousel__item--visible p:first-child {
+        font-size: clamp(.5rem, 2.5vw, .75rem);
+    }
+
+        /* title styles */
+    .carousel .carousel__item--visible h2 {
+        font-size: clamp(1.5rem, 6vw, 3rem);
+    }
+
+    /* person styles */
+    .carousel .carousel__item--visible p:last-child {
+        font-size: clamp(.5rem, 2.5vw, 1rem);
+        width: 35vw;
+    }
+
+    .carousel .carousel__actions {
+        top: 30%;
+    }
+
+}
+
 @media only screen and (min-width: 321px) and (max-width: 424px){
     .carousel {
         margin: 5em 0 1em 0;
