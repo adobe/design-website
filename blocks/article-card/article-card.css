@@ -56,9 +56,30 @@
 
 
 @media only screen and (min-width: 768px) and (max-width: 1024px){
+    .article-card.block {
+        height: 50vh;
+    }
+
+    .article-card.block .text {
+        width: 100%;
+    }
+
     .article-card.block .block-content{
         /* display: flex; */
         flex-direction: column;
+    }
+
+    .article-card.block .text p.tag-link {
+        font-size: 1rem;
+    }
+
+    .article-card.block .text .byline:not(.article-title) {
+        padding-top: 30rem;
+    }
+
+    .article-card.block .text p.article-title {
+        font-size: 3rem;
+        margin: 3em 0 .25em 0;
     }
 }
 @media only screen and (min-width: 425px) and (max-width: 768px){
