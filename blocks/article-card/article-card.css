@@ -18,7 +18,7 @@
 .article-card.block .text{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     padding: 2em;
     padding-left: 2em;
     box-sizing: border-box;
@@ -77,6 +77,11 @@
 }
 @media only screen and (min-width: 321px) and (max-width: 375px){
 
+    .article-card.block .text .byline:not(.article-title) {
+        padding-top: 2em;
+        position:unset;
+    }
+
     .article-card.block {
         font-size:16px;
         height: auto;
@@ -86,7 +91,6 @@
         display:flex;
     }
     .article-card.block .text h2{
-        font-size: 3em;
         margin-bottom:0.5em;
     }
     body > main > div > div > div:nth-child(11) > div > div.text > p.link-wrapper.article-title.byline > a{
