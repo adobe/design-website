@@ -354,4 +354,78 @@ async function decoratePage(win = window) {
   }
 }
 
+let language;
+
+const LANG = {
+  EN: 'en',
+  DE: 'de',
+  FR: 'fr',
+  KO: 'ko',
+  ES: 'es',
+  IT: 'it',
+  JP: 'jp',
+  BR: 'br',
+};
+
+export function getLanguage() {
+  if (language) return language;
+  language = LANG.EN;
+  const segs = window.location.pathname.split('/');
+  if (segs && segs.length > 0) {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [, value] of Object.entries(LANG)) {
+      if (value === segs[1]) {
+        language = value;
+        break;
+      }
+    }
+  }
+  return language;
+}
+
+/**
+ * Returns the language dependent root path
+ * @returns {string} The computed root path
+ */
+ export function getRootPath() {
+  const loc = getLanguage();
+  if (loc === LANG.EN) {
+    return '/blog';
+  }
+  return `/${loc}/blog`;
+}
+
+/**
+ * fetches blog article index.
+ * @returns {object} index with data and path lookup
+ */
+
+ export async function fetchBlogArticleIndex() {
+  const resp = await fetch(`${getRootPath()}/query-index.json`);
+  const json = await resp.json();
+  const byPath = {};
+  json.data.forEach((post) => {
+    byPath[post.path.split('.')[0]] = post;
+  });
+  const index = { data: json.data, byPath };
+  return (index);
+}
+
+/**
+ * fetches blog article index.
+ * @returns {object} index with data and path lookup
+ */
+
+ export async function fetchJobIndex() {
+  const resp = await fetch(`jobs/query-index.json`);
+  const json = await resp.json();
+  const byPath = {};
+  json.data.forEach((post) => {
+    byPath[post.path.split('.')[0]] = post;
+  });
+  const index = { data: json.data, byPath };
+  return (index);
+}
+
+
 decoratePage(window);

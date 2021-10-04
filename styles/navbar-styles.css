@@ -209,3 +209,13 @@
 }
 }
 /* End of navbar styling */
+
+
+@media (max-width:767px) {
+    .tagline.block > div:nth-child(2) {
+        display:none;
+    }
+    .carousel.block {
+        display:none;
+    }
+}
