@@ -81,6 +81,7 @@
         font-size: 3rem;
         margin: 3em 0 .25em 0;
     }
+
 }
 @media only screen and (min-width: 425px) and (max-width: 768px){
     .article-card.block .block-content{

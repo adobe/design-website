@@ -56,6 +56,19 @@
     margin-top: 0;
 }
 
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+
+    .name {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        padding: 20px 0 5px 20px;
+    }
+
+    .title {
+        padding: 10px 0 50px 20px;
+    }
+
+}
+
 @media (max-width: 767px) {
     .people {
         display: inherit;
