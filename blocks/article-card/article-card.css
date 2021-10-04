@@ -15,6 +15,8 @@
        height:100%;
     }
 .article-card.block .text{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     padding: 2em;
     padding-left: 2em;
@@ -31,17 +33,21 @@
 }
 .article-card.block .text p.article-title {
     margin-top: 2em;
+    font-size: 3.5em;
 }
 .article-card.block .text p.article-title a {
     text-decoration: none;
     color: inherit;
 }
 .article-card.block .text h2{
-    font-size: 3.5em;
+    font-size: 2em;
     margin-bottom:0.5em;
+    font-weight: normal;
 }
-.article-card.block .text .byline {
-    
+.article-card.block .text .byline:not(.article-title) {
+    position: absolute;
+    padding-top: 40em;
+    align-self: flex-start;
 }
 
 
