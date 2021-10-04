@@ -25,7 +25,6 @@
     background-size: cover;
     background-repeat:no-repeat;
     background-position: center;
-    background-clip: ;
     justify-items: center;
 }
 .article-card.block .text p.tag-link{
@@ -104,14 +103,26 @@ body > main > div > div > div:nth-child(6) > div > div.text > p:nth-child(4){
 
 /*books designers give to each other*/
 body > main > div > div > div:nth-child(9) > div > div.text > p.link-wrapper{
+    font-size: .9em;
+    margin-left: 3em;
+    margin-right: 3em;
     margin-bottom: 20em;
-    width: 70%;
+    width: 95%;
 }
 body > main > div > div > div:nth-child(10) > div > div.text > p.link-wrapper{
     margin-top: 0;
     margin-bottom: 15em;
 }
 /*books designers give to each other*/
+
+body > main > div > div > div:nth-child(10) > div > div.text > p.tag-link.black{
+    color: whitesmoke;
+    border-color: whitesmoke;
+}
+body > main > div > div > div:nth-child(10) > div > div.image{
+    background-size: contain;
+    background-size: 50%;
+}
 
 /*leaving no language behind*/
 body > main > div > div > div:nth-child(11) > div > div.text > p.link-wrapper{
@@ -124,6 +135,15 @@ body > main > div > div > div:nth-child(12) > div > div.text > p.link-wrapper{
 }
 /*leaving no language behind*/
 
+/* MAKING THE WORLD A BETTER PLACE THROUGH EXPERIENCE DESIGN*/
+body > main > div > div > div:nth-child(12) > div > div.text > p.tag-link.black{
+    color: whitesmoke;
+    border-color: whitesmoke;
+}
+body > main > div > div > div:nth-child(12) > div > div.text > p.link-wrapper{
+    color: whitesmoke;
+}
+/* MAKING THE WORLD A BETTER PLACE THROUGH EXPERIENCE DESIGN*/
 
 @media (min-width: 375px) and (max-width: 769px) {
     .article-card.block .block-content {
