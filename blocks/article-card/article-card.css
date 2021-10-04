@@ -3,10 +3,6 @@
  *   All rights reserved.
  *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
  */
-
-
- 
- 
  
  .article-card.block{
     margin-bottom: 1em;
@@ -50,21 +46,29 @@
 
 
 
-@media (min-width: 767px){
-    .article-card.block {
-        font-size:16px;
-    }  
-}
-@media (min-width: 375px) and (max-width: 767px) {
-    .article-card.block {
-        font-size:20px;
-    }
-    .article-card.block .block-content {
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .article-card.block .block-content{
+        display: flex;
         flex-direction: column;
-        display:flex;
     }
 }
-@media (max-width: 375px){
+@media only screen and (min-width: 425px) and (max-width: 768px){
+    .article-card.block .block-content{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 425px){
+    .article-card.block .block-content{
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+@media only screen and (min-width: 321px) and (max-width: 375px){
+
     .article-card.block {
         font-size:16px;
     }   
@@ -72,5 +76,9 @@
         flex-direction: column;
         display:flex;
     }
-  
+    .article-card.block .text h2{
+        font-size: 3em;
+        margin-bottom:0.5em;
+    }
+    
 }
