@@ -10,149 +10,67 @@
  
  .article-card.block{
     margin-bottom: 1em;
-    }
+    height:60vh;
+    overflow:hidden;
+}
 .article-card.block .block-content{
        display: grid;
        grid-template-columns: 50% 50%;
+       height:100%;
     }
 .article-card.block .text{
     width: 100%;
     padding: 2em;
     padding-left: 2em;
+    box-sizing: border-box;
 }
 .article-card.block .image{
     max-width: 100%;
     background-size: cover;
     background-repeat:no-repeat;
     background-position: center;
-
 }
-.article-card.block .text p.tag-link{
+.article-card.block .text p.tag-link {
     font-size: 1.2em;
 }
-.article-card.block .text p.link-wrapper{
-    margin-top: 15em;
+.article-card.block .text p.article-title {
+    margin-top: 2em;
 }
-.article-card.block .text p.link-wrapper a{
-    font-size: 7em;
+.article-card.block .text p.article-title a {
     text-decoration: none;
     color: inherit;
 }
 .article-card.block .text h2{
     font-size: 3.5em;
-    margin-bottom: 3em;
+    margin-bottom:0.5em;
 }
-.article-card.block .text p:nth-child(4){
-    margin-bottom: 9em;
-}
-
-/* DESIGNING FOR CREATIVE SYSTEMS*/
-body > main > div > div > div:nth-child(5) > div > div.text > p.tag-link.black{
-    margin-left: 3.5em;
-}
-body > main > div > div > div:nth-child(5) > div > div.text > p.link-wrapper{
-    font-size: .8em;
-    width: 70%;
-    padding-left: 5em;
-}
-#an-inside-look-at-bringing-creative-cloud-libraries-to-adobe-xd{
-    font-size: 2.7em;
-    font-weight: 400;
-    width: 9em;
-    padding-left: 1.7em;
-}
-body > main > div > div > div:nth-child(5) > div > div.text > p:nth-child(4){
-    padding-left: 5em;
-}
-
-/* DESIGNING FOR CREATIVE SYSTEMS*/
-
-/* SPECTRUM FOR ADOBE XD*/
-body > main > div > div > div:nth-child(6) > div > div.text > p.tag-link.black{
-    margin-left: 3.7em;
-}
-body > main > div > div > div:nth-child(6) > div > div.text{
-    padding-left: 10em;
-}
-body > main > div > div > div:nth-child(6) > div > div.text > p.tag-link.black{
-    color: whitesmoke;
-    border-color: whitesmoke;
-}
-body > main > div > div > div:nth-child(6) > div > div.text > p.link-wrapper{
-    width: 71%;
-    padding-left: 4em;
-}
-#adobes-design-language-in-its-experience-design{
-    width: 60%;
-    padding-left: 1.2em;
-}
-body > main > div > div > div:nth-child(6) > div > div.text{
-    width: 50%;
-}
-body > main > div > div > div:nth-child(6) > div > div.text > p:nth-child(4){
-    padding-left: 5em;
-}
-/* SPECTRUM FOR ADOBE XD*/
-
-/*BEHANCE PROJECT*/
-#project-description{
-    margin-bottom: 6em;
-}
-
-/*BEHANCE PROJECT*/
-
-/*books designers give to each other*/
-body > main > div > div > div:nth-child(9) > div > div.text > p.link-wrapper{
-    font-size: .9em;
-    margin-left: 3em;
-    margin-right: 3em;
-    margin-bottom: 20em;
-    width: 95%;
-}
-body > main > div > div > div:nth-child(10) > div > div.text > p.link-wrapper{
-    margin-top: 0;
-    margin-bottom: 15em;
-}
-/*books designers give to each other*/
-
-body > main > div > div > div:nth-child(10) > div > div.text > p.tag-link.black{
-    color: whitesmoke;
-    border-color: whitesmoke;
-}
-body > main > div > div > div:nth-child(10) > div > div.image{
-    background-size: contain;
-    background-size: 50%;
-}
-
-/*leaving no language behind*/
-body > main > div > div > div:nth-child(11) > div > div.text > p.link-wrapper{
-    margin-bottom: 20em;
-    color: black;
-}
-body > main > div > div > div:nth-child(12) > div > div.text > p.link-wrapper{
-    margin-bottom: 30em;
-    color: black;
-}
-/*leaving no language behind*/
-
-/* MAKING THE WORLD A BETTER PLACE THROUGH EXPERIENCE DESIGN*/
-body > main > div > div > div:nth-child(12) > div > div.text > p.tag-link.black{
-    color: whitesmoke;
-    border-color: whitesmoke;
-}
-body > main > div > div > div:nth-child(12) > div > div.text > p.link-wrapper{
-    color: whitesmoke;
-}
-/* MAKING THE WORLD A BETTER PLACE THROUGH EXPERIENCE DESIGN*/
-
-@media (min-width: 425px) and (max-width: 769px) {
-    .article-card .block-content {
-        flex-direction: column;
-    }
-}
-@media only screen and (min-width: 321px) and (max-width: 375px){
-    .article-card .block-content {
-        flex-direction: column;
-    }
+.article-card.block .text .byline {
     
+}
+
+
+
+@media (min-width: 767px){
+    .article-card.block {
+        font-size:16px;
+    }  
+}
+@media (min-width: 375px) and (max-width: 767px) {
+    .article-card.block {
+        font-size:20px;
+    }
+    .article-card.block .block-content {
+        flex-direction: column;
+        display:flex;
+    }
+}
+@media (max-width: 375px){
+    .article-card.block {
+        font-size:16px;
+    }   
+    .article-card.block .block-content {
+        flex-direction: column;
+        display:flex;
+    }
+  
 }

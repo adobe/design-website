@@ -7,13 +7,13 @@
     flex-grow:1;
     flex-basis:0;
 }
-@media (max-width: 1440px) and (min-width: 769px){
+@media (max-width: 1440px) and (min-width: 767px){
     .job-listing div:first-child{
         grid-template-columns: auto;
     }
 }
 
-@media (max-width: 1024px) and (min-width: 769px){
+@media (max-width: 1024px) and (min-width: 767px){
     
     .job-listing h3{
         margin-top: .8em;
@@ -23,7 +23,7 @@
         margin: 0;
     }
 }
-@media (max-width: 769px) {
+@media (max-width: 767px) {
     .two-column.block > div {
         flex-direction: column;
     }

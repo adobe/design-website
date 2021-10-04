@@ -1,8 +1,9 @@
 import { processDivisions } from "../../scripts/helpers.js";
 
+
 export default function decorate($block) {
+  $block.classList.add("full-bleed");
   const $carousel = $block.querySelectorAll(":scope > div");
-  
   
   const length = Object.entries($carousel).length;
   var i = 0;
@@ -10,23 +11,24 @@ export default function decorate($block) {
   for(const slide of $carousel) {
     const { properties } = processDivisions(slide, null, { level: "child" });
     if ((i + 1) === length) {
-      console.log(i)
-      console.log(length)
       slide.classList.add("carousel__actions");
       slide.querySelector("body > main > div > div > div.carousel.block > div:nth-child(6) > div:nth-child(1)").classList.add("carousel__button--prev");
       slide.querySelector("body > main > div > div > div.carousel.block > div:nth-child(6) > div:nth-child(2)").classList.add("carousel__button--next");
       break;
     } else if (i === 0) {
       slide.classList.add("carousel__item--visible");
-    }
+    } 
     i++;
-
+    if (i == 1) {
+      document.querySelector("body").classList.add("slide-1")
+    } else if (i === 2) {
+      document.querySelector("body").classList.remove("slide-1")
+      document.querySelector("body").classList.add("slide-2")
+    }
     slide.classList.add("carousel__item");
     slide.querySelector("div:nth-child(1)").classList.add("image");
     slide.querySelector("div:nth-child(2)").classList.add("number");
-    // slide.querySelector("div:nth-child(2) > p").classList.add('tag-link');
-    // slide.querySelector('h2').classList.add('title');
-    // slide.querySelector('p:last-child').classList.add('author');
+    
     }
 
 

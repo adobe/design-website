@@ -71,7 +71,7 @@ body > main > div > div > div.hero-carousel.block > div > div:nth-child(3){
     }
 
 }
-@media only screen and (max-width: 769px){
+@media only screen and (max-width: 767px){
     .hero-carousel.block{
         width: 100vw;
         margin: 4em 0;

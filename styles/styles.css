@@ -5,9 +5,11 @@
 @import "./page-types/home.css";
 @import "./page-types/article.css";
 
-main > div{
-    width: auto;
-    margin: 3em;
+main > div > div > div:not(.full-bleed) {
+    width: 98vw;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 html, body{
