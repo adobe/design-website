@@ -71,6 +71,7 @@
 
     .article-card.block {
         font-size:16px;
+        height: auto;
     }   
     .article-card.block .block-content {
         flex-direction: column;
@@ -80,5 +81,9 @@
         font-size: 3em;
         margin-bottom:0.5em;
     }
-    
+    body > main > div > div > div:nth-child(11) > div > div.text > p.link-wrapper.article-title.byline > a{
+        color: black;
+        font-size: 1.5em;
+    }
+
 }
