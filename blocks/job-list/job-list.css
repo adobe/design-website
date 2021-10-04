@@ -32,9 +32,6 @@
     align-items: center;
 }
 
-#join-us > h2{
-    color: blue;
-}
 .job-list.block p{
     font-size: 20px;
 }
@@ -47,8 +44,7 @@
 
 .job-listing{
     border-bottom: solid 2px #0B1C40;
-    width: 90%;
-
+    margin: 0 3em;
 }
 
 .job-listing div:first-child{
@@ -163,6 +159,26 @@
         font-size: 1.5em;
     }
 
+}
+@media only screen and (min-width: 321px) and (max-width: 375px){
+    .two-column.block{
+        width: 100%;
+    }
+    #join-us{
+        color: red;
+        background-color: white;
+        width: 100%;
+        font-size: 6em;
+        font-weight: 300;
+        padding:200px 20px;
+        box-sizing: border-box;
+        display:flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0;
+    }
+
+    
 }
 
 
