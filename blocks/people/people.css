@@ -107,13 +107,15 @@
         top: 355em;
     }
 }
-@media only screen and (max-width: 375px){
+@media only screen and (min-width: 321px) and (max-width: 375px){
     .people.block{
-        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
-    .person{
-        background: none;
-        height: 21em;
+    .people.block .person{
+        margin: 0;
+        height: 22em;
     }
 }
     .people.block > .tag:nth-child(1){
