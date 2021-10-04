@@ -14,16 +14,18 @@
        grid-template-columns: 50% 50%;
        height:100%;
     }
+
 .article-card.block .text{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 50%;
     padding: 2em;
     padding-left: 2em;
     box-sizing: border-box;
 }
 .article-card.block .image{
     max-width: 100%;
+    width: 100%;
     background-size: cover;
     background-repeat:no-repeat;
     background-position: center;
@@ -55,7 +57,7 @@
 
 @media only screen and (min-width: 768px) and (max-width: 1024px){
     .article-card.block .block-content{
-        display: flex;
+        /* display: flex; */
         flex-direction: column;
     }
 }
