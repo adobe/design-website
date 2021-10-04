@@ -90,7 +90,7 @@
     }
 }
 
-@media (min-width: 425px) and (max-width: 769px) {
+@media (min-width: 425px) and (max-width: 767px) {
     .carousel {
         margin: 5em 0 1em 0;
     }

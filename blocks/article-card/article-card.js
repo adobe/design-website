@@ -28,7 +28,9 @@ export default function decorate($block) {
     /** @type {HTMLAnchorElement} */
     const link = result.text.querySelector("a");
     decorateLink(link);
+    link.parentElement.classList.add("article-title");
 
     result.properties.link = link.href;
     decorateTagLink( result.text.querySelector("p:first-child"), { color: "black" } );
+    $block.querySelector("p:last-child").classList.add("byline");
 }

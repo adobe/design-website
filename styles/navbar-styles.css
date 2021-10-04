@@ -43,7 +43,7 @@
     position: absolute;
     right: 15em;
 }
-@media only screen and (max-width: 1024px) and (min-width: 769px) {
+@media only screen and (max-width: 1024px) and (min-width: 767px) {
     .tagline.block{
         display: grid;
         grid-template-rows: 5em;
@@ -84,7 +84,7 @@
 
     }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 767px) {
     .tagline.block{
         display: flex;;
         margin: 0;

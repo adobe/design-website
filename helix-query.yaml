@@ -1,6 +1,6 @@
 version: 1
 
-indices:
-  jobs:
-    include:
-      - '/jobs/**'
+# indices:
+#   jobs:
+#     include:
+#       - '/jobs/**'

@@ -2,6 +2,7 @@ import { processDivisions } from "../../scripts/helpers.js";
 
 
 export default function decorate($block) {
+  $block.classList.add("full-bleed");
   const $carousel = $block.querySelectorAll(":scope > div");
   
   const length = Object.entries($carousel).length;

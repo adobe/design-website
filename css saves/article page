@@ -104,7 +104,7 @@ a{
 
 /* RESPONSIVE */
 
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+@media only screen and (min-width: 767px) and (max-width: 1024px) {
     body.page-type-article > main > div{
         margin: 1em;
         width: auto;
