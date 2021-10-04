@@ -29,18 +29,24 @@
     width: fit-content;
     flex-basis:0;
     flex-grow:1;
-    margin:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-right:10px;
+}
+
+.people div:last-child{
+    margin-right: 0px;
 }
 
 .name {
-    font-size: clamp(2rem, 3vw, 5rem);
+    font-size: clamp(2rem, 4vw, 2.5rem);
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     padding: 20px 0 30px 20px;
 }
 
 .title {
-    font-size: clamp(1rem, 1vw, 2rem);
+    font-size: .8rem;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     padding: 20px 0 30px 20px;

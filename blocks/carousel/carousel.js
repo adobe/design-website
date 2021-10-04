@@ -12,8 +12,8 @@ export default function decorate($block) {
     const { properties } = processDivisions(slide, null, { level: "child" });
     if ((i + 1) === length) {
       slide.classList.add("carousel__actions");
-      slide.querySelector("body > main > div > div > div.carousel.block > div:nth-child(6) > div:nth-child(1)").classList.add("carousel__button--prev");
-      slide.querySelector("body > main > div > div > div.carousel.block > div:nth-child(6) > div:nth-child(2)").classList.add("carousel__button--next");
+      slide.querySelector("body > main > div > div > div.carousel.block > div:last-child > div:nth-child(1)").classList.add("carousel__button--prev");
+      slide.querySelector("body > main > div > div > div.carousel.block > div:last-child > div:nth-child(2)").classList.add("carousel__button--next");
       break;
     } else if (i === 0) {
       slide.classList.add("carousel__item--visible");
