@@ -80,6 +80,7 @@ body.page-type-article > main > div{
         text-align: left;
         width: 50%;
         margin-left: 2.2em;
+        padding-bottom: 0;
         font-size: 3em;
         color: whitesmoke;
     }  
@@ -146,51 +147,55 @@ body.page-type-article > main > div{
 
 @media (min-width: 1440px) {
 
-    body > main > div > div > div.header.block > div > div:nth-child(1){
-        position: relative;
-        top: 10em;
-    }
-
     body.page-type-article > main > div{
-        margin: 1em;
-        line-height: 1.5;
+        background: none;
+
+    }
+    body > main > div > div > div.header.block > div > div:nth-child(1){
+        top: 20em;
     }
     .header.block img{
-        width: 50%;
-}
+        width: 90%;
+    }
     #whiteboard-101-seize-the-marker{
-        margin-left: 5.2em;
+        width: auto;
+        text-align: center;
         font-size: 4em;
-        color: whitesmoke;
-}
+        margin: 0;
+
+    }
     .lede.block{
-        font-size: 3em;
-        text-align: left;
-        padding: 5em 4em 5em 4em;
-        margin-top: 2em;
+        padding: 0;
+        padding-top: 5em;
+        background: whitesmoke;
+        width: auto;
+    }
+    .lede.block > div > div{
+    padding: 1em;
+    }
+    .chapters.block{
+
+
     }
     .chapters.block .chapter{
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: auto;
-        margin: 0 10em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background: whitesmoke;
+        margin: 0;
     }
+
     .chapters.block .chapter-heading{
-        text-align: right;
-        padding-right: 5em;
-        font-size: 2em;
-    }
-    .chapters.block h2{
+        text-align: center;
+        padding: 0;
         margin: 0;
+        margin-top: 1.5em;
+
     }
-    .chapters.block p{
-        margin: 0;
-        font-size: 2em;
-        text-align: left;
-    }
-    .additional-reading.block{
-        font-size: 1.5em;;
-        margin: 2em 3em;
+    .chapters.block .chapter-content{
+        padding: 1em;
+        font-size: 1em;
     }
 }
 @media (min-width: 1920px) and (max-width: 2500px) {
@@ -227,8 +232,11 @@ body.page-type-article > main > div{
         background: none;
 
     }
+    body > main > div > div > div.header.block > div > div:nth-child(1){
+        top: 20em;
+    }
     .header.block img{
-        width: 100%;
+        width: 90%;
     }
     #whiteboard-101-seize-the-marker{
         width: auto;
@@ -265,8 +273,8 @@ body.page-type-article > main > div{
 
     }
     .chapters.block .chapter-content{
-        width: 100%;
-        font-size: .7em;
+
+        font-size: 1em;
     }
 
 }
