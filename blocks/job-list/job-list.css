@@ -53,7 +53,7 @@
 
 .job-listing div:first-child{
     display: grid;
-    grid-template-columns: 600px;
+    grid-template-columns: minmax(auto, 600px);
     grid-template-rows: repeat(6, 40px);
 }
 
