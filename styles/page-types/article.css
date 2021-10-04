@@ -28,7 +28,7 @@ body.page-type-article > main > div{
 }
 .header.block > div > div:nth-child(1){
     grid-row-start: 2;
-
+    
 }
 #whiteboard-101-seize-the-marker{
     margin-left: .4em;
@@ -91,8 +91,7 @@ body.page-type-article > main > div{
     .chapters.block{
         font-size: 1.5em;
     }
-}
-@media (min-width: 1024px){
+    @media only screen and (min-width: 768px) and (max-width: 1024px){
 
     body > main > div > div > div.header.block > div > div:nth-child(1){
         position: relative;
@@ -114,7 +113,7 @@ body.page-type-article > main > div{
         color: whitesmoke;
     }  
     .lede.block{
-        font-size: 3em;
+        font-size: 2em;
         text-align: left;
         padding: 3em 2em;
         margin-top: 5em;
@@ -127,15 +126,15 @@ body.page-type-article > main > div{
     }
     .chapters.block .chapter-heading{
         text-align: right;
-        padding-right: 2em;
-        font-size: 2em;
+        padding-right: 1.5em;
+        font-size: 1.5em;
     }
     .chapters.block h2{
         margin: 0;
     }
     .chapters.block p{
         margin: 0;
-        font-size: 2em;
+        font-size: 1.2em;
         text-align: left;
     }
     .additional-reading.block{
@@ -143,6 +142,7 @@ body.page-type-article > main > div{
         margin: 2em 3em;
     }
 }
+
 @media (min-width: 1440px) {
 
     body > main > div > div > div.header.block > div > div:nth-child(1){
@@ -221,11 +221,51 @@ body.page-type-article > main > div{
     }
 }
 @media (min-width: 2560px){
-    #whiteboard-101-seize-the-marker{
-        text-align: left;
-        width: 30%;
-        margin-left: 7.7em;
-        font-size: 5em;
 
-}
+    body.page-type-article > main > div{
+        background: none;
+
+    }
+    .header.block img{
+        width: 100%;
+    }
+    #whiteboard-101-seize-the-marker{
+        width: auto;
+        text-align: center;
+        font-size: 4em;
+        margin: 0;
+
+    }
+    .lede.block{
+        padding: 0;
+        padding-top: 5em;
+        background: whitesmoke;
+        width: auto;
+
+    }
+    .chapters.block{
+
+
+    }
+    .chapters.block .chapter{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background: whitesmoke;
+        margin: 0;
+    }
+
+    .chapters.block .chapter-heading{
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        margin-top: 1.5em;
+
+    }
+    .chapters.block .chapter-content{
+        width: 100%;
+        font-size: .7em;
+    }
+
 }

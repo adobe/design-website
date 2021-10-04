@@ -38,6 +38,12 @@ html, body{
         margin: 1em;
         overflow-x: hidden;
     }
+    main > div > div > div:not(.full-bleed) {
+        width: auto;
+        max-width:1000px;
+        margin-left:auto;
+        margin-right:auto;
+    }
 }
 @media only screen and (min-width: 425px) and (max-width: 768px){
     main > div{
@@ -50,6 +56,13 @@ html, body{
     main > div{
         width: auto;
         margin: 1em;
+        overflow-x: hidden;
+    }
+    main > div > div > div:not(.full-bleed) {
+        width: auto;
+        max-width:1000px;
+        margin-left:auto;
+        margin-right:auto;
         overflow-x: hidden;
     }
 }
