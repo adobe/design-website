@@ -20,8 +20,8 @@ body.page-type-article > main > div{
 
 }
 .header.block > div > div:nth-child(1){
-    position: relative;
-    top: 5em;
+    position: absolute;
+    top: 23em;
 }
 .header.block img{
     width: 90%;
@@ -34,6 +34,7 @@ body.page-type-article > main > div{
     margin-left: .4em;
     text-align: left;
     padding-top: 3em;
+    padding-bottom: 10em;
     grid-row-start: 1;
     grid-column-start: 1;
     color: whitesmoke;
