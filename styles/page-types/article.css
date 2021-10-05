@@ -13,18 +13,34 @@ body.page-type-article > main > div{
 }
 .header.block > div{
     display: grid;
-    grid-template-columns: auto;
     grid-template-rows: auto auto ;
     background: #FF502A;
-    text-align: center;
 
 }
+
 .header.block > div > div:nth-child(1){
-    position: absolute;
-    top: 23em;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    
 }
 .header.block img{
-    width: 90%;
+    position: relative;
+    top: 5em;
+    width: 100%;
+}
+@media only screen and (min-width: 375px) and (max-width: 425px){
+    .header.block > div > div:nth-child(1){
+        position: absolute;
+        top: 17em;
+        left: 1.3em;
+        width: 90%;
+        text-align: center;
+        
+    }
+    .header.block img{
+        width: 100%;
+    }
 }
 .header.block > div > div:nth-child(1){
     grid-row-start: 2;
@@ -42,7 +58,8 @@ body.page-type-article > main > div{
 .lede.block{
     text-align: justify;
     padding: 0 1em;
-    margin-top: 12em;
+    padding-top: 6em;
+    margin-top: 6em;
 }
 .chapters.block{
     padding: 0 1em;
