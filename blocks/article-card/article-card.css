@@ -121,3 +121,11 @@
     }
 
 }
+
+
+.article-title{
+    max-width: 70%;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
