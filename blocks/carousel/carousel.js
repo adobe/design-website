@@ -2,6 +2,8 @@ import { processDivisions } from "../../scripts/helpers.js";
 
 function decorateSlide(slide, i, length) {
   const { properties } = processDivisions(slide, null, { level: "child" });
+
+  carouselProperties.slides.push( properties );
   if ((i + 1) === length) {
     slide.classList.add("carousel__actions");
     slide.querySelector("body > main > div > div > div.carousel.block > div:last-child > div:nth-child(1)").classList.add("carousel__button--prev");
@@ -16,6 +18,9 @@ function decorateSlide(slide, i, length) {
   } 
   
 }
+const carouselProperties = {
+  slides: [],
+};
 
 export default function decorate($block) {
   $block.classList.add("full-bleed");
@@ -32,8 +37,9 @@ export default function decorate($block) {
     slide.remove()
     $innerwrapper.append(slide)
     i++;
-    }
 
+    }
+    
     $block.append($innerwrapper)
 
     let slidePosition = 0;
@@ -63,6 +69,10 @@ export default function decorate($block) {
     prev[0].addEventListener("click", function() {
       // moveToPrevSlide();
     })
+    
+    function applySlide() {
+      applyColor(slidePosition);
+    }
 
     function updateSlidePosition() {
       for (let slide of slides) {
@@ -71,6 +81,7 @@ export default function decorate($block) {
       }
 
       slides[slidePosition].classList.add('carousel__item--visible');
+      applySlide();
     }
 
     function moveToNextSlide() {     
@@ -90,9 +101,8 @@ export default function decorate($block) {
       }
       updateSlidePosition();
     }
-
-    
 }
 
-
-
+function applyColor( slideIndex ) {
+  document.body.style.background = carouselProperties.slides[slideIndex].background;
+}
