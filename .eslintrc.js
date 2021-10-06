@@ -21,6 +21,9 @@ module.exports = {
     "object-curly-newline": "off",
     'no-param-reassign': [2, { props: false }],
     'linebreak-style': ['error', 'unix'],
+    'no-multiple-empty-lines': "off",
+    'no-restricted-syntax': "off",
+    'padded-blocks': "off",
     'import/extensions': ['error', {
       js: 'always',
     }],
