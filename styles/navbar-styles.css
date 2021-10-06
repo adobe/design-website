@@ -1,8 +1,9 @@
 /* Beginning of navbar styling */
 .tagline {
     display:flex;
+    align-items: center;
     width:100%;
-    padding:40px;
+    padding-top:40px;
     font-family: 'Roboto', sans-serif;
     color: #FFFFFF;
 }
@@ -15,20 +16,24 @@
 }
 
 .tagline.block > div:nth-child(3) {
-    margin-right: 1em;
-    margin-left: 4em;
+    padding-right: 1em;
+    box-sizing: border-box;
+    margin-left: auto;
 }
 
 .tagline.block > div:nth-child(4) {
-    margin-right: 1em;
+    padding-right: 1em;
+    box-sizing: border-box;
 }
 
 .tagline.block > div:nth-child(5) {
-    margin-right: 1em;
+    padding-right: 1em;
+    box-sizing: border-box;
 }
 
 .tagline.block > div:nth-child(6) {
-    margin-right: 1em;
+    padding-right: 1em;
+    box-sizing: border-box;
 }
 @media only screen and (max-width: 1024px) and (min-width: 767px) {
     .tagline {
