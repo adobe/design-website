@@ -1,7 +1,7 @@
 import { processDivisions } from "../../scripts/helpers.js";
-import { fetchJobIndex } from "../../scripts/queries.js";
+// import { fetchJobIndex } from "../../scripts/queries.js";
 
-var jobIndex = null;
+// var jobIndex = null;
 
 /**
  * 
