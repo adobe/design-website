@@ -86,7 +86,6 @@ body > main > div{
     padding: 1em;
 }
 
-<<<<<<< HEAD
 
 /* ALL THE IMG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
@@ -99,8 +98,6 @@ body > main > div > div > p:nth-child(12){
 
 
 
-=======
->>>>>>> fd8b706986d0d5f4ad254eb35699b8d3dc4685b2
 @media (min-width:1024px) and (max-width:1440px){
 
 }
@@ -144,9 +141,10 @@ body > main > div > div > p:nth-child(12){
     .page-type-article h2{
         padding: 1em;
     }
-    .page-type-article p{
+    .page-type-article p:not(.article-picture) {
         font-size: 1.5em;
         padding:  0 1em;
+        text-align: left;
     }
 }
 @media (min-width:320px) and (max-width:375px){
@@ -162,9 +160,10 @@ body > main > div > div > p:nth-child(12){
         font-size: 2em;
         padding: 0 1em;
     }
-    .page-type-article p{
-        font-size: 1.2em;
+    .page-type-article p:not(.article-picture) {
+        font-size: 1.5em;
         padding:  0 1em;
+        text-align: left;
     }
     main > div{
         margin: 0;
@@ -185,5 +184,6 @@ body > main > div > div > p:nth-child(12){
     .chapter-heading{
         position: static;
     }
+    
 }
 
