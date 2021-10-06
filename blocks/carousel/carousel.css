@@ -1,12 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
-.carousel {
-    overflow: hidden;
-    position: relative;
-    margin: 5em 0 15em 0;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.carousel .carousel__item,
+.carousel {
+    width: 60%;
+    margin: auto;
+    border: 5px solid pink;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 800px;
+}
+
+.next {
+    transition: transform 0.4s ease-in-out;
+}
+
+.transitionForward {
+    transform: translateX(' + (-size * counter) + 'px);
+}
+
+/* .carousel .carousel__item,
 .carousel .carousel__item--hidden {
     display: none;
 }
@@ -27,27 +46,27 @@
 .carousel .carousel__item--visible {
     display: flex;
     animation: fadeVisibility 0.5s;
-}
+} */
 
 /* tag-line styles */
-.carousel .carousel__item--visible p:first-child {
+/* .carousel .carousel__item--visible p:first-child {
     color: #D8D8D8;
     border-bottom: solid 4px#D8D8D8;
     display: inline;
     font-family: 'Roboto', sans-serif;
-}
+} */
 
 /* title styles */
-.carousel .carousel__item--visible h2 {
+/* .carousel .carousel__item--visible h2 {
     color: #F0E8DD;
     font-size: clamp(2rem, 6vw, 8rem);
     width: 25vw;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 40px;
-}
+} */
 
 /* person styles */
-.carousel .carousel__item--visible p:last-child {
+/* .carousel .carousel__item--visible p:last-child {
     font-family: 'Roboto', sans-serif;
     color: #F0E8DD;
 }
@@ -118,24 +137,24 @@
 
     .carousel .carousel__item--visible p:first-child {
         font-size: clamp(.5rem, 2.5vw, .75rem);
-    }
+    } */
 
         /* title styles */
-    .carousel .carousel__item--visible h2 {
+    /* .carousel .carousel__item--visible h2 {
         font-size: clamp(1.5rem, 6vw, 3rem);
-    }
+    } */
 
     /* person styles */
-    .carousel .carousel__item--visible p:last-child {
+    /* .carousel .carousel__item--visible p:last-child {
         font-size: clamp(.5rem, 2.5vw, 1rem);
         width: 35vw;
-    }
+    } */
 
-    .carousel .carousel__actions {
+    /* .carousel .carousel__actions {
         top: 30%;
-    }
+    } */
 
-}
+/* }
 
 @media only screen and (min-width: 321px) and (max-width: 424px){
     .carousel {
@@ -157,4 +176,4 @@
         height: unset;
     }
     
-}
+} */
