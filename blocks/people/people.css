@@ -39,7 +39,7 @@
 }
 
 .name {
-    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-size: 1.8rem;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     padding: 20px 0 30px 20px;
@@ -59,7 +59,7 @@
 @media only screen and (min-width: 768px) and (max-width: 1024px){
 
     .name {
-        font-size: clamp(1rem, 4vw, 1.5rem);
+        font-size: 1.3rem;
         padding: 20px 0 5px 20px;
     }
 
@@ -82,7 +82,7 @@
     }
     .name {
         text-align: center;
-        font-size: 3em;
+        font-size: 2em;
         position: relative;
         top: -150px;
     }

@@ -36,6 +36,7 @@
 .article-card.block .text p.article-title {
     margin-top: 2em;
     font-size: 3.5em;
+
 }
 .article-card.block .text p.article-title a {
     text-decoration: none;
@@ -45,11 +46,15 @@
     font-size: 2em;
     margin-bottom:0.5em;
     font-weight: normal;
+    max-width: 70%;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
 }
 .article-card.block .text .byline:not(.article-title) {
     position: absolute;
     padding-top: 40em;
     align-self: flex-start;
+    max-width: 80vw;
 }
 
 
@@ -74,12 +79,12 @@
     }
 
     .article-card.block .text .byline:not(.article-title) {
-        padding-top: 30rem;
+        padding-top: 32rem;
     }
 
     .article-card.block .text p.article-title {
         font-size: 3rem;
-        margin: 3em 0 .25em 0;
+        margin: 2em 0 .25em 0;
     }
 
 }
@@ -121,3 +126,11 @@
     }
 
 }
+
+
+.article-title{
+    max-width: 70%;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+

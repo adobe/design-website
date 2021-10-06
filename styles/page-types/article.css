@@ -12,6 +12,9 @@
     text-align: center;
     background: whitesmoke;
 }
+body > main > div{
+    padding-bottom: 1em;
+}
 
 .page-type-article h1{
     font-size: 3em;
@@ -23,7 +26,7 @@
     padding: 0 3em;
 
 }
-.page-type-article p{
+.page-type-article p:not(.article-picture) {
     font-size: 1.5em;
     padding:  0 1em;
     text-align: left;
@@ -66,6 +69,20 @@
     padding: 0;
 }
 .additional-reading.block{
+    font-size: 1.2em;
+}
+.additional-reading.block li{
+    padding-bottom: 1em;
+}
+
+.page-type-article li{
+    font-size: 1.2em;
+    padding: 1em;
+}
+
+
+
+.additional-reading.block{
     padding: 1em;
 }
 
@@ -75,63 +92,7 @@
 body > main > div > div > p:nth-child(12){
     padding: 0;
 }
-body > main > div > div > p:nth-child(17){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(22){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(26){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(35){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(43){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(47){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(51){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(57){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(58){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(65){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(66){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(73){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(74){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(81){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(82){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(93){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(99){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(105){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(111){
-    padding: 0;
-}
+
 
 
 
@@ -152,7 +113,7 @@ body > main > div > div > p:nth-child(111){
     }
 }
 @media (min-width:425px) and (max-width:768px){
-
+    .page
     .chapters.block{
         display: flex;
         flex-direction: column;
@@ -180,9 +141,10 @@ body > main > div > div > p:nth-child(111){
     .page-type-article h2{
         padding: 1em;
     }
-    .page-type-article p{
+    .page-type-article p:not(.article-picture) {
         font-size: 1.5em;
         padding:  0 1em;
+        text-align: left;
     }
 }
 @media (min-width:320px) and (max-width:375px){
@@ -198,9 +160,10 @@ body > main > div > div > p:nth-child(111){
         font-size: 2em;
         padding: 0 1em;
     }
-    .page-type-article p{
-        font-size: 1.2em;
+    .page-type-article p:not(.article-picture) {
+        font-size: 1.5em;
         padding:  0 1em;
+        text-align: left;
     }
     main > div{
         margin: 0;
@@ -208,18 +171,10 @@ body > main > div > div > p:nth-child(111){
     body > main > div{
         margin: 0;
     }
-    .header.block img{
-        position: relative;
-        top: 4em;
-        width: 80%;
-    }
-    .header.block h1{
-        position: relative;
-        bottom: 6em;
-    }
+    
     .lede.block{
         font-size: 1.5em;       
-        padding-top: 10em;
+
     }
     .chapters.block{
         display: flex;
@@ -229,4 +184,6 @@ body > main > div > div > p:nth-child(111){
     .chapter-heading{
         position: static;
     }
+    
 }
+
