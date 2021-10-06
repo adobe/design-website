@@ -1,6 +1,13 @@
 version: 1
 
-# indices:
-#   jobs:
-#     include:
-#       - '/jobs/**'
+indices:
+  jobs:
+    source: html
+    fetch: https://{ref}--{repo}--{owner}.hlx.live{path}    
+    include:
+      - '/jobs/**'
+    properties:
+      title:
+        select: head > meta[name="title"]
+        value: |
+          attribute(el, 'content')

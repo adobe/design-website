@@ -138,9 +138,9 @@ export function extractProperties($block, $propBlock) {
 }
 
 function arrayToDefinitions( arr ) {
-    var def = {};
-    for(let i = 0; i < arr.length; i++) {
-        var name = arr[i];
+    const def = {};
+    for (let i = 0; i < arr.length; i++) {
+        const name = arr[i];
         def[name] = `:nth-child(${i + 1})`;
     }
     return def;
