@@ -39,6 +39,7 @@ html, body{
         width: auto;
         margin: 1em;
         overflow-x: hidden;
+        margin-right: 2em;
     }
     main > div > div > div:not(.full-bleed) {
         width: auto;
