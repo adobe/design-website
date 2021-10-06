@@ -1,297 +1,232 @@
-body.page-type-article {
-    text-align: justify;
-    font-family: Arial, sans-serif;
+
+.page-type-article{
     background: rgb(224,194,208);
-    background: linear-gradient(0deg, rgba(224,194,208,1) 50%, rgba(255,111,22,1) 70%, rgba(255,80,42,1) 100%);
-}
-body.page-type-article > main > div{
-    background: whitesmoke;
-    margin: 1em;
-    width: auto;
-    line-height: 2em;
-    /* background: whitesmoke; */
-}
-.header.block > div{
-    display: grid;
-    grid-template-rows: auto auto ;
-    background: #FF502A;
-
+    background: linear-gradient(0deg, rgba(224,194,208,1) 50%, rgba(255,111,22,1) 90%, rgba(255,80,42,1) 100%);
 }
 
-.header.block > div > div:nth-child(1){
-    position: relative;
-    width: 100%;
+.page-type-article main{
+    width: 98vw;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
     text-align: center;
-    
+    background: whitesmoke;
 }
-.header.block img{
-    position: relative;
-    top: 5em;
+
+.page-type-article h1{
+    font-size: 3em;
+    padding: 0 3em;;
+}
+.page-type-article h2{
+    font-size: 2.5em;
+    margin: 0;
+    padding: 0 3em;
+
+}
+.page-type-article p{
+    font-size: 1.5em;
+    padding:  0 1em;
+    text-align: left;
+}
+.page-type-article img{
     width: 100%;
 }
-@media only screen and (min-width: 375px) and (max-width: 425px){
-    .header.block > div > div:nth-child(1){
-        position: absolute;
-        top: 17em;
-        left: 1.3em;
-        width: 90%;
-        text-align: center;
-        
-    }
-    .header.block img{
-        width: 100%;
-    }
-}
-.header.block > div > div:nth-child(1){
-    grid-row-start: 2;
-    
-}
-#whiteboard-101-seize-the-marker{
-    margin-left: .4em;
-    text-align: left;
-    padding-top: 3em;
-    padding-bottom: 10em;
-    grid-row-start: 1;
-    grid-column-start: 1;
-    color: whitesmoke;
+
+.header.block{
+    width: 100%;
 }
 .lede.block{
-    text-align: justify;
-    padding: 0 1em;
-    padding-top: 6em;
-    margin-top: 6em;
+    font-size: 2em;
+    width: auto;
+    padding: 2em;
+    line-height: 1.5;
+    text-align: left;
 }
 .chapters.block{
-    padding: 0 1em;
-}
-.chapters.block > div:nth-child(1) > div.chapter-content > p:nth-child(1){
-    margin: 1.2em 0
-}
-.chapters.block img{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-top: 5em;
     width: 100%;
 }
-.additional-reading.block > div{
-    text-align: center;
-    padding: 2em 1em;
-    font-size: 1.5em;
+.chapter-heading{
+    position: relative;
+    right: 35em;
 }
-.additional-reading.block li{
+.chapters.block .chapter{
+    grid-column-start: 2;
+}
+.chapter-content{
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+.additional-reading.block li, a, ul{
     list-style: none;
-    padding-bottom: 1em;
+    text-decoration: none;
+    text-align: center;
+    padding: 0;
 }
-
-@media (min-width: 768px){
-.header.block > div > div:nth-child(1){
-        position: relative;
-        top: 10em;
-    }
-
-    body.page-type-article > main > div{
-        margin: 1em;
-        line-height: 1.5;
-    }
-    .header.block img{
-        width: 70%;
-    }
-    #whiteboard-101-seize-the-marker{
-        text-align: left;
-        width: 50%;
-        margin-left: 2.2em;
-        padding-bottom: 0;
-        font-size: 3em;
-        color: whitesmoke;
-    }  
-    .lede.block{
-        font-size: 2em;
-        text-align: left;
-        padding: 3em 2em;
-        margin-top: 7em;
-    }
-    .chapters.block{
-        font-size: 1.5em;
-    }
-    @media only screen and (min-width: 768px) and (max-width: 1024px){
-
-    body > main > div > div > div.header.block > div > div:nth-child(1){
-        position: relative;
-        top: 10em;
-    }
-
-    body.page-type-article > main > div{
-        margin: 1em;
-        line-height: 1.5;
-    }
-    .header.block img{
-        width: 70%;
-    }
-    #whiteboard-101-seize-the-marker{
-        text-align: left;
-        width: 50%;
-        margin-left: 2.5em;
-        font-size: 3.5em;
-        color: whitesmoke;
-    }  
-    .lede.block{
-        font-size: 2em;
-        text-align: left;
-        padding: 3em 2em;
-        margin-top: 5em;
-    }
-    .chapters.block .chapter{
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: auto;
-        margin: 0 3em;
-    }
-    .chapters.block .chapter-heading{
-        text-align: right;
-        padding-right: 1.5em;
-        font-size: 1.5em;
-    }
-    .chapters.block h2{
-        margin: 0;
-    }
-    .chapters.block p{
-        margin: 0;
-        font-size: 1.2em;
-        text-align: left;
-    }
-    .additional-reading.block{
-        font-size: 1.5em;;
-        margin: 2em 3em;
-    }
-}
-
-@media (min-width: 1440px) {
-
-    body.page-type-article > main > div{
-        background: none;
-
-    }
-    body > main > div > div > div.header.block > div > div:nth-child(1){
-        top: 20em;
-    }
-    .header.block img{
-        width: 90%;
-    }
-    #whiteboard-101-seize-the-marker{
-        width: auto;
-        text-align: center;
-        font-size: 4em;
-        margin: 0;
-
-    }
-    .lede.block{
-        padding: 0;
-        padding-top: 5em;
-        background: whitesmoke;
-        width: auto;
-    }
-    .lede.block > div > div{
+.additional-reading.block{
     padding: 1em;
-    }
-    .chapters.block{
-
-
-    }
-    .chapters.block .chapter{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        background: whitesmoke;
-        margin: 0;
-    }
-
-    .chapters.block .chapter-heading{
-        text-align: center;
-        padding: 0;
-        margin: 0;
-        margin-top: 1.5em;
-
-    }
-    .chapters.block .chapter-content{
-        padding: 1em;
-        font-size: 1em;
-    }
 }
-@media (min-width: 1920px) and (max-width: 2500px) {
-    /* HEADER IMAGE */
-    .header.block > div > div:nth-child(1){
-        position: relative;
-        top: 15em;
-    }
 
-    body.page-type-article > main > div{
-        margin: 1em;
-        line-height: 1.5;
-    }
-    .header.block img{
-        width: 50%;
-}
- #whiteboard-101-seize-the-marker{
-        text-align: left;
-        width: 40%;
-        margin-left: 5.8em;
-        font-size: 5em;
-        color: whitesmoke;
-}
-    .lede.block{
-        font-size: 3em;
-        text-align: left;
-        padding: 5em 4em 5em 4em;
-        margin-top: 5em;
-    }
-}
-@media (min-width: 2560px){
 
-    body.page-type-article > main > div{
-        background: none;
+/* ALL THE IMG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
-    }
-    body > main > div > div > div.header.block > div > div:nth-child(1){
-        top: 20em;
-    }
-    .header.block img{
+body > main > div > div > p:nth-child(12){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(17){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(22){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(26){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(35){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(43){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(47){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(51){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(57){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(58){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(65){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(66){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(73){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(74){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(81){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(82){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(93){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(99){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(105){
+    padding: 0;
+}
+body > main > div > div > p:nth-child(111){
+    padding: 0;
+}
+
+
+
+
+
+@media (min-width:1024px) and (max-width:1440px){
+
+}
+@media (min-width:768px) and (max-width:1024px){
+    .page-type-article main{
         width: 90%;
     }
-    #whiteboard-101-seize-the-marker{
-        width: auto;
-        text-align: center;
-        font-size: 4em;
-        margin: 0;
-
+    .chapter-heading{
+        right: 30em;
     }
-    .lede.block{
-        padding: 0;
-        padding-top: 5em;
-        background: whitesmoke;
-        width: auto;
-
+    .page-type-article h2{
+        padding: 0 1em;
     }
+}
+@media (min-width:425px) and (max-width:768px){
+
     .chapters.block{
-
-
-    }
-    .chapters.block .chapter{
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        background: whitesmoke;
-        margin: 0;
     }
-
-    .chapters.block .chapter-heading{
-        text-align: center;
+    .chapter-heading{
+        position: static;
+    }
+}
+@media (min-width: 375px) and (max-width: 425px){
+    .lede.block{
+        padding: 1em;
+    }
+    .chapters.block{
         padding: 0;
+    }
+    .chapter-heading{
+        font-size: .9em;
+    }
+    .page-type-article main{
+        width: 90%;
+    }
+    .page-type-article h1{
+        padding: 1em;
+    }
+    .page-type-article h2{
+        padding: 1em;
+    }
+    .page-type-article p{
+        font-size: 1.5em;
+        padding:  0 1em;
+    }
+}
+@media (min-width:320px) and (max-width:375px){
+    .page-type-article main{
+        width: 90%;
+    }
+    
+    .page-type-article h1{
+        font-size: 2em;
+        padding: 0 1em;;
+    }
+    .page-type-article h2{
+        font-size: 2em;
+        padding: 0 1em;
+    }
+    .page-type-article p{
+        font-size: 1.2em;
+        padding:  0 1em;
+    }
+    main > div{
         margin: 0;
-        margin-top: 1.5em;
-
     }
-    .chapters.block .chapter-content{
-
-        font-size: 1em;
+    body > main > div{
+        margin: 0;
     }
-
+    .header.block img{
+        position: relative;
+        top: 4em;
+        width: 80%;
+    }
+    .header.block h1{
+        position: relative;
+        bottom: 6em;
+    }
+    .lede.block{
+        font-size: 1.5em;       
+        padding-top: 10em;
+    }
+    .chapters.block{
+        display: flex;
+        flex-direction: column;
+        padding-top: 5em;
+    }
+    .chapter-heading{
+        position: static;
+    }
 }
