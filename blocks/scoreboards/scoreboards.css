@@ -26,11 +26,11 @@
     color: #0B1C40;
 }
 .scoreboards .number {
-    font-size: 250px;
+    font-size: 12em;
 }
 .scoreboards .caption{
-    font-size: 25px;
-    width: 500px;
+    font-size: 1.1em;
+    width: 80%;
 }
 .scoreboards .tag{
     font-size: 20px;

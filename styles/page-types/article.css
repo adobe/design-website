@@ -23,7 +23,7 @@
     padding: 0 3em;
 
 }
-.page-type-article p{
+.page-type-article p:not(.article-picture) {
     font-size: 1.5em;
     padding:  0 1em;
     text-align: left;
@@ -68,74 +68,6 @@
 .additional-reading.block{
     padding: 1em;
 }
-
-
-/* ALL THE IMG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-
-body > main > div > div > p:nth-child(12){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(17){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(22){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(26){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(35){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(43){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(47){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(51){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(57){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(58){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(65){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(66){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(73){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(74){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(81){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(82){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(93){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(99){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(105){
-    padding: 0;
-}
-body > main > div > div > p:nth-child(111){
-    padding: 0;
-}
-
-
-
-
 
 @media (min-width:1024px) and (max-width:1440px){
 
