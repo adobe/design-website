@@ -41,7 +41,7 @@ html, body{
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px){
-    main > div{
+    .page-home main > div{
         width: auto;
         margin: 1em;
         overflow-x: hidden;
@@ -55,14 +55,14 @@ html, body{
     }
 }
 @media only screen and (min-width: 425px) and (max-width: 768px){
-    main > div{
+    .page-home main > div{
         width: auto;
         margin: 1em;
         overflow-x: hidden;
     }
 }
 @media only screen and (min-width: 375px) and (max-width: 425px){
-    main > div{
+    .page-home main > div{
         width: auto;
         margin: 1em;
         overflow-x: hidden;
@@ -76,7 +76,7 @@ html, body{
     }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px){
-    main > div{
+    .page-home main > div{
         width: auto;
         margin: 1em;
         overflow-x: hidden;
