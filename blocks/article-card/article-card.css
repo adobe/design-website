@@ -50,6 +50,7 @@
     position: absolute;
     padding-top: 40em;
     align-self: flex-start;
+    max-width: 80vw;
 }
 
 
@@ -74,12 +75,12 @@
     }
 
     .article-card.block .text .byline:not(.article-title) {
-        padding-top: 30rem;
+        padding-top: 32rem;
     }
 
     .article-card.block .text p.article-title {
         font-size: 3rem;
-        margin: 3em 0 .25em 0;
+        margin: 2em 0 .25em 0;
     }
 
 }
