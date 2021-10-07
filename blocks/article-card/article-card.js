@@ -1,4 +1,4 @@
-import { convertToBackground, decorateLink, decorateTagLink, processDivisions, createDiv } from "../../scripts/helpers.js";
+import { convertToBackground, decorateLink, decorateTagLink, processDivisions, createDiv, wrapWithElement } from "../../scripts/helpers.js";
 
 /**
  *
@@ -9,12 +9,15 @@ export default function decorate($block) {
     const result = processDivisions($block, {
         image:      $div => $div.querySelector("picture"),
     });
+    const props = result.properties;
 
-    const $text = createDiv("text");
-    const $tag = decorateTagLink( document.createElement("div"), { color: "black" } );
-    const $hed = createDiv("hed");
-    const $dek = createDiv("dek");
-    const $byline = createDiv("byline");
+    const $text = createDiv({ cls: "text" });
+    const $tag = decorateTagLink( createDiv({ content: props.tag }), { color: "black" } );
+    const $hed = createDiv({ cls: "hed", content: props.hed });
+    const $dek = createDiv({ cls: "dek", content: props.dek });
+    const $byline = createDiv({ cls: "byline", content: props.author });
+    // const link = wrapWithElement(document.createElement("a"), createDiv({ cls: "link-wrapper", content: "Hello" }));
+    // link.attributes.href = result.properties.link || null;    
 
     $text.append($tag, $hed, $dek, $byline);
     
@@ -33,19 +36,14 @@ export default function decorate($block) {
 
     convertToBackground(result.image.querySelector("img"), result.image);
 
-    /** #Tag Link Text  / p   */
-    decorateTagLink( result.text.querySelector("p:first-child"), { color: "black" } );
-
     /** Title Text /  article-title  / h2  */
 
     /** SubTitle / / h3  */
     /** @type {HTMLAnchorElement} */
-    const link = result.text.querySelector("a");
-    decorateLink(link);
-    link.parentElement.classList.add("article-title");
-    result.properties.link = link.href;
+
+    // decorateLink(link);
     
-    $block.prepend($text);
+    $block.querySelector(":scope > div").prepend($text);
 }
 
 
