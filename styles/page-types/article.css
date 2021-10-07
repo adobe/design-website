@@ -18,7 +18,7 @@ body > main > div{
     font-size:16px;
 }
 .page-type-article .content{
-    padding: 5em;
+    padding: 0 5em 5em 5em;
 }
 .page-type-article p {
     text-align:left;
@@ -27,12 +27,10 @@ body > main > div{
 }
 .page-type-article h1{
     font-size: 3em;
-    padding: 0 3em;
 }
 
 .page-type-article .content{
     background: white;
-    padding-top: 10em
     
 }
 
@@ -46,21 +44,30 @@ body > main > div{
 }
 
 .page-type-article .header.block h1{
-    position: relative;
-    right: 2.3em;
     text-align: left;
+    margin: unset;
+    font-weight: 500;
 }
 .page-type-article .header.block h2{
-    position: relative;
-    right: 2em;
     text-align: left;
 }
 
 .page-type-article h2{
-    font-size: 2.5em;
+    font-size: 2em;
     margin: 0;
-    padding: 0 3em;
+    font-weight: 500;
 
+}
+body > main > div > div:nth-child(1) > div.header.block > div{
+    width: 60%;
+    padding-left: 5em;
+    height: 50%;
+}
+body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2){
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .page-type-article main > div > div > p:not(.article-picture) {
     font-size: 1.5em;
@@ -71,16 +78,24 @@ body > main > div{
 .page-type-article img{
     width: 100%;
 }
+ div.content > picture > img{
+     position: relative;
+     bottom: 15em
+ }
 
 .page-type-article .header img{
     width: 90%;
     position:relative;
-    top: 10em;
+    top: 20em;
 }
 
 .header.block{
     width: 100%;
     color: whitesmoke;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
 }
 .lede.block{
