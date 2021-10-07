@@ -10,3 +10,12 @@ indices:
         select: head > meta[name="title"]
         value: |
           attribute(el, 'content')
+  stories:
+    include:
+      - '/stories/**'
+    target: https://adobe.sharepoint.com/sites/Adobe.design/Shared%20Documents/website/query-index.xlsx
+    properties:
+      title:
+        select: head > meta[name="title"]
+        value: |
+          attribute(el, 'content')
