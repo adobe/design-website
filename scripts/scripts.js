@@ -14,6 +14,7 @@ import { setPageLoading, pageDoneLoading } from "./page-loader.js";
 setPageLoading();
 
 import decorateHeader from "./global-header.js";
+import decorateFooter from "./global-footer.js";
 import decorateArticle from "./pages/article.js";
 import { addPageTypeDecorator, runPageTypeDecorators } from "./page-type-decorator.js";
 
@@ -370,7 +371,7 @@ async function decoratePage(win = window) {
         pageDoneLoading();
       });
     }
-    
+    decorateFooter();
   } catch (err) {
     console.error(err);
     pageDoneLoading();
