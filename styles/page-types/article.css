@@ -17,6 +17,9 @@ body > main > div{
 .page-type-article  {
     font-size:16px;
 }
+.page-type-article .content{
+    padding: 5em;
+}
 .page-type-article p {
     text-align:left;
     font-size:1em;
@@ -28,7 +31,7 @@ body > main > div{
 }
 
 .page-type-article .content{
-    background: whitesmoke;
+    background: white;
     padding-top: 10em
     
 }
@@ -40,6 +43,17 @@ body > main > div{
 
 .page-type-article .header >div > div:first-child{
     grid-row: 2;
+}
+
+.page-type-article .header.block h1{
+    position: relative;
+    right: 2.3em;
+    text-align: left;
+}
+.page-type-article .header.block h2{
+    position: relative;
+    right: 2em;
+    text-align: left;
 }
 
 .page-type-article h2{
@@ -66,6 +80,8 @@ body > main > div{
 
 .header.block{
     width: 100%;
+    color: whitesmoke;
+
 }
 .lede.block{
     font-size: 2em;
@@ -92,10 +108,8 @@ body > main > div{
     font-size: 1.2em;
     padding: 1em;
 }
-
-
-
 .additional-reading.block{
+    width: 100%;
     padding: 1em;
 }
 
@@ -142,6 +156,38 @@ body > main > div > div > p:nth-child(12){
     }
 }
 @media (min-width:320px) and (max-width:375px){
+    #global-header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    body > main > div > div:nth-child(1) > div.header.block > div{
+        overflow-y: hidden;
+        justify-items: center;
+    }
+    .header.block h1{
+        color: whitesmoke;
+        font-size: 2em;
+
+    }
+    .page-type-article .header.block h1{
+        right: 1.2em;
+        font-size: 1.5em;
+        width: 100%;
+    }
+    .page-type-article .header.block h2{
+        right: 3em;
+        font-size: 1.5em;
+        width: 100%;
+    }
+    .header.block > div > div{
+        width: 80%;
+    }
+    .header.block img{
+        width: 100%;
+        top: 1em;
+    }
     .page-type-article main{
         width: 90%;
     }
@@ -167,7 +213,10 @@ body > main > div > div > p:nth-child(12){
     
     .lede.block{
         font-size: 1.5em;       
-
     }   
+    .chapters.block{
+        display: flex;
+        flex-direction: column;
+    }
 }
 
