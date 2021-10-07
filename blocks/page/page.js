@@ -60,6 +60,23 @@ export default function decorate($block) {
           }
         });
       }
+
+
+
+      /**/
+    function moveHeaderContent(){
+        var page = document.querySelector(".block.page");
+        var header = document.querySelector(".block.header");
+        var section = document.querySelector(".section-wrapper");
+        var container = document.querySelector(".section-wrapper div:first-child");
+        let newDiv = document.createElement("div")
+        section.insertBefore(newDiv, container)
+
+        container.classList.add("content")
+        newDiv.appendChild(page)
+        newDiv.appendChild(header)
+    }
       
       decorateArticle();
+      moveHeaderContent();
 }
