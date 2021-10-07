@@ -1,7 +1,7 @@
 /**
- * 
- * @param {HTMLImageElement} $image 
- * @param {HTMLElement} $target 
+ *
+ * @param {HTMLImageElement} $image
+ * @param {HTMLElement} $target
  */
 export function convertToBackground($image, $target) {
     $target.style.backgroundImage = `url('${$image.src}')`;
@@ -9,8 +9,8 @@ export function convertToBackground($image, $target) {
 }
 
 /**
- * 
- * @param {HTMLAnchorElement} $el 
+ *
+ * @param {HTMLAnchorElement} $el
  */
 export function decorateLink($el) {
     $el.parentElement.classList.add("link-wrapper");
@@ -47,7 +47,7 @@ export function matchDivision($block, _divs, matcherSeed, options) {
     // Devs can provide one part of a matcher, or a whole matcher
     // We resolve it to a normal matcher
     const matcher = {};
-    if (typeof matcherSeed === "string") {   
+    if (typeof matcherSeed === "string") {
         matcher.selector = matcherSeed;
     } else if (typeof matcherSeed === "function") {
         matcher.test = matcherSeed;
@@ -83,7 +83,7 @@ export function matchDivision($block, _divs, matcherSeed, options) {
 
 /**
  * Returns a Javascript/CSS safe property name
- * @param {string} str 
+ * @param {string} str
  * @returns {string}
  */
 export function normalizePropertyName(str) {
@@ -95,9 +95,9 @@ export function normalizePropertyValue(str) {
 }
 
 /**
- * 
- * @param {object} props 
- * @param {HTMLElement} $propElement  
+ *
+ * @param {object} props
+ * @param {HTMLElement} $propElement
  */
 export function applyProperty(props, $propElement) {
     const str = $propElement.textContent;
@@ -172,7 +172,7 @@ export function processDivisions($block, definitions, options) {
         options = {
             level: "block",
         };
-    }    
+    }
     if (definitions instanceof Array) {
         definitions = arrayToDefinitions(definitions);
     }
@@ -191,20 +191,20 @@ export function processDivisions($block, definitions, options) {
         const v1 = definitions[n1] ? 0 : 1;
         const v2 = definitions[n2] ? 0 : 1;
         return v1 - v2;
-    }); 
+    });
 
     const $divs = [];
     if (options.level === "block") {
         $block.querySelectorAll(":scope > div > div").forEach((div) => {
             $divs.push(div);
-        });        
+        });
         results.blockContent = $block.querySelector(":scope > div");
         results.blockContent.classList.add("block-content");
     } else if (options.level === "child") {
         $block.querySelectorAll(":scope > div").forEach((div) => {
             $divs.push(div);
         });
-    } else { 
+    } else {
         throw new Error(`Unrecognized level: "${options.level}"`);
     }
 
@@ -232,8 +232,20 @@ export function createDiv({ cls, content }) {
     if (content) {
         $div.innerText = content;
     }
-    
+
     return $div;
+}
+
+export function createSpan({ cls, content }) {
+    const $span = document.createElement("span");
+    if (cls) {
+        $span.classList.add(cls);
+    }
+    if (content) {
+        $span.innerText = content;
+    }
+
+    return $span;
 }
 
 export function wrapWithElement($target, $wrap) {

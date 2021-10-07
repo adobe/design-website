@@ -1,4 +1,12 @@
-import { convertToBackground, decorateLink, decorateTagLink, processDivisions, createDiv, wrapWithElement } from "../../scripts/helpers.js";
+import {
+    convertToBackground,
+    createDiv,
+    createSpan,
+    // decorateLink,
+    decorateTagLink,
+    processDivisions,
+    // wrapWithElement,
+} from "../../scripts/helpers.js";
 
 /**
  *
@@ -11,12 +19,37 @@ export default function decorate($block) {
         image:      $div => $div.querySelector("picture"),
     });
     const props = result.properties;
-    /** Text Consts: */
+
+    /**
+     *  Text Consts:
+     *
+     * $text   : Text half of the card
+     * $tag    : Hash Tag  / category
+     * $hed    : Header    / Title of Article
+     * $dek    : Subheader / summary
+     * $byline : Author | Author's Position
+     */
     const $text = createDiv({ cls: "text" });
-    const $tag = decorateTagLink( createDiv({ content: props.tag }), { color: "black" } );
+    const $tag = decorateTagLink( createDiv({ content: "#" + props.tag }), { color: "black" } );
     const $hed = createDiv({ cls: "hed", content: props.hed });
     const $dek = createDiv({ cls: "dek", content: props.dek });
-    const $byline = createDiv({ cls: "byline", content: props.author });
+    const $byline = createDiv({ cls: "byline" });
+
+    /** if props.author exists: */
+    if(!!props.author){
+        const $author = createSpan({ cls: "author", content: props.author });
+        if(!!props.position){
+            const $position = createSpan({ cls: "position", content: props.position });
+            const $pipe = createSpan({ cls: "pipe", content: "|" });
+            $byline.append($author, $pipe, $position);
+        } else {
+            $byline.append($author);
+        }
+    }
+
+    // const $byline = wrapWithElement( $author, $byline )
+
+
     // const link = wrapWithElement(document.createElement("a"), createDiv({ cls: "link-wrapper", content: "Hello" }));
     // link.attributes.href = result.properties.link || null;
 
@@ -31,6 +64,8 @@ export default function decorate($block) {
      * Remove image and place on proper side:
      */
     result.image.remove();
+
+    result.blockContent.prepend($text);
 
     if (!result.properties["image-side"] || result.properties["image-side"] === "left") {
         result.blockContent.prepend(result.image);
@@ -59,8 +94,6 @@ export default function decorate($block) {
     // $block.prepend($text);
 
     // decorateLink(link);
-
-    $block.querySelector(":scope > div").prepend($text);
 }
 
 
