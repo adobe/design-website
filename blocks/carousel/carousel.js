@@ -1,4 +1,5 @@
 import { processDivisions } from "../../scripts/helpers.js";
+const SLIDE_TIME = 7000;
 
 const carouselProperties = {
   slides: [],
@@ -120,7 +121,7 @@ export default function decorate($block) {
 
     let autoInterval = setInterval(() => {
       moveToNextSlide();
-    }, 7000);
+    }, SLIDE_TIME);
 
     next[0].addEventListener("click", function() {
       stopAutoMode();
