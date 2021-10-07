@@ -5,11 +5,13 @@ import { convertToBackground, decorateLink, decorateTagLink, processDivisions, c
  * @param {HTMLElement} $block
  */
 export default function decorate($block) {
+
     // Get the properties and identify the blocks
     const result = processDivisions($block, {
         image:      $div => $div.querySelector("picture"),
     });
 
+    /** Text Consts: */
     const $text = createDiv("text");
     const $tag = decorateTagLink( document.createElement("div"), { color: "black" } );
     const $hed = createDiv("hed");
@@ -17,10 +19,15 @@ export default function decorate($block) {
     const $byline = createDiv("byline");
 
     $text.append($tag, $hed, $dek, $byline);
-    
+
     // Apply the properties to the block
     $block.style.backgroundColor = result.properties.background;
     $block.style.color = result.properties.textcolor;
+
+    /* ---------  - IMAGES - ---------  */
+    /**
+     * Remove image and place on proper side:
+     */
     result.image.remove();
 
     if (!result.properties["image-side"] || result.properties["image-side"] === "left") {
@@ -33,6 +40,8 @@ export default function decorate($block) {
 
     convertToBackground(result.image.querySelector("img"), result.image);
 
+    /* -----------  - TEXT - -----------  */
+
     /** #Tag Link Text  / p   */
     decorateTagLink( result.text.querySelector("p:first-child"), { color: "black" } );
 
@@ -44,7 +53,7 @@ export default function decorate($block) {
     decorateLink(link);
     link.parentElement.classList.add("article-title");
     result.properties.link = link.href;
-    
+
     $block.prepend($text);
 }
 
