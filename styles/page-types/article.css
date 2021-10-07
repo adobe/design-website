@@ -106,12 +106,17 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     text-align: left;
 }
 
-.additional-reading.block li, a, ul{
+.page-type-article .content ul{
     list-style: none;
-    text-decoration: none;
-    text-align: center;
-    padding: 0;
+    text-align: left;
 }
+.page-type-article .additional-reading.block a{
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+}
+
+
 .additional-reading.block{
     font-size: 1.2em;
 }
@@ -127,16 +132,6 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     width: 100%;
     padding: 1em;
 }
-
-
-/* ALL THE IMG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-
-body > main > div > div > p:nth-child(12){
-    padding: 0;
-}
-
-
-
 
 
 
@@ -234,4 +229,3 @@ body > main > div > div > p:nth-child(12){
         flex-direction: column;
     }
 }
-
