@@ -37,10 +37,12 @@
 
 /* #TAG LINK  */
 
-.article-card.block .text p.tag-link {
+.article-card.block .text .tag-link {
     font-size: 0.875rem;
     line-height: 1rem;
     margin:  0em 0em 0.5em 0em;
+    display:block;
+    margin-bottom:5em;
     /* color: #3E3E3E; */
     color: inherit;
     width: max-content;
@@ -93,11 +95,6 @@
     max-height: 3.25em;
 }
 .article-card.block .text .byline:not(.hed) {
-    margin-top: 4.5rem;
-    position: absolute;
-    padding-top: 40em;
-    align-self: flex-start;
-    font-size: 0.75rem;
 }
 
 
@@ -117,7 +114,7 @@
         flex-direction: column;
     }
 
-    .article-card.block .text p.tag-link {
+    .article-card.block .text .tag-link {
         font-size: 1rem;
     }
 
