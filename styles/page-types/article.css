@@ -11,9 +11,7 @@
     margin-right:auto;
     text-align: center;
 }
-body > main > div{
-    padding-bottom: 1em;
-}
+
 .page-type-article  {
     font-size:16px;
 }
@@ -21,11 +19,11 @@ body > main > div{
     padding-bottom: 5em;
 }
 .page-type-article .content > :not(.article-picture){
-    padding-left: 5em;
-    padding-right: 5em;
+    padding-left: 5rem;
+    padding-right: 5rem;
 }
 
-.page-type-article .chapters.block{
+.page-type-article .content .block{
     width: auto
 }
 
@@ -71,7 +69,7 @@ body > main > div{
     font-weight: 500;
 
 }
-.page-type-article > main > div > div:nth-child(1) > div.header.block > div{
+    .header.block > div{
     width: 60%;
     padding-left: 5em;
     height: 50%;
@@ -180,66 +178,92 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     }
 }
 @media (min-width:320px) and (max-width:375px){
+
+    /* header */
+    .page-type-article .header.block{
+        padding: 1em;
+    }
     #global-header{
+        justify-items: center;
+
+    }
+    #global-header > div:nth-child(1){
+        width: 50%;
+    }
+    /* header */
+
+    /* main */
+    .page-type-article .header.block > div{
+        padding: 0;
+        width: 100%;
+    }
+    body > main > div > div.content > picture > img{
+        bottom: 10em;
+    }
+    .page-type-article .header.block  h1{
+        padding: 0 0 1em 0;
+
+    }
+    .page-type-article .header h2{
+        padding: 0;
+        font-size: 1.2em;
+    }
+    .page-type-article .chapter-heading h2{
+        text-align: left;
+        font-weight: normal;
+    }
+    .page-type-article main > div > div > h2{
+        padding: 0;
+    }
+    .page-type-article h2{
+        text-align: left;
+        font-weight: normal;
+    }
+    .page-type-article .content{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 1em;
     }
+    .page-type-article .lede.block{
+        padding: 0;
+        font-size: 1.5em;
+    }
+    .page-type-article .chapters.block .chapter{
+    grid-template-columns: auto;
+    justify-items: center;
 
-    body > main > div > div:nth-child(1) > div.header.block > div{
-        overflow-y: hidden;
-        justify-items: center;
     }
-    .header.block h1{
-        color: whitesmoke;
-        font-size: 2em;
-
+    .page-type-article .chapter-heading{
+        text-align: start;
+        padding-bottom: 1em;
     }
-    .page-type-article .header.block h1{
-        right: 1.2em;
-        font-size: 1.5em;
-        width: 100%;
+    .page-type-article .additional-reading.block{
+        width: auto;
+        padding: 0;
     }
-    .page-type-article .header.block h2{
-        right: 3em;
-        font-size: 1.5em;
-        width: 100%;
+    .page-type-article p{
+        padding: 0;
     }
-    .header.block > div > div{
-        width: 80%;
+    .page-type-article main > div > div > p:not(.article-picture){
+        padding: 0;
     }
-    .header.block img{
-        width: 100%;
-        top: 1em;
+    .page-type-article ul{
+        padding: 0;
     }
-    .page-type-article main{
-        width: 90%;
+    .page-type-article li{
+        padding: 0 0 1em 0;
     }
-    .page-type-article main > div > div > h1{
-        font-size: 2em;
-        padding: 0 1em;;
-    }
-    .page-type-article main > div > div > h2{
-        font-size: 2em;
-        padding: 0 1em;
-    }
-    .page-type-article p:not(.article-picture) {
-        font-size: 1.5em;
-        padding:  0 1em;
+    .page-type-article .additional-reading.block li{
         text-align: left;
+        padding: 0 0 1em 0;
     }
-    main > div{
-        margin: 0;
+    .page-type-article .additional-reading.block a{
+        font-weight: 500;
+
     }
-    body > main > div{
-        margin: 0;
+    .page-type-article .content > :not(.article-picture){
+        padding: 0;
     }
-    
-    .lede.block{
-        font-size: 1.5em;       
-    }   
-    .chapters.block{
-        display: flex;
-        flex-direction: column;
-    }
+    /* main */
 }
