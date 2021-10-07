@@ -420,7 +420,10 @@ export function getLanguage() {
   return `/${loc}/blog`;
 }
 
-decoratePage(window);
+// First register the decorators
 addPageTypeDecorator("article", decorateArticle);
+
+// Second apply the decoration
+decoratePage(window);
 
 console.log("Scripts executed");
