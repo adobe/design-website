@@ -1,9 +1,14 @@
 /*
  *   Copyright (c) 2021 Busy Human LLC
  *   All rights reserved.
- *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
+ *   This file, its contents, concepts, methods, behavior, and operation
+ *   (collectively the "Software") are protected by trade secret, patent,
+ *   and copyright laws. The use of the Software is governed by a license
+ *   agreement. Disclosure of the Software to third parties, in any form,
+ *   in whole or in part, is expressly prohibited except as authorized by
+ *   the license agreement.
  */
- 
+
  .article-card.block{
     margin-bottom: 1em;
     height:60vh;
@@ -19,8 +24,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 2em;
-    padding-left: 2em;
+    padding: 1.6rem 3rem 3rem 3rem;
     box-sizing: border-box;
 }
 .article-card.block .image{
@@ -30,31 +34,58 @@
     background-repeat:no-repeat;
     background-position: center;
 }
-.article-card.block .text p.tag-link {
-    font-size: 1.2em;
-}
-.article-card.block .text p.article-title {
-    margin-top: 2em;
-    font-size: 3.5em;
 
+/* #TAG LINK  */
+
+.article-card.block .text p.tag-link {
+    font-size: 0.875rem;
+    line-height: 1rem;
+    margin:  0em 0em 0.5em 0em;
+    /* color: #3E3E3E; */
+    color: inherit;
+    width: max-content;
+    text-decoration: underline 3px solid inherit;
+    /* border-bottom: 3px solid; */
 }
+
 .article-card.block .text p.article-title a {
     text-decoration: none;
     color: inherit;
 }
-.article-card.block .text h2{
-    font-size: 2em;
-    margin-bottom:0.5em;
-    font-weight: normal;
-    max-width: 70%;
+
+.article-card.block .text h2,
+.article-card.block .text p.article-title,
+.article-card.block .text .article-title{
     text-overflow: ellipsis;
     overflow-x: hidden;
+    font-size: 3.125rem;
+    line-height: 3.6rem;
+    line-height: 1.2em;
+    margin: 4.6rem 0em 0.5em 0em;
+    font-weight: extra-bold;
+    max-width: 100%;
+    text-overflow: ellipsis;
 }
-.article-card.block .text .byline:not(.article-title) {
-    position: absolute;
-    padding-top: 40em;
+
+.article-card.block .text h3:not(.article-title){
+    max-width: 70%;
+}
+
+.article-card.block .text h3{
+    font-size: 1.875rem;
+    line-height: 2rem;  /* 32px,  */
+    margin-top: 2rem;
+    margin-bottom:0.5em;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 3.25em;
+}
+
+.article-card.block .text .byline:not(.article-title){
+    margin-top: 4.5rem;
     align-self: flex-start;
-    max-width: 80vw;
+    font-size: 0.75rem;
 }
 
 
@@ -100,7 +131,7 @@
         display: flex;
         flex-direction: column;
     }
-    
+
 }
 @media only screen and (min-width: 321px) and (max-width: 375px){
 
@@ -112,7 +143,7 @@
     .article-card.block {
         font-size:16px;
         height: auto;
-    }   
+    }
     .article-card.block .block-content {
         flex-direction: column;
         display:flex;
@@ -126,11 +157,3 @@
     }
 
 }
-
-
-.article-title{
-    max-width: 70%;
-    text-overflow: ellipsis;
-    overflow-x: hidden;
-}
-

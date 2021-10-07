@@ -21,18 +21,26 @@ export default function decorate($block) {
     } else {
         result.blockContent.append(result.image);
     }
+
     result.text.classList.add("text");
     result.image.classList.add("image");
+
     convertToBackground(result.image.querySelector("img"), result.image);
 
+    /** #Tag Link Text  / p   */
+    decorateTagLink( result.text.querySelector("p:first-child"), { color: "black" } );
+
+    /** Title Text /  article-title  / h2  */
+
+    /** SubTitle / / h3  */
     /** @type {HTMLAnchorElement} */
     const link = result.text.querySelector("a");
     decorateLink(link);
     link.parentElement.classList.add("article-title");
-
     result.properties.link = link.href;
-    decorateTagLink( result.text.querySelector("p:first-child"), { color: "black" } );
-    $block.querySelector("p:last-child").classList.add("byline");
+
+    /**   byline     / p   */
+    $block.querySelector("p:nth-of-type(3)").classList.add("byline");
 }
 
 
