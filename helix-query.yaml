@@ -5,6 +5,8 @@ indices:
     include:
       - '/jobs/**'
       - '/stories/**'
+      - '/people/**'
+      - '/toolkit/**'
     target: https://adobe.sharepoint.com/sites/Adobe.design/Shared%20Documents/website/query-index.xlsx
     properties:
       title:
