@@ -42,6 +42,17 @@ body > main > div{
     grid-row: 2;
 }
 
+.page-type-article .header.block h1{
+    position: relative;
+    right: 2.3em;
+    text-align: left;
+}
+.page-type-article .header.block h2{
+    position: relative;
+    right: 2em;
+    text-align: left;
+}
+
 .page-type-article h2{
     font-size: 2.5em;
     margin: 0;
@@ -66,6 +77,8 @@ body > main > div{
 
 .header.block{
     width: 100%;
+    color: whitesmoke;
+
 }
 .lede.block{
     font-size: 2em;
@@ -142,6 +155,33 @@ body > main > div > div > p:nth-child(12){
     }
 }
 @media (min-width:320px) and (max-width:375px){
+    #global-header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    body > main > div > div:nth-child(1) > div.header.block > div{
+        overflow-y: hidden;
+        justify-items: center;
+    }
+    .header.block h1{
+        color: whitesmoke;
+        font-size: 2em;
+
+    }
+    .header.block h2{
+        color: whitesmoke;
+        font-size: 1.5em;
+        padding: 0;
+    }
+    .header.block > div > div{
+        width: 80%;
+    }
+    .header.block img{
+        width: 100%;
+        top: 1em;
+    }
     .page-type-article main{
         width: 90%;
     }
@@ -167,7 +207,10 @@ body > main > div > div > p:nth-child(12){
     
     .lede.block{
         font-size: 1.5em;       
-
     }   
+    .chapters.block{
+        display: flex;
+        flex-direction: column;
+    }
 }
 
