@@ -9,6 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+import decorateHeader from "./global-header.js";
 
 /**
  * Loads a CSS file.
@@ -342,6 +343,7 @@ function setLCPTrigger(doc, postLCP) {
 async function decoratePage(win = window) {
   const doc = win.document;
   const $main = doc.querySelector('main');
+  decorateHeader();
   if ($main) {
     decorateMain($main);
     doc.querySelector('body').classList.add('appear');

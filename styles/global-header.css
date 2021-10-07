@@ -1,0 +1,137 @@
+/* Beginning of global-header styling */
+#global-header {
+    display:flex;
+    align-items: center;
+    width:100%;
+    padding:20px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+}
+
+#global-header .tagline {
+    font-family: 'Roboto', sans-serif;
+    margin-left: 5em;
+    color: #FFFFFF;
+    width: 19vw;
+}
+
+#global-header nav {
+    padding-right: 1em;
+    box-sizing: border-box;
+    margin-left: auto;
+}
+
+#global-header nav a {
+    padding:10px;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 767px) {
+    #global-header .tagline {
+        padding: 0;
+    }
+    #global-header{
+        display: grid;
+        grid-template-rows: 5em;
+        grid-template-columns: 9em 25em auto auto auto auto;
+    }
+    #global-header .tagline{
+        grid-row-start: 1;
+        grid-column-start:2 ;
+        width: 100%;
+        margin-left: 10px;
+    }
+    #global-header nav{
+        grid-column-start: 3;
+        grid-row-start: 1;
+        position: static;
+
+    }
+    #global-header > .logo img {
+        max-width: 75%;
+    }
+}
+@media only screen and (max-width: 767px) {
+    #global-header{
+        display: flex;;
+        margin: 0;
+        padding: 0;
+    }
+    #global-header .tagline {
+        text-align: center;
+        width: 100vw;
+        margin: 0;
+        padding-right: 1em;
+    }
+    
+    #global-header nav {
+        position: static;
+        margin: 0;
+        padding-right: 1em;
+    }
+    
+    @media only screen and (max-width: 425px){
+        .tagline {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        width:100vw;
+        padding: 0;
+        text-align: center;
+    }
+    #global-header{
+        display: grid
+    }
+    #global-header .tagline {
+        text-align: center;
+        width: 20em;
+        margin: 0;
+        padding-top: 2em;
+    }
+    #global-header nav {
+        position: static;
+        margin: 0;
+        padding-top: 2em;
+    }    
+}
+@media only screen and (max-width: 375px) {
+    .tagline {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        width:100vw;
+        padding: 0;
+        text-align: center;
+    }
+
+    #global-header{
+        margin-right: 0;
+    }
+
+    
+    #global-header .tagline {
+        text-align: center;
+        width: 20em;
+        margin: 0;
+        padding-top: 2em;
+    }
+    
+    #global-header nav {
+        position: static;
+        margin: 0;
+        padding-top: 2em;
+    }
+}
+}
+/* End of navbar styling */
+
+
+@media (max-width:767px) {
+    #global-header .tagline {
+        display:none;
+    }
+    .carousel.block {
+        display:none;
+    }
+}
