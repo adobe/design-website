@@ -395,8 +395,21 @@ export function getLanguage() {
   return `/${loc}/blog`;
 }
 
+function decorateArticle() {
+  var paragraphs = document.querySelectorAll("body > main > div > div > p");
+  paragraphs.forEach(p => {
+    if( p.querySelector("picture") ) {
+      p.classList.add("article-picture");
+    }
+  });
+}
 
-
+window.resolvePageProperties ? window.resolvePageProperties((properties) => {
+  if(properties.type === "article") {
+    decorateArticle();
+  }
+}) : null;
 
 decoratePage(window);
+console.log("Scripts executed");
 

@@ -15,18 +15,25 @@
 body > main > div{
     padding-bottom: 1em;
 }
-
+.page-type-article  {
+    font-size:16px;
+}
+.page-type-article p {
+    text-align:left;
+    font-size:1em;
+    line-height:1.5em;
+}
 .page-type-article h1{
     font-size: 3em;
     padding: 0 3em;;
 }
-.page-type-article h2{
+.page-type-article main > div > div > h2 {
     font-size: 2.5em;
     margin: 0;
     padding: 0 3em;
 
 }
-.page-type-article p:not(.article-picture) {
+.page-type-article main > div > div > p:not(.article-picture) {
     font-size: 1.5em;
     padding:  0 1em;
     text-align: left;
@@ -45,23 +52,7 @@ body > main > div{
     line-height: 1.5;
     text-align: left;
 }
-.chapters.block{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding-top: 5em;
-    width: 100%;
-}
-.chapter-heading{
-    position: relative;
-    right: 35em;
-}
-.chapters.block .chapter{
-    grid-column-start: 2;
-}
-.chapter-content{
-    font-size: 1.2em;
-    line-height: 1.5;
-}
+
 .additional-reading.block li, a, ul{
     list-style: none;
     text-decoration: none;
@@ -105,32 +96,13 @@ body > main > div > div > p:nth-child(12){
     .page-type-article main{
         width: 90%;
     }
-    .chapter-heading{
-        right: 30em;
-    }
-    .page-type-article h2{
+    .page-type-article main > div > div > h2{
         padding: 0 1em;
-    }
-}
-@media (min-width:425px) and (max-width:768px){
-    .page
-    .chapters.block{
-        display: flex;
-        flex-direction: column;
-    }
-    .chapter-heading{
-        position: static;
     }
 }
 @media (min-width: 375px) and (max-width: 425px){
     .lede.block{
         padding: 1em;
-    }
-    .chapters.block{
-        padding: 0;
-    }
-    .chapter-heading{
-        font-size: .9em;
     }
     .page-type-article main{
         width: 90%;
@@ -138,10 +110,10 @@ body > main > div > div > p:nth-child(12){
     .page-type-article h1{
         padding: 1em;
     }
-    .page-type-article h2{
+    .page-type-article main > div > div > h2{
         padding: 1em;
     }
-    .page-type-article p:not(.article-picture) {
+    .page-type-article main > div > div > p:not(.article-picture) {
         font-size: 1.5em;
         padding:  0 1em;
         text-align: left;
@@ -151,12 +123,11 @@ body > main > div > div > p:nth-child(12){
     .page-type-article main{
         width: 90%;
     }
-    
-    .page-type-article h1{
+    .page-type-article main > div > div > h1{
         font-size: 2em;
         padding: 0 1em;;
     }
-    .page-type-article h2{
+    .page-type-article main > div > div > h2{
         font-size: 2em;
         padding: 0 1em;
     }
@@ -175,15 +146,6 @@ body > main > div > div > p:nth-child(12){
     .lede.block{
         font-size: 1.5em;       
 
-    }
-    .chapters.block{
-        display: flex;
-        flex-direction: column;
-        padding-top: 5em;
-    }
-    .chapter-heading{
-        position: static;
-    }
-    
+    }   
 }
 

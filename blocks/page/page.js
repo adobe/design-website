@@ -51,15 +51,4 @@ export default function decorate($block) {
         document.body.classList.add(pageTypeClass);
     }
     applyPathClassesToPage({ name: properties.name });
-    
-    function decorateArticle() {
-        var paragraphs = document.querySelectorAll("body > main > div > div > p");
-        paragraphs.forEach(p => {
-          if( p.querySelector("picture") ) {
-            p.classList.add("article-picture");
-          }
-        });
-      }
-      
-      decorateArticle();
 }

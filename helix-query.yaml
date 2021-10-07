@@ -2,10 +2,9 @@ version: 1
 
 indices:
   jobs:
-    source: html
-    fetch: https://{ref}--{repo}--{owner}.hlx.live{path}    
     include:
       - '/jobs/**'
+    target: https://adobe.sharepoint.com/sites/Adobe.design/Shared%20Documents/website/query-index.xlsx
     properties:
       title:
         select: head > meta[name="title"]
