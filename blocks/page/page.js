@@ -1,7 +1,6 @@
 import { processDivisions, normalizePropertyName } from "../../scripts/helpers.js";
 import { PagePropertiesController } from "../../scripts/page-properties.js";
 
-
 function applyPathClassesToPage({ name }) {
     const parts = location.pathname.split("/");
     for (let p = 0; p < parts.length - 1; p++) {
@@ -39,6 +38,9 @@ export default function decorate($block) {
         container.classList.add("content");
         newDiv.appendChild(page);
         newDiv.appendChild(header);
+
+        const picture = header.querySelector("picture");
+        container.prepend(picture);
     }
       
     moveHeaderContent();
