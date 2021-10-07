@@ -1,0 +1,47 @@
+version: 1
+
+indices:
+  allpages:
+    include:
+      - '/jobs/**'
+      - '/stories/**'
+      - '/people/**'
+      - '/toolkit/**'
+    target: https://adobe.sharepoint.com/sites/Adobe.design/Shared%20Documents/website/query-index.xlsx
+    properties:
+      title:
+        select: head > meta[name="title"]
+        value: |
+          attribute(el, 'content')
+      author:
+        select: head > meta[name="author"]
+        value: |
+          attribute(el, 'content')
+      date:
+        select: head > meta[name="publication-date"]
+        value: |
+          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
+      image:
+        select: head > meta[property="og:image"]
+        value: |
+          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
+      description:
+        select: head > meta[name="description"]
+        value: |
+          attribute(el, 'content')
+      category:
+        select: head > meta[name="category"]
+        value: |
+          attribute(el, 'content')
+      type:
+        select: head > meta[name="page-type"]
+        value: |
+          attribute(el, 'content')
+      tags:
+        select: head > meta[property="article:tag"]
+        values: |
+          attribute(el, 'content')
+      lastModified:
+        select: none
+        value: |
+          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
