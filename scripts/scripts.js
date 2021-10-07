@@ -9,9 +9,14 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-import {setPageLoading, pageDoneLoading} from "./page-loader.js";
+
+import { setPageLoading, pageDoneLoading } from "./page-loader.js";
 setPageLoading();
+
 import decorateHeader from "./global-header.js";
+import decorateFooter from "./global-footer.js";
+import decorateArticle from "./pages/article.js";
+import { addPageTypeDecorator, runPageTypeDecorators } from "./page-type-decorator.js";
 
 /**
  * See if there's a way to get the loader in first
@@ -355,6 +360,7 @@ async function decoratePage(win = window) {
     const $main = doc.querySelector('main');
     decorateHeader();
     if ($main) {
+      runPageTypeDecorators();
       decorateMain($main);
       doc.querySelector('body').classList.add('appear');
       setLCPTrigger(doc, async () => {
@@ -362,13 +368,16 @@ async function decoratePage(win = window) {
         await loadBlocks($main);
         loadCSS('/styles/lazy-styles.css');
         addFavIcon('/favicon.svg');
+        pageDoneLoading();
       });
     }
+    decorateFooter();
   } catch (err) {
     console.error(err);
+    pageDoneLoading();
   }
 
-  pageDoneLoading();
+  
 }
 
 let language;
@@ -412,21 +421,10 @@ export function getLanguage() {
   return `/${loc}/blog`;
 }
 
-function decorateArticle() {
-  var paragraphs = document.querySelectorAll("body > main > div > div > p");
-  paragraphs.forEach(p => {
-    if( p.querySelector("picture") ) {
-      p.classList.add("article-picture");
-    }
-  });
-}
+// First register the decorators
+addPageTypeDecorator("article", decorateArticle);
 
-window.resolvePageProperties ? window.resolvePageProperties((properties) => {
-  if(properties.type === "article") {
-    decorateArticle();
-  }
-}) : null;
-
+// Second apply the decoration
 decoratePage(window);
-console.log("Scripts executed");
 
+console.log("Scripts executed");

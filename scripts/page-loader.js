@@ -15,5 +15,5 @@ export function pageDoneLoading() {
         if ($placeholder) {
             $placeholder.remove();
         }
-    }, 50);
+    }, 250);
 }

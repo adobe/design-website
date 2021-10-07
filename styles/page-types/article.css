@@ -17,6 +17,22 @@ body > main > div{
 .page-type-article  {
     font-size:16px;
 }
+.page-type-article .content{
+    padding-bottom: 5em;
+}
+.page-type-article .content > :not(.article-picture){
+    padding-left: 5em;
+    padding-right: 5em;
+}
+
+.page-type-article .chapters.block{
+    width: auto
+}
+
+.page-type-article .header-image{
+    display: flex;
+}
+
 .page-type-article p {
     text-align:left;
     font-size:1em;
@@ -24,12 +40,10 @@ body > main > div{
 }
 .page-type-article h1{
     font-size: 3em;
-    padding: 0 3em;
 }
 
 .page-type-article .content{
-    background: whitesmoke;
-    padding-top: 10em
+    background: white;
     
 }
 
@@ -42,11 +56,31 @@ body > main > div{
     grid-row: 2;
 }
 
-.page-type-article h2{
-    font-size: 2.5em;
-    margin: 0;
-    padding: 0 3em;
+.page-type-article .header.block h1{
+    text-align: left;
+    margin: unset;
+    font-weight: 500;
+}
+.page-type-article .header.block h2{
+    text-align: left;
+}
 
+.page-type-article h2{
+    font-size: 2em;
+    margin: 0;
+    font-weight: 500;
+
+}
+.page-type-article > main > div > div:nth-child(1) > div.header.block > div{
+    width: 60%;
+    padding-left: 5em;
+    height: 50%;
+}
+body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2){
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .page-type-article main > div > div > p:not(.article-picture) {
     font-size: 1.5em;
@@ -58,14 +92,25 @@ body > main > div{
     width: 100%;
 }
 
+ div.content > picture > img{
+     position: relative;
+     bottom: 15em
+ }
+
 .page-type-article .header img{
     width: 90%;
     position:relative;
-    top: 10em;
+    top: 20em;
 }
 
-.header.block{
+.page-type-article .header.block{
     width: 100%;
+    color: whitesmoke;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 .lede.block{
     font-size: 2em;
@@ -75,12 +120,17 @@ body > main > div{
     text-align: left;
 }
 
-.additional-reading.block li, a, ul{
+.page-type-article .content ul{
     list-style: none;
-    text-decoration: none;
-    text-align: center;
-    padding: 0;
+    text-align: left;
 }
+.page-type-article .additional-reading.block a{
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+}
+
+
 .additional-reading.block{
     font-size: 1.2em;
 }
@@ -92,22 +142,10 @@ body > main > div{
     font-size: 1.2em;
     padding: 1em;
 }
-
-
-
 .additional-reading.block{
+    width: 100%;
     padding: 1em;
 }
-
-
-/* ALL THE IMG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-
-body > main > div > div > p:nth-child(12){
-    padding: 0;
-}
-
-
-
 
 
 
@@ -142,6 +180,38 @@ body > main > div > div > p:nth-child(12){
     }
 }
 @media (min-width:320px) and (max-width:375px){
+    #global-header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    body > main > div > div:nth-child(1) > div.header.block > div{
+        overflow-y: hidden;
+        justify-items: center;
+    }
+    .header.block h1{
+        color: whitesmoke;
+        font-size: 2em;
+
+    }
+    .page-type-article .header.block h1{
+        right: 1.2em;
+        font-size: 1.5em;
+        width: 100%;
+    }
+    .page-type-article .header.block h2{
+        right: 3em;
+        font-size: 1.5em;
+        width: 100%;
+    }
+    .header.block > div > div{
+        width: 80%;
+    }
+    .header.block img{
+        width: 100%;
+        top: 1em;
+    }
     .page-type-article main{
         width: 90%;
     }
@@ -167,7 +237,9 @@ body > main > div > div > p:nth-child(12){
     
     .lede.block{
         font-size: 1.5em;       
-
     }   
+    .chapters.block{
+        display: flex;
+        flex-direction: column;
+    }
 }
-

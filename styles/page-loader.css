@@ -29,8 +29,11 @@ body:not(.loaded) main {
 }
 
 #page-loading-placeholder div:first-child {
-    background:white;
+    /* background:white; */
     height:100%;
+    background-image:url("/media_1d3601e007f7c9b5cb83303a390ca0e7fec040eef.png?width=2000&format=webply&optimize=medium");
+    background-repeat:no-repeat;
+    background-position: 50% 50%;
 }
 
 #page-loading-placeholder div:last-child {

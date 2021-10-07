@@ -1,30 +1,5 @@
-import { convertToBackground, decorateLink, decorateTagLink, processDivisions, normalizePropertyValue, normalizePropertyName } from "../../scripts/helpers.js";
-
-const PagePropertiesController = {
-    callbacks: [],
-    ready: false,
-    properties: null,
-    setProperties(props) {
-        PagePropertiesController.properties = props;
-        PagePropertiesController.ready = true;
-        console.log("Page Properties:", this.properties);
-        PagePropertiesController.runCallbacks();
-    },
-    runCallbacks() {
-        while ( PagePropertiesController.callbacks.length > 0) {
-            const cb = PagePropertiesController.callbacks.shift();
-            cb(PagePropertiesController.properties);
-        }
-    },
-};
-export const resolvePageProperties = function resolvePageProperties(callback) {
-    if (PagePropertiesController.ready) {
-        callback(PagePropertiesController.properties);
-    } else {
-        PagePropertiesController.callbacks.push(callback);
-    }
-};
-window.resolvePageProperties = resolvePageProperties;
+import { processDivisions, normalizePropertyName } from "../../scripts/helpers.js";
+import { PagePropertiesController } from "../../scripts/page-properties.js";
 
 function applyPathClassesToPage({ name }) {
     const parts = location.pathname.split("/");
@@ -63,6 +38,10 @@ export default function decorate($block) {
         container.classList.add("content");
         newDiv.appendChild(page);
         newDiv.appendChild(header);
+
+        const picture = header.querySelector("picture");
+        picture.classList.add("header-image")
+        container.prepend(picture);
     }
       
     moveHeaderContent();
