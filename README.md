@@ -66,3 +66,7 @@ https://main--business-website--adobe.hlx3.page/blog/
 ### Nested Blocks
 
 Nested blocks are not yet supported
+
+## Indexes
+
+Content must be published to propogate indexes. You must also have a XLS or sheet in your cloud target that will populate the index.
