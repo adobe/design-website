@@ -39,13 +39,6 @@ export default function decorate($block) {
     let prev = document.getElementsByClassName('carousel__button--prev');
     const totalSlides = slides.length;
 
-    next[0].addEventListener("click", function() {
-      moveToNextSlide();
-    });
-
-    prev[0].addEventListener("click", function() {
-      moveToPrevSlide();
-    });
 
     function applySlide() {
       applyColor(slidePosition);
@@ -117,6 +110,27 @@ export default function decorate($block) {
       }
       updateSlidePositionRev();
     }
+
+    function stopAutoMode() {
+      if(autoInterval) {
+        clearInterval(autoInterval);
+        autoInterval = null;
+      }
+    }
+
+    let autoInterval = setInterval(() => {
+      moveToNextSlide();
+    }, 7000);
+
+    next[0].addEventListener("click", function() {
+      stopAutoMode();
+      moveToNextSlide();
+    });
+
+    prev[0].addEventListener("click", function() {
+      stopAutoMode();
+      moveToPrevSlide();
+    });    
 }
 
 function applyColor( slideIndex ) {
