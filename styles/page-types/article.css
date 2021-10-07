@@ -10,7 +10,6 @@
     margin-left:auto;
     margin-right:auto;
     text-align: center;
-    background: whitesmoke;
 }
 body > main > div{
     padding-bottom: 1em;
@@ -25,9 +24,25 @@ body > main > div{
 }
 .page-type-article h1{
     font-size: 3em;
-    padding: 0 3em;;
+    padding: 0 3em;
 }
-.page-type-article main > div > div > h2 {
+
+.page-type-article .content{
+    background: whitesmoke;
+    padding-top: 10em
+    
+}
+
+.page-type-article .header >div{
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.page-type-article .header >div > div:first-child{
+    grid-row: 2;
+}
+
+.page-type-article h2{
     font-size: 2.5em;
     margin: 0;
     padding: 0 3em;
@@ -38,8 +53,15 @@ body > main > div{
     padding:  0 1em;
     text-align: left;
 }
+
 .page-type-article img{
     width: 100%;
+}
+
+.page-type-article .header img{
+    width: 90%;
+    position:relative;
+    top: 10em;
 }
 
 .header.block{
