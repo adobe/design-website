@@ -9,7 +9,16 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+import {setPageLoading, pageDoneLoading} from "./page-loader.js";
+setPageLoading();
 import decorateHeader from "./global-header.js";
+
+/**
+ * See if there's a way to get the loader in first
+ * <link rel="stylesheet" type="text/css" href="/styles/page-loader.css"/>
+ * <script src="/scripts/page-loader.js"></script>
+ */
+
 
 /**
  * Loads a CSS file.
@@ -341,19 +350,25 @@ function setLCPTrigger(doc, postLCP) {
  * @param {Window} win The window
  */
 async function decoratePage(win = window) {
-  const doc = win.document;
-  const $main = doc.querySelector('main');
-  decorateHeader();
-  if ($main) {
-    decorateMain($main);
-    doc.querySelector('body').classList.add('appear');
-    setLCPTrigger(doc, async () => {
-      // post LCP actions go here
-      await loadBlocks($main);
-      loadCSS('/styles/lazy-styles.css');
-      addFavIcon('/favicon.svg');
-    });
+  try {
+    const doc = win.document;
+    const $main = doc.querySelector('main');
+    decorateHeader();
+    if ($main) {
+      decorateMain($main);
+      doc.querySelector('body').classList.add('appear');
+      setLCPTrigger(doc, async () => {
+        // post LCP actions go here
+        await loadBlocks($main);
+        loadCSS('/styles/lazy-styles.css');
+        addFavIcon('/favicon.svg');
+      });
+    }
+  } catch (err) {
+    console.error(err);
   }
+
+  pageDoneLoading();
 }
 
 let language;
