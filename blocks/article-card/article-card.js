@@ -26,6 +26,8 @@ export default function decorate($block) {
     $block.style.color = result.properties.textcolor;
     result.image.remove();
 
+    result.blockContent.prepend($text);
+
     if (!result.properties["image-side"] || result.properties["image-side"] === "left") {
         result.blockContent.prepend(result.image);
     } else {
@@ -42,8 +44,6 @@ export default function decorate($block) {
     /** @type {HTMLAnchorElement} */
 
     // decorateLink(link);
-    
-    $block.querySelector(":scope > div").prepend($text);
 }
 
 
