@@ -1,23 +1,5 @@
 import { processDivisions } from "../../scripts/helpers.js";
 
-function decorateSlide(slide, i, length) {
-  const { properties } = processDivisions(slide, null, { level: "child" });
-
-  carouselProperties.slides.push( properties );
-  if ((i + 1) === length) {
-    slide.classList.add("carousel__actions");
-    slide.querySelector("body > main > div > div > div.carousel.block > div:last-child > div:nth-child(1)").classList.add("carousel__button--prev");
-    slide.querySelector("body > main > div > div > div.carousel.block > div:last-child > div:nth-child(2)").classList.add("carousel__button--next");
-  } else {
-    slide.classList.add("carousel__item");
-    slide.querySelector("div:nth-child(1)").classList.add("image");
-    slide.querySelector("div:nth-child(2)").classList.add("number");
-    if (i === 0) {
-      slide.classList.add("carousel__item--visible");
-    } 
-  } 
-  
-}
 const carouselProperties = {
   slides: [],
 };
@@ -25,63 +7,97 @@ const carouselProperties = {
 export default function decorate($block) {
   $block.classList.add("full-bleed");
   const $carousel = $block.querySelectorAll(":scope > div");
-  const $innerwrapper = document.createElement('div')
-  $innerwrapper.classList.add("carousel-slide")
-
-  const length = Object.entries($carousel).length;
 
   var i = 0;
+  
+  const length = Object.entries($carousel).length;
 
-  for(const slide of $carousel) {
-    decorateSlide(slide, i, length)
-    slide.remove()
-    $innerwrapper.append(slide)
+  for (const slide of $carousel) {
+    const { properties } = processDivisions(slide, null, { level: "child" });
+    carouselProperties.slides.push( properties );
+    if ((i + 1) === length) {
+      slide.classList.add("carousel__actions");
+      slide.querySelector("body > main > div > div > div.carousel.block > div:last-child > div:nth-child(1)").classList.add("carousel__button--prev");
+      slide.querySelector("body > main > div > div > div.carousel.block > div:last-child > div:nth-child(3)").classList.add("carousel__button--next");
+      break;
+    } else if (i === 0) {
+      slide.classList.add("carousel__item--visible", "firstChild");
+    } 
     i++;
-
+    if (i === 1) {
+      document.querySelector("body").classList.add("slide-1");
     }
-    
-    $block.append($innerwrapper)
+    slide.classList.add("carousel__item");
+    slide.querySelector("div:nth-child(1)").classList.add("image");
+    slide.querySelector("div:nth-child(2)").classList.add("number");
+  }
+
 
     let slidePosition = 0;
-
     const slides = document.getElementsByClassName('carousel__item');
-    const carouselSlide = document.querySelector('.carousel-slide');
-    const carouselItems = document.querySelectorAll('.carousel-slide .carousel__item');
-
-    const size = carouselItems[0].clientWidth;
-    console.log(carouselItems[0].scrollWidth)
-
-    //Buttons
     let next = document.getElementsByClassName('carousel__button--next');
     let prev = document.getElementsByClassName('carousel__button--prev');
-
-
     const totalSlides = slides.length;
 
-    //listeners
     next[0].addEventListener("click", function() {
-      // moveToNextSlide();
-      carouselSlide.style.transition = "transform 0.4s ease-in-out";
-      slidePosition++;
-      carouselSlide.style.transform = 'translateX(' + (-size * slidePosition) + 'px)';
-    })
+      moveToNextSlide();
+    });
 
     prev[0].addEventListener("click", function() {
-      // moveToPrevSlide();
-    })
-    
+      moveToPrevSlide();
+    });
+
     function applySlide() {
       applyColor(slidePosition);
     }
 
     function updateSlidePosition() {
-      for (let slide of slides) {
-        slide.classList.remove('carousel__item--visible');
-        slide.classList.add('carousel__item--hidden');
+      for(let i = 0; i < slides.length; i++){
+        if(slides[i].classList.contains('carousel__item--visible')){
+          slides[i].classList.add('opacity-zero');
+          setTimeout(() => {
+            slides[i].classList.remove('carousel__item--visible', "visible-animation-rev", "visible-animation");
+            slides[i].classList.remove('opacity-zero');
+          }, 650)
+         
+        }
+        
+        // slides[i].classList.add('carousel__item--hidden');
+        if(i === slidePosition){
+          setTimeout(()=> {
+            slides[i].classList.add('carousel__item--visible', 'visible-animation');
+          }, 650);
+          
+        }
       }
 
-      slides[slidePosition].classList.add('carousel__item--visible');
+      
       applySlide();
+
+    }
+    function updateSlidePositionRev() {
+      for(let i = 0; i < slides.length; i++){
+        if(slides[i].classList.contains('carousel__item--visible')){
+          slides[i].classList.add('opacity-zero-rev');
+          setTimeout(() => {
+            slides[i].classList.remove('carousel__item--visible', "visible-animation-rev", "visible-animation");
+            slides[i].classList.remove('opacity-zero-rev' );
+          }, 650)
+         
+        }
+        
+        // slides[i].classList.add('carousel__item--hidden');
+        if(i === slidePosition){
+          setTimeout(()=> {
+            slides[i].classList.add('carousel__item--visible' , "visible-animation-rev");
+          }, 650);
+          
+        }
+      }
+
+      
+      applySlide();
+
     }
 
     function moveToNextSlide() {     
@@ -99,7 +115,7 @@ export default function decorate($block) {
       } else {
         slidePosition--;
       }
-      updateSlidePosition();
+      updateSlidePositionRev();
     }
 }
 

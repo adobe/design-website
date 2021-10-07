@@ -36,6 +36,7 @@
 .article-card.block .text p.article-title {
     margin-top: 2em;
     font-size: 3.5em;
+
 }
 .article-card.block .text p.article-title a {
     text-decoration: none;
@@ -45,6 +46,9 @@
     font-size: 2em;
     margin-bottom:0.5em;
     font-weight: normal;
+    max-width: 70%;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
 }
 .article-card.block .text .byline:not(.article-title) {
     position: absolute;
@@ -122,3 +126,11 @@
     }
 
 }
+
+
+.article-title{
+    max-width: 70%;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+

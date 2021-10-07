@@ -11,6 +11,9 @@
     margin-right:auto;
     text-align: center;
 }
+body > main > div{
+    padding-bottom: 1em;
+}
 
 .page-type-article h1{
     font-size: 3em;
@@ -88,8 +91,34 @@
     padding: 0;
 }
 .additional-reading.block{
+    font-size: 1.2em;
+}
+.additional-reading.block li{
+    padding-bottom: 1em;
+}
+
+.page-type-article li{
+    font-size: 1.2em;
     padding: 1em;
 }
+
+
+
+.additional-reading.block{
+    padding: 1em;
+}
+
+
+/* ALL THE IMG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+body > main > div > div > p:nth-child(12){
+    padding: 0;
+}
+
+
+
+
+
 
 @media (min-width:1024px) and (max-width:1440px){
 
@@ -106,7 +135,7 @@
     }
 }
 @media (min-width:425px) and (max-width:768px){
-
+    .page
     .chapters.block{
         display: flex;
         flex-direction: column;
@@ -134,9 +163,10 @@
     .page-type-article h2{
         padding: 1em;
     }
-    .page-type-article p{
+    .page-type-article p:not(.article-picture) {
         font-size: 1.5em;
         padding:  0 1em;
+        text-align: left;
     }
 }
 @media (min-width:320px) and (max-width:375px){
@@ -152,9 +182,10 @@
         font-size: 2em;
         padding: 0 1em;
     }
-    .page-type-article p{
-        font-size: 1.2em;
+    .page-type-article p:not(.article-picture) {
+        font-size: 1.5em;
         padding:  0 1em;
+        text-align: left;
     }
     main > div{
         margin: 0;
@@ -162,18 +193,10 @@
     body > main > div{
         margin: 0;
     }
-    .header.block img{
-        position: relative;
-        top: 4em;
-        width: 80%;
-    }
-    .header.block h1{
-        position: relative;
-        bottom: 6em;
-    }
+    
     .lede.block{
         font-size: 1.5em;       
-        padding-top: 10em;
+
     }
     .chapters.block{
         display: flex;
@@ -183,4 +206,6 @@
     .chapter-heading{
         position: static;
     }
+    
 }
+

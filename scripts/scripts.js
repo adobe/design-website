@@ -399,3 +399,4 @@ export function getLanguage() {
 
 
 decoratePage(window);
+
