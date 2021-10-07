@@ -17,8 +17,12 @@ body > main > div{
 .page-type-article  {
     font-size:16px;
 }
+.page-type-article .content{
+    padding-bottom: 5em;
+}
 .page-type-article .content > :not(.article-picture){
-    padding: 0 5em 5em 5em;
+    padding-left: 5em;
+    padding-right: 5em;
 }
 
 .page-type-article .chapters.block{
