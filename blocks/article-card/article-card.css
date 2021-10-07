@@ -33,16 +33,16 @@
 .article-card.block .text p.tag-link {
     font-size: 1.2em;
 }
-.article-card.block .text p.article-title {
+.article-card.block .text p.hed {
     margin-top: 2em;
     font-size: 3.5em;
 
 }
-.article-card.block .text p.article-title a {
+.article-card.block .text p.hed a {
     text-decoration: none;
     color: inherit;
 }
-.article-card.block .text h2{
+.article-card.block .text .dek{
     font-size: 2em;
     margin-bottom:0.5em;
     font-weight: normal;
@@ -50,7 +50,7 @@
     text-overflow: ellipsis;
     overflow-x: hidden;
 }
-.article-card.block .text .byline:not(.article-title) {
+.article-card.block .text .byline:not(.hed) {
     position: absolute;
     padding-top: 40em;
     align-self: flex-start;
@@ -78,11 +78,11 @@
         font-size: 1rem;
     }
 
-    .article-card.block .text .byline:not(.article-title) {
+    .article-card.block .text .byline:not(.hed) {
         padding-top: 32rem;
     }
 
-    .article-card.block .text p.article-title {
+    .article-card.block .text p.hed {
         font-size: 3rem;
         margin: 2em 0 .25em 0;
     }
@@ -104,7 +104,7 @@
 }
 @media only screen and (min-width: 321px) and (max-width: 375px){
 
-    .article-card.block .text .byline:not(.article-title) {
+    .article-card.block .text .byline:not(.hed) {
         padding-top: 2em;
         position:unset;
     }
@@ -117,10 +117,10 @@
         flex-direction: column;
         display:flex;
     }
-    .article-card.block .text h2{
+    .article-card.block .text .dek{
         margin-bottom:0.5em;
     }
-    body > main > div > div > div:nth-child(11) > div > div.text > p.link-wrapper.article-title.byline > a{
+    body > main > div > div > div:nth-child(11) > div > div.text > p.link-wrapper.hed.byline > a{
         color: black;
         font-size: 1.5em;
     }
@@ -128,7 +128,7 @@
 }
 
 
-.article-title{
+.hed{
     max-width: 70%;
     text-overflow: ellipsis;
     overflow-x: hidden;

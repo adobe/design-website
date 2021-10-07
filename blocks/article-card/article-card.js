@@ -1,4 +1,4 @@
-import { convertToBackground, decorateLink, decorateTagLink, processDivisions } from "../../scripts/helpers.js";
+import { convertToBackground, decorateLink, decorateTagLink, processDivisions, createDiv } from "../../scripts/helpers.js";
 
 /**
  *
@@ -7,10 +7,17 @@ import { convertToBackground, decorateLink, decorateTagLink, processDivisions } 
 export default function decorate($block) {
     // Get the properties and identify the blocks
     const result = processDivisions($block, {
-        text:       ($div) => $div.textContent,
-        image:      null,
+        image:      $div => $div.querySelector("picture"),
     });
 
+    const $text = createDiv("text");
+    const $tag = decorateTagLink( document.createElement("div"), { color: "black" } );
+    const $hed = createDiv("hed");
+    const $dek = createDiv("dek");
+    const $byline = createDiv("byline");
+
+    $text.append($tag, $hed, $dek, $byline);
+    
     // Apply the properties to the block
     $block.style.backgroundColor = result.properties.background;
     $block.style.color = result.properties.textcolor;
@@ -21,7 +28,7 @@ export default function decorate($block) {
     } else {
         result.blockContent.append(result.image);
     }
-    result.text.classList.add("text");
+    
     result.image.classList.add("image");
     convertToBackground(result.image.querySelector("img"), result.image);
 
@@ -31,8 +38,10 @@ export default function decorate($block) {
     link.parentElement.classList.add("article-title");
 
     result.properties.link = link.href;
-    decorateTagLink( result.text.querySelector("p:first-child"), { color: "black" } );
+    
     $block.querySelector("p:last-child").classList.add("byline");
+
+    $block.prepend($text);
 }
 
 
