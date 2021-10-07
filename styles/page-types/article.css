@@ -17,6 +17,9 @@ body > main > div{
 .page-type-article  {
     font-size:16px;
 }
+.page-type-article .content{
+    padding: 5em;
+}
 .page-type-article p {
     text-align:left;
     font-size:1em;
@@ -28,7 +31,7 @@ body > main > div{
 }
 
 .page-type-article .content{
-    background: whitesmoke;
+    background: white;
     padding-top: 10em
     
 }
@@ -105,10 +108,8 @@ body > main > div{
     font-size: 1.2em;
     padding: 1em;
 }
-
-
-
 .additional-reading.block{
+    width: 100%;
     padding: 1em;
 }
 
@@ -170,10 +171,15 @@ body > main > div > div > p:nth-child(12){
         font-size: 2em;
 
     }
-    .header.block h2{
-        color: whitesmoke;
+    .page-type-article .header.block h1{
+        right: 1.2em;
         font-size: 1.5em;
-        padding: 0;
+        width: 100%;
+    }
+    .page-type-article .header.block h2{
+        right: 3em;
+        font-size: 1.5em;
+        width: 100%;
     }
     .header.block > div > div{
         width: 80%;
