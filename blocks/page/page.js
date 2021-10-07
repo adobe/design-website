@@ -57,7 +57,7 @@ export default function decorate($block) {
         const header = document.querySelector(".block.header");
         const section = document.querySelector(".section-wrapper");
         const container = document.querySelector(".section-wrapper div:first-child");
-        let newDiv = document.createElement("div");
+        const newDiv = document.createElement("div");
         section.insertBefore(newDiv, container);
 
         container.classList.add("content");
