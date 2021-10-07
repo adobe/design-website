@@ -220,10 +220,6 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     justify-items: center;
 
     }
-    /* #why-go-to-the-whiteboard{
-        font-weight: normal;
-        text-align: start;
-    } */
     .page-type-article .chapter-heading{
         text-align: start;
         padding-bottom: 1em;
