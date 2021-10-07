@@ -1,0 +1,38 @@
+/*
+ *   Copyright (c) 2021 Busy Human LLC
+ *   All rights reserved.
+ *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
+ */
+body:not(.loaded) {
+    background:#EB211F!important;
+}
+body:not(.loaded) main {
+    display:none;
+}
+
+#page-loading-placeholder {
+    position:fixed;
+    width:70vw;
+    height:40vh;
+    opacity:0.3;
+    display:flex;
+    flex-direction:row;
+    top:50%;
+    left:50%;
+    transform:translateX(-50%)translateY(-50%);
+}
+
+#page-loading-placeholder div {
+    flex-grow:1;
+    flex-basis:0;
+    margin:10px;
+}
+
+#page-loading-placeholder div:first-child {
+    background:white;
+    height:100%;
+}
+
+#page-loading-placeholder div:last-child {
+    height:20%;
+}
