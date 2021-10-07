@@ -42,13 +42,27 @@
 .scoreboards > div:nth-child(2) .tag{
     border-bottom: solid 4px white;
 }
+
+
 @media (max-width: 1024px) and (min-width: 767px){
+
     .scoreboards .number{
         font-size: 13em;
     }
     .scoreboards .caption{
         font-size: 1.5em;
         width: 80%;
+    }
+}
+
+@media (max-width: 1023px){
+
+    .scoreboards > div{
+        height: 35em;
+    }
+    .scoreboards .tag{
+        font-size: 1em;
+        padding-top: 30em;
     }
 }
 
@@ -76,10 +90,9 @@
         font-size: 1em;
         width: 80%;
     }
-    
-    
 }
 @media only screen and (max-width: 320px){
+
     .scoreboards .number{
         font-size: 5em;
     }

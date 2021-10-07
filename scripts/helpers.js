@@ -27,6 +27,7 @@ export function decorateTagLink($el, _modifiers) {
     if (modifiers.color === "black") {
         $el.classList.add("black");
     }
+    return $el;
 }
 
 /**
@@ -221,4 +222,21 @@ export function processDivisions($block, definitions, options) {
     }
 
     return results;
+}
+
+export function createDiv({ cls, content }) {
+    const $div = document.createElement("div");
+    if (cls) {
+        $div.classList.add(cls);
+    }
+    if (content) {
+        $div.innerText = content;
+    }
+    
+    return $div;
+}
+
+export function wrapWithElement($target, $wrap) {
+    $wrap.appendChild($target);
+    return $wrap;
 }
