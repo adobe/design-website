@@ -40,6 +40,7 @@ export default function decorate($block) {
         newDiv.appendChild(header);
 
         const picture = header.querySelector("picture");
+        picture.classList.add("header-image")
         container.prepend(picture);
     }
       
