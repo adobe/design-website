@@ -12,7 +12,7 @@ export default function decorate($block) {
     const props = result.properties;
 
     const $text = createDiv({ cls: "text" });
-    const $tag = decorateTagLink( createDiv({ content: props.tag }), { color: "black" } );
+    const $tag = decorateTagLink( createDiv({ content: "#" + props.tag }), { color: "black" } );
     const $hed = createDiv({ cls: "hed", content: props.hed });
     const $dek = createDiv({ cls: "dek", content: props.dek });
     const $byline = createDiv({ cls: "byline", content: props.author });
