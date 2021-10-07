@@ -21,11 +21,11 @@ body > main > div{
     padding-bottom: 5em;
 }
 .page-type-article .content > :not(.article-picture){
-    padding-left: 5em;
-    padding-right: 5em;
+    padding-left: 5rem;
+    padding-right: 5rem;
 }
 
-.page-type-article .chapters.block{
+.page-type-article .content .block{
     width: auto
 }
 
