@@ -21,7 +21,7 @@ export default function decorate($block) {
     const props = result.properties;
 
     /**
-     *  Text Consts:
+     *  Text Constants:
      *
      * $text   : Text half of the card
      * $tag    : Hash Tag  / category
@@ -46,9 +46,6 @@ export default function decorate($block) {
             $byline.append($author);
         }
     }
-
-    // const $byline = wrapWithElement( $author, $byline )
-
 
     // const link = wrapWithElement(document.createElement("a"), createDiv({ cls: "link-wrapper", content: "Hello" }));
     // link.attributes.href = result.properties.link || null;
@@ -77,14 +74,6 @@ export default function decorate($block) {
 
     convertToBackground(result.image.querySelector("img"), result.image);
 
-    /* -----------  - TEXT - -----------  */
-
-    /** #Tag Link Text  / p   */
-    // decorateTagLink( result.text.querySelector("p:first-child"), { color: "black" } );
-
-    /** Title Text /  article-title  / h2  */
-
-    /** SubTitle / / h3  */
     /** @type {HTMLAnchorElement} */
     // const link = result.text.querySelector("a");
     // decorateLink(link);
