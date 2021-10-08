@@ -16,7 +16,9 @@
     font-size:16px;
 }
 .page-type-article .content{
+    padding-top:140px;;
     padding-bottom: 5em;
+    position:relative;
 }
 .page-type-article .content > :not(.article-picture){
     padding-left: 5rem;
@@ -29,6 +31,9 @@
 
 .page-type-article .header-image{
     display: flex;
+    position: absolute;
+    top: 0;
+    transform: translateY(-70%);
 }
 
 .page-type-article p {
@@ -89,11 +94,6 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 .page-type-article img{
     width: 100%;
 }
-
- div.content > picture > img{
-     position: relative;
-     bottom: 15em
- }
 
 .page-type-article .header img{
     width: 90%;
