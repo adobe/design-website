@@ -125,13 +125,3 @@
 }
 }
 /* End of navbar styling */
-
-
-@media (max-width:767px) {
-    #global-header .tagline {
-        display:none;
-    }
-    .carousel.block {
-        display:none;
-    }
-}

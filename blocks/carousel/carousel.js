@@ -33,7 +33,6 @@ export default function decorate($block) {
     slide.querySelector("div:nth-child(2)").classList.add("number");
   }
 
-
     let slidePosition = 0;
     const slides = document.getElementsByClassName('carousel__item');
     let next = document.getElementsByClassName('carousel__button--next');
