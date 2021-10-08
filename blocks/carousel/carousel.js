@@ -51,7 +51,7 @@ export default function decorate($block) {
           setTimeout(() => {
             slides[i].classList.remove('carousel__item--visible', "visible-animation-rev", "visible-animation");
             slides[i].classList.remove('opacity-zero');
-          }, 650)
+          }, 250)
          
         }
         
@@ -59,7 +59,7 @@ export default function decorate($block) {
         if(i === slidePosition){
           setTimeout(()=> {
             slides[i].classList.add('carousel__item--visible', 'visible-animation');
-          }, 650);
+          }, 250);
           
         }
       }
@@ -75,7 +75,7 @@ export default function decorate($block) {
           setTimeout(() => {
             slides[i].classList.remove('carousel__item--visible', "visible-animation-rev", "visible-animation");
             slides[i].classList.remove('opacity-zero-rev' );
-          }, 650)
+          }, 250)
          
         }
         
@@ -83,7 +83,7 @@ export default function decorate($block) {
         if(i === slidePosition){
           setTimeout(()=> {
             slides[i].classList.add('carousel__item--visible' , "visible-animation-rev");
-          }, 650);
+          }, 250);
           
         }
       }
