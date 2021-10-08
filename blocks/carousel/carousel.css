@@ -43,6 +43,8 @@
     transition: all .6s ease;
     width: 90%;
     max-width: 90%;
+    min-width: 90%;
+    position: relative;
 }
 .visible-animation{
     animation: fadeVisibility .6s ease;
@@ -94,13 +96,12 @@
     
 }
 .opacity-zero{
-    opacity: 0;
-    transform: scaleX(95%) translateX(50px);
+    transform:  translateX(100%);
 }
 
 .opacity-zero-rev{
     opacity: 0;
-    transform: scaleX(95%) translateX(-50px);
+    transform: translateX(-100%);
 }
 /* 
 .carousel .carousel__actions div.carousel__button--prev {
@@ -115,7 +116,7 @@
 @keyframes fadeVisibility {
     0% {
         opacity: 0;
-        transform: scaleX(95%) translateX(-50px);
+        transform: translateX(-100%);
     }
     100% {
         opacity: 1;
@@ -125,7 +126,7 @@
 @keyframes fadeVisibilityRev {
     0% {
         opacity: 0;
-        transform: scaleX(95%) translateX(50px);
+        transform:translateX(100%);
     }
     100% {
         opacity: 1;
