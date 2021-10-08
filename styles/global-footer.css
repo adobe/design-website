@@ -1,23 +1,77 @@
 #global-footer {
     background: #E91D25;
     display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
+    padding: 8em 15% 5em 15%;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 50% 25% 25%;
 }
 
 #global-footer .source {
     content:url(/resources/adobe-design.png);
     height: 3em;
     width: auto;
-    grid-column-start: 1;
+    grid-row: 1/4;
+}
+
+#global-footer > nav{
+    display: flex;
+    flex-direction: column;
 }
 
 #global-footer > nav:nth-child(2) {
-    display: flex;
-    flex-direction: column;
+    grid-column: 2/3;
 }
 
 #global-footer > nav:nth-child(3) {
-    display: flex;
-    flex-direction: column;
+    grid-column: 3/4;
+}
+
+#global-footer > nav:nth-child(4) {
+    flex-direction: row;
+    grid-area: 3/2/4/4;
+    padding-top: 3em;
+    font-size: 0.8em;
+}
+
+#global-footer > nav:nth-child(2) > a , nav:nth-child(3) > a {
+    color: white;
+    text-decoration: none;
+    padding-bottom: 1em;
+}
+
+#global-footer > nav:nth-child(4)> a, p {
+    color: whitesmoke;
+    text-decoration: none;
+    padding-right: 1em;
+
+    /*remove p default block display*/
+    display: unset;
+    margin-block: unset;
+}
+
+@media (max-width: 1024px) {
+    #global-footer {
+        padding: 5em 10% 5em 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    #global-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3em 5% 5em 5%;
+    }
+
+    #global-footer .source {
+        height: 5em;
+    }
+    #global-footer > nav{
+        padding-top: 3em;
+        align-items: center;
+    }
+
+    #global-footer > nav:nth-child(4) {
+        flex-direction: column;
+    }
 }
