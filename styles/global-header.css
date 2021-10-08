@@ -85,7 +85,8 @@
         text-align: center;
     }
     #global-header{
-        display: grid
+        display: grid;
+        justify-items: center;
     }
     #global-header .tagline {
         text-align: center;
