@@ -9,23 +9,54 @@
  *   the license agreement.
  */
 
- .article-card.block{
-    margin-bottom: 1em;
-    height:60vh;
-    overflow:hidden;
+/* ------- ARTICLE CARD BLOCK ------- */
+
+ .article-card.block{ margin-bottom: 1rem; }
+
+@media screen and (min-width: 1025px) and (min-height: 620px) {
+    /* Ensure Article Card doesn't cut off content on short desktop screens */
+    .article-card.block{
+        font-size: 1rem;
+        height:60vh;
+        min-height: 37em;
+        overflow:hidden;
+        min-width: 62.5em;
+    }
+}
+/* --- SET FONT SIZE (em)s HERE: ---*/
+/* All following/decendant em measurements will be based on this font-size: */
+@media screen and (min-width: 700px) and (max-width: 1025px) {
+    .article-card.block{
+        font-size: 1vw;
+    }
+}
+@media screen and (max-width: 700px){
+    .article-card.block{
+        font-size: 0.75rem;
+    }
 }
 
+/* ------- BLOCK CONTENT ------- */
 .article-card.block .block-content{
-       display: grid;
-       grid-template-columns: 50% 50%;
-       height:100%;
-    }
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height:100%;
+}
 
+@media screen and (max-width: 700px) {
+    .article-card.block .block-content{
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 100%;
+        grid-auto-flow: row;
+        height:100%;
+    }
+}
+/* ------- IMAGE & TEXT ------- */
 .article-card.block .text{
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 1.6rem 3rem 3rem 3rem;
+    padding: 1.6em 3em 3em 3em;
     box-sizing: border-box;
 }
 
@@ -37,54 +68,77 @@
     background-position: center;
 }
 
+@media screen and (max-width: 700px) {
+    .article-card.block .block-content .text,
+    .article-card.block .block-content .image {
+        height: 36em;
+        width: 100%;
+    }
+}
+
+/* ------- TEXT TYPES ------- */
+
 /*
  * #TAG LINK TEXT
  * .tag-link
  */
-
 .article-card.block .text .tag-link,
 .article-card.block .text .tag {
+    /* Not adding border color makes it inherit properly:  */
     border-bottom: 3px solid;
     color: inherit;
-    font-size:   0.875rem;
-    line-height: 1.125rem;
+    font-size:   0.875em;
+    line-height: 1.125em;
     margin:  0em 0em 0.5em 0em;
     text-decoration: none;
     text-transform: uppercase;
     width: max-content;
+}
+@media screen and (max-width: 1024px) {
+    .article-card.block .text .tag-link,
+    .article-card.block .text .tag {
+        border-bottom: 0.125em solid;
+        line-height: 1.5em;
+        height: 1.5em;
+    }
 }
 
 /*
  * Header h2 hed
  * article-title
  */
-
 .article-card.block .text .hed,
 .article-card.block .text .hed a {
-    /* overflow-x: hidden; */
-    font-size: 3.125rem;
-    line-height: 3.6rem;
-    margin: 4.625rem 0em 0.5rem 0em; /* top: 50px */
+    overflow: hidden;
+    font-size: 3.125em; /* 50px */
+    line-height: 1.1em; /* 55px */
+    margin: 1em 0em 0.5rem 0em; /* top: 50px, bottom: 16px */
     font-weight: bold;
     text-overflow: ellipsis;
     max-width: 100%;
     text-decoration: none;
     color: inherit;
 }
+@media screen and (max-width: 700px) {
+    .article-card.block .text .hed,
+    .article-card.block .text .hed a {
+        font-size: 3em;
+        height: 8em;
+    }
+}
 
 /*
  * SubHeader h3 dek
  */
-
 .article-card.block .text .dek,
 .article-card.block .text .dek:not(.article-title){
-    font-size: 1.875rem;
-    line-height: 2rem;  /* 32px,  */
-    margin: 2rem 0em 0.5em 0em;
+    font-size: 1.75em;              /* 28px */
+    line-height: 1.2em;             /* 32px */
+    margin: 1.43em 0em 0.5rem 0em;  /* 40px */
     font-weight: normal;
     text-overflow: ellipsis;
     overflow: hidden;
-    max-height: 3.25em;
+    max-height: 3.6em;              /* 3x line-height */
     max-width: 70%;
 }
 
@@ -92,94 +146,15 @@
  * By-Line byline
  */
 .article-card.block .text .byline{
-    margin: 4.625rem 0em 0.5em 0em;
-    font-size: 0.75rem;
+    font-size: 0.75em;            /* 10px */
+    margin: 7.4em 0em 0.5rem 0em; /* top: 74px, bottom: 16px */
 }
 .article-card.block .text .byline .author,
 .article-card.block .text .byline .pipe {
     font-weight: 600;
-    margin-right: 0.75rem;
-    /*  AUTHOR NAME IS BOLD */
-    /* When Adobe Clean is in, uncomment:
-        font-weight: bold;
-    */
+    margin-right: 0.75em; /* 7.5px */
+    font-weight: bold;
 }
-
-
-
-/* When Adobe Clean is in, uncomment:
-*/
-
 .article-card.block .text .byline .position {
     font-weight: regular;
 }
-
-
-@media only screen and (min-width: 768px) and (max-width: 1024px){
-    .article-card.block {
-        height: 50vh;
-    }
-
-    .article-card.block .text {
-        width: 100%;
-    }
-
-    .article-card.block .block-content{
-        /* display: flex; */
-        flex-direction: column;
-    }
-
-    .article-card.block .text .tag-link {
-        font-size: 1rem;
-    }
-
-    .article-card.block .text .byline:not(.hed) {
-        padding-top: 32rem;
-    }
-
-    .article-card.block .text .hed {
-        font-size: 3rem;
-        margin: 2em 0 .25em 0;
-    }
-
-}
-@media only screen and (min-width: 425px) and (max-width: 768px){
-    .article-card.block .block-content{
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-@media only screen and (min-width: 375px) and (max-width: 425px){
-    .article-card.block .block-content{
-        display: flex;
-        flex-direction: column;
-    }
-
-}
-@media only screen and (min-width: 321px) and (max-width: 375px){
-
-    .article-card.block .text .byline:not(.hed) {
-        padding-top: 2em;
-        position:unset;
-    }
-
-    .article-card.block {
-        font-size:16px;
-        height: auto;
-    }
-    .article-card.block .block-content {
-        flex-direction: column;
-        display:flex;
-    }
-    .article-card.block .text .dek{
-        margin-bottom:0.5em;
-    }
-    body > main > div > div > div:nth-child(11) > div > div.text > p.link-wrapper.hed.byline > a{
-        color: black;
-        font-size: 1.5em;
-    }
-
-}
-
-

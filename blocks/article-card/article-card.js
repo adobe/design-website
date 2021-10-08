@@ -40,6 +40,7 @@ export default function decorate($block) {
         const $author = createSpan({ cls: "author", content: props.author });
         if(!!props.position){
             const $position = createSpan({ cls: "position", content: props.position });
+            /* Also add in a pipe boi if author's position exists: */
             const $pipe = createSpan({ cls: "pipe", content: "|" });
             $byline.append($author, $pipe, $position);
         } else {
