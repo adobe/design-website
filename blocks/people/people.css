@@ -9,6 +9,7 @@
     display: inline;
     position:absolute;
     padding: 5px 0 10px 25px;
+    color: white;
 }
 
 .person .tag:before {
@@ -17,7 +18,7 @@
     bottom  : 0px;
     height  : 1px;
     width   : 80%;  /* or 100px */
-    border-bottom:solid 4px black;
+    border-bottom:solid 4px white;
 }
 
 .person .image{
