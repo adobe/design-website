@@ -4,6 +4,7 @@
 }
 
 .two-column.block > div > div {
+    height: 1500px;
     flex-grow:1;
     flex-basis:0;
 }
@@ -12,7 +13,7 @@
     
     .job-listing h3{
         margin-top: .8em;
-        font-size: 2.3em;
+        font-size: 2.2em;
     }
     .job-listing p{
         margin: 0;
@@ -21,6 +22,9 @@
 @media (max-width: 1023px) {
     .two-column.block > div {
         flex-direction: column;
+    }
+    .two-column.block > div > div {
+        height: auto;
     }
     
 }

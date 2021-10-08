@@ -7,7 +7,9 @@ export default function decorate($block) {
 
     board.classList.add("scoreboard");
     board.querySelector("div:nth-child(1)").classList.add("number");
-      board.querySelector("div:nth-child(2)").classList.add("caption");
-      board.querySelector("div:nth-child(3)").classList.add("tag");
-    }
+    board.querySelector("div:nth-child(2)").classList.add("caption");
+    //board.querySelector("div:nth-child(3)").classList.add("tag");
+    //Currently we want to remove the tag element
+    board.querySelector("div:nth-child(3)").remove()
+  }
 }
