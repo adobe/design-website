@@ -5,7 +5,7 @@
 .page-type-index .header {
     background: #0A1C42;
     font-size: 3em;
-    padding: 4em 0 6em 0;
+    padding: 1em 0 5em 0;
 }
 
 .page-type-index h1 {
@@ -48,6 +48,23 @@
 .page-type-index .content > div > div:nth-child(2) > div > p:nth-child(1) {
     font-size: .75rem;
     position: absolute;
-    bottom: 30em
+    bottom: 34em;
+    color: white;
+    border-bottom: white 2px solid;
 }
 
+.page-type-index #from-mind-to-canvas {
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.page-type-index #creating-art-with-synesthesia {
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.page-type-index .content > div > div:nth-child(2) > div > p:nth-child(4) {
+    font-size: .75em;
+    font-weight: 300;
+}
