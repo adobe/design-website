@@ -22,10 +22,7 @@ function moveHeaderContent() {
   newDiv.appendChild(header);
 
   const picture = header.querySelector("picture");
-  picture.classList.add("header-image")
+  picture.classList.add("header-image");
   container.prepend(picture);
 }
-
-
-
 

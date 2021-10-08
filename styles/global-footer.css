@@ -75,3 +75,7 @@
         flex-direction: column;
     }
 }
+
+body:not(.loaded) #global-footer {
+    display:none;
+}
