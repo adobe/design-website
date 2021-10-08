@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import "body-styles.css";
 @import "global-header.css";
+@import "global-footer.css";
 
 @import "./page-types/home.css";
 @import "./page-types/article.css";
