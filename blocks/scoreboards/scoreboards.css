@@ -27,30 +27,20 @@
     color: #0B1C40;
 }
 .scoreboards .number {
-    font-size: 12em;
+    font-size: 10em;
 }
 .scoreboards .caption{
     font-size: 1.1em;
     width: 80%;
-}
-.scoreboards .tag{
-    font-size: 20px;
-    border-bottom: solid 4px #0B1C40;
-    position: absolute;
-    padding-top: 38em;
-}
-.scoreboards > div:nth-child(2) .tag{
-    border-bottom: solid 4px white;
 }
 
 
 @media (max-width: 1024px) and (min-width: 767px){
 
     .scoreboards .number{
-        font-size: 13em;
+        font-size: 9em;
     }
     .scoreboards .caption{
-        font-size: 1.5em;
         width: 80%;
     }
 }
@@ -60,24 +50,16 @@
     .scoreboards > div{
         height: 35em;
     }
-    .scoreboards .tag{
-        font-size: 1em;
-        padding-top: 30em;
-    }
 }
 
 @media (max-width: 425px){
     
     .scoreboards .number{
-        font-size: 10em;
+        font-size: 8em;
     }
     .scoreboards .caption{
-        font-size: 1.5em;
+        font-size: 1.1em;
         width: 90%;
-    }
-    .scoreboards .tag{
-        font-size: 1em;
-        padding-top: 25em;
     }
 
     .scoreboards > div{
@@ -87,22 +69,21 @@
 @media only screen and (max-width: 375px){
 
     .scoreboards .caption{
-        font-size: 1em;
         width: 80%;
     }
 }
 @media only screen and (max-width: 320px){
 
     .scoreboards .number{
-        font-size: 5em;
+        font-size: 6em;
+    }
+
+    .scoreboards .caption{
+        font-size: .8em;
     }
 
     .scoreboards > div{
         height: 20em;
-    }
-
-    .scoreboards .tag{
-        padding-top: 15em;
     }
 
 }
