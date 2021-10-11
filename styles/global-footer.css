@@ -1,47 +1,59 @@
 #global-footer {
     background: #E91D25;
-    display: grid;
-    padding: 8em 15% 5em 15%;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 50% 25% 25%;
+    
 }
 
-#global-footer .source {
+#global-footer .footer-content{
+    display: grid;
+    padding-top: 8em;
+    padding-bottom: 5em;
+    
+    grid-template-columns: 5% 30% 30% 30% 5%;
+    grid-template-rows: 50% 25% 25%;
+
+    width: 98vw;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#global-footer .footer-content .source {
     content:url(/resources/adobe-design.png);
     height: 3em;
     width: auto;
     grid-row: 1/4;
+    grid-column: 2/3;
 }
 
-#global-footer > nav{
+#global-footer .footer-content > nav{
     display: flex;
     flex-direction: column;
 }
 
-#global-footer > nav:nth-child(2) {
-    grid-column: 2/3;
-}
-
-#global-footer > nav:nth-child(3) {
+#global-footer .footer-content > nav:nth-child(2) {
     grid-column: 3/4;
 }
 
-#global-footer > nav:nth-child(4) {
+#global-footer .footer-content > nav:nth-child(3) {
+    grid-column: 4/5;
+}
+
+#global-footer .footer-content > nav:nth-child(4) {
     flex-direction: row;
-    grid-area: 3/2/4/4;
+    grid-area: 3/3/4/5;
     padding-top: 3em;
     font-size: 0.8em;
 }
 
-#global-footer > nav:nth-child(2) > a , 
-#global-footer > nav:nth-child(3) > a {
+#global-footer .footer-content > nav:nth-child(2) > a , 
+#global-footer .footer-content > nav:nth-child(3) > a {
     color: white;
     text-decoration: none;
     padding-bottom: 1em;
 }
 
-#global-footer > nav:nth-child(4)> a, 
-#global-footer > nav:nth-child(4)> p {
+#global-footer .footer-content > nav:nth-child(4)> a, 
+#global-footer .footer-content > nav:nth-child(4)> p {
     color: whitesmoke;
     text-decoration: none;
     padding-right: 1em;
@@ -52,28 +64,28 @@
 }
 
 @media (max-width: 1024px) {
-    #global-footer {
-        padding: 5em 10% 5em 10%;
+    #global-footer .footer-content {
+        width: 90%
     }
 }
 
 @media (max-width: 768px) {
-    #global-footer {
+    #global-footer .footer-content {
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 3em 5% 5em 5%;
     }
 
-    #global-footer .source {
+    #global-footer .footer-content .source {
         height: 5em;
     }
-    #global-footer > nav{
+    #global-footer .footer-content > nav{
         padding-top: 3em;
         align-items: center;
     }
 
-    #global-footer > nav:nth-child(4) {
+    #global-footer .footer-content > nav:nth-child(4) {
         flex-direction: column;
     }
 }
