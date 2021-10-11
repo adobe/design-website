@@ -52,11 +52,7 @@
 
 .page-type-article .header >div{
     display: grid;
-    grid-template-rows: auto auto;
-}
-
-.page-type-article .header >div > div:first-child{
-    grid-row: 2;
+    grid-template-rows: auto;
 }
 
 .page-type-article .header.block h1{
@@ -69,15 +65,16 @@
 }
 
 .page-type-article main h2{
-    font-size: 2em;
+    font-size: 1.5em;
     margin: 0;
     font-weight: 500;
+    padding-top: 1em;
 
 }
 .header.block > div{
     width: 60%;
     padding-left: 5em;
-    height: 50%;
+    height: 75%;
 }
 body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2){
     height: 150px;
@@ -104,7 +101,7 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 .page-type-article .header.block{
     width: 100%;
     color: whitesmoke;
-    height: 90vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
