@@ -1,5 +1,6 @@
 import { processDivisions } from "../../scripts/helpers.js";
 const SLIDE_TIME = 7000;
+const ANIMATION_TIME = 250;
 
 const carouselProperties = {
   slides: [],
@@ -48,7 +49,7 @@ export default function decorate($block) {
 
     $block.append(actions)
 
-    
+
     let slidePosition = 0;
     const slides = document.getElementsByClassName('carousel__item');
     let next = document.getElementsByClassName('carousel__button--next');
@@ -67,7 +68,7 @@ export default function decorate($block) {
           setTimeout(() => {
             slides[i].classList.remove('carousel__item--visible', "visible-animation-rev", "visible-animation");
             slides[i].classList.remove('opacity-zero');
-          }, 250)
+          }, ANIMATION_TIME)
          
         }
         
@@ -75,7 +76,7 @@ export default function decorate($block) {
         if(i === slidePosition){
           setTimeout(()=> {
             slides[i].classList.add('carousel__item--visible', 'visible-animation');
-          }, 250);
+          }, ANIMATION_TIME);
           
         }
       }
@@ -91,7 +92,7 @@ export default function decorate($block) {
           setTimeout(() => {
             slides[i].classList.remove('carousel__item--visible', "visible-animation-rev", "visible-animation");
             slides[i].classList.remove('opacity-zero-rev' );
-          }, 250)
+          }, ANIMATION_TIME)
          
         }
         
@@ -99,7 +100,7 @@ export default function decorate($block) {
         if(i === slidePosition){
           setTimeout(()=> {
             slides[i].classList.add('carousel__item--visible' , "visible-animation-rev");
-          }, 250);
+          }, ANIMATION_TIME);
           
         }
       }
@@ -138,15 +139,32 @@ export default function decorate($block) {
       moveToNextSlide();
     }, SLIDE_TIME);
 
+    var timeout = null;
+
     next[0].addEventListener("click", function() {
+      if(timeout)
+        return
+      
+      clickTimeout();
       stopAutoMode();
       moveToNextSlide();
     });
 
     prev[0].addEventListener("click", function() {
+      if(timeout)
+        return
+      
+      clickTimeout();
       stopAutoMode();
       moveToPrevSlide();
-    });    
+    });
+    
+    function clickTimeout(){
+      timeout = window.setTimeout(function(){
+        window.clearTimeout(timeout); 
+        timeout = null;}
+        ,ANIMATION_TIME )
+    }
 }
 
 function applyColor( slideIndex ) {
