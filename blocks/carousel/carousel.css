@@ -185,7 +185,7 @@
 
     .carousel .carousel__item--visible {
         grid-template-columns: unset;
-        grid-template-rows: 50% 50%;
+        grid-template-rows: 25% 75%;
     }
 
     .carousel .number {
