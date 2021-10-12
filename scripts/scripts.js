@@ -47,6 +47,14 @@ export function loadCSS(href) {
   }
 }
 
+export function loadScript(src) {
+  // if (!document.querySelector(`head > script[src="${src}"]`)) {
+  //   const script = document.createElement("script");
+  //   script.setAttribute("src", src);
+  //   script.onload()
+  // }
+}
+
 /**
  * Retrieves the content of a metadata tag.
  * @param {string} name The metadata name (or property)

@@ -296,3 +296,29 @@ export function wrapWithElement($target, $wrap) {
     $wrap.appendChild($target);
     return $wrap;
 }
+
+/**
+ * 
+ * @param {*} $parent 
+ * @param {*} children 
+ * @returns 
+ * @example 
+ * $wrap($element(".container"), [
+ *  myHeader,
+ *  $element("#account"),
+ *  myDiv
+ * ])
+ */
+export function $wrap($parent, children) {
+    let resolvedChildren = [];
+    if (!(children instanceof Array)) {
+        resolvedChildren = [children];
+    } else {
+        resolvedChildren = children;
+    }
+    resolvedChildren.forEach($child => {
+        $child.remove();
+        $parent.appendChild($child);
+    });
+    return $parent;
+}
