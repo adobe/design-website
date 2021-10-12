@@ -324,3 +324,14 @@ export function $wrap($parent, children) {
     });
     return $parent;
 }
+
+export function $remainder($target, selector) {
+    const $match = $target.querySelector(selector);
+    const remainder = [];
+    $target.children.forEach(c => {
+        if (c !== $match) {
+            remainder.push(c);
+        }
+    });
+    return remainder;
+}
