@@ -16,6 +16,7 @@ setPageLoading();
 import decorateHeader from "./global-header.js";
 import decorateFooter from "./global-footer.js";
 import decorateArticle from "./pages/article.js";
+import decorateJobPost from "./pages/job-post.js";
 import { addPageTypeDecorator, runPageTypeDecorators } from "./page-type-decorator.js";
 
 /**
@@ -377,7 +378,7 @@ async function decoratePage(win = window) {
     pageDoneLoading();
   }
 
-  
+
 }
 
 let language;
@@ -423,6 +424,8 @@ export function getLanguage() {
 
 // First register the decorators
 addPageTypeDecorator("article", decorateArticle);
+addPageTypeDecorator("job-post", decorateJobPost);
+
 
 // Second apply the decoration
 decoratePage(window);
