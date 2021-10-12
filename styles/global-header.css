@@ -2,7 +2,7 @@
 #global-header {
     display:flex;
     align-items: center;
-    padding:20px;
+    padding:20px 0px;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     color: #FFFFFF;
@@ -39,6 +39,7 @@
         display: grid;
         grid-template-rows: 5em;
         grid-template-columns: 9em 25em auto;
+        margin: 0em 1em;
     }
     #global-header .tagline{
         grid-row-start: 1;

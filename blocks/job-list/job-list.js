@@ -22,5 +22,17 @@ export default async function decorate($block) {
       board.querySelector("div p:nth-child(3)").classList.add("location");
       board.querySelector("div p:nth-child(4)").classList.add("position");
       board.querySelector("div:first-child div").classList.add("all-jobs");
-    }
+  }
+
+  const seeJobsDiv = document.createElement("div")
+  seeJobsDiv.classList.add("see-jobs")
+  const seeJobs = document.createElement("h3")
+  seeJobs.innerHTML = "See our job openings"
+  seeJobsDiv.append(seeJobs)
+
+  seeJobs.addEventListener("click", function(){
+    console.log("Jobs page not setup");
+  })
+
+  $block.append(seeJobsDiv)
 }
