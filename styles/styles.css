@@ -7,6 +7,7 @@
 @import "./page-types/home.css";
 @import "./page-types/article.css";
 @import "./page-types/index.css";
+@import "./page-types/team.css";
 
 body {
     background: rgb(231,204,222);
