@@ -1,7 +1,6 @@
 import {
     convertToBackground,
-    createDiv,
-    createSpan,
+    $element,
     // decorateLink,
     decorateTagLink,
     processDivisions,
@@ -29,26 +28,26 @@ export default function decorate($block) {
      * $dek    : Subheader / summary
      * $byline : Author | Author's Position
      */
-    const $text = createDiv({ cls: "text" });
-    const $tag = decorateTagLink( createDiv({ content: "#" + props.tag }), { color: "black" } );
-    const $hed = createDiv({ cls: "hed", content: props.hed });
-    const $dek = createDiv({ cls: "dek", content: props.dek });
-    const $byline = createDiv({ cls: "byline" });
+    const $text = $element(".text");
+    const $tag = decorateTagLink( $element("div", `#${props.tag}`), { color: "black" } );
+    const $hed = $element(".hed", props.hed);
+    const $dek = $element(".dek", props.dek);
+    const $byline = $element(".byline");
 
     /** if props.author exists: */
     if(!!props.author){
-        const $author = createSpan({ cls: "author", content: props.author });
+        const $author = $element("span.author", props.author );
         if(!!props.position){
-            const $position = createSpan({ cls: "position", content: props.position });
+            const $position = $element("span.position", props.position );
             /* Also add in a pipe boi if author's position exists: */
-            const $pipe = createSpan({ cls: "pipe", content: "|" });
+            const $pipe = $element("span.pipe", "|");
             $byline.append($author, $pipe, $position);
         } else {
             $byline.append($author);
         }
     }
 
-    // const link = wrapWithElement(document.createElement("a"), createDiv({ cls: "link-wrapper", content: "Hello" }));
+    // const link = wrapWithElement(document.$element("a"), $element({ cls: "link-wrapper", content: "Hello" }));
     // link.attributes.href = result.properties.link || null;
 
     $text.append($tag, $hed, $dek, $byline);

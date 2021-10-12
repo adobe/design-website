@@ -9,6 +9,8 @@
 @import "./page-types/article.css";
 @import "./page-types/index.css";
 @import "./page-types/team.css";
+@import "./page-types/toolkit.css";
+@import "./page-types/jobs.css";
 @import "./page-types/job-post.css";
 
 body {

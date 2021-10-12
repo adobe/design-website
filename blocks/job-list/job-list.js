@@ -1,38 +1,38 @@
-import { processDivisions } from "../../scripts/helpers.js";
-// import { fetchJobIndex } from "../../scripts/queries.js";
+import { processDivisions, $element } from "../../scripts/helpers.js";
+import { fetchIndex } from "../../scripts/queries.js";
 
-// var jobIndex = null;
+var index = null;
 
 /**
  * 
  * @param {HTMLElement} $block 
  */
 export default async function decorate($block) {
-  // if (!jobIndex) {
-  //   jobIndex = await fetchJobIndex();
-  //   console.log("jobIndex:", jobIndex);
-  // }
-  const $boards = $block.querySelectorAll(":scope > div");
+  if (!index) {
+    index = await fetchIndex();
+    console.log("index:", index);
+  }
+  const $jobs = $block.querySelectorAll(":scope > div");
 
-  for (const board of $boards) {
-      const { properties } = processDivisions(board, null, { level: "child" });
-      board.classList.add("job-listing");
-      board.querySelector("div:first-child h3").classList.add("job-title");
-      board.querySelector("div p:nth-child(2)").classList.add("experience");
-      board.querySelector("div p:nth-child(3)").classList.add("location");
-      board.querySelector("div p:nth-child(4)").classList.add("position");
-      board.querySelector("div:first-child div").classList.add("all-jobs");
+  for (const $job of $jobs) {
+    var $el = $element(".job-listing", [
+      $element("h2.job-title", "Test Title"),
+      $element("p.experience", "Test Experience"),
+      $element("p.location", "California"),
+      $element("p.position", "Test Position"),
+    ]);
+    $block.append($el);
   }
 
-  const seeJobsDiv = document.createElement("div")
-  seeJobsDiv.classList.add("see-jobs")
-  const seeJobs = document.createElement("h3")
-  seeJobs.innerHTML = "See our job openings"
-  seeJobsDiv.append(seeJobs)
+  const seeJobsDiv = document.createElement("div");
+  seeJobsDiv.classList.add("see-jobs");
+  const seeJobs = document.createElement("h3");
+  seeJobs.innerHTML = "See our job openings";
+  seeJobsDiv.append(seeJobs);
 
   seeJobs.addEventListener("click", function(){
     console.log("Jobs page not setup");
-  })
+  });
 
-  $block.append(seeJobsDiv)
+  $block.append(seeJobsDiv);
 }
