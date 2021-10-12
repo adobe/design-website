@@ -13,6 +13,7 @@ export default function decorate($main) {
     =====================WARNING======================
     This page oranization is dependant on a few things
 
+    -P tags are not contained in the title section
     -H3s are not included in the page until the teams cards
     -H2s are not included in any of the teams cards
     -The first element on the page after teams cards is an H2
@@ -22,7 +23,11 @@ export default function decorate($main) {
     */
 
     var content = team.querySelector("div > div")
-    content.classList.add("content")
+
+    const titleDiv = document.createElement("div")
+    titleDiv.classList.add("title-content")
+    const bodyDiv = document.createElement("div")
+    bodyDiv.classList.add("content")
 
     const headDiv = document.createElement("div")
     headDiv.classList.add("head-content")
@@ -40,27 +45,37 @@ export default function decorate($main) {
             break;
           pageSection++;
         case 1:
+          if(element.nodeName !== "P"){
+            titleDiv.appendChild(element)
+            break;
+          }
+          pageSection++
+        case 2:
           if(element.nodeName !== "H3"){
             headDiv.appendChild(element)
             break;
           }
           pageSection++
-        case 2:
+        case 3:
           if(element.nodeName !== "H2"){
             teamCardsDiv.appendChild(element)
             break;
           }
           pageSection++
-        case 3:{
+        case 4:{
           endDiv.appendChild(element)
           break;
         }
       }
     })
 
-    content.append(headDiv)
-    content.append(teamCardsDiv)
-    content.append(endDiv)
+    bodyDiv.append(headDiv)
+    bodyDiv.append(teamCardsDiv)
+    bodyDiv.append(endDiv)
+    
+    content.append(titleDiv)
+    content.append(bodyDiv)
+    
 
     //Oranizing individual teams cards
     let card = 0;

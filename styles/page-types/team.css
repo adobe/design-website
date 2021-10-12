@@ -9,3 +9,36 @@
     margin-left:auto;
     margin-right:auto;
 }
+
+.page-type-team .title-content{
+    padding-left: 5em;
+    color: white;
+}
+
+.page-type-team .title-content h1{
+    font-size: 3em;
+    font-weight: 500;
+}
+
+.page-type-team .content{
+    background: white;
+}
+.page-type-team .content>:not(.team-cards){
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+.page-type-team .head-content{
+    padding: 2em;
+}
+
+.page-type-team .head-content p:first-child{
+    font-size: 2em;
+}
+
+.page-type-team .head-content h2{
+    color: red;
+}
+
+.page-type-team .foot-content{
+
+}
