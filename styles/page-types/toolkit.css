@@ -1,0 +1,14 @@
+.page-type-tools{
+    background: #4BA78D;
+}
+#our-toolkit{
+    color: white;
+    font-size: 50px;
+}
+body > main > div{
+    display: flex;
+    justify-content: center;
+}
+body > main > div > div{
+    width: 1000px;
+}
