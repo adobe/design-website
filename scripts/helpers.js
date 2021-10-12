@@ -224,13 +224,54 @@ export function processDivisions($block, definitions, options) {
     return results;
 }
 
-export function $element({ cls, tag }={}, content) {
-    if (!tag) {
-        tag = "div";
+const RE_ID = /#(\w-?)+/i;
+function parseSelector(selector) {
+    let working = selector;
+    let tagSpecified = true;
+    const result = {
+        tag: null,
+        classes: [],
+        id: null,
+    };
+    if (working.indexOf("#") === 0 || working.indexOf(".") === 0) {
+        result.tag = "div";
+        tagSpecified = false;
     }
+    const idResult = RE_ID.exec(working);
+    if (idResult) {
+        const id = idResult[0];
+        working = working.replace(id, "");
+        result.id = id;
+    }
+    if (working.indexOf(".") >= 0) {
+        const classes = working.split(".").filter(str => !!str);
+        if (tagSpecified) {
+            result.tag = classes.shift();
+        }
+        result.classes = classes;
+    }
+
+    return result;
+}
+
+export function $element(selector, options, content) {
+    if (!selector) {
+        throw new Error(`$element requires the 1st argument, selector`);
+    }
+    if (arguments.length === 2 && (typeof options === "string" || options instanceof HTMLElement || options instanceof Array)) {
+        content = options;
+        options = {};
+    }
+    const { tag, classes, id } = parseSelector(selector);
     const $div = document.createElement(tag);
-    if (cls) {
-        $div.classList.add(cls);
+
+    if (classes) {
+        classes.forEach(cls => {
+            $div.classList.add(cls);
+        });
+    }
+    if (id) {
+        $div.id = id;
     }
     if (content) {
         if (typeof content === "string") {

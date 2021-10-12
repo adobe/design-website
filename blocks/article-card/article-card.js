@@ -28,19 +28,19 @@ export default function decorate($block) {
      * $dek    : Subheader / summary
      * $byline : Author | Author's Position
      */
-    const $text = $element({ cls: "text" });
-    const $tag = decorateTagLink( $element({}, `#${props.tag}`), { color: "black" } );
-    const $hed = $element({ cls: "hed" }, props.hed);
-    const $dek = $element({ cls: "dek" }, props.dek);
-    const $byline = $element({ cls: "byline" });
+    const $text = $element(".text");
+    const $tag = decorateTagLink( $element("div", `#${props.tag}`), { color: "black" } );
+    const $hed = $element(".hed", props.hed);
+    const $dek = $element(".dek", props.dek);
+    const $byline = $element(".byline");
 
     /** if props.author exists: */
     if(!!props.author){
-        const $author = $element({ tag: "span", cls: "author", content: props.author });
+        const $author = $element("span.author", props.author );
         if(!!props.position){
-            const $position = $element({ tag: "span", cls: "position", content: props.position });
+            const $position = $element("span.position", props.position );
             /* Also add in a pipe boi if author's position exists: */
-            const $pipe = $element({ tag: "span", cls: "pipe", content: "|" });
+            const $pipe = $element("span.pipe", "|");
             $byline.append($author, $pipe, $position);
         } else {
             $byline.append($author);
