@@ -92,4 +92,37 @@ export default function decorate($main) {
       teamCard.append(element)
     })
     teamCardsDiv.append(teamCard)
+
+    //Organize Foot content
+    const resourcesDiv = document.createElement("div");
+    resourcesDiv.classList.add("resources-section");
+    const resources = document.createElement("div");
+    resources.classList.add("resources");
+
+    const thinkAboutDiv = document.createElement("div");
+    thinkAboutDiv.classList.add("think-differently")
+
+    let section = 0;
+    endDiv.querySelectorAll("div>*").forEach(element =>{
+      if(element.nodeName === "H2")
+        section++
+
+      if(section === 1){
+        if(element.nodeName === "H2"){
+          resourcesDiv.append(element)
+          resourcesDiv.append(resources)
+        }else if(element.nodeName === "P"){
+          let resource = document.createElement("div");
+          resource.classList.add("resource")
+          resource.append(element)
+          resources.append(resource)
+        }
+      }else if(section === 2){
+        element.innerHTML = element.innerHTML.replace(/[0-9+]+/g, '<span class="think-differently-number">$&</span>')
+        thinkAboutDiv.append(element)
+      }
+    })
+
+    endDiv.append(resourcesDiv)
+    endDiv.append(thinkAboutDiv)
 }
