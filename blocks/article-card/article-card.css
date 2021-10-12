@@ -17,8 +17,7 @@
     /* Ensure Article Card doesn't cut off content on short desktop screens */
     .article-card.block{
         font-size: 1rem;
-        height:60vh;
-        min-height: 37em;
+        height:500px;
         overflow:hidden;
         min-width: 62.5em;
     }
