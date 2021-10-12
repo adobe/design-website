@@ -424,9 +424,11 @@ export function getLanguage() {
 }
 
 // First register the decorators
-addPageTypeDecorator("article", decorateArticle);
+addPageTypeDecorator({ path: "/stories" }, decorateArticle);
+addPageTypeDecorator({ path: "/team" }, decorateTeam);
+addPageTypeDecorator({ path: "/jobs" }, decorateJobPost);
+// Likely incorrect:
 addPageTypeDecorator("job-post", decorateJobPost);
-addPageTypeDecorator("team", decorateTeam);
 
 // Second apply the decoration
 decoratePage(window);
