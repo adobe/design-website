@@ -47,6 +47,14 @@ export function loadCSS(href) {
   }
 }
 
+export function loadScript(src) {
+  // if (!document.querySelector(`head > script[src="${src}"]`)) {
+  //   const script = document.createElement("script");
+  //   script.setAttribute("src", src);
+  //   script.onload()
+  // }
+}
+
 /**
  * Retrieves the content of a metadata tag.
  * @param {string} name The metadata name (or property)
@@ -427,10 +435,10 @@ export function getLanguage() {
 }
 
 // First register the decorators
-addPageTypeDecorator({ path: "/article"}, decorateArticle);
-addPageTypeDecorator({ path: "/toolkit"}, decorateToolkit);
-addPageTypeDecorator({ path: "/inclusive"}, decorateInclusive);
-addPageTypeDecorator({ path: "/jobs"}, decorateJobs);
+addPageTypeDecorator({ path: "/article" }, decorateArticle);
+addPageTypeDecorator({ path: "/toolkit" }, decorateToolkit);
+addPageTypeDecorator({ path: "/inclusive" }, decorateInclusive);
+addPageTypeDecorator({ path: "/jobs" }, decorateJobs);
 addPageTypeDecorator({ path: "/stories" }, decorateArticle);
 addPageTypeDecorator({ path: "/team" }, decorateTeam);
 addPageTypeDecorator({ path: "/jobs" }, decorateJobPost);
