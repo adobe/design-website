@@ -11,12 +11,14 @@
 }
 
 .page-type-team .title-content{
+    margin-top: 6em;
+    margin-bottom: 4em;
     padding-left: 5em;
     color: white;
 }
 
 .page-type-team .title-content h1{
-    font-size: 3em;
+    font-size: 4em;
     font-weight: 500;
 }
 
@@ -32,11 +34,12 @@
 }
 
 .page-type-team .head-content p:first-child{
-    font-size: 2em;
+    font-size: 3em;
 }
 
 .page-type-team .head-content h2,
 .page-type-team .foot-content .resources-section h2{
+    font-size: 3em;
     color: red;
 }
 
@@ -83,52 +86,64 @@
 .think-differently{
     background: #0B1C40;
     color: white;
-
-    height: 500px;
-    padding:1em;
-
-    display: grid;
-    grid-template-rows: 20% 40% 40%;
-    grid-template-columns: repeat(5, 20%);
+    display: flex;
     align-items: center;
     justify-content: center;
+    height: 500px;
+
+    
 }
 
-.think-differently h2{
+.think-differently-body{
+    display: grid;
+    grid-template-rows: 20% 20% 60%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 4em;
+    padding-left:1em;
+    padding-right: 1em;
+}
+
+.think-differently .think-differently-body h2{
+    font-size: 2em;
     grid-column: 2/4;
     grid-row: 1/2;
 }
 
-.think-differently p{
+.think-differently .think-differently-body p{
     grid-row: 3/4;
 }
 
-.think-differently p:nth-child(2){
+.think-differently .think-differently-body p:nth-child(2){
     grid-column: 2/4;
     grid-row: 2/3;
 }
-.think-differently p:nth-child(3),
-.think-differently p:nth-child(4),
-.think-differently p:nth-child(5){
+.think-differently .think-differently-body p:nth-child(3),
+.think-differently .think-differently-body p:nth-child(4),
+.think-differently .think-differently-body p:nth-child(5){
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 
-.think-differently p:nth-child(3){
-    grid-column: 1/2;
-}
-
-.think-differently p:nth-child(4){
-    grid-column: 3/4;
-}
-
-.think-differently p:nth-child(5){
+.think-differently .think-differently-body p:nth-child(3){
     grid-column: 5/6;
 }
 
-.think-differently .think-differently-number{
+.think-differently .think-differently-body p:nth-child(4){
+    grid-column: 3/4;
+}
+
+.think-differently .think-differently-body p:nth-child(5){
+    grid-column: 1/2;
+}
+
+.think-differently .think-differently-body .think-differently-number{
     display:block;
-    font-size:5em
+    font-size:6em;
+    font-weight: 900;
 }

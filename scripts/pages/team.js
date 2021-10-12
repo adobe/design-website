@@ -101,6 +101,8 @@ export default function decorate($main) {
 
     const thinkAboutDiv = document.createElement("div");
     thinkAboutDiv.classList.add("think-differently")
+    const thinkAboutBody = document.createElement("div");
+    thinkAboutBody.classList.add("think-differently-body")
 
     let section = 0;
     endDiv.querySelectorAll("div>*").forEach(element =>{
@@ -119,10 +121,10 @@ export default function decorate($main) {
         }
       }else if(section === 2){
         element.innerHTML = element.innerHTML.replace(/[0-9+]+/g, '<span class="think-differently-number">$&</span>')
-        thinkAboutDiv.append(element)
+        thinkAboutBody.append(element)
       }
     })
-
+    thinkAboutDiv.append(thinkAboutBody)
     endDiv.append(resourcesDiv)
     endDiv.append(thinkAboutDiv)
 }
