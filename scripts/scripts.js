@@ -434,8 +434,7 @@ addPageTypeDecorator({ path: "/jobs"}, decorateJobs);
 addPageTypeDecorator({ path: "/stories" }, decorateArticle);
 addPageTypeDecorator({ path: "/team" }, decorateTeam);
 addPageTypeDecorator({ path: "/jobs" }, decorateJobPost);
-// Likely incorrect:
-addPageTypeDecorator("job-post", decorateJobPost);
+// addPageTypeDecorator({ path: "job-post" }, decorateJobPost);
 
 // Second apply the decoration
 decoratePage(window);
