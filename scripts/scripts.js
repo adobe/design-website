@@ -423,7 +423,7 @@ export function getLanguage() {
 }
 
 // First register the decorators
-addPageTypeDecorator({ path: "/stories", type: "hi" }, decorateArticle);
+addPageTypeDecorator({ path: "/stories" }, decorateArticle);
 addPageTypeDecorator({ path: "/team" }, decorateTeam);
 
 // Second apply the decoration
