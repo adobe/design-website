@@ -1,17 +1,17 @@
 import { processDivisions } from "../../scripts/helpers.js";
-// import { fetchJobIndex } from "../../scripts/queries.js";
+import { fetchIndex } from "../../scripts/queries.js";
 
-// var jobIndex = null;
+var jobIndex = null;
 
 /**
  * 
  * @param {HTMLElement} $block 
  */
 export default async function decorate($block) {
-  // if (!jobIndex) {
-  //   jobIndex = await fetchJobIndex();
-  //   console.log("jobIndex:", jobIndex);
-  // }
+  if (!jobIndex) {
+    jobIndex = await fetchIndex();
+    console.log("jobIndex:", jobIndex);
+  }
   const $boards = $block.querySelectorAll(":scope > div");
 
   for (const board of $boards) {
@@ -24,15 +24,15 @@ export default async function decorate($block) {
       board.querySelector("div:first-child div").classList.add("all-jobs");
   }
 
-  const seeJobsDiv = document.createElement("div")
-  seeJobsDiv.classList.add("see-jobs")
-  const seeJobs = document.createElement("h3")
-  seeJobs.innerHTML = "See our job openings"
-  seeJobsDiv.append(seeJobs)
+  const seeJobsDiv = document.createElement("div");
+  seeJobsDiv.classList.add("see-jobs");
+  const seeJobs = document.createElement("h3");
+  seeJobs.innerHTML = "See our job openings";
+  seeJobsDiv.append(seeJobs);
 
   seeJobs.addEventListener("click", function(){
     console.log("Jobs page not setup");
-  })
+  });
 
-  $block.append(seeJobsDiv)
+  $block.append(seeJobsDiv);
 }

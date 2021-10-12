@@ -224,28 +224,31 @@ export function processDivisions($block, definitions, options) {
     return results;
 }
 
-export function createDiv({ cls, content }) {
-    const $div = document.createElement("div");
+export function $element({ cls, tag }={}, content) {
+    if (!tag) {
+        tag = "div";
+    }
+    const $div = document.createElement(tag);
     if (cls) {
         $div.classList.add(cls);
     }
     if (content) {
-        $div.innerText = content;
+        if (typeof content === "string") {
+            $div.innerText = content;
+        } else {
+            let contentArray;
+            if (!(content instanceof Array)) {
+                contentArray = [content];
+            } else {
+                contentArray = content;
+            }
+            contentArray.forEach(c => {
+                $div.appendChild(c);
+            });
+        }
     }
 
     return $div;
-}
-
-export function createSpan({ cls, content }) {
-    const $span = document.createElement("span");
-    if (cls) {
-        $span.classList.add(cls);
-    }
-    if (content) {
-        $span.innerText = content;
-    }
-
-    return $span;
 }
 
 export function wrapWithElement($target, $wrap) {
