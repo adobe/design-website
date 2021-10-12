@@ -1,13 +1,3 @@
-export default function decorate($main) {
-    var paragraphs = document.querySelectorAll("body > main > div > div > p");
-    paragraphs.forEach(p => {
-      if( p.querySelector("picture") ) {
-        p.classList.add("job-post-picture");
-      }
-    });
-    moveHeaderContent();
-}
-
 function moveHeaderContent() {
     const page = document.querySelector(".block.page");
     const header = document.querySelector(".block.header");
@@ -23,4 +13,14 @@ function moveHeaderContent() {
     const picture = header.querySelector("picture");
     picture.classList.add("header-image");
     container.prepend(picture);
+}
+
+export default function decorate($main) {
+  moveHeaderContent();
+  var paragraphs = document.querySelectorAll("body > main > div > div > p");
+  paragraphs.forEach(p => {
+    if( p.querySelector("picture") ) {
+      p.classList.add("job-post-picture");
+    }
+  });
 }
