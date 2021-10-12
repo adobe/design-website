@@ -317,7 +317,9 @@ export function $wrap($parent, children) {
         resolvedChildren = children;
     }
     resolvedChildren.forEach($child => {
-        $child.remove();
+        if ($child.parentElement) {
+            $child.remove();
+        }
         $parent.appendChild($child);
     });
     return $parent;
