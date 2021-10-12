@@ -16,7 +16,11 @@ setPageLoading();
 import decorateHeader from "./global-header.js";
 import decorateFooter from "./global-footer.js";
 import decorateArticle from "./pages/article.js";
+import decorateJobPost from "./pages/job-post.js";
 import decorateTeam from "./pages/team.js";
+import decorateToolkit from "./pages/toolkit.js";
+import decorateInclusive from "./pages/inclusive.js";
+import decorateJobs from "./pages/jobs.js";
 import { addPageTypeDecorator, runPageTypeDecorators } from "./page-type-decorator.js";
 
 /**
@@ -126,6 +130,7 @@ function decorateBlocks($main) {
  */
 export async function loadBlock($block) {
   const blockName = $block.getAttribute('data-block-name');
+  console.log(" BLOCK NAME: ", blockName)
   try {
     const mod = await import(`/blocks/${blockName}/${blockName}.js`);
     if (mod.default) {
@@ -135,8 +140,7 @@ export async function loadBlock($block) {
     // eslint-disable-next-line no-console
     console.log(`failed to load module for ${blockName}`, err);
   }
-
-  loadCSS(`/blocks/${blockName}/${blockName}.css`);
+    loadCSS(`/blocks/${blockName}/${blockName}.css`);
 }
 
 /**
@@ -378,7 +382,7 @@ async function decoratePage(win = window) {
     pageDoneLoading();
   }
 
-  
+
 }
 
 let language;
@@ -423,8 +427,14 @@ export function getLanguage() {
 }
 
 // First register the decorators
+addPageTypeDecorator({ path: "/article"}, decorateArticle);
+addPageTypeDecorator({ path: "/toolkit"}, decorateToolkit);
+addPageTypeDecorator({ path: "/inclusive"}, decorateInclusive);
+addPageTypeDecorator({ path: "/jobs"}, decorateJobs);
 addPageTypeDecorator({ path: "/stories" }, decorateArticle);
 addPageTypeDecorator({ path: "/team" }, decorateTeam);
+addPageTypeDecorator({ path: "/jobs" }, decorateJobPost);
+// addPageTypeDecorator({ path: "job-post" }, decorateJobPost);
 
 // Second apply the decoration
 decoratePage(window);

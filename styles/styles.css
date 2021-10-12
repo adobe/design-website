@@ -8,6 +8,9 @@
 @import "./page-types/article.css";
 @import "./page-types/index.css";
 @import "./page-types/team.css";
+@import "./page-types/toolkit.css";
+@import "./page-types/jobs.css";
+@import "./page-types/job-post.css";
 
 body {
     background: rgb(231,204,222);
@@ -86,5 +89,5 @@ html, body{
         margin: 1em;
         overflow-x: hidden;
     }
-   
+
 }
