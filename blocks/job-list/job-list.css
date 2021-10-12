@@ -34,16 +34,23 @@
 .job-list.block p{
     font-size: 20px;
 }
-.job-list div:last-child{
-    border-bottom: none;
-}
-.job-list div:last-child > h2{
-    text-decoration: underline 4px #0B1C40;
-}
 
-.job-listing{
+.job-list .job-listing, 
+.job-list .see-jobs{
     border-bottom: solid 2px #0B1C40;
     margin: 0 3em;
+}
+
+.job-list .see-jobs{
+    margin-top:3em;
+    border-bottom: none;
+    align-self: flex-start;
+}
+.job-list .see-jobs h3{
+    font-weight: 500;
+    border: 2px solid black;
+    border-radius: 2em;
+    padding: 0.8em 1em;
 }
 
 .job-listing div:first-child{
@@ -85,6 +92,12 @@
     font-size: 20px;
     font-weight: 300;
     padding-top: 200px;
+}
+
+@media (max-width:1023px){
+    .job-list .see-jobs{
+        align-self: unset;
+    }
 }
 
 @media (max-width:767px)
