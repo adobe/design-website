@@ -39,6 +39,7 @@
         display: grid;
         grid-template-rows: 5em;
         grid-template-columns: 9em 25em auto;
+        margin: 0em 1em;
     }
     #global-header .tagline{
         grid-row-start: 1;
