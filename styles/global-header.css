@@ -2,7 +2,7 @@
 #global-header {
     display:flex;
     align-items: center;
-    padding:20px;
+    padding:20px 0px;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     color: #FFFFFF;
