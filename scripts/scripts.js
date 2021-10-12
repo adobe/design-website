@@ -127,6 +127,7 @@ function decorateBlocks($main) {
  */
 export async function loadBlock($block) {
   const blockName = $block.getAttribute('data-block-name');
+  console.log(" BLOCK NAME: ", blockName)
   try {
     const mod = await import(`/blocks/${blockName}/${blockName}.js`);
     if (mod.default) {
@@ -136,8 +137,7 @@ export async function loadBlock($block) {
     // eslint-disable-next-line no-console
     console.log(`failed to load module for ${blockName}`, err);
   }
-
-  loadCSS(`/blocks/${blockName}/${blockName}.css`);
+    loadCSS(`/blocks/${blockName}/${blockName}.css`);
 }
 
 /**
