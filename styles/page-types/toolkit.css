@@ -22,7 +22,7 @@ body > .toolkit > div{
     display: flex;
     justify-content: center;
 }
-body > .tookit > div > div{
+body > .toolkit > div > div{
     width: 1000px;
 }
 
