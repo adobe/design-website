@@ -35,12 +35,12 @@
     transform: translateY(-100%);
 }
 
-.page-type-article p {
+.page-type-article main p {
     text-align:left;
     font-size:1em;
     line-height:1.5em;
 }
-.page-type-article h1{
+.page-type-article main h1{
     font-size: 3em;
 }
 
@@ -51,11 +51,7 @@
 
 .page-type-article .header >div{
     display: grid;
-    grid-template-rows: auto auto;
-}
-
-.page-type-article .header >div > div:first-child{
-    grid-row: 2;
+    grid-template-rows: auto;
 }
 
 .page-type-article .header.block h1{
@@ -67,16 +63,17 @@
     text-align: left;
 }
 
-.page-type-article h2{
-    font-size: 2em;
+.page-type-article main h2{
+    font-size: 1.5em;
     margin: 0;
     font-weight: 500;
+    padding-top: 1em;
 
 }
-    .header.block > div{
+.header.block > div{
     width: 60%;
     padding-left: 5em;
-    height: 50%;
+    height: 75%;
 }
 body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2){
     height: 150px;
@@ -90,7 +87,7 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     text-align: left;
 }
 
-.page-type-article img{
+.page-type-article main img{
     width: 100%;
 }
 
@@ -103,7 +100,7 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 .page-type-article .header.block{
     width: 100%;
     color: whitesmoke;
-    height: 90vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -166,7 +163,7 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     .page-type-article main{
         width: 90%;
     }
-    .page-type-article h1{
+    .page-type-article main h1{
         padding: 1em;
     }
     .page-type-article main > div > div > h2{
@@ -183,13 +180,6 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     /* header */
     .page-type-article .header.block{
         padding: 1em;
-    }
-    #global-header{
-        justify-items: center;
-
-    }
-    #global-header > div:nth-child(1){
-        width: 50%;
     }
     /* header */
 
@@ -216,7 +206,7 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     .page-type-article main > div > div > h2{
         padding: 0;
     }
-    .page-type-article h2{
+    .page-type-article main h2{
         text-align: left;
         font-weight: normal;
     }
@@ -243,16 +233,16 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
         width: auto;
         padding: 0;
     }
-    .page-type-article p{
+    .page-type-article main p{
         padding: 0;
     }
     .page-type-article main > div > div > p:not(.article-picture){
         padding: 0;
     }
-    .page-type-article ul{
+    .page-type-article main ul{
         padding: 0;
     }
-    .page-type-article li{
+    .page-type-article main li{
         padding: 0 0 1em 0;
     }
     .page-type-article .additional-reading.block li{

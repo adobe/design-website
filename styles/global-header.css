@@ -2,18 +2,22 @@
 #global-header {
     display:flex;
     align-items: center;
-    width:100%;
-    padding:20px;
+    padding:20px 0px;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     color: #FFFFFF;
+
+    width: 98vw;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 #global-header .tagline {
     font-family: 'Roboto', sans-serif;
     margin-left: 5em;
     color: #FFFFFF;
-    width: 19vw;
+    width: 18vw;
 }
 
 #global-header nav {
@@ -34,7 +38,8 @@
     #global-header{
         display: grid;
         grid-template-rows: 5em;
-        grid-template-columns: 9em 25em auto auto auto auto;
+        grid-template-columns: 9em 25em auto;
+        margin: 0em 1em;
     }
     #global-header .tagline{
         grid-row-start: 1;
@@ -81,7 +86,8 @@
         text-align: center;
     }
     #global-header{
-        display: grid
+        display: grid;
+        justify-items: center;
     }
     #global-header .tagline {
         text-align: center;

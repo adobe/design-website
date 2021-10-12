@@ -50,6 +50,9 @@
         grid-auto-flow: row;
         height:100%;
     }
+    .article-card.block .block-content .image{
+        grid-row: 1/2;
+    }
 }
 /* ------- IMAGE & TEXT ------- */
 .article-card.block .text{

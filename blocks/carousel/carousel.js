@@ -1,5 +1,6 @@
 import { processDivisions } from "../../scripts/helpers.js";
 const SLIDE_TIME = 7000;
+const ANIMATION_TIME = 250;
 
 const carouselProperties = {
   slides: [],
@@ -17,9 +18,8 @@ export default function decorate($block) {
     const { properties } = processDivisions(slide, null, { level: "child" });
     carouselProperties.slides.push( properties );
     if ((i + 1) === length) {
-      slide.classList.add("carousel__actions");
-      slide.querySelector("body > main > div > div > div.carousel.block > div:last-child > div:nth-child(1)").classList.add("carousel__button--prev");
-      slide.querySelector("body > main > div > div > div.carousel.block > div:last-child > div:nth-child(3)").classList.add("carousel__button--next");
+      //Currently the last slide is a depreciated carousel__actions div, remove this when its removed from the doc
+      slide.remove()
       break;
     } else if (i === 0) {
       slide.classList.add("carousel__item--visible", "firstChild");
@@ -32,6 +32,23 @@ export default function decorate($block) {
     slide.querySelector("div:nth-child(1)").classList.add("image");
     slide.querySelector("div:nth-child(2)").classList.add("number");
   }
+
+    const actions = document.createElement("div");
+    actions.classList.add("carousel__actions")
+
+    const prevDiv = document.createElement("div");
+    prevDiv.classList.add("carousel__button--prev")
+    prevDiv.innerHTML = '<img src="/resources/leftArrow.png">'
+
+    let nextDiv = document.createElement("div");
+    nextDiv.classList.add("carousel__button--next")
+    nextDiv.innerHTML = '<img src="/resources/rightArrow.png">'
+    
+    actions.append(prevDiv)
+    actions.append(nextDiv)
+
+    $block.append(actions)
+
 
     let slidePosition = 0;
     const slides = document.getElementsByClassName('carousel__item');
@@ -51,7 +68,7 @@ export default function decorate($block) {
           setTimeout(() => {
             slides[i].classList.remove('carousel__item--visible', "visible-animation-rev", "visible-animation");
             slides[i].classList.remove('opacity-zero');
-          }, 250)
+          }, ANIMATION_TIME)
          
         }
         
@@ -59,7 +76,7 @@ export default function decorate($block) {
         if(i === slidePosition){
           setTimeout(()=> {
             slides[i].classList.add('carousel__item--visible', 'visible-animation');
-          }, 250);
+          }, ANIMATION_TIME);
           
         }
       }
@@ -75,7 +92,7 @@ export default function decorate($block) {
           setTimeout(() => {
             slides[i].classList.remove('carousel__item--visible', "visible-animation-rev", "visible-animation");
             slides[i].classList.remove('opacity-zero-rev' );
-          }, 250)
+          }, ANIMATION_TIME)
          
         }
         
@@ -83,7 +100,7 @@ export default function decorate($block) {
         if(i === slidePosition){
           setTimeout(()=> {
             slides[i].classList.add('carousel__item--visible' , "visible-animation-rev");
-          }, 250);
+          }, ANIMATION_TIME);
           
         }
       }
@@ -122,15 +139,32 @@ export default function decorate($block) {
       moveToNextSlide();
     }, SLIDE_TIME);
 
+    var timeout = null;
+
     next[0].addEventListener("click", function() {
+      if(timeout)
+        return
+      
+      clickTimeout();
       stopAutoMode();
       moveToNextSlide();
     });
 
     prev[0].addEventListener("click", function() {
+      if(timeout)
+        return
+      
+      clickTimeout();
       stopAutoMode();
       moveToPrevSlide();
-    });    
+    });
+    
+    function clickTimeout(){
+      timeout = window.setTimeout(function(){
+        window.clearTimeout(timeout); 
+        timeout = null;}
+        ,ANIMATION_TIME )
+    }
 }
 
 function applyColor( slideIndex ) {

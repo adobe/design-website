@@ -24,5 +24,8 @@ function moveHeaderContent() {
   const picture = header.querySelector("picture");
   picture.classList.add("header-image");
   container.prepend(picture);
+
+  const oldPictureDiv = header.querySelector("div:first-child > div:first-child");
+  oldPictureDiv.remove()
 }
 
