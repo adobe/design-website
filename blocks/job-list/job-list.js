@@ -14,15 +14,15 @@ export default async function decorate($block) {
   }
   const $jobs = $block.querySelectorAll(":scope > div");
 
-  for (const $job of $jobs) {
-    var $el = $element(".job-listing", [
-      $element("h2.job-title", "Test Title"),
-      $element("p.experience", "Test Experience"),
-      $element("p.location", "California"),
-      $element("p.position", "Test Position"),
-    ]);
-    $block.append($el);
-  }
+  // for (const $job of $jobs) {
+  //   var $el = $element(".job-listing", [
+  //     $element("h2.job-title", "Test Title"),
+  //     $element("p.experience", "Test Experience"),
+  //     $element("p.location", "California"),
+  //     $element("p.position", "Test Position"),
+  //   ]);
+  //   $block.append($el);
+  // }
 
   const seeJobsDiv = document.createElement("div");
   seeJobsDiv.classList.add("see-jobs");
