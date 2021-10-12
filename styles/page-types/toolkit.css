@@ -22,14 +22,14 @@ body > .toolkit > div{
     display: flex;
     justify-content: center;
 }
-body > main > div > div{
+body > .tookit > div > div{
     width: 1000px;
 }
 
 .toolkit > .text{
     color: white;
 }
-body > main > div > div > div:nth-child(4) > div > div.image{
+body > .toolkit > div > div > div:nth-child(4) > div > div.image{
     background-color: #F4F4F4;
 }
 body > .toolkit > div > div > div > div > div.text{
