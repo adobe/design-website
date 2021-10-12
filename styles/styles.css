@@ -1,5 +1,6 @@
 @import "./page-loader.css";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url("https://use.typekit.net/jdq5hay.css");
 @import "body-styles.css";
 @import "global-header.css";
 @import "global-footer.css";
@@ -31,6 +32,7 @@ html, body{
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    font-family: 'Adobe Clean','Roboto', sans-serif;
 }
 
 .tag-link {
@@ -38,14 +40,14 @@ html, body{
     text-decoration: underline solid 4px#D8D8D8;
     /* border-bottom: solid 4px#D8D8D8; */
     display: inline;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Adobe Clean','Roboto', sans-serif;
 }
 .tag-link.black {
     color: #17212D;
     text-decoration: underline solid 4px#17212D;
     /* border-bottom: solid 4px#17212D; */
     display: inline;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Adobe Clean','Roboto', sans-serif;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px){

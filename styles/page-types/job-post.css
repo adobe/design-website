@@ -1,3 +1,24 @@
-.page-type-single-job-listing{
+.job-post{
     background-color: #0022ff88;
+    --sarif-font: "Adobe Clean Serif", "Adobe Clean", "Roboto", sans-serif;
+    --sans-font: "Adobe Clean", "Roboto", sans-serif;
+}
+
+.job-post .job-title{
+
+}
+.job-post .detail-label{
+
+}
+.job-post .detail-value{
+
+}
+.job-post .highlight{
+    font-family: var(--sarif-font);
+}
+.job-post .paragraph{
+
+}
+.job-post .section-header{
+
 }

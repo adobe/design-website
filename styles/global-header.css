@@ -4,7 +4,7 @@
     align-items: center;
     padding:20px 0px;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Adobe Clean','Roboto', sans-serif;
     color: #FFFFFF;
 
     width: 98vw;
@@ -14,7 +14,7 @@
 }
 
 #global-header .tagline {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Adobe Clean','Roboto', sans-serif;
     margin-left: 5em;
     color: #FFFFFF;
     width: 18vw;
@@ -69,13 +69,13 @@
         margin: 0;
         padding-right: 1em;
     }
-    
+
     #global-header nav {
         position: static;
         margin: 0;
         padding-right: 1em;
     }
-    
+
     @media only screen and (max-width: 425px){
         .tagline {
         display:flex;
@@ -99,7 +99,7 @@
         position: static;
         margin: 0;
         padding-top: 2em;
-    }    
+    }
 }
 @media only screen and (max-width: 375px) {
     .tagline {
@@ -115,14 +115,14 @@
         margin-right: 0;
     }
 
-    
+
     #global-header .tagline {
         text-align: center;
         width: 20em;
         margin: 0;
         padding-top: 2em;
     }
-    
+
     #global-header nav {
         position: static;
         margin: 0;

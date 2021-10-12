@@ -38,12 +38,12 @@ body {
     color: #F0E8DD;
     font-size: clamp(2rem, 6vw, 8rem);
     width: 25vw;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Adobe Clean','Roboto', sans-serif;
     margin-bottom: 40px;
 }
 
 .hero-carousel .author {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Adobe Clean','Roboto', sans-serif;
     color: #F0E8DD;
 }
 
@@ -120,7 +120,7 @@ body > main > div > div > div.hero-carousel.block > div > div:nth-child(3){
     .hero-carousel.block .slide .image {
         width: 100%;
         margin-bottom: 2em;
-        
+
     }
     .hero-carousel.block > div:nth-child(1) > div:nth-child(2){
 
@@ -132,7 +132,7 @@ body > main > div > div > div.hero-carousel.block > div > div:nth-child(3){
         margin-top: .5em;
         position: static;
     }
-    
+
 }
 @media only screen and (max-width: 375px) {
     .hero-carousel {
@@ -154,7 +154,7 @@ body > main > div > div > div.hero-carousel.block > div > div:nth-child(3){
     .hero-carousel.block .image img{
         width: 50%;
     }
-    
+
     /* Div for #PROCESS, Illustrator for Ipad, Gabe Campbell | CTO */
     .hero-carousel.block > div:nth-child(1) > div:nth-child(2){
         padding-top: 1em;

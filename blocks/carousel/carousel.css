@@ -22,7 +22,7 @@
     width: 100%;
     height: auto;
     border-radius: 4px;
-    
+
 }
 .carousel .carousel__item .image {
     width: 100%;
@@ -58,14 +58,14 @@
     display: inline;
     font-weight: 600;
     font-size: 25px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Adobe Clean','Roboto', sans-serif;
 }
 
 /* title styles */
 .carousel .carousel__item--visible h2 {
     color: #F0E8DD;
     font-size: clamp(2rem, 6vw, 5rem);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Adobe Clean','Roboto', sans-serif;
     margin-bottom: 40px;
     height: 3.3em;
     overflow: hidden;
@@ -74,7 +74,7 @@
 
 /* person styles */
 .carousel .carousel__item--visible p:last-child {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Adobe Clean','Roboto', sans-serif;
     color: #F0E8DD;
 }
 
@@ -93,7 +93,7 @@
     cursor: pointer;
     color: black;
     border-radius: 1em;
-    
+
 }
 .opacity-zero{
     transform:  translateX(100%);
@@ -103,7 +103,7 @@
     opacity: 0;
     transform: translateX(-100%);
 }
-/* 
+/*
 .carousel .carousel__actions div.carousel__button--prev {
     margin-left: 1em;
 }
@@ -149,7 +149,7 @@
     /* .carousel {
         margin: 4em 0 1em 0;
     } */
-/* 
+/*
     .carousel .carousel__item img {
         width: 60%;
         max-width: 25em;
@@ -226,5 +226,5 @@
     .carousel .carousel__item .image {
         height: unset;
     }
-    
+
 }
