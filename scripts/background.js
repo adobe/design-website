@@ -53,12 +53,12 @@ export const Background = {
         }, TRANS_TIME);
     },
     swapActive() {
+        Background.$inactiveFade.style["z-index"] = 1;
+        Background.$activeFade.style["z-index"] = 2;
+
         const newActive = Background.$inactiveFade;
         Background.$inactiveFade = Background.$activeFade;
         Background.$activeFade = newActive;
-
-        Background.$inactiveFade.style["z-index"] = 2;
-        Background.$activeFade.style["z-index"] = 1;
 
         Background.$inactiveFade.style.opacity = 1;
         Background.$activeFade.style.opacity = 1;
