@@ -177,6 +177,9 @@
 }
 
 .page-type-team .foot-content .resources-section .resources .resource{
+    display:grid;
+    grid-template-rows: 60% 24% 16%;
+    height: 300px;
     background: red;
     width: fit-content;
     flex-basis: 0;
@@ -189,10 +192,15 @@
     margin-right: 0px;
 }
 
+.page-type-team .foot-content .resources-section .resources .resource p{
+    grid-row: 2/3;
+    padding-left: 2rem;
+    font-size: 1.5rem;
+}
+
 .page-type-team .foot-content .resources-section .resources .resource a{
     color: white;
     text-decoration: none;
-    padding: 20px 0 10px 5px;
 }
 
 
