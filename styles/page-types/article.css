@@ -110,7 +110,9 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     display: grid;
     grid-template-columns: 50% 50%;
 }
-
+.page-type-article .additional-reading.block > div > div{
+    text-align: right;
+}
 .page-type-article .content ul{
     list-style: none;
     text-align: left;
