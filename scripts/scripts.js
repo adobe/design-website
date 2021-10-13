@@ -21,6 +21,7 @@ import decorateTeam from "./pages/team.js";
 import decorateToolkit from "./pages/toolkit.js";
 import decorateInclusive from "./pages/inclusive.js";
 import decorateJobs from "./pages/jobs.js";
+import decorateStories from "/blocks/story/story.js"
 import { addPageTypeDecorator, runPageTypeDecorators } from "./page-type-decorator.js";
 
 /**
@@ -439,9 +440,9 @@ addPageTypeDecorator({ path: "/article" }, decorateArticle);
 addPageTypeDecorator({ path: "/toolkit" }, decorateToolkit);
 addPageTypeDecorator({ path: "/inclusive" }, decorateInclusive);
 addPageTypeDecorator({ path: "/jobs" }, decorateJobs);
-addPageTypeDecorator({ path: "/stories" }, decorateArticle);
 addPageTypeDecorator({ path: "/team" }, decorateTeam);
 addPageTypeDecorator({ path: "/jobs" }, decorateJobPost);
+addPageTypeDecorator({ path: "/stories" }, decorateStories);
 // addPageTypeDecorator({ path: "job-post" }, decorateJobPost);
 
 // Second apply the decoration
