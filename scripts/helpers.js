@@ -325,10 +325,16 @@ export function $wrap($parent, children) {
     return $parent;
 }
 
+export function $eachChild($target, fn) {
+    for (let i = 1; i < $target.children.length; i++) {
+        fn($target.children.item(i));
+    }    
+}
+
 export function $remainder($target, selector) {
     const $match = $target.querySelector(selector);
     const remainder = [];
-    $target.children.forEach(c => {
+    $eachChild($target, c => {
         if (c !== $match) {
             remainder.push(c);
         }
