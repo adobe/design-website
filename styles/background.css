@@ -12,6 +12,9 @@
     height:200vh;    
 }
 #global-background .background-fade {
+    position:absolute;
+    top: 0;
+    left: 0;
     display:block;
     height:200vh;
     width:100%;
