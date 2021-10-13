@@ -41,6 +41,7 @@ export const Background = {
         Background.transitionColor( color );
     },
     transitionColor( color ) {
+        Background.$inactiveFade.style.opacity = 1;
         Background.$activeFade.style.opacity = 0;
         if (this.transitionTimeout) {
             clearTimeout(this.transitionTimeout);
@@ -60,7 +61,7 @@ export const Background = {
         Background.$inactiveFade = Background.$activeFade;
         Background.$activeFade = newActive;
 
-        Background.$inactiveFade.style.opacity = 1;
+        Background.$inactiveFade.style.opacity = 0;
         Background.$activeFade.style.opacity = 1;
     },
 };
