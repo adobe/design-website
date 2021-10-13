@@ -73,14 +73,22 @@
 
 .page-type-team .team-cards .team-card h3{
     position: absolute;
-    margin-left: auto;
-    margin-right:auto;
-    left:0;
-    right:0;
-    width: 80%;
+
+    /*This should be contained within the first 40% of the block its in*/
+    padding-left: 10%;
+    width: 30%;
 
     font-size: 2rem;
-    padding: 1em;
+}
+.page-type-team .team-cards .team-card h3::after{
+    content: "";
+    padding-top: 3rem;
+
+    /*This is being positioned to the H3 itself which is contained within the first 40% of the block*/
+    position:absolute;
+    left:25%;    /* 40% * 25%  = 10% "padding left" */
+    width: 200%; /* 40% * 200% = 80% "width"*/
+
     border-bottom: 2px solid black;
 }
 
@@ -107,19 +115,45 @@
 }
 
 .page-type-team .team-cards .team-card.card-0{
-    background-color: lightgreen;
+    background-color: #FFCAB9;
 }
-
 .page-type-team .team-cards .team-card.card-0 div:last-child{
-    background-color: green;
+    background-color: #FF7D4F;
 }
 
 .page-type-team .team-cards .team-card.card-1{
-    background-color: pink;
+    background-color: #D4CEFF;
+}
+.page-type-team .team-cards .team-card.card-1 div:last-child{
+    background-color: #3021A0;
 }
 
-.page-type-team .team-cards .team-card.card-1 div:last-child{
-    background-color: red;
+.page-type-team .team-cards .team-card.card-2{
+    background-color: #FFDDDE;
+}
+.page-type-team .team-cards .team-card.card-2 div:last-child{
+    background-color: #E51D24;
+}
+
+.page-type-team .team-cards .team-card.card-3{
+    background-color: #C5D1C7;
+}
+.page-type-team .team-cards .team-card.card-3 div:last-child{
+    background-color: #3E5241;
+}
+
+.page-type-team .team-cards .team-card.card-4{
+    background-color: #C7FFEF;
+}
+.page-type-team .team-cards .team-card.card-4 div:last-child{
+    background-color: #4A9681;
+}
+
+.page-type-team .team-cards .team-card.card-5{
+    background-color: #D5E2FF;
+}
+.page-type-team .team-cards .team-card.card-5 div:last-child{
+    background-color: #3D517B;
 }
 
 

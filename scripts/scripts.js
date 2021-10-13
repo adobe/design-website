@@ -443,13 +443,12 @@ export function getLanguage() {
 }
 
 // First register the decorators
-addPageTypeDecorator({ path: "/article" }, decorateArticle);
 addPageTypeDecorator({ path: "/toolkit" }, decorateToolkit);
 addPageTypeDecorator({ path: "/inclusive" }, decorateInclusive);
 addPageTypeDecorator({ path: "/jobs" }, decorateJobs);
+addPageTypeDecorator({ path: "/stories/*" }, decorateArticle);
 addPageTypeDecorator({ path: "/team" }, decorateTeam);
-addPageTypeDecorator({ path: "/jobs" }, decorateJobPost);
-addPageTypeDecorator({ path: "/stories" }, decorateStories);
+addPageTypeDecorator({ path: "/jobs/*" }, decorateJobPost);
 // addPageTypeDecorator({ path: "job-post" }, decorateJobPost);
 
 // Second apply the decoration

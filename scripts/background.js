@@ -2,10 +2,14 @@ import { $element } from "./helpers.js";
 const RE_RGB = /rgb\((\s?[0-9]{1,3},?){3}\)/i;
 const RE_HEX = /#[0-9a-f]{6}/i;
 
+const TRANS_TIME = 1000;
+
 export const Background = {
     topColor: "red",
     $container: null,
     $fade: null,
+    $transition: null,
+    transitionTimeout: null,
     generateTransparentColor( baseColor, format ) {
         switch (format) {
             case "hex":
@@ -21,9 +25,7 @@ export const Background = {
         const endColor = Background.generateTransparentColor(baseColor, format);
         return `linear-gradient(180deg, ${startColor} 0%, ${startColor} 50%, ${endColor} 100%)`;
     },
-    setColor( color ) {
-        this.topColor = color;
-        
+    setGradientColors( color ) {
         if (RE_RGB.test(color)) {
             Background.$fade.style.background = Background.generateGradientFade(color, "rgb");
         } else if (RE_HEX.test(color)) {
@@ -32,14 +34,33 @@ export const Background = {
             console.warn(`Background.setColor must be provided a CSS rgb() value or a 6 digit hex value #123456. Received: ${color}`);
         }
     },
+    setColor( color ) {
+        this.topColor = color;
+        Background.transitionColor( color );
+    },
+    transitionColor( color ) {
+        Background.$transition.style.background = color;
+        Background.$fade.style.opacity = 0;
+        if (this.transitionTimeout) {
+            clearTimeout(this.transitionTimeout);
+            this.transitionTimeout = null;
+        }
+        this.transitionTimeout = setTimeout(() => {
+            this.setGradientColors(color);
+            Background.$fade.style.opacity = 1;
+            Background.$transition.style.background = "transparent";
+        }, TRANS_TIME);
+    },
 };
 
 export function decorateBackground() {
     if ( !Background.$container ) {
         Background.$fade = $element(".background-fade");
+        Background.$transition = $element(".background-transition");
 
         Background.$container = $element("#global-background", [
             Background.$fade,
+            Background.$transition,
         ]);
   
         document.body.prepend( Background.$container );
