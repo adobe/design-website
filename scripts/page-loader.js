@@ -4,7 +4,11 @@ export function setPageLoading() {
     const $placeholder = document.createElement("div");
     $placeholder.id = PID;
     $placeholder.appendChild( document.createElement("div") );
-    $placeholder.appendChild( document.createElement("div") );
+    const textPlaceholder = document.createElement("div");
+    $placeholder.appendChild( textPlaceholder );
+    textPlaceholder.appendChild(document.createElement("div"));
+    textPlaceholder.appendChild(document.createElement("div"));
+    textPlaceholder.appendChild(document.createElement("div"));
     document.body.appendChild($placeholder);
 }
 
