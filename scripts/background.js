@@ -1,4 +1,5 @@
-import { $element } from "./helpers.js";
+import { $element, getMetadata } from "./helpers.js";
+import { resolvePageProperties } from "./page-properties.js";
 const RE_RGB = /rgb\((\s?[0-9]{1,3},?){3}\)/i;
 const RE_HEX = /#[0-9a-f]{6}/i;
 
@@ -57,14 +58,25 @@ export const Background = {
         Background.$inactiveFade.style["z-index"] = 1;
         Background.$activeFade.style["z-index"] = 2;
 
+        Background.$inactiveFade.style.opacity = 0;
+        Background.$activeFade.style.opacity = 1;
+
         const newActive = Background.$inactiveFade;
         Background.$inactiveFade = Background.$activeFade;
         Background.$activeFade = newActive;
-
-        Background.$inactiveFade.style.opacity = 0;
-        Background.$activeFade.style.opacity = 1;
     },
 };
+
+export function resolvePageBackgroundColor() {
+    return getMetadata("color") || "#EB211F";
+}
+
+function applyPageBackground() {
+    const color = resolvePageBackgroundColor();
+    if (color) {
+        Background.setColor(color);
+    }
+}
 
 export function decorateBackground() {
     if ( !Background.$container ) {
@@ -80,5 +92,6 @@ export function decorateBackground() {
         Background.$inactiveFade = Background.$fade2;
   
         document.body.prepend( Background.$container );
+        applyPageBackground();
     }
 }

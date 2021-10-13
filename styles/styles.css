@@ -7,11 +7,13 @@
 @import "./background.css";
 
 body {
-    background-image: url("/resources/background-image.svg");
-    /* /* background-position: center top; */
-    background-size: cover;
-    background-repeat: no-repeat;
     font-family:sans-serif;
+}
+body.loaded {
+    background-position: center top;
+    background-image: url("/resources/background-image.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
     transition: all .4s ease-in-out;
 }
 

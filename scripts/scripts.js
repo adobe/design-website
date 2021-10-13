@@ -27,19 +27,6 @@ import { decorateBlocks, loadBlocks } from "./blocks.js";
  * <script src="/scripts/page-loader.js"></script>
  */
 
-
-
-/**
- * Retrieves the content of a metadata tag.
- * @param {string} name The metadata name (or property)
- * @returns {string} The metadata value
- */
-export function getMetadata(name) {
-  const attr = name && name.includes(':') ? 'property' : 'name';
-  const $meta = document.head.querySelector(`meta[${attr}="${name}"]`);
-  return $meta && $meta.content;
-}
-
 /**
  * Adds one or more URLs to the dependencies for publishing.
  * @param {string|[string]} url The URL(s) to add as dependencies
@@ -265,8 +252,6 @@ async function decoratePage(win = window) {
     console.error(err);
     pageDoneLoading();
   }
-
-
 }
 
 let language;
