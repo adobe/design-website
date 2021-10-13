@@ -26,14 +26,22 @@
     background: white;
 }
 .page-type-team .content .head-content{
+    padding: 2em;
     padding-left: 5rem;
     padding-right: 5rem;
-}
-.page-type-team .head-content{
-    padding: 2em;
+} 
+
+.page-type-team .head-content .head-text{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(4, 1fr);
 }
 
-.page-type-team .head-content p:first-child{
+.page-type-team .head-content .head-text p{
+    grid-column-start: 2;
+}
+
+.page-type-team .head-content > p{
     font-size: 3em;
 }
 
@@ -43,9 +51,81 @@
     color: red;
 }
 
+/*
+    Team Card content
+*/
+
 .page-type-team .team-cards .team-card{
-    background-color: lightblue;
+    position: relative;
+
+    display:grid;
+    grid-template-columns: 40% 60%;
+
+    height: 300px;
+
+    overflow-y: hidden;
 }
+
+.page-type-team .team-cards .team-card.active{
+    height: 500px;
+}
+
+
+.page-type-team .team-cards .team-card h3{
+    position: absolute;
+    margin-left: auto;
+    margin-right:auto;
+    left:0;
+    right:0;
+    width: 80%;
+
+    font-size: 2rem;
+    padding: 1em;
+    border-bottom: 2px solid black;
+}
+
+.page-type-team .team-cards .team-card div{
+    padding-top: 10rem;
+}
+
+.page-type-team .team-cards .team-card div:last-child{
+    color: white;
+}
+
+.page-type-team .team-cards .team-card div:last-child > p:first-child{
+    padding: 0rem 3rem;
+    font-size: 2rem;
+}
+
+/* COLORS */
+
+.page-type-team .team-cards .team-card{
+    background-color: lightgrey;
+}
+.page-type-team .team-cards .team-card div:last-child{
+    background-color: grey;
+}
+
+.page-type-team .team-cards .team-card.card-0{
+    background-color: lightgreen;
+}
+
+.page-type-team .team-cards .team-card.card-0 div:last-child{
+    background-color: green;
+}
+
+.page-type-team .team-cards .team-card.card-1{
+    background-color: pink;
+}
+
+.page-type-team .team-cards .team-card.card-1 div:last-child{
+    background-color: red;
+}
+
+
+/*
+    Foot Content
+*/
 
 .page-type-team .foot-content .resources-section h2{
     display:flex;
