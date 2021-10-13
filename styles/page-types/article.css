@@ -1,6 +1,6 @@
 .page-type-article{
     background: rgb(224,194,208);
-    background: linear-gradient(0deg, rgba(224,194,208,1) 50%, rgba(255,111,22,1) 90%, rgba(255,80,42,1) 100%);
+    background: linear-gradient(0deg, rgba(224,194,208,1) 20%, rgba(255,111,22,1) 50%, rgba(213,237,245,1) 100%);
 }
 
 .page-type-article main{
@@ -8,7 +8,7 @@
     max-width:1000px;
     margin-left:auto;
     margin-right:auto;
-    text-align: center;
+
 }
 
 .page-type-article  {
@@ -19,7 +19,7 @@
     padding-bottom: 5em;
     position:relative;
 }
-.page-type-article .content > :not(.article-picture){
+.page-type-article .content{
     padding-left: 5rem;
     padding-right: 5rem;
 }
@@ -31,7 +31,7 @@
 .page-type-article .header-image{
     display: flex;
     position: absolute;
-    left: 4em;
+    left: 9em;
     transform: translateY(-100%);
 }
 
@@ -62,13 +62,6 @@
     text-align: left;
 }
 
-.page-type-article main h2{
-    font-size: 1.5em;
-    margin: 0;
-    font-weight: 500;
-    padding-top: 1em;
-
-}
 .header.block > div{
     width: 60%;
     padding-left: 5em;
@@ -80,7 +73,7 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     flex-direction: column;
     justify-content: space-between;
 }
-.page-type-article main > div > div > p:not(.article-picture) {
+.page-type-article main > div > div > p {
     font-size: 1.5em;
     padding:  0 1em;
     text-align: left;
@@ -98,7 +91,7 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 
 .page-type-article .header.block{
     width: 100%;
-    color: whitesmoke;
+    color: black;
     height: 60vh;
     display: flex;
     flex-direction: column;
@@ -113,10 +106,18 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     text-align: left;
 }
 
+.page-type-article .additional-reading.block > div{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
 
 .page-type-article .content ul{
     list-style: none;
     text-align: left;
+    grid-column-start: 2;
+}
+.page-type-article .additional-reading.block p{
+    grid-column-start: 2;
 }
 .page-type-article .additional-reading.block a{
     font-weight: 700;
@@ -124,17 +125,12 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     color: black;
 }
 
-
 .additional-reading.block{
     font-size: 1.2em;
 }
-.additional-reading.block li{
-    padding-bottom: 1em;
-}
-
 .page-type-article li{
-    font-size: 1.2em;
-    padding: 1em;
+
+    padding: .5em;
 }
 .additional-reading.block{
     width: 100%;
