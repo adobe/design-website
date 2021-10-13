@@ -13,11 +13,11 @@ export function setPageLoading() {
 }
 
 export function pageDoneLoading() {
-    // setTimeout(() => {
-    //     document.body.classList.add("loaded");
-    //     const $placeholder = document.querySelector(`#${PID}`);
-    //     if ($placeholder) {
-    //         $placeholder.remove();
-    //     }
-    // }, 250);
+    setTimeout(() => {
+        document.body.classList.add("loaded");
+        const $placeholder = document.querySelector(`#${PID}`);
+        if ($placeholder) {
+            $placeholder.remove();
+        }
+    }, 250);
 }
