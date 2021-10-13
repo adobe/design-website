@@ -4,6 +4,7 @@
 @import "body-styles.css";
 @import "global-header.css";
 @import "global-footer.css";
+@import "./background.css";
 
 @import "./page-types/home.css";
 @import "./page-types/article.css";

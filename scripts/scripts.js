@@ -22,6 +22,7 @@ import decorateToolkit from "./pages/toolkit.js";
 import decorateInclusive from "./pages/inclusive.js";
 import decorateJobs from "./pages/jobs.js";
 import { addPageTypeDecorator, runPageTypeDecorators } from "./page-type-decorator.js";
+import { decorateBackground } from "./background.js";
 
 /**
  * See if there's a way to get the loader in first
@@ -47,12 +48,17 @@ export function loadCSS(href) {
   }
 }
 
-export function loadScript(src) {
-  // if (!document.querySelector(`head > script[src="${src}"]`)) {
-  //   const script = document.createElement("script");
-  //   script.setAttribute("src", src);
-  //   script.onload()
-  // }
+// <script src="https://cdn.jsdelivr.net/npm/color@4.0.1/index.min.js"></script>
+export function loadScript(src, options) {
+  if (!document.querySelector(`head > script[src="${src}"]`)) {
+    const script = document.createElement("script");
+    script.setAttribute("src", src);
+    script.setAttribute("type", "module");
+    document.head.appendChild(script);
+    // script.onload(() => {
+    //   console.log(`Script ${src} loaded`);
+    // });
+  }
 }
 
 /**
@@ -371,6 +377,7 @@ async function decoratePage(win = window) {
   try {
     const doc = win.document;
     const $main = doc.querySelector('main');
+    decorateBackground();
     decorateHeader();
     if ($main) {
       runPageTypeDecorators();
@@ -435,13 +442,13 @@ export function getLanguage() {
 }
 
 // First register the decorators
-addPageTypeDecorator({ path: "/article" }, decorateArticle);
 addPageTypeDecorator({ path: "/toolkit" }, decorateToolkit);
 addPageTypeDecorator({ path: "/inclusive" }, decorateInclusive);
 addPageTypeDecorator({ path: "/jobs" }, decorateJobs);
-addPageTypeDecorator({ path: "/stories" }, decorateArticle);
+addPageTypeDecorator({ path: "/stories/*" }, decorateArticle);
 addPageTypeDecorator({ path: "/team" }, decorateTeam);
-addPageTypeDecorator({ path: "job-post" }, decorateJobPost);
+addPageTypeDecorator({ path: "/jobs/*" }, decorateJobPost);
+// addPageTypeDecorator({ path: "job-post" }, decorateJobPost);
 
 // Second apply the decoration
 decoratePage(window);

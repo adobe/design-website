@@ -1,3 +1,4 @@
+import { Background } from "../../scripts/background.js";
 import { processDivisions } from "../../scripts/helpers.js";
 const SLIDE_TIME = 7000;
 const ANIMATION_TIME = 250;
@@ -168,5 +169,6 @@ export default function decorate($block) {
 }
 
 function applyColor( slideIndex ) {
-  document.body.style.background = carouselProperties.slides[slideIndex].background;
+  Background.setColor(carouselProperties.slides[slideIndex].background)
+  // document.body.style.background = ;
 }
