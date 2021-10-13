@@ -239,7 +239,7 @@ function parseSelector(selector) {
     }
     const idResult = RE_ID.exec(working);
     if (idResult) {
-        const id = idResult[0];
+        const id = idResult[0].replace("#", "");
         working = working.replace(id, "");
         result.id = id;
     }
