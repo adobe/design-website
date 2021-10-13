@@ -6,14 +6,6 @@
 @import "global-footer.css";
 @import "./background.css";
 
-@import "./page-types/home.css";
-@import "./page-types/article.css";
-@import "./page-types/index.css";
-@import "./page-types/team.css";
-@import "./page-types/toolkit.css";
-@import "./page-types/jobs.css";
-@import "./page-types/job-post.css";
-
 body {
     background-image: url("/resources/background-image.svg");
     /* /* background-position: center top; */

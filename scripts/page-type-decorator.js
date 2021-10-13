@@ -1,9 +1,30 @@
+import { loadCSS } from "./importer.js";
 import { resolvePageProperties } from "./page-properties.js";
 
 const DECORATORS = [];
 
-export function addPageTypeDecorator( options, decorator ) {
-    DECORATORS.push({ options, decorator });
+export function addPageTypeDecorator( name, options ) {
+    DECORATORS.push({ name, options });
+}
+
+/**
+ * Loads JS and CSS for a block.
+ * @param {Element} $block The block element
+ */
+ export async function loadPageType(name) {
+    try {
+        const mod = await import(`/pages/${name}/${name}.js`);
+        if (mod.default) {
+            console.log(`Decorate page type ${name}`);
+            const main = document.querySelector("main");            
+            await mod.default(main);
+        }
+    } catch (err) {
+        // eslint-disable-next-line no-console
+        console.log(`failed to load module for page type: ${name}`);
+        console.error(err);
+    }
+    loadCSS(`/pages/${name}/${name}.css`);
 }
 
 export function runPageTypeDecorators() {
@@ -14,7 +35,7 @@ export function runPageTypeDecorators() {
                 let testCount = 0;
                 const { pathname } = location;
                 const opts = pageMapping.options;
-                const name = opts.path || opts.type || opts.name;
+                const { name } = pageMapping;
                 if (opts.path) {
                     testCount++;
                     if (opts.path.indexOf("*") >= 0) {
@@ -24,8 +45,9 @@ export function runPageTypeDecorators() {
                         const longer = pathname.length > testPath.length;
                         match = (contains && longer);
                     } else {
-                        // Match exact path
-                        match = pathname.indexOf(opts.path) >= 0;
+                        // Match exact path without the last slash
+                        const trailing = /\/$/;
+                        match = (pathname.replace(trailing, "") === opts.path.replace(trailing, ""));
                     }
                 }  
                 if (opts.type) {
@@ -45,9 +67,7 @@ export function runPageTypeDecorators() {
                 }
                 
                 if (match) {
-                    console.log(`Decorate page type ${name}`);
-                    const main = document.querySelector("main");
-                    pageMapping.decorator(main);
+                    loadPageType(name);
                 }
             });
         } catch (err) {
