@@ -29,6 +29,8 @@
 #global-header nav a {
     padding:10px;
     box-sizing: border-box;
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 767px) {

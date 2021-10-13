@@ -11,25 +11,29 @@
 }
 
 .page-type-team .title-content{
-    margin-top: 6em;
-    margin-bottom: 4em;
-    padding-left: 5em;
+    margin: 7rem 0 5rem 0;
+    padding-left: 5rem;
+    width:60%;
     color: white;
 }
 
 .page-type-team .title-content h1{
     font-size: 4em;
-    font-weight: 500;
 }
 
 .page-type-team .content{
     background: white;
 }
-.page-type-team .content .head-content{
+
+.page-type-team .head-content{
     padding: 2em;
     padding-left: 5rem;
     padding-right: 5rem;
 } 
+
+.page-type-team .head-content > p{
+    font-size: 3em;
+}
 
 .page-type-team .head-content .head-text{
     display: grid;
@@ -39,10 +43,6 @@
 
 .page-type-team .head-content .head-text p{
     grid-column-start: 2;
-}
-
-.page-type-team .head-content > p{
-    font-size: 3em;
 }
 
 .page-type-team .head-content h2,
@@ -61,11 +61,11 @@
     display:grid;
     grid-template-columns: 40% 60%;
 
-    height: 300px;
+    height: 250px;
 
     overflow-y: hidden;
+    transition: height 0.5s;
 }
-
 .page-type-team .team-cards .team-card.active{
     height: 500px;
 }
@@ -73,14 +73,29 @@
 
 .page-type-team .team-cards .team-card h3{
     position: absolute;
-    margin-left: auto;
-    margin-right:auto;
-    left:0;
-    right:0;
-    width: 80%;
+
+    /*This should be contained within the first 40% of the block its in*/
+    padding-left: 10%;
+    width: 30%;
 
     font-size: 2rem;
-    padding: 1em;
+}
+.page-type-team .team-cards .team-card h3::before{
+    content: "⌄";
+    position: absolute;
+    font-weight: bolder;
+    left: 16%;
+    top: -0.6rem;
+}
+.page-type-team .team-cards .team-card h3::after{
+    content: "";
+    padding-top: 3rem;
+
+    /*This is being positioned to the H3 itself which is contained within the first 40% of the block*/
+    position:absolute;
+    left: 12.5%; /* 40% * 12.5%  = 5% "padding left" */
+    width: 225%; /* 40% * 225%   = 90% "width"*/
+
     border-bottom: 2px solid black;
 }
 
@@ -107,19 +122,45 @@
 }
 
 .page-type-team .team-cards .team-card.card-0{
-    background-color: lightgreen;
+    background-color: #FFCAB9;
 }
-
 .page-type-team .team-cards .team-card.card-0 div:last-child{
-    background-color: green;
+    background-color: #FF7D4F;
 }
 
 .page-type-team .team-cards .team-card.card-1{
-    background-color: pink;
+    background-color: #D4CEFF;
+}
+.page-type-team .team-cards .team-card.card-1 div:last-child{
+    background-color: #3021A0;
 }
 
-.page-type-team .team-cards .team-card.card-1 div:last-child{
-    background-color: red;
+.page-type-team .team-cards .team-card.card-2{
+    background-color: #FFDDDE;
+}
+.page-type-team .team-cards .team-card.card-2 div:last-child{
+    background-color: #E51D24;
+}
+
+.page-type-team .team-cards .team-card.card-3{
+    background-color: #C5D1C7;
+}
+.page-type-team .team-cards .team-card.card-3 div:last-child{
+    background-color: #3E5241;
+}
+
+.page-type-team .team-cards .team-card.card-4{
+    background-color: #C7FFEF;
+}
+.page-type-team .team-cards .team-card.card-4 div:last-child{
+    background-color: #4A9681;
+}
+
+.page-type-team .team-cards .team-card.card-5{
+    background-color: #D5E2FF;
+}
+.page-type-team .team-cards .team-card.card-5 div:last-child{
+    background-color: #3D517B;
 }
 
 
@@ -143,6 +184,9 @@
 }
 
 .page-type-team .foot-content .resources-section .resources .resource{
+    display:grid;
+    grid-template-rows: 60% 24% 16%;
+    height: 300px;
     background: red;
     width: fit-content;
     flex-basis: 0;
@@ -155,10 +199,15 @@
     margin-right: 0px;
 }
 
+.page-type-team .foot-content .resources-section .resources .resource p:first-child{
+    grid-row: 2/3;
+    padding-left: 2rem;
+    font-size: 1.5rem;
+}
+
 .page-type-team .foot-content .resources-section .resources .resource a{
     color: white;
     text-decoration: none;
-    padding: 20px 0 10px 5px;
 }
 
 
@@ -170,8 +219,6 @@
     align-items: center;
     justify-content: center;
     height: 500px;
-
-    
 }
 
 .think-differently-body{

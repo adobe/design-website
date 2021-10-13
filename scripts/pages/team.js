@@ -1,3 +1,5 @@
+import {$wrap, $element, $remainder} from "../helpers.js";
+
 export default function decorate($main) {
     var team = document.querySelector("body > main");
     team.classList.add("teams")
@@ -24,17 +26,11 @@ export default function decorate($main) {
 
     var content = team.querySelector("div > div")
 
-    const titleDiv = document.createElement("div")
-    titleDiv.classList.add("title-content")
-    const bodyDiv = document.createElement("div")
-    bodyDiv.classList.add("content")
+    const titleDiv = $element(".title-content")
 
-    const headDiv = document.createElement("div")
-    headDiv.classList.add("head-content")
-    const teamCardsDiv = document.createElement("div")
-    teamCardsDiv.classList.add("team-cards")
-    const endDiv = document.createElement("div")
-    endDiv.classList.add("foot-content")
+    const headDiv = $element(".head-content")
+    const teamCardsDiv = $element(".team-cards")
+    const endDiv = $element(".foot-content")
 
     let pageSection = 0;
 
@@ -69,17 +65,14 @@ export default function decorate($main) {
       }
     })
 
-    bodyDiv.append(headDiv)
-    bodyDiv.append(teamCardsDiv)
-    bodyDiv.append(endDiv)
+    let bodyDiv = $wrap($element(".content"), [headDiv, teamCardsDiv, endDiv])
     
     content.append(titleDiv)
     content.append(bodyDiv)
 
     //Organizing Head Div content
-    const shiftedContent = document.createElement("div")
+    const shiftedContent = $element(".head-text")
     let firstElement;
-    shiftedContent.classList.add("head-text")
     headDiv.querySelectorAll("p").forEach(element =>{
       if(firstElement){
         shiftedContent.append(element)
@@ -93,19 +86,18 @@ export default function decorate($main) {
     //Oranizing individual teams cards
     let card = 0;
 
-    let teamCard = document.createElement("div");
-    teamCard.classList.add("team-card", "card-"+card)
+    let teamCard = $element(".team-card");
+    teamCard.classList.add("card-"+card)
     let leftBlock = document.createElement("div");
     let rightBlock = document.createElement("div");
 
     teamCardsDiv.querySelectorAll("*").forEach(element =>{
       if(card !== 0 && element.nodeName === "H3"){
-        teamCard.append(leftBlock)
-        teamCard.append(rightBlock)
+        teamCard = $wrap(teamCard, [leftBlock,rightBlock])
         teamCardsDiv.append(teamCard)
 
-        teamCard = document.createElement("div")
-        teamCard.classList.add("team-card", "card-"+card)
+        teamCard = $element(".team-card");
+        teamCard.classList.add("card-"+card)
         leftBlock = document.createElement("div");
         rightBlock = document.createElement("div");
       }
@@ -119,20 +111,15 @@ export default function decorate($main) {
         leftBlock.append(element)
       
     })
-    teamCard.append(leftBlock)
-    teamCard.append(rightBlock)
+    teamCard = $wrap(teamCard, [leftBlock,rightBlock])
     teamCardsDiv.append(teamCard)
 
     //Organize Foot content
-    const resourcesDiv = document.createElement("div");
-    resourcesDiv.classList.add("resources-section");
-    const resources = document.createElement("div");
-    resources.classList.add("resources");
+    const resourcesDiv = $element(".resources-section");
+    const resources = $element(".resources");
 
-    const thinkAboutDiv = document.createElement("div");
-    thinkAboutDiv.classList.add("think-differently")
-    const thinkAboutBody = document.createElement("div");
-    thinkAboutBody.classList.add("think-differently-body")
+    const thinkAboutDiv = $element(".think-differently");
+    const thinkAboutBody = $element(".think-differently-body");
 
     let section = 0;
     endDiv.querySelectorAll("div>*").forEach(element =>{
@@ -144,8 +131,7 @@ export default function decorate($main) {
           resourcesDiv.append(element)
           resourcesDiv.append(resources)
         }else if(element.nodeName === "P"){
-          let resource = document.createElement("div");
-          resource.classList.add("resource")
+          let resource = $element(".resource");
           resource.append(element)
           resources.append(resource)
         }
@@ -158,11 +144,15 @@ export default function decorate($main) {
     endDiv.append(resourcesDiv)
     endDiv.append(thinkAboutDiv)
 
-    
+
     teamCardsDiv.querySelectorAll("h3").forEach(function(element){
       element.addEventListener("click", function(){
+        let alreadyActive;
+        if(element.parentElement.classList.contains("active"))
+          alreadyActive = true;
         removeActive()
-        element.parentElement.classList.add("active")
+        if(!alreadyActive)
+          element.parentElement.classList.add("active")
       })
     })
 
