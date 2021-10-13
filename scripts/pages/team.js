@@ -158,11 +158,15 @@ export default function decorate($main) {
     endDiv.append(resourcesDiv)
     endDiv.append(thinkAboutDiv)
 
-    
+
     teamCardsDiv.querySelectorAll("h3").forEach(function(element){
       element.addEventListener("click", function(){
+        let alreadyActive;
+        if(element.parentElement.classList.contains("active"))
+          alreadyActive = true;
         removeActive()
-        element.parentElement.classList.add("active")
+        if(!alreadyActive)
+          element.parentElement.classList.add("active")
       })
     })
 
