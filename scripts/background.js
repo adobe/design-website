@@ -7,7 +7,10 @@ const TRANS_TIME = 500;
 export const Background = {
     topColor: "red",
     $container: null,
-    $fade: null,
+    $fade1: null,
+    $fade2: null,
+    $activeFade: null,
+    $inactiveFade: null,
     transitionTimeout: null,
     generateTransparentColor( baseColor, format ) {
         switch (format) {
@@ -16,7 +19,7 @@ export const Background = {
             case "rgb":
                 return baseColor.replace(")", ", 0)");
             default:
-                throw new Error(`Unrecognized format: ${foramt}`);
+                throw new Error(`Unrecognized format: ${format}`);
         }
     },
     generateGradientFade( baseColor, format ) {
@@ -26,9 +29,9 @@ export const Background = {
     },
     setGradientColors( color ) {
         if (RE_RGB.test(color)) {
-            Background.$fade.style.background = Background.generateGradientFade(color, "rgb");
+            Background.$activeFade.style.background = Background.generateGradientFade(color, "rgb");
         } else if (RE_HEX.test(color)) {
-            Background.$fade.style.background = Background.generateGradientFade(color, "hex");
+            Background.$activeFade.style.background = Background.generateGradientFade(color, "hex");
         } else {
             console.warn(`Background.setColor must be provided a CSS rgb() value or a 6 digit hex value #123456. Received: ${color}`);
         }
@@ -38,25 +41,42 @@ export const Background = {
         Background.transitionColor( color );
     },
     transitionColor( color ) {
-        Background.$fade.style.opacity = 0;
+        Background.$activeFade.style.opacity = 0;
         if (this.transitionTimeout) {
             clearTimeout(this.transitionTimeout);
             this.transitionTimeout = null;
         }
         this.transitionTimeout = setTimeout(() => {
             this.setGradientColors(color);
-            Background.$fade.style.opacity = 1;
+            Background.$activeFade.style.opacity = 1;
+            this.swapActive();
         }, TRANS_TIME);
+    },
+    swapActive() {
+        const newActive = Background.$inactiveFade;
+        Background.$inactiveFade = Background.$activeFade;
+        Background.$activeFade = newActive;
+
+        Background.$inactiveFade.style["z-index"] = 2;
+        Background.$activeFade.style["z-index"] = 1;
+
+        Background.$inactiveFade.style.opacity = 1;
+        Background.$activeFade.style.opacity = 1;
     },
 };
 
 export function decorateBackground() {
     if ( !Background.$container ) {
-        Background.$fade = $element(".background-fade");
+        Background.$fade1 = $element(".background-fade.fade1");
+        Background.$fade2 = $element(".background-fade.fade2");
 
         Background.$container = $element("#global-background", [
-            Background.$fade,
+            Background.$fade1,
+            Background.$fade2,
         ]);
+
+        Background.$activeFade = Background.$fade1;
+        Background.$inactiveFade = Background.$fade2;
   
         document.body.prepend( Background.$container );
     }
