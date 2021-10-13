@@ -11,25 +11,29 @@
 }
 
 .page-type-team .title-content{
-    margin-top: 6em;
-    margin-bottom: 4em;
-    padding-left: 5em;
+    margin: 7rem 0 5rem 0;
+    padding-left: 5rem;
+    width:60%;
     color: white;
 }
 
 .page-type-team .title-content h1{
     font-size: 4em;
-    font-weight: 500;
 }
 
 .page-type-team .content{
     background: white;
 }
-.page-type-team .content .head-content{
+
+.page-type-team .head-content{
     padding: 2em;
     padding-left: 5rem;
     padding-right: 5rem;
 } 
+
+.page-type-team .head-content > p{
+    font-size: 3em;
+}
 
 .page-type-team .head-content .head-text{
     display: grid;
@@ -39,10 +43,6 @@
 
 .page-type-team .head-content .head-text p{
     grid-column-start: 2;
-}
-
-.page-type-team .head-content > p{
-    font-size: 3em;
 }
 
 .page-type-team .head-content h2,
@@ -64,8 +64,8 @@
     height: 300px;
 
     overflow-y: hidden;
+    transition: height 0.5s;
 }
-
 .page-type-team .team-cards .team-card.active{
     height: 500px;
 }
@@ -192,7 +192,7 @@
     margin-right: 0px;
 }
 
-.page-type-team .foot-content .resources-section .resources .resource p{
+.page-type-team .foot-content .resources-section .resources .resource p:first-child{
     grid-row: 2/3;
     padding-left: 2rem;
     font-size: 1.5rem;
@@ -212,8 +212,6 @@
     align-items: center;
     justify-content: center;
     height: 500px;
-
-    
 }
 
 .think-differently-body{
