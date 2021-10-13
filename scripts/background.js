@@ -2,13 +2,12 @@ import { $element } from "./helpers.js";
 const RE_RGB = /rgb\((\s?[0-9]{1,3},?){3}\)/i;
 const RE_HEX = /#[0-9a-f]{6}/i;
 
-const TRANS_TIME = 1000;
+const TRANS_TIME = 500;
 
 export const Background = {
     topColor: "red",
     $container: null,
     $fade: null,
-    $transition: null,
     transitionTimeout: null,
     generateTransparentColor( baseColor, format ) {
         switch (format) {
@@ -39,7 +38,6 @@ export const Background = {
         Background.transitionColor( color );
     },
     transitionColor( color ) {
-        Background.$transition.style.background = color;
         Background.$fade.style.opacity = 0;
         if (this.transitionTimeout) {
             clearTimeout(this.transitionTimeout);
@@ -48,7 +46,6 @@ export const Background = {
         this.transitionTimeout = setTimeout(() => {
             this.setGradientColors(color);
             Background.$fade.style.opacity = 1;
-            Background.$transition.style.background = "transparent";
         }, TRANS_TIME);
     },
 };
@@ -56,11 +53,9 @@ export const Background = {
 export function decorateBackground() {
     if ( !Background.$container ) {
         Background.$fade = $element(".background-fade");
-        Background.$transition = $element(".background-transition");
 
         Background.$container = $element("#global-background", [
             Background.$fade,
-            Background.$transition,
         ]);
   
         document.body.prepend( Background.$container );
