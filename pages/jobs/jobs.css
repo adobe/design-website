@@ -1,0 +1,53 @@
+/*
+ *   Copyright (c) 2021 Busy Human LLC
+ *   All rights reserved.
+ *   This file, its contents, concepts, methods, behavior, and operation  (collectively the \"Software\") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by  the license agreement.
+ */
+
+ .page-type-jobs .jobs >div > div{
+    width: 98vw;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.page-type-jobs .head-content{
+    font-size: 2rem;
+    color: white;
+}
+
+.page-type-jobs .head-content>*{
+    padding-left: 5rem;
+}
+
+.page-type-jobs .head-content h1{
+    margin: 7rem 0 5rem 0;
+    width:50%;
+}
+
+.page-type-jobs .head-content p:last-child{
+    line-height: 1.6em;
+    margin: 5rem 0;
+    font-size: 1.2rem;
+    padding-left: 40%;
+    padding-right: 10%;
+}
+
+.page-type-jobs .jobs-block-container{
+    color: white;
+    background-color: darkblue;
+    padding: 1em;
+    
+}
+
+.page-type-jobs .jobs-container{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 1000px;
+}
+
+.page-type-jobs .jobs-container .job-category h2{
+    font-size: 2rem;
+}
+
