@@ -75,22 +75,52 @@ export default function decorate($main) {
     
     content.append(titleDiv)
     content.append(bodyDiv)
-    
+
+    //Organizing Head Div content
+    const shiftedContent = document.createElement("div")
+    let firstElement;
+    shiftedContent.classList.add("head-text")
+    headDiv.querySelectorAll("p").forEach(element =>{
+      if(firstElement){
+        shiftedContent.append(element)
+      }else{
+        firstElement = element
+        element.classList.add("title")
+      }
+    })
+    firstElement.insertAdjacentElement('afterend', shiftedContent)
 
     //Oranizing individual teams cards
     let card = 0;
+
     let teamCard = document.createElement("div");
     teamCard.classList.add("team-card", "card-"+card)
+    let leftBlock = document.createElement("div");
+    let rightBlock = document.createElement("div");
+
     teamCardsDiv.querySelectorAll("*").forEach(element =>{
       if(card !== 0 && element.nodeName === "H3"){
+        teamCard.append(leftBlock)
+        teamCard.append(rightBlock)
         teamCardsDiv.append(teamCard)
+
         teamCard = document.createElement("div")
         teamCard.classList.add("team-card", "card-"+card)
+        leftBlock = document.createElement("div");
+        rightBlock = document.createElement("div");
+      }
+      
+      if(element.nodeName === "H3"){
+        teamCard.append(element)
         card++
-      }else if(element.nodeName === "H3")
-        card++
-      teamCard.append(element)
+      }else if(element.nodeName ==="P")
+        rightBlock.append(element)
+      else
+        leftBlock.append(element)
+      
     })
+    teamCard.append(leftBlock)
+    teamCard.append(rightBlock)
     teamCardsDiv.append(teamCard)
 
     //Organize Foot content
@@ -127,4 +157,19 @@ export default function decorate($main) {
     thinkAboutDiv.append(thinkAboutBody)
     endDiv.append(resourcesDiv)
     endDiv.append(thinkAboutDiv)
+
+    
+    teamCardsDiv.querySelectorAll("h3").forEach(function(element){
+      element.addEventListener("click", function(){
+        removeActive()
+        element.parentElement.classList.add("active")
+      })
+    })
+
+    function removeActive(){
+      teamCardsDiv.querySelectorAll(".active").forEach(function(card){
+        card.classList.remove("active")
+      })
+    }
+
 }
