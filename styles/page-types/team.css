@@ -61,7 +61,7 @@
     display:grid;
     grid-template-columns: 40% 60%;
 
-    height: 300px;
+    height: 250px;
 
     overflow-y: hidden;
     transition: height 0.5s;
@@ -80,14 +80,21 @@
 
     font-size: 2rem;
 }
+.page-type-team .team-cards .team-card h3::before{
+    content: "⌄";
+    position: absolute;
+    font-weight: bolder;
+    left: 16%;
+    top: -0.6rem;
+}
 .page-type-team .team-cards .team-card h3::after{
     content: "";
     padding-top: 3rem;
 
     /*This is being positioned to the H3 itself which is contained within the first 40% of the block*/
     position:absolute;
-    left:25%;    /* 40% * 25%  = 10% "padding left" */
-    width: 200%; /* 40% * 200% = 80% "width"*/
+    left: 12.5%; /* 40% * 12.5%  = 5% "padding left" */
+    width: 225%; /* 40% * 225%   = 90% "width"*/
 
     border-bottom: 2px solid black;
 }
