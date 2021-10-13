@@ -1,6 +1,6 @@
 .page-type-article{
     background: rgb(224,194,208);
-    background: linear-gradient(0deg, rgba(224,194,208,1) 20%, rgba(255,111,22,1) 50%, rgba(213,237,245,1) 100%);
+    background: linear-gradient(0deg, rgba(224,194,208,1) 20%, rgba(255,111,22,1) 50%,rgba(213,237,245,1) 90%, rgba(213,237,245,1) 100%);
 }
 
 .page-type-article main{
@@ -29,11 +29,11 @@
 }
 
 .page-type-article .header-image{
-    display: flex;
+    /* display: flex;
     position: absolute;
     right: 9em;
     left: 9em;
-    transform: translateY(-100%);
+    transform: translateY(-100%); */
 }
 
 .page-type-article main p {
@@ -46,7 +46,8 @@
 }
 
 .page-type-article .content{
-    background: white;
+    /* background: rgb(255,255,255); */
+    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 500px,rgba(255,255,255, 1) 500px);
 }
 
 .page-type-article .header >div{
@@ -65,7 +66,7 @@
 
 .header.block > div{
     width: 60%;
-    padding-left: 9em;
+    /* padding-left: 9em; */
     height: 75%;
 }
 body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2){
@@ -93,7 +94,9 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 .page-type-article .header.block{
     width: 100%;
     color: black;
-    height: 60vh;
+    padding-top: 5em;
+    padding-left: 5em;
+    /* height: 60vh; */
     display: flex;
     flex-direction: column;
     justify-content: center;
