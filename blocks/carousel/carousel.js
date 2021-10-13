@@ -84,7 +84,6 @@ export default function decorate($block) {
 
       
       applySlide();
-
     }
     function updateSlidePositionRev() {
       for(let i = 0; i < slides.length; i++){
