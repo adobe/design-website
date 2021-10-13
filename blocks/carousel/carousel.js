@@ -81,8 +81,6 @@ export default function decorate($block) {
 
       }
     }
-
-
     applySlide();
   }
   function updateSlidePositionRev() {
@@ -163,9 +161,10 @@ export default function decorate($block) {
     timeout = window.setTimeout(function () {
       window.clearTimeout(timeout);
       timeout = null;
-    }
-      , ANIMATION_TIME)
+    }, ANIMATION_TIME);
   }
+
+  applySlide();
 }
 
 function applyColor(slideIndex) {
