@@ -13,9 +13,15 @@
     grid-template-columns: 50% 50%;    
     grid-column-start: 2;
 }
+
+.chapter-heading{
+    padding-right: 6em;
+    padding-bottom: 2em;
+}
+
 .chapter-heading h2{
     padding: 0;
-    padding-right:1em;
+    font-size: 3em;
     font-weight:lighter;
     text-align:right;
     margin:0;
@@ -23,6 +29,9 @@
 .chapter-content{
     font-size: 1.2em;
     line-height: 1.5;
+}
+.chapter-content h3{
+    font-size: 2em ;
 }
 .chapter-content p {
     margin-top: 0;
