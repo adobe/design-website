@@ -260,6 +260,7 @@ function parseSelector(selector) {
             result.tag = classes.shift();
         }
         result.classes = classes;
+        working = null;
     }
     if (working && tagSpecified) {
         result.tag = working;
@@ -299,6 +300,12 @@ export function $element(selector, options, content) {
             contentArray.forEach(c => {
                 $div.appendChild(c);
             });
+        }
+    }
+    if (options && options.attr) {
+        const keys = Object.keys(options.attr);
+        for (const key of keys) {
+            $div.setAttribute(key, options.attr[key]);
         }
     }
 
