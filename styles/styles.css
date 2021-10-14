@@ -1,6 +1,7 @@
 @import "./page-loader.css";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); */
 @import url("https://use.typekit.net/jdq5hay.css");
+/* @import url("https://use.typekit.net/aaz7dvd.css"); */
 @import "body-styles.css";
 @import "global-header.css";
 @import "global-footer.css";
@@ -14,11 +15,35 @@
 @import "./page-types/jobs.css";
 @import "./page-types/job-post.css";
 
+
+
 body {
     background: rgb(231,204,222);
     background: linear-gradient(0deg, rgba(231,204,222,1) 4%, rgba(251,109,33,1) 19%, rgba(250,89,61,1) 37%, rgba(255,186,148,1) 52%, rgba(255,186,11,1) 64%, rgba(255,186,11,1) 70%, rgba(14,188,151,1) 73%, rgba(166,117,109,1) 75%, rgba(255,65,34,1) 84%, rgba(233,29,37,1) 100%);
-    font-family:sans-serif;
     transition: all .4s ease-in-out;
+    font-family: sans-serif;
+
+    /* Common Colors */
+    --text-dark:     #3E3E3E;
+    --bkg-navy-dark: #0B1C40;
+    --bkg-green:     #4BA88E;
+    --bkg-grey-lt:   #E8E8E8;
+    --bkg-red:       #E91D25;
+    --bkg-orange:    #E94E27;
+
+    /* Font Families */
+    --sarif-font: "Adobe Clean Serif", "Adobe Clean", "Roboto", sans-serif;
+    --sans-font: "Adobe Clean", "Roboto", sans-serif;
+
+    /* Font Weights */
+    --weight-light:      200;  /* lighter,   100-300 */
+    --weight-regular:    400;  /* normal,    400-500 */
+    --weight-bold:       700;  /* semi-bold, 700-600 */
+    --weight-black:      900;  /* bolder,    800-900 */
+
+    color:       var(--color-text);
+    font-weight: var(--weight-regular);
+
 }
 
 main > div > div > div:not(.full-bleed) {
@@ -33,7 +58,7 @@ html, body{
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    font-family: 'Adobe Clean','Roboto', sans-serif;
+    font-family: var(--sans-font);
 }
 
 .tag-link {
@@ -50,6 +75,19 @@ html, body{
     display: inline;
     font-family: 'Adobe Clean','Roboto', sans-serif;
 }
+
+/* Header */
+.hed{
+    font-weight: var(--weight-black);
+    font-size: 3.5em; /* 56px */
+}
+
+/* Subheader/ summary/ hook */
+.dek{
+    font-family: var(--sarif-font);
+    font-size: 2em; /* 32px */
+}
+
 
 @media only screen and (min-width: 768px) and (max-width: 1024px){
     .page-home main > div{

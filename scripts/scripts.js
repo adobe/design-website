@@ -155,6 +155,7 @@ export async function loadBlock($block) {
     console.log(`failed to load module for ${blockName}`, err);
   }
     loadCSS(`/blocks/${blockName}/${blockName}.css`);
+    console.log(`BLOCK CSS LOADING? /blocks/${blockName}/${blockName}.css`);
 }
 
 /**
@@ -297,6 +298,7 @@ export function normalizeHeadings($elem, allowedHeadings) {
   const allowed = allowedHeadings.map((h) => h.toLowerCase());
   $elem.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((tag) => {
     const h = tag.tagName.toLowerCase();
+    console.log( " NORMALIZE HEADERS: ", h)
     if (allowed.indexOf(h) === -1) {
       // current heading is not in the allowed list -> try first to "promote" the heading
       let level = parseInt(h.charAt(1), 10) - 1;

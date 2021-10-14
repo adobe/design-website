@@ -17,14 +17,11 @@ export default function decorate($block) {
     image:      $div => $div.querySelector("picture"),
   });
   const props = result.properties;
-
   const { properties } = processDivisions($block);
+  // console.log( " props , ", result, '\n properties ', {properties}, '\n block ',$block)
   const $col1 = $block.querySelector(":scope > div > div:first-child");
-
-
-
-  console.log(" PROPS : ", props,"\n PROPerties : ", properties)
-
+  // console.log(" PROPS : ", props,"\n PROPerties : ", properties)
+  document.querySelector("body").classList.add("job-post");
   /**
    * Element Constants:
    *
@@ -39,7 +36,7 @@ export default function decorate($block) {
 
 
   // Add (class="job-post") to entire pg so each job posting will have same styles
-  document.querySelector("body").classList.add("job-post");
+
 
   // var paragraphs = document.querySelectorAll("body > main > div > div > p");
   // paragraphs.forEach(p => {
