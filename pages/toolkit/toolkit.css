@@ -1,0 +1,84 @@
+.page-type-tools{
+    background: #4BA78D;
+}
+.toolkit-header{
+    height: calc(60vh - 110px);
+    width: 1000px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#our-toolkit{
+    color: white;
+    font-size: 50px;
+    font-weight: 400;
+}
+#the-ideas-systems-and-tools-that-guide-our-thinking-our-processes-and-our-designs{
+    color: white;
+    font-size: 35px;
+    font-weight: 300;
+    
+}
+body > .toolkit > div{
+    display: flex;
+    justify-content: center;
+}
+body > .toolkit > div > div{
+    width: 1000px;
+}
+.toolkit-page-content{
+    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 160px,rgba(255,255,255, 1) 160px);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+body > .toolkit > div > div > div.toolkit-page-content > .article-card{
+    min-width: unset;
+}
+
+.js-scroll {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+  
+  .js-scroll.scrolled {
+    opacity: 1;
+  }
+  
+  .scrolled.fade-in {
+    animation: fade-in-bottom .8s cubic-bezier(.63,.07,.46,.99) both;
+  }
+
+
+/* .tookit > .article-card.block{
+    min-width: unset;
+} */
+.toolkit > .text{
+    color: white;
+}
+.toolkit > div > div > div.toolkit-page-content > div:nth-child(2) > div > div.image{
+    background-color: #F4F4F4;
+}
+body > main.toolkit > div > div > div.toolkit-page-content > div > div > div.text{
+    color: white;
+}
+body > main > div > div > div.toolkit-page-content > div:nth-child(5) > div > div.text{
+    color: black;
+}
+.big-red-text{
+
+}
+
+@keyframes fade-in-bottom {
+    0% {
+      -webkit-transform: translateY(100px) scale(.95);
+      transform: translateY(100px) scale(.95);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }

@@ -3,40 +3,70 @@
  *   All rights reserved.
  *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
  */
-body:not(.loaded) {
+/* body:not(.loaded) {
     background:#EB211F!important;
-}
+} */
 body:not(.loaded) main {
     display:none;
 }
-
+#page-loading-cover {
+    position:fixed;
+    left:0;
+    right:0;
+    top:110px;
+    bottom:0;
+    width:100vw;
+    height:calc(100vh - 110px);
+    z-index:100;
+    opacity:1;
+    transition: all 0.4s;
+}
 #page-loading-placeholder {
     position:fixed;
-    width:70vw;
+    width:60vw;
     height:40vh;
-    opacity:0.3;
+    
     display:flex;
-    flex-direction:row;
+    justify-content: space-between;
     top:50%;
     left:50%;
     transform:translateX(-50%)translateY(-50%);
 }
-
-#page-loading-placeholder div {
-    flex-grow:1;
-    flex-basis:0;
-    margin:10px;
+#page-loading-placeholder > div:nth-child(1){
+    width: 49%;
+    height: 100%;
+    animation : shimmer 2s infinite;
+    background: linear-gradient(to right, rgba(255,255,255,.1) 4%, rgba(255,255,255,.25) 25%, rgba(255,255,255,.1) 45%);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+   background-size: 60vw 100%;
+    border-radius: 8px;
 }
-
-#page-loading-placeholder div:first-child {
-    background:white;
-    height:100%;
-    /* background-image:url("/media_1d3601e007f7c9b5cb83303a390ca0e7fec040eef.png?width=2000&format=webply&optimize=medium"); */
-    background-repeat:no-repeat;
-    background-position: 50% 50%;
+#page-loading-placeholder > div:nth-child(2){
+    width: 49%;
+    height: 100%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
-
-#page-loading-placeholder div:last-child {
-    height:20%;
-    background: white;
+#page-loading-placeholder > div:nth-child(2) > div{
+    height: 28%;
+    width: 100%;
+    animation : shimmer 2s infinite;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1) 4%, rgba(255,255,255,.25) 25%, rgba(255,255,255,.1) 45%);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    background-size: 60vw 100%;
+    border-radius: 8px;
+}
+body.loaded #page-loading-cover {
+    opacity:0;
+}
+@keyframes shimmer {
+    0% {
+      background-position: -60vw 0;
+    }
+    100% {
+      background-position: 60vw 0;
+    }
 }

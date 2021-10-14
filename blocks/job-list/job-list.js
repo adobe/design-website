@@ -14,15 +14,17 @@ export default async function decorate($block) {
   }
   const $jobs = $block.querySelectorAll(":scope > div");
 
-  // for (const $job of $jobs) {
-  //   var $el = $element(".job-listing", [
-  //     $element("h2.job-title", "Test Title"),
-  //     $element("p.experience", "Test Experience"),
-  //     $element("p.location", "California"),
-  //     $element("p.position", "Test Position"),
-  //   ]);
-  //   $block.append($el);
-  // }
+  $block.innerHTML = "";
+
+  for (const job of index.byType.jobs) {
+    var $el = $element("a.single-job", { attr: { href: job.path }}, [
+      $element("h3.job-title", job.title || "No Title"),
+      $element("p.experience", "Test Experience"),
+      $element("p.location", "California"),
+      $element("p.position", "Test Position"),
+    ]);
+    $block.append($el);
+  }
 
   const seeJobsDiv = document.createElement("div");
   seeJobsDiv.classList.add("see-jobs");
@@ -30,9 +32,10 @@ export default async function decorate($block) {
   seeJobs.innerHTML = "See our job openings";
   seeJobsDiv.append(seeJobs);
 
-  seeJobs.addEventListener("click", function(){
+  seeJobs.addEventListener("click", () => {
     console.log("Jobs page not setup");
   });
 
+  $block.querySelector.innerHTML = "";
   $block.append(seeJobsDiv);
 }
