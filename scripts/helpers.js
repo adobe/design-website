@@ -352,9 +352,15 @@ export function $eachChild($target, fn) {
 }
 
 export function $remainder($target, selector) {
-    const $match = $target.querySelector(selector);
+    let $targetEl;
+    if (typeof target === "string") {
+        $targetEl = document.querySelector(target);
+    } else {
+        $targetEl = $target;
+    }
+    const $match = $targetEl.querySelector(selector);
     const remainder = [];
-    $eachChild($target, c => {
+    $eachChild($targetEl, c => {
         if (c !== $match) {
             remainder.push(c);
         }
