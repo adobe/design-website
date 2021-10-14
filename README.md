@@ -1,5 +1,5 @@
 # Adobe Design Website
-Lorem ipsum dolor sit amet.
+The Helix project for the adobe.design website
 
 ## Environments
 - Preview: https://main--design-website--adobe.hlx3.page/
@@ -27,6 +27,10 @@ npm tst
 ## Code to run your local server
     
     hlx up --pages-url="https://main--adobe-design-helix--busy-human.hlx3.page/"
+
+    ## OR
+
+    npm start
 
 ## Bookmarklet "Sidekick"
 
@@ -61,11 +65,6 @@ Show more
 <https://github.com/adobe/business-website|adobe/business-website>adobe/business-website | Added by a bot
 
 https://main--business-website--adobe.hlx3.page/blog/
-
-
-### Nested Blocks
-
-Nested blocks are not yet supported
 
 ## Indexes
 
