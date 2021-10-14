@@ -1,23 +1,39 @@
+import { resolvePageBackgroundColor } from "./background.js";
+import { $element } from "./helpers.js";
+
 const PID = "page-loading-placeholder";
+var $loadingCover;
 
 export function setPageLoading() {
-    const $placeholder = document.createElement("div");
-    $placeholder.id = PID;
-    $placeholder.appendChild( document.createElement("div") );
-    const textPlaceholder = document.createElement("div");
-    $placeholder.appendChild( textPlaceholder );
-    textPlaceholder.appendChild(document.createElement("div"));
-    textPlaceholder.appendChild(document.createElement("div"));
-    textPlaceholder.appendChild(document.createElement("div"));
-    document.body.appendChild($placeholder);
+    $loadingCover = $element("#page-loading-cover", [
+        $element("#page-loading-placeholder", [
+            $element("div"),
+            $element("div", [
+                $element("div"),
+                $element("div"),
+                $element("div"),
+            ]),
+        ]),
+    ]);
+    document.body.appendChild($loadingCover);
+    const bg = resolvePageBackgroundColor() || "#EB211F";
+    document.querySelector("#page-loading-cover").style.background = bg;
+    document.body.style.background = bg;
+}
+
+function cleanupPageLoader() {
+    setTimeout(() => {
+        document.body.style.background = null;
+        if ($loadingCover) {
+            $loadingCover.remove();
+            $loadingCover = null;
+        }
+    }, 500);
 }
 
 export function pageDoneLoading() {
     setTimeout(() => {
         document.body.classList.add("loaded");
-        const $placeholder = document.querySelector(`#${PID}`);
-        if ($placeholder) {
-            $placeholder.remove();
-        }
+        cleanupPageLoader();
     }, 250);
 }

@@ -31,6 +31,7 @@
 .page-type-article .header-image{
     display: flex;
     position: absolute;
+    right: 9em;
     left: 9em;
     transform: translateY(-100%);
 }
@@ -64,7 +65,7 @@
 
 .header.block > div{
     width: 60%;
-    padding-left: 5em;
+    padding-left: 9em;
     height: 75%;
 }
 body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2){
@@ -109,12 +110,37 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 .page-type-article .additional-reading.block > div{
     display: grid;
     grid-template-columns: 50% 50%;
+
+}
+#things-to-avoid{
+    margin-bottom: 0;
+}
+#open-laptops-and-buzzing-phones{
+    margin-top: 0;
 }
 
+#things-to-avoid-1{
+    margin-bottom: 0;
+}
+#dried-out-markers{
+    margin-top: 0;
+}
+
+#a-few-good-books{
+    padding-right: 2em;
+}
+.page-type-article .additional-reading.block > div > div{
+    text-align: right;
+
+}
 .page-type-article .content ul{
     list-style: none;
     text-align: left;
+    padding: 0;
     grid-column-start: 2;
+}
+.page-type-article .additional-reading.block li{
+    line-height: 1.5;
 }
 .page-type-article .additional-reading.block p{
     grid-column-start: 2;
@@ -130,7 +156,7 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 }
 .page-type-article li{
 
-    padding: .5em;
+
 }
 .additional-reading.block{
     width: 100%;
@@ -253,3 +279,5 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     }
     /* main */
 }
+
+
