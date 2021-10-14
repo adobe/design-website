@@ -140,6 +140,9 @@ export default function decorate($main) {
         thinkAboutBody.append(element)
       }
     })
+
+    thinkAboutBody.append($element(".think-differently-slash-1"))
+    thinkAboutBody.append($element(".think-differently-slash-2"))
     thinkAboutDiv.append(thinkAboutBody)
     endDiv.append(resourcesDiv)
     endDiv.append(thinkAboutDiv)
