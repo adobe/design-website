@@ -15,62 +15,17 @@ setPageLoading();
 
 import decorateHeader from "./global-header.js";
 import decorateFooter from "./global-footer.js";
-import decorateArticle from "./pages/article.js";
-import decorateJobPost from "./pages/job-post.js";
-import decorateTeam from "./pages/team.js";
-import decorateToolkit from "./pages/toolkit.js";
-import decorateInclusive from "./pages/inclusive.js";
-import decorateJobs from "./pages/jobs.js";
-import { addPageTypeDecorator, runPageTypeDecorators } from "./page-type-decorator.js";
+import { runPageTypeDecorators } from "./page-type-decorator.js";
 import { decorateBackground } from "./background.js";
+import registerPageTypes from "./page-types.js";
+import { loadCSS } from "./importer.js";
+import { decorateBlocks, loadBlocks } from "./blocks.js";
 
 /**
  * See if there's a way to get the loader in first
  * <link rel="stylesheet" type="text/css" href="/styles/page-loader.css"/>
  * <script src="/scripts/page-loader.js"></script>
  */
-
-
-/**
- * Loads a CSS file.
- * @param {string} href The path to the CSS file
- */
-export function loadCSS(href) {
-  if (!document.querySelector(`head > link[href="${href}"]`)) {
-    const link = document.createElement('link');
-    link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', href);
-    link.onload = () => {
-    };
-    link.onerror = () => {
-    };
-    document.head.appendChild(link);
-  }
-}
-
-// <script src="https://cdn.jsdelivr.net/npm/color@4.0.1/index.min.js"></script>
-export function loadScript(src, options) {
-  if (!document.querySelector(`head > script[src="${src}"]`)) {
-    const script = document.createElement("script");
-    script.setAttribute("src", src);
-    script.setAttribute("type", "module");
-    document.head.appendChild(script);
-    // script.onload(() => {
-    //   console.log(`Script ${src} loaded`);
-    // });
-  }
-}
-
-/**
- * Retrieves the content of a metadata tag.
- * @param {string} name The metadata name (or property)
- * @returns {string} The metadata value
- */
-export function getMetadata(name) {
-  const attr = name && name.includes(':') ? 'property' : 'name';
-  const $meta = document.head.querySelector(`meta[${attr}="${name}"]`);
-  return $meta && $meta.content;
-}
 
 /**
  * Adds one or more URLs to the dependencies for publishing.
@@ -86,16 +41,7 @@ export function addPublishDependencies(url) {
   }
 }
 
-/**
- * Sanitizes a name for use as class name.
- * @param {*} name The unsanitized name
- * @returns {string} The class name
- */
-export function toClassName(name) {
-  return name && typeof name === 'string'
-    ? name.toLowerCase().replace(/[^0-9a-z]/gi, '-')
-    : '';
-}
+
 
 /**
  * Wraps each section in an additional {@code div}.
@@ -112,96 +58,6 @@ function wrapSections($sections) {
   });
 }
 
-/**
- * Decorates a block.
- * @param {Element} $block The block element
- */
-export function decorateBlock($block) {
-  const classes = Array.from($block.classList.values());
-  const blockName = classes[0];
-  if (!blockName) return;
-  const $section = $block.closest('.section-wrapper');
-  if ($section) {
-    $section.classList.add(`${blockName}-container`.replace(/--/g, '-'));
-  }
-  $block.classList.add('block');
-  $block.setAttribute('data-block-name', blockName);
-}
-
-/**
- * Decorates all blocks in a container element.
- * @param {Element} $main The container element
- */
-function decorateBlocks($main) {
-  $main
-    .querySelectorAll('div.section-wrapper > div > div')
-    .forEach(($block) => decorateBlock($block));
-}
-
-/**
- * Loads JS and CSS for a block.
- * @param {Element} $block The block element
- */
-export async function loadBlock($block) {
-  const blockName = $block.getAttribute('data-block-name');
-  console.log(" BLOCK NAME: ", blockName)
-  try {
-    const mod = await import(`/blocks/${blockName}/${blockName}.js`);
-    if (mod.default) {
-      await mod.default($block, blockName, document);
-    }
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.log(`failed to load module for ${blockName}`, err);
-  }
-    loadCSS(`/blocks/${blockName}/${blockName}.css`);
-}
-
-/**
- * Loads JS and CSS for all blocks in a container element.
- * @param {Element} $main The container element
- */
-async function loadBlocks($main) {
-  $main
-    .querySelectorAll('div.section-wrapper > div > .block')
-    .forEach(async ($block) => loadBlock($block));
-}
-
-/**
- * Extracts the config from a block.
- * @param {Element} $block The block element
- * @returns {object} The block config
- */
-export function readBlockConfig($block) {
-  const config = {};
-  $block.querySelectorAll(':scope>div').forEach(($row) => {
-    if ($row.children) {
-      const $cols = [...$row.children];
-      if ($cols[1]) {
-        const $value = $cols[1];
-        const name = toClassName($cols[0].textContent);
-        let value = '';
-        if ($value.querySelector('a')) {
-          const $as = [...$value.querySelectorAll('a')];
-          if ($as.length === 1) {
-            value = $as[0].href;
-          } else {
-            value = $as.map(($a) => $a.href);
-          }
-        } else if ($value.querySelector('p')) {
-          const $ps = [...$value.querySelectorAll('p')];
-          if ($ps.length === 1) {
-            value = $ps[0].textContent;
-          } else {
-            value = $ps.map(($p) => $p.textContent);
-          }
-        } else value = $row.children[1].textContent;
-        config[name] = value;
-      }
-    }
-  });
-  return config;
-}
 
 /**
  * Official Google WEBP detection.
@@ -396,8 +252,6 @@ async function decoratePage(win = window) {
     console.error(err);
     pageDoneLoading();
   }
-
-
 }
 
 let language;
@@ -442,15 +296,7 @@ export function getLanguage() {
 }
 
 // First register the decorators
-addPageTypeDecorator({ path: "/toolkit" }, decorateToolkit);
-addPageTypeDecorator({ path: "/inclusive" }, decorateInclusive);
-addPageTypeDecorator({ path: "/jobs" }, decorateJobs);
-addPageTypeDecorator({ path: "/stories/*" }, decorateArticle);
-addPageTypeDecorator({ path: "/team" }, decorateTeam);
-addPageTypeDecorator({ path: "/jobs/*" }, decorateJobPost);
-// addPageTypeDecorator({ path: "job-post" }, decorateJobPost);
+registerPageTypes();
 
 // Second apply the decoration
 decoratePage(window);
-
-console.log("Scripts executed");

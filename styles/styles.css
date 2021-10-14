@@ -1,26 +1,42 @@
 @import "./page-loader.css";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url("https://use.typekit.net/jdq5hay.css");
 @import "body-styles.css";
 @import "global-header.css";
 @import "global-footer.css";
 @import "./background.css";
 
-@import "./page-types/home.css";
-@import "./page-types/article.css";
-@import "./page-types/index.css";
-@import "./page-types/team.css";
-@import "./page-types/toolkit.css";
-@import "./page-types/jobs.css";
-@import "./page-types/job-post.css";
-
 body {
-    background-image: url("/resources/background-image.svg");
-    /* /* background-position: center top; */
-    background-size: cover;
-    background-repeat: no-repeat;
     font-family:sans-serif;
+}
+body.loaded {
+    background-position: center top;
+    background-image: url("/resources/background-image.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
     transition: all .4s ease-in-out;
+    font-family: sans-serif;
+
+    /* Common Colors */
+    --text-dark:     #3E3E3E;
+    --bkg-navy-dark: #0B1C40;
+    --bkg-green:     #4BA88E;
+    --bkg-grey-lt:   #E8E8E8;
+    --bkg-red:       #E91D25;
+    --bkg-orange:    #E94E27;
+
+    /* Font Families */
+    --sarif-font: "Adobe Clean Serif", "Adobe Clean", "Roboto", sans-serif;
+    --sans-font: "Adobe Clean", "Roboto", sans-serif;
+
+    /* Font Weights */
+    --weight-light:      200;  /* lighter,   100-300 */
+    --weight-regular:    400;  /* normal,    400-500 */
+    --weight-bold:       700;  /* semi-bold, 700-600 */
+    --weight-black:      900;  /* bolder,    800-900 */
+
+    color:       var(--color-text);
+    font-weight: var(--weight-regular);
+
 }
 
 main > div > div > div:not(.full-bleed) {
@@ -35,23 +51,36 @@ html, body{
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    font-family: 'Adobe Clean','Roboto', sans-serif;
+    font-family: var(--sans-font);
 }
 
 .tag-link {
     color: #D8D8D8;
-    text-decoration: underline solid 4px#D8D8D8;
+    text-decoration: underline solid 4px #D8D8D8;
     /* border-bottom: solid 4px#D8D8D8; */
     display: inline;
     font-family: 'Adobe Clean','Roboto', sans-serif;
 }
 .tag-link.black {
     color: #17212D;
-    text-decoration: underline solid 4px#17212D;
+    text-decoration: underline solid 4px #17212D;
     /* border-bottom: solid 4px#17212D; */
     display: inline;
     font-family: 'Adobe Clean','Roboto', sans-serif;
 }
+
+/* Header */
+.hed{
+    font-weight: var(--weight-black);
+    font-size: 3.5em; /* 56px */
+}
+
+/* Subheader/ summary/ hook */
+.dek{
+    font-family: var(--sarif-font);
+    font-size: 2em; /* 32px */
+}
+
 
 @media only screen and (min-width: 768px) and (max-width: 1024px){
     .page-home main > div{
@@ -94,5 +123,4 @@ html, body{
         margin: 1em;
         overflow-x: hidden;
     }
-
 }

@@ -1,0 +1,70 @@
+.page-type-index{
+    background: #0A1C42;
+}
+
+.page-type-index .header {
+    background: #0A1C42;
+    font-size: 3em;
+    padding: 1em 0 2em 0;
+}
+
+.page-type-index h1 {
+    color: white;
+    font-size: clamp(1em, 3vw, 1.5em);
+    font-weight: 400;
+    padding-left: 1em;
+}
+
+.page-type-index .content {
+    background: whitesmoke;
+    height: 200em;
+}
+
+.page-type-index .content > div > div:nth-child(1) > div {
+    position: relative;
+    bottom: 10em;
+}
+
+.page-type-index .content > div > div:nth-child(2) > div {
+    position: relative;
+    bottom: 10em;
+    padding-left: 5em;
+}
+
+.page-type-index main {
+    width: 98vw;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.page-type-index .story picture {
+    padding-left: 3em;
+}
+
+.page-type-index .story img {
+    width: 45%;
+}
+
+.page-type-index .content > div > div:nth-child(2) > div > p:nth-child(1) {
+    font-size: .75rem;
+    position: absolute;
+    bottom: 34em;
+    color: white;
+    border-bottom: white 2px solid;
+}
+
+.page-type-index #from-mind-to-canvas {
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.page-type-index #creating-art-with-synesthesia {
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.page-type-index .content > div > div:nth-child(2) > div > p:nth-child(4) {
+    font-size: .75em;
+    font-weight: 300;
+}

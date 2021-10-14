@@ -1,22 +1,21 @@
-/*
- *   Copyright (c) 2021 Busy Human LLC
- *   All rights reserved.
- *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
- */
- .joinus.block{
+.joinus.block{
     display:flex;
     justify-content: center;
     align-items: center;
     background-color: white;
     height: 33.33%;
     box-sizing: border-box;
- }
+}
 
- .job-list.block{
+.job-list .single-job {
+     color:inherit;
+     text-decoration: none;
+}
+
+.job-list.block{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
     color: #0B1C40;
     background-color: #ffffff;
     width: 100%;
@@ -35,7 +34,7 @@
     font-size: 20px;
 }
 
-.job-list .job-listing, 
+.job-list .single-job,
 .job-list .see-jobs{
     border-bottom: solid 2px #0B1C40;
     margin: 0 3em;
@@ -53,38 +52,37 @@
     padding: 0.8em 1em;
 }
 
-.job-listing div:first-child{
+.single-job div:first-child{
     display: grid;
     grid-template-columns: minmax(auto, 600px);
     grid-template-rows: repeat(6, 2em);
 }
 
-.job-listing h3{
+.single-job h3{
     grid-column-start: 1;
     grid-column-end: 2;
-
     grid-row-start: 1;
     grid-row-end: 3;
     font-size: 2.2rem;
 }
 
-.job-listing p{
+.single-job p{
     grid-column-start: 5;
     grid-row-start: 2;
     text-align: end;
-
 }
-.job-listing p:nth-child(3){
+
+.single-job p:nth-child(3){
     grid-row-start: 5;
 }
 
-.job-listing p:nth-child(4){
+.single-job p:nth-child(4){
     grid-column-start: 1;
     grid-row-start: 5;
     text-align: start;
 }
 
-.job-listing div:nth-child(3){
+.single-job div:nth-child(3){
     color: orchid;
 }
 
@@ -102,16 +100,13 @@
 
 @media (max-width:767px)
 {
-    .job-listing div:first-child {
+    .single-job div:first-child {
         grid-template-columns: 300px;
     }
-
-    .job-listing h3 {
-
-    }
+    /* .single-job h3 {} */
 }
 @media only screen and (max-width: 767px){
-    .job-listing .job-title{
+    .single-job .job-title{
         font-size: 2em;
     }
     .joblist.block{
@@ -148,15 +143,14 @@
         font-size: 6em;
         width: 100%;
     }
-    .job-listing .job-title{
+    .single-job .job-title{
         font-size: 2em;
         margin-right: 0;
     }
-    .job-listing .experience{
+    .single-job .experience{
         font-size: .5em;
     }
-
-    .job-listing div:first-child{
+    .single-job div:first-child{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -166,7 +160,7 @@
 }
 
 @media only screen and (max-width: 320px){
-    .job-listing .job-title{
+    .single-job .job-title{
         font-size: 1.5em;
     }
 
@@ -179,8 +173,6 @@
         font-size: 5em;
         width: 100%;
     }
-
-    
 }
 
 

@@ -6,7 +6,6 @@
     box-sizing: border-box;
     font-family: 'Adobe Clean','Roboto', sans-serif;
     color: #FFFFFF;
-
     width: 98vw;
     max-width:1000px;
     margin-left:auto;
@@ -53,12 +52,12 @@
         grid-column-start: 3;
         grid-row-start: 1;
         position: static;
-
     }
     #global-header > .logo img {
         max-width: 75%;
     }
 }
+
 @media only screen and (max-width: 767px) {
     #global-header{
         display: flex;;
@@ -71,21 +70,21 @@
         margin: 0;
         padding-right: 1em;
     }
-
     #global-header nav {
         position: static;
         margin: 0;
         padding-right: 1em;
     }
+}
 
-    @media only screen and (max-width: 425px){
-        .tagline {
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        width:100vw;
-        padding: 0;
-        text-align: center;
+@media only screen and (max-width: 425px){
+    .tagline {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100vw;
+    padding: 0;
+    text-align: center;
     }
     #global-header{
         display: grid;
@@ -103,6 +102,7 @@
         padding-top: 2em;
     }
 }
+
 @media only screen and (max-width: 375px) {
     .tagline {
         display:flex;
@@ -112,12 +112,9 @@
         padding: 0;
         text-align: center;
     }
-
     #global-header{
         margin-right: 0;
     }
-
-
     #global-header .tagline {
         text-align: center;
         width: 20em;
@@ -130,6 +127,5 @@
         margin: 0;
         padding-top: 2em;
     }
-}
 }
 /* End of navbar styling */

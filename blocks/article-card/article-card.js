@@ -1,14 +1,11 @@
 import {
     convertToBackground,
     $element,
-    // decorateLink,
     decorateTagLink,
     processDivisions,
-    // wrapWithElement,
 } from "../../scripts/helpers.js";
 
 /**
- *
  * @param {HTMLElement} $block
  */
 export default function decorate($block) {
@@ -47,12 +44,9 @@ export default function decorate($block) {
         }
     }
 
-    // const link = wrapWithElement(document.$element("a"), $element({ cls: "link-wrapper", content: "Hello" }));
-    // link.attributes.href = result.properties.link || null;
-
     $text.append($tag, $hed, $dek, $byline);
 
-    // Apply the properties to the block
+    /* Apply the properties to the block */
     $block.style.backgroundColor = result.properties.background;
     $block.style.color = result.properties.textcolor;
 
@@ -61,7 +55,6 @@ export default function decorate($block) {
      * Remove image and place on proper side:
      */
     result.image.remove();
-
     result.blockContent.prepend($text);
 
     if (!result.properties["image-side"] || result.properties["image-side"] === "left") {
@@ -73,16 +66,6 @@ export default function decorate($block) {
     result.image.classList.add("image");
 
     convertToBackground(result.image.querySelector("img"), result.image);
-
-    /** @type {HTMLAnchorElement} */
-    // const link = result.text.querySelector("a");
-    // decorateLink(link);
-    // link.parentElement.classList.add("article-title");
-    // result.properties.link = link.href;
-
-    // $block.prepend($text);
-
-    // decorateLink(link);
 }
 
 
