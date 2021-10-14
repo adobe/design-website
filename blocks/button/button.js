@@ -10,18 +10,13 @@
     $element,
 } from "../../scripts/helpers.js";
 
-interface params {
-  innerText: string
-  action?: any
-  clasList?: Array<string> | string
-}
-
 /**
  * @param {HTMLElement} $block
+ * @param {String} innerText
+ * @param {any} [action]
+ * @param {Array<string> | string} [clasList]
  */
-
- tagName: K, options?: ElementCreationOptions
-export default function addButton(innerText: any, action?: any, classList?: Array<String> | String) {
+export default function addButton(innerText, action, classList) {
   let button = document.createElement("button")
   button.innerText = {innerText }// {HTMLElement}
 }
