@@ -16,11 +16,11 @@ export default async function decorate($block) {
               $element("h1.hed.job-title", [ $element("span.sup", "Jr"), $element("span.reg", jobTitle.replace('Jr', ''))])
             : $element("h1.hed.job-title", jobTitle);
 
-            // TODO: make and import 'apply now' button
-    const $button_apply_now = $element("button.apply-now",  "Apply Now" )
+    // TODO: make and import 'apply now' button
+    const $button_apply_now = $element("button.apply-now",  "Apply Now" );
     const $location         = $element("p.detail-value", props.location);
     const $position_type    = $element("p.detail-value", props['position-type']);
-    const $dek              = $element("p.dek",props.dek);
+    const $dek              = $element("p.dek", props.dek);
     const $department       = $element("p.detail-value", props.department);
 
     /* Big Giant element builder function: */
