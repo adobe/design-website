@@ -1,15 +1,13 @@
-import {$wrap, $element, $remainder} from "../helpers.js";
+import {$wrap, $element, $remainder} from "../../scripts/helpers.js";
 
 export default function decorate($main) {
     var team = document.querySelector("body > main");
     team.classList.add("teams")
-    console.log("working")
     /* team.forEach(t => {
       if( t.querySelector("p") ) {
         t.classList.add("article-picture");
       }
     }); */
-
 
     /*
     =====================WARNING======================
@@ -66,7 +64,7 @@ export default function decorate($main) {
     })
 
     let bodyDiv = $wrap($element(".content"), [headDiv, teamCardsDiv, endDiv])
-    
+
     content.append(titleDiv)
     content.append(bodyDiv)
 
@@ -85,7 +83,6 @@ export default function decorate($main) {
 
     //Oranizing individual teams cards
     let card = 0;
-
     let teamCard = $element(".team-card");
     teamCard.classList.add("card-"+card)
     let leftBlock = document.createElement("div");
@@ -95,13 +92,12 @@ export default function decorate($main) {
       if(card !== 0 && element.nodeName === "H3"){
         teamCard = $wrap(teamCard, [leftBlock,rightBlock])
         teamCardsDiv.append(teamCard)
-
         teamCard = $element(".team-card");
         teamCard.classList.add("card-"+card)
         leftBlock = document.createElement("div");
         rightBlock = document.createElement("div");
       }
-      
+
       if(element.nodeName === "H3"){
         teamCard.append(element)
         card++
@@ -109,7 +105,7 @@ export default function decorate($main) {
         rightBlock.append(element)
       else
         leftBlock.append(element)
-      
+
     })
     teamCard = $wrap(teamCard, [leftBlock,rightBlock])
     teamCardsDiv.append(teamCard)
@@ -117,10 +113,8 @@ export default function decorate($main) {
     //Organize Foot content
     const resourcesDiv = $element(".resources-section");
     const resources = $element(".resources");
-
     const thinkAboutDiv = $element(".think-differently");
     const thinkAboutBody = $element(".think-differently-body");
-
     let section = 0;
     endDiv.querySelectorAll("div>*").forEach(element =>{
       if(element.nodeName === "H2")
@@ -140,10 +134,12 @@ export default function decorate($main) {
         thinkAboutBody.append(element)
       }
     })
+
+    thinkAboutBody.append($element(".think-differently-slash-1"))
+    thinkAboutBody.append($element(".think-differently-slash-2"))
     thinkAboutDiv.append(thinkAboutBody)
     endDiv.append(resourcesDiv)
     endDiv.append(thinkAboutDiv)
-
 
     teamCardsDiv.querySelectorAll("h3").forEach(function(element){
       element.addEventListener("click", function(){
@@ -161,5 +157,4 @@ export default function decorate($main) {
         card.classList.remove("active")
       })
     }
-
 }

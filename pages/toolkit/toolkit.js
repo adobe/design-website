@@ -63,10 +63,8 @@ export default function decorate($main) {
     bottomContainerAnimation.classList.add("fade-in")
 
     const scrollElements = document.querySelectorAll(".js-scroll");
-
     const elementInView = (element, dividend = 1) => {
       const elementTop = element.getBoundingClientRect().top;
-      
       return (
         elementTop <=
         (window.innerHeight || document.documentElement.clientHeight) / dividend
@@ -75,7 +73,6 @@ export default function decorate($main) {
 
     const elementOutofView = (element) => {
       const elementTop = element.getBoundingClientRect().top;
-
       return (
         elementTop > (window.innerHeight || document.documentElement.clientHeight)
       );
@@ -99,7 +96,7 @@ export default function decorate($main) {
     }
     displayScrollElement(document.querySelector("body > main > div > div > div.toolkit-page-content > div:nth-child(2)"));
 
-    window.addEventListener("scroll", () => { 
+    window.addEventListener("scroll", () => {
       handleScrollAnimation();
     });
 }

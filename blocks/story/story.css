@@ -1,9 +1,4 @@
-.page-type-index{
-    background: #0A1C42;
-}
-
 .page-type-index .header {
-    background: #0A1C42;
     font-size: 3em;
     padding: 1em 0 2em 0;
 }
@@ -15,9 +10,9 @@
     padding-left: 1em;
 }
 
-.page-type-index .content {
+.page-type-index .story {
     background: whitesmoke;
-    height: 200em;
+    height: 100em;
 }
 
 .page-type-index .content > div > div:nth-child(1) > div {
@@ -25,9 +20,9 @@
     bottom: 10em;
 }
 
-.page-type-index .content > div > div:nth-child(2) > div {
+.page-type-index .story-text {
     position: relative;
-    bottom: 10em;
+    bottom: 3em;
     padding-left: 5em;
 }
 
@@ -37,6 +32,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 .page-type-index .story picture {
     padding-left: 3em;
 }
@@ -64,7 +60,7 @@
     font-weight: 300;
 }
 
-.page-type-index .content > div > div:nth-child(2) > div > p:nth-child(4) {
+.page-type-index .story > div > div:nth-child(2) > div > p:nth-child(4) {
     font-size: .75em;
     font-weight: 300;
 }

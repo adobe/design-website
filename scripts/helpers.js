@@ -318,11 +318,11 @@ export function wrapWithElement($target, $wrap) {
 }
 
 /**
- * 
- * @param {*} $parent 
- * @param {*} children 
- * @returns 
- * @example 
+ *
+ * @param {*} $parent
+ * @param {*} children
+ * @returns
+ * @example
  * $wrap($element(".container"), [
  *  myHeader,
  *  $element("#account"),
@@ -348,13 +348,19 @@ export function $wrap($parent, children) {
 export function $eachChild($target, fn) {
     for (let i = 1; i < $target.children.length; i++) {
         fn($target.children.item(i));
-    }    
+    }
 }
 
 export function $remainder($target, selector) {
-    const $match = $target.querySelector(selector);
+    let $targetEl;
+    if (typeof target === "string") {
+        $targetEl = document.querySelector(target);
+    } else {
+        $targetEl = $target;
+    }
+    const $match = $targetEl.querySelector(selector);
     const remainder = [];
-    $eachChild($target, c => {
+    $eachChild($targetEl, c => {
         if (c !== $match) {
             remainder.push(c);
         }

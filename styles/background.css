@@ -1,16 +1,12 @@
-/*
- *   Copyright (c) 2021 Busy Human LLC
- *   All rights reserved.
- *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
- */
 #global-background {
     position:absolute;
     z-index:-1;
     top:0;
-    left:0; 
+    left:0;
     width:100vw;
-    height:200vh;    
+    height:200vh;
 }
+
 #global-background .background-fade {
     position:absolute;
     top: 0;
