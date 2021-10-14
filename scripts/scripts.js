@@ -27,19 +27,6 @@ import { decorateBlocks, loadBlocks } from "./blocks.js";
  * <script src="/scripts/page-loader.js"></script>
  */
 
-
-
-/**
- * Retrieves the content of a metadata tag.
- * @param {string} name The metadata name (or property)
- * @returns {string} The metadata value
- */
-export function getMetadata(name) {
-  const attr = name && name.includes(':') ? 'property' : 'name';
-  const $meta = document.head.querySelector(`meta[${attr}="${name}"]`);
-  return $meta && $meta.content;
-}
-
 /**
  * Adds one or more URLs to the dependencies for publishing.
  * @param {string|[string]} url The URL(s) to add as dependencies
@@ -166,6 +153,7 @@ export function normalizeHeadings($elem, allowedHeadings) {
   const allowed = allowedHeadings.map((h) => h.toLowerCase());
   $elem.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((tag) => {
     const h = tag.tagName.toLowerCase();
+    console.log( " NORMALIZE HEADERS: ", h)
     if (allowed.indexOf(h) === -1) {
       // current heading is not in the allowed list -> try first to "promote" the heading
       let level = parseInt(h.charAt(1), 10) - 1;
@@ -265,8 +253,6 @@ async function decoratePage(win = window) {
     console.error(err);
     pageDoneLoading();
   }
-
-
 }
 
 let language;

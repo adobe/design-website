@@ -12,8 +12,10 @@ function applyPathClassesToPage({ name }) {
     }
     if (name || parts.length > 0) {
         const resolvedName = name || parts[ parts.length - 1];
-        const pageClass = normalizePropertyName(`page-${resolvedName}`);
-        document.body.classList.add(pageClass);
+        if(resolvedName) {
+            const pageClass = normalizePropertyName(`page-${resolvedName}`);
+            document.body.classList.add(pageClass);
+        }
     }
 }
 
