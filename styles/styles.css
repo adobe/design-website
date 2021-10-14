@@ -93,11 +93,14 @@ html, body{
 }
 
 .scrolled.fade-in {
-    animation: fade-in-bottom .8s cubic-bezier(.63,.07,.46,.99) both;
+    animation: scroll-fade-in-bottom .8s cubic-bezier(.63,.07,.46,.99) both;
+}
+.scrolled.fade-in-right{
+    animation: scroll-fade-in-right .8s cubic-bezier(.63,.07,.46,.99) both;
 }
 
-/* animations */
-@keyframes fade-in-bottom {
+/* scroll animations */
+@keyframes scroll-fade-in-bottom {
     0% {
       -webkit-transform: translateY(100px) scale(.95);
       transform: translateY(100px) scale(.95);
@@ -106,6 +109,18 @@ html, body{
     100% {
       -webkit-transform: translateY(0);
       transform: translateY(0);
+      opacity: 1;
+    }
+}
+@keyframes scroll-fade-in-right {
+    0% {
+      -webkit-transform: translateX(100px) scale(.95);
+      transform: translateX(100px) scale(.95);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
       opacity: 1;
     }
 }
