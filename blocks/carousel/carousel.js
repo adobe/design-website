@@ -19,7 +19,10 @@ export default function decorate($block) {
     const { properties } = processDivisions(slide, null, { level: "child" });
     carouselProperties.slides.push(properties);
     if ((i + 1) === length) {
-      //Currently the last slide is a depreciated carousel__actions div, remove this when its removed from the doc
+      /**
+       * Currently the last slide is a depreciated carousel__actions div,
+       * remove this when its removed from the doc
+       */
       slide.remove()
       break;
     } else if (i === 0) {
@@ -50,13 +53,11 @@ export default function decorate($block) {
 
   $block.append(actions)
 
-
   let slidePosition = 0;
   const slides = document.getElementsByClassName('carousel__item');
   let next = document.getElementsByClassName('carousel__button--next');
   let prev = document.getElementsByClassName('carousel__button--prev');
   const totalSlides = slides.length;
-
 
   function applySlide() {
     applyColor(slidePosition);
@@ -73,7 +74,6 @@ export default function decorate($block) {
 
       }
 
-      // slides[i].classList.add('carousel__item--hidden');
       if (i === slidePosition) {
         setTimeout(() => {
           slides[i].classList.add('carousel__item--visible', 'visible-animation');
@@ -94,7 +94,6 @@ export default function decorate($block) {
 
       }
 
-      // slides[i].classList.add('carousel__item--hidden');
       if (i === slidePosition) {
         setTimeout(() => {
           slides[i].classList.add('carousel__item--visible', "visible-animation-rev");
@@ -169,5 +168,4 @@ export default function decorate($block) {
 
 function applyColor(slideIndex) {
   Background.setColor(carouselProperties.slides[slideIndex].background);
-  // document.body.style.background = ;
 }

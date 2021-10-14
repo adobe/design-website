@@ -23,7 +23,7 @@ export async function loadBlock($block) {
             await mod.default($block, blockName, document);
         }
     } catch (err) {
-        // eslint-disable-next-line no-console
+        /* eslint-disable-next-line no-console */
         console.log(`failed to load module for ${blockName}`);
         console.error(err);
     }
