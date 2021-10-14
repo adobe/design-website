@@ -72,13 +72,16 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 
 .page-type-article main img{
     width: 100%;
+    /* padding-bottom: 5em; */
 }
-
-.page-type-article .header img{
+body > main > div > div.content > picture > img{
+    padding-bottom: 5em;
+}
+/* .page-type-article .header img{
     width: 90%;
     position:relative;
     top: 20em;
-}
+} */
 
 .page-type-article .header.block{
      width: 100%;
@@ -89,7 +92,7 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 .lede.block{
     font-size: 2em;
     width: auto;
-    padding-top: 5em;
+    /* padding-top: 5em; */
     line-height: 1.5;
     text-align: left;
 }
