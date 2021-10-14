@@ -1,6 +1,15 @@
+
+
+:root{
+    --main-bg-color: plum;
+    --h1-font-size: 6.25em;
+}
+
+
 .page-type-article{
-    background: rgb(224,194,208);
-    background: linear-gradient(0deg, rgba(224,194,208,1) 20%, rgba(255,111,22,1) 50%,rgba(213,237,245,1) 90%, rgba(213,237,245,1) 100%);
+    /* background: rgb(224,194,208);
+    background: linear-gradient(0deg, rgba(224,194,208,1) 20%, rgba(255,111,22,1) 50%,rgba(213,237,245,1) 90%, rgba(213,237,245,1) 100%); */
+    background: var(--main-bg-color);
 }
 
 .page-type-article main{
@@ -49,6 +58,7 @@
 .page-type-article .header.block h1{
     text-align: left;
     margin: unset;
+    font-size: var(--h1-font-size);
     font-weight: 500;
 }
 .page-type-article .header.block h2{
