@@ -86,7 +86,7 @@ export default function decorate($main) {
     })
     var bottomContainerAnimation = document.querySelector(".toolkit-bottom-container");
     bottomContainerAnimation.classList.add("js-scroll");
-    bottomContainerAnimation.classList.add("fade-in")
+    bottomContainerAnimation.classList.add("fade-in");
 
     $scrollAnimation();
 }

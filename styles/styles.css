@@ -82,6 +82,33 @@ html, body{
     font-size: 2em; /* 32px */
 }
 
+/* scroll animation */
+.js-scroll {
+    opacity: 0;
+    transition: all 500ms;
+}
+
+.js-scroll.scrolled {
+    opacity: 1;
+}
+
+.scrolled.fade-in {
+    animation: fade-in-bottom .8s cubic-bezier(.63,.07,.46,.99) both;
+}
+
+/* animations */
+@keyframes fade-in-bottom {
+    0% {
+      -webkit-transform: translateY(100px) scale(.95);
+      transform: translateY(100px) scale(.95);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+}
 
 @media only screen and (min-width: 768px) and (max-width: 1024px){
     .page-home main > div{
