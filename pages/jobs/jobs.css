@@ -45,13 +45,30 @@
 .page-type-jobs .jobs-container{
     display:grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-gap: 10%;
-    padding: 5em 3em;
+    grid-column-gap: 10%;
+    padding: 2rem 3rem 5rem 3rem;
     min-height: 1000px; /* Remove/Change this once we populate job listings*/
 }
-
+.page-type-jobs .jobs-container .job-category{
+    padding-top: 3rem;
+}
 .page-type-jobs .jobs-container .job-category h2{
     font-size: 2rem;
 }
 
+@media (max-width: 700px){
+    .page-type-jobs .jobs-container{
+        grid-template-columns: 1fr;
+    }
+    .page-type-jobs .head-content h1,
+    .page-type-jobs .head-content p,
+    .page-type-jobs .head-content p:last-child{
+        width: 80%;
+        padding: 0;
+        margin: 5rem auto;
+    }
+
+    .page-type-jobs .head-content p{
+        font-size: 2rem;
+    }
+}

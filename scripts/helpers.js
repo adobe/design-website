@@ -367,3 +367,44 @@ export function $remainder($target, selector) {
     });
     return remainder;
 }
+// Calling this function in your script will add a fade up animation to any elements
+// With the follow two classes 'js-scroll' and 'fade-in'
+export function $scrollAnimation() {
+    const scrollElements = document.querySelectorAll(".js-scroll");
+    const elementInView = (element, dividend = 1) => {
+      const elementTop = element.getBoundingClientRect().top;
+      return (
+        elementTop <=
+        (window.innerHeight || document.documentElement.clientHeight) / dividend
+      );
+    };
+
+    const elementOutofView = (element) => {
+      const elementTop = element.getBoundingClientRect().top;
+      return (
+        elementTop > (window.innerHeight || document.documentElement.clientHeight)
+      );
+    };
+
+    const displayScrollElement = (element) => {
+      element.classList.add("scrolled");
+    };
+    const hideScrollElement = (element) => {
+      element.classList.remove("scrolled");
+    };
+
+    const handleScrollAnimation = () => {
+      scrollElements.forEach((element) => {
+        if (elementInView(element, 1.30)) {
+          displayScrollElement(element);
+        } else if (elementOutofView(element)) {
+          hideScrollElement(element)
+        }
+      })
+    }
+
+    window.addEventListener("scroll", () => {
+      handleScrollAnimation();
+    });
+
+}
