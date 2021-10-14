@@ -12,11 +12,15 @@
     box-sizing: border-box;
  }
 
+ .job-list .single-job {
+     color:inherit;
+     text-decoration: none;
+ }
+
  .job-list.block{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
     color: #0B1C40;
     background-color: #ffffff;
     width: 100%;

@@ -1,4 +1,4 @@
-import {$wrap, $element, $remainder} from "../helpers.js";
+import {$wrap, $element, $remainder} from "../../scripts/helpers.js";
 
 export default function decorate($main) {
     var jobs = document.querySelector("body > main");
