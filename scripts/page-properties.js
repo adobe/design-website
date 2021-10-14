@@ -9,7 +9,6 @@ export const PagePropertiesController = {
         PagePropertiesController.properties = props;
         PagePropertiesController.ready = true;
 
-        console.log("Page Properties:", this.properties);
         PagePropertiesController.runCallbacks();
     },
     runCallbacks() {

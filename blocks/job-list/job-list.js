@@ -10,7 +10,6 @@ var index = null;
 export default async function decorate($block) {
   if (!index) {
     index = await fetchIndex();
-    console.log("index:", index);
   }
   const $jobs = $block.querySelectorAll(":scope > div");
 

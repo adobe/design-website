@@ -18,9 +18,7 @@ export default function decorate($block) {
   });
   const props = result.properties;
   const { properties } = processDivisions($block);
-  // console.log( " props , ", result, '\n properties ', {properties}, '\n block ',$block)
   const $col1 = $block.querySelector(":scope > div > div:first-child");
-  // console.log(" PROPS : ", props,"\n PROPerties : ", properties)
   document.querySelector("body").classList.add("job-post");
   /**
    * Element Constants:

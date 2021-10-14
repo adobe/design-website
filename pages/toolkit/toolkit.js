@@ -47,7 +47,6 @@ export default function decorate($main) {
     };
 
     const handleScrollAnimation = () => {
-      console.log("SCROLLING")
       scrollElements.forEach((element) => {
         if (elementInView(element, 1.35)) {
           displayScrollElement(element);

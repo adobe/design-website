@@ -25,8 +25,5 @@
         script.setAttribute("type", opts.type);
       }
       document.head.appendChild(script);
-      // script.onload(() => {
-      //   console.log(`Script ${src} loaded`);
-      // });
     }
   }
