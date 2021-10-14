@@ -36,7 +36,7 @@ body > .toolkit > div > div > div.toolkit-page-content > .article-card{
 
 .js-scroll {
     opacity: 0;
-    transition: opacity 500ms;
+    transition: all 500ms;
   }
 
   .js-scroll.scrolled {
