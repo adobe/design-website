@@ -131,6 +131,7 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 
 #a-few-good-books{
     padding-right: 2em;
+    margin-top: 0;
 }
 .page-type-article .additional-reading.block > div > div{
     text-align: right;
@@ -147,6 +148,7 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 }
 .page-type-article .additional-reading.block p{
     grid-column-start: 2;
+    margin-top: 0;
 }
 .page-type-article .additional-reading.block a{
     font-weight: 700;
