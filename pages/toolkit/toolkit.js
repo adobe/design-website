@@ -1,4 +1,4 @@
-import { $wrap, $element, $remainder } from "../../scripts/helpers.js";
+import { $wrap, $element, $remainder, $scrollAnimation } from "../../scripts/helpers.js";
 
 export default function decorate($main) {
     var toolkit = document.querySelector("body > main");
@@ -78,49 +78,15 @@ export default function decorate($main) {
     
     // Js for scrolling animations
     var allArticles = document.querySelectorAll("body > main > div > div > div.toolkit-page-content > *, body > main > div > div > div.toolkit-page-content > div > div > div.text > div");
-    allArticles.forEach(article => {
-      article.classList.add("js-scroll")
-      article.classList.add("fade-in")
+    allArticles.forEach((article, index) => {
+      if(index > 1){
+        article.classList.add("js-scroll")
+        article.classList.add("fade-in")
+      }
     })
     var bottomContainerAnimation = document.querySelector(".toolkit-bottom-container");
     bottomContainerAnimation.classList.add("js-scroll");
-    bottomContainerAnimation.classList.add("fade-in")
+    bottomContainerAnimation.classList.add("fade-in");
 
-    const scrollElements = document.querySelectorAll(".js-scroll");
-    const elementInView = (element, dividend = 1) => {
-      const elementTop = element.getBoundingClientRect().top;
-      return (
-        elementTop <=
-        (window.innerHeight || document.documentElement.clientHeight) / dividend
-      );
-    };
-
-    const elementOutofView = (element) => {
-      const elementTop = element.getBoundingClientRect().top;
-      return (
-        elementTop > (window.innerHeight || document.documentElement.clientHeight)
-      );
-    };
-
-    const displayScrollElement = (element) => {
-      element.classList.add("scrolled");
-    };
-    const hideScrollElement = (element) => {
-      element.classList.remove("scrolled");
-    };
-
-    const handleScrollAnimation = () => {
-      scrollElements.forEach((element) => {
-        if (elementInView(element, 1.30)) {
-          displayScrollElement(element);
-        } else if (elementOutofView(element)) {
-          hideScrollElement(element)
-        }
-      })
-    }
-    displayScrollElement(document.querySelector("body > main > div > div > div.toolkit-page-content > div:nth-child(2)"));
-
-    window.addEventListener("scroll", () => {
-      handleScrollAnimation();
-    });
+    $scrollAnimation();
 }
