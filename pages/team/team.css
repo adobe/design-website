@@ -37,7 +37,6 @@
 .page-type-team .head-content .head-text{
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: repeat(4, 1fr);
 }
 
 .page-type-team .head-content .head-text p{
@@ -47,7 +46,7 @@
 .page-type-team .head-content h2,
 .page-type-team .foot-content .resources-section h2{
     font-size: 3em;
-    color: red;
+    color: var(--bkg-red);
 }
 
 /*
@@ -188,7 +187,7 @@
     display:grid;
     grid-template-rows: 60% 24% 16%;
     height: 300px;
-    background: red;
+    background: var(--bkg-red);
     width: fit-content;
     flex-basis: 0;
     flex-grow: 1;
@@ -214,7 +213,7 @@
 
 /* We may reuse the .think-differently stylings on multiple pages*/
 .think-differently{
-    background: #0B1C40;
+    background: var(--bkg-navy-dark);
     color: white;
     display: flex;
     align-items: center;
@@ -239,14 +238,12 @@
 
 .think-differently .think-differently-body h2{
     font-size: 2em;
-    font-weight: 300;
     grid-column: 2/4;
     grid-row: 1/2;
 }
 
 .think-differently .think-differently-body p{
     grid-row: 4/5;
-    font-weight: 100;
     font-size: 0.9em;
 }
 
@@ -297,5 +294,19 @@
 .think-differently .think-differently-body .think-differently-number{
     display:block;
     font-size:8rem;
-    font-weight: 500;
+    font-weight: var(--weight-regular);
+}
+
+@media (max-width: 768px){
+    .think-differently .think-differently-body .think-differently-number{
+        font-size:7rem;
+    }
+
+    .think-differently .think-differently-body h2{
+        font-size: 1.5em;
+    }
+    
+    .think-differently .think-differently-body p{
+        font-size: 0.8em;
+    }
 }

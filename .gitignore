@@ -1,3 +1,4 @@
 .hlx/*
 logs/*
 node_modules/*
+.vscode/settings.json
