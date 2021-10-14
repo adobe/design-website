@@ -1,5 +1,18 @@
 button.gen{
-    border: 2px solid black;
-    background-color: transparent;
-    border-radius: 1em;
+    border-radius: 1.5em;
+    height: 3em;
+    font-size: 1em;
+    padding: 0.5em 1.5em;
+    line-height: 1em;
+}
+
+button.gen.unfilled{
+    border: 2px solid var(--btn-color);
+    color: var(--btn-color);
+    background-color: unset;
+}
+button.gen.filled{
+    border: none;
+    color: var(--btn-color);
+    background-color: unset;
 }

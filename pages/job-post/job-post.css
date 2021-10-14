@@ -1,7 +1,7 @@
 .job-post{
     font-weight: 1rem;
     background:  var(--color-grey);
-    background-color: #0A1C42;
+    background-color: var(--bkg-navy-dark);
 }
 /* .job-post main .section-wrapper.page-container.job-info-container.block-content{} */
 

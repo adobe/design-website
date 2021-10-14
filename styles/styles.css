@@ -4,6 +4,7 @@
 @import "global-header.css";
 @import "global-footer.css";
 @import "./background.css";
+@import "../blocks/button/button.css";
 
 body {
     font-family:sans-serif;

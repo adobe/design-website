@@ -36,6 +36,7 @@ body.job-post .header-block{
 .job-post .job-title{
     font-size: 3.5em; /* 56px */
     font-weight: var(--weight-black);
+    color: white;
 }
 .job-post .detail-value,
 .job-post .detail-label{
