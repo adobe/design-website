@@ -4,17 +4,12 @@ import { processDivisions, $element } from "../../scripts/helpers.js";
  * @param {HTMLElement} $block
  */
 export default async function decorate($block) {
-    // Get the properties and identify the blocks
+    /* Get the properties and identify the blocks */
     const result = processDivisions($block, null);
     const props = result.properties;
 
     let jobTitle = props['job-title'];
-    // const $jobTitle = jobTitle.toLowerCase().includes(['sr']) ? $element("h1.hed.job-title", [$element("span.sup", "Sr"), jobTitle.replace('Sr ', '')]) : jobTitle.includes('Jr') ? $element("h1.hed.job-title", [$element("span.sup", "Jr"), jobTitle.replace('Jr ', '')]) : $element("h1.hed.job-title", jobTitle)
-    const $jobTitle = jobTitle.includes(['Sr']) ?
-          $element("h1.hed.job-title", [ $element("span.sup", "Sr"), $element("span.reg", jobTitle.replace('Sr', ''))])
-        : jobTitle.includes(['Jr']) ?
-              $element("h1.hed.job-title", [ $element("span.sup", "Jr"), $element("span.reg", jobTitle.replace('Jr', ''))])
-            : $element("h1.hed.job-title", jobTitle);
+    const $jobTitle = $element("h1.hed.job-title", jobTitle);
 
     // TODO: make and import 'apply now' button
     const $button_apply_now = $element("button.apply-now",  "Apply Now" );
