@@ -14,9 +14,9 @@
  * @param {HTMLElement} $block
  * @param {String} innerText
  * @param {any} [action]
- * @param {Array<string> | string} [clasList]
+ * @param {Array<string> | string} [classList]
  */
 export default function addButton(innerText, action, classList) {
-  let button = document.createElement("button")
-  button.innerText = {innerText }// {HTMLElement}
+  const button = document.createElement("button")
+  button.innerText = { innerText };// {HTMLElement}
 }
