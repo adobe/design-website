@@ -10,7 +10,7 @@ body {
 }
 body.loaded {
     background-position: center top;
-    background-image: url("/resources/background-image.svg");
+    background-image: url("/resources/background-image.png");
     background-repeat: no-repeat;
     background-size: cover;
     transition: all .4s ease-in-out;
