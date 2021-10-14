@@ -27,23 +27,45 @@ export default function decorate($main) {
       document.querySelector("body > .toolkit > div > div > div.toolkit-page-content > p:nth-child(16)")
     ])
     mainContent.append(bottomBar);
+    var slashContainer = document.createElement('div');
+    slashContainer.classList.add("slash-container");
+    
+    var stat1 = document.createElement("div")
+    stat1.classList.add("stat-group")
+    
+    document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(3)").classList.add("toolkit-stat")
+    document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(4)").classList.add("toolkit-description")
+    document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(5)").classList.add("toolkit-stat")
+    document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(6)").classList.add("toolkit-description")
+    document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(7)").classList.add("toolkit-stat")
+    document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(8)").classList.add("toolkit-description")
 
     var bottomBarStats = $wrap($element(".toolkit-bottom-container-stats"), 
     [
       document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(3)"),
       document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(4)"),
+      slashContainer.cloneNode(),
       document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(5)"),
       document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(6)"),
+      slashContainer.cloneNode(),
       document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(7)"),
       document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(8)"),
     ])
     
     document.querySelector(".toolkit-bottom-container").append(bottomBarStats);
+
+    // var statsWrapper = $wrap($element(".toolkit-stats-wrapper"), 
+    // [
+      
+    //   document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(7)"),
+    //   document.querySelector("body > .toolkit > div > div > div.toolkit-bottom-container > p:nth-child(8)"),
+    // ])
     
-    // Js for scrolling animations
+    // document.querySelector(".toolkit-bottom-container-stats").append(statsWrapper);
+
+
     var bottomBarElements = document.querySelectorAll("body > main.toolkit > div > div > div.toolkit-bottom-container > *");
     bottomBarElements.forEach((element,index) => {
-      console.log("YO", index)
       if(index === 0){
         element.classList.add("toolkit-bottom-bar-header")
       }
@@ -53,6 +75,8 @@ export default function decorate($main) {
       element.classList.add("js-scroll")
       element.classList.add("fade-in")
     });
+    
+    // Js for scrolling animations
     var allArticles = document.querySelectorAll("body > main > div > div > div.toolkit-page-content > *, body > main > div > div > div.toolkit-page-content > div > div > div.text > div");
     allArticles.forEach(article => {
       article.classList.add("js-scroll")
