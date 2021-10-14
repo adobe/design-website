@@ -10,7 +10,6 @@ export default function decorate($main) {
       }
     }); */
 
-
     /*
     =====================WARNING======================
     This page oranization is dependant on a few things
@@ -66,7 +65,7 @@ export default function decorate($main) {
     })
 
     let bodyDiv = $wrap($element(".content"), [headDiv, teamCardsDiv, endDiv])
-    
+
     content.append(titleDiv)
     content.append(bodyDiv)
 
@@ -85,7 +84,6 @@ export default function decorate($main) {
 
     //Oranizing individual teams cards
     let card = 0;
-
     let teamCard = $element(".team-card");
     teamCard.classList.add("card-"+card)
     let leftBlock = document.createElement("div");
@@ -95,13 +93,12 @@ export default function decorate($main) {
       if(card !== 0 && element.nodeName === "H3"){
         teamCard = $wrap(teamCard, [leftBlock,rightBlock])
         teamCardsDiv.append(teamCard)
-
         teamCard = $element(".team-card");
         teamCard.classList.add("card-"+card)
         leftBlock = document.createElement("div");
         rightBlock = document.createElement("div");
       }
-      
+
       if(element.nodeName === "H3"){
         teamCard.append(element)
         card++
@@ -109,7 +106,7 @@ export default function decorate($main) {
         rightBlock.append(element)
       else
         leftBlock.append(element)
-      
+
     })
     teamCard = $wrap(teamCard, [leftBlock,rightBlock])
     teamCardsDiv.append(teamCard)
@@ -117,10 +114,8 @@ export default function decorate($main) {
     //Organize Foot content
     const resourcesDiv = $element(".resources-section");
     const resources = $element(".resources");
-
     const thinkAboutDiv = $element(".think-differently");
     const thinkAboutBody = $element(".think-differently-body");
-
     let section = 0;
     endDiv.querySelectorAll("div>*").forEach(element =>{
       if(element.nodeName === "H2")
@@ -144,7 +139,6 @@ export default function decorate($main) {
     endDiv.append(resourcesDiv)
     endDiv.append(thinkAboutDiv)
 
-
     teamCardsDiv.querySelectorAll("h3").forEach(function(element){
       element.addEventListener("click", function(){
         let alreadyActive;
@@ -161,5 +155,4 @@ export default function decorate($main) {
         card.classList.remove("active")
       })
     }
-
 }

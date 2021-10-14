@@ -4,7 +4,7 @@ export default function decorate($main) {
     var toolkit = document.querySelector("body > main");
     toolkit.classList.add("toolkit");
     var mainContent = $main.querySelector(".section-wrapper > div");
-    var container = $wrap($element(".toolkit-header"), 
+    var container = $wrap($element(".toolkit-header"),
     [
       document.querySelector("#our-toolkit"),
       document.querySelector("#the-ideas-systems-and-tools-that-guide-our-thinking-our-processes-and-our-designs"),
@@ -21,10 +21,8 @@ export default function decorate($main) {
     })
 
     const scrollElements = document.querySelectorAll(".js-scroll");
-
     const elementInView = (element, dividend = 1) => {
       const elementTop = element.getBoundingClientRect().top;
-      
       return (
         elementTop <=
         (window.innerHeight || document.documentElement.clientHeight) / dividend
@@ -33,7 +31,6 @@ export default function decorate($main) {
 
     const elementOutofView = (element) => {
       const elementTop = element.getBoundingClientRect().top;
-
       return (
         elementTop > (window.innerHeight || document.documentElement.clientHeight)
       );
@@ -58,7 +55,7 @@ export default function decorate($main) {
     }
     displayScrollElement(document.querySelector("body > main > div > div > div.toolkit-page-content > div:nth-child(2)"));
 
-    window.addEventListener("scroll", () => { 
+    window.addEventListener("scroll", () => {
       handleScrollAnimation();
     });
 }

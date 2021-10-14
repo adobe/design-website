@@ -8,5 +8,5 @@ export default function registerPageTypes() {
     addPageTypeDecorator("article", { path: "/stories/*" });
     addPageTypeDecorator("team", { path: "/team" });
     addPageTypeDecorator("job-post", { path: "/jobs/*" });
-    // addPageTypeDecorator({ path: "job-post" }, decorateJobPost);
+    /* addPageTypeDecorator({ path: "job-post" }, decorateJobPost); */
 }

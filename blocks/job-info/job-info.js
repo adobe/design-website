@@ -7,10 +7,7 @@ export default async function decorate($block) {
     /* Get the properties and identify the blocks */
     const result = processDivisions($block, null);
     const props = result.properties;
-
-    let jobTitle = props['job-title'];
-    const $jobTitle = $element("h1.hed.job-title", jobTitle);
-
+    const $jobTitle = $element("h1.hed.job-title", props['job-title']);
             // TODO: make and import 'apply now' button
     const $button_apply_now = $element("button.apply-now",  "Apply Now" )
     const $location         = $element("p.detail-value", props.location);
