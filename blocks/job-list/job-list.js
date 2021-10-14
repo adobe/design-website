@@ -17,7 +17,7 @@ export default async function decorate($block) {
   $block.innerHTML = "";
 
   for (const job of index.byType.jobs) {
-    var $el = $element("a.single-job", { attr: { href: job.path }}, [
+    var $el = $element("a.single-job", { attr: { href: job.path } }, [
       $element("h3.job-title", job.title || "No Title"),
       $element("p.experience", "Test Experience"),
       $element("p.location", "California"),
