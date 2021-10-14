@@ -1,8 +1,3 @@
-/*
- *   Copyright (c) 2021 Busy Human LLC
- *   All rights reserved.
- *   This file, its contents, concepts, methods, behavior, and operation  (collectively the \"Software\") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by  the license agreement.
- */
 .page-type-team .teams >div > div{
     width: 98vw;
     max-width:1000px;
@@ -33,7 +28,7 @@
     padding: 2em;
     padding-left: 5rem;
     padding-right: 5rem;
-} 
+}
 
 .page-type-team .head-content > p{
     font-size: 3em;
@@ -174,7 +169,6 @@
 /*
     Foot Content
 */
-
 .page-type-team .foot-content .resources-section h2{
     display:flex;
     flex-direction: column;
@@ -262,6 +256,7 @@
     text-decoration: underline 2px;
     text-underline-offset: 3px;
 }
+
 .think-differently .think-differently-body p:nth-child(3),
 .think-differently .think-differently-body p:nth-child(4),
 .think-differently .think-differently-body p:nth-child(5){
@@ -269,7 +264,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
 }
 
 .think-differently .think-differently-body p:nth-child(3){

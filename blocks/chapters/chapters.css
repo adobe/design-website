@@ -1,16 +1,11 @@
-/*
- *   Copyright (c) 2021 Busy Human LLC
- *   All rights reserved.
- *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
- */
- .chapters.block{
-
+.chapters.block{
     padding-top: 5em;
     width: 100%;
 }
+
 .chapters.block .chapter{
     display: grid;
-    grid-template-columns: 50% 50%;    
+    grid-template-columns: 50% 50%;
     grid-column-start: 2;
 }
 
@@ -26,20 +21,22 @@
     text-align:right;
     margin:0;
 }
+
 .chapter-content{
     font-size: 1.2em;
     line-height: 1.5;
 }
+
 .chapter-content h3{
     font-size: 2em ;
 }
+
 .chapter-content p {
     margin-top: 0;
 }
 
-@media (min-width:768px) and (max-width:1024px){
+/* @media (min-width:768px) and (max-width:1024px){} */
 
-}
 @media (min-width:425px) and (max-width:768px){
     .page .chapters.block{
         display: flex;
@@ -49,6 +46,7 @@
         position: static;
     }
 }
+
 @media (min-width: 375px) and (max-width: 425px){
     .chapters.block{
         padding: 0;
@@ -57,6 +55,7 @@
         font-size: .9em;
     }
 }
+
 @media (min-width:320px) and (max-width:375px){
     .chapters.block{
         display: flex;
@@ -66,5 +65,4 @@
     .chapter-heading{
         position: static;
     }
-    
 }

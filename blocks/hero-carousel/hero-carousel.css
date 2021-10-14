@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 /* above the fold CSS goes here */
-/*
-body {
-    background:#E91D25;
-}
-*/
+
 .hero-carousel {
     display:block;
     width:100%;

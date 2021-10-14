@@ -1,23 +1,18 @@
-/*
- *   Copyright (c) 2021 Busy Human LLC
- *   All rights reserved.
- *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
- */
- .joinus.block{
+.joinus.block{
     display:flex;
     justify-content: center;
     align-items: center;
     background-color: white;
     height: 33.33%;
     box-sizing: border-box;
- }
+}
 
- .job-list .single-job {
+.job-list .single-job {
      color:inherit;
      text-decoration: none;
- }
+}
 
- .job-list.block{
+.job-list.block{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -39,7 +34,7 @@
     font-size: 20px;
 }
 
-.job-list .single-job, 
+.job-list .single-job,
 .job-list .see-jobs{
     border-bottom: solid 2px #0B1C40;
     margin: 0 3em;
@@ -66,7 +61,6 @@
 .single-job h3{
     grid-column-start: 1;
     grid-column-end: 2;
-
     grid-row-start: 1;
     grid-row-end: 3;
     font-size: 2.2rem;
@@ -76,8 +70,8 @@
     grid-column-start: 5;
     grid-row-start: 2;
     text-align: end;
-
 }
+
 .single-job p:nth-child(3){
     grid-row-start: 5;
 }
@@ -109,10 +103,7 @@
     .single-job div:first-child {
         grid-template-columns: 300px;
     }
-
-    .single-job h3 {
-
-    }
+    /* .single-job h3 {} */
 }
 @media only screen and (max-width: 767px){
     .single-job .job-title{
@@ -159,7 +150,6 @@
     .single-job .experience{
         font-size: .5em;
     }
-
     .single-job div:first-child{
         display: flex;
         flex-direction: column;
@@ -183,8 +173,6 @@
         font-size: 5em;
         width: 100%;
     }
-
-    
 }
 
 

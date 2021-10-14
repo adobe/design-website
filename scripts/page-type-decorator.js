@@ -16,7 +16,7 @@ export function addPageTypeDecorator( name, options ) {
         const mod = await import(`/pages/${name}/${name}.js`);
         if (mod.default) {
             console.log(`Decorate page type ${name}`);
-            const main = document.querySelector("main");            
+            const main = document.querySelector("main");
             await mod.default(main);
         }
     } catch (err) {
@@ -49,7 +49,7 @@ export function runPageTypeDecorators() {
                         const trailing = /\/$/;
                         match = (pathname.replace(trailing, "") === opts.path.replace(trailing, ""));
                     }
-                }  
+                }
                 if (opts.type) {
                     testCount++;
                     match = opts.type === properties.type;
@@ -65,7 +65,7 @@ export function runPageTypeDecorators() {
                     console.warn("PageMapping: ", pageMapping);
                     throw new Error(`Page Type decorator options must include a path, type, or test property`);
                 }
-                
+
                 if (match) {
                     loadPageType(name);
                 }

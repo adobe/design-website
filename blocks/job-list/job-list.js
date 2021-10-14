@@ -1,16 +1,15 @@
-import { processDivisions, $element } from "../../scripts/helpers.js";
+import { $element } from "../../scripts/helpers.js";
 import { fetchIndex } from "../../scripts/queries.js";
 
 var index = null;
 
 /**
- * 
- * @param {HTMLElement} $block 
+ *
+ * @param {HTMLElement} $block
  */
 export default async function decorate($block) {
   if (!index) {
     index = await fetchIndex();
-    console.log("index:", index);
   }
   const $jobs = $block.querySelectorAll(":scope > div");
 

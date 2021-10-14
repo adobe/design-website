@@ -1,7 +1,5 @@
 @import "./page-loader.css";
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); */
 @import url("https://use.typekit.net/jdq5hay.css");
-/* @import url("https://use.typekit.net/aaz7dvd.css"); */
 @import "body-styles.css";
 @import "global-header.css";
 @import "global-footer.css";
@@ -58,14 +56,14 @@ html, body{
 
 .tag-link {
     color: #D8D8D8;
-    text-decoration: underline solid 4px#D8D8D8;
+    text-decoration: underline solid 4px #D8D8D8;
     /* border-bottom: solid 4px#D8D8D8; */
     display: inline;
     font-family: 'Adobe Clean','Roboto', sans-serif;
 }
 .tag-link.black {
     color: #17212D;
-    text-decoration: underline solid 4px#17212D;
+    text-decoration: underline solid 4px #17212D;
     /* border-bottom: solid 4px#17212D; */
     display: inline;
     font-family: 'Adobe Clean','Roboto', sans-serif;
@@ -125,5 +123,4 @@ html, body{
         margin: 1em;
         overflow-x: hidden;
     }
-
 }
