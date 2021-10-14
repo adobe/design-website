@@ -13,6 +13,12 @@ import {
 export default function decorate($block) {
 
   // Get the properties and identify the blocks
+  const result = processDivisions($block, {
+    image:      $div => $div.querySelector("picture"),
+  });
+  const props = result.properties;
+  const { properties } = processDivisions($block);
+  const $col1 = $block.querySelector(":scope > div > div:first-child");
   document.querySelector("body").classList.add("job-post");
   /**
    * Element Constants:

@@ -17,7 +17,6 @@ export function toClassName(name) {
  */
 export async function loadBlock($block) {
     const blockName = $block.getAttribute('data-block-name');
-    console.log(" BLOCK NAME: ", blockName)
     try {
         const mod = await import(`/blocks/${blockName}/${blockName}.js`);
         if (mod.default) {
