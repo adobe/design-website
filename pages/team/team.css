@@ -5,6 +5,10 @@
     margin-right:auto;
 }
 
+.page-type-team .teams *{
+    font-weight: var(--weight-light);
+}
+
 .page-type-team .title-content{
     margin: 7rem 0 5rem 0;
     padding-left: 5rem;
@@ -68,21 +72,26 @@
 
 .page-type-team .team-cards .team-card h3{
     position: absolute;
+    padding-top:0.5em;
+
     /*This should be contained within the first 40% of the block its in*/
     padding-left: 10%;
     width: 30%;
-    font-size: 2rem;
+
+    font-size: 1.5rem;
 }
 .page-type-team .team-cards .team-card h3::before{
     content: "⌄";
     position: absolute;
-    font-weight: bolder;
+    padding-top:0.5em;
+    font-weight: var(--weight-black);
     left: 16%;
     top: -0.6rem;
 }
 .page-type-team .team-cards .team-card h3::after{
     content: "";
-    padding-top: 3rem;
+    padding-top: 2em;
+
     /*This is being positioned to the H3 itself which is contained within the first 40% of the block*/
     position:absolute;
     left: 12.5%; /* 40% * 12.5%  = 5% "padding left" */
@@ -101,7 +110,8 @@
 
 .page-type-team .team-cards .team-card div:last-child > p:first-child{
     padding: 0rem 3rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
+    line-height: 1.6em;
 }
 
 /* COLORS */
@@ -163,8 +173,9 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    margin: 5rem;
-    width: 80%;
+    margin: 7rem auto;
+    
+    width: 70%;
 }
 
 .page-type-team .foot-content .resources-section .resources{
@@ -208,34 +219,42 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 500px;
+    height: 600px;
 }
 
 .think-differently-body{
     display: grid;
-    grid-template-rows: 20% 20% 60%;
-    grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+    grid-template-rows: 20% 20% 20% 40%;
+    grid-template-columns: 1fr 0.5fr 1fr 0.5fr 1.5fr;
     align-items: center;
     justify-content: center;
 
-    padding-top: 4em;
-    padding-left:1em;
-    padding-right: 1em;
+    height:75%;
+
+    padding-top: 1em;
+    
+    padding-left:2em;
+    padding-right: 2em;
 }
 
 .think-differently .think-differently-body h2{
     font-size: 2em;
+    font-weight: 300;
     grid-column: 2/4;
     grid-row: 1/2;
 }
 
 .think-differently .think-differently-body p{
-    grid-row: 3/4;
+    grid-row: 4/5;
+    font-weight: 100;
+    font-size: 0.9em;
 }
 
 .think-differently .think-differently-body p:nth-child(2){
     grid-column: 2/4;
     grid-row: 2/3;
+    text-decoration: underline 2px;
+    text-underline-offset: 3px;
 }
 
 .think-differently .think-differently-body p:nth-child(3),
@@ -259,8 +278,24 @@
     grid-column: 1/2;
 }
 
+.think-differently .think-differently-body .think-differently-slash-1,
+.think-differently .think-differently-body .think-differently-slash-2{
+    background-image: url("think-different-slash.svg");
+    background-position: center;
+    height:6em;
+    opacity: 0.4;
+}
+
+.think-differently .think-differently-body .think-differently-slash-1{
+    grid-area: 4/2/5/3;
+}
+
+.think-differently .think-differently-body .think-differently-slash-2{
+    grid-area: 4/4/5/5;
+}
+
 .think-differently .think-differently-body .think-differently-number{
     display:block;
-    font-size:6em;
-    font-weight: 900;
+    font-size:8rem;
+    font-weight: 500;
 }
