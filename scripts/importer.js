@@ -13,7 +13,7 @@ export function loadCSS(href) {
     };
     document.head.appendChild(link);
   }
-
+}
   // <script src="myscript"></script>
   export function loadScript(src, options) {
     let opts = options || {};
@@ -31,5 +31,5 @@ export function loadCSS(href) {
     *   console.log(`Script ${src} loaded`);
     * });
     */
-  }
 }
+
