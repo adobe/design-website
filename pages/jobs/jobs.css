@@ -5,6 +5,10 @@
     margin-right:auto;
 }
 
+.page-type-jobs .jobs *{
+    font-weight: var(--weight-light);
+}
+
 .page-type-jobs .head-content{
     font-size: 2rem;
     color: white;
@@ -15,8 +19,13 @@
 }
 
 .page-type-jobs .head-content h1{
+    font-weight: var(--weight-regular);
     margin: 7rem 0 5rem 0;
     width:50%;
+}
+.page-type-jobs .head-content p{
+    font-size: 3rem;
+    padding-right: 5rem;
 }
 
 .page-type-jobs .head-content p:last-child{
@@ -29,7 +38,7 @@
 
 .page-type-jobs .jobs-block-container{
     color: white;
-    background-color: darkblue;
+    background-color: #0B1C40;
     padding: 1em;
 }
 
@@ -37,7 +46,9 @@
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    height: 1000px;
+    grid-gap: 10%;
+    padding: 5em 3em;
+    min-height: 1000px; /* Remove/Change this once we populate job listings*/
 }
 
 .page-type-jobs .jobs-container .job-category h2{
