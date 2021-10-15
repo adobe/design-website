@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
+/* @import "../../resources/chevron-down.svg"; */
 .carousel {
     overflow: hidden;
     position: relative;
-    height: calc(86vh - 87px);
+    height: calc(76vh - 87px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,7 +111,30 @@
 .carousel .carousel__actions div.carousel__button--next {
     margin-right: 1em;
 } */
-
+.scroll-tip-container{
+    height: 10vh;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    /* background: blue; */
+}
+.scroll-tip-content{
+    font-weight: var(--weight-light);
+    margin: unset;
+    font-size: 20px;
+}
+.chevron-down{
+    height: 15px;
+    width: 25px;
+    margin: 4px 25px 0 25px;
+    box-sizing: border-box;
+    background-image: url("../../resources/chevron-down.svg");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 @keyframes fadeVisibility {
     0% {
