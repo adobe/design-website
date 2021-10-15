@@ -1,5 +1,18 @@
 import { loadCSS } from "./importer.js";
 
+const BlockDecorationLimits = {
+    // "pull-quote": { nojs: true },
+};
+
+function blockHasLimit( blockName, limit ) {
+    if(BlockDecorationLimits[blockName]) {
+        console.log(`Block ${blockName}: ${limit}`);
+        return BlockDecorationLimits[blockName][limit];
+    } else {
+        return false;
+    }
+}
+
 /**
  * Sanitizes a name for use as class name.
  * @param {*} name The unsanitized name
@@ -18,9 +31,11 @@ export function toClassName(name) {
 export async function loadBlock($block) {
     const blockName = $block.getAttribute('data-block-name');
     try {
-        const mod = await import(`/blocks/${blockName}/${blockName}.js`);
-        if (mod.default) {
-            await mod.default($block, blockName, document);
+        if(!blockHasLimit(blockName, 'nojs')) {
+            const mod = await import(`/blocks/${blockName}/${blockName}.js`);
+            if (mod.default) {
+                await mod.default($block, blockName, document);
+            }
         }
     } catch (err) {
         /* eslint-disable-next-line no-console */

@@ -1,5 +1,5 @@
 import { Background } from "../../scripts/background.js";
-import { processDivisions } from "../../scripts/helpers.js";
+import { decorateDivisions } from "../../scripts/helpers.js";
 const SLIDE_TIME = 7000;
 const ANIMATION_TIME = 250;
 
@@ -9,14 +9,27 @@ const carouselProperties = {
 
 export default function decorate($block) {
   $block.classList.add("full-bleed");
+
+  //Adds everything for the scroll tip
+  let scrollHintContainer = document.createElement("div");
+  scrollHintContainer.classList.add("scroll-tip-container");
+  $block.parentNode.insertBefore(scrollHintContainer, $block.nextSibling)
   const $carousel = $block.querySelectorAll(":scope > div");
+  let scrollHintContent = document.createElement("h2");
+  scrollHintContent.innerHTML = "Scroll Down";
+  let scrollHintChevron = document.createElement("div");
+  scrollHintChevron.classList.add("chevron-down")
+  scrollHintContent.classList.add("scroll-tip-content");
+  scrollHintContainer.append(scrollHintContent);
+  scrollHintContainer.append(scrollHintChevron);
+
 
   var i = 0;
 
   const length = Object.entries($carousel).length;
 
   for (const slide of $carousel) {
-    const { properties } = processDivisions(slide, null, { level: "child" });
+    const { properties } = decorateDivisions(slide, null, { level: "child" });
     carouselProperties.slides.push(properties);
     if ((i + 1) === length) {
       /**

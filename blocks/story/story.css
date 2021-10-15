@@ -67,3 +67,11 @@
     border-bottom: 2px solid black;
     width: 10em;
 }
+
+.think-differently > div > div > p:nth-child(5) {
+    text-align: center;
+}
+
+#think-about-design-differently {
+    font-weight: 300;
+}

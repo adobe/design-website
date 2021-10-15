@@ -181,7 +181,7 @@ Sometimes you want everything except for one element. Remainder gives you an arr
 
 ##### Block Properties
 
-Blocks can support the "properties" pattern when explicit configuration is needed. To use this feature, use the processDivisions function in your block decorator.
+Blocks can support the "properties" pattern when explicit configuration is needed. To use this feature, use the decorateDivisions function in your block decorator.
 
 The block takes the last column of any row but the first one and looks for the first word in the column to be "Properties". If this word appears in the last column, then it will interpret the cell as a properties cell.
 
@@ -198,14 +198,14 @@ The parser will trim extra whitespace between the keys and values.
 Then, in your block decorator:
 
   export default function decorate( $block ) {
-    const { properties } = processDivisions($block);
+    const { properties } = decorateDivisions($block);
   }
 
-##### processDivisions
+##### decorateDivisions
 
-Often times you may have divisions in a Block table that have some variability or dynamism. You can use processDivisions to get the properties block, and to check the contents of the division (table cell) to see if what kind of content is in there.
+Often times you may have divisions in a Block table that have some variability or dynamism. You can use decorateDivisions to get the properties block, and to check the contents of the division (table cell) to see if what kind of content is in there.
 
-  const { image, text, properties } = processDivisions( $block, {
+  const { image, text, properties } = decorateDivisions( $block, {
     image:      $div => $div.querySelector("picture"),
     text:       null
   })

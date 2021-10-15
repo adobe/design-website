@@ -1,4 +1,4 @@
-import { processDivisions, normalizePropertyName } from "../../scripts/helpers.js";
+import { decorateDivisions, normalizePropertyName } from "../../scripts/helpers.js";
 import { PagePropertiesController } from "../../scripts/page-properties.js";
 
 function applyPathClassesToPage({ name }) {
@@ -20,7 +20,7 @@ function applyPathClassesToPage({ name }) {
 }
 
 export default function decorate($block) {
-    const { properties } = processDivisions($block, null);
+    const { properties } = decorateDivisions($block, null);
     PagePropertiesController.setProperties( properties );
 
     if (properties.type) {
