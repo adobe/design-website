@@ -39,7 +39,7 @@ Make sure you are using Helix version 14+
 
 If you are using Helix < 13 then your command will look like this (replace subdomain with the actual domain):
 
-  hlx up --pages-url=\"https://SUBDOMAIN.hlx3.page/\"
+  hlx up --pages-url="https://SUBDOMAIN.hlx3.page/"
 
 
 
