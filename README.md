@@ -66,6 +66,45 @@ Show more
 
 https://main--business-website--adobe.hlx3.page/blog/
 
+### Sections
+
+the horizontal rule, denotes a section in helix... which wraps the following elements (eg. blocks and default content) into a <div> which sometimes makes handling easier, if you want apply a certain behavior to a section of the page, based on its content...
+
+think of it as a grouping of sorts... we sometimes bubble up behaviors of a block to the containing section .... think one part of a page that has a different background color, but contains multiple blocks and headings etc.
+
+### Fragments
+
+David Nuescheler:
+
+this assumes a fragment block, with a URL to the page you want to include... and replaces the parent section IIRC
+
+depends on the concept of a section-wrapper div, so you may want to adjust it if you don't have a section-wrapper
+
+https://gist.github.com/davidnuescheler/18e1c6c1db01b1d2898731e1a414e43f
+
+  import {
+    createTag,
+    decorateMain,
+    loadBlocks,
+  } from '../../scripts/scripts.js';
+
+  async function decorateFragment($block) {
+    const ref = $block.textContent;
+    const path = new URL(ref).pathname.split('.')[0];
+    const resp = await fetch(`${path}.plain.html`);
+    const html = await resp.text();
+    const $main = createTag('main');
+    $main.innerHTML = html;
+    decorateMain($main);
+    loadBlocks($main);
+    const $section = $block.closest('.section-wrapper');
+    $section.parentNode.replaceChild($main, $section);
+  }
+
+  export default function decorate($block) {
+    decorateFragment($block);
+  }
+
 ## Indexes
 
 Content must be published to propogate indexes. You must also have a XLS or sheet in your cloud target that will populate the index.
