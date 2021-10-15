@@ -20,14 +20,15 @@ export default function decorate($main) {
    
     
     // Js for scrolling animations
-    var allArticles = document.querySelectorAll("body > main > div > div > div.toolkit-page-content > *");
+    var allArticles = document.querySelectorAll("body > main > div > div > div.toolkit-page-content > *, .think-differently-content");
     allArticles.forEach((article, index) => {
       if(index > 1){
         article.classList.add("js-scroll")
         article.classList.add("fade-in")
       }
     })
-    var allText = document.querySelectorAll(" body > main > div > div > div.toolkit-page-content > div > div > div.text > div");
+    
+    var allText = document.querySelectorAll(" body > main > div > div > div.toolkit-page-content > div > div > div.text > div, .think-differently-content > *");
     allText.forEach((article, index) => {
       if(index > 1){
         article.classList.add("js-scroll")

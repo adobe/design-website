@@ -1,18 +1,13 @@
+.page-type-article .header-image{
+    display: flex;
+}
 
 
 :root{
-    --main-bg-color: plum;
     --h1-font-size: 6em;
     --h2-font-size: 3em;
     --p-font-size: 1.5em;
     --li-font-size: 1.5em;
-}
-
-
-.page-type-article{
-    /* background: rgb(224,194,208);
-    background: linear-gradient(0deg, rgba(224,194,208,1) 20%, rgba(255,111,22,1) 50%,rgba(213,237,245,1) 90%, rgba(213,237,245,1) 100%); */
-    background: var(--main-bg-color);
 }
 
 .page-type-article main{
@@ -20,15 +15,15 @@
     max-width:1000px;
     margin-left:auto;
     margin-right:auto;
-
 }
 
 .page-type-article  {
     font-size:16px;
 }
 .page-type-article .content{
-    padding-top:140px;;
+    padding-top:140px;
     padding-bottom: 5em;
+    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 500px,rgba(255,255,255, 1) 500px);
 }
 .page-type-article .content > :not(.article-picture){
     padding-left: 5rem;
@@ -39,17 +34,24 @@
     width: auto
 }
 
-.page-type-article main p {
+.page-type-article .content p {
     text-align:left;
     font-size:var(--p-font-size);
     line-height:1.5em;
 }
-.page-type-article main h1{
+
+.page-type-article h1{
+    text-align: left;
+    margin: unset;
     font-size: var(--h1-font-size);
+    font-weight: 500;
 }
 
-.page-type-article .content{
-    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 500px,rgba(255,255,255, 1) 500px);
+.page-type-article .content h2{
+    font-size: var(--h2-font-size);
+    padding-top: 1em;
+    text-align: left;
+    font-weight: normal;
 }
 
 .page-type-article .header >div{
@@ -57,33 +59,20 @@
     grid-template-rows: auto;
 }
 
-.page-type-article .header.block h1{
-    text-align: left;
-    margin: unset;
-    font-size: var(--h1-font-size);
-    font-weight: 500;
-}
-.page-type-article .header.block h2{
-    text-align: left;
-}
-
 .header.block > div{
     width: 60%;
     height: 75%;
 }
-body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2){
-    /* height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; */
-}
+
 .page-type-article main > div > div > p {
     font-size: 1.5em;
     text-align: left;
 }
+
 .page-type-article .article-picture{
     padding: 4em 0;
 }
+
 .page-type-article main img{
     width: 100%;
 }
@@ -94,12 +83,13 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
     padding-top: 5em;
     padding-left: 5em; 
 }
+
 .page-type-article .content .header-image{
 
 }
+
 body > main > div > div.content > picture > img{
     padding-bottom: 5em;
-    
 }
 .lede.block{
     font-size: 2em;
@@ -116,6 +106,13 @@ body > main > div > div.content > picture > img{
     list-style: none;
     text-align: left;
 }
+#a-few-good-books{
+    padding: 0;
+    text-align: left;
+}
+.page-type-article .additional-reading.block ul{
+    padding: 0;
+}
 .page-type-article .content li{
     line-height: 1.5;
     padding-bottom: 1em;
@@ -126,7 +123,8 @@ body > main > div > div.content > picture > img{
     margin-top: 0;
 }
 .page-type-article .additional-reading.block a{
-    font-weight: 700;
+    font-weight: 600;
+    font-size: .8em;
     text-decoration: none;
     color: black;
 }
@@ -142,9 +140,6 @@ body > main > div > div.content > picture > img{
 
 
 
-@media (min-width:1024px) and (max-width:1440px){
-
-}
 @media (min-width:768px) and (max-width:1024px){
     .page-type-article main{
         width: 90%;
@@ -159,20 +154,21 @@ body > main > div > div.content > picture > img{
     }
     .page-type-article main > div > div > p {
         font-size: 1.5em;
-
         text-align: left;
     }
 }
 @media (min-width:320px) and (max-width:425px){
 
     /* header */
+
     .page-type-article .header.block{
         padding: 1em;
-        width: auto;
+        width: 100%;
     }
     /* header */
 
     /* main */
+
     .page-type-article .header.block > div{
         padding: 0;
         width: 100%;
@@ -181,31 +177,20 @@ body > main > div > div.content > picture > img{
         bottom: 10em;
     }
     .page-type-article .header.block  h1{
-        padding: 0 0 1em 0;
-
+       font-size: 4em;
     }
-    .page-type-article .header h2{
-        padding: 0;
-        font-size: 1.2em;
+    body > main > div > div.content > picture > img{
+        padding-bottom: 0;
     }
+  
     .page-type-article .chapter-heading {
         text-align: left;
         font-weight: normal;
         padding-right: 0;
     }
-    .page-type-article main > div > div > h2{
-        padding: 0;
-    }
-    .page-type-article main h2{
-        text-align: left;
-        font-weight: normal;
-    }
+ 
     .page-type-article .content{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1em;
-        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 170px,rgba(255,255,255, 1) 170px);
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 300px,rgba(255,255,255, 1) 300px);
     }
     .page-type-article .lede.block{
         padding-top: 2em;
@@ -224,21 +209,12 @@ body > main > div > div.content > picture > img{
         width: auto;
         padding: 0;
     }
-    .page-type-article main p{
-        padding: 0;
+    
+    .page-type-article .content > :not(.article-picture){
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
-    .page-type-article main > div > div > p:not(.article-picture){
-        padding: 0;
-    }
-    .page-type-article .additional-reading.block > div{
-        display: flex;
-        flex-direction: column;
-    }
-    #a-few-good-books{
-        padding: 0;
-        text-align: left;
-    }
-  
+
     /* main */
 }
 
@@ -248,16 +224,3 @@ body > main > div > div.content > picture > img{
 
     }
 }
-
-/*
-It looks like all of the headers are h1, these need to be h2:
-Why go to the whiteboard?
-Focus, focus, focus
-What goes on the whiteboard?
-How do you whiteboard?
-Best practices
-A few good books
-Seize the marker!
-
-also (Seize the marker!) is out of place and below additional reading content
-*/
