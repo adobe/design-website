@@ -1,0 +1,47 @@
+@media screen and (max-width: 600px) {
+    .about-adobe-design{
+        font-size: 12px;
+        padding: 2em; /* 24px */
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+    .about-adobe-design{
+        font-size: 14px;
+        padding: 3em; /* 42px */
+    }
+}
+@media screen and (min-width: 1201px) and (max-width: 1600px) {
+    .about-adobe-design{
+        font-size: 16px;
+        padding: 6.25em 7em; /*100px 112px*/
+    }
+}
+@media screen and (min-width: 1601px) {
+    .about-adobe-design{
+        font-size: 18px;
+        padding: 6.25em 7em; /*100px 112px*/
+    }
+}
+
+.about-adobe-design .about-container{
+    background: var(--bkg-red);
+    color: white;
+    width: 100%;
+    height: fit-content;
+    padding: 6.27em 10em;
+}
+
+.about-adobe-design .about-header,
+.about-adobe-design .about-text{
+    margin-block: 6.27em 10em;
+}
+
+.about-adobe-design .about-header{
+    font-size: 1.375em;
+}
+.about-adobe-design .about-text{
+    font-size: 2em;
+    line-height: 1.75em;
+}
+
