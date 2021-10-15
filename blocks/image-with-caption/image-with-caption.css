@@ -1,0 +1,14 @@
+.image-with-caption > .image > img {
+    width: 100%;
+}
+
+.image-with-caption {
+    padding: 4em 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.caption {
+    padding: 1em 0 0 5em;
+    margin-right: 50%;
+}
