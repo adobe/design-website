@@ -12,14 +12,6 @@ module.exports = {
   },
   rules: {
     // allow reassigning param
-    quotes: "off",
-    "space-in-parens": "off",
-    "key-spacing": "off",
-    indent: "off",
-    "no-plusplus": "off",
-    "no-trailing-spaces": "off",
-    "no-multi-spaces": "off",
-    "object-curly-newline": "off",
     'no-param-reassign': [2, { props: false }],
     'linebreak-style': ['error', 'unix'],
     'import/extensions': ['error', {

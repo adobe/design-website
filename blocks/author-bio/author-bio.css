@@ -1,0 +1,8 @@
+.author-bio {
+    background: #F5F5F5;
+    width: 100%;
+}
+
+.author-bio > div {
+    display: flex;
+}

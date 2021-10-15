@@ -345,6 +345,11 @@ export function $wrap($parent, children) {
     return $parent;
 }
 
+/**
+ * Iterates through the child elements of $target with function fn
+ * @param {*} $target
+ * @param {*} fn
+ */
 export function $eachChild($target, fn) {
     for (let i = 1; i < $target.children.length; i++) {
         fn($target.children.item(i));
@@ -411,14 +416,14 @@ export function $scrollAnimation() {
                 } else if (elementOutofView(element)) {
                 hideScrollElement(element)
                 }
-            }) 
+            })
         } else {
             pendingScroll = true;
         }
-        
+
     }
     window.removeEventListener("scroll", handleScrollAnimation);
-    window.addEventListener("scroll", 
+    window.addEventListener("scroll",
       handleScrollAnimation
     );
 
