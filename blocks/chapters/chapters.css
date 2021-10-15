@@ -60,7 +60,7 @@
     .chapters.block{
         display: flex;
         flex-direction: column;
-        padding-top: 5em;
+        padding-top: 1em;
     }
     .chapter-heading{
         position: static;
