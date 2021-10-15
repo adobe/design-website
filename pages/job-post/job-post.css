@@ -1,22 +1,95 @@
+.job-info-container{
+    display: grid;
+    width: fit-content;
+    max-width: 62.5em;
+    margin: auto;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 50% 50%;
+}
+.header-block{
+    grid-column: 1 / span 2;
+}
 .job-post{
+    font-size: 16px;
     font-weight: 1rem;
     background:  var(--color-grey);
     background-color: var(--bkg-navy-dark);
+
 }
 /* .job-post main .section-wrapper.page-container.job-info-container.block-content{} */
 
-.job-post .text  {
-    font-size: 1.125em; /* 18px */
-}
-.job-post .section-header{
-    font-size: 1.375px; /* 22px */
+/*
+-------------------------------------------------------
+|  .header-block                                      |
+|  grid-column: 1 / span 2                            |
+|  grid-row:    1 / span 1                            |
+-------------------------------------------------------
+|                          | .post-text               |
+|                          |  grid-column: 2 / span 1 |
+|                          |  grid-row:    1 / span 1 |
+|                          |                          |
+|                          |                          |
+-------------------------------------------------------
+|          Similar Jobs *block* goes here...          |
+-------------------------------------------------------
+|  .eo-stmt                                           |
+|  grid-column: 1 / span 2                            |
+|  grid-row:    3 / span 1                            |
+|       .eo-stmt-text                                 |
+-------------------------------------------------------
+|  .eo-stmt                                           |
+|  grid-column: 1 / span 2                            |
+|  grid-row:    4 / span 1                            |
+|       .eo-stmt-text                                 |
+-------------------------------------------------------
+*/
+
+.job-post .post-text{
+    grid-column: 2 / span 1;
+    grid-row: 2;
+    max-width: 31.25em; /* 250px */
+    padding: 0 2.5em; /* 40px */
 }
 
-.hed{
+.job-post .post-text h2,
+.job-post .post-text h3{
+    font-weight: var(--weight-bold);
+    font-size: 1.375em;  /* 22px */
+    line-height: 1.27em; /* 28px */
+    margin-block: 2.91em 1.82em;
+}
+
+.job-post .post-text p,
+.job-post .post-text li {
+    font-weight: var(--weight-regular);
+    font-size: 1.25em; /* 18px */
+    line-height: 1.56em; /* 28px  (28/18=1.555) */
+    margin-block: 1.5em 1.5em;
+}
+.job-post .post-text ul {
+    list-style: none;
+    padding-inline-start: 0;
+    margin-block: 0;
+}
+.job-post .post-text ul li:before{
+    content: "• ";
+}
+.job-post .hed{
     font-weight: var(--weight-black);
     font-size: 3.5em; /* 56px */
 }
-.paragraph, p.text, .p-text, .paragraph-text{
-    font-weight: var(--weight-regular);
-    font-size: 1.875em; /* 30px */
-}
+
+
+/* //----------//
+  /// has similar opportunities block here //
+//----------//
+  About adobe design: full width, background: red,
+  header:
+  40/100, adobe clean serif -- reg
+  text:
+  61/100, adobe clean serif --reg
+  //----------//
+  Sub-text-block
+  small type -- background: white,full width,
+  text:
+  20/35, adobe clean -- reg */

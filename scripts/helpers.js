@@ -356,24 +356,6 @@ export function $eachChild($target, fn) {
     }
 }
 
-/**
- * Moves $element out of its current parent (if applicable) and appends it to $target
- * @param {*} $element
- * @param {*} $target
- * @param {*} [options] options.method: "append" | "prepend"
- */
-export function $moveTo($el, $target, options) {
-    var opts = options || { method: "append" };
-    if($el.parentElement) {
-        $el.remove();
-    }
-    if(opts.method === "append") {
-        $target.appendChild($el);
-    } else {
-        $target.prepend($el);
-    }
-}
-
 export function $remainder($target, selector) {
     let $targetEl;
     if (typeof target === "string") {
