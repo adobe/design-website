@@ -2,7 +2,7 @@ import {
   convertToBackground,
   decorateLink,
   decorateTagLink,
-  processDivisions,
+  decorateDivisions,
   wrapWithElement,
   $element,
 } from "../../scripts/helpers.js";
@@ -13,7 +13,7 @@ import {
 export default function decorate($block) {
 
   /** Get the properties and identify the blocks  */
-  // const result = processDivisions($block, {
+  // const result = decorateDivisions($block, {
   //   image:      $div => $div.querySelector("picture"),
   // });
   // const props = result.properties;

@@ -1,4 +1,4 @@
-import {$element, $moveTo} from "../../scripts/helpers.js";
+import {$element} from "../../scripts/helpers.js";
 
 export default function decorate($block) {
     const $author = $block.querySelectorAll(":scope > div");

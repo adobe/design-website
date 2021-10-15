@@ -168,71 +168,146 @@ function arrayToDefinitions( arr ) {
  * OR if you only want the properties column and don't care about the rest, omit the definitions
  * @param {HTMLElement} $block
  * @param {object} definitions
- * @example const result = processDivisions($block, {
+ * @example const result = decorateDivisions($block, {
         text:       ($div) => $div.textContent,
         image:      null,
     });
- * @example processDivisions($block, ["image", "text"]);
+ * @example decorateDivisions($block, ["image", "text"]);
  */
-export function processDivisions($block, definitions, options) {
-    const results = {};
-    if (!definitions) {
-        definitions = {};
-    }
-    if (!options) {
-        options = {
-            level: "block",
-        };
-    }
-    if (definitions instanceof Array) {
-        definitions = arrayToDefinitions(definitions);
-    }
-    if (definitions.properties) {
-        throw new Error(`'properties' cannot be used as a division name`);
-    }
-    definitions.properties = {
-        selector: ":last-child",
-        test($div) {
-            return ($div.textContent.toLowerCase().indexOf("properties") === 0);
-        },
-    };
-    const names = Object.keys(definitions).sort((n1, n2) => {
-        // Any falsey values should be processed at the end
-        // Since the falsies are meant to absorb "the remainder"
-        const v1 = definitions[n1] ? 0 : 1;
-        const v2 = definitions[n2] ? 0 : 1;
-        return v1 - v2;
-    });
+export function decorateDivisions($block, definitions, options) {
+    var job = new DecorateDivisionsJob(definitions, options);
+    return job.process($block);
+}
 
-    const $divs = [];
-    if (options.level === "block") {
-        $block.querySelectorAll(":scope > div > div").forEach((div) => {
-            $divs.push(div);
-        });
-        results.blockContent = $block.querySelector(":scope > div");
-        results.blockContent.classList.add("block-content");
-    } else if (options.level === "child") {
-        $block.querySelectorAll(":scope > div").forEach((div) => {
-            $divs.push(div);
-        });
-    } else {
-        throw new Error(`Unrecognized level: "${options.level}"`);
-    }
+class DecorateDivisionsJob {
+    constructor(definitions, options) {
+        this.$divs = [];
+        if (!definitions) {
+            this.definitions = [];
+        } else {
+            this.definitions = definitions;
+        }
+        if (!options) {
+            this.options = {
+                level: "block",
+            };
 
-    for (let i = 0; i < names.length; i++) {
-        const name = names[i];
-        const matcher = definitions[name];
-        const $match = matchDivision($block, $divs, matcher, options);
-        if ($match) {
-            if (name === "properties") {
-                results.properties = extractProperties($block, $match);
-            } else {
-                results[name] = $match;
+        } else {
+            this.options = options;
+        }
+    }
+    process($block) {
+        const results = {};
+        const { definitions, options } = this;
+
+        if (definitions.properties) {
+            throw new Error(`'properties' cannot be used as a division name`);
+        }
+        definitions.push( this.getPropertiesDefinition() );
+        this.divisionsForBlock($block, options, results);
+
+        for (let i = 0; i < definitions.length; i++) {
+            const def = definitions[i];
+            const { selector, testSelector, test, name } = this.expandDefinition( def );
+
+            // const $match = matchDivision($block, $divs, matcher, options);
+            let $match = this.matchDefintion({testSelector, test});
+            if($match) {
+                if (name === "properties") {
+                    results.properties = extractProperties($block, $match);
+                } else {
+                    results[name] = $match;
+                    applySelectorToElement($match, selector);
+                }
+                const index = this.$divs.indexOf($match);
+                this.$divs.splice(index, 1);
             }
+        }
+
+        return results;
+    }
+    /**
+     * Gets the divisions to be targeted based on the target level
+     * @param {*} $block
+     * @param {*} options
+     * @param {*} results
+     * @returns
+     */
+    divisionsForBlock($block, options, results) {
+        this.$divs = [];
+        if (options.level === "block") {
+            $block.querySelectorAll(":scope > div > div").forEach((div) => {
+                this.$divs.push(div);
+            });
+            results[".block-content"] = $block.querySelector(":scope > div");
+            results[".block-content"].classList.add("block-content");
+        } else if (options.level === "child") {
+            $block.querySelectorAll(":scope > div").forEach((div) => {
+                this.$divs.push(div);
+            });
+        } else {
+            throw new Error(`Unrecognized level: "${options.level}"`);
         }
     }
 
-    return results;
+    getPropertiesDefinition() {
+        return {
+            name: "properties",
+            testSelector: ":last-child",
+            test($div) {
+                return ($div.textContent.toLowerCase().indexOf("properties") === 0);
+            },
+        };
+    }
+
+    expandDefinition(def) {
+        if(typeof def === "string") {
+            return {
+                selector: def,
+                name: def,
+                test: null,
+                testSelector: null
+            };
+        } else {
+            return {
+                selector: def.selector,
+                testSelector: def.testSelector,
+                test: def.test,
+                name: def.name,
+            };
+        }
+    }
+
+    matchDefintion({testSelector, test}) {
+        let $match;
+        for(let d = 0; d < this.$divs.length; d += 1) {
+            const $divt = this.$divs[d];
+
+            if(test || testSelector) {
+                if(testSelector) {
+                    if($divt.parentElement.querySelector(`:scope > ${testSelector}`) === $divt) {
+                        $match = $divt;
+                    } else {
+                        $match = null;
+                    }
+                }
+                if(test) {
+                    if(test($divt)) {
+                        $match = $divt;
+                    } else {
+                        $match = null;
+                    }
+                }
+            } else {
+                $match = $divt;
+            }
+
+            if ($match) {
+                break;
+            }
+        }
+        return $match;
+    }
 }
 
 const RE_ID = /#(\w-?)+/i;
@@ -268,6 +343,21 @@ function parseSelector(selector) {
     return result;
 }
 
+function applySelectorToElement(initialElement, selector) {
+    var $el;
+    const { tag, classes, id } = parseSelector(selector);
+    $el = initialElement || document.createElement(tag);
+    if (classes) {
+        classes.forEach(cls => {
+            $el.classList.add(cls);
+        });
+    }
+    if (id) {
+        $el.id = id;
+    }
+    return $el;
+}
+
 export function $element(selector, options, content) {
     if (!selector) {
         throw new Error(`$element requires the 1st argument, selector`);
@@ -276,17 +366,8 @@ export function $element(selector, options, content) {
         content = options;
         options = {};
     }
-    const { tag, classes, id } = parseSelector(selector);
-    const $div = document.createElement(tag);
+    const $div = applySelectorToElement(null, selector);
 
-    if (classes) {
-        classes.forEach(cls => {
-            $div.classList.add(cls);
-        });
-    }
-    if (id) {
-        $div.id = id;
-    }
     if (content) {
         if (typeof content === "string") {
             $div.innerText = content;
