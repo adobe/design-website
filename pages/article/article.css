@@ -1,6 +1,13 @@
-.page-type-article{
-    background: rgb(224,194,208);
-    background: linear-gradient(0deg, rgba(224,194,208,1) 20%, rgba(255,111,22,1) 50%, rgba(213,237,245,1) 100%);
+.page-type-article .header-image{
+    display: flex;
+}
+
+
+:root{
+    --h1-font-size: 6em;
+    --h2-font-size: 3em;
+    --p-font-size: 1.5em;
+    --li-font-size: 1.5em;
 }
 
 .page-type-article main{
@@ -8,17 +15,17 @@
     max-width:1000px;
     margin-left:auto;
     margin-right:auto;
-
 }
 
 .page-type-article  {
     font-size:16px;
 }
 .page-type-article .content{
-    padding-top:140px;;
-    position:relative;
+    padding-top:140px;
+    padding-bottom: 5em;
+    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 500px,rgba(255,255,255, 1) 500px);
 }
-.page-type-article .content{
+.page-type-article .content > :not(.article-picture){
     padding-left: 5rem;
     padding-right: 5rem;
 }
@@ -27,25 +34,24 @@
     width: auto
 }
 
-.page-type-article .header-image{
-    display: flex;
-    position: absolute;
-    right: 9em;
-    left: 9em;
-    transform: translateY(-100%);
-}
-
-.page-type-article main p {
+.page-type-article .content p {
     text-align:left;
-    font-size:1em;
+    font-size:var(--p-font-size);
     line-height:1.5em;
 }
-.page-type-article main h1{
-    font-size: 3em;
+
+.page-type-article h1{
+    text-align: left;
+    margin: unset;
+    font-size: var(--h1-font-size);
+    font-weight: 500;
 }
 
-.page-type-article .content{
-    background: white;
+.page-type-article .content h2{
+    font-size: var(--h2-font-size);
+    padding-top: 1em;
+    text-align: left;
+    font-weight: normal;
 }
 
 .page-type-article .header >div{
@@ -53,81 +59,45 @@
     grid-template-rows: auto;
 }
 
-.page-type-article .header.block h1{
-    text-align: left;
-    margin: unset;
-    font-weight: 500;
+.header.block > div{
+    width: 60%;
+    height: 75%;
 }
-.page-type-article .header.block h2{
+
+.page-type-article main > div > div > p {
+    font-size: 1.5em;
     text-align: left;
 }
 
-.header.block > div{
-    width: 60%;
-    padding-left: 9em;
-    height: 75%;
-}
-body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2){
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.page-type-article main > div > div > p {
-    font-size: 1.5em;
-    padding:  0 1em;
-    text-align: left;
+.page-type-article .article-picture{
+    padding: 4em 0;
 }
 
 .page-type-article main img{
     width: 100%;
 }
 
-.page-type-article .header img{
-    width: 90%;
-    position:relative;
-    top: 20em;
+.page-type-article .header.block{
+     width: 100%;
+    color: black;
+    padding-top: 5em;
+    padding-left: 5em; 
 }
 
-.page-type-article .header.block{
-    width: 100%;
-    color: black;
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.page-type-article .content .header-image{
 
+}
+
+body > main > div > div.content > picture > img{
+    padding-bottom: 5em;
 }
 .lede.block{
     font-size: 2em;
     width: auto;
-    padding: 2em;
     line-height: 1.5;
     text-align: left;
 }
 
-.page-type-article .additional-reading.block > div{
-    display: grid;
-    grid-template-columns: 50% 50%;
-
-}
-#things-to-avoid{
-    margin-bottom: 0;
-}
-#open-laptops-and-buzzing-phones{
-    margin-top: 0;
-}
-
-#things-to-avoid-1{
-    margin-bottom: 0;
-}
-#dried-out-markers{
-    margin-top: 0;
-}
-
-#a-few-good-books{
-    padding-right: 2em;
-}
 .page-type-article .additional-reading.block > div > div{
     text-align: right;
 
@@ -135,17 +105,26 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 .page-type-article .content ul{
     list-style: none;
     text-align: left;
-    padding: 0;
-    grid-column-start: 2;
 }
-.page-type-article .additional-reading.block li{
+#a-few-good-books{
+    padding: 0;
+    text-align: left;
+}
+.page-type-article .additional-reading.block ul{
+    padding: 0;
+}
+.page-type-article .content li{
     line-height: 1.5;
+    padding-bottom: 1em;
+    font-size: var(--li-font-size);
 }
 .page-type-article .additional-reading.block p{
     grid-column-start: 2;
+    margin-top: 0;
 }
 .page-type-article .additional-reading.block a{
-    font-weight: 700;
+    font-weight: 600;
+    font-size: .8em;
     text-decoration: none;
     color: black;
 }
@@ -153,10 +132,7 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 .additional-reading.block{
     font-size: 1.2em;
 }
-.page-type-article li{
 
-
-}
 .additional-reading.block{
     width: 100%;
     padding: 1em;
@@ -164,46 +140,35 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
 
 
 
-@media (min-width:1024px) and (max-width:1440px){
-
-}
 @media (min-width:768px) and (max-width:1024px){
     .page-type-article main{
         width: 90%;
     }
-    /* .page-type-article main > div > div > h2{} */
-    .page-type-article .article-picture{
-        width: 50%;
-    }
+    
 }
+
 @media (min-width: 375px) and (max-width: 425px){
-    .lede.block{
-        padding: 1em;
-    }
+
     .page-type-article main{
         width: 90%;
     }
-    .page-type-article main h1{
-        padding: 1em;
-    }
-    .page-type-article main > div > div > h2{
-        padding: 1em;
-    }
-    .page-type-article main > div > div > p:not(.article-picture) {
+    .page-type-article main > div > div > p {
         font-size: 1.5em;
-        padding:  0 1em;
         text-align: left;
     }
 }
-@media (min-width:320px) and (max-width:768px){
+@media (min-width:320px) and (max-width:425px){
 
     /* header */
+
     .page-type-article .header.block{
         padding: 1em;
+        width: 100%;
     }
     /* header */
 
     /* main */
+
     .page-type-article .header.block > div{
         padding: 0;
         width: 100%;
@@ -212,32 +177,23 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
         bottom: 10em;
     }
     .page-type-article .header.block  h1{
-        padding: 0 0 1em 0;
-
+       font-size: 4em;
     }
-    .page-type-article .header h2{
-        padding: 0;
-        font-size: 1.2em;
+    body > main > div > div.content > picture > img{
+        padding-bottom: 0;
     }
-    .page-type-article .chapter-heading h2{
+  
+    .page-type-article .chapter-heading {
         text-align: left;
         font-weight: normal;
+        padding-right: 0;
     }
-    .page-type-article main > div > div > h2{
-        padding: 0;
-    }
-    .page-type-article main h2{
-        text-align: left;
-        font-weight: normal;
-    }
+ 
     .page-type-article .content{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1em;
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 300px,rgba(255,255,255, 1) 300px);
     }
     .page-type-article .lede.block{
-        padding: 0;
+        padding-top: 2em;
         font-size: 1.5em;
     }
     .page-type-article .chapters.block .chapter{
@@ -253,30 +209,18 @@ body > main > div > div:nth-child(1) > div.header.block > div > div:nth-child(2)
         width: auto;
         padding: 0;
     }
-    .page-type-article main p{
-        padding: 0;
-    }
-    .page-type-article main > div > div > p:not(.article-picture){
-        padding: 0;
-    }
-    .page-type-article main ul{
-        padding: 0;
-    }
-    .page-type-article main li{
-        padding: 0 0 1em 0;
-    }
-    .page-type-article .additional-reading.block li{
-        text-align: left;
-        padding: 0 0 1em 0;
-    }
-    .page-type-article .additional-reading.block a{
-        font-weight: 500;
-
-    }
+    
     .page-type-article .content > :not(.article-picture){
-        padding: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
+
     /* main */
 }
 
+@media (min-width: 426px) and (max-width: 768px){
+    .page-type-article .content{
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 400px,rgba(255,255,255, 1) 400px);
 
+    }
+}

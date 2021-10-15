@@ -1,6 +1,6 @@
 .think-differently.block{
     background: var(--bkg-navy-dark);
-    color: white;
+    color: #FAECE7;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,7 +65,6 @@
     background-image: url("../../resources/think-different-slash.svg");
     background-position: center;
     height:6em;
-    opacity: 0.4;
 }
 
 .think-differently.block .think-differently-content .slash-1{
@@ -78,7 +77,7 @@
 
 .think-differently.block .think-differently-content .think-differently-number{
     display:block;
-    font-size:8rem;
+    font-size:6rem;
     font-weight: var(--weight-regular);
 }
 

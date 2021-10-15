@@ -392,19 +392,34 @@ export function $scrollAnimation() {
     const hideScrollElement = (element) => {
       element.classList.remove("scrolled");
     };
-
+    var timeOut;
+    var pendingScroll = false;
+    const SCROLL_THROTTLE = 100;
     const handleScrollAnimation = () => {
-      scrollElements.forEach((element) => {
-        if (elementInView(element, 1.30)) {
-          displayScrollElement(element);
-        } else if (elementOutofView(element)) {
-          hideScrollElement(element)
+        // console.log("hit")
+        if(!timeOut){
+            timeOut = setTimeout(()=> {
+                timeOut = null;
+                if(pendingScroll){
+                    pendingScroll = false;
+                    handleScrollAnimation();
+                }
+            }, SCROLL_THROTTLE)
+            scrollElements.forEach((element) => {
+                if (elementInView(element, 1.30)) {
+                displayScrollElement(element);
+                } else if (elementOutofView(element)) {
+                hideScrollElement(element)
+                }
+            }) 
+        } else {
+            pendingScroll = true;
         }
-      })
+        
     }
-
-    window.addEventListener("scroll", () => {
-      handleScrollAnimation();
-    });
+    window.removeEventListener("scroll", handleScrollAnimation);
+    window.addEventListener("scroll", 
+      handleScrollAnimation
+    );
 
 }
