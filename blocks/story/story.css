@@ -7,17 +7,13 @@
     color: white;
     font-size: clamp(1em, 3vw, 1.5em);
     font-weight: 400;
-    padding-left: 1em;
+    padding-left: 3em;
 }
 
 .page-type-index .story {
     background: whitesmoke;
-    height: 100em;
-}
-
-.page-type-index .content > div > div:nth-child(1) > div {
-    position: relative;
-    bottom: 10em;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 160px,rgba(255,255,255, 1) 160px);
 }
 
 .page-type-index .story-text {
@@ -41,14 +37,6 @@
     width: 45%;
 }
 
-.page-type-index .content > div > div:nth-child(2) > div > p:nth-child(1) {
-    font-size: .75rem;
-    position: absolute;
-    bottom: 34em;
-    color: white;
-    border-bottom: white 2px solid;
-}
-
 .page-type-index #from-mind-to-canvas {
     font-size: 2em;
     font-weight: 500;
@@ -60,7 +48,22 @@
     font-weight: 300;
 }
 
-.page-type-index .story > div > div:nth-child(2) > div > p:nth-child(4) {
+.page-type-index .story > div:nth-child(2) > div > p:nth-child(4) {
     font-size: .75em;
     font-weight: 300;
+    margin-bottom: .5em;
+}
+
+.page-type-index .story > div:nth-child(2) > div > p:nth-child(5) {
+    font-size: .75em;
+    font-weight: 300;
+    margin-top: .25em;
+}
+
+.page-type-index .story > div:nth-child(2) > div > p:nth-child(1) {
+    position: relative;
+    bottom: 270px;
+    font-size: .75em;
+    border-bottom: 2px solid black;
+    width: 10em;
 }
