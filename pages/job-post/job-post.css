@@ -1,3 +1,19 @@
+html > body.job-post{
+    font-size: 16px;
+    font-weight: 1rem;
+    /* background:  var(--color-grey); */
+    /* background:  var(--bkg-navy-dark); */
+    /* background-color: var(--bkg-navy-dark); */
+    /* background-image: none; */
+    background-color: none;
+}
+body.job-post header#global-header {
+    background-color: var(--bkg-navy-dark);
+}
+body.job-post main {
+    background-color: var(--bkg-grey-lt);
+}
+
 .job-info-container{
     display: grid;
     width: fit-content;
@@ -9,13 +25,7 @@
 .header-block{
     grid-column: 1 / span 2;
 }
-.job-post{
-    font-size: 16px;
-    font-weight: 1rem;
-    background:  var(--color-grey);
-    background-color: var(--bkg-navy-dark);
 
-}
 /* .job-post main .section-wrapper.page-container.job-info-container.block-content{} */
 
 /*

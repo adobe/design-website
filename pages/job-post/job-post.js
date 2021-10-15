@@ -1,3 +1,4 @@
+import { Background } from "../../scripts/background.js";
 import {
   convertToBackground,
   decorateLink,
@@ -18,6 +19,12 @@ export default function decorate($block) {
   // });
   // const props = result.properties;
 
+  /* Dark navy color: */
+    // Background.setColor( '#0B1C40' );
+  /* light grey color: */
+    // Background.setColor( '#E8E8E8' );
+    /* Red color: */
+    // Background.setColor( '#E91D25' )
 
   document.querySelector("body").classList.add("job-post");
   // let postText = document.querySelector(".job-info-container")
@@ -25,14 +32,21 @@ export default function decorate($block) {
 
   let postText= document.querySelector(".job-info-container").lastChild;
   postText.classList.add("post-text");
-  console.log( " POST TEXT ", postText, "\n postText: ", postText)
+
+  const $aboutContainer = $element('div.about-container')
+
   postText.querySelectorAll('h6').forEach((tag) => {
     tag.removeAttribute('id')
     tag.classList.add('header-6')
-    console.log( " TAG ", tag)
+    // tag.appendTo($aboutContainer)
+    console.log( " TAG ", tag, "\n type: ", typeof tag)
   })
 
+  const $about = $element('div.about-adobe-design', $aboutContainer)
 
+  $about.appendTo(postText)
+
+  console.log( " POST TEXT ", postText, "\n postText: ", postText)
 
 
   // //----------//
