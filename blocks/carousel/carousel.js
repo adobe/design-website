@@ -9,7 +9,20 @@ const carouselProperties = {
 
 export default function decorate($block) {
   $block.classList.add("full-bleed");
+
+  //Adds everything for the scroll tip
+  let scrollHintContainer = document.createElement("div");
+  scrollHintContainer.classList.add("scroll-tip-container");
+  $block.parentNode.insertBefore(scrollHintContainer, $block.nextSibling)
   const $carousel = $block.querySelectorAll(":scope > div");
+  let scrollHintContent = document.createElement("h2");
+  scrollHintContent.innerHTML = "Scroll Down";
+  let scrollHintChevron = document.createElement("div");
+  scrollHintChevron.classList.add("chevron-down")
+  scrollHintContent.classList.add("scroll-tip-content");
+  scrollHintContainer.append(scrollHintContent);
+  scrollHintContainer.append(scrollHintChevron);
+
 
   var i = 0;
 
