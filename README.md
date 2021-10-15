@@ -5,6 +5,10 @@ The Helix project for the adobe.design website
 - Preview: https://main--design-website--adobe.hlx3.page/
 - Live: https://main--design-website--adobe.hlx.live/
 
+## Updating Helix CLI
+
+  npm install -g @adobe/helix-cli@latest
+
 ## Installation
 
 ```sh
@@ -26,11 +30,18 @@ npm tst
 
 ## Code to run your local server
 
-    hlx up --pages-url="https://main--adobe-design-helix--busy-human.hlx3.page/"
+Make sure you are using Helix version 14+
+
+    hlx up
 
     ## OR
-
     npm start
+
+If you are using Helix < 13 then your command will look like this (replace subdomain with the actual domain):
+
+  hlx up --pages-url=\"https://SUBDOMAIN.hlx3.page/\"
+
+
 
 ## Bookmarklet "Sidekick"
 
