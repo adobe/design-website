@@ -1,8 +1,30 @@
 .author-bio {
     background: #F5F5F5;
-    width: 100%;
+    height: 30em;
+    display: flex;
+    align-items: center;
 }
 
 .author-bio > div {
     display: flex;
+    margin: 0 25%;
+}
+
+.author-image {
+    width: 5em;
+}
+
+.author-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%
+}
+
+.title {
+    font-size: clamp(5px, 6vw, 10px);
+}
+
+.name {
+    margin: 0;
 }
