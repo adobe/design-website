@@ -345,12 +345,23 @@ export function $wrap($parent, children) {
     return $parent;
 }
 
+/**
+ * Iterates through the child elements of $target with function fn
+ * @param {*} $target
+ * @param {*} fn
+ */
 export function $eachChild($target, fn) {
     for (let i = 1; i < $target.children.length; i++) {
         fn($target.children.item(i));
     }
 }
 
+/**
+ * Moves $element out of its current parent (if applicable) and appends it to $target
+ * @param {*} $element
+ * @param {*} $target
+ * @param {*} [options] options.method: "append" | "prepend"
+ */
 export function $moveTo($element, $target, options) {
     var opts = options || { method: "append" };
     if($element.parentElement) {
