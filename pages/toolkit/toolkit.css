@@ -3,6 +3,8 @@
     height: calc(60vh - 110px);
     width: 1000px;
     padding-left: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -68,6 +70,29 @@ body > main.toolkit > div > div > div.toolkit-page-content > div:nth-child(8) > 
     box-sizing: border-box;
 }
 
-
+@media screen and (max-width: 700px){
+    #our-toolkit{
+        font-size: 30px;
+        font-weight: 400;
+    }
+    .toolkit-page-content{
+        max-width: 100vw !important;
+    }
+    #the-ideas-systems-and-tools-that-guide-our-thinking-our-processes-and-our-designs{
+        font-size: 25px;
+    }
+    body > .toolkit > div > div > div.toolkit-page-content > .article-card{
+        margin: 10px 0px 10px 0px;
+    }
+    .toolkit-header{
+        height: calc(82vh - 110px);
+    }
+    .big-red-text{
+        font-size: 34px;
+    }
+    .article-card.block .text .dek, .article-card.block .text .dek:not(.article-title){
+        margin: unset;
+    }
+}
 
 
