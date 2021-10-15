@@ -7,6 +7,10 @@
     flex-direction: column;
     justify-content: space-around;
 }
+
+.think-differently h2 {
+    font-weight: var(--wight-light);
+}
 #our-toolkit{
     color: white;
     font-size: 50px;
@@ -64,33 +68,5 @@ body > main.toolkit > div > div > div.toolkit-page-content > div:nth-child(8) > 
 }
 
 
-/* bottom container css */
-.toolkit-bottom-container{
-    height: 500px;
-    width: 100%;
-    background: #0B1C40;
-    color: #FAECE7;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-.toolkit-bottom-bar-header{
-    margin-top: 8%;
-    margin-left: 20%;
-    font-weight: 300;
-    font-size: 35px;
-    width: 36%;
-}
-.toolkit-bottom-bar-subheader{
-    font-weight: 300;
-    font-size: 16px;
-    margin-left: 20%;
-    border-bottom: 2px solid #fAEce7
-}
-.toolkit-bottom-container-stats{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
+
 
