@@ -362,15 +362,15 @@ export function $eachChild($target, fn) {
  * @param {*} $target
  * @param {*} [options] options.method: "append" | "prepend"
  */
-export function $moveTo($element, $target, options) {
+export function $moveTo($el, $target, options) {
     var opts = options || { method: "append" };
-    if($element.parentElement) {
-        $element.remove();
+    if($el.parentElement) {
+        $el.remove();
     }
     if(opts.method === "append") {
-        $target.appendChild($element);
+        $target.appendChild($el);
     } else {
-        $target.prepend($element);
+        $target.prepend($el);
     }
 }
 
