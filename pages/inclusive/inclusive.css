@@ -1,0 +1,65 @@
+.inclusive-design{
+    width: 98vw;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.inclusive-design h1{
+    color: white;
+    background: #360D5A;
+    font-size: 3em;
+    padding: 5em;
+    padding-right: 10em;
+    text-align: left;
+} 
+body > main > div > div > p:nth-child(4){
+    color: white;
+    background: #E04827;
+    font-size: 2em;
+    padding: 4em 4em;
+    margin-bottom: 0;
+}
+
+#our-mission{
+    color: white;
+}
+
+#wed-like-to-share-what-weve-learned-with-you{
+    background: white;
+    color: red;
+    font-size: 4em;
+    padding: 2em 2em;
+    margin: 0;
+    text-align: center;
+}
+.inclusive-design .article-card.block{
+    margin-bottom: 0;
+}
+#our-collaborators{
+    color: black;
+    background: #F7EFFC;
+    text-align: center;
+    font-size: 2em;
+    padding: 5em 5em;
+    text-align: left;
+}
+
+.inclusive-design .people.block{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background: #F7EFFC;
+    
+}
+
+.inclusive-design .people.block img{
+    width: 100%;
+    
+}
+.inclusive-design .person{
+    margin: 0;
+    background: none;
+}
+body > main > div > div > div:nth-child(17) > div:nth-child(2) > div:nth-child(1){
+    margin: 1em;
+}

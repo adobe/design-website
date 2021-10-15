@@ -5,6 +5,10 @@ The Helix project for the adobe.design website
 - Preview: https://main--design-website--adobe.hlx3.page/
 - Live: https://main--design-website--adobe.hlx.live/
 
+## Updating Helix CLI
+
+  npm install -g @adobe/helix-cli@latest
+
 ## Installation
 
 ```sh
@@ -26,11 +30,18 @@ npm tst
 
 ## Code to run your local server
 
-    hlx up --pages-url="https://main--adobe-design-helix--busy-human.hlx3.page/"
+Make sure you are using Helix version 14+
+
+    hlx up
 
     ## OR
-
     npm start
+
+If you are using Helix < 13 then your command will look like this (replace subdomain with the actual domain):
+
+  hlx up --pages-url="https://SUBDOMAIN.hlx3.page/"
+
+
 
 ## Bookmarklet "Sidekick"
 
@@ -65,6 +76,45 @@ Show more
 <https://github.com/adobe/business-website|adobe/business-website>adobe/business-website | Added by a bot
 
 https://main--business-website--adobe.hlx3.page/blog/
+
+### Sections
+
+the horizontal rule, denotes a section in helix... which wraps the following elements (eg. blocks and default content) into a <div> which sometimes makes handling easier, if you want apply a certain behavior to a section of the page, based on its content...
+
+think of it as a grouping of sorts... we sometimes bubble up behaviors of a block to the containing section .... think one part of a page that has a different background color, but contains multiple blocks and headings etc.
+
+### Fragments
+
+David Nuescheler:
+
+this assumes a fragment block, with a URL to the page you want to include... and replaces the parent section IIRC
+
+depends on the concept of a section-wrapper div, so you may want to adjust it if you don't have a section-wrapper
+
+https://gist.github.com/davidnuescheler/18e1c6c1db01b1d2898731e1a414e43f
+
+  import {
+    createTag,
+    decorateMain,
+    loadBlocks,
+  } from '../../scripts/scripts.js';
+
+  async function decorateFragment($block) {
+    const ref = $block.textContent;
+    const path = new URL(ref).pathname.split('.')[0];
+    const resp = await fetch(`${path}.plain.html`);
+    const html = await resp.text();
+    const $main = createTag('main');
+    $main.innerHTML = html;
+    decorateMain($main);
+    loadBlocks($main);
+    const $section = $block.closest('.section-wrapper');
+    $section.parentNode.replaceChild($main, $section);
+  }
+
+  export default function decorate($block) {
+    decorateFragment($block);
+  }
 
 ## Indexes
 

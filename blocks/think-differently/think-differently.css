@@ -1,0 +1,96 @@
+.think-differently.block{
+    background: var(--bkg-navy-dark);
+    color: #FAECE7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+}
+
+.think-differently.block .think-differently-content{
+    display: grid;
+    grid-template-rows: 20% 20% 20% 40%;
+    grid-template-columns: 1fr 0.5fr 1fr 0.5fr 1.5fr;
+    align-items: center;
+    justify-content: center;
+
+    height:75%;
+
+    padding-top: 1em;
+    
+    padding-left:2em;
+    padding-right: 2em;
+}
+
+.think-differently.block .think-differently-content h2{
+    font-size: 2em;
+    grid-column: 2/4;
+    grid-row: 1/2;
+}
+
+.think-differently.block .think-differently-content p{
+    grid-row: 4/5;
+    font-size: 0.9em;
+}
+
+.think-differently.block .think-differently-content p:nth-child(2){
+    grid-column: 2/4;
+    grid-row: 2/3;
+    text-decoration: underline 2px;
+    text-underline-offset: 3px;
+}
+
+.think-differently.block .think-differently-content p:nth-child(3),
+.think-differently.block .think-differently-content p:nth-child(4),
+.think-differently.block .think-differently-content p:nth-child(5){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.think-differently.block .think-differently-content p:nth-child(3){
+    grid-column: 5/6;
+}
+
+.think-differently.block .think-differently-content p:nth-child(4){
+    grid-column: 3/4;
+}
+
+.think-differently.block .think-differently-content p:nth-child(5){
+    grid-column: 1/2;
+}
+
+.think-differently.block .think-differently-content .think-differently-slash{
+    background-image: url("../../resources/think-different-slash.svg");
+    background-position: center;
+    height:6em;
+}
+
+.think-differently.block .think-differently-content .slash-1{
+    grid-area: 4/2/5/3;
+}
+
+.think-differently.block .think-differently-content .slash-2{
+    grid-area: 4/4/5/5;
+}
+
+.think-differently.block .think-differently-content .think-differently-number{
+    display:block;
+    font-size:6rem;
+    font-weight: var(--weight-regular);
+}
+
+@media (max-width: 768px){
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size:7rem;
+    }
+
+    .think-differently.block .think-differently-content h2{
+        font-size: 1.5em;
+    }
+    
+    .think-differently.block .think-differently-content p{
+        font-size: 0.8em;
+    }
+}

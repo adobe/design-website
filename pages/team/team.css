@@ -30,7 +30,7 @@
     padding-right: 5rem;
 }
 
-.page-type-team .head-content > p{
+.page-type-team .head-content .title{
     font-size: 3em;
 }
 
@@ -210,9 +210,33 @@
     text-decoration: none;
 }
 
+@media (max-width: 700px){
+    .page-type-team .team-cards .team-card h3{
+        padding-left: 15%;
+        width: 80%;
+        font-size: 1.5rem;
+    }
+    .page-type-team .team-cards .team-card h3::before{
+        left: 10%;
+    }
+    .page-type-team .team-cards .team-card h3::after{
+        left: 8%; /* 40% * 12.5%  = 5% "padding left" */
+        width: 90%; /* 40% * 225%   = 90% "width"*/
+    }
+
+    .page-type-team .team-cards .team-card{
+        grid-template-columns: unset;
+        grid-template-rows: 0% 100%;
+    }
+
+    .page-type-team .team-cards .team-card div{
+        padding-top: 7rem;
+    }
+}
+
 
 /* We may reuse the .think-differently stylings on multiple pages*/
-.think-differently{
+/* .think-differently{
     background: var(--bkg-navy-dark);
     color: white;
     display: flex;
@@ -277,7 +301,7 @@
 
 .think-differently .think-differently-body .think-differently-slash-1,
 .think-differently .think-differently-body .think-differently-slash-2{
-    background-image: url("think-different-slash.svg");
+    background-image: url("../../resources/think-different-slash.svg");
     background-position: center;
     height:6em;
     opacity: 0.4;
@@ -309,4 +333,4 @@
     .think-differently .think-differently-body p{
         font-size: 0.8em;
     }
-}
+} */
