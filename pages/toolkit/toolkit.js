@@ -30,7 +30,6 @@ export default function decorate($main) {
     
     var allText = document.querySelectorAll(" body > main > div > div > div.toolkit-page-content > div > div > div.text > div, .think-differently-content > *");
     allText.forEach((article, index) => {
-      console.log("DARN", article, index)
       if(index > 1){
         article.classList.add("js-scroll")
         article.classList.add("fade-in-right")
