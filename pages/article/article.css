@@ -81,7 +81,7 @@
      width: 100%;
     color: black;
     padding-top: 5em;
-    padding-left: 5em; 
+    padding-left: 5em;
 }
 
 .page-type-article .content .header-image{
@@ -90,12 +90,6 @@
 
 body > main > div > div.content > picture > img{
     padding-bottom: 5em;
-}
-.lede.block{
-    font-size: 2em;
-    width: auto;
-    line-height: 1.5;
-    text-align: left;
 }
 
 .page-type-article .additional-reading.block > div > div{
@@ -144,7 +138,7 @@ body > main > div > div.content > picture > img{
     .page-type-article main{
         width: 90%;
     }
-    
+
 }
 
 @media (min-width: 375px) and (max-width: 425px){
@@ -182,19 +176,15 @@ body > main > div > div.content > picture > img{
     body > main > div > div.content > picture > img{
         padding-bottom: 0;
     }
-  
+
     .page-type-article .chapter-heading {
         text-align: left;
         font-weight: normal;
         padding-right: 0;
     }
- 
+
     .page-type-article .content{
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 300px,rgba(255,255,255, 1) 300px);
-    }
-    .page-type-article .lede.block{
-        padding-top: 2em;
-        font-size: 1.5em;
     }
     .page-type-article .chapters.block .chapter{
     grid-template-columns: auto;
@@ -209,7 +199,7 @@ body > main > div > div.content > picture > img{
         width: auto;
         padding: 0;
     }
-    
+
     .page-type-article .content > :not(.article-picture){
         padding-left: 1rem;
         padding-right: 1rem;
