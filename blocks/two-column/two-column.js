@@ -1,10 +1,10 @@
-import { processDivisions } from "../../scripts/helpers.js";
+import { decorateDivisions } from "../../scripts/helpers.js";
 /**
  *
  * @param {HTMLElement} $block
  */
 export default function decorate($block) {
-    const { properties } = processDivisions($block);
+    const { properties } = decorateDivisions($block);
     const $col1 = $block.querySelector(":scope > div > div:first-child");
     const $col2 = $block.querySelector(":scope > div > div:nth-child(2)");
 

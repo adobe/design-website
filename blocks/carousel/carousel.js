@@ -1,5 +1,5 @@
 import { Background } from "../../scripts/background.js";
-import { processDivisions } from "../../scripts/helpers.js";
+import { decorateDivisions } from "../../scripts/helpers.js";
 const SLIDE_TIME = 7000;
 const ANIMATION_TIME = 250;
 
@@ -16,7 +16,7 @@ export default function decorate($block) {
   const length = Object.entries($carousel).length;
 
   for (const slide of $carousel) {
-    const { properties } = processDivisions(slide, null, { level: "child" });
+    const { properties } = decorateDivisions(slide, null, { level: "child" });
     carouselProperties.slides.push(properties);
     if ((i + 1) === length) {
       /**

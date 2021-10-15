@@ -1,4 +1,4 @@
-import { processDivisions, $element } from "../../scripts/helpers.js";
+import { decorateDivisions, $element } from "../../scripts/helpers.js";
 import addButton from "../button/button.js";
 
 /**
@@ -6,7 +6,7 @@ import addButton from "../button/button.js";
  */
 export default async function decorate($block) {
     /* Get the properties and identify the blocks */
-    const result = processDivisions($block, null);
+    const result = decorateDivisions($block, null);
     const props = result.properties;
     const $jobTitle = $element("h1.hed.job-title", props['job-title']);
             // TODO: make and import 'apply now' button
