@@ -1,0 +1,226 @@
+.page-type-article .header-image{
+    display: flex;
+}
+
+
+:root{
+    --h1-font-size: 6em;
+    --h2-font-size: 3em;
+    --p-font-size: 1.5em;
+    --li-font-size: 1.5em;
+}
+
+.page-type-article main{
+    width: 98vw;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.page-type-article  {
+    font-size:16px;
+}
+.page-type-article .content{
+    padding-top:140px;
+    padding-bottom: 5em;
+    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 500px,rgba(255,255,255, 1) 500px);
+}
+.page-type-article .content > :not(.article-picture){
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.page-type-article .content .block{
+    width: auto
+}
+
+.page-type-article .content p {
+    text-align:left;
+    font-size:var(--p-font-size);
+    line-height:1.5em;
+}
+
+.page-type-article h1{
+    text-align: left;
+    margin: unset;
+    font-size: var(--h1-font-size);
+    font-weight: 500;
+}
+
+.page-type-article .content h2{
+    font-size: var(--h2-font-size);
+    padding-top: 1em;
+    text-align: left;
+    font-weight: normal;
+}
+
+.page-type-article .header >div{
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.header.block > div{
+    width: 60%;
+    height: 75%;
+}
+
+.page-type-article main > div > div > p {
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.page-type-article .article-picture{
+    padding: 4em 0;
+}
+
+.page-type-article main img{
+    width: 100%;
+}
+
+.page-type-article .header.block{
+     width: 100%;
+    color: black;
+    padding-top: 5em;
+    padding-left: 5em; 
+}
+
+.page-type-article .content .header-image{
+
+}
+
+body > main > div > div.content > picture > img{
+    padding-bottom: 5em;
+}
+.lede.block{
+    font-size: 2em;
+    width: auto;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.page-type-article .additional-reading.block > div > div{
+    text-align: right;
+
+}
+.page-type-article .content ul{
+    list-style: none;
+    text-align: left;
+}
+#a-few-good-books{
+    padding: 0;
+    text-align: left;
+}
+.page-type-article .additional-reading.block ul{
+    padding: 0;
+}
+.page-type-article .content li{
+    line-height: 1.5;
+    padding-bottom: 1em;
+    font-size: var(--li-font-size);
+}
+.page-type-article .additional-reading.block p{
+    grid-column-start: 2;
+    margin-top: 0;
+}
+.page-type-article .additional-reading.block a{
+    font-weight: 600;
+    font-size: .8em;
+    text-decoration: none;
+    color: black;
+}
+
+.additional-reading.block{
+    font-size: 1.2em;
+}
+
+.additional-reading.block{
+    width: 100%;
+    padding: 1em;
+}
+
+
+
+@media (min-width:768px) and (max-width:1024px){
+    .page-type-article main{
+        width: 90%;
+    }
+    
+}
+
+@media (min-width: 375px) and (max-width: 425px){
+
+    .page-type-article main{
+        width: 90%;
+    }
+    .page-type-article main > div > div > p {
+        font-size: 1.5em;
+        text-align: left;
+    }
+}
+@media (min-width:320px) and (max-width:425px){
+
+    /* header */
+
+    .page-type-article .header.block{
+        padding: 1em;
+        width: 100%;
+    }
+    /* header */
+
+    /* main */
+
+    .page-type-article .header.block > div{
+        padding: 0;
+        width: 100%;
+    }
+    body > main > div > div.content > picture > img{
+        bottom: 10em;
+    }
+    .page-type-article .header.block  h1{
+       font-size: 4em;
+    }
+    body > main > div > div.content > picture > img{
+        padding-bottom: 0;
+    }
+  
+    .page-type-article .chapter-heading {
+        text-align: left;
+        font-weight: normal;
+        padding-right: 0;
+    }
+ 
+    .page-type-article .content{
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 300px,rgba(255,255,255, 1) 300px);
+    }
+    .page-type-article .lede.block{
+        padding-top: 2em;
+        font-size: 1.5em;
+    }
+    .page-type-article .chapters.block .chapter{
+    grid-template-columns: auto;
+    justify-items: center;
+
+    }
+    .page-type-article .chapter-heading{
+        text-align: start;
+        padding-bottom: 1em;
+    }
+    .page-type-article .additional-reading.block{
+        width: auto;
+        padding: 0;
+    }
+    
+    .page-type-article .content > :not(.article-picture){
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* main */
+}
+
+@media (min-width: 426px) and (max-width: 768px){
+    .page-type-article .content{
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 400px,rgba(255,255,255, 1) 400px);
+
+    }
+}

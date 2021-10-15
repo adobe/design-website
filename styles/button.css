@@ -1,0 +1,37 @@
+button{
+    background-color: unset;
+    border: 2px solid transparent;
+    border-radius: 1.5em;
+    height: 3em;
+    font-size: 1em;
+    padding: 0.5em 1.5em;
+    line-height: 1em;
+}
+
+button.black{
+    color: black;
+    border-color:black;
+}
+button.white{
+    color: white;
+    border-color:white;
+}
+
+button.reg{
+}
+
+/*
+Set button color like so:
+jsButtonElm.style("--btn-color: #000000");
+*/
+button.reg.unfilled{
+    border: 2px solid var(--btn-color);
+    color: var(--btn-color);
+    background-color: unset;
+    margin-left: 0.25em;
+}
+
+button.reg.filled{
+    border: none;
+    background-color: var(--btn-color);
+}

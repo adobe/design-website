@@ -1,0 +1,29 @@
+button{
+    background-color: unset;
+    color: white;
+    border: 2px solid white;
+    border-radius: 1.5em;
+    height: 3em;
+    font-size: 1em;
+    padding: 0.5em 1.5em;
+    line-height: 1em;
+}
+
+button.reg{
+    border-radius: 1.5em;
+    height: 3em;
+    font-size: 1em;
+    padding: 0.5em 1.5em;
+    line-height: 1em;
+}
+
+button.reg.unfilled{
+    border: 2px solid var(--btn-color);
+    color: var(--btn-color);
+    background-color: unset;
+}
+button.reg.filled{
+    border: none;
+    color: var(--btn-color);
+    background-color: unset;
+}

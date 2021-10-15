@@ -1,0 +1,89 @@
+/* A single scoreboard */
+.scoreboards.block{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: center;
+    height: 100%
+}
+.scoreboards > div{
+    width: 100%;
+    height: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.scoreboards > div:first-child{
+    background-color:  #FAECE7;
+    color: #0B1C40;
+}
+.scoreboards > div:nth-child(2){
+    background-color: #0B1C40;
+    color: white;
+}
+.scoreboards > div:nth-child(3){
+    background-color: #FFFAE2;
+    color: #0B1C40;
+}
+.scoreboards .number {
+    font-size: 10em;
+}
+.scoreboards .caption{
+    font-size: 1.1em;
+    width: 80%;
+}
+
+
+@media (max-width: 1024px) and (min-width: 767px){
+
+    .scoreboards .number{
+        font-size: 9em;
+    }
+    .scoreboards .caption{
+        width: 80%;
+    }
+}
+
+@media (max-width: 1023px){
+
+    .scoreboards > div{
+        height: 35em;
+    }
+}
+
+@media (max-width: 425px){
+    
+    .scoreboards .number{
+        font-size: 8em;
+    }
+    .scoreboards .caption{
+        font-size: 1.1em;
+        width: 90%;
+    }
+
+    .scoreboards > div{
+        height: 30em;
+    }
+}
+@media only screen and (max-width: 375px){
+
+    .scoreboards .caption{
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 320px){
+
+    .scoreboards .number{
+        font-size: 6em;
+    }
+
+    .scoreboards .caption{
+        font-size: .8em;
+    }
+
+    .scoreboards > div{
+        height: 20em;
+    }
+
+}

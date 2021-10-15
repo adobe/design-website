@@ -1,0 +1,34 @@
+.two-column.block > div {
+    display:flex;
+    flex-direction:row;
+}
+
+.two-column.block > div > div {
+    height: 1500px;
+    flex-grow:1;
+    flex-basis:0;
+}
+
+@media (max-width: 1024px) and (min-width: 767px){
+    
+    .job-listing h3{
+        margin-top: .8em;
+        font-size: 2.2em;
+    }
+    .job-listing p{
+        margin: 0;
+    }
+}
+@media (max-width: 1023px) {
+    .two-column.block > div {
+        flex-direction: column;
+    }
+    .two-column.block > div > div {
+        height: auto;
+    }
+    
+}
+@media only screen and (min-width: 321px) and (max-width: 375px){
+
+
+}

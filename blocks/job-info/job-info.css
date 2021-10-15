@@ -1,0 +1,56 @@
+body.job-post .header-block{
+    font-size: 16px;
+    display: grid;
+    max-width: 1000px;
+    grid-template-columns: 50% 50%;
+    gap: 0px;
+    margin: auto;
+}
+.job-post .header-block,
+.job-post .left,
+.job-post .right{
+    box-sizing: border-box;
+}
+.job-post .left,
+.job-post .right{
+    padding: 40px;
+    width: 100%;
+}
+
+
+.job-post .left{
+    background-color: var(--bkg-navy-dark);
+    background: var(--bkg-navy-dark);
+}
+.job-post .right{
+
+}
+
+.details{
+    display: inline-grid;
+    width: max-content;
+    grid-template-columns: 50% 50%;
+    gap: 6.5em;
+}
+
+.job-post .job-title{
+    font-size: 3.5em; /* 56px */
+    font-weight: var(--weight-black);
+    color: white;
+}
+.job-post .detail-value,
+.job-post .detail-label{
+    width: fit-content;
+}
+
+.job-post .detail-label{
+    font-size: 0.6875em; /* 11px */
+}
+.job-post .detail-value{
+    font-size: 18px;
+}
+.job-post .dek{
+    font-family: var(--sarif-font);
+    font-weight: var(--weight-regular);
+    font-size: 2em; /* 32px */
+}

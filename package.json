@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Starter project for Adobe Helix Pages",
   "scripts": {
+    "start": "hlx up",
     "test": "karma start karma.config.js",
     "integration-test": "mocha integration/*.test.js",
     "lint": "eslint ."
