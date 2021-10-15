@@ -351,6 +351,18 @@ export function $eachChild($target, fn) {
     }
 }
 
+export function $moveTo($element, $target, options) {
+    var opts = options || { method: "append" };
+    if($element.parentElement) {
+        $element.remove();
+    }
+    if(opts.method === "append") {
+        $target.appendChild($element);
+    } else {
+        $target.prepend($element);
+    }
+}
+
 export function $remainder($target, selector) {
     let $targetEl;
     if (typeof target === "string") {
@@ -411,14 +423,14 @@ export function $scrollAnimation() {
                 } else if (elementOutofView(element)) {
                 hideScrollElement(element)
                 }
-            }) 
+            })
         } else {
             pendingScroll = true;
         }
-        
+
     }
     window.removeEventListener("scroll", handleScrollAnimation);
-    window.addEventListener("scroll", 
+    window.addEventListener("scroll",
       handleScrollAnimation
     );
 
