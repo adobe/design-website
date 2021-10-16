@@ -1,0 +1,19 @@
+name: Run Helix PSI Audit
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+    branches:
+      - main
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited]
+jobs:
+  action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use repo PSI action
+        uses: auniverseaway/helix-actions-psi@main
+        with:
+          psi-key: ${{ secrets.PSI_KEY }}
+          relative-url: /
