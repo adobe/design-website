@@ -24,17 +24,17 @@ export async function fetchBlogArticleIndex() {
 export async function fetchIndex() {
     const resp = await fetch(`/query-index.json`);
     const json = await resp.json();
-    const byType = {
-        jobs: [],
-        stories: [],
-    };
-    json.data.forEach((post) => {
-        if ( post.path.indexOf("/jobs") === 0) {
-            byType.jobs.push(post);
-        } else if ( post.path.indexOf("/stories") === 0) {
-            byType.stories.push(post);
-        }
-    });
-    const index = { data: json.data, byType };
+    // const byType = {
+    //     jobs: [],
+    //     stories: [],
+    // };
+    // json.data.forEach((post) => {
+    //     if ( post.path.indexOf("/jobs") === 0) {
+    //         byType.jobs.push(post);
+    //     } else if ( post.path.indexOf("/stories") === 0) {
+    //         byType.stories.push(post);
+    //     }
+    // });
+    const index = json;
     return (index);
 }

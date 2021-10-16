@@ -167,7 +167,8 @@ function arrayToDefinitions( arr ) {
  * OR you can return null if the element is the "remainder" after others are specified;
  * OR if you only want the properties column and don't care about the rest, omit the definitions
  * @param {HTMLElement} $block
- * @param {object} definitions
+ * @param {Array} definitions
+ * @param {Object} [options]
  * @example const result = decorateDivisions($block, {
         text:       ($div) => $div.textContent,
         image:      null,
