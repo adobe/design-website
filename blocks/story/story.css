@@ -8,12 +8,9 @@
     padding-left: 5em;
 }
 
-.block.story picture {
-    padding-left: 3em;
-}
-
-.block.story img {
-    width: 45%;
+.block.story .image picture {
+    width:300px;
+    height:auto;
 }
 
 .block.story h2 {
