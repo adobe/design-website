@@ -7,38 +7,45 @@
 @import "../blocks/button/button.css";
 @import ".button.css";
 
-body {
-    font-family:sans-serif;
+html, body{
+    width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
 }
+
+html{
+        /* Common Colors */
+        --text-dark:     #3E3E3E;
+        --bkg-navy-dark: #0B1C40;
+        --bkg-green:     #4BA88E;
+        --bkg-grey-lt:   #E8E8E8;
+        --bkg-red:       #E91D25;
+        --bkg-orange:    #E94E27;
+
+        /* Font Families */
+        --fast-sans-font: Helvetica, Arial, sans-serif;
+        --sarif-font: "Adobe Clean Serif", Georgia, serif;
+        --sans-font: "Adobe Clean", Helvetica, Arial, sans-serif;
+
+        /* Font Weights */
+        --weight-light:      200;  /* lighter,   100-300 */
+        --weight-regular:    400;  /* normal,    400-500 */
+        --weight-bold:       700;  /* semi-bold, 700-600 */
+        --weight-black:      900;  /* bolder,    800-900 */
+
+        color:       var(--color-text);
+        font-weight: var(--weight-regular);
+}
+
 body.loaded {
     background-position: center top;
     background-image: url("/resources/background-image.png");
     background-repeat: no-repeat;
     background-size: cover;
     transition: all .4s ease-in-out;
-    font-family: sans-serif;
-
-    /* Common Colors */
-    --text-dark:     #3E3E3E;
-    --bkg-navy-dark: #0B1C40;
-    --bkg-green:     #4BA88E;
-    --bkg-grey-lt:   #E8E8E8;
-    --bkg-red:       #E91D25;
-    --bkg-orange:    #E94E27;
-
-    /* Font Families */
-    --sarif-font: "Adobe Clean Serif", "Adobe Clean", "Roboto", sans-serif;
-    --sans-font: "Adobe Clean", "Roboto", sans-serif;
-
-    /* Font Weights */
-    --weight-light:      200;  /* lighter,   100-300 */
-    --weight-regular:    400;  /* normal,    400-500 */
-    --weight-bold:       700;  /* semi-bold, 700-600 */
-    --weight-black:      900;  /* bolder,    800-900 */
-
-    color:       var(--color-text);
-    font-weight: var(--weight-regular);
-
+    font-family:  var(--sans-font);
 }
 
 main > div > div > div:not(.full-bleed) {
@@ -46,14 +53,6 @@ main > div > div > div:not(.full-bleed) {
     max-width:1000px;
     margin-left:auto;
     margin-right:auto;
-}
-
-html, body{
-    width: 100vw;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-    font-family: var(--sans-font);
 }
 
 .tag-link {
@@ -79,7 +78,7 @@ html, body{
 
 /* Subheader/ summary/ hook */
 .dek{
-    font-family: var(--sarif-font);
+    font-family: var(--sans-font);
     font-size: 2em; /* 32px */
 }
 
