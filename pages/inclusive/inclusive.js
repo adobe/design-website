@@ -42,7 +42,7 @@ export default function decorate($main) {
     div.append(adobeFacilitators, adobeFacilitatorsP)
 
     // Applies the person class to the cards in the people block
-    var peopleBlock = inclusive.querySelector('body > main > div > div > div:nth-child(8)')
+    var peopleBlock = inclusive.querySelector('body > main > div > div > div:nth-child(7)')
     for(let i = 0; i < peopleBlock.childElementCount; i++){
     peopleBlock.children[i].classList.add('person');
   }
