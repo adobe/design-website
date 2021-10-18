@@ -78,7 +78,7 @@ main > div > div > div:not(.full-bleed) {
 
 /* Subheader/ summary/ hook */
 .dek{
-    font-family: var(--sarif-font);
+    font-family: var(--sans-font);
     font-size: 2em; /* 32px */
 }
 
