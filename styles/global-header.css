@@ -4,7 +4,6 @@
     align-items: center;
     padding:20px 0px;
     box-sizing: border-box;
-    font-family: 'Adobe Clean','Roboto', sans-serif;
     color: #FFFFFF;
     width: 98vw;
     max-width:1000px;
@@ -13,7 +12,6 @@
 }
 
 #global-header .tagline {
-    font-family: 'Adobe Clean','Roboto', sans-serif;
     margin-left: 5em;
     color: #FFFFFF;
     width: 18vw;
