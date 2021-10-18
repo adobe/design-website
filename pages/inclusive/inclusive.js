@@ -13,7 +13,7 @@ export default function decorate($main) {
     // our mission
     // test is the elemet before so I can place the targeted element after
     var test = inclusive.querySelector('#inclusive-design-at-adobe')
-    var mainImg = inclusive.querySelector('body > main > div > div > p:nth-child(3)')
+    var mainImg = inclusive.querySelector('body > main > div > div > p')
     var ourMission = inclusive.querySelector('#our-mission')
     var ourMissionP = inclusive.querySelector('#our-mission + p')
     var div = $element('.statement')
