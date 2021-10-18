@@ -13,7 +13,7 @@ export default async function decorator($main) {
     }
     console.log("INDEX", index);
 
-    const $target = $main.querySelector(":scope > div");
+    const $target = $main.querySelector(":scope > div > div");
     const $thinkDifferent = document.querySelector(".think-differently");
     const $results = $element(".stories");
     $target.insertBefore( $results, $thinkDifferent);
