@@ -27,52 +27,51 @@ export function addPageTypeDecorator( name, options ) {
     loadCSS(`/pages/${name}/${name}.css`);
 }
 
-export function runPageTypeDecorators() {
-    resolvePageProperties(properties => {
-        try {
-            DECORATORS.forEach(pageMapping => {
-                let match = false;
-                let testCount = 0;
-                const { pathname } = location;
-                const opts = pageMapping.options;
-                const { name } = pageMapping;
-                if (opts.path) {
-                    testCount++;
-                    if (opts.path.indexOf("*") >= 0) {
-                        // Match nested paths
-                        const testPath = opts.path.replace("*", "");
-                        const contains = pathname.indexOf(testPath) >= 0;
-                        const longer = pathname.length > testPath.length;
-                        match = (contains && longer);
-                    } else {
-                        // Match exact path without the last slash
-                        const trailing = /\/$/;
-                        match = (pathname.replace(trailing, "") === opts.path.replace(trailing, ""));
-                    }
+export async function runPageTypeDecorators() {
+    try {
+        for(let i = 0; i < DECORATORS.length; i += 1) {
+            const pageMapping = DECORATORS[i];
+            let match = false;
+            let testCount = 0;
+            const { pathname } = location;
+            const opts = pageMapping.options;
+            const { name } = pageMapping;
+            if (opts.path) {
+                testCount++;
+                if (opts.path.indexOf("*") >= 0) {
+                    // Match nested paths
+                    const testPath = opts.path.replace("*", "");
+                    const contains = pathname.indexOf(testPath) >= 0;
+                    const longer = pathname.length > testPath.length;
+                    match = (contains && longer);
+                } else {
+                    // Match exact path without the last slash
+                    const trailing = /\/$/;
+                    match = (pathname.replace(trailing, "") === opts.path.replace(trailing, ""));
                 }
-                if (opts.type) {
-                    testCount++;
-                    match = opts.type === properties.type;
-                }
-                if (opts.test) {
-                    testCount++;
-                    match = opts.test(properties);
-                }
-                if (testCount > 1) {
-                    console.warn("PageMapping: ", pageMapping);
-                    throw new Error(`Page Type Decorator options should only specify ONE of path, type, or test`);
-                } else if (testCount === 0) {
-                    console.warn("PageMapping: ", pageMapping);
-                    throw new Error(`Page Type decorator options must include a path, type, or test property`);
-                }
+            }
+            if (opts.type) {
+                testCount++;
+                // match = opts.type === properties.type;
+            }
+            if (opts.test) {
+                testCount++;
+                // match = opts.test(properties);
+            }
+            if (testCount > 1) {
+                console.warn("PageMapping: ", pageMapping);
+                throw new Error(`Page Type Decorator options should only specify ONE of path, type, or test`);
+            } else if (testCount === 0) {
+                console.warn("PageMapping: ", pageMapping);
+                throw new Error(`Page Type decorator options must include a path, type, or test property`);
+            }
 
-                if (match) {
-                    loadPageType(name);
-                }
-            });
-        } catch (err) {
-            console.warn("An error occurred while decorating page by type");
-            console.error(err);
+            if (match) {
+                return loadPageType(name);
+            }
         }
-    });
+    } catch (err) {
+        console.warn("An error occurred while decorating page by type");
+        console.error(err);
+    }
 }

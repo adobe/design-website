@@ -236,7 +236,7 @@ async function decoratePage(win = window) {
     decorateBackground();
     decorateHeader();
     if ($main) {
-      runPageTypeDecorators();
+      await runPageTypeDecorators();
       decorateMain($main);
       doc.querySelector('body').classList.add('appear');
       setLCPTrigger(doc, async () => {

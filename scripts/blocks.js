@@ -1,3 +1,4 @@
+import { $element } from "./helpers.js";
 import { loadCSS } from "./importer.js";
 
 const BlockDecorationLimits = {
@@ -115,4 +116,16 @@ export function readBlockConfig($block) {
         }
     });
     return config;
+}
+
+
+export function insertBlockSeed(name, options) {
+    const {section} = Object.assign({}, {
+        section: document.querySelector('main > div'),
+    }, options || {});
+
+    var $seed = $element(`.${name}`);
+
+    section.appendChild($seed);
+    return $seed;
 }
