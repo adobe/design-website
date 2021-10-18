@@ -10,7 +10,6 @@ export async function lookupAuthor(name) {
         }
         const bio = await res.text();
 
-
         return {
             bio,
             name: 'John Doe',
