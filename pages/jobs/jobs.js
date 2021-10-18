@@ -73,6 +73,13 @@ export default function decorate($main) {
         link: "/"
       },
       {
+        title: "Sr Experience Designer",
+        location: "San Francisco",
+        what: "Acrobat | Permanent",
+        section: "Experience Design",
+        link: "/"
+      },
+      {
         title: "Sr Content Strategist",
         location: "Los Angeles",
         what: "Acrobat | Permanent",
@@ -108,12 +115,13 @@ export default function decorate($main) {
         link: "/"
       }
     ]
-
-    var jobCategories = jobsBlockContainer.querySelectorAll(".job-listings").forEach(element=>{
-      element.innerHTML = ""
-      console.log(element.parentElement.id.replaceAll('-', ' '))
+    jobsBlockContainer.querySelectorAll(".job-listings").forEach(element=>{
+      element.remove()
+    })
+    
+    jobsBlockContainer.querySelectorAll(".job-category").forEach(element=>{
       dummyJobs.forEach(job=>{
-        if((element.parentElement.id.replaceAll('-', ' ').includes(job.section.toLowerCase())))
+        if((element.id.replaceAll('-', ' ').includes(job.section.toLowerCase())))
           element.append(buildJobListings(job))
       })
     })
