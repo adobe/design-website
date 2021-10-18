@@ -24,6 +24,9 @@ export function addPageTypeDecorator( name, options ) {
         console.log(`failed to load module for page type: ${name}`);
         console.error(err);
     }
+    const pageTypeClass = `page-type-${name}`;
+    document.body.classList.add(pageTypeClass);
+    // applyPathClassesToPage({ name: properties.name });
     loadCSS(`/pages/${name}/${name}.css`);
 }
 

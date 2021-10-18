@@ -237,11 +237,11 @@ async function decoratePage(win = window) {
     decorateHeader();
     if ($main) {
       decorateMain($main);
-      await runPageTypeDecorators();
       doc.querySelector('body').classList.add('appear');
       setLCPTrigger(doc, async () => {
         // post LCP actions go here
         await loadBlocks($main);
+        runPageTypeDecorators();
         loadCSS('/styles/lazy-styles.css');
         addFavIcon('/favicon.svg');
         pageDoneLoading();
