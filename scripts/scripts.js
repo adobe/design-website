@@ -177,6 +177,7 @@ export function normalizeHeadings($elem, allowedHeadings) {
  * @param {Element} $main The main element
  */
 export function decorateMain($main) {
+  wrapSections($main.querySelectorAll(':scope > div'));
   checkWebpFeature(() => {
     webpPolyfill($main);
   });
@@ -235,9 +236,8 @@ async function decoratePage(win = window) {
     decorateBackground();
     decorateHeader();
     if ($main) {
-      wrapSections($main.querySelectorAll(':scope > div'));
-      await runPageTypeDecorators();
       decorateMain($main);
+      await runPageTypeDecorators();
       doc.querySelector('body').classList.add('appear');
       setLCPTrigger(doc, async () => {
         // post LCP actions go here
