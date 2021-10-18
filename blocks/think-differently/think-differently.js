@@ -1,4 +1,4 @@
-import {$element} from "../../scripts/helpers.js";
+import {$element, $scrollAnimation } from "../../scripts/helpers.js";
 
 export default function decorate($block){
     const thinkAboutContent = $block.querySelector("div:first-child > div:first-child")
@@ -11,4 +11,13 @@ export default function decorate($block){
     })
     thinkAboutContent.append($element(".think-differently-slash.slash-1"))
     thinkAboutContent.append($element(".think-differently-slash.slash-2"))
+    
+    $block.classList.add("js-scroll", "fade-in-right")
+    document.querySelectorAll(".think-differently-content > *").forEach((article, index) => {
+      if(index > 1){
+        article.classList.add("js-scroll", "fade-in-right")
+      }
+    })
+    
+    $scrollAnimation();
 }
