@@ -15,6 +15,8 @@ export default function decorate($main) {
 
 async function buildAuthorBio() {
   const author = await lookupAuthor("Test");
+  const $bio = $element("p");
+  $bio.innerHTML = author.bio;
   document.body.insertBefore($element('.author-bio.block', [
     $element("div", [
       $element('author-name', [
@@ -27,7 +29,7 @@ async function buildAuthorBio() {
       ]),
       $element('author-info', [
         $element("strong", "Author Bio"),
-        $element("p", author.bio)
+        $bio,
       ]),
     ]),
   ]), document.querySelector("#global-footer"));
