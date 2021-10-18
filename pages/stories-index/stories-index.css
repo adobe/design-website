@@ -28,7 +28,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background: white;
+    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 120px,rgba(255,255,255, 1) 120px);
     padding: 0px 30px;
     box-sizing: border-box;
 }
@@ -89,4 +89,33 @@ div.stories > div > a > .story-text > .position{
 
 div.stories > div >  .link{
     text-decoration: none;
+}
+
+@media screen and (max-width: 700px){
+    .page-type-index .stories {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: space-between;
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 120px,rgba(255,255,255, 1) 120px);
+        width: 100vw;
+        padding: unset;
+        box-sizing: border-box;
+    }
+    .block.story {
+        background: white;
+        width: 100%;
+        
+    }
+
+    .stories-index-view{
+        margin-left: unset !important;
+        margin-right: unset !important;
+    }
+    .page-type-index h1 {
+        color: white;
+        font-size: clamp(1em, 3vw, 1.5em);
+        font-weight: 200;
+        padding-left: .5em;
+    }
 }
