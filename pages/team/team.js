@@ -95,8 +95,6 @@ export default function decorate($main) {
         teamCardsDiv.append(teamCard)
         teamCard = $element(".team-card");
         teamCard.classList.add("card-"+card)
-        teamCard.classList.add("js-scroll")
-        teamCard.classList.add("fade-in")
         leftBlock = document.createElement("div");
         rightBlock = document.createElement("div");
       }
