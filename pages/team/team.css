@@ -4,7 +4,10 @@
     margin-left:auto;
     margin-right:auto;
 }
-
+img {
+    width: 75%;
+    padding-left: 3em;
+}
 .page-type-team .teams *{
     font-weight: var(--weight-light);
 }
@@ -36,7 +39,7 @@
 
 .page-type-team .head-content .head-text{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 30% 50%;
 }
 
 .page-type-team .head-content .head-text p{
@@ -49,6 +52,9 @@
     color: var(--bkg-red);
 }
 
+.page-type-team .head-content h2 {
+    margin-top: 3em;
+}
 /*
     Team Card content
 */
