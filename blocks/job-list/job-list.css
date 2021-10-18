@@ -23,11 +23,13 @@
     box-sizing: border-box;
 }
 
-#join-us{
+.joinus{
     color: red;
     width: 100%;
-    font-size: 9em;
-    font-weight: 300;
+    font-size: 7em;
+    font-weight: lighter;
+    line-height: 1em;
+    padding-left: 50px;
 }
 
 .job-list.block p{
