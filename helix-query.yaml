@@ -9,6 +9,10 @@ indices:
       - '/toolkit/**'
     target: https://adobe.sharepoint.com/sites/Adobe.design/Shared%20Documents/website/query-index.xlsx
     properties:
+      inlineTitle:
+        select: main > div > h1:first-child
+        value: |
+          el.innerText
       title:
         select: head > meta[property="og:title"]
         value: |
