@@ -54,7 +54,41 @@
 }
 .page-type-jobs .jobs-container .job-category h2{
     font-size: 2rem;
+    padding-bottom: 2rem;
 }
+
+.page-type-jobs .jobs-container .job-category .job-listings{
+    
+    border-bottom: 2px white solid
+}
+
+.page-type-jobs .jobs-container .job-category .job-listings a{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+
+    color: white;
+    text-decoration: none;
+}
+
+.page-type-jobs .jobs-container .job-category .job-listings a .job-title{
+    font-size: 1rem;
+    grid-area: 1/1/3/2;
+}
+.page-type-jobs .jobs-container .job-category .job-listings a .job-whatchamacallit{
+    grid-area: 4/1/5/2
+}
+.page-type-jobs .jobs-container .job-category .job-listings a .job-section{
+    grid-area: 1/2/2/3;
+    justify-self: right;
+}
+.page-type-jobs .jobs-container .job-category .job-listings a .job-location{
+    grid-area: 3/2/4/3;
+    justify-self: right;
+}
+
+
+
 
 @media (max-width: 700px){
     .page-type-jobs .jobs-container{
