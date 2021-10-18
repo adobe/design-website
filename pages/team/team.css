@@ -177,39 +177,51 @@
     width: 70%;
 }
 
+
+
 .page-type-team .foot-content .resources-section .resources{
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
+    height: 333px;
 }
 
 .page-type-team .foot-content .resources-section .resources .resource{
-    display:grid;
-    grid-template-rows: 60% 24% 16%;
-    height: 300px;
-    background: var(--bkg-red);
-    width: fit-content;
-    flex-basis: 0;
-    flex-grow: 1;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
+    width: 32.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
-.page-type-team .foot-content .resources-section .resources .resource:last-child{
-    margin-right: 0px;
+.resource-logo{
+    height: 95px;
+    width: 85px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
-
-.page-type-team .foot-content .resources-section .resources .resource p:first-child{
-    grid-row: 2/3;
-    padding-left: 2rem;
-    font-size: 1.5rem;
-}
-
 .page-type-team .foot-content .resources-section .resources .resource a{
     color: white;
     text-decoration: none;
+    font-size: 24px;
 }
-
+.page-type-team .foot-content .resources-section .resources .resource .learn-more-button {
+    color: white;
+    font-size: 14px;
+    width: fit-content;
+    padding-bottom:2px;
+    box-sizing: border-box;
+    border-bottom: 3px solid white;
+}
+.resource-bottom-container{
+    background: var(--bkg-red);
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
 @media (max-width: 700px){
     .page-type-team .team-cards .team-card h3{
         padding-left: 15%;

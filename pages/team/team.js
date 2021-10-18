@@ -1,4 +1,4 @@
-import {$wrap, $element, $remainder} from "../../scripts/helpers.js";
+import {$wrap, $element, $scrollAnimation} from "../../scripts/helpers.js";
 
 export default function decorate($main) {
     var team = document.querySelector("body > main");
@@ -30,7 +30,6 @@ export default function decorate($main) {
     const endDiv = $element(".foot-content")
 
     let pageSection = 0;
-    console.log(content.querySelectorAll(":scope > *"))
     content.querySelectorAll(":scope > *").forEach(element =>{
       switch(pageSection){
         case 0:
@@ -56,7 +55,6 @@ export default function decorate($main) {
           }
           pageSection++
         case 4:{
-          console.log(element)
           endDiv.appendChild(element)
           break;
         }
@@ -79,6 +77,9 @@ export default function decorate($main) {
         element.classList.add("title")
       }
     })
+    let animateWhatWeDo = document.getElementById("what-we-do");
+    animateWhatWeDo.classList.add("js-scroll")
+    animateWhatWeDo.classList.add("fade-in-right")
     firstElement.insertAdjacentElement('afterend', shiftedContent)
 
     //Oranizing individual teams cards
@@ -94,6 +95,8 @@ export default function decorate($main) {
         teamCardsDiv.append(teamCard)
         teamCard = $element(".team-card");
         teamCard.classList.add("card-"+card)
+        teamCard.classList.add("js-scroll")
+        teamCard.classList.add("fade-in")
         leftBlock = document.createElement("div");
         rightBlock = document.createElement("div");
       }
@@ -115,19 +118,45 @@ export default function decorate($main) {
     const resources = $element(".resources");
 
     let section = 0;
+    let imgCount = 1;
 
     endDiv.querySelectorAll("div>*").forEach(element =>{
       if(element.nodeName === "H2" || element.nodeName ==="DIV")
         section++
-      console.log(element.innerHTML)
-
-      if(section === 1){
+        
+        if(section === 1){
+        console.log(element.nodeName)
         if(element.nodeName === "H2"){
+          element.classList.add("js-scroll")
+          element.classList.add("fade-in-right")
           resourcesDiv.append(element)
+          
           resourcesDiv.append(resources)
         }else if(element.nodeName === "P"){
           let resource = $element(".resource");
-          resource.append(element)
+          let learnMore = $element(".learn-more-button");
+          learnMore.innerHTML = "LEARN MORE";
+          let spacer = $element(".spacer")
+          let resourceBottom = $element(".resource-bottom-container");
+          resourceBottom.append(element);
+          resourceBottom.append(learnMore);
+          let resourceLogo = $element(".resource-logo");
+          resourceLogo.style.backgroundImage = `url(../../resources/product-logo-${imgCount}.png)`;
+          resource.append(spacer)
+          resource.append(resourceLogo)
+          resource.append(resourceBottom)
+          resource.style.backgroundImage = `url(../../resources/products-${imgCount}.png)`
+          resource.classList.add("js-scroll")
+          if(imgCount === 1){
+            resource.classList.add("fade-in-right")
+          } else if (imgCount === 2) {
+            resource.classList.add("fade-in-top")
+          } else {
+            resource.classList.add("fade-in-left")
+          }
+          imgCount++
+          resources.classList.add("js-scroll")
+          resources.classList.add("fade-in-top")
           resources.append(resource)
         }
       }
@@ -151,4 +180,5 @@ export default function decorate($main) {
         card.classList.remove("active")
       })
     }
+    $scrollAnimation();
 }

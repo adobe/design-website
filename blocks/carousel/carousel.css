@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 /* @import "../../resources/chevron-down.svg"; */
 .carousel {
     overflow: hidden;
@@ -58,14 +57,12 @@
     display: inline;
     font-weight: 600;
     font-size: 25px;
-    font-family: 'Adobe Clean','Roboto', sans-serif;
 }
 
 /* title styles */
 .carousel .carousel__item--visible h2 {
     color: #F0E8DD;
     font-size: clamp(2rem, 6vw, 5rem);
-    font-family: 'Adobe Clean','Roboto', sans-serif;
     margin-bottom: 40px;
     height: 3.3em;
     overflow: hidden;
@@ -74,7 +71,6 @@
 
 /* person styles */
 .carousel .carousel__item--visible p:last-child {
-    font-family: 'Adobe Clean','Roboto', sans-serif;
     color: #F0E8DD;
 }
 
