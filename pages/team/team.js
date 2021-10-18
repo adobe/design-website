@@ -2,6 +2,7 @@ import {$wrap, $element, $scrollAnimation} from "../../scripts/helpers.js";
 
 export default function decorate($main) {
     var team = document.querySelector("body > main");
+    var tagline = document.querySelector("body > main > div > div > h2:nth-child(6)")
     team.classList.add("teams")
     /* team.forEach(t => {
       if( t.querySelector("p") ) {
@@ -77,7 +78,7 @@ export default function decorate($main) {
         element.classList.add("title")
       }
     })
-    let animateWhatWeDo = document.getElementById("what-we-do");
+    let animateWhatWeDo = tagline
     animateWhatWeDo.classList.add("js-scroll", "fade-in-right")
     firstElement.insertAdjacentElement('afterend', shiftedContent)
 
