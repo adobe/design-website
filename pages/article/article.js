@@ -1,5 +1,5 @@
 import { lookupAuthor } from '../../scripts/authors.js';
-import { $element } from '../../scripts/helpers.js';
+import { $element, getMetadata } from '../../scripts/helpers.js';
 
 export default function decorate($main) {
     var paragraphs = document.querySelectorAll('body > main > div > div > p');
@@ -14,27 +14,38 @@ export default function decorate($main) {
 }
 
 async function buildAuthorBio() {
-  const author = await lookupAuthor("Test");
-  const $bio = $element("p");
-  $bio.innerHTML = author.bio;
-  document.body.insertBefore($element('.author-bio.block', [
-    $element("div", [
-      $element('author-name', [
-        $element('picture', [
-          $element('source', { attr: { media: '', srcset: author.image }}),
-          $element('img.author-image', { attr: { src: author.image } }),
-        ]),
-        $element('h2.name', author.name),
-        $element('h3.author-title', author.title),
-      ]),
-      $element('author-info', [
-        $element("strong", "Author Bio"),
-        $bio,
-      ]),
-    ]),
-  ]), document.querySelector("#global-footer"));
-}
+  const authorName = getMetadata('author');
+  const author = await lookupAuthor(authorName);
 
+  let $bioBlock;
+
+  if (author) {
+    const $bio = $element('p');
+    $bio.innerHTML = author.bio;
+
+    $bioBlock = $element('.author-bio.block', [
+      $element('div', [
+        $element('author-name', [
+          $element('picture', [
+            $element('source', { attr: { media: '', srcset: author.image }}),
+            $element('img.author-image', { attr: { src: author.image } }),
+          ]),
+          $element('h2.name', author.name),
+          $element('h3.author-title', author.title),
+        ]),
+        $element('.author-info', [
+          $element('strong', 'Author Bio'),
+          $bio,
+        ]),
+      ]),
+    ]);
+  } else {
+    $bioBlock = $element('.author-bio.block', [
+      $element(".not-found", `Author ${authorName} not found`),
+    ]);
+  }
+  document.body.insertBefore($bioBlock, document.querySelector('#global-footer'));
+}
 
 function moveHeaderContent() {
   const header = document.querySelector('.block.header');
