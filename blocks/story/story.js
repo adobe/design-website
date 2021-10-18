@@ -1,16 +1,17 @@
-import {$wrap, $element} from "../../scripts/helpers.js";
+import {$wrap, $element, decorateDivisions} from "../../scripts/helpers.js";
 
-export default function decorate($block) {
+
+
+
+export default async function decorate($block) {
+
 
     var mainContent = $block.querySelector(".section-wrapper > div");
-
-    document.querySelector("body > main > div > div > div.story.block > div:nth-child(2) > div").classList.add("story-text");
-    /**
-     * story.querySelector(".content > p:nth-child(4)").classList.add("people");
-     * story.querySelector(".content > p:nth-child(5)").classList.add("locations");
-     * story.querySelector(".content > p:nth-child(6)").classList.add("zones");
-     */
-    }
+    decorateDivisions($block, [
+        ".image",
+        ".story-text"
+    ]);
+}
 
     /**
      * var container = $wrap($element(".stories-stats"),

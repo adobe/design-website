@@ -5,7 +5,7 @@ export const PagePropertiesController = {
     setProperties(props) {
         if (props.type) {
             props.type = props.type.toLowerCase();
-        }        
+        }
         PagePropertiesController.properties = props;
         PagePropertiesController.ready = true;
 
@@ -19,7 +19,7 @@ export const PagePropertiesController = {
     },
 };
 
-export const resolvePageProperties = function resolvePageProperties(callback) {
+export function resolvePageProperties(callback) {
     if (PagePropertiesController.ready) {
         callback(PagePropertiesController.properties);
     } else {

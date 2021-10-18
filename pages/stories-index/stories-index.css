@@ -1,0 +1,37 @@
+/*
+ *   Copyright (c) 2021 Busy Human LLC
+ *   All rights reserved.
+ *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
+ */
+ .page-type-index .header {
+    font-size: 3em;
+    padding: 1em 0 2em 0;
+}
+
+.page-type-index h1 {
+    color: white;
+    font-size: clamp(1em, 3vw, 1.5em);
+    font-weight: 400;
+    padding-left: 3em;
+}
+.page-type-index main {
+    width: 98vw;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.think-differently > div > div > p:nth-child(5) {
+    text-align: center;
+}
+
+#think-about-design-differently {
+    font-weight: 300;
+}
+
+.page-type-index .stories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
