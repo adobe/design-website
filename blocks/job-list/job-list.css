@@ -32,6 +32,15 @@
     box-sizing: border-box;
 }
 
+.joinus{
+    color: red;
+    width: 100%;
+    font-size: 7em;
+    font-weight: lighter;
+    line-height: 1em;
+    padding-left: 50px;
+}
+
 .job-list.block p{
     font-size: 20px;
 }

@@ -21,7 +21,7 @@ export default function decorate($main) {
     If any of these change, this function will need to be updated
     */
 
-    var content = team.querySelector("div > div")
+    var content = team.querySelector(":scope > div:first-child > div:first-child")
 
     const titleDiv = $element(".title-content")
 
@@ -78,8 +78,7 @@ export default function decorate($main) {
       }
     })
     let animateWhatWeDo = document.getElementById("what-we-do");
-    animateWhatWeDo.classList.add("js-scroll")
-    animateWhatWeDo.classList.add("fade-in-right")
+    animateWhatWeDo.classList.add("js-scroll", "fade-in-right")
     firstElement.insertAdjacentElement('afterend', shiftedContent)
 
     //Oranizing individual teams cards
@@ -95,8 +94,6 @@ export default function decorate($main) {
         teamCardsDiv.append(teamCard)
         teamCard = $element(".team-card");
         teamCard.classList.add("card-"+card)
-        teamCard.classList.add("js-scroll")
-        teamCard.classList.add("fade-in")
         leftBlock = document.createElement("div");
         rightBlock = document.createElement("div");
       }
@@ -116,30 +113,31 @@ export default function decorate($main) {
     //Organize Foot content
     const resourcesDiv = $element(".resources-section");
     const resources = $element(".resources");
+    resources.classList.add("js-scroll", "fade-in-top")
 
     let section = 0;
     let imgCount = 1;
 
-    endDiv.querySelectorAll("div>*").forEach(element =>{
+    endDiv.querySelectorAll(":scope > *").forEach(element =>{
       if(element.nodeName === "H2" || element.nodeName ==="DIV")
         section++
         
-        if(section === 1){
-        console.log(element.nodeName)
+      if(section === 1){
         if(element.nodeName === "H2"){
-          element.classList.add("js-scroll")
-          element.classList.add("fade-in-right")
+          element.classList.add("js-scroll", "fade-in-right")
           resourcesDiv.append(element)
           
           resourcesDiv.append(resources)
         }else if(element.nodeName === "P"){
           let resource = $element(".resource");
+
           let learnMore = $element(".learn-more-button");
           learnMore.innerHTML = "LEARN MORE";
           let spacer = $element(".spacer")
           let resourceBottom = $element(".resource-bottom-container");
           resourceBottom.append(element);
           resourceBottom.append(learnMore);
+
           let resourceLogo = $element(".resource-logo");
           resourceLogo.style.backgroundImage = `url(../../resources/product-logo-${imgCount}.png)`;
           resource.append(spacer)
@@ -155,10 +153,10 @@ export default function decorate($main) {
             resource.classList.add("fade-in-left")
           }
           imgCount++
-          resources.classList.add("js-scroll")
-          resources.classList.add("fade-in-top")
           resources.append(resource)
         }
+      }else if(section === 2){
+        element.classList.add("js-scroll", "fade-in")
       }
     })
     endDiv.prepend(resourcesDiv)
