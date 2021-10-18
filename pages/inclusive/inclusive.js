@@ -23,7 +23,7 @@ export default function decorate($main) {
     
     // our collaborators
     // test is the elemet before so I can place the targeted element after 
-    var testTwo = inclusive.querySelector('body > main > div > div > div:nth-child(6)')
+    var testTwo = inclusive.querySelector('body > main > div > div > div:nth-child(5)')
     var ourCollaborators = inclusive.querySelector('#our-collaborators')
     var ourCollaboratorsP = inclusive.querySelector('#our-collaborators + p')
     var div = $element('.statementTwo')
@@ -33,7 +33,7 @@ export default function decorate($main) {
 
     // Adobe facilitators
     // test is the elemet before so I can place the targeted element after 
-    var testThree = inclusive.querySelector('body > main > div > div > div:nth-child(8)')
+    var testThree = inclusive.querySelector('body > main > div > div > div:nth-child(7)')
     var adobeFacilitators = inclusive.querySelector('#adobe-facilitators')
     var adobeFacilitatorsP = inclusive.querySelector('#adobe-facilitators + p')
     var div = $element('.statementThree')
