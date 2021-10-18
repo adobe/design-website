@@ -1,3 +1,4 @@
+import { lookupAuthor } from '../../scripts/authors.js';
 import { $element } from '../../scripts/helpers.js';
 
 export default function decorate($main) {
@@ -12,21 +13,21 @@ export default function decorate($main) {
     buildAuthorBio();
 }
 
-function buildAuthorBio() {
-  const authorImage = './media_16fd3a6e96f49f43ba7d3ced9ec935ed493b7a305.png?width=750&amp;format=webply&amp;optimize=medium';
+async function buildAuthorBio() {
+  const author = await lookupAuthor("Test");
   document.body.insertBefore($element('.author-bio.block', [
     $element("div", [
       $element('author-name', [
         $element('picture', [
-          $element('source', { attr: { media: '', srcset: authorImage }}),
-          $element('img.author-image', { attr: { src: authorImage } }),
+          $element('source', { attr: { media: '', srcset: author.image }}),
+          $element('img.author-image', { attr: { src: author.image } }),
         ]),
-        $element('h2.name', 'Matthew Carlson'),
-        $element('h3.author-title', 'Director of Examples'),
+        $element('h2.name', author.name),
+        $element('h3.author-title', author.title),
       ]),
       $element('author-info', [
         $element("strong", "Author Bio"),
-        $element("p", "Lorem Ipsum")
+        $element("p", author.bio)
       ]),
     ]),
   ]), document.querySelector("#global-footer"));
