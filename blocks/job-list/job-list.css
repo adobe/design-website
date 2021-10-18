@@ -5,6 +5,15 @@
     background-color: white;
     height: 33.33%;
     box-sizing: border-box;
+    color: red;
+    width: 100%;
+    font-size: 7em;
+    line-height: 1em;
+    padding-left: 50px;
+}
+
+.joinus h2 {
+    font-weight: var(--weight-light);
 }
 
 .job-list .single-job {
