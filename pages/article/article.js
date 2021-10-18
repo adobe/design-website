@@ -5,12 +5,12 @@ export default function decorate($main) {
         p.classList.add("article-picture");
       }
     });
-    moveHeaderContent();
+    // moveHeaderContent();
+    $main.querySelector(":scope > div > div").classList.add("content");
 }
 
 
 function moveHeaderContent() {
-  const page = document.querySelector(".block.page");
   const header = document.querySelector(".block.header");
   const section = document.querySelector(".section-wrapper");
   const container = document.querySelector(".section-wrapper div:first-child");
@@ -18,7 +18,7 @@ function moveHeaderContent() {
   section.insertBefore(newDiv, container);
 
   container.classList.add("content");
-  newDiv.appendChild(page);
+  // newDiv.appendChild(page);
   newDiv.appendChild(header);
 
   const picture = header.querySelector("picture");
