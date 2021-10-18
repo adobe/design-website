@@ -89,7 +89,7 @@ export default function decorate($main) {
     let leftBlock = document.createElement("div");
     let rightBlock = document.createElement("div");
 
-    teamCardsDiv.querySelectorAll("*").forEach(element =>{
+    teamCardsDiv.querySelectorAll(":scope > *").forEach(element =>{
       if(card !== 0 && element.nodeName === "H3"){
         teamCard = $wrap(teamCard, [leftBlock,rightBlock])
         teamCardsDiv.append(teamCard)
@@ -103,7 +103,10 @@ export default function decorate($main) {
         teamCard.append(element)
         card++
       }else if(element.nodeName ==="P")
-        rightBlock.append(element)
+        if(element.innerHTML.includes('picture'))
+          leftBlock.append(element)
+        else
+          rightBlock.append(element)
       else
         leftBlock.append(element)
 
