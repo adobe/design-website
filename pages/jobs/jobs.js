@@ -43,20 +43,24 @@ export default function decorate($main) {
 
     let listing = 0;
     jobsBlockContainer.querySelectorAll(":scope > *").forEach(element =>{
-      if(listing !== 0 && element.nodeName === "H2"){
-        jobCategory.append(jobListings)
-        jobsContainer.append(jobCategory)
-
-        jobCategory = $element(".job-category")
-        jobListings = $element(".job-listings")
-      }
-      
-      if(element.nodeName === "H2"){
-        jobCategory.id = element.id+"-block"
-        jobCategory.append(element)
+      if(listing !== 0){
+        if(listing !== 1 && element.nodeName === "H2"){
+          jobCategory.append(jobListings)
+          jobsContainer.append(jobCategory)
+  
+          jobCategory = $element(".job-category")
+          jobListings = $element(".job-listings")
+        }
+        
+        if(element.nodeName === "H2"){
+          jobCategory.id = element.id+"-block"
+          jobCategory.append(element)
+          listing++
+        }else
+          jobListings.append(element)
+      }else{
         listing++
-      }else
-        jobListings.append(element)
+      }
     })
 
     jobsBlockContainer.appendChild(jobsContainer)
