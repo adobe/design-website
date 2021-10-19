@@ -8,6 +8,7 @@ export default function decorate($main) {
         t.classList.add("article-picture");
       }
     });*/
+
     
 
     
@@ -15,33 +16,33 @@ export default function decorate($main) {
   
     // our mission
     // test is the element before so I can place the targeted element after
-    var test = inclusive.querySelector('#inclusive-design-at-adobe')
+    var placement = inclusive.querySelector('.inclusive-design h1')
     var mainImg = inclusive.querySelector('.main-img')
     var ourMission = inclusive.querySelector('#our-mission')
     var ourMissionP = inclusive.querySelector('#our-mission + p')
     var div = $element('.statement')
 
-    test.after(div)
+    placement.after(div)
     div.append(mainImg,ourMission, ourMissionP)
     
     // our collaborators
     // test is the element before so I can place the targeted element after 
-    var testTwo = inclusive.querySelector('.people.block')
+    var placement = inclusive.querySelector('.people.block')
     var ourCollaborators = inclusive.querySelector('#our-collaborators')
     var ourCollaboratorsP = inclusive.querySelector('#our-collaborators + p')
     var div = $element('.statementTwo')
 
-    testTwo.before(div)
+    placement.before(div)
     div.append(ourCollaborators, ourCollaboratorsP)    
 
     // Adobe facilitators
     // test is the element before so I can place the targeted element after 
-    var testThree = inclusive.querySelector('.people.block')
+    var placement = inclusive.querySelector('.people.block')
     var adobeFacilitators = inclusive.querySelector('#adobe-facilitators')
     var adobeFacilitatorsP = inclusive.querySelector('#adobe-facilitators + p')
     var div = $element('.statementThree')
 
-    testThree.after(div)
+    placement.after(div)
     div.append(adobeFacilitators, adobeFacilitatorsP)
 
     // Applies the person class to the cards in the people block

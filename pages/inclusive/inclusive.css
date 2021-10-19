@@ -5,6 +5,37 @@
     margin-right:auto;
 }
 
+body > main > div > div > p {
+    display: none;
+}
+
+.inclusive-design .tag-link {
+    display: none;
+}
+
+.inclusive-design .article-card.block .text .hed {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.inclusive-design .article-card.block .text .dek {
+    font-size: 1.25em;
+    font-weight: 300;
+    padding-top: 4em;
+    max-height: 10em;
+    margin-bottom: 0;
+    max-width: 90%;
+}
+
+.inclusive-design .article-card.block .text .byline {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.inclusive-design .article-card.block .text .byline .author {
+    font-weight: 300;
+}
+
 .inclusive-design h1{
     color: white;
     font-size: 3em;
@@ -33,13 +64,18 @@
     font-weight: 300;
 }
 
+body > main > div > div > p{
+    margin: 0;
+}
+
 #wed-like-to-share-what-weve-learned-with-you{
     background: white;
     color: red;
     font-size: 4em;
+    font-weight: 300;
     padding: 2em 2em;
-    margin: 0;
     text-align: center;
+    margin: 0;
 }
 .inclusive-design .article-card.block{
     margin-bottom: 0;
@@ -86,8 +122,8 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 
 /* Title of Person */
 .people > .person > div:nth-child(3) {
-    padding: 0 0 .5em 3em;
-    font-size: .5em;
+    padding: 0 0 .5em 2em;
+    font-size: .75em;
 }
 
 /* Fact about Person */
@@ -129,4 +165,96 @@ body > main > div > div > div:nth-child(10){
     display: grid;
     grid-template-columns: 33% 33% 33%;
     width: auto;
+}
+
+@media (min-width: 425px) and (max-width:768px){
+    .inclusive-design{
+        width: 90vw;
+        max-width:1000px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .inclusive-design h1{
+        padding: 5em .4em;
+    }
+    .inclusive-design .statement{
+        padding: 1em;
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 450px,rgba(224,72,39, 1) 450px);
+    }
+    #wed-like-to-share-what-weve-learned-with-you{
+        background: white;
+        color: red;
+        font-size: 3em;
+        font-weight: 400;
+        padding: 5em 3em;
+        text-align: center;
+        margin: 0;
+    }
+    .inclusive-design .statementTwo{
+        background: #F7EFFC;
+        padding: 5em 1em;
+        width: auto;
+        margin: 0;
+    }
+    .inclusive-design .people.block{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-items: center;
+        background: #F7EFFC;
+        padding: 0;
+        margin: 0;
+        width: auto;
+    }
+    .inclusive-design .statementThree{
+        background: #F7EFFC;
+        padding: 3em 1em;
+        width: auto;
+    }
+}
+@media (min-width: 320px) and (max-width:425px){
+    .inclusive-design{
+        width: 90vw;
+        max-width:1000px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .inclusive-design h1{
+        padding: 5em .4em;
+    }
+    .inclusive-design .statement{
+        padding: 1em;
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 250px,rgba(224,72,39, 1) 250px);
+    }
+    #wed-like-to-share-what-weve-learned-with-you{
+        background: white;
+        color: red;
+        font-size: 3em;
+        font-weight: 400;
+        padding: 2em .2em;
+        text-align: center;
+        margin: 0;
+    }
+    .inclusive-design .statementTwo{
+        background: #F7EFFC;
+        padding: 5em 1em;
+        width: auto;
+        margin: 0;
+    }
+    .inclusive-design .people.block{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        background: #F7EFFC;
+        padding: 0;
+        margin: 0;
+        width: auto;
+    }
+    .inclusive-design .people.block .person{
+        height: auto;
+    }
+    .inclusive-design .statementThree{
+        background: #F7EFFC;
+        padding: 3em 1em;
+        width: auto;
+    }
 }
