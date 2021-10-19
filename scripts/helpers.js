@@ -511,4 +511,24 @@ export function $scrollAnimation() {
 
 }
 
+/**
+ * Fetches a fragment based on its reliatve page url
+ * @param {*} relativePath
+ * @returns
+ */
+export async function fetchFragment( relativePath ) {
+    try {
+        const url = `${location.origin}/${relativePath}.plain.html`;
+        const res = await fetch(url);
+        if(!res.ok) {
+            throw new Error(`Failed to fetch fragment: ${url}`);
+        }
+        return await res.text();
+    } catch(err) {
+        console.warn(`Fragment not found ${relativePath}`);
+        console.error(err);
+        return err;
+    }
+}
+
 

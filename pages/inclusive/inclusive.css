@@ -5,6 +5,37 @@
     margin-right:auto;
 }
 
+body > main > div > div > p {
+    display: none;
+}
+
+.inclusive-design .tag-link {
+    display: none;
+}
+
+.inclusive-design .article-card.block .text .hed {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.inclusive-design .article-card.block .text .dek {
+    font-size: 1.25em;
+    font-weight: 300;
+    padding-top: 4em;
+    max-height: 10em;
+    margin-bottom: 0;
+    max-width: 90%;
+}
+
+.inclusive-design .article-card.block .text .byline {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.inclusive-design .article-card.block .text .byline .author {
+    font-weight: 300;
+}
+
 .inclusive-design h1{
     color: white;
     font-size: 3em;
@@ -76,22 +107,42 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 }
 .inclusive-design .people.block{
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 33.3% 33.3% 33.3%;
     background: #F7EFFC;
-    padding: 2em;
+    padding: 3.5em;
     margin: 0;
     width: auto;
-    
+}
+
+/* Name of person */
+.people > .person > div:nth-child(2) {
+    color: #574B77;
+    padding: .5em 0 5px 1em;
+    font-size: 1.5em;
+}
+
+/* Title of Person */
+.people > .person > div:nth-child(3) {
+    padding: 0 0 .5em 2em;
+    font-size: .75em;
+}
+
+/* Fact about Person */
+.people > .person > div:nth-child(4) {
+    color: #917496;
+    padding: 1em 0 3em 1.5em;
+    font-size: 1em;
+    width: 12em;
 }
 
 .inclusive-design .people.block img{
-    width: 100%;
+    width: 18em;
+    height: 18em;
     
 }
 .inclusive-design .person{
     margin: 0;
     background: none;
-    padding: .5em;
 }
 body > main > div > div > div:nth-child(17) > div:nth-child(2) > div:nth-child(1){
     margin: 1em;

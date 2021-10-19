@@ -46,7 +46,8 @@ export default function decorate($main) {
 
     // Applies the person class to the cards in the people block
     var peopleBlock = inclusive.querySelector('.people.block')
+    document.querySelector("body > main > div > div > div:nth-child(10) > div:nth-child(2)").classList.add('person')
     for(let i = 0; i < peopleBlock.childElementCount; i++){
-    peopleBlock.children[i].classList.add('person');
+      peopleBlock.children[i].classList.add('person');
   }
 }

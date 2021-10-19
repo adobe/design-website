@@ -1,0 +1,45 @@
+/* variables for pull-quote block */
+main .pull-quote {
+    --color-quote: #367ea8;
+}
+
+@media (min-width: 700px) {
+    main .pull-quote {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+main .pull-quote > div {
+    border-left: 3px solid var(--color-quote);
+    margin: 48px 0;
+    padding: 16px 0 16px 2rem;
+}
+
+@media (min-width: 700px) {
+    main .pull-quote > div {
+        margin: 40px 0;
+    }
+}
+
+main .pull-quote p {
+    margin: 0;
+    padding: 0;
+}
+
+main .pull-quote img {
+    height: 96px;
+    width: 96px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-bottom: 40px;
+}
+
+main .pull-quote blockquote {
+    margin: 0 0 16px 0;
+    color: var(--color-quote);
+    font-weight: var(--heading-font-weight);
+    line-height: var(--heading-line-height);
+    font-size: var(--heading-font-size-l);
+}

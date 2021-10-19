@@ -1,5 +1,5 @@
 import { decorateDivisions, $element, getMetadata, $wrap } from "../../scripts/helpers.js";
-import addButton from "../../blocks/button/button.js";
+import addButton from "../button/button.js";
 
 /**
  * @param {HTMLElement} $block
