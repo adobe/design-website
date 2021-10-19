@@ -1,15 +1,27 @@
 @import url(../../blocks/job-posting-blocks/job-post-header.css);
+@import url(../../blocks/job-posting-blocks/about-adobe-design.css);
+@import url(../../blocks/job-posting-blocks/equal-opp-policy-stmnt.css);
 
 /* main > .job-post{
     font-size: 16px;
     font-weight: 1rem;
 } */
 
-.post-container{
-    display: grid;
+
+/* .post-container,
+.about-adobe-design{
     width: fit-content;
     max-width: 62.5em;
     margin: auto;
+} */
+
+
+
+.post-container{
+    width: fit-content;
+    max-width: 62.5em;
+    margin: auto;
+    display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: 50% 50%;
     background: var(--bkg-grey-lt);
