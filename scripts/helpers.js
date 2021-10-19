@@ -521,7 +521,7 @@ export async function fetchFragment( relativePath ) {
         const url = `${location.origin}/${relativePath}.plain.html`;
         const res = await fetch(url);
         if(!res.ok) {
-            throw new Error(`Failed to fetch ${url}`);
+            throw new Error(`Failed to fetch fragment: ${url}`);
         }
         return await res.text();
     } catch(err) {
