@@ -10,7 +10,7 @@ import {
   $wrap,
   getMetadata,
 } from "../../scripts/helpers.js";
-import makeHeaderBlock from "./job-info.js";
+import makeHeaderBlock from "../../blocks/job-posting-blocks/job-post-header.js";
 
 const bkg_grey_lt = '#E8E8E8',
       text_dark   = '#3E3E3E';
