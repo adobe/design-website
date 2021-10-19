@@ -5,7 +5,7 @@
 @import "global-footer.css";
 @import "./background.css";
 @import "../blocks/button/button.css";
-@import ".button.css";
+@import "./button.css";
 
 html, body{
     width: 100vw;
@@ -25,9 +25,10 @@ html{
         --bkg-orange:    #E94E27;
 
         /* Font Families */
-        --fast-sans-font: Helvetica, Arial, sans-serif;
-        --sarif-font: "Adobe Clean Serif", Georgia, serif;
-        --sans-font: "Adobe Clean", Helvetica, Arial, sans-serif;
+        --fast-sans-serif-font: Helvetica, Arial, sans-serif;
+
+        --serif-font: "Adobe Clean Serif", adobe-clean-serif, Georgia, serif;
+        --sans-serif-font: "Adobe Clean", adobe-clean, Helvetica, Arial, sans-serif;
 
         /* Font Weights */
         --weight-light:      200;  /* lighter,   100-300 */
@@ -45,7 +46,7 @@ body.loaded {
     background-repeat: no-repeat;
     background-size: cover;
     transition: all .4s ease-in-out;
-    font-family:  var(--sans-font);
+    font-family:  var(--sans-serif-font);
 }
 
 main > div > div > div:not(.full-bleed) {
@@ -66,8 +67,6 @@ main > div > div > div:not(.full-bleed) {
     color: #17212D;
     text-decoration: underline solid 4px #17212D;
     /* border-bottom: solid 4px#17212D; */
-    display: inline;
-    font-family: 'Adobe Clean','Roboto', sans-serif;
 }
 
 /* Header */
@@ -78,7 +77,7 @@ main > div > div > div:not(.full-bleed) {
 
 /* Subheader/ summary/ hook */
 .dek{
-    font-family: var(--sans-font);
+    font-family: var(--serif-font);
     font-size: 2em; /* 32px */
 }
 

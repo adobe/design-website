@@ -1,10 +1,23 @@
+
 body.job-post .header-block{
-    font-size: 16px;
     display: grid;
     max-width: 1000px;
     grid-template-columns: 50% 50%;
     gap: 0px;
     margin: auto;
+    position: relative;
+}
+body.job-post .header-block:after{
+    content: '';
+    height: 200%;
+    width: 50vw;
+    display: block;
+    position: absolute;
+    bottom:0px;
+    right:50%;
+    background-color: var(--bkg-navy-dark);
+    z-index: -1;
+
 }
 .job-post .header-block,
 .job-post .left,
@@ -21,7 +34,15 @@ body.job-post .header-block{
 .job-post .left{
     background-color: var(--bkg-navy-dark);
     background: var(--bkg-navy-dark);
+    display: grid;
+    grid-template-rows: 1fr 4em;
 }
+
+.job-post .left button.unfilled.reg{
+    width: max-content;
+}
+
+
 .job-post .right{
 
 }
@@ -50,7 +71,7 @@ body.job-post .header-block{
     font-size: 18px;
 }
 .job-post .dek{
-    font-family: var(--sarif-font);
-    font-weight: var(--weight-regular);
-    font-size: 2em; /* 32px */
+    /* font-family: var(--sarif-font); */
+    /* font-weight: var(--weight-regular); */
+    /* font-size: 2em; 32px */
 }

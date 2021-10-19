@@ -1,34 +1,28 @@
-html > body.job-post{
+@import url(../../blocks/job-posting-blocks/job-post-header.css);
+
+/* main > .job-post{
     font-size: 16px;
     font-weight: 1rem;
-    /* background:  var(--color-grey); */
-    /* background:  var(--bkg-navy-dark); */
-    /* background-color: var(--bkg-navy-dark); */
-    /* background-image: none; */
-    background-color: none;
-}
-body.job-post header#global-header {
-    background-color: var(--bkg-navy-dark);
-}
-body.job-post main {
-    background-color: var(--bkg-grey-lt);
-}
+} */
 
-.job-info-container{
+.post-container{
     display: grid;
     width: fit-content;
     max-width: 62.5em;
     margin: auto;
     grid-template-rows: auto 1fr;
     grid-template-columns: 50% 50%;
+    background: var(--bkg-grey-lt);
 }
 .header-block{
     grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
-/* .job-post main .section-wrapper.page-container.job-info-container.block-content{} */
-
 /*
+.job-post{grid}
 -------------------------------------------------------
 |  .header-block                                      |
 |  grid-column: 1 / span 2                            |
@@ -58,7 +52,7 @@ body.job-post main {
     grid-column: 2 / span 1;
     grid-row: 2;
     max-width: 31.25em; /* 250px */
-    padding: 0 2.5em; /* 40px */
+    padding: 0 2.5em 2.5em 2.5em; /* 40px */
 }
 
 .job-post .post-text h2,
@@ -87,6 +81,10 @@ body.job-post main {
 .job-post .hed{
     font-weight: var(--weight-black);
     font-size: 3.5em; /* 56px */
+}
+
+.job-post .post-text button.unfilled{
+    margin-top: 2em;
 }
 
 
