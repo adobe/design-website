@@ -84,7 +84,7 @@ export default function decorate($block) {
           slides[i].classList.remove('carousel__item--visible', "visible-animation-rev", "visible-animation");
           slides[i].classList.remove('opacity-zero');
         }, ANIMATION_TIME)
-
+        
       }
 
       if (i === slidePosition) {
@@ -177,6 +177,47 @@ export default function decorate($block) {
   }
 
   applySlide();
+
+
+  // if(myStr.innerText > 13){
+    //   myStr.innerText = myStr.innerText.substring(0,13) + '...'
+    // }
+    
+    
+    
+    // var carouselBlock = document.querySelector('.carousel.block')
+    // for( var num = 0; num < carouselBlock.childElementCount; num++){
+
+      
+    //   var myStr = document.querySelector('.carousel h2')
+
+    //   var test = carouselBlock.children[num].classList
+
+    //   console.log(test);
+
+    //   if(test.classList.contains('.carousel__item--visible')){
+    //     console.log('DOGGO');
+    //   }
+    //   if(myStr.innerText > 13){
+    //     myStr.innerText = myStr.innerText.substring(0,13) + '...'
+    //   }
+    // }
+
+    // var carouselItem = document.querySelectorAll('.carousel__item')
+    // console.log(carouselItem);
+    
+
+    var myStr = document.querySelectorAll('.carousel h2')
+    for(let dog = 0; dog < myStr.length; dog++){
+      if(myStr[dog].innerText.length > 15){
+        myStr[dog].innerText = myStr[dog].innerText.substring(0,15) + '...'
+      }
+      console.log(myStr[dog].innerText);
+
+    }
+  
+
+
 }
 
 function applyColor(slideIndex) {
