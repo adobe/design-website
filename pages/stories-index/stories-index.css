@@ -1,8 +1,3 @@
-/*
- *   Copyright (c) 2021 Busy Human LLC
- *   All rights reserved.
- *   This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by the license agreement.
- */
  .page-type-index .header {
     font-size: 3em;
     padding: 1em 0 2em 0;
@@ -11,7 +6,7 @@
 .page-type-index h1 {
     color: white;
     font-size: clamp(1em, 3vw, 1.5em);
-    font-weight: 400;
+    font-weight: 200;
     padding-left: 3em;
 }
 .page-type-index main {
@@ -30,8 +25,97 @@
 }
 
 .page-type-index .stories {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 120px,rgba(255,255,255, 1) 120px);
+    padding: 0px 30px;
+    box-sizing: border-box;
+}
+
+
+.block.story {
+    background: white;
+    width: 49%;
+}
+
+
+.block.story .image picture img {
+    width:100%;
+    height:auto;
+}
+
+.block.story .image {
+    position: relative;
+    min-height: 300px;
+}
+.block.story .image p{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin: unset;
+    /* text-decoration: underline 2px;
+    text-underline-offset: 3px; */
+    
+    color: black;
+}
+div.stories > div > a > .story-text > * {
+    padding-left: 30px;
+    color: black;
+    text-decoration: none;
+    margin: unset;
+}
+div.stories > div > a > .story-text > .story-header{
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 4px;
+    margin-top: 6px;
+}
+div.stories > div > a > .story-text > h3{
+    font-weight: 400;
+    font-size: 17px;
+    margin-top: 3px;
+    margin-bottom: 16px;
+
+}
+div.stories > div > a > .story-text > .author{
+    font-weight: 600;
+
+}
+div.stories > div > a > .story-text > .position{
+    margin-bottom: 20px;
+
+}
+
+div.stories > div >  .link{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 700px){
+    .page-type-index .stories {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: space-between;
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 120px,rgba(255,255,255, 1) 120px);
+        width: 100vw;
+        padding: unset;
+        box-sizing: border-box;
+    }
+    .block.story {
+        background: white;
+        width: 100%;
+        
+    }
+
+    .stories-index-view{
+        margin-left: unset !important;
+        margin-right: unset !important;
+    }
+    .page-type-index h1 {
+        color: white;
+        font-size: clamp(1em, 3vw, 1.5em);
+        font-weight: 200;
+        padding-left: .5em;
+    }
 }

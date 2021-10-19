@@ -7,22 +7,30 @@
 
 .inclusive-design h1{
     color: white;
-    background: #360D5A;
     font-size: 3em;
-    padding: 5em;
-    padding-right: 10em;
+    margin-bottom: 0;
+    padding: 2em 8em 7em 1.4em ;
     text-align: left;
 } 
-body > main > div > div > p:nth-child(4){
-    color: white;
-    background: #E04827;
-    font-size: 2em;
-    padding: 4em 4em;
-    margin-bottom: 0;
-}
 
-#our-mission{
+.inclusive-design .statement{
+    padding: 4em;
+    background: #E04827;
+    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 650px,rgba(224,72,39, 1) 650px);
+    width: auto;
+}
+.inclusive-design .statement img{
+    width: 100%;
+    background: white;
+}
+.inclusive-design .statement h2{
+    margin: 0;
+    margin-top: 5em;
+}
+.inclusive-design .statement p{
     color: white;
+    font-size: 3em;
+    font-weight: 300;
 }
 
 #wed-like-to-share-what-weve-learned-with-you{
@@ -36,19 +44,37 @@ body > main > div > div > p:nth-child(4){
 .inclusive-design .article-card.block{
     margin-bottom: 0;
 }
-#our-collaborators{
-    color: black;
+.inclusive-design .statementTwo{
     background: #F7EFFC;
-    text-align: center;
-    font-size: 2em;
-    padding: 5em 5em;
-    text-align: left;
+    padding: 5em 15em;
+    width: auto;
+    margin: 0;
 }
-
+.inclusive-design .statementTwo h2{
+    padding-top: 5em;
+    padding-bottom: 2em;
+    margin: 0;
+}
+.inclusive-design .statementTwo p{
+    font-size: 3em;
+    font-weight: 400;
+    margin: 0;
+}
+body > main > div > div > div:nth-child(5) > div > div.text{
+    color: white;
+    background: #360D5A;
+}
+body > main > div > div > div:nth-child(6) > div > div.text{
+    color: white;
+    background: #E91D25;
+}
 .inclusive-design .people.block{
     display: grid;
     grid-template-columns: auto auto auto;
     background: #F7EFFC;
+    padding: 2em;
+    margin: 0;
+    width: auto;
     
 }
 
@@ -59,7 +85,28 @@ body > main > div > div > p:nth-child(4){
 .inclusive-design .person{
     margin: 0;
     background: none;
+    padding: .5em;
 }
 body > main > div > div > div:nth-child(17) > div:nth-child(2) > div:nth-child(1){
     margin: 1em;
+}
+
+.inclusive-design .statementThree{
+    background: #F7EFFC;
+    padding: 3em 10em;
+    width: auto;
+}
+.inclusive-design .statementThree h2{
+    margin: 0;
+    padding-bottom: 2em;
+}
+.inclusive-design .statementThree p{
+    margin: 0;
+    font-size: 3em;
+}
+
+body > main > div > div > div:nth-child(10){
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: auto;
 }

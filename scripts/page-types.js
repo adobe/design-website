@@ -1,7 +1,7 @@
 import { addPageTypeDecorator } from "./page-type-decorator.js";
 
 export default function registerPageTypes() {
-    addPageTypeDecorator("home", { type: "home" });
+    addPageTypeDecorator("home", { path: "/" });
     addPageTypeDecorator("toolkit", { path: "/toolkit" });
     addPageTypeDecorator("inclusive", { path: "/toolkit/*" });
     addPageTypeDecorator("jobs", { path: "/jobs" });
