@@ -8,6 +8,7 @@ export default function decorate($main) {
         t.classList.add("article-picture");
       }
     });*/
+
     
 
     
@@ -15,7 +16,7 @@ export default function decorate($main) {
   
     // our mission
     // test is the element before so I can place the targeted element after
-    var placement = inclusive.querySelector('#inclusive-design-at-adobe')
+    var placement = inclusive.querySelector('.inclusive-design h1')
     var mainImg = inclusive.querySelector('.main-img')
     var ourMission = inclusive.querySelector('#our-mission')
     var ourMissionP = inclusive.querySelector('#our-mission + p')
