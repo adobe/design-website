@@ -10,6 +10,14 @@
     margin-left:auto;
     margin-right:auto;
 }
+/* Used in Job Posting pages */
+#global-header.split{
+    background-color: transparent;
+    background: transparent;
+}
+#global-header.split nav a{
+    color: var(--text-dark)
+}
 
 #global-header .tagline {
     margin-left: 5em;

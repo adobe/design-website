@@ -76,6 +76,7 @@ function applyPageBackground() {
 }
 
 export function decorateBackground() {
+    window.location.pathname.includes('jobs/')
     if ( !Background.$container ) {
         Background.$fade1 = $element(".background-fade.fade1");
         Background.$fade2 = $element(".background-fade.fade2");
