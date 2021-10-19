@@ -5,6 +5,37 @@
     margin-right:auto;
 }
 
+body > main > div > div > p {
+    display: none;
+}
+
+.inclusive-design .tag-link {
+    display: none;
+}
+
+.inclusive-design .article-card.block .text .hed {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.inclusive-design .article-card.block .text .dek {
+    font-size: 1.25em;
+    font-weight: 300;
+    padding-top: 4em;
+    max-height: 10em;
+    margin-bottom: 0;
+    max-width: 90%;
+}
+
+.inclusive-design .article-card.block .text .byline {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.inclusive-design .article-card.block .text .byline .author {
+    font-weight: 300;
+}
+
 .inclusive-design h1{
     color: white;
     font-size: 3em;
@@ -86,8 +117,8 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 
 /* Title of Person */
 .people > .person > div:nth-child(3) {
-    padding: 0 0 .5em 3em;
-    font-size: .5em;
+    padding: 0 0 .5em 2em;
+    font-size: .75em;
 }
 
 /* Fact about Person */
