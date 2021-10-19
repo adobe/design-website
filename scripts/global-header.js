@@ -7,7 +7,7 @@ export default function decorate(win = window) {
   $header.id = "global-header";
   if ($header) {
     let headerImage = useBlackHeader?'/resources/adobe-design.png':'./media_1d3601e007f7c9b5cb83303a390ca0e7fec040eef.png'
-    let colorClass = useBlackHeader?'black':''
+    let colorClass = useBlackHeader?'black':'';
     $header.innerHTML = 
     '<div>                \
       <div class="logo">  \
