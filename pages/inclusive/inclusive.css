@@ -33,13 +33,19 @@
     font-weight: 300;
 }
 
+body > main > div > div > p{
+    margin: 0;
+}
+
 #wed-like-to-share-what-weve-learned-with-you{
     background: white;
     color: red;
     font-size: 4em;
+    font-weight: 300;
     padding: 2em 2em;
-    margin: 0;
     text-align: center;
+    margin: 0;
+
 }
 .inclusive-design .article-card.block{
     margin-bottom: 0;
