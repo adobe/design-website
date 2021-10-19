@@ -70,7 +70,7 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 }
 .inclusive-design .people.block{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 33.3% 33.3% 33.3%;
     background: #F7EFFC;
     padding: 2em;
     margin: 0;
