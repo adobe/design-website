@@ -72,20 +72,40 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     display: grid;
     grid-template-columns: 33.3% 33.3% 33.3%;
     background: #F7EFFC;
-    padding: 2em;
+    padding: 3.5em;
     margin: 0;
     width: auto;
-    
+}
+
+/* Name of person */
+.people > .person > div:nth-child(2) {
+    color: #574B77;
+    padding: .5em 0 5px 1em;
+    font-size: 1.5em;
+}
+
+/* Title of Person */
+.people > .person > div:nth-child(3) {
+    padding: 0 0 .5em 3em;
+    font-size: .5em;
+}
+
+/* Fact about Person */
+.people > .person > div:nth-child(4) {
+    color: #917496;
+    padding: 1em 0 3em 1.5em;
+    font-size: 1em;
+    width: 12em;
 }
 
 .inclusive-design .people.block img{
-    width: 100%;
+    width: 18em;
+    height: 18em;
     
 }
 .inclusive-design .person{
     margin: 0;
     background: none;
-    padding: .5em;
 }
 body > main > div > div > div:nth-child(17) > div:nth-child(2) > div:nth-child(1){
     margin: 1em;
