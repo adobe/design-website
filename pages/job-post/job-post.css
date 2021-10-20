@@ -1,6 +1,8 @@
 @import url(../../blocks/job-posting-blocks/job-post-header.css);
 @import url(../../blocks/job-posting-blocks/about-adobe-design.css);
 @import url(../../blocks/job-posting-blocks/equal-opp-policy-stmnt.css);
+@import url(../../blocks/job-posting-blocks/similar-opportunities.css);
+@import url(../../blocks/job-posting-blocks/rec-articles.css);
 
 /* main > .job-post{
     font-size: 16px;
@@ -15,6 +17,9 @@
     margin: auto;
 } */
 
+body.job-post main {
+    display: grid;
+}
 
 
 .post-container{
@@ -24,7 +29,6 @@
     display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: 50% 50%;
-    background: var(--bkg-grey-lt);
 }
 .header-block{
     grid-column: 1 / span 2;
@@ -59,6 +63,12 @@
 |       .eo-stmt-text                                 |
 -------------------------------------------------------
 */
+
+.job-post .left-block,
+.job-post .post-text {
+    background: var(--bkg-grey-lt);
+    border: 1px solid var(--bkg-grey-lt);
+}
 
 .job-post .post-text{
     grid-column: 2 / span 1;

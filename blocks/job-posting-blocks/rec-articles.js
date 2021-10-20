@@ -4,7 +4,7 @@ import addButton from "../button/button.js";
 /**
  * @param {HTMLElement} $block
  */
-export default async function makeHeaderBlock($block) {
+export default async function makeRecArticlesBlock($block) {
     const $button_apply_now = addButton("Apply Now")
     const $dek              = $element(".dek", getMetadata('dek'));
     const $jobTitle         = $element("h1.hed.job-title", getMetadata('job-title'));
