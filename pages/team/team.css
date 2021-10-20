@@ -190,7 +190,7 @@
     display:flex;
     justify-content: space-between;
     width: 100%;
-    height: 333px;
+    
 }
 
 .page-type-team .foot-content .resources-section .resources .resource{
@@ -202,6 +202,7 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    height: 333px;
 }
 .resource-logo{
     height: 95px;
@@ -230,6 +231,41 @@
     box-sizing: border-box;
 }
 @media (max-width: 700px){
+    .page-type-team .title-content{
+        margin: 6rem 0 4rem 0;
+        padding-left: 2em;
+        width: 80%;
+    }
+
+    .page-type-team .title-content h1{
+        font-size: 3em;
+    }
+
+
+    .page-type-team .head-content{
+        padding: 2em;
+    }
+
+    .page-type-team .head-content .title{
+        font-size: 2em;
+    }
+
+    .page-type-team .head-content .head-text{
+        display:block;
+        padding-left:1em;
+        padding-top: 1em;
+    }
+
+    .page-type-team .head-content h2{
+        margin-top: 3em;
+    }
+
+    .page-type-team .head-content h2,
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 2.2em;
+    }
+
+
     .page-type-team .team-cards .team-card h3{
         padding-left: 15%;
         width: 80%;
@@ -245,10 +281,26 @@
 
     .page-type-team .team-cards .team-card{
         grid-template-columns: unset;
-        grid-template-rows: 0% 100%;
+        grid-template-rows: 100px 100%;
     }
 
-    .page-type-team .team-cards .team-card div{
-        padding-top: 7rem;
+    .page-type-team .team-cards .team-card div:last-child{
+        padding-top: 4rem;
+    }
+
+
+    .page-type-team .foot-content .resources-section h2{
+        width: 80%;
+    }
+
+    .page-type-team .foot-content .resources-section .resources{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page-type-team .foot-content .resources-section .resources .resource{
+        width: 90%;
+        height: 375px;
+        margin: 0.5em;
     }
 }
