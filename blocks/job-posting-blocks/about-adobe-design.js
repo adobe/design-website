@@ -1,33 +1,15 @@
+import { $element } from "../../scripts/helpers";
 /**
- * About Adobe Design
+ * About Adobe Design Block
+ * Creates the "About Adobe Design" block which appears at the bottom of job postings
+ * @returns {HTMLButtonElement} aboutContainer element
  */
-
-// let defaultAction = () => {
-//     console.log( "button.js: Button clicked, but no action set ")
-// }
-
-// /**
-//  * @param {String} [innerText]
-//  * @param {any} [action]
-//  * @param {Array<string> | string} [classList]
-//  * @param {string} [textColor] CSS available colors, ie: 'white', '#000', 'rgb(0,100,0)'
-//  * @returns {HTMLButtonElement} button
-//  */
-// export default function addButton(
-//     innerText = 'Missing Text',
-//     action = defaultAction,
-//     classList = 'unfilled',
-//     textColor = 'white',
-// ) {
-//     /** Normalize class list to be a string: */
-//     if(!!classList && typeof classList === 'array') classList.join(" ");
-
-//     let button = document.createElement("button");
-
-//     button.addEventListener("click", action)
-//     button.innerText = innerText;
-//     button.classList = classList += " reg";
-//     button.style= `--btn-color: ${textColor}; margin-left: .5em;`;
-
-//     return button;
-// }
+export default function makeAboutBlock( ) {
+    const $aboutAdobeDesign = $element("div#aboutAdobeDesign.aboutContainer");
+    $aboutAdobeDesign.innerHTML = '<h2 class="about">About Adobe Design\
+        </h2> \
+        <p  class="about">\
+        Adobe Design creates tools that amplify the world’s ability to create and communicate. We’re a global team of designers, researchers, prototypers, content strategists, program managers, and more who work across Adobe’s three product lines: Creative Cloud, Document Cloud, and Experience Cloud.\
+        </p>';
+    return $aboutAdobeDesign
+}

@@ -1,29 +1,27 @@
-.eq-op-policy-stmnt-container{
+.eq-op-policy-stmnt{
+    width: 100%;
     background: white;
     color: var(--text-dark);
-    width: 100%;
-    max-width: 1000px;
+}
+.eq-op-policy-stmnt > div{
+    font-size: 0.75em; /* 12px */
+    font-size: 12px;
+    padding: 8.75em 7.5em; /* 140px 120px */
+    box-sizing: border-box;
     height: fit-content;
-    font-size: 16px;
-    padding: 4em; /* 64px */
+    width: fit-content;
+    max-width: 1000px;
+    margin: auto;
 }
 
-.eq-op-policy-stmnt-container .stmnt-text{
-    font-size: 0.75em; /* 12px */
+.eq-op-policy-stmnt > div p{
+    font-size: 1em; /* 12px */
     line-height: 1.67em; /* = 20px; 12px based */
     margin-block: 1.5em; /* Should be 18px between paragraphs ( 12 * 1.5 = 18 ) */
 }
 
-@media screen and (max-width: 600px) {
-    .eq-op-policy-stmnt-container{
-        font-size: 12px;
-        padding: 2em; /* 24px */
-    }
-}
-
-@media screen and (min-width: 601px) and (max-width: 1200px) {
-    .eq-op-policy-stmnt-container{
-        font-size: 14px;
+@media screen and (max-width: 1200px) {
+    .eq-op-policy-stmnt > div{
         padding: 3em; /* 42px */
     }
 }

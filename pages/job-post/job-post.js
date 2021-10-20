@@ -1,97 +1,57 @@
 import addButton from "../../blocks/button/button.js";
 import { Background } from "../../scripts/background.js";
 import {
-  convertToBackground,
-  decorateLink,
-  decorateTagLink,
-  decorateDivisions,
-  wrapWithElement,
   $element,
-  $wrap,
   getMetadata,
 } from "../../scripts/helpers.js";
 import makeHeaderBlock from "../../blocks/job-posting-blocks/job-post-header.js";
+import { getJobsFragment } from "../../scripts/jobs-fragments.js";
 
-const bkg_grey_lt = '#E8E8E8',
-      text_dark   = '#3E3E3E';
+const bkg_grey_lt = '#E8E8E8';
+const text_dark   = '#3E3E3E';
 
 /**
  * @param {HTMLElement} $page
  */
 export default function decorate($page) {
+  /* Set Background Color */
   Background.setColor(getMetadata('color') || bkg_grey_lt);
 
-
+  /* Add classes and ids to container elements */
   document.querySelector("body").classList.add("job-post");
   document.querySelector("#global-header").classList.add("split");
-  // document.querySelector("main").classList.add("job-info-container");
-  // document.querySelector("div.section-wrapper > div").classList.add("post-text");
-
-
-  let postContainer  = document.querySelector("main > div")
+  let postContainer  = document.querySelector("main > div");
   postContainer.classList.add("post-container");
-  let postText  = document.querySelector(".post-container > div")
+  let postText  = document.querySelector(".post-container > div");
   postText.classList.add("post-text");
-  let suggestedArticles = $element("div.suggested-articles")
-  let leftBlock = $element("div.left-block",[$element("div.spacer"),suggestedArticles])
-  postContainer.prepend(leftBlock)
-  // postText.classList.add("post-text");
-  const $infoContainer = document.createElement("div").classList.add("job-info-container")
-  // $infoContainer.append(document.querySelector("div.post-text"))
 
-
-  // let $jobInfoContainer = $element("div.job-info-container", document.querySelector("body.job-post div.section-wrapper > div"))
-  //   document.querySelector("body.job-post div.section-wrapper > div").classList.add("job-info-container");
-  // let $jobPost =  $element("div.job-post", $jobInfoContainer)
-
-
-
-
-  /* Dark navy color: */
-    // Background.setColor( '#0B1C40' );
-  /* light grey color: */
-  // getMetadata('color')
-
+  /* Assemble the header block. It needs to be here else HTML will break */
   makeHeaderBlock($page);
+  /* Remove extra header if it exists */
   let title_h1 = document.querySelector("div.post-text > h1");
-  if(title_h1) {
-    title_h1.remove()
+  if(title_h1){ title_h1.remove() };
+
+
+  /* Add Spacer and suggested article blocks */
+  let suggestedArticles = $element("div.suggested-articles");
+  let leftBlock = $element("div.left-block",[
+    $element("div.spacer"),
+    suggestedArticles
+  ]);
+  postContainer.prepend(leftBlock);
+
+  /* Assemble "Apply Now" Button */
+  /* Declare the function for "onClick" action */
+  let buttonFunction = () => {
+    console.log(" Clicked Apply Now Button")
   };
-  let infoContainer = $wrap(postText, $element("div.job-info-container"))
-
-    /* Red color: */
-    // Background.setColor( '#E91D25' )
-
-
-  // let postText = document.querySelector(".job-info-container")
-  // document.querySelector(".header-block")
-
-  // let postText= document.querySelector(".job-info-container").lastChild;
-  // postText.classList.add("post-text");
-  // document.querySelector("div.post-text")
-  let leftSpacer = $element("div.left-spacer")
-
-  // const $aboutContainer = $element('div.about-container')
-
-  // postText.querySelectorAll('h6').forEach((tag) => {
-  //   tag.removeAttribute('id')
-  //   tag.classList.add('header-6')
-  //   // tag.appendTo($aboutContainer)
-  //   console.log( " TAG ", tag, "\n type: ", typeof tag)
-  // })
-  let buttonFunction = () => {console.log(" Clicked Apply Now Button")}
-  const $button_apply_now = addButton("Apply Now", buttonFunction, ['unfilled'], text_dark)
-  // $element("div.left", [$jobTitle, $button_apply_now]),
-
-  postText.append($button_apply_now)
+  const $button_apply_now = addButton("Apply Now", buttonFunction, ['unfilled'], text_dark);
+  /* Add button below suggested articles, for some reason?  */
+  postText.append($button_apply_now);
 
 
-  // const $about = $element('div.about-adobe-design', $aboutContainer)
 
-  // $wrap($about, postText)
-  // $about.appendTo(postText)
-
-  console.log( " POST TEXT ", postText, "\n postText: ", postText)
+    buildJobBlockFragments();
 
 
   // //----------//
@@ -109,10 +69,6 @@ export default function decorate($page) {
 //   20/35, adobe clean -- reg
 
 
-
-  // .nextSibling();
-  // postText.classList.add("post-text");
-
   /**
    * Element Constants:
    *
@@ -125,4 +81,37 @@ export default function decorate($page) {
    * $paragraph      : p          / basically just <p>
    * $paragraph.list
    */
+}
+
+
+
+
+async function buildJobBlockFragments() {
+
+  const aboutURL = 'about-adobe-design';
+  const eopsURL = 'equal-opportunity-policy-stmnt';
+
+  /* ----- About Adobe Design Element -----  */
+  /** Get "About Adobe Design" Fragment: */
+  const aboutInnerHTML = await getJobsFragment(aboutURL);
+
+  if(aboutInnerHTML){
+    let aboutElm = $element('div.about-adobe-design')
+    aboutElm.innerHTML = aboutInnerHTML;
+    document.querySelector("main").append(aboutElm)
+  } else {
+    console.log(`Cannot fetch ${aboutURL} fragment or fragment doesn't exist`)
+  };
+  /* ------ Equal Opportunities Policy ------- */
+  /** Get "Equal Opportunity Policy" Fragment: */
+  const eopsInnerHtml  = await getJobsFragment(eopsURL);
+
+  if(eopsInnerHtml) {
+    let eqOpPolicy = $element('div.eq-op-policy-stmnt');
+    eqOpPolicy.innerHTML = eopsInnerHtml;
+    document.querySelector("main").append(eqOpPolicy);
+  } else {
+    console.log(`Cannot fetch ${eopsURL} fragment or fragment doesn't exist`)
+  };
+
 }
