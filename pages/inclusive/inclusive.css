@@ -167,6 +167,7 @@ body > main > div > div > div:nth-child(10){
     width: auto;
 }
 
+
 @media (min-width: 425px) and (max-width:768px){
     .inclusive-design{
         width: 90vw;
@@ -189,6 +190,12 @@ body > main > div > div > div:nth-child(10){
         padding: 5em 3em;
         text-align: center;
         margin: 0;
+    }
+    .inclusive-design .block-content .text{
+        font-size: 2em;
+    }
+    .inclusive-design .block-content .text .dek{
+        padding-top: 0;
     }
     .inclusive-design .statementTwo{
         background: #F7EFFC;

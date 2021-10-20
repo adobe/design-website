@@ -207,14 +207,24 @@ export default function decorate($block) {
     // console.log(carouselItem);
     
 
-    // var myStr = document.querySelectorAll('.carousel h2')
-    // for(let dog = 0; dog < myStr.length; dog++){
-    //   if(myStr[dog].innerText.length > 15){
-    //     myStr[dog].innerText = myStr[dog].innerText.substring(0,15) + '...'
-    //   }
-    //   console.log(myStr[dog].innerText);
+    var myStr = document.querySelectorAll('.carousel h2')
+    for(let dog = 0; dog < myStr.length; dog++){
+      if(myStr[dog].innerText.length > 20){
+        myStr[dog].innerText = myStr[dog].innerText.substring(0,20) + '...'
+      }
+      console.log(myStr[dog].innerText);
 
+    }
+
+
+
+    // let maxLength = 13
+    // let test = document.querySelector('.carousel__item--visible .number h2')
+    // if(test.innerText.length > maxLength){
+      
+    //   test.innerText = test.innerText.substring(0,maxLength) + '...'
     // }
+  
   
 
 
