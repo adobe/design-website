@@ -43,24 +43,35 @@ export default function decorate($main) {
 
     let listing = 0;
     jobsBlockContainer.querySelectorAll(":scope > *").forEach(element =>{
-      if(listing !== 0 && element.nodeName === "H2"){
-        jobCategory.append(jobListings)
-        jobsContainer.append(jobCategory)
-
-        jobCategory = $element(".job-category")
-        jobListings = $element(".job-listings")
-      }
-      
-      if(element.nodeName === "H2"){
-        jobCategory.id = element.id+"-block"
-        jobCategory.append(element)
+      if(listing !== 0){
+        if(listing !== 1 && element.nodeName === "H2"){
+          jobCategory.append(jobListings)
+          jobsContainer.append(jobCategory)
+  
+          jobCategory = $element(".job-category")
+          jobListings = $element(".job-listings")
+        }
+        
+        if(element.nodeName === "H2"){
+          jobCategory.id = element.id+"-block"
+          jobCategory.append(element)
+          listing++
+        }else
+          jobListings.append(element)
+      }else{
         listing++
-      }else
-        jobListings.append(element)
+      }
     })
 
     jobsBlockContainer.appendChild(jobsContainer)
     var dummyJobs = [
+      {
+        title: "Sr Experience Designer",
+        location: "San Francisco",
+        what: "Acrobat | Permanent",
+        section: "Experience Design",
+        link: "/"
+      },
       {
         title: "Sr Experience Designer",
         location: "San Francisco",
@@ -104,12 +115,13 @@ export default function decorate($main) {
         link: "/"
       }
     ]
-
-    var jobCategories = jobsBlockContainer.querySelectorAll(".job-listings").forEach(element=>{
-      element.innerHTML = ""
-      console.log(element.parentElement.id.replaceAll('-', ' '))
+    jobsBlockContainer.querySelectorAll(".job-listings").forEach(element=>{
+      element.remove()
+    })
+    
+    jobsBlockContainer.querySelectorAll(".job-category").forEach(element=>{
       dummyJobs.forEach(job=>{
-        if((element.parentElement.id.replaceAll('-', ' ').includes(job.section.toLowerCase())))
+        if((element.id.replaceAll('-', ' ').includes(job.section.toLowerCase())))
           element.append(buildJobListings(job))
       })
     })

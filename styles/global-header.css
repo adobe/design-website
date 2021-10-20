@@ -4,17 +4,31 @@
     align-items: center;
     padding:20px 0px;
     box-sizing: border-box;
-    color: #FFFFFF;
     width: 98vw;
     max-width:1000px;
     margin-left:auto;
     margin-right:auto;
 }
 
+#global-header .logo img{
+    height: 44px;
+}
+/* Used in Job Posting pages */
+#global-header.split{
+    background-color: transparent;
+    background: transparent;
+}
+#global-header.split nav a{
+    color: var(--text-dark)
+}
+
 #global-header .tagline {
     margin-left: 5em;
     color: #FFFFFF;
     width: 18vw;
+}
+#global-header .tagline.black {
+    color: var(--text-dark);
 }
 
 #global-header nav {
@@ -27,6 +41,9 @@
     box-sizing: border-box;
     color: #FFFFFF;
     text-decoration: none;
+}
+#global-header nav.black a {
+    color: var(--text-dark);
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 767px) {

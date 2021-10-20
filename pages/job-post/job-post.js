@@ -1,52 +1,57 @@
+import addButton from "../../blocks/button/button.js";
 import { Background } from "../../scripts/background.js";
 import {
-  convertToBackground,
-  decorateLink,
-  decorateTagLink,
-  decorateDivisions,
-  wrapWithElement,
   $element,
+  getMetadata,
 } from "../../scripts/helpers.js";
+import makeHeaderBlock from "../../blocks/job-posting-blocks/job-post-header.js";
+import { getJobsFragment } from "../../scripts/jobs-fragments.js";
+
+const bkg_grey_lt = '#E8E8E8';
+const text_dark   = '#3E3E3E';
 
 /**
- * @param {HTMLElement} $block
+ * @param {HTMLElement} $page
  */
-export default function decorate($block) {
+export default function decorate($page) {
+  /* Set Background Color */
+  Background.setColor(getMetadata('color') || bkg_grey_lt);
 
-  /** Get the properties and identify the blocks  */
-  // const result = decorateDivisions($block, {
-  //   image:      $div => $div.querySelector("picture"),
-  // });
-  // const props = result.properties;
-
-  /* Dark navy color: */
-    // Background.setColor( '#0B1C40' );
-  /* light grey color: */
-    // Background.setColor( '#E8E8E8' );
-    /* Red color: */
-    // Background.setColor( '#E91D25' )
-
+  /* Add classes and ids to container elements */
   document.querySelector("body").classList.add("job-post");
-  // let postText = document.querySelector(".job-info-container")
-  // document.querySelector(".header-block")
-
-  let postText= document.querySelector(".job-info-container").lastChild;
+  document.querySelector("#global-header").classList.add("split");
+  let postContainer  = document.querySelector("main > div");
+  postContainer.classList.add("post-container");
+  let postText  = document.querySelector(".post-container > div");
   postText.classList.add("post-text");
 
-  const $aboutContainer = $element('div.about-container')
+  /* Assemble the header block. It needs to be here else HTML will break */
+  makeHeaderBlock($page);
+  /* Remove extra header if it exists */
+  let title_h1 = document.querySelector("div.post-text > h1");
+  if(title_h1){ title_h1.remove() };
 
-  postText.querySelectorAll('h6').forEach((tag) => {
-    tag.removeAttribute('id')
-    tag.classList.add('header-6')
-    // tag.appendTo($aboutContainer)
-    console.log( " TAG ", tag, "\n type: ", typeof tag)
-  })
 
-  const $about = $element('div.about-adobe-design', $aboutContainer)
+  /* Add Spacer and suggested article blocks */
+  let suggestedArticles = $element("div.suggested-articles");
+  let leftBlock = $element("div.left-block",[
+    $element("div.spacer"),
+    suggestedArticles
+  ]);
+  postContainer.prepend(leftBlock);
 
-  $about.appendTo(postText)
+  /* Assemble "Apply Now" Button */
+  /* Declare the function for "onClick" action */
+  let buttonFunction = () => {
+    console.log(" Clicked Apply Now Button")
+  };
+  const $button_apply_now = addButton("Apply Now", buttonFunction, ['unfilled'], text_dark);
+  /* Add button below suggested articles, for some reason?  */
+  postText.append($button_apply_now);
 
-  console.log( " POST TEXT ", postText, "\n postText: ", postText)
+
+
+    buildJobBlockFragments();
 
 
   // //----------//
@@ -64,10 +69,6 @@ export default function decorate($block) {
 //   20/35, adobe clean -- reg
 
 
-
-  // .nextSibling();
-  // postText.classList.add("post-text");
-
   /**
    * Element Constants:
    *
@@ -80,4 +81,37 @@ export default function decorate($block) {
    * $paragraph      : p          / basically just <p>
    * $paragraph.list
    */
+}
+
+
+
+
+async function buildJobBlockFragments() {
+
+  const aboutURL = 'about-adobe-design';
+  const eopsURL = 'equal-opportunity-policy-stmnt';
+
+  /* ----- About Adobe Design Element -----  */
+  /** Get "About Adobe Design" Fragment: */
+  const aboutInnerHTML = await getJobsFragment(aboutURL);
+
+  if(aboutInnerHTML){
+    let aboutElm = $element('div.about-adobe-design')
+    aboutElm.innerHTML = aboutInnerHTML;
+    document.querySelector("main").append(aboutElm)
+  } else {
+    console.log(`Cannot fetch ${aboutURL} fragment or fragment doesn't exist`)
+  };
+  /* ------ Equal Opportunities Policy ------- */
+  /** Get "Equal Opportunity Policy" Fragment: */
+  const eopsInnerHtml  = await getJobsFragment(eopsURL);
+
+  if(eopsInnerHtml) {
+    let eqOpPolicy = $element('div.eq-op-policy-stmnt');
+    eqOpPolicy.innerHTML = eopsInnerHtml;
+    document.querySelector("main").append(eqOpPolicy);
+  } else {
+    console.log(`Cannot fetch ${eopsURL} fragment or fragment doesn't exist`)
+  };
+
 }

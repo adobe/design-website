@@ -20,7 +20,7 @@ export default function decorate($main) {
    
     
     // Js for scrolling animations
-    var allArticles = document.querySelectorAll("body > main > div > div > div.toolkit-page-content > *, .think-differently-content");
+    var allArticles = document.querySelectorAll("body > main > div > div > div.toolkit-page-content > *");
     allArticles.forEach((article, index) => {
       if(index > 1){
         article.classList.add("js-scroll")
@@ -28,7 +28,7 @@ export default function decorate($main) {
       }
     })
     
-    var allText = document.querySelectorAll(" body > main > div > div > div.toolkit-page-content > div > div > div.text > div, .think-differently-content > *");
+    var allText = document.querySelectorAll(" body > main > div > div > div.toolkit-page-content > div > div > div.text > div");
     allText.forEach((article, index) => {
       if(index > 1){
         article.classList.add("js-scroll")

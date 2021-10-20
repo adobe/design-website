@@ -160,7 +160,7 @@ export default function decorate($main) {
           resources.append(resource)
         }
       }else if(section === 2){
-        element.classList.add("js-scroll", "fade-in")
+        //This currently targets the think-differently module
       }
     })
     endDiv.prepend(resourcesDiv)
