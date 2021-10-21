@@ -21,15 +21,13 @@
     font-size:16px;
 }
 .page-type-article .content{
-    display: grid;
-    grid-template-columns: 100%;
     padding-top:140px;
     padding-bottom: 5em;
     background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 1000px,rgba(255,255,255, 1) 1000px);
 }
 .page-type-article .content:not(.page-type-article .header.block) {
     padding-left: 5rem;
-    padding-right: 3rem;
+    padding-right: 5rem;
 }
 
 .page-type-article .content .block{
@@ -40,7 +38,6 @@
     text-align:left;
     font-size:var(--p-font-size);
     line-height:1.5em;
-
 }
 
 .page-type-article h1{
@@ -85,6 +82,10 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     padding-right: 4em;
 }
 
+.page-type-article .content li{
+    padding-left: 11em;
+    padding-right: 4em;
+}
 .page-type-article .article-picture{
     padding: 4em 0;
 }
@@ -94,7 +95,7 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
 }
 
 .page-type-article .header.block{
-     width: 80%;
+     /* width: 80%; */
     color: black;
     padding-top: 5em;
     padding-bottom: 15em;
@@ -102,6 +103,9 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
 }
 .page-type-article .lede.block{
     font-size: 2em;
+    color: #FF7D4F;
+    font-weight: lighter;
+    justify-items: center;
 }
 
 body > main > div > div.content > picture > img{
@@ -235,83 +239,83 @@ body > main > div > div.content > picture > img{
 
 
 
-@media (min-width:768px) and (max-width:1024px){
-    .page-type-article main{
-        width: 90%;
-    }
 
-}
 
-@media (min-width: 375px) and (max-width: 425px){
 
-    .page-type-article main{
-        width: 90%;
-    }
-    .page-type-article main > div > div > p {
-        font-size: 1.5em;
-        text-align: left;
-    }
-}
 @media (min-width:320px) and (max-width:425px){
 
     /* header */
-
     .page-type-article .header.block{
+        padding-bottom: 0;
+    }
+    .page-type-article .content:not(.page-type-article .header.block){
         padding: 1em;
-        width: 100%;
+    }
+    .page-type-article .header.block h1{
+        padding: 0;
+        font-size: 4em;
+    }
+    .page-type-article .header.block h2{
+        padding: 0;
+    }
+    .page-type-article .header.block img{
+        padding-bottom: 5em;
+        
     }
     /* header */
 
     /* main */
-
+    .page-type-article main{
+        width: 90%;
+    }
+    .page-type-article .content{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 570px,rgba(255,255,255, 1) 570px);
+    }
     .page-type-article .header.block > div{
         padding: 0;
         width: 100%;
     }
-    body > main > div > div.content > picture > img{
-        bottom: 10em;
+    .page-type-article .content .article-picture{
+        width: 100%;
+        padding: 0;
     }
-    .page-type-article .header.block  h1{
-       font-size: 4em;
+    .page-type-article main > div > div > p{
+        padding: 0;
     }
-    body > main > div > div.content > picture > img{
-        padding-bottom: 0;
-    }
-
-    .page-type-article .chapter-heading {
-        text-align: left;
-        font-weight: normal;
-        padding-right: 0;
-    }
-
-    .page-type-article .content{
-        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 300px,rgba(255,255,255, 1) 300px);
-    }
-    .page-type-article .chapters.block .chapter{
-    grid-template-columns: auto;
-    justify-items: center;
-
-    }
-    .page-type-article .chapter-heading{
-        text-align: start;
-        padding-bottom: 1em;
-    }
+    .page-type-article .lede.block{
+        margin: 0;
+        font-size: 2em;
+    }   
     .page-type-article .additional-reading.block{
         width: auto;
         padding: 0;
     }
-
-    .page-type-article .content{
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
     /* main */
 }
 
 @media (min-width: 426px) and (max-width: 768px){
     .page-type-article .content{
-        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 400px,rgba(255,255,255, 1) 400px);
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 730px,rgba(255,255,255, 1) 730px);
+    }
+    .page-type-article .header.block h1{
+        padding: 0;
+    }
+    .page-type-article .header.block h2{
+        padding: 0;
+    }
+    .page-type-article main > div > div > p{
+        padding-left: 2em;
+        padding-right: 1em;
+    }
+}
 
+@media (min-width:768px) and (max-width:1024px){
+    .page-type-article main{
+       width: 90%;
+    }
+    .page-type-article main > div > div > p{
+        padding-left: 9em;
     }
 }
