@@ -12,7 +12,7 @@ export default function decorate($block){
     })
     thinkAboutContent.append($element(".think-differently-slash.slash-1"))
     thinkAboutContent.append($element(".think-differently-slash.slash-2"))
-    thinkAboutContent.append($element("a.view-jobs", { attr: { href: '/' } }, "VIEW OUR JOB OPENINGS"))
+    thinkAboutContent.append($element("a.view-jobs", { attr: { href: '/jobs/' } }, "VIEW OUR JOB OPENINGS"))
     
     $block.classList.add("js-scroll", "fade-in-right")
     document.querySelectorAll(".think-differently-content > *").forEach((article, index) => {

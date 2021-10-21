@@ -91,7 +91,7 @@ export default function decorate($main) {
 
     teamCardsDiv.querySelectorAll(":scope > *").forEach(element =>{
       if(card !== 0 && element.nodeName === "H3"){
-        rightBlock.append($element("a.view-jobs", { attr: { href: '/' } }, "VIEW OUR JOB OPENINGS"))
+        rightBlock.append($element("a.view-jobs", { attr: { href: '/jobs/' } }, "VIEW OUR JOB OPENINGS"))
         teamCard = $wrap(teamCard, [leftBlock,rightBlock])
         teamCardsDiv.append(teamCard)
         teamCard = $element(".team-card");
@@ -112,7 +112,7 @@ export default function decorate($main) {
         leftBlock.append(element)
 
     })
-    rightBlock.append($element("a.view-jobs", { attr: { href: '/' } }, "VIEW OUR JOB OPENINGS"))
+    rightBlock.append($element("a.view-jobs", { attr: { href: '/jobs/' } }, "VIEW OUR JOB OPENINGS"))
     teamCard = $wrap(teamCard, [leftBlock,rightBlock])
     teamCardsDiv.append(teamCard)
 
