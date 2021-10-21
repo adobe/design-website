@@ -1,0 +1,77 @@
+/*
+div.opp-block
+    div.opp-container
+        div.header-c
+            p.title
+        div.opps-container [
+            div.job
+                div.left
+                    div.title
+                    div.sub-title
+                div.right
+                    div.department
+                    div.city
+        ]
+*/
+
+@media screen and (min-width: 1401px) {
+    div.similarOpps-block{ font-size: 30px}
+}
+@media screen and (min-width: 601px) and (max-width: 1400px){
+    div.similarOpps-block{ font-size: 16px}
+}
+@media screen and (max-width: 600px){
+    div.similarOpps-block{ font-size: 12px}
+}
+
+.similarOpps-block{
+
+
+    /* Since It's Unfinished Stuff :: */
+    display: none;
+    /* ----- */
+
+
+    background-color: var(--bkg-navy-dark);
+    color: white;
+    width: 100vw;
+    font-family: var(--serif-font);
+}
+
+.similarOpps-block .opp-block{
+    max-width: 1000px;
+    margin: auto;
+    border: 1px solid white;
+    padding: 4.67em 4.5em;/* 140px 132px 237px 132px; == 30px => 1em */
+}
+.similarOpps-block div.header-c{
+    height: fit-content;
+    width: 100%;
+}
+.similarOpps-block div.header-c p.title{
+    font-size: 1.67em;
+}
+
+.similarOpps-block .opps-container{
+    border: 1px solid white;
+    display: grid;
+    gap: 8.2em; /* = 245px/30 */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto, 4.8em);
+    grid-auto-flow: row dense;
+}
+.similarOpps-block .opps-container div.job{
+    border: 1px solid white;
+    height: 4.8em; /* = 144px/30 */
+    width: 45%;
+    grid-column: span 1;
+    grid-row: span 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.similarOpps-block .opps-container div.job div.left,
+.similarOpps-block .opps-container div.job div.right{
+    width: 45%;
+}
+

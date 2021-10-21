@@ -6,6 +6,7 @@ import {
 } from "../../scripts/helpers.js";
 import makeHeaderBlock from "../../blocks/job-posting-blocks/job-post-header.js";
 import { getJobsFragment } from "../../scripts/jobs-fragments.js";
+import makeSimilarOpportunitiesBlock from "../../blocks/job-posting-blocks/similar-opportunities.js";
 
 const bkg_grey_lt = '#E8E8E8';
 const text_dark   = '#3E3E3E';
@@ -53,6 +54,9 @@ export default function decorate($page) {
 
     buildJobBlockFragments();
 
+    buildSimOpportunitiesBlock();
+
+    document.querySelector("main").append($element("div.similarOpps-block"))
 
   // //----------//
 //   /// has similar opportunities block here //
@@ -84,7 +88,14 @@ export default function decorate($page) {
 }
 
 
-
+async function buildSimOpportunitiesBlock(){
+  let simOppsContent = await makeSimilarOpportunitiesBlock('nothing');
+  if(simOppsContent) {
+    document.querySelector("div.similarOpps-block").append(simOppsContent)
+  } else {
+    console.log(`Cannot fetch similar opportunities to build the block`)
+  }
+}
 
 async function buildJobBlockFragments() {
 
