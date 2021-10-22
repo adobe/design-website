@@ -1,4 +1,19 @@
-/* @import "../../resources/chevron-down.svg"; */
+@media screen and (max-width: 600px) {
+    .carousel {
+        font-size: 12px;
+    }
+}
+@media screen and (min-width: 601px) {
+    .carousel {
+        font-size: 1.6vw; /* 16px-30.7px */
+    }
+}
+@media screen and (min-width: 1921px) {
+    .carousel {
+        font-size: 30.7px;
+    }
+}
+
 .carousel {
     overflow: hidden;
     position: relative;
@@ -7,29 +22,18 @@
     justify-content: center;
     align-items: center;
 }
-
 .carousel .carousel__item,
 .carousel .carousel__item--hidden {
     display: none;
 }
-
-/* .carousel .carousel__item--next {
-    display:flex
-} */
-
 .carousel .carousel__item img {
     width: 100%;
     height: auto;
     border-radius: 4px;
 
 }
-.carousel .carousel__item .image {
-    width: 100%;
-}
-.carousel__item.carousel__item--visible > div.number{
-    width: 100%;
-    margin-left:20px
-}
+.carousel .carousel__item .image,
+.carousel__item.carousel__item--visible > div.number,
 .carousel__item--visible > div.image > picture{
     width: 100%;
 }
@@ -43,20 +47,28 @@
     width: 75%;
     max-width: 1000px;
     position: relative;
+    gap: 0.67em;
 }
+
 .visible-animation{
     animation: fadeVisibility .6s ease;
 }
 .visible-animation-rev{
     animation: fadeVisibilityRev .6s ease;
 }
+
+
 /* tag-line styles */
-.carousel .carousel__item--visible p:first-child {
-    color: #ececec;
-    border-bottom: solid 4px #ececec;
+.carousel .carousel__item--visible p:first-child,
+.carousel .carousel__item--visible .tag-line {
+    font-size: 0.67em; /*20px;*/
+    color: #fff;
+    border-bottom: solid .2em #fff;
+    text-decoration: none;
     display: inline;
-    font-weight: 600;
-    font-size: 25px;
+    height: 1.25em;
+    line-height: 1.25em;
+    font-weight: var(--weight-regular);
 }
 
 /* title styles */
@@ -99,14 +111,6 @@
     opacity: 0;
     transform: translateX(-100%);
 }
-/*
-.carousel .carousel__actions div.carousel__button--prev {
-    margin-left: 1em;
-}
-
-.carousel .carousel__actions div.carousel__button--next {
-    margin-right: 1em;
-} */
 .scroll-tip-container{
     height: 10vh;
     width: 100%;
@@ -184,9 +188,9 @@
     }
 
         /* title styles */
-    .carousel .carousel__item--visible h2 {
+    /* .carousel .carousel__item--visible h2 {
         font-size: clamp(1.5rem, 6vw, 3rem);
-    }
+    } */
 
     /* person styles */
     .carousel .carousel__item--visible p:last-child {

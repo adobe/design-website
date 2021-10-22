@@ -394,6 +394,49 @@ export function $element(selector, options, content) {
     return $div;
 }
 
+
+// export function $changeTag(selector, oldSelector) {
+//     if (!selector) {
+//         throw new Error(`$element requires the 1st argument, selector`);
+//     }
+
+
+//     const inner =  oldSelector.innerHtml;
+
+//     const $div = applySelectorToElement(null, selector);
+//     $div.innerHtml(inner);
+
+
+//     if (arguments.length === 2 && (typeof options === "string" || options instanceof HTMLElement || options instanceof Array)) {
+//         content = options;
+//         options = {};
+//     }
+
+//     if (content) {
+//         if (typeof content === "string") {
+//             $div.innerText = content;
+//         } else {
+//             let contentArray;
+//             if (!(content instanceof Array)) {
+//                 contentArray = [content];
+//             } else {
+//                 contentArray = content;
+//             }
+//             contentArray.forEach(c => {
+//                 $div.appendChild(c);
+//             });
+//         }
+//     }
+//     if (options && options.attr) {
+//         const keys = Object.keys(options.attr);
+//         for (const key of keys) {
+//             $div.setAttribute(key, options.attr[key]);
+//         }
+//     }
+
+//     return $div;
+// }
+
 export function wrapWithElement($target, $wrap) {
     $wrap.appendChild($target);
     return $wrap;
