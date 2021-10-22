@@ -16,7 +16,7 @@ export default function decorate($block){
     
     $block.classList.add("js-scroll", "fade-in-right")
     document.querySelectorAll(".think-differently-content > *").forEach((article, index) => {
-      if(index > 1){
+      if(index > 0){
         article.classList.add("js-scroll", "fade-in-right")
       }
     })
