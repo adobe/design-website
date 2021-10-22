@@ -10,7 +10,7 @@
     padding-left: var(--page-header-l-padding);
 }
 
-.page-type-index h1 {
+.page-type-index .header h1 {
     color: white;
     font-weight: var(--weight-light);
     font-size: var(--page-header-size);
@@ -86,6 +86,17 @@ div.stories > div >  .link{
 }
 
 @media screen and (max-width: 700px){
+    .page-type-index .header{
+        margin: 6rem 0 4rem 0;
+        padding-left: 2rem;
+        width: 80%;
+    }
+
+    .page-type-index .header h1{
+        margin-block: unset;
+        font-size: 3em;
+    }
+
     .page-type-index .stories {
         display: flex;
         flex-wrap: nowrap;
@@ -105,11 +116,5 @@ div.stories > div >  .link{
     .stories-index-view{
         margin-left: unset !important;
         margin-right: unset !important;
-    }
-    .page-type-index h1 {
-        color: white;
-        font-size: clamp(1em, 3vw, 1.5em);
-        font-weight: 200;
-        padding-left: .5em;
     }
 }
