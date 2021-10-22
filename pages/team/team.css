@@ -5,19 +5,21 @@
     margin-right:auto;
 }
 
+
 .page-type-team .teams *{
     font-weight: var(--weight-light);
 }
 
 .page-type-team .title-content{
-    margin: 7rem 0 5rem 0;
-    padding-left: 9rem;
-    width:60%;
+    margin: var(--page-header-margin);
+    padding-left: var(--page-header-l-padding);
+    
     color: white;
 }
 
 .page-type-team .title-content h1{
-    font-size: 4em;
+    font-size: var(--page-header-size);
+    width:60%;
 }
 
 .page-type-team .content{

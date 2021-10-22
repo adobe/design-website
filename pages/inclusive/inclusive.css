@@ -1,9 +1,18 @@
-.inclusive-design{
+.page-type-inclusive .inclusive-design > div > div{
     width: 98vw;
     max-width:1000px;
     margin-left:auto;
     margin-right:auto;
 }
+
+.inclusive-design h1{
+    color: white;
+    font-weight: var(--weight-light);
+    margin: var(--page-header-margin);
+    padding-left: var(--page-header-l-padding);
+    font-size: var(--page-header-size);
+    width: 60%
+} 
 
 body > main > div > div > p {
     display: none;
@@ -38,13 +47,7 @@ body > main > div > div > p {
     font-weight: 300;
 }
 
-.inclusive-design h1{
-    color: white;
-    font-size: 3em;
-    margin-bottom: 0;
-    padding: 2em 9em 7em 3em ;
-    text-align: left;
-} 
+
 
 .inclusive-design .statement{
     padding: 4em;

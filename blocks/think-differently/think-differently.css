@@ -24,6 +24,7 @@
 }
 
 .think-differently.block .think-differently-content h2{
+    font-weight: 300;
     font-size: 2em;
     grid-column: 2/4;
     grid-row: 1/2;

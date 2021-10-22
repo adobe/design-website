@@ -36,6 +36,11 @@ html{
         --weight-bold:       700;  /* semi-bold, 700-600 */
         --weight-black:      900;  /* bolder,    800-900 */
 
+        /* Commonly used spacing */
+        --page-header-l-padding: 9rem;
+        --page-header-size: 4rem;
+        --page-header-margin: 7rem 0 5rem 0;
+
         color:       var(--color-text);
         font-weight: var(--weight-regular);
 }
