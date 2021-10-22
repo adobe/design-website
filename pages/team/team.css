@@ -11,7 +11,7 @@
 
 .page-type-team .title-content{
     margin: 7rem 0 5rem 0;
-    padding-left: 5rem;
+    padding-left: 9rem;
     width:60%;
     color: white;
 }
@@ -25,18 +25,17 @@
 }
 
 .page-type-team .head-content{
-    padding: 2em;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding: 4em;
 }
 
 .page-type-team .head-content .title{
+    padding-left: 5rem;
     font-size: 3em;
 }
 
 .page-type-team .head-content .head-text{
     display: grid;
-    grid-template-columns: 30% 50%;
+    grid-template-columns: 40% 50%;
 }
 
 .page-type-team .head-content .head-text p{
@@ -111,13 +110,21 @@
 }
 
 .page-type-team .team-cards .team-card div:last-child{
+    padding-left: 3rem;
+    padding-right: 3rem;
     color: white;
 }
 
 .page-type-team .team-cards .team-card div:last-child > p:first-child{
-    padding: 0rem 3rem;
     font-size: 1.6rem;
     line-height: 1.6em;
+}
+
+.page-type-team .team-cards .team-card div:last-child .view-jobs{
+    font-size: 0.8em;
+    text-decoration: underline 2px;
+    text-underline-offset: 3px;
+    color: white;
 }
 
 /* COLORS */
@@ -248,6 +255,7 @@
 
     .page-type-team .head-content .title{
         font-size: 2em;
+        padding-left: unset;
     }
 
     .page-type-team .head-content .head-text{
@@ -265,7 +273,9 @@
         font-size: 2.2em;
     }
 
-
+    .page-type-team .team-cards .team-card.active{
+        height: auto;
+    }
     .page-type-team .team-cards .team-card h3{
         padding-left: 15%;
         width: 80%;
@@ -286,6 +296,7 @@
 
     .page-type-team .team-cards .team-card div:last-child{
         padding-top: 4rem;
+        padding-bottom: 3rem;
     }
 
 
