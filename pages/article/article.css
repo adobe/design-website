@@ -73,8 +73,9 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     padding-right: 0;
 }
 .page-type-article .content li{
-    padding-left: 11em;
+    padding-left: 9.4em;
     padding-right: 4em;
+    font-size: var(--li-font-size);
 }
 .page-type-article .article-picture{
     padding: 4em 0;
@@ -108,23 +109,25 @@ body > main > div > div > div:nth-child(3) > div > div{
 body > main > div > div.content > picture > img{
     padding-bottom: 5em;
 }
-.page-type-article .additional-reading.block > div > div{
-    text-align: right;
-}
 .page-type-article .content ul{
     list-style: none;
     text-align: left;
 }
-#a-few-good-books{
+.page-type-article .additional-reading.block h2{
     padding: 0;
+    padding-left: 5.5em;
     text-align: left;
+}
+.page-type-article .additional-reading.block p{
+    padding-left: 8.5em;
+    font-size: var(--p-font-size);
 }
 .page-type-article .additional-reading.block ul{
     padding: 0;
 }
-.page-type-article .content li{
+.page-type-article .additional-reading.block li{
     line-height: 1.5;
-    padding-bottom: 1em;
+    padding-left: 8.4em;
     font-size: var(--li-font-size);
 }
 .page-type-article .additional-reading.block p{
@@ -132,7 +135,6 @@ body > main > div > div.content > picture > img{
     margin-top: 0;
 }
 .page-type-article .additional-reading.block a{
-    font-weight: 600;
     font-size: .8em;
     text-decoration: none;
     color: black;
@@ -355,6 +357,12 @@ body > main > div > div.content > picture > img{
     }   
     .page-type-article .additional-reading.block{
         width: auto;
+        padding: 0;
+    }
+    .page-type-article .additional-reading.block p{
+        padding: 0;
+    }
+    .page-type-article .additional-reading.block li{
         padding: 0;
     }
     /* main */
