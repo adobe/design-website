@@ -14,14 +14,16 @@ body > main > div > div > p {
 }
 
 .inclusive-design .article-card.block .text .hed {
-    font-size: 1.5em;
+    font-size: 3em;
     font-weight: 300;
+    padding-right: 2em;
+    overflow: visible;
 }
 
 .inclusive-design .article-card.block .text .dek {
     font-size: 1.25em;
     font-weight: 300;
-    padding-top: 4em;
+    padding-top: 1em;
     max-height: 10em;
     margin-bottom: 0;
     max-width: 90%;
@@ -40,7 +42,7 @@ body > main > div > div > p {
     color: white;
     font-size: 3em;
     margin-bottom: 0;
-    padding: 2em 8em 7em 1.4em ;
+    padding: 2em 9em 7em 3em ;
     text-align: left;
 } 
 
@@ -169,6 +171,9 @@ body > main > div > div > div:nth-child(10){
 
 
 @media (min-width: 768px) and (max-width:1024px){
+    .inclusive-design h1{
+        padding-left: 3em;
+    }
     .inclusive-design .article-card.block .text .dek {
         font-size: 2em;
         font-weight: 300;
@@ -178,7 +183,7 @@ body > main > div > div > div:nth-child(10){
         max-width: 90%;
     }
 }
-@media (min-width: 425px) and (max-width:768px){
+@media (min-width: 426px) and (max-width:768px){
     .inclusive-design{
         width: 90vw;
         max-width:1000px;
@@ -187,6 +192,8 @@ body > main > div > div > div:nth-child(10){
     }
     .inclusive-design h1{
         padding: 5em .4em;
+        padding-right: 4em;
+        padding-left: 2em;
     }
     .inclusive-design .statement{
         padding: 1em;
@@ -207,6 +214,9 @@ body > main > div > div > div:nth-child(10){
 
     .inclusive-design .article-card.block .block-content{
         display: grid;
+    }
+    .inclusive-design .article-card.block .text .hed{
+        padding-right: 0;
     }
     .inclusive-design .article-card.block .text .dek {
         font-size: 1.5em;
@@ -260,6 +270,18 @@ body > main > div > div > div:nth-child(10){
         padding: 2em .2em;
         text-align: center;
         margin: 0;
+    }
+    .inclusive-design .block-content{
+        display: block;
+    }
+    .inclusive-design .article-card.block .text{
+        height: auto;
+    }
+    .inclusive-design .article-card.block .text .hed {
+        height: auto;
+    }
+    .inclusive-design .article-card.block .text .dek{
+        overflow: visible;
     }
     .inclusive-design .statementTwo{
         background: #F7EFFC;

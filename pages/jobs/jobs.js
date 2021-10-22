@@ -63,6 +63,21 @@ export default function decorate($main) {
       }
     })
 
+    let jobsColLeft = $element(".jobs-col-1")
+    let jobsColRight = $element(".jobs-col-2")
+    let jobBlocks = jobsContainer.querySelectorAll(":scope > *")
+    let blockCount = 1
+    jobBlocks.forEach(element=>{
+      if(blockCount <= (jobBlocks.length/2)){
+        jobsColLeft.append(element)
+      }else
+      jobsColRight.append(element)
+
+      blockCount++
+    })
+
+    $wrap(jobsContainer, [jobsColLeft, jobsColRight])
+
     jobsBlockContainer.appendChild(jobsContainer)
     var dummyJobs = [
       {

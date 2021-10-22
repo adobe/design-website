@@ -1,5 +1,7 @@
 import { lookupAuthor } from '../../scripts/authors.js';
-import { $element, getMetadata } from '../../scripts/helpers.js';
+import { $element, getMetadata, $wrap } from '../../scripts/helpers.js';
+import { fetchIndex } from "../../scripts/queries.js";
+let index;
 
 export default function decorate($main) {
     var paragraphs = document.querySelectorAll('body > main > div > div > p');
@@ -10,7 +12,47 @@ export default function decorate($main) {
     });
     // moveHeaderContent();
     $main.querySelector(':scope > div > div').classList.add('content');
+    buildSimilarStories();
     buildAuthorBio();
+}
+
+async function buildSimilarStories(){
+  if (!index) {
+    index = await fetchIndex();
+  }
+
+  let stories = index.stories.data
+  let storiesContent = $element('.stories')
+  if(stories.length > 0)
+    storiesContent.appendChild(buildStory(stories[0]))
+  if(stories.length > 1)
+    storiesContent.appendChild(buildStory(stories[1]))
+  let $similarStoriesBlock = $wrap($element('.similar-stories'),$wrap($element('.similar-stories-content'), [$element('h2.similar-stories-header', 'Similar Stories'), storiesContent]))
+  document.body.insertBefore($similarStoriesBlock, document.querySelector('#global-footer'));
+}
+
+function buildStory( story ) {
+  const mediaAttr = "(max-width: 400px)";
+  if(!story.title) {
+      story.title = "[TITLE_MISSING]";
+  }
+  return $element(".story.block", [
+      $element("a.link", { attr: { href: story.path } }, [
+          $element(".image", [
+              $element("picture", [
+                  $element("source", { attr: { media: mediaAttr, srcset: story.image }}),
+                  $element("img", { attr: { src: story.image } }),
+              ]),
+              $element("p.tag", "#LEADING DESIGN"),
+          ]),
+          $element(".story-text", [
+              $element("h2.story-header", 'From mind to canvas' ),
+              $element("h3", "Creating art with synthesia"),
+              $element("p.author", "Laura Herman"),
+              $element("p.position", "User Experience Researcher")
+          ])
+      ]),
+  ]);
 }
 
 async function buildAuthorBio() {
@@ -44,7 +86,7 @@ async function buildAuthorBio() {
       $element(".not-found", `Author ${authorName} not found`),
     ]);
   }
-  document.body.insertBefore($bioBlock, document.querySelector('#global-footer'));
+  document.body.insertBefore($bioBlock, document.body.querySelector('main').nextSibling);
 }
 
 function moveHeaderContent() {
