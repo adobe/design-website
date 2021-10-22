@@ -54,21 +54,8 @@ export default function decorate($block) {
   const actions = document.createElement("div");
   actions.classList.add("carousel__actions")
 
-
-
-  // const prevDiv = document.createElement("div");
-  // prevDiv.classList.add("carousel__button--prev")
-  // prevDiv.innerHTML = '<img src="/resources/leftArrow.png">'
-
   const prevDiv = addArrowButton('prev')
   const nextDiv = addArrowButton('next')
-
-
-  // let nextDiv = document.createElement("div");
-  // nextDiv.classList.add("carousel__button--next")
-  // nextDiv.innerHTML = '<img src="/resources/rightArrow.png">'
-
-
 
   actions.append(prevDiv)
   actions.append(nextDiv)
