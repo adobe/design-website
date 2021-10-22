@@ -16,7 +16,7 @@
  * @param {Object} data additional data for RUM sample
  */
 
- export function sampleRUM(checkpoint, data = {}) {
+export function sampleRUM(checkpoint, data = {}) {
   try {
     window.hlx = window.hlx || {};
     if (!window.hlx.rum) {
@@ -42,6 +42,7 @@
       sendPing();
       // special case CWV
       if (checkpoint === 'cwv') {
+        // eslint-disable-next-line import/no-unresolved
         import('https://unpkg.com/web-vitals?module').then((mod) => {
           const storeCWV = (measurement) => {
             data.cwv = {};
