@@ -232,3 +232,5 @@ Whatever name you specify will be the name used when resolving the JS and CSS fi
   // A page type named "article" will look for the following files
   /pages/article/article.js
   /pages/article/article.css
+
+  
