@@ -14,12 +14,13 @@
 }
 
 .page-type-jobs .head-content>*{
-    padding-left: 7rem;
+    padding-left: var(--page-header-l-padding);
 }
 
 .page-type-jobs .head-content h1{
+    font-size: var(--page-header-size);
     font-weight: var(--weight-regular);
-    margin: 7rem 0 5rem 0;
+    margin: var(--page-header-margin);
     width:45%;
 }
 .page-type-jobs .head-content p{
@@ -113,12 +114,19 @@
     .page-type-jobs .jobs-container{
         grid-template-columns: 1fr;
     }
+    
     .page-type-jobs .head-content h1,
     .page-type-jobs .head-content p,
     .page-type-jobs .head-content p:last-child{
         width: 80%;
         padding: 0;
-        margin: 5rem auto;
+        margin: 5rem 0;
+        padding-left: 2rem;
+    }
+    .page-type-jobs .head-content h1{
+        margin-block: unset;
+        margin: 6rem 0 4rem 0;
+        font-size: 3rem;
     }
 
     .page-type-jobs .head-content p{
