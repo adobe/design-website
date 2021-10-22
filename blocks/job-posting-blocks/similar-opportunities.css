@@ -14,28 +14,37 @@ div.opp-block
         ]
 */
 
-@media screen and (min-width: 1401px) {
-    div.similarOpps-block{ font-size: 30px}
-}
-@media screen and (min-width: 601px) and (max-width: 1400px){
-    div.similarOpps-block{ font-size: 16px}
-}
 @media screen and (max-width: 600px){
     div.similarOpps-block{ font-size: 12px}
 }
+@media screen and (min-width: 601px){
+    div.similarOpps-block{ font-size: 14px}
+}
+@media screen and (min-width: 930px){
+    div.similarOpps-block{ font-size: 16px}
+}
+/*
+1000 -> 16 62.5
+1920 -> 30.72px -> rem */
+
+
+@media screen and (min-width: 1001px) and (min-width: 1920px){
+    div.similarOpps-block{ font-size: 16px}
+}
+
+@media screen and (min-width: 1921px) {
+    div.similarOpps-block{ font-size: 30px}
+}
+
+
 
 .similarOpps-block{
-
-
-    /* Since It's Unfinished Stuff :: */
-    display: none;
-    /* ----- */
-
 
     background-color: var(--bkg-navy-dark);
     color: white;
     width: 100vw;
     font-family: var(--serif-font);
+
 }
 
 .similarOpps-block .opp-block{

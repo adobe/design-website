@@ -27,3 +27,32 @@ button.reg.filled{
     color: var(--btn-color);
     background-color: unset;
 }
+
+
+
+button.carousel__button--prev,
+button.carousel__button--next,
+button.carousel__button--prev img,
+button.carousel__button--next img{
+    background-color: transparent;
+    padding: 0px;
+    height:  3em;
+    width:   3em;
+}
+
+button.carousel__button--prev,
+button.carousel__button--next{
+    border: 3px solid transparent;
+    padding: .25em;
+    border-radius: 50%;
+    box-sizing: content-box;
+}
+
+button.carousel__button--prev:focus,
+button.carousel__button--next:focus{
+    border-color: var(--color-navy);
+}
+
+button.carousel__button--prev{
+    transform: rotate(180deg)
+}
