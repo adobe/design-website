@@ -1,28 +1,22 @@
- .page-type-index .header {
-    font-size: 3em;
-    padding: 1em 0 2em 0;
-}
-
-.page-type-index h1 {
-    color: white;
-    font-size: clamp(1em, 3vw, 1.5em);
-    font-weight: 200;
-    padding-left: 3em;
-}
-.page-type-index main {
+.page-type-index .stories-index-view > div > div{
     width: 98vw;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
-
-.think-differently > div > div > p:nth-child(5) {
-    text-align: center;
+ 
+ .page-type-index .header {
+    margin: var(--page-header-margin);
+    padding-left: var(--page-header-l-padding);
 }
 
-#think-about-design-differently {
-    font-weight: 300;
+.page-type-index .header h1 {
+    color: white;
+    font-weight: var(--weight-light);
+    font-size: var(--page-header-size);
+    
 }
+
 
 .page-type-index .stories {
     display: flex;
@@ -92,6 +86,17 @@ div.stories > div >  .link{
 }
 
 @media screen and (max-width: 700px){
+    .page-type-index .header{
+        margin: 6rem 0 4rem 0;
+        padding-left: 2rem;
+        width: 80%;
+    }
+
+    .page-type-index .header h1{
+        margin-block: unset;
+        font-size: 3em;
+    }
+
     .page-type-index .stories {
         display: flex;
         flex-wrap: nowrap;
@@ -111,11 +116,5 @@ div.stories > div >  .link{
     .stories-index-view{
         margin-left: unset !important;
         margin-right: unset !important;
-    }
-    .page-type-index h1 {
-        color: white;
-        font-size: clamp(1em, 3vw, 1.5em);
-        font-weight: 200;
-        padding-left: .5em;
     }
 }

@@ -1,9 +1,18 @@
-.inclusive-design{
+.page-type-inclusive .inclusive-design > div > div{
     width: 98vw;
     max-width:1000px;
     margin-left:auto;
     margin-right:auto;
 }
+
+.inclusive-design h1{
+    color: white;
+    font-weight: var(--weight-light);
+    margin: var(--page-header-margin);
+    padding-left: var(--page-header-l-padding);
+    font-size: var(--page-header-size);
+    width: 60%
+} 
 
 body > main > div > div > p {
     display: none;
@@ -14,14 +23,14 @@ body > main > div > div > p {
 }
 
 .inclusive-design .article-card.block .text .hed {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 300;
     padding-right: 2em;
     overflow: visible;
 }
 
 .inclusive-design .article-card.block .text .dek {
-    font-size: 1.25em;
+    font-size: 1.2em;
     font-weight: 300;
     padding-top: 1em;
     max-height: 10em;
@@ -31,20 +40,14 @@ body > main > div > div > p {
 
 .inclusive-design .article-card.block .text .byline {
     margin-top: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .inclusive-design .article-card.block .text .byline .author {
     font-weight: 300;
 }
 
-.inclusive-design h1{
-    color: white;
-    font-size: 3em;
-    margin-bottom: 0;
-    padding: 2em 9em 7em 3em ;
-    text-align: left;
-} 
+
 
 .inclusive-design .statement{
     padding: 4em;
@@ -170,10 +173,15 @@ body > main > div > div > div:nth-child(10){
 }
 
 
-@media (min-width: 768px) and (max-width:1024px){
+@media (max-width: 700px){
     .inclusive-design h1{
-        padding-left: 3em;
-    }
+        margin: 6rem 0 4rem 0;
+        padding-left: 2rem;
+        font-size: 3em;
+        width: 80%
+    } 
+}
+@media (min-width: 768px) and (max-width:1024px){
     .inclusive-design .article-card.block .text .dek {
         font-size: 2em;
         font-weight: 300;
@@ -184,17 +192,6 @@ body > main > div > div > div:nth-child(10){
     }
 }
 @media (min-width: 426px) and (max-width:768px){
-    .inclusive-design{
-        width: 90vw;
-        max-width:1000px;
-        margin-left:auto;
-        margin-right:auto;
-    }
-    .inclusive-design h1{
-        padding: 5em .4em;
-        padding-right: 4em;
-        padding-left: 2em;
-    }
     .inclusive-design .statement{
         padding: 1em;
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 450px,rgba(224,72,39, 1) 450px);
@@ -249,15 +246,6 @@ body > main > div > div > div:nth-child(10){
     }
 }
 @media (min-width: 320px) and (max-width:425px){
-    .inclusive-design{
-        width: 90vw;
-        max-width:1000px;
-        margin-left:auto;
-        margin-right:auto;
-    }
-    .inclusive-design h1{
-        padding: 5em .4em;
-    }
     .inclusive-design .statement{
         padding: 1em;
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 250px,rgba(224,72,39, 1) 250px);
