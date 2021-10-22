@@ -4,6 +4,7 @@ The Helix project for the adobe.design website
 ## Environments
 - Preview: https://main--design-website--adobe.hlx3.page/
 - Live: https://main--design-website--adobe.hlx.live/
+- Production: https://adobe.design/
 
 ## Updating Helix CLI
 
