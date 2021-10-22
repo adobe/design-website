@@ -56,12 +56,14 @@
 
 }
 .page-type-article .header >div{
-    display: grid;
-    grid-template-rows: auto auto;
+    display: flex;
+    flex-direction: column;
+    overflow:hidden;
 }
 body > main > div > div > div.header.block > div > div:nth-child(1){
-    grid-row-start: 2;
+    order: 2;
 }
+
 .header.block > div{
     width: 100%;
     height: 75%;
@@ -312,7 +314,7 @@ body > main > div > div.content > picture > img{
 
 
 
-@media (min-width:320px) and (max-width:425px){
+@media (max-width:425px){
     /* header */
     .page-type-article .header.block{
         padding-bottom: 0;
