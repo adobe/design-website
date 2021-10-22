@@ -27,7 +27,7 @@ async function buildSimilarStories(){
     storiesContent.appendChild(buildStory(stories[0]))
   if(stories.length > 1)
     storiesContent.appendChild(buildStory(stories[1]))
-  let $similarStoriesBlock = $wrap($element('.similar-stories'), [$element('h2.similar-stories-header', 'Similar Stories'), storiesContent])
+  let $similarStoriesBlock = $wrap($element('.similar-stories'),$wrap($element('.similar-stories-content'), [$element('h2.similar-stories-header', 'Similar Stories'), storiesContent]))
   document.body.insertBefore($similarStoriesBlock, document.querySelector('#global-footer'));
 }
 
