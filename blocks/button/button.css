@@ -60,20 +60,21 @@ button.reg.filled{
     filter: brightness(0.8);
 }
 
-
 button.carousel__button--prev{
     transform: rotate(180deg)
 }
 
 @media screen and (max-width: 1090px) {
     .carousel .carousel__actions button{
-        height: 4.5rem;
-        width:  4.5rem;
-        padding: .35rem;
+        height: 60px;
+        width: 60px;
+        padding: 7px;
+        box-sizing: border-box;
+
     }
     .carousel .carousel__actions button img{
-        height: 3.8rem;
-        width: 3.8rem;
+        height: 44px;
+        width: 44px;
     }
 
 }

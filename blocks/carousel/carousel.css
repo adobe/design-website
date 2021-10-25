@@ -182,69 +182,21 @@
     }
 }
 
-@media (min-width: 425px) and (max-width: 767px) {
+@media only screen and (max-width: 1000px) {
     .carousel {
-        margin: 5em 0 1em 0;
-    }
-    .carousel .carousel__item img {
-        margin-left: auto;
-    }
-    .carousel .number {
-        margin-right: 5em;
-    }
-}
-
-@media only screen and (max-width: 1024px) and (min-width: 767px) {
-    /* .carousel {
-        margin: 4em 0 1em 0;
-    } */
-/*
-    .carousel .carousel__item img {
-        width: 60%;
-        max-width: 25em;
-        height: auto;
-        display: block;
-        margin-left: 10em;
-        margin-right: auto;
-    } */
-
-    .carousel .carousel__item--visible p:first-child {
-        font-size: clamp(.5rem, 2.5vw, .75rem);
-    }
-
-        /* title styles */
-    /* .carousel .carousel__item--visible h2 {
-        font-size: clamp(1.5rem, 6vw, 3rem);
-    } */
-
-    /* person styles */
-    .carousel .carousel__item--visible p:last-child {
-        font-size: clamp(.5rem, 2.5vw, 1rem);
-        width: 35vw;
-    }
-
-    .carousel .carousel__actions {
-    }
-
-}
-@media only screen and (max-width: 700px){
-    .carousel {
-        margin: 5em 0 1em 0;
+        margin: 0.5em 0;
         max-width: 90vw;
         height: fit-content;
     }
-
     .carousel .carousel__item--visible {
         grid-template-columns: unset;
-        grid-template-rows: 45vw auto;
+        /* grid-template-rows: 45vw auto; */
+        grid-template-rows: 65vw auto;
         gap: 4rem;
     }
 
     .carousel__item.carousel__item--visible .number {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: calc(90vw - 12em);
+        width: calc(100% - 2em);
         margin: auto;
     }
     .carousel__item--visible .number h2,
@@ -271,16 +223,18 @@
 
     .carousel .carousel__item .image{
         width: 90vw;
-        height: 45vw;
+        /* height: 45vw; */
+        height: 65vw;
         overflow: hidden;
     }
     .carousel .carousel__item img,
     .carousel__item--visible .image picture{
         position: relative;
-        transform: translateY(-25%);
+        transform: translateY(-15%);
     }
     .carousel .carousel__actions {
-        top: 45vw;
+        top: 66vw;
+        /* top: 15vw; */
         transform: translate(-50%);
     }
 }
