@@ -23,14 +23,16 @@ body > main > div > div > p {
 }
 
 .inclusive-design .article-card.block .text .hed {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 300;
     padding-right: 2em;
+    width: 60%;
     overflow: visible;
+    margin-top: 0.5em;
 }
 
 .inclusive-design .article-card.block .text .dek {
-    font-size: 1.25em;
+    font-size: 1.2em;
     font-weight: 300;
     padding-top: 1em;
     max-height: 10em;
@@ -39,8 +41,8 @@ body > main > div > div > p {
 }
 
 .inclusive-design .article-card.block .text .byline {
-    margin-top: 2rem;
-    font-size: 1.5rem;
+    margin-top: 1rem;
+    font-size: 1.1rem;
 }
 
 .inclusive-design .article-card.block .text .byline .author {
