@@ -75,7 +75,12 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     font-size: var(--li-font-size);
 }
 .page-type-article .article-picture{
-    padding: 4em 0;
+    padding: 0;
+    margin: 0;
+}
+.page-type-article .content p.article-picture{
+    line-height: 0;
+
 }
 .page-type-article main img{
     width: 100%;
@@ -87,12 +92,16 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     padding-bottom: 13em;
     /* padding-left: 5em; */
 }
-.page-type-article .lede.block{
+.page-type-article .pull-quote.block{
     font-size: 2em;
     color: #FF7D4F;
     font-weight: lighter;
     justify-items: center;
     padding: 2em 3em;
+}
+/* first pull-quote */
+body > main > div > div > div:nth-child(2) > div > div{
+    color: black;
 }
 .page-type-article .content div:nth-child(3){
     padding: 0;
