@@ -107,6 +107,47 @@
         position: static;
     }
 }
+
+@media only screen and (min-width: 668px) and (max-width: 767px){
+    .person {
+        background: #e91d2500;
+        height: 40rem;
+        width: auto;
+        margin: 10px 0 30px 0;
+    }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 667px){
+    .person {
+        height: 39em;
+        background: #e91d2500;
+        width: auto;
+        margin: 10px 0 30px 0;
+    }
+}
+
+@media only screen and (min-width: 701px) and (max-width: 767px){ 
+    .people.block {
+        display: flex;
+        height: 25em;
+        width: auto;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .person {
+        background: white;
+        height: 24em;
+        margin-top: 0;
+    }
+    .people.block > div:nth-child(2) {
+        margin: 0 10px;
+    }
+    .name {
+        margin-top: 4em;
+    }
+}
+
 @media only screen and (max-width: 425px){
     .person{
         background: none;
