@@ -183,9 +183,6 @@
 }
 
 @media (min-width: 425px) and (max-width: 767px) {
-    .carousel {
-        margin: 5em 0 1em 0;
-    }
     .carousel .carousel__item img {
         margin-left: auto;
     }
@@ -229,7 +226,7 @@
 }
 @media only screen and (max-width: 700px){
     .carousel {
-        margin: 5em 0 1em 0;
+        margin: 5em auto 1em auto;
         max-width: 90vw;
         height: fit-content;
     }

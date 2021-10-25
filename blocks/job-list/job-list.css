@@ -9,7 +9,6 @@
     width: 100%;
     font-size: 7em;
     line-height: 1em;
-    padding-left: 50px;
 }
 
 .joinus h2 {
@@ -38,7 +37,6 @@
     font-size: 7em;
     font-weight: lighter;
     line-height: 1em;
-    padding-left: 50px;
 }
 
 .job-list.block p{
@@ -151,7 +149,7 @@
 }
 @media only screen and (max-width: 425px){
     #join-us{
-        font-size: 6em;
+        font-size: 6rem;
         width: 100%;
     }
     .single-job .job-title{
