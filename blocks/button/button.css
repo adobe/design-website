@@ -30,29 +30,50 @@ button.reg.filled{
 
 
 
-button.carousel__button--prev,
-button.carousel__button--next,
-button.carousel__button--prev img,
-button.carousel__button--next img{
+.carousel .carousel__actions button,
+.carousel .carousel__actions button img{
     background-color: transparent;
-    padding: 0px;
-    height:  3em;
-    width:   3em;
+
 }
 
-button.carousel__button--prev,
-button.carousel__button--next{
-    border: 3px solid transparent;
-    padding: .25em;
+.carousel .carousel__actions button img{
+    height:  1.5em;
+    width:   1.5em;
+}
+
+.carousel .carousel__actions button{
+    box-sizing: border-box;
+    border: 0.1em solid transparent;
     border-radius: 50%;
-    box-sizing: content-box;
+    padding: 0.125em;
+    height: 1.95em;
+    width:  1.95em;
 }
 
-button.carousel__button--prev:focus,
-button.carousel__button--next:focus{
+.carousel .carousel__actions button:focus,
+.carousel .carousel__actions button:focus{
     border-color: var(--color-navy);
 }
 
+.carousel .carousel__actions button:active ,
+.carousel .carousel__actions button:hover {
+    filter: brightness(0.8);
+}
+
+
 button.carousel__button--prev{
     transform: rotate(180deg)
+}
+
+@media screen and (max-width: 1090px) {
+    .carousel .carousel__actions button{
+        height: 4.5rem;
+        width:  4.5rem;
+        padding: .35rem;
+    }
+    .carousel .carousel__actions button img{
+        height: 3.8rem;
+        width: 3.8rem;
+    }
+
 }

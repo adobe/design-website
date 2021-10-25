@@ -32,7 +32,7 @@ body > main > div > div > p {
 }
 
 .inclusive-design .article-card.block .text .dek {
-    font-size: 1.2em;
+    font-size: 1.15em;
     font-weight: 300;
     padding-top: 1em;
     max-height: 10em;
@@ -43,6 +43,7 @@ body > main > div > div > p {
 .inclusive-design .article-card.block .text .byline {
     margin-top: 1rem;
     font-size: 1.1rem;
+    font-family: var(--serif-font);
 }
 
 .inclusive-design .article-card.block .text .byline .author {

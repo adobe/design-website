@@ -1,5 +1,5 @@
 import { Background } from "../../scripts/background.js";
-import { decorateDivisions } from "../../scripts/helpers.js";
+import { $element, decorateDivisions } from "../../scripts/helpers.js";
 import { addArrowButton } from "../button/button.js";
 const SLIDE_TIME = 7000;
 const ANIMATION_TIME = 250;
@@ -49,6 +49,14 @@ export default function decorate($block) {
     slide.classList.add("carousel__item");
     slide.querySelector("div:nth-child(1)").classList.add("image");
     slide.querySelector("div:nth-child(2)").classList.add("number");
+
+    /* Add class names and remove ids from h2 and h3 on slides: */
+    let rightSide = slide.querySelector("div:nth-child(2)");
+    rightSide.querySelector("p:first-of-type").classList.add('tag-link');;
+    let header3 = rightSide.querySelector("h3");
+    rightSide.querySelector("h2").removeAttribute('id');
+    header3.removeAttribute('id');
+    header3.classList.add('dek-3');
   }
 
   const actions = document.createElement("div");
