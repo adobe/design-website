@@ -62,7 +62,7 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     width: 100%;
     height: 75%;
 }
-.page-type-article p {
+.page-type-article main p {
     font-size: 1.5em;
     text-align: left;
     padding-left: 11em;
