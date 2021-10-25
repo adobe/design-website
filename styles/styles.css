@@ -56,6 +56,15 @@ body.loaded {
     font-family:  var(--sans-serif-font);
 }
 
+#global-header,
+#global-footer .footer-content,
+.page-type-tools .toolkit > div > div,
+.page-type-team .teams >div > div,
+.page-type-index .stories-index-view > div > div,
+.page-type-jobs .jobs >div > div,
+.page-type-inclusive .inclusive-design > div > div,
+.page-type-index main,
+.page-type-article main,
 main > div > div > div:not(.full-bleed) {
     width: 98vw;
     max-width:1000px;

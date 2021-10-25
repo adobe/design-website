@@ -1,11 +1,3 @@
-.page-type-team .teams >div > div{
-    width: 98vw;
-    max-width:1000px;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-
 .page-type-team .teams *{
     font-weight: var(--weight-light);
 }

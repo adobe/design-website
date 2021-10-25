@@ -51,6 +51,8 @@
     align-items: center;
     flex-direction: column;
     text-align:center;
+    width:80%;
+    justify-self: center;
 }
 
 .think-differently.block .think-differently-content p:nth-of-type(1){

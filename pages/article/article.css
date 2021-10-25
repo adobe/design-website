@@ -9,12 +9,6 @@
     --li-font-size: 1.5em;
 }
 
-.page-type-article main{
-    width: 98vw;
-    max-width:1000px;
-    margin-left:auto;
-    margin-right:auto;
-}
 .page-type-article  {
     font-size:16px;
 }

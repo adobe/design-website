@@ -4,10 +4,6 @@
     align-items: center;
     padding:20px 0px;
     box-sizing: border-box;
-    width: 98vw;
-    max-width:1000px;
-    margin-left:auto;
-    margin-right:auto;
 }
 
 #global-header .logo img{
