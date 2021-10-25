@@ -27,3 +27,54 @@ button.reg.filled{
     color: var(--btn-color);
     background-color: unset;
 }
+
+
+
+.carousel .carousel__actions button,
+.carousel .carousel__actions button img{
+    background-color: transparent;
+
+}
+
+.carousel .carousel__actions button img{
+    height:  1.5em;
+    width:   1.5em;
+}
+
+.carousel .carousel__actions button{
+    box-sizing: border-box;
+    border: 0.1em solid transparent;
+    border-radius: 50%;
+    padding: 0.125em;
+    height: 1.95em;
+    width:  1.95em;
+}
+
+.carousel .carousel__actions button:focus,
+.carousel .carousel__actions button:focus{
+    border-color: var(--color-navy);
+}
+
+.carousel .carousel__actions button:active ,
+.carousel .carousel__actions button:hover {
+    filter: brightness(0.8);
+}
+
+button.carousel__button--prev{
+    transform: rotate(180deg)
+}
+
+@media screen and (max-width: 1090px) {
+    .carousel .carousel__actions button{
+        height: 60px;
+        width: 60px;
+        padding: 7px;
+        box-sizing: border-box;
+
+    }
+    .carousel .carousel__actions button img{
+        height: 44px;
+        width: 44px;
+    }
+
+}

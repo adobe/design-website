@@ -23,6 +23,8 @@ html{
         --bkg-grey-lt:   #E8E8E8;
         --bkg-red:       #E91D25;
         --bkg-orange:    #E94E27;
+        --color-navy:    #3041A0;
+
 
         /* Font Families */
         --fast-sans-serif-font: Helvetica, Arial, sans-serif;
@@ -35,6 +37,11 @@ html{
         --weight-regular:    400;  /* normal,    400-500 */
         --weight-bold:       700;  /* semi-bold, 700-600 */
         --weight-black:      900;  /* bolder,    800-900 */
+
+        /* Commonly used spacing */
+        --page-header-l-padding: 9rem;
+        --page-header-size: 4rem;
+        --page-header-margin: 7rem 0 5rem 0;
 
         color:       var(--color-text);
         font-weight: var(--weight-regular);
@@ -49,6 +56,15 @@ body.loaded {
     font-family:  var(--sans-serif-font);
 }
 
+#global-header,
+#global-footer .footer-content,
+.page-type-tools .toolkit > div > div,
+.page-type-team .teams >div > div,
+.page-type-index .stories-index-view > div > div,
+.page-type-jobs .jobs >div > div,
+.page-type-inclusive .inclusive-design > div > div,
+.page-type-index main,
+.page-type-article main,
 main > div > div > div:not(.full-bleed) {
     width: 98vw;
     max-width:1000px;
@@ -159,7 +175,6 @@ main > div > div > div:not(.full-bleed) {
         width: auto;
         margin: 1em;
         overflow-x: hidden;
-        margin-right: 2em;
     }
     main > div > div > div:not(.full-bleed) {
         width: auto;

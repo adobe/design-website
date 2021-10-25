@@ -114,7 +114,7 @@
     .article-card.block .text .hed,
     .article-card.block .text .hed a {
         font-size: 3em;
-        height: 8em;
+        height: 7rem;
     }
 }
 
@@ -128,7 +128,6 @@
     margin: 1.43em 0em 0.5rem 0em;  /* 40px */
     font-weight: normal;
     text-overflow: ellipsis;
-    overflow: hidden;
     max-height: 3.6em;              /* 3x line-height */
     max-width: 70%;
 }

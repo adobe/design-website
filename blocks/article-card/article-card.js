@@ -28,7 +28,9 @@ export default function decorate($block) {
   const $text = $element('.text');
   const $tag = decorateTagLink( $element('div', `#${props.tag}`), { color: 'black' } );
   const $hed = $element('.hed', props.hed);
-  const $dek = $element('.dek', props.dek);
+  const DEK_TEXT_LIMIT = 70;
+  let dekText = props.dek.length<DEK_TEXT_LIMIT ? props.dek:props.dek.substring(0,DEK_TEXT_LIMIT-3)+'...';
+  const $dek = $element('.dek', dekText);
   const $byline = $element('.byline');
 
   /** if props.author exists: */

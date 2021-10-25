@@ -8,10 +8,6 @@
     padding-bottom: 5em;
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 50% 25% 25%;
-    width: 98vw;
-    max-width:1000px;
-    margin-left:auto;
-    margin-right:auto;
 }
 
 #global-footer .footer-content .source {
@@ -74,7 +70,7 @@
     }
 
     #global-footer .footer-content .source {
-        height: 5em;
+        height: 3em;
     }
     #global-footer .footer-content > nav{
         padding-top: 3em;
@@ -82,6 +78,21 @@
     }
     #global-footer .footer-content > nav:nth-child(4) {
         flex-direction: column;
+    }
+    #global-footer .footer-content > nav:nth-child(4) > * {
+        padding-bottom: 1em;
+    }
+    #global-footer > div > nav:nth-child(4) > p:nth-child(2) {
+        display: none;
+    }
+    #global-footer > div > nav:nth-child(4) > p:nth-child(6) {
+        display: none;
+    }
+    #global-footer > div > nav:nth-child(4) > p:nth-child(4) {
+        display: none;
+    }
+    #global-footer > div > nav:nth-child(4) > p:nth-child(8) {
+        display: none;
     }
 }
 

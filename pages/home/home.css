@@ -31,12 +31,6 @@
     padding-left: 5em;
 }
 
-.page-type-index main {
-    width: 98vw;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
 .page-type-index .story picture {
     padding-left: 3em;
 }

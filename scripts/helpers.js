@@ -394,6 +394,49 @@ export function $element(selector, options, content) {
     return $div;
 }
 
+
+// export function $changeTag(selector, oldSelector) {
+//     if (!selector) {
+//         throw new Error(`$element requires the 1st argument, selector`);
+//     }
+
+
+//     const inner =  oldSelector.innerHtml;
+
+//     const $div = applySelectorToElement(null, selector);
+//     $div.innerHtml(inner);
+
+
+//     if (arguments.length === 2 && (typeof options === "string" || options instanceof HTMLElement || options instanceof Array)) {
+//         content = options;
+//         options = {};
+//     }
+
+//     if (content) {
+//         if (typeof content === "string") {
+//             $div.innerText = content;
+//         } else {
+//             let contentArray;
+//             if (!(content instanceof Array)) {
+//                 contentArray = [content];
+//             } else {
+//                 contentArray = content;
+//             }
+//             contentArray.forEach(c => {
+//                 $div.appendChild(c);
+//             });
+//         }
+//     }
+//     if (options && options.attr) {
+//         const keys = Object.keys(options.attr);
+//         for (const key of keys) {
+//             $div.setAttribute(key, options.attr[key]);
+//         }
+//     }
+
+//     return $div;
+// }
+
 export function wrapWithElement($target, $wrap) {
     $wrap.appendChild($target);
     return $wrap;
@@ -454,8 +497,10 @@ export function $remainder($target, selector) {
     });
     return remainder;
 }
-// Calling this function in your script will add a fade up animation to any elements
-// With the follow two classes 'js-scroll' and 'fade-in'
+// Calling this function in your script will add an animation to any elements that's scrolled into view
+// Add the 'js-scroll' class to any element you would like animated along with a class that contains the animation you would like.
+// Currently available animations are located in styles.css
+// when generating new animations you must write your selector prefaced with the scrolled class. ex .scrolled.fade-in {animation: ...}
 export function $scrollAnimation() {
     const scrollElements = document.querySelectorAll(".js-scroll");
     const elementInView = (element, dividend = 1) => {
@@ -493,7 +538,7 @@ export function $scrollAnimation() {
                 }
             }, SCROLL_THROTTLE)
             scrollElements.forEach((element) => {
-                if (elementInView(element, 1.30)) {
+                if (elementInView(element, 1)) {
                 displayScrollElement(element);
                 } else if (elementOutofView(element)) {
                 hideScrollElement(element)

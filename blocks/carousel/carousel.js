@@ -1,5 +1,6 @@
 import { Background } from "../../scripts/background.js";
-import { decorateDivisions } from "../../scripts/helpers.js";
+import { $element, decorateDivisions } from "../../scripts/helpers.js";
+import { addArrowButton } from "../button/button.js";
 const SLIDE_TIME = 7000;
 const ANIMATION_TIME = 250;
 
@@ -48,18 +49,21 @@ export default function decorate($block) {
     slide.classList.add("carousel__item");
     slide.querySelector("div:nth-child(1)").classList.add("image");
     slide.querySelector("div:nth-child(2)").classList.add("number");
+
+    /* Add class names and remove ids from h2 and h3 on slides: */
+    let rightSide = slide.querySelector("div:nth-child(2)");
+    rightSide.querySelector("p:first-of-type").classList.add('tag-link');;
+    let header3 = rightSide.querySelector("h3");
+    rightSide.querySelector("h2").removeAttribute('id');
+    header3.removeAttribute('id');
+    header3.classList.add('dek-3');
   }
 
   const actions = document.createElement("div");
   actions.classList.add("carousel__actions")
 
-  const prevDiv = document.createElement("div");
-  prevDiv.classList.add("carousel__button--prev")
-  prevDiv.innerHTML = '<img src="/resources/leftArrow.png">'
-
-  let nextDiv = document.createElement("div");
-  nextDiv.classList.add("carousel__button--next")
-  nextDiv.innerHTML = '<img src="/resources/rightArrow.png">'
+  const prevDiv = addArrowButton('prev')
+  const nextDiv = addArrowButton('next')
 
   actions.append(prevDiv)
   actions.append(nextDiv)
@@ -84,7 +88,7 @@ export default function decorate($block) {
           slides[i].classList.remove('carousel__item--visible', "visible-animation-rev", "visible-animation");
           slides[i].classList.remove('opacity-zero');
         }, ANIMATION_TIME)
-        
+
       }
 
       if (i === slidePosition) {
@@ -182,13 +186,13 @@ export default function decorate($block) {
   // if(myStr.innerText > 13){
     //   myStr.innerText = myStr.innerText.substring(0,13) + '...'
     // }
-    
-    
-    
+
+
+
     // var carouselBlock = document.querySelector('.carousel.block')
     // for( var num = 0; num < carouselBlock.childElementCount; num++){
 
-      
+
     //   var myStr = document.querySelector('.carousel h2')
 
     //   var test = carouselBlock.children[num].classList
@@ -205,7 +209,7 @@ export default function decorate($block) {
 
     // var carouselItem = document.querySelectorAll('.carousel__item')
     // console.log(carouselItem);
-    
+
 
     var myStr = document.querySelectorAll('.carousel h2')
     for(let dog = 0; dog < myStr.length; dog++){
@@ -221,11 +225,11 @@ export default function decorate($block) {
     // let maxLength = 13
     // let test = document.querySelector('.carousel__item--visible .number h2')
     // if(test.innerText.length > maxLength){
-      
+
     //   test.innerText = test.innerText.substring(0,maxLength) + '...'
     // }
-  
-  
+
+
 
 
 }
