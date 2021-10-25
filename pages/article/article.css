@@ -45,7 +45,7 @@
 .page-type-article .content h2{
     font-size: var(--h2-font-size);
     padding-top: 1em;
-    text-align: center;
+    padding-left: 5.5em;
     font-weight: normal;
 
 }
@@ -62,7 +62,7 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     width: 100%;
     height: 75%;
 }
-.page-type-article main > div > div > p {
+.page-type-article p {
     font-size: 1.5em;
     text-align: left;
     padding-left: 11em;
@@ -71,6 +71,7 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
 .page-type-article .content li{
     padding-left: 9.4em;
     padding-right: 4em;
+    padding-bottom: 1em;
     font-size: var(--li-font-size);
 }
 .page-type-article .article-picture{
@@ -351,6 +352,9 @@ body > main > div > div.content > picture > img{
         width: 100%;
         padding: 0;
     }
+    .page-type-article .content h2{
+        padding: 0;
+    }
     .page-type-article main > div > div > p{
         padding: 0;
     }
@@ -368,6 +372,7 @@ body > main > div > div.content > picture > img{
     }
     .page-type-article .content li{
         padding: 0;
+        padding-bottom: 1em;
     }   
     .page-type-article .additional-reading.block{
         width: auto;
@@ -385,6 +390,9 @@ body > main > div > div.content > picture > img{
     }
     .page-type-article .author-bio > div{
         margin: 0;
+    }
+    .page-type-article .author-bio.block p{
+        padding: 0;
     }
     /* authod bio block */
 }   
@@ -415,8 +423,19 @@ body > main > div > div.content > picture > img{
     .page-type-article main{
        width: 90%;
     }
+    .page-type-article .content .lede.block{
+        padding-right: 0;
+        padding-right: 1em;
+    }
+    .page-type-article .content h2{
+        padding-left: 4.4em;
+    }
     .page-type-article main > div > div > p{
         padding-left: 9em;
+        padding-right: 0;
+    }
+    .page-type-article .content li{
+        padding-right: 0;
     }
     .page-type-article .author-bio.block > div{
         margin: 0 10% 5em 10%;
