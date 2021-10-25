@@ -536,7 +536,7 @@ export function $scrollAnimation() {
                 }
             }, SCROLL_THROTTLE)
             scrollElements.forEach((element) => {
-                if (elementInView(element, 1.30)) {
+                if (elementInView(element, 1)) {
                 displayScrollElement(element);
                 } else if (elementOutofView(element)) {
                 hideScrollElement(element)
