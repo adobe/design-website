@@ -1,50 +1,30 @@
-/*
-div.opp-block
-    div.opp-container
-        div.header-c
-            p.title
-        div.opps-container [
-            div.job
-                div.left
-                    div.title
-                    div.sub-title
-                div.right
-                    div.department
-                    div.city
-        ]
-*/
-
-@media screen and (max-width: 600px){
-    div.similarOpps-block{ font-size: 12px}
-}
-@media screen and (min-width: 601px){
+@media screen and (max-width: 1000px) {
     div.similarOpps-block{ font-size: 14px}
 }
-@media screen and (min-width: 930px){
-    div.similarOpps-block{ font-size: 16px}
-}
 /*
-1000 -> 16 62.5
-1920 -> 30.72px -> rem */
+1000 -> 16 ||         | 62.5 x 16 = 1000
+1920 -> 30.72px -> 1rem
+*/
 
-
-@media screen and (min-width: 1001px) and (min-width: 1920px){
+@media screen and (min-width: 1001px){
     div.similarOpps-block{ font-size: 16px}
 }
 
 @media screen and (min-width: 1921px) {
-    div.similarOpps-block{ font-size: 30px}
+    div.similarOpps-block{ font-size: 30.7px}
 }
 
 
-
 .similarOpps-block{
-
     background-color: var(--bkg-navy-dark);
     color: white;
     width: 100vw;
     font-family: var(--serif-font);
 
+}
+
+@media screen and (min-width: 1001px){
+    .similarOpps-block .opp-block{}
 }
 
 .similarOpps-block .opp-block{
