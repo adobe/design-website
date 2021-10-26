@@ -451,6 +451,7 @@ body > main > div > div.content > picture > img{
     }
     .page-type-article .content li{
         padding-right: 0;
+        padding-left: 7.4;
     }
     .page-type-article .author-bio.block > div{
         margin: 0 10% 5em 10%;
