@@ -1,4 +1,4 @@
-import { $element } from "../../scripts/helpers.js";
+import { $element, $wrap } from "../../scripts/helpers.js";
 import { fetchIndex } from "../../scripts/queries.js";
 let index;
 
@@ -12,10 +12,18 @@ export default async function decorator($main) {
     const $target = $main.querySelector(":scope > div > div");
     const $thinkDifferent = document.querySelector(".think-differently");
     const $results = $element(".stories");
-    $target.insertBefore( $results, $thinkDifferent);
+    const $loadMoreButton = $element(".load-more-stories", "Load More");
+    $target.append( $wrap($element('.content'), [$results, $loadMoreButton, $thinkDifferent]));
     index.stories.data.forEach(story => {
             $results.append(buildStory(story));
     });
+
+    $loadMoreButton.addEventListener("click", function () {
+        //TODO: Fix this once we filter stories
+        index.stories.data.forEach(story => {
+            $results.append(buildStory(story));
+        });
+    })
 }
 
 function buildStory( story ) {
