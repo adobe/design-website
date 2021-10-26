@@ -555,6 +555,9 @@ export function $scrollAnimation() {
     );
 
 }
+// export function $handleResize(){
+//     window.addEventListener("resize", )
+// }
 
 /**
  * Fetches a fragment based on its reliatve page url
