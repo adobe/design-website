@@ -65,7 +65,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 3em 5% 5em 5%;
+        padding: 3em 5% 3em 5%;
+        box-sizing: border-box;
         width: 90%
     }
 

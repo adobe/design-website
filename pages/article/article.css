@@ -27,12 +27,19 @@
 .page-type-article .content p {
     text-align:left;
     font-size:var(--p-font-size);
+    color: #4A4545;
+    font-family: 'Adobe Clean Regular';
     line-height:1.5em;
+}
+.page-type-article .content .lede.block{
+    color: #4A4545;
 }
 .page-type-article h1{
     text-align: left;
     margin: unset;
     font-size: var(--h1-font-size);
+    font-family: 'Adobe Clean Black';
+    color: #3A3A3A;
     font-weight: 500;
     padding-left: 1em;
     padding-right: 2em;
@@ -44,9 +51,11 @@
 }
 .page-type-article .content h2{
     font-size: var(--h2-font-size);
+    font-family: 'Adobe Clean Regular';
     padding-top: 1em;
     padding-left: 5.5em;
     font-weight: normal;
+    color: #4A4545;
 
 }
 .page-type-article .header >div{
@@ -96,13 +105,14 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     font-size: 2em;
     color: #FF7D4F;
     font-weight: lighter;
+    font-family: 'Adobe Clean Regular';
     justify-items: center;
     padding: 2em 3em;
 }
 /* first pull-quote */
-body > main > div > div > div:nth-child(2) > div > div{
+/* body > main > div > div > div:nth-child(2) > div > div{
     color: black;
-}
+} */
 .page-type-article .content div:nth-child(3){
     padding: 0;
     padding-bottom: 1em;
@@ -370,11 +380,11 @@ body > main > div > div.content > picture > img{
     .page-type-article main > div > div > p{
         padding: 0;
     }
-    .page-type-article .lede.block{
+    /* .page-type-article .lede.block{
         margin: 0;
         padding: 0;
         font-size: 2em;
-    }
+    } */
     .page-type-article .caption{
         margin: 0;
         padding: 0;
@@ -435,10 +445,10 @@ body > main > div > div.content > picture > img{
     .page-type-article main{
        width: 90%;
     }
-    .page-type-article .content .lede.block{
+    /* .page-type-article .content .lede.block{
         padding-right: 0;
         padding-right: 1em;
-    }
+    } */
     .page-type-article .content h2{
         padding-left: 4.4em;
     }
@@ -451,6 +461,7 @@ body > main > div > div.content > picture > img{
     }
     .page-type-article .content li{
         padding-right: 0;
+        padding-left: 7.4;
     }
     .page-type-article .author-bio.block > div{
         margin: 0 10% 5em 10%;
