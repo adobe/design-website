@@ -74,7 +74,7 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
 
 .page-type-article .header .author-body{
     display:flex;
-    width:25%;
+    width:15em;
     gap: 5%;
     padding-top:2em;
 }
@@ -332,27 +332,27 @@ body > main > div > div.content > picture > img{
     .author-bio {
         height: 25em;
     }
-    .author-name {
+    .author-bio .author-name {
         width: 80%;
     }
-    .author-image {
+    .author-bio .author-image {
         border: 1px solid black;
     }
-    .author-bio > div {
+    .author-bio .author-bio > div {
         margin: 0 12% 5em 12%;
         flex-direction: column;
     }
-    .author-info {
+    .author-bio .author-info {
         padding-top: 1em;
         margin-left: 0;
         text-align: center;
     }
-    .author-info > p:nth-child(1) {
+    .author-bio .author-info > p:nth-child(1) {
         font-weight: bold;
         font-size: 1.5em;
         margin-bottom: 1em;
     }
-    .author-info > p:nth-child(3) {
+    .author-bio .author-info > p:nth-child(3) {
         margin-top: 2em;
     }
 
@@ -385,8 +385,12 @@ body > main > div > div.content > picture > img{
     .page-type-article .header.block h2{
         padding: 0;
     }
-    .page-type-article .header.block img{
-        padding-bottom: 5em;
+    .page-type-article .header.block img:not(.author-image){
+        padding-bottom: 1em;
+    }
+
+    .page-type-article .header .author-body{
+        padding-bottom: 3em;
     }
     /* header */
 
