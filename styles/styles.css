@@ -52,7 +52,6 @@ body.loaded {
     background-image: url("/resources/background-image.png");
     background-repeat: no-repeat;
     background-size: cover;
-    transition: all .4s ease-in-out;
     font-family:  var(--sans-serif-font);
 }
 

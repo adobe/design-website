@@ -30,6 +30,8 @@
 #global-header nav {
     box-sizing: border-box;
     margin-left: auto;
+    display: flex;
+    align-items: center;
 }
 
 #global-header nav a {
@@ -41,8 +43,12 @@
 #global-header nav.black a {
     color: var(--text-dark);
 }
-
-@media only screen and (max-width: 1024px) and (min-width: 767px) {
+@media only screen and (max-width: 1000px) {
+    #global-header{
+        padding: 20px 20px
+    }
+}
+/* @media only screen and (max-width: 1024px) and (min-width: 767px) {
     #global-header .tagline {
         padding: 0;
     }
@@ -136,5 +142,5 @@
         margin: 0;
         padding-top: 2em;
     }
-}
+} */
 /* End of navbar styling */
