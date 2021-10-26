@@ -19,6 +19,7 @@
 }
 
 #global-header .tagline {
+    font-family: var(--serif-font);
     margin-left: 5em;
     color: #FFFFFF;
     width: 18vw;
@@ -43,6 +44,7 @@
 }
 #global-header nav.black a {
     color: var(--text-dark);
+    font-weight: var(--weight-black);
 }
 #global-header .dropdown-menu-button{
     padding: unset;
