@@ -100,9 +100,9 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     padding: 2em 3em;
 }
 /* first pull-quote */
-body > main > div > div > div:nth-child(2) > div > div{
+/* body > main > div > div > div:nth-child(2) > div > div{
     color: black;
-}
+} */
 .page-type-article .content div:nth-child(3){
     padding: 0;
     padding-bottom: 1em;
@@ -370,11 +370,11 @@ body > main > div > div.content > picture > img{
     .page-type-article main > div > div > p{
         padding: 0;
     }
-    .page-type-article .lede.block{
+    /* .page-type-article .lede.block{
         margin: 0;
         padding: 0;
         font-size: 2em;
-    }
+    } */
     .page-type-article .caption{
         margin: 0;
         padding: 0;
@@ -435,10 +435,10 @@ body > main > div > div.content > picture > img{
     .page-type-article main{
        width: 90%;
     }
-    .page-type-article .content .lede.block{
+    /* .page-type-article .content .lede.block{
         padding-right: 0;
         padding-right: 1em;
-    }
+    } */
     .page-type-article .content h2{
         padding-left: 4.4em;
     }
