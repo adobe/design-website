@@ -72,11 +72,14 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     height: 75%;
 }
 
+.page-type-article .header .author{
+    padding-top:3rem;
+}
+
 .page-type-article .header .author-body{
     display:flex;
     width:15em;
     gap: 5%;
-    padding-top:2em;
 }
 
 .page-type-article .header .author-body picture{
