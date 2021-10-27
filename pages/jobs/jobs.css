@@ -134,4 +134,14 @@
     .page-type-jobs .jobs-container .job-category a{
         height: auto;
     }
+
+    .page-type-jobs .jobs-block-container #opportunities{
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 320px){
+    .page-type-jobs .jobs-block-container #opportunities{
+        padding: 2rem 0;
+    }
 }
