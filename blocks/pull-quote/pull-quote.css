@@ -1,8 +1,10 @@
 .block.pull-quote {
     padding-top: 2em;
     font-size: 1.5em;
+    font-family: var(--serif-font);
+    font-weight: var(--weight-regular);
     width: auto;
     line-height: 1.5;
     text-align: left;
-
+    color: #FF7D4F;
 }
