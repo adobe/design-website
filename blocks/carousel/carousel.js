@@ -213,8 +213,8 @@ export default function decorate($block) {
 
     var myStr = document.querySelectorAll('.carousel h2')
     for(let dog = 0; dog < myStr.length; dog++){
-      if(myStr[dog].innerText.length > 20){
-        myStr[dog].innerText = myStr[dog].innerText.substring(0,20) + '...'
+      if(myStr[dog].innerText.length > 25){
+        myStr[dog].innerText = myStr[dog].innerText.substring(0,25) + '...'
       }
       console.log(myStr[dog].innerText);
 
