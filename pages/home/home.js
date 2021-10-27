@@ -1,7 +1,6 @@
 import {$scrollAnimation} from "../../scripts/helpers.js";
 
 export default async function decorator($main) {
-    console.log("DANG",$main)
     $main.classList.add("home-view-container")
     $main.querySelectorAll(".article-card").forEach((article, index) => {
 
@@ -17,7 +16,6 @@ export default async function decorator($main) {
     var countBy4 = 0;
     var toggle = false
     document.querySelectorAll("body > main > div > div > div > div > div.text > *").forEach((text, index) => {
-        // console.log("DOPE", text, index)
         text.classList.add("js-scroll");
         if(toggle){
             text.classList.add("fade-in-right")

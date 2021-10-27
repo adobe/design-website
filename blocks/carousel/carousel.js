@@ -200,7 +200,7 @@ export default function decorate($block) {
     //   console.log(test);
 
     //   if(test.classList.contains('.carousel__item--visible')){
-    //     console.log('DOGGO');
+    //     
     //   }
     //   if(myStr.innerText > 13){
     //     myStr.innerText = myStr.innerText.substring(0,13) + '...'
@@ -212,11 +212,11 @@ export default function decorate($block) {
 
 
     var myStr = document.querySelectorAll('.carousel h2')
-    for(let dog = 0; dog < myStr.length; dog++){
-      if(myStr[dog].innerText.length > 20){
-        myStr[dog].innerText = myStr[dog].innerText.substring(0,20) + '...'
+    for(let index = 0; index < myStr.length; index++){
+      if(myStr[index].innerText.length > 20){
+        myStr[index].innerText = myStr[index].innerText.substring(0,20) + '...'
       }
-      console.log(myStr[dog].innerText);
+      console.log(myStr[index].innerText);
 
     }
 

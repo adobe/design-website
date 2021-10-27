@@ -6,7 +6,6 @@ export default async function decorator($main) {
     if (!index) {
         index = await fetchIndex();
     }
-    console.log("INDEX", index);
     $main.classList.add("stories-index-view")
 
     const $target = $main.querySelector(":scope > div > div");

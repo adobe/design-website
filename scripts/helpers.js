@@ -528,7 +528,6 @@ export function $scrollAnimation() {
     var pendingScroll = false;
     const SCROLL_THROTTLE = 100;
     const handleScrollAnimation = () => {
-        // console.log("hit")
         if(!timeOut){
             timeOut = setTimeout(()=> {
                 timeOut = null;
