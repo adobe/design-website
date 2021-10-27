@@ -93,7 +93,27 @@ main > div > div > div:not(.full-bleed) {
 /* Subheader/ summary/ hook */
 .dek{
     font-family: var(--serif-font);
-    font-size: 2em; /* 32px */
+    font-size: 2em; /* 32px; 61px if 1em = 30.7 */
+}
+
+/* dek 1 */
+.dek-1{
+    font-family: var(--serif-font);
+    font-size: 1.1em;    /* 90px  if 1em = 30.7 */
+    line-height: 1.57em; /* 110px if 1em = 30.7 */
+}
+/* dek 2, if 1em = 30.7 */
+.dek-2{
+    font-family: var(--serif-font);
+    font-size: 1.1em;    /* 35px if 1em = 30.7 */
+    line-height: 1.57em; /* 55px if 1em = 30.7 */
+}
+
+/* Subheader, if 1em = 30.7 */
+.subhead-a{
+    font-family: var(--serif-font);
+    font-size: 1.6em;   /* 50px */
+    line-height: 1.4em; /* 70px */
 }
 
 /* scroll animation */
