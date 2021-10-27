@@ -47,8 +47,10 @@
     margin-top:3em;
     border-bottom: none;
     align-self: flex-start;
+    margin-bottom:2em;
+    text-decoration:none;
 }
-.job-list .see-jobs h3{
+.job-list .see-jobs span {
     font-weight: 500;
     border: 2px solid black;
     border-radius: 2em;

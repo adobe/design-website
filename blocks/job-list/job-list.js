@@ -12,11 +12,11 @@ export default async function decorate($block) {
     index = await fetchIndex();
   }
 
-  console.log(" INDEX ", index, index.byType);
+  console.log(" INDEX ", index, index.jobs);
 
   $block.innerHTML = "";
-  if(index && index.byType) {
-    for (const job of index.byType.jobs) {
+  if(index && index.jobs) {
+    for (const job of index.jobs.data) {
       var $el = $element("a.single-job", { attr: { href: job.path } }, [
         $element("h3.job-title", job.title || "No Title"),
         $element("p.experience", "Test Experience"),
@@ -25,15 +25,12 @@ export default async function decorate($block) {
       ]);
       $block.append($el);
     }
-    const seeJobsDiv = document.createElement("div");
+    const seeJobsDiv = document.createElement("a");
     seeJobsDiv.classList.add("see-jobs");
-    const seeJobs = document.createElement("h3");
+    seeJobsDiv.setAttribute("href", "/jobs/");
+    const seeJobs = document.createElement("span");
     seeJobs.innerHTML = "See our job openings";
     seeJobsDiv.append(seeJobs);
-
-    seeJobs.addEventListener("click", () => {
-      console.log("Jobs page not setup");
-    });
 
     $block.querySelector.innerHTML = "";
     $block.append(seeJobsDiv);
