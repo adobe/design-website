@@ -1,10 +1,10 @@
 .inclusive-design h1{
     color: white;
-    font-weight: var(--weight-light);
     margin: var(--page-header-margin);
     padding-left: var(--page-header-l-padding);
     font-size: var(--page-header-size);
-    font-family: 'Adobe Clean Black';
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-black);
     letter-spacing: 2px;
     width: 50%
 } 
@@ -19,8 +19,8 @@ body > main > div > div > p {
 
 .inclusive-design .article-card.block .text .hed {
     font-size: 2.5em;
-    font-weight: 300;
-    font-family: 'Adobe Clean Black';
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-black);
     padding-right: 2em;
     width: 60%;
     overflow: visible;
@@ -30,7 +30,8 @@ body > main > div > div > p {
 .inclusive-design .article-card.block .text .dek {
     font-size: 1.15em;
     font-weight: 300;
-    font-family: 'Adobe Clean Regular';
+    font-family: var(--serif-font);
+    font-weight: var(--weight-regular);
     padding-top: 1em;
     max-height: 10em;
     margin-bottom: 0;
@@ -48,7 +49,8 @@ body > main > div > div > p {
 }
 
 .inclusive-design h2{
-    font-family: 'Adobe Clean Black'
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-black);
 }
 
 .inclusive-design .statement{
@@ -69,8 +71,8 @@ body > main > div > div > p {
 .inclusive-design .statement p{
     color: white;
     font-size: 3em;
-    font-weight: 300;
-    font-family: 'Adobe Clean Serif Regular';
+    font-family: var(--serif-font);
+    font-weight: var(--weight-regular);
 }
 
 body > main > div > div > p{
@@ -81,10 +83,10 @@ body > main > div > div > p{
     background: white;
     color: red;
     font-size: 4em;
-    font-weight: 300;
-    font-family: 'Adobe Clean Black';
-    padding: 2em 3em;
-    text-align: left;
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-black);
+    padding: 2em 2em;
+    text-align: center;
     margin: 0;
 }
 .inclusive-design .article-card.block{
@@ -103,9 +105,9 @@ body > main > div > div > p{
 }
 .inclusive-design .statementTwo p{
     font-size: 3em;
-    font-weight: 400;
     margin: 0;
-    font-family: 'Adobe Clean Regular';
+    font-family: var(--serif-font);
+    font-weight: var(--weight-regular);
 }
 body > main > div > div > div:nth-child(5) > div > div.text{
     color: white;
@@ -127,13 +129,15 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     text-align: left;
 }
 .inclusive-design .people.block .person > div:nth-child(2){
-    font-family: 'Adobe Clean Black';
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-black);
     font-size: 1.6em;
     padding-left: .9em;
     /* text-align: center; */
 }
 .inclusive-design .people.block .person > div:nth-child(4){
-    font-family: 'Adobe Clean Serif';
+    font-family: var(--serif-font);
+    font-weight: var(--weight-regular);
     font-style: italic;
 }
 body > main > div > div > div:nth-child(8) > div:nth-child(2) > div:nth-child(2)
@@ -180,11 +184,14 @@ body > main > div > div > div:nth-child(17) > div:nth-child(2) > div:nth-child(1
 .inclusive-design .statementThree h2{
     margin: 0;
     padding-bottom: 2em;
-
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-black);
 }
 .inclusive-design .statementThree p{
     margin: 0;
     font-size: 3em;
+    font-family: var(--serif-font);
+    font-weight: var(--weight-regular);
 }
 
 body > main > div > div > div:nth-child(10){
@@ -205,7 +212,7 @@ body > main > div > div > div:nth-child(10){
 @media (min-width: 768px) and (max-width:1024px){
     .inclusive-design .article-card.block .text .dek {
         font-size: 2em;
-        font-weight: 300;
+        /* font-weight: 300; */
         padding-top: 4em;
         max-height: 10em;
         margin-bottom: 0;
@@ -221,7 +228,7 @@ body > main > div > div > div:nth-child(10){
         background: white;
         color: red;
         font-size: 3em;
-        font-weight: 400;
+        /* font-weight: 400; */
         padding: 5em 3em;
         text-align: center;
         margin: 0;
@@ -235,7 +242,7 @@ body > main > div > div > div:nth-child(10){
     }
     .inclusive-design .article-card.block .text .dek {
         font-size: 1.5em;
-        font-weight: 300;
+        /* font-weight: 300; */
         padding-top: 1em;
         margin-top: 0;
         max-height:none;
@@ -275,7 +282,7 @@ body > main > div > div > div:nth-child(10){
         background: white;
         color: red;
         font-size: 3em;
-        font-weight: 400;
+        /* font-weight: 400; */
         padding: 2em .2em;
         text-align: center;
         margin: 0;
