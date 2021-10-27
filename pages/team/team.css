@@ -201,7 +201,7 @@
     justify-content: space-between;
     align-items: center;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 333px;
 }
@@ -281,8 +281,7 @@
         left: 10%;
     }
     .page-type-team .team-cards .team-card h3::after{
-        left: 8%; /* 40% * 12.5%  = 5% "padding left" */
-        width: 90%; /* 40% * 225%   = 90% "width"*/
+        content:none;
     }
 
     .page-type-team .team-cards .team-card{

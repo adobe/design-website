@@ -20,34 +20,29 @@ body.job-post .header-block:after{
 
 }
 .job-post .header-block,
-.job-post .left,
-.job-post .right{
+.job-post .header-block .left,
+.job-post .header-block .right{
     box-sizing: border-box;
 }
-.job-post .left,
-.job-post .right{
+.job-post .header-block .left,
+.job-post .header-block .right{
     padding: 40px;
     width: 100%;
 }
 
 
-.job-post .left{
+.job-post .header-block .left{
     background-color: var(--bkg-navy-dark);
     background: var(--bkg-navy-dark);
     display: grid;
     grid-template-rows: 1fr 4em;
 }
 
-.job-post .left button.unfilled.reg{
+.job-post .header-block .left button.unfilled.reg{
     width: max-content;
 }
 
-
-.job-post .right{
-
-}
-
-.details{
+.job-post .header-block .details{
     display: inline-grid;
     width: max-content;
     grid-template-columns: 50% 50%;

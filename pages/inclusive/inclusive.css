@@ -6,7 +6,7 @@
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
     letter-spacing: 2px;
-    width: 60%
+    width: 50%
 } 
 
 body > main > div > div > p {
@@ -232,9 +232,6 @@ body > main > div > div > div:nth-child(10){
         padding: 5em 3em;
         text-align: center;
         margin: 0;
-    }
-    .inclusive-design .block-content .text{
-        font-size: 2em;
     }
 
     .inclusive-design .article-card.block .block-content{

@@ -59,7 +59,7 @@
     color: #4A4545;
 
 }
-.page-type-article .header >div{
+.page-type-article .header >div:not(.author){
     display: flex;
     flex-direction: column;
     overflow:hidden;
@@ -72,6 +72,45 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     width: 100%;
     height: 75%;
 }
+
+.page-type-article .header .author{
+    padding-top:3rem;
+}
+
+.page-type-article .header .author-body{
+    display:flex;
+    width:15em;
+    gap: 5%;
+}
+
+.page-type-article .header .author-body picture{
+    width:25%;
+}
+
+.page-type-article .header .author-desc{
+    display:flex;
+    flex-direction: column;
+}
+
+.page-type-article .header .author-desc h2,
+.page-type-article .header .author-desc h3{
+    display:unset;
+    padding: unset;
+    margin-block:unset;
+    font-size: 1em;
+    height:50%;
+    padding-top:.2em;
+}
+
+.page-type-article .header .author-desc h2{
+    font-size: 1.4em;
+}
+
+.page-type-article .header .author-desc h3{
+    font-weight: var(--weight-light);
+    font-size: .7em;
+}
+
 .page-type-article main p {
     font-size: 1.5em;
     text-align: left;
@@ -99,7 +138,7 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
      /* width: 80%; */
     color: black;
     padding-top: 5em;
-    padding-bottom: 13em;
+    padding-bottom: 8em;
     /* padding-left: 5em; */
 }
 .page-type-article .pull-quote.block{
@@ -289,27 +328,27 @@ body > main > div > div.content > picture > img{
     .author-bio {
         height: 25em;
     }
-    .author-name {
+    .author-bio .author-name {
         width: 80%;
     }
-    .author-image {
+    .author-bio .author-image {
         border: 1px solid black;
     }
-    .author-bio > div {
+    .author-bio .author-bio > div {
         margin: 0 12% 5em 12%;
         flex-direction: column;
     }
-    .author-info {
+    .author-bio .author-info {
         padding-top: 1em;
         margin-left: 0;
         text-align: center;
     }
-    .author-info > p:nth-child(1) {
+    .author-bio .author-info > p:nth-child(1) {
         font-weight: bold;
         font-size: 1.5em;
         margin-bottom: 1em;
     }
-    .author-info > p:nth-child(3) {
+    .author-bio .author-info > p:nth-child(3) {
         margin-top: 2em;
     }
 
@@ -343,8 +382,12 @@ body > main > div > div.content > picture > img{
     .page-type-article .header.block h2{
         padding: 0;
     }
-    .page-type-article .header.block img{
-        padding-bottom: 5em;
+    .page-type-article .header.block img:not(.author-image){
+        padding-bottom: 1em;
+    }
+
+    .page-type-article .header .author-body{
+        padding-bottom: 3em;
     }
     /* header */
 

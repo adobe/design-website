@@ -59,6 +59,7 @@ async function buildAuthorBio() {
   const authorName = getMetadata('author');
   const author = await lookupAuthor(authorName);
 
+  let $authorBlock
   let $bioBlock;
 
   if (author) {
@@ -81,12 +82,29 @@ async function buildAuthorBio() {
         ]),
       ]),
     ]);
+
+    $authorBlock = $element('.author.block', [
+      $element('.author-body', [
+        $element('picture', [
+          $element('source', { attr: { media: '', srcset: author.image }}),
+          $element('img.author-image', { attr: { src: author.image } }),
+        ]),
+        $element('.author-desc', [
+          $element('h2.name', author.name),
+          $element('h3.author-title', author.title)
+        ])
+      ])
+    ]);
   } else {
     $bioBlock = $element('.author-bio.block', [
       $element(".not-found", `Author ${authorName} not found`),
     ]);
+    $authorBlock = $element('.author.block', [
+      $element(".not-found", `Author ${authorName} not found`),
+    ]);
   }
   document.body.insertBefore($bioBlock, document.body.querySelector('main').nextSibling);
+  document.querySelector('.block.header').append($authorBlock)
 }
 
 function moveHeaderContent() {

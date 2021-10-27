@@ -1,10 +1,10 @@
 /* ------- ARTICLE CARD BLOCK ------- */
 
- .article-card.block{ margin-bottom: 1rem; }
+ /* .image-text.block{ margin-bottom: 1rem; } */
 
 @media screen and (min-width: 1025px) and (min-height: 620px) {
     /* Ensure Article Card doesn't cut off content on short desktop screens */
-    .article-card.block{
+    .image-text.block{
         font-size: 1rem;
         height:500px;
         overflow:hidden;
@@ -14,36 +14,46 @@
 /* --- SET FONT SIZE (em)s HERE: ---*/
 /* All following/decendant em measurements will be based on this font-size: */
 @media screen and (min-width: 700px) and (max-width: 1025px) {
-    .article-card.block{
+    .image-text.block{
         font-size: 1vw;
+    }
+    .image-text.block .text {
+        height: 45em;
+        
+    }
+    .page-type-inclusive .image-text.block .text .hed, .image-text.block .text .hed a {
+        font-size: 4em;
+    }
+    .page-type-inclusive .image-text.block .block-content .text .dek, .image-text.block .text .dek:not(.article-title) {
+        font-size: 2em;
     }
 }
 @media screen and (max-width: 700px){
-    .article-card.block{
+    .image-text.block{
         font-size: 0.75rem;
     }
 }
 
 /* ------- BLOCK CONTENT ------- */
-.article-card.block .block-content{
+.image-text.block .block-content{
     display: grid;
     grid-template-columns: 50% 50%;
     height:100%;
 }
 
 @media screen and (max-width: 700px) {
-    .article-card.block .block-content{
+    .image-text.block .block-content{
         grid-template-rows: 50% 50%;
         grid-template-columns: 100%;
         grid-auto-flow: row;
         height:100%;
     }
-    .article-card.block .block-content .image{
+    .image-text.block .block-content .image{
         grid-row: 1/2;
     }
 }
 /* ------- IMAGE & TEXT ------- */
-.article-card.block .text{
+.image-text.block .text{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -51,7 +61,7 @@
     box-sizing: border-box;
 }
 
-.article-card.block .image{
+.image-text.block .image{
     max-width: 100%;
     width: 100%;
     background-size: cover;
@@ -60,8 +70,8 @@
 }
 
 @media screen and (max-width: 700px) {
-    .article-card.block .block-content .text,
-    .article-card.block .block-content .image {
+    .image-text.block .block-content .text,
+    .image-text.block .block-content .image {
         height: 36em;
         width: 100%;
     }
@@ -73,8 +83,8 @@
  * #TAG LINK TEXT
  * .tag-link
  */
-.article-card.block .text .tag-link,
-.article-card.block .text .tag {
+.image-text.block .text .tag-link,
+.image-text.block .text .tag {
     /* Not adding border color makes it inherit properly:  */
     border-bottom: 3px solid;
     color: inherit;
@@ -86,8 +96,8 @@
     width: max-content;
 }
 @media screen and (max-width: 1024px) {
-    .article-card.block .text .tag-link,
-    .article-card.block .text .tag {
+    .image-text.block .text .tag-link,
+    .image-text.block .text .tag {
         border-bottom: 0.125em solid;
         line-height: 1.5em;
         height: 1.5em;
@@ -98,60 +108,66 @@
  * Header h2 hed
  * article-title
  */
-.article-card.block .text .hed,
-.article-card.block .text .hed a {
+.image-text.block .text .hed,
+.image-text.block .text .hed a {
     overflow: hidden;
-    font-size: 3.125em; /* 50px */
+    font-size: 2.5em; /* 50px */
     line-height: 1.1em; /* 55px */
     margin: 1em 0em 0.5rem 0em; /* top: 50px, bottom: 16px */
     font-weight: bold;
     text-overflow: ellipsis;
-    max-width: 100%;
+    max-width: 65%;
     text-decoration: none;
     color: inherit;
 }
-
+@media screen and (max-width: 700px) {
+    .image-text.block .text .hed,
+    .image-text.block .text .hed a {
+        font-size: 3em;
+        height: 7rem;
+    }
+}
 
 /*
  * SubHeader h3 dek
  */
-.article-card.block .text .dek,
-.article-card.block .text .dek:not(.article-title){
-    font-size: 1.75em;              /* 28px */
+.image-text.block .text .dek,
+.image-text.block .text .dek:not(.article-title){
+    font-size: 1.25em;              /* 28px */
     line-height: 1.2em;             /* 32px */
     margin: 1.43em 0em 0.5rem 0em;  /* 40px */
     font-weight: normal;
     text-overflow: ellipsis;
     max-height: 3.6em;              /* 3x line-height */
-    max-width: 70%;
+    max-width: 90%;
 }
 
 /*
  * By-Line byline
  */
-.article-card.block .text .byline{
-    font-size: 0.75em;            /* 10px */
-    margin: 7.4em 0em 0.5rem 0em; /* top: 74px, bottom: 16px */
+.image-text.block .text .byline{
+    font-size: 1em;            /* 10px */
+    margin: 5.4em 0em 0.5rem 0em;
+    font-family: var(--serif-font); /* top: 74px, bottom: 16px */
 }
-.article-card.block .text .byline .author,
-.article-card.block .text .byline .pipe {
+.image-text.block .text .byline .author,
+.image-text.block .text .byline .pipe {
     font-weight: 600;
     margin-right: 0.75em; /* 7.5px */
     font-weight: bold;
 }
-.article-card.block .text .byline .position {
+.image-text.block .text .byline .position {
     font-weight: regular;
 }
 
-@media screen and (max-width: 700px) {
-    .article-card.block .text .hed,
-    .article-card.block .text .hed a {
-        font-size: 3em;
-        height: 7rem;
+@media screen and (min-width: 426px) and (max-width: 700px) {
+    .image-text.block .text .dek, .image-text.block .text .dek:not(.article-title) {
+        font-size: 1.75em;
     }
-
-    .article-card.block .text .dek,
-    .article-card.block .text .dek:not(.article-title){
-        max-width: 90%;
+    .image-text.block .text .byline {
+        font-size: 1.25em;
+    }
+    .image-text.block .block-content .text, .image-text.block .block-content .image {
+        height: 45em;
     }
 }
