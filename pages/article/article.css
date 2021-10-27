@@ -405,6 +405,7 @@ body > main > div > div.content > picture > img{
         width: 100%;
     }
     .page-type-article .content .pull-quote.block{
+        font-size: 28px;
         padding: 0;
     }
     .page-type-article .content .article-picture{
