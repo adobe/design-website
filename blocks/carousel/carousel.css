@@ -191,7 +191,7 @@
     .carousel .carousel__item--visible {
         grid-template-columns: unset;
         /* grid-template-rows: 45vw auto; */
-        grid-template-rows: 65vw auto;
+        grid-template-rows: 65vw 65vw;
         gap: 4rem;
     }
 
