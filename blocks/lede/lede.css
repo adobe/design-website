@@ -6,7 +6,8 @@
 
 
 .lede.block{
-    font-family: 'Adobe Clean Serif';
+    font-family: var(--serif-font);
+    font-weight: var(--weight-regular);
     line-height: 1.5;
     font-size: 2em;
 }
