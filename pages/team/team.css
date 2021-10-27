@@ -281,8 +281,7 @@
         left: 10%;
     }
     .page-type-team .team-cards .team-card h3::after{
-        left: 8%; /* 40% * 12.5%  = 5% "padding left" */
-        width: 90%; /* 40% * 225%   = 90% "width"*/
+        content:none;
     }
 
     .page-type-team .team-cards .team-card{
