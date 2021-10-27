@@ -553,6 +553,7 @@ export function $scrollAnimation() {
     window.addEventListener("scroll",
       handleScrollAnimation
     );
+    handleScrollAnimation();
 
 }
 // export function $handleResize(){

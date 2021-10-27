@@ -110,13 +110,7 @@
     text-decoration: none;
     color: inherit;
 }
-@media screen and (max-width: 700px) {
-    .article-card.block .text .hed,
-    .article-card.block .text .hed a {
-        font-size: 3em;
-        height: 7rem;
-    }
-}
+
 
 /*
  * SubHeader h3 dek
@@ -147,4 +141,17 @@
 }
 .article-card.block .text .byline .position {
     font-weight: regular;
+}
+
+@media screen and (max-width: 700px) {
+    .article-card.block .text .hed,
+    .article-card.block .text .hed a {
+        font-size: 3em;
+        height: 7rem;
+    }
+
+    .article-card.block .text .dek,
+    .article-card.block .text .dek:not(.article-title){
+        max-width: 90%;
+    }
 }

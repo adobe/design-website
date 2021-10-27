@@ -40,7 +40,7 @@ export default function decorate(win = window) {
                             <nav class="${colorClass}"> \
                                 <a href="/team/">Team</a> \
                                 <a href="/stories/">Stories</a> \
-                                <a href="/toolkit/">Tools</a> \
+                                <a href="/toolkit/">Toolkit</a> \
                                 <a href="/jobs/">Jobs</a> \
                             </nav> \
                         `;
@@ -67,7 +67,7 @@ export default function decorate(win = window) {
                             <div class="menu-dropdown-container exit-menu hide-menu"> \
                                 <a href="/team/">Team</a> \
                                 <a href="/stories/">Stories</a> \
-                                <a href="/toolkit/">Tools</a> \
+                                <a href="/toolkit/">Toolkit</a> \
                                 <a href="/jobs/">Jobs</a> \
                             </div> \
                         `;

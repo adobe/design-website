@@ -76,19 +76,16 @@
     }
     .person {
         margin: 10px 0 10px 0;
-        background: #E91D25;
-        height: 23em;
+        background: #ffffff;
     }
     .name {
         text-align: center;
         font-size: 2em;
         position: relative;
-        top: -150px;
     }
     .title {
         text-align: center;
         position: relative;
-        top: -190px;
     }
 }
 
@@ -108,21 +105,30 @@
     }
 }
 
-@media only screen and (min-width: 668px) and (max-width: 767px){
+@media only screen and (min-width: 425px) and (max-width: 767px){
     .person {
-        background: #e91d2500;
-        height: 40rem;
+        background: #ffffff;
+
         width: auto;
         margin: 10px 0 30px 0;
     }
 }
 
-@media only screen and (min-width: 426px) and (max-width: 667px){
-    .person {
-        height: 39em;
-        background: #e91d2500;
-        width: auto;
-        margin: 10px 0 30px 0;
+@media only screen and (min-width: 500px) and (max-width: 700px) {
+    .name {
+        top: auto;
+    }
+    .title {
+        top: auto;
+        font-size: 1em;
+        display: flex;
+        justify-content: center;
+    }
+    .title > p:nth-child(1) {
+        margin-right: .5em;
+    }
+    .title > p:nth-child(1)::after {
+        content: " | ";
     }
 }
 
@@ -145,13 +151,28 @@
     }
     .name {
         margin-top: 4em;
+        top: -150px;
+    }
+    .title {
+        top: -190px;
     }
 }
 
-@media only screen and (max-width: 425px){
-    .person{
-        background: none;
-        height: 26em;
+@media (max-width: 500px){
+    .name {
+        top: auto;
+    }
+    .title {
+        top: auto;
+        font-size: 1em;
+        display: flex;
+        justify-content: center;
+    }
+    .title > p:nth-child(1) {
+        margin-right: .5em;
+    }
+    .title > p:nth-child(1)::after {
+        content: " | ";
     }
     .people.block > .tag:nth-child(1){
         position: absolute;
@@ -174,7 +195,7 @@
     }
     .people.block .person{
         margin: 0;
-        height: 22em;
+        margin-top: 1em;
     }
 }
     .people.block > .tag:nth-child(1){
