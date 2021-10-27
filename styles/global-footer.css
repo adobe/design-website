@@ -88,7 +88,9 @@
         font-size: 1.1em
     }
     #global-footer .footer-content > nav:nth-child(4) {
-        flex-direction: column;
+        flex-direction: row;
+        width: 60%;
+        flex-wrap: wrap;
     }
     #global-footer .footer-content > nav:nth-child(4) > * {
         padding-bottom: 1em;
