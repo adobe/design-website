@@ -166,7 +166,7 @@ body > main > div > div.content > picture > img{
 .page-type-article .additional-reading.block > div{
     display:flex;
     flex-direction: column;
-    padding-left: 12em;
+    padding-left: 13em;
 }
 .page-type-article .additional-reading.block h2{
     padding: 0;
@@ -191,6 +191,8 @@ body > main > div > div.content > picture > img{
 .page-type-article .additional-reading.block a{
     text-decoration: none;
     color: black;
+    font-family: var( --sans-serif-font);
+    font-weight: var( --weight-regular);
 }
 
 .additional-reading.block{
