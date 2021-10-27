@@ -257,7 +257,7 @@ body > main > div > div > div:nth-child(10){
     }
     .inclusive-design .people.block{
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 35% 35%;
         justify-items: center;
         background: #F7EFFC;
         padding: 0;

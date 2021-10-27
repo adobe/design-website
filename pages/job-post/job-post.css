@@ -30,6 +30,16 @@ body.job-post main {
     grid-template-rows: auto 1fr;
     grid-template-columns: 50% 50%;
 }
+
+@media screen and (max-width: 1000px) {
+    .post-container{
+        max-width: 100vw;
+        grid-template-rows: auto;
+        grid-template-columns: 100%;
+    }
+}
+
+
 .header-block{
     grid-column: 1 / span 2;
     grid-row: 1 / span 1;
@@ -64,6 +74,8 @@ body.job-post main {
 -------------------------------------------------------
 */
 
+
+
 .job-post .left-block,
 .job-post .post-text {
     background: var(--bkg-grey-lt);
@@ -75,6 +87,14 @@ body.job-post main {
     grid-row: 2;
     max-width: 31.25em; /* 250px */
     padding: 0 2.5em 2.5em 2.5em; /* 40px */
+}
+
+@media screen and (max-width: 1000px) {
+    .job-post .post-text{
+        grid-column: span 1;
+        grid-row: 2;
+        margin: auto;
+    }
 }
 
 .job-post .post-text h2,

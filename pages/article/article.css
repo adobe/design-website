@@ -166,7 +166,7 @@ body > main > div > div.content > picture > img{
 .page-type-article .additional-reading.block > div{
     display:flex;
     flex-direction: column;
-    padding-left: 12em;
+    padding-left: 13em;
 }
 .page-type-article .additional-reading.block h2{
     padding: 0;
@@ -191,6 +191,8 @@ body > main > div > div.content > picture > img{
 .page-type-article .additional-reading.block a{
     text-decoration: none;
     color: black;
+    font-family: var( --sans-serif-font);
+    font-weight: var( --weight-regular);
 }
 
 .additional-reading.block{
@@ -405,8 +407,8 @@ body > main > div > div.content > picture > img{
         width: 100%;
     }
     .page-type-article .content .pull-quote.block{
-        font-size: 28px;
         padding: 0;
+        font-size: 1.7em;
     }
     .page-type-article .content .article-picture{
         width: 100%;
@@ -417,7 +419,6 @@ body > main > div > div.content > picture > img{
     }
     .page-type-article .content p{
         padding: 0;
-        padding-bottom: 10em;
     }
     .page-type-article .caption{
         margin: 0;
