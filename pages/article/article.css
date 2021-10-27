@@ -494,7 +494,7 @@ body > main > div > div.content > picture > img{
     }
     .page-type-article .content li{
         padding-right: 0;
-        padding-left: 7.4;
+        padding-left: 7em;
     }
     .page-type-article .author-bio.block > div{
         margin: 0 10% 5em 10%;
@@ -502,5 +502,8 @@ body > main > div > div.content > picture > img{
 
     .similar-stories .stories .block.story a > .story-text > * {
         padding-left: 3rem;
+    }
+    .page-type-article .additional-reading.block > div{
+        padding-left: 10.3em;
     }
 }
