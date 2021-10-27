@@ -7,7 +7,7 @@ let placeholderContent = (placeholderType) => {
             {title: "Sr Tester", product: "Acrobat", posType: "Perminant", department: "Testing", city: "San Fransisco",},
             {title: "Jr Tester", product: "Acrobat", posType: "Perminant", department: "Testing", city: "San Fransisco",},
             {title: "Mid Tester", product: "Acrobat", posType: "Perminant", department: "Testing", city: "San Fransisco",},
-            {title: "Developer I", product: "Acrobat", posType: "Perminant", department: "Testing", city: "San Fransisco",},
+            {title: "Senior Experience Designer", product: "Acrobat", posType: "Perminant", department: "Experience Design", city: "San Fransisco",},
             {title: "UI/UX Lead", product: "Acrobat", posType: "Perminant", department: "Testing", city: "San Fransisco",},
             {title: "Scrum Master", product: "Acrobat", posType: "Perminant", department: "Testing", city: "San Fransisco",},
             {title: "Sr Test Designer", product: "Adobe Poduct", posType: "Perminant", department: "Design", city: "Lehi",},
