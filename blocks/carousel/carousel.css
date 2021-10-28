@@ -160,6 +160,12 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+.carousel .carousel__actions .carousel__button--prev {
+    border: transparent;
+}
+.carousel .carousel__actions .carousel__button--next {
+    border: transparent;
+}
 
 
 @keyframes fadeVisibility {
