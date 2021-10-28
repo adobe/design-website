@@ -38,9 +38,8 @@ export default function decorate($block) {
     const $author = $element('span.author', props.author);
     if (!!props.position) {
       const $position = $element('span.position', props.position);
-      /* Also add in a pipe boi if author's position exists: */
-      const $pipe = $element('span.pipe', '|');
-      $byline.append($author, $pipe, $position);
+      $byline.append($author);
+      $byline.append($position);
     } else {
       $byline.append($author);
     }
