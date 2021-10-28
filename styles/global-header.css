@@ -8,6 +8,7 @@
 
 #global-header .logo img{
     height: 44px;
+    padding-top: 1em;
 }
 /* Used in Job Posting pages */
 #global-header.split{
