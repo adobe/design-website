@@ -2,12 +2,26 @@ import { $element, $wrap } from "../../scripts/helpers.js";
 import { fetchIndex } from "../../scripts/queries.js";
 let index;
 
+function storyMatch( tag, story ) {
+    var title = story.title;
+    if(!tag || (title && title.toLowerCase().indexOf(tag) >= 0)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 export default async function decorator($main) {
     if (!index) {
         index = await fetchIndex();
     }
-    console.log("INDEX", index);
-    $main.classList.add("stories-index-view")
+    var tagFilter = location.search ? location.search.split("=")[1] : null;
+    $main.classList.add("stories-index-view");
+
+    if(tagFilter) {
+        const header = document.querySelector("#all-stories");
+        header.innerHTML = `#${tagFilter}`;
+    }
 
     const $target = $main.querySelector(":scope > div > div");
     const $thinkDifferent = document.querySelector(".think-differently");
@@ -15,7 +29,9 @@ export default async function decorator($main) {
     const $loadMoreButton = $element(".load-more-stories", "Load More");
     $target.append( $wrap($element('.content'), [$results, $loadMoreButton, $thinkDifferent]));
     index.stories.data.forEach(story => {
+        if(storyMatch(tagFilter, story)) {
             $results.append(buildStory(story));
+        }
     });
 
     $loadMoreButton.addEventListener("click", function () {
@@ -41,7 +57,7 @@ function buildStory( story ) {
                 $element("p.tag", "#LEADING DESIGN"),
             ]),
             $element(".story-text", [
-                $element("h2.story-header", 'From mind to canvas' ),
+                $element("h2.story-header", story.title || "[TITLE MISSING]" ),
                 $element("h3", "Creating art with synthesia"),
                 $element("p.author", "Laura Herman"),
                 $element("p.position", "User Experience Researcher")
