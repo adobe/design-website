@@ -5,7 +5,7 @@
 :root{
     --h1-font-size: 5em;
     --h2-font-size: 3em;
-    --p-font-size: 1.5em;
+    --p-font-size: 1em;
     --li-font-size: 1.5em;
 }
 
@@ -195,11 +195,11 @@ body > main > div > div.content > picture > img{
     font-weight: var( --weight-regular);
 }
 
-.additional-reading.block{
+.page-type-article .additional-reading.block{
     font-size: 1.2em;
 }
 
-.additional-reading.block{
+.page-type-article .additional-reading.block{
     width: 100%;
     padding: 1em;
 }
@@ -207,112 +207,124 @@ body > main > div > div.content > picture > img{
 
 /** AUTHOR BIO */
 
-.author-bio {
+.page-type-article .author-bio {
     background: #F5F5F5;
     height: 30em;
     display: flex;
     align-items: center;
 }
 
-.author-bio > div {
+.page-type-article .author-bio > div {
     display: flex;
     margin: 0 25% 5em 25%;
     align-items: center;
 }
 
-.author-image {
+.page-type-article .author-image {
     width: 6em;
 }
 
-.author-name {
+.page-type-article .author-name {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 45%
 }
 
-.author-info {
+.page-type-article .author-info {
     margin-left: 7em;
 }
 
-.author-info > p:nth-child(1) {
+.page-type-article .author-info > p:nth-child(1) {
     margin-bottom: 2em;
 }
 
-.author-info > p:nth-child(3) {
+.page-type-article .author-info > p:nth-child(3) {
     margin-top: 8em;
 }
-.author-bio .author-title {
+.page-type-article .author-bio .author-title {
     font-size: clamp(5px, 6vw, 12px);
 }
-.author-bio .name {
+.page-type-article .author-bio .name {
     font-size: clamp(20px, 5vw, 25px);
     margin: 0;
 }
 
-.similar-stories{
+.page-type-article .similar-stories{
     background-color: var(--bkg-navy-dark);
     padding: 2rem 0 4rem 0;
 }
 
-.similar-stories-content{
-    max-width: 1280px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+.page-type-article .similar-stories-content{
+    /* max-width: 1280px; */
+    /* width: 90%; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    margin: 6em;
 }
 
-.similar-stories .similar-stories-header{
+.page-type-article .similar-stories .similar-stories-header{
     font-weight: var(--weight-regular);
     font-size: 2.5rem;
     padding-bottom: 3rem;
     color: white;
 }
 
-.similar-stories .stories{
-    display: flex;
+.page-type-article .similar-stories .stories{
+    /* display: flex;
     gap: 1em;
     justify-content: space-between;
     box-sizing: border-box;
-    align-items: center;
+    align-items: center; */
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+}
+.page-type-article .story.block{
+    padding: 0 .5em;
+}
+.page-type-article .similar-stories img{
+    width: 100%;
 }
 
-.similar-stories .stories .block.story a{
+
+.page-type-article .similar-stories .stories .block.story a{
     color: white;
     
     text-decoration: none;
 }
 
-.similar-stories .stories .block.story a > .story-text > * {
+.page-type-article .similar-stories .stories .block.story a > .story-text > * {
     padding-left: 5rem;
     margin: unset;
 }
 
-.similar-stories .stories .block.story a > .story-text > .story-header{
+.page-type-article .similar-stories .stories .block.story a > .story-text > .story-header{
     font-weight: var(--weight-regular);
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     margin-top: 1rem;
 }
 
-.similar-stories .stories .block.story a > .story-text > h3{
+.page-type-article .similar-stories .stories .block.story a > .story-text > h3{
     font-weight: var(--weight-regular);
     font-size: 1.4rem;
     margin-bottom: 2rem;
 }
 
-.similar-stories .stories .block.story a > .story-text > .author{
+.page-type-article .similar-stories .stories .block.story a > .story-text > .author{
     font-weight: var(--weight-bold);
 }
-.similar-stories .stories .block.story a > .story-text > .position{
+.page-type-article .similar-stories .stories .block.story a > .story-text > .position{
     margin-bottom: 1em;
     font-size: 0.8rem;
 }
-.similar-stories .stories .block.story .image{
+.page-type-article .similar-stories .stories .block.story .image{
     position: relative;
 }
 
-.similar-stories .stories .block.story .image p{
+.page-type-article .similar-stories .stories .block.story .image p{
     position: absolute;
     text-decoration: underline 3px;
     text-underline-offset: 3px;
@@ -322,11 +334,250 @@ body > main > div > div.content > picture > img{
     color: black;
 }
 
-.similar-stories .stories .block.story .image picture img{
+.page-type-article .similar-stories .stories .block.story .image picture img{
     width: 100%;
 }
 
-@media (max-width: 767px) {
+
+@media (max-width: 1024px) and (min-width:769px) {
+    .page-type-article .content .header.block h1{
+        font-size: 4.7em;
+    }
+    .page-type-article .content .header.block h2{
+        padding-left: 2.5em;
+    }
+}
+@media (max-width: 768px) and (min-width:426px) {
+    .page-type-article .content{
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 700px,rgba(255,255,255, 1) 700px);
+    }
+    .page-type-article .content .header.block h1{
+        font-size: 3.3em;
+    }
+    .page-type-article .content .header.block h2{
+        font-size: 1.7em;
+        padding-left: 2.1em;
+    }
+}
+@media (max-width: 425px) and (min-width:376px) {
+    .page-type-article .content:not(.page-type-article .header.block){
+        padding: 10px;
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 450px,rgba(255,255,255, 1) 450px);
+    }
+    .page-type-article .content .header.block h1{
+        font-size:2.6em;
+        padding-right: 0;
+    }
+    .page-type-article .content .header.block h2{
+        font-size: 1.2em;
+        padding-left: 2.2em;
+        padding-right: 0;
+    }
+    .page-type-article .content h2{
+        padding: 0;
+    }
+    .page-type-article main p{
+        padding: 0;
+    }
+    .page-type-article .pull-quote.block{
+        font-size: 2em;
+        padding: 0;
+    }
+    .page-type-article .content .caption{
+        padding: 0;
+        margin: 0;
+    }
+    .page-type-article .content ul{
+        padding: 0;
+    }
+    .page-type-article .content li{
+        padding: 0;
+        padding-bottom: 1em;
+    }
+    .page-type-article .additional-reading.block{
+        padding: 0;
+    }
+    .page-type-article .additional-reading.block > div{
+        padding: 0;
+    }
+    .page-type-article .author-bio.block{
+        padding: 1em;
+    }
+    .page-type-article .author-bio > div{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
+        padding: 1em;
+        margin: 0;
+    }
+    .page-type-article .author-info{
+        text-align: center;
+        margin-left: 0em;
+    }
+    .page-type-article .similar-stories-content{
+        margin: 1em;
+    }
+    .page-type-article .similar-stories .stories{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
+        text-align: center;
+    }
+    .page-type-article .similar-stories .stories .block.story a > .story-text > *{
+        padding: 0;
+    }
+}
+@media (max-width: 375px) and (min-width:321px) {
+    .page-type-article .content:not(.page-type-article .header.block){
+        padding: 1em;
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 390px,rgba(255,255,255, 1) 390px);
+    }
+    .page-type-article .content .header.block h1{
+        font-size:2.2em;
+        padding-right: 0;
+    }
+    .page-type-article .content .header.block h2{
+        font-size: 1.2em;
+        padding-left: 1.9em;
+        padding-right: 0;
+    }
+    .page-type-article .lede.block{
+        font-size: 1.5em;
+    }
+    .page-type-article .content h2{
+        padding: 0;
+    }
+    .page-type-article main p{
+        padding: 0;
+    }
+    .page-type-article .pull-quote.block{
+        font-size: 1.7em;
+        padding: 0;
+    }
+    .page-type-article .content .caption{
+        padding: 0;
+        margin: 0;
+    }
+    .page-type-article .content ul{
+        padding: 0;
+    }
+    .page-type-article .content li{
+        padding: 0;
+        padding-bottom: 1em;
+    }
+    .page-type-article .additional-reading.block{
+        padding: 0;
+    }
+    .page-type-article .additional-reading.block > div{
+        padding: 0;
+    }
+    .page-type-article .author-bio.block{
+        padding: 1em;
+    }
+    .page-type-article .author-bio > div{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
+        padding: 1em;
+        margin: 0;
+    }
+    .page-type-article .author-info{
+        text-align: center;
+        margin-left: 0em;
+    }
+    .page-type-article .similar-stories-content{
+        margin: 1em;
+    }
+    .page-type-article .similar-stories .stories{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
+        text-align: center;
+    }
+    .page-type-article .similar-stories .stories .block.story a > .story-text > *{
+        padding: 0;
+    }
+}
+@media (max-width: 320px) and (min-width:0px) {
+    .page-type-article .content:not(.page-type-article .header.block){
+        padding: 1em;
+        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 340px,rgba(255,255,255, 1) 340px);
+    }
+    .page-type-article .content .header.block h1{
+        font-size:1.8em;
+        padding-right: 0;
+    }
+    .page-type-article .content .header.block h2{
+        font-size: 1em;
+        padding-left: 1.9em;
+        padding-right: 0;
+    }
+    .page-type-article .lede.block{
+        font-size: 1.5em;
+    }
+    .page-type-article .content h2{
+        padding: 0;
+    }
+    .page-type-article main p{
+        padding: 0;
+    }
+    .page-type-article .pull-quote.block{
+        font-size: 1.7em;
+        padding: 0;
+    }
+    .page-type-article .content .caption{
+        padding: 0;
+        margin: 0;
+    }
+    .page-type-article .content ul{
+        padding: 0;
+    }
+    .page-type-article .content li{
+        padding: 0;
+        padding-bottom: 1em;
+    }
+    .page-type-article .additional-reading.block{
+        padding: 0;
+    }
+    .page-type-article .additional-reading.block > div{
+        padding: 0;
+    }
+    .page-type-article .author-bio.block{
+        padding: 1em;
+    }
+    .page-type-article .author-bio > div{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
+        padding: 1em;
+        margin: 0;
+    }
+    .page-type-article .author-info{
+        text-align: center;
+        margin-left: 0em;
+    }
+    .page-type-article .similar-stories-content{
+        margin: 1em;
+    }
+    .page-type-article .similar-stories .stories{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
+        text-align: center;
+    }
+    .page-type-article .similar-stories .stories .block.story a > .story-text > *{
+        padding: 0;
+    }
+}
+
+
+
+
+
+
+
+
+/* @media (max-width: 767px) {
     .author-bio {
         height: 25em;
     }
@@ -360,7 +611,7 @@ body > main > div > div.content > picture > img{
     .similar-stories .stories .block.story a > .story-text > * {
         padding-left: 1rem;
     }
-}
+} */
 /** END AUTHOR BIO */
 
 
@@ -368,18 +619,17 @@ body > main > div > div.content > picture > img{
 
 
 
-@media (max-width:425px){
+/* @media (max-width:425px) and (min-width: 376px){
     /* header */
-    .page-type-article .header.block{
+    /* .page-type-article .header.block{
         padding-bottom: 0;
     }
     .page-type-article .content:not(.page-type-article .header.block){
         padding: 1em;
     }
-    .page-type-article .header.block h1{
+    .page-type-article .content .header.block h1{
         padding: 0;
-        font-size: 4em;
-        word-break: break-all;
+        font-size: 2.7em;
     }
     .page-type-article .header.block h2{
         padding: 0;
@@ -390,11 +640,11 @@ body > main > div > div.content > picture > img{
 
     .page-type-article .header .author-body{
         padding-bottom: 3em;
-    }
+    }  */
     /* header */
 
     /* main */
-    .page-type-article main{
+    /* .page-type-article main{
         width: 90%;
     }
     .page-type-article .content{
@@ -439,11 +689,11 @@ body > main > div > div.content > picture > img{
     }
     .page-type-article .additional-reading.block > div{
         padding-left: 0;
-    }
+    } */
     /* main */
 
     /* authod bio block */
-    .page-type-article .author-bio.block{
+    /* .page-type-article .author-bio.block{
         height: auto;
         padding: 1em;
     }
@@ -452,16 +702,33 @@ body > main > div > div.content > picture > img{
     }
     .page-type-article .author-bio.block p{
         padding: 0;
-    }
+    } */
     /* authod bio block */
-}   
+/* }    */
+/* @media (max-width: 375px) and (min-width:321px){
+    .page-type-article .content .header.block h1{
+        font-size: 2.3em;
+    }
+    .page-type-article .content .header.block h2{
+        font-size: 1.5em;
+    }
+}
+@media (max-width: 320){
+    .page-type-article .content .header.block h1{
+        font-size: 1em;
+    }
+    .page-type-article .content .header.block h2{
+        font-size: 1.5em;
+    }
+} */
 
-@media (min-width: 426px) and (max-width: 768px){
+/* @media (min-width: 426px) and (max-width: 767px){
     .page-type-article .content{
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 730px,rgba(255,255,255, 1) 730px);
     }
-    .page-type-article .header.block h1{
+    .page-type-article .content .header.block h1{
         padding: 0;
+        font-size: 1em;
     }
     .page-type-article .header.block h2{
         padding: 0;
@@ -476,11 +743,14 @@ body > main > div > div.content > picture > img{
     .similar-stories .stories .block.story a > .story-text > * {
         padding-left: 1rem;
     }
-}
+} 
 
-@media (min-width:768px) and (max-width:1024px){
+/* @media (min-width:768px) and (max-width:1024px){
     .page-type-article main{
        width: 90%;
+    }
+    .page-type-article .content .header.block h1{
+        font-size: 4em;
     }
     .page-type-article .content h2{
         padding-left: 4.4em;
@@ -507,3 +777,4 @@ body > main > div > div.content > picture > img{
         padding-left: 10.3em;
     }
 }
+*/
