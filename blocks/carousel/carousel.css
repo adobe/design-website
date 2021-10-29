@@ -148,21 +148,22 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
+    padding-right: 5rem;
     /* background: blue; */
 }
 .scroll-tip-content{
     font-weight: var(--weight-light);
     margin: unset;
-    font-size: 20px;
+    font-size: 1em;
 }
 .chevron-down{
     height: 15px;
-    width: 25px;
+    width: 15px;
     margin: 4px 25px 0 25px;
     box-sizing: border-box;
     background-image: url("../../resources/chevron-down.svg");
     background-size:contain;
-    background-position: center;
+    background-position: center 1px;
     background-repeat: no-repeat;
 }
 .carousel .carousel__actions .carousel__button--prev {
