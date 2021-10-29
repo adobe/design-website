@@ -13,18 +13,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #0B1C40;
+    background-color: #F5F3EF;
 }
 .scoreboards > div:first-child{
-    background-color:  #FAECE7;
-    color: #0B1C40;
+    order: 3
 }
 .scoreboards > div:nth-child(2){
-    background-color: #0B1C40;
-    color: white;
+    background-color: #FDEADA;
+    order: 2
 }
 .scoreboards > div:nth-child(3){
-    background-color: #FFFAE2;
-    color: #0B1C40;
+    order: 1
 }
 .scoreboards .number {
     font-size: 10em;

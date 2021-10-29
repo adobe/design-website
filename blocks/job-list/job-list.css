@@ -1,6 +1,7 @@
 .joinus.block{
     display:flex;
     justify-content: center;
+    align-items: center;
     background-color: white;
     height: 33.33%;
     box-sizing: border-box;
