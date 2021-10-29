@@ -102,6 +102,9 @@
     text-align: end;
 }
 
+.page-type-jobs .jobs-container .job-category .no-oppenings{
+    
+}
 
 @media (max-width: 768px){
     .page-type-jobs .jobs-container .job-category a{
