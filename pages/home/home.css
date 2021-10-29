@@ -62,3 +62,7 @@
     font-size: .75em;
     font-weight: 300;
 }
+
+.page-type-home .scroll-tip-container {
+    max-width: 900px;
+}
