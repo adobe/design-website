@@ -73,10 +73,9 @@
  * #TAG LINK TEXT
  * .tag-link
  */
-.article-card.block .text .tag-link,
-.article-card.block .text .tag {
+.article-card.block .text .tag-link{
     /* Not adding border color makes it inherit properly:  */
-    border-bottom: 3px solid;
+    
     color: inherit;
     font-size:   0.875em;
     line-height: 1.125em;
@@ -85,12 +84,18 @@
     text-transform: uppercase;
     width: max-content;
 }
+.article-card.block .text .tag{
+    border-bottom: 3px solid;
+}
 @media screen and (max-width: 1024px) {
-    .article-card.block .text .tag-link,
-    .article-card.block .text .tag {
-        border-bottom: 0.125em solid;
+    .article-card.block .text .tag-link{
+        
         line-height: 1.5em;
         height: 1.5em;
+    }
+
+    .article-card.block .text .tag {
+        border-bottom: 0.125em solid;
     }
 }
 
