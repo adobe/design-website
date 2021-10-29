@@ -98,8 +98,12 @@
     font-size: 1.7rem;
 }
 
-.page-type-team .team-cards .team-card div:not(div:first-child){
+.page-type-team .team-cards .team-card div{
     padding-top: 12rem;
+}
+
+.page-type-team .team-cards .team-card div:first-child{
+    padding-top: 0;
 }
 
 .page-type-team .team-cards .team-card div:last-child{
@@ -272,19 +276,16 @@
         font-size: 2.2em;
     }
 
+    .page-type-team .team-cards .team-card .card-header{
+        border:none;
+    }
+
     .page-type-team .team-cards .team-card.active{
         height: auto;
     }
     .page-type-team .team-cards .team-card h3{
-        padding-left: 15%;
         width: 80%;
         font-size: 1.5rem;
-    }
-    .page-type-team .team-cards .team-card h3::before{
-        left: 10%;
-    }
-    .page-type-team .team-cards .team-card h3::after{
-        content:none;
     }
 
     .page-type-team .team-cards .team-card{
@@ -295,6 +296,9 @@
     .page-type-team .team-cards .team-card div:last-child{
         padding-top: 4rem;
         padding-bottom: 3rem;
+    }
+    .page-type-team .team-cards .team-card div:last-child > p:first-child {
+        width: 90%;
     }
 
 
