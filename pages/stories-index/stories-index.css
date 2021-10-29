@@ -47,6 +47,10 @@
     
     color: black;
 }
+
+.block.story .image .tag span{
+    border-bottom: 2px solid black;
+}
 div.stories > div > a > .story-text > * {
     padding-left: 30px;
     color: black;

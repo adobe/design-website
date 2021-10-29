@@ -380,7 +380,10 @@ export function $element(selector, options, content) {
                 contentArray = content;
             }
             contentArray.forEach(c => {
-                $div.appendChild(c);
+                if(typeof c === "string")
+                    $div.innerText+= c;
+                else
+                    $div.appendChild(c);
             });
         }
     }
