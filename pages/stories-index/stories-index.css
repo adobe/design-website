@@ -24,7 +24,7 @@
 
 .block.story {
     background: white;
-    width: 49%;
+    width: 49.7%;
 }
 
 
@@ -47,35 +47,44 @@
     
     color: black;
 }
-div.stories > div > a > .story-text > * {
+
+.block.story .image .tag span{
+    border-bottom: 2px solid black;
+}
+.stories .story-text > * {
     padding-left: 30px;
     color: black;
     text-decoration: none;
     margin: unset;
 }
-div.stories > div > a > .story-text > .story-header{
-    font-weight: 400;
-    font-size: 24px;
+.stories .story-text > .story-header{
+    font-weight: var(--weight-regular);
+    font-size: 2em;
     margin-bottom: 4px;
     margin-top: 6px;
 }
-div.stories > div > a > .story-text > h3{
+.stories .story-text > h3{
     font-weight: 400;
     font-size: 17px;
     margin-top: 3px;
     margin-bottom: 16px;
 
 }
-div.stories > div > a > .story-text > .author{
+.stories .story-text > .author,
+.stories .story-text > .position{
+    font-size: 0.5em;
+}
+
+.stories .story-text > .author{
     font-weight: 600;
 
 }
-div.stories > div > a > .story-text > .position{
+.stories .story-text > .position{
     margin-bottom: 20px;
 
 }
 
-div.stories > div >  .link{
+.stories .link{
     text-decoration: none;
 }
 

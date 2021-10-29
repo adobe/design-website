@@ -9,6 +9,8 @@ import {
  * @param {HTMLElement} $block
  */
 export default function decorate($block) {
+    const truncateDekTextPages = ['/']
+    const truncateDekText = truncateDekTextPages.includes(window.document.location.pathname)
 
   // Get the properties and identify the blocks
   const result = decorateDivisions($block, [
@@ -30,7 +32,10 @@ export default function decorate($block) {
   $tag.innerHTML = $tag.innerHTML.replace(/[A-Za-z ]+/gm, '<span class="tag">$&</span>')
   const $hed = $element('.hed', props.hed);
   const DEK_TEXT_LIMIT = 70;
-  let dekText = props.dek.length<DEK_TEXT_LIMIT ? props.dek:props.dek.substring(0,DEK_TEXT_LIMIT-3)+'...';
+  let dekText = props.dek;
+  if(truncateDekText){
+    dekText = props.dek.length<DEK_TEXT_LIMIT ? props.dek:props.dek.substring(0,DEK_TEXT_LIMIT-3)+'...';
+  }
   const $dek = $element('.dek', dekText);
   const $byline = $element('.byline');
 
