@@ -74,11 +74,14 @@
 .carousel__item--visible .number p.tag-link {
     height: 1.9em; /*57px;*/
     font-size: 0.67em; /*20px;*/
-    border-bottom: solid .2em #fff;
+    
     text-decoration: none;
     display: inline;
     line-height: 2em;
     font-weight: var(--weight-regular);
+}
+.carousel__item--visible .number p .tag{
+    border-bottom: solid .2em #fff;
 }
 
 /* title styles */

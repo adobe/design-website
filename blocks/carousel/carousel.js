@@ -52,7 +52,9 @@ export default function decorate($block) {
 
     /* Add class names and remove ids from h2 and h3 on slides: */
     let rightSide = slide.querySelector("div:nth-child(2)");
-    rightSide.querySelector("p:first-of-type").classList.add('tag-link');;
+    let tagLink = rightSide.querySelector("p:first-of-type")
+    tagLink.classList.add('tag-link');
+    tagLink.innerHTML = tagLink.innerHTML.replace(/[A-Za-z ]+/gm, '<span class="tag">$&</span>')
     let header3 = rightSide.querySelector("h3");
     rightSide.querySelector("h2").removeAttribute('id');
     header3.removeAttribute('id');
