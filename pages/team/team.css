@@ -20,16 +20,20 @@
 
 .page-type-team .head-content{
     padding: 4em;
+    color: #3E3E3E;
 }
 
 .page-type-team .head-content .title{
-    padding-left: 5rem;
+    font-family: var(--serif-font);
+    padding-left: 6rem;
     font-size: 3em;
 }
 
 .page-type-team .head-content .head-text{
     display: grid;
-    grid-template-columns: 40% 50%;
+    grid-template-columns: 43% 57%;
+    font-size: 1.3em;
+    
 }
 
 .page-type-team .head-content .head-text p{
@@ -55,67 +59,66 @@
     display:grid;
     grid-template-columns: 40% 60%;
 
-    height: 250px;
+    height: 280px;
 
     overflow-y: hidden;
     transition: height 0.5s;
 }
 .page-type-team .team-cards .team-card.active{
-    height: 500px;
+    height: 600px;
 }
 
 .page-type-team .teams img {
     width: 75%;
     padding-left: 3em;
 }
+.page-type-team .team-cards .team-card .card-header{
+    position: absolute;
+    margin: 2em 5%;
+    padding: 1em 0;
+    border-bottom: black 2px solid;
+    width: 90%;
+    display: flex;
+    gap: 1em;
+}
 
+.page-type-team .team-cards .team-card .chevron-down{
+    width: 20px;
+    
+    box-sizing: border-box;
+    background-image: url("../../resources/chevron-down.svg");
+    background-size:contain;
+    background-position: center top 10px;
+    background-repeat: no-repeat;
+}
 .page-type-team .team-cards .team-card h3{
-    position: absolute;
-    padding-top:0.5em;
-
-    /*This should be contained within the first 40% of the block its in*/
-    padding-left: 10%;
+    font-family: var(--serif-font);
+    margin-block: unset;
     width: 30%;
-
-    font-size: 1.5rem;
-}
-.page-type-team .team-cards .team-card h3::before{
-    content: "⌄";
-    position: absolute;
-    padding-top:0.5em;
-    font-weight: var(--weight-black);
-    left: 16%;
-    top: -0.6rem;
-}
-.page-type-team .team-cards .team-card h3::after{
-    content: "";
-    padding-top: 2em;
-
-    /*This is being positioned to the H3 itself which is contained within the first 40% of the block*/
-    position:absolute;
-    left: 12.5%; /* 40% * 12.5%  = 5% "padding left" */
-    width: 225%; /* 40% * 225%   = 90% "width"*/
-
-    border-bottom: 2px solid black;
+    font-size: 1.7rem;
 }
 
-.page-type-team .team-cards .team-card div{
-    padding-top: 10rem;
+.page-type-team .team-cards .team-card div:not(div:first-child){
+    padding-top: 12rem;
 }
 
 .page-type-team .team-cards .team-card div:last-child{
-    padding-left: 3rem;
+    padding-left: 4rem;
     padding-right: 3rem;
     color: white;
 }
 
 .page-type-team .team-cards .team-card div:last-child > p:first-child{
+    width: 75%;
+    font-family: var(--serif-font);
+    color: #FAECE7;
     font-size: 1.6rem;
     line-height: 1.6em;
+    padding-bottom: 2em;
 }
 
 .page-type-team .team-cards .team-card div:last-child .view-jobs{
-    font-size: 0.8em;
+    font-size: 0.6em;
     text-decoration: underline 2px;
     text-underline-offset: 3px;
     color: white;

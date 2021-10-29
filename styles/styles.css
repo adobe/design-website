@@ -39,7 +39,7 @@ html{
         --weight-black:      900;  /* bolder,    800-900 */
 
         /* Commonly used spacing */
-        --page-header-l-padding: 9rem;
+        --page-header-l-padding: 11rem;
         --page-header-size: 4rem;
         --page-header-margin: 7rem 0 5rem 0;
 

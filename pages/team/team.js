@@ -78,7 +78,7 @@ export default function decorate($main) {
         element.classList.add("title")
       }
     })
-    let animateWhatWeDo = tagline
+    let animateWhatWeDo = headDiv.querySelector("h2")
     animateWhatWeDo.classList.add("js-scroll", "fade-in-right")
     firstElement.insertAdjacentElement('afterend', shiftedContent)
 
@@ -101,7 +101,7 @@ export default function decorate($main) {
       }
 
       if(element.nodeName === "H3"){
-        teamCard.append(element)
+        teamCard.append($wrap($element('.card-header'), [$element('.chevron-down'), element]))
         card++
       }else if(element.nodeName ==="P")
         if(element.innerHTML.includes('picture'))
@@ -168,7 +168,7 @@ export default function decorate($main) {
     endDiv.prepend(resourcesDiv)
 
     // Rig up teamsCards to open and close
-    teamCardsDiv.querySelectorAll("h3").forEach(function(element){
+    teamCardsDiv.querySelectorAll("div.card-header").forEach(function(element){
       element.addEventListener("click", function(){
         let alreadyActive;
         if(element.parentElement.classList.contains("active"))
