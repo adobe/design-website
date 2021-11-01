@@ -11,7 +11,7 @@
 }
 
 .joinus h2 {
-    font-size: 8.3em;
+    font-size: 10em;
     font-weight: var(--weight-black);
     line-height: 0.6em;  /* 150px line height / 250px font-height = 0.6em */
     margin-block: 0.2em;
