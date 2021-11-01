@@ -86,7 +86,7 @@
     width: 20px;
     
     box-sizing: border-box;
-    background-image: url("../../resources/chevron-down.svg");
+    background-image: url("../../resources/chevron-down-black.svg");
     background-size:contain;
     background-position: center top 10px;
     background-repeat: no-repeat;
