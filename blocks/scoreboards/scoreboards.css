@@ -29,10 +29,11 @@
 .scoreboards .number {
     font-size: 9em;
     height:48%;
+    font-family: var(--serif-font);
 }
 .scoreboards .caption{
     font-size: 1.1em;
-    width: 80%;
+    width: 60%;
 }
 
 

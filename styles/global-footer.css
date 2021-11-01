@@ -11,7 +11,7 @@
 }
 
 #global-footer .footer-content .source {
-    content:url(/resources/adobe-design.png);
+    content:url(/resources/adobe-design-white.svg);
     height: 3em;
     width: auto;
     grid-row: 1/4;
