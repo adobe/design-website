@@ -27,7 +27,8 @@
     order: 1
 }
 .scoreboards .number {
-    font-size: 10em;
+    font-size: 9em;
+    height:48%;
 }
 .scoreboards .caption{
     font-size: 1.1em;
@@ -35,10 +36,11 @@
 }
 
 
-@media (max-width: 1024px) and (min-width: 767px){
+@media (max-width: 1024px){
 
     .scoreboards .number{
-        font-size: 9em;
+        font-size: 8em;
+        height:40%;
     }
     .scoreboards .caption{
         width: 80%;
@@ -50,20 +52,35 @@
     .scoreboards > div{
         height: 35em;
     }
+    .scoreboards .number {
+        height:25%;
+    }
+}
+
+@media (max-width: 768px){
+    .scoreboards > div{
+        height: 30em;
+    }
+
+    .scoreboards .number{
+        font-size: 8em;
+        height:30%;
+    }
 }
 
 @media (max-width: 425px){
-    
+    .scoreboards > div{
+        height: 25em;
+    }
+
     .scoreboards .number{
         font-size: 8em;
+        height:35%;
     }
+    
     .scoreboards .caption{
         font-size: 1.1em;
         width: 90%;
-    }
-
-    .scoreboards > div{
-        height: 30em;
     }
 }
 @media only screen and (max-width: 375px){
@@ -76,6 +93,7 @@
 
     .scoreboards .number{
         font-size: 6em;
+        height:32%;
     }
 
     .scoreboards .caption{
