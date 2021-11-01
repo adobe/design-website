@@ -71,6 +71,6 @@
     margin: .5em auto;
 }
 
-.page-type-home .article-card.block {
+.article-card-container > div > div:nth-child(7) {
     margin-bottom: 0;
 }
