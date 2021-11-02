@@ -11,7 +11,9 @@
 
 .page-type-team .title-content h1{
     font-size: var(--page-header-size);
-    width:60%;
+    width:50%;
+    line-height: 1em;
+    font-weight: var(--weight-black);
 }
 
 .page-type-team .content{
@@ -44,6 +46,7 @@
 .page-type-team .foot-content .resources-section h2{
     font-size: 3em;
     color: var(--bkg-red);
+    font-weight: var(--weight-black);
 }
 
 .page-type-team .head-content h2 {
@@ -223,6 +226,7 @@
     color: white;
     text-decoration: none;
     font-size: 24px;
+    font-weight: var(--weight-black);
 }
 .page-type-team .foot-content .resources-section .resources .resource .learn-more-button {
     color: white;
@@ -237,6 +241,15 @@
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+}
+.resource.js-scroll.fade-in-left.scrolled > div.resource-bottom-container > p > a > strong {
+    font-weight: var(--weight-black);
+}
+
+.content > div.foot-content > div.think-differently.block.js-scroll.fade-in-right.scrolled > div > div > p:nth-child(2) > span::after {
+    content: "+";
+    vertical-align: super;
+    font-size: .5em;
 }
 
 @media (max-width: 1000px){

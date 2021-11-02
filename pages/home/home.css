@@ -74,3 +74,9 @@
 .article-card-container > div > div:nth-child(7) {
     margin-bottom: 0;
 }
+
+.two-column.block > div > div:nth-child(2) > div > div:nth-child(1) > div.number::after {
+    content: "+";
+    vertical-align: super;
+    font-size: .5em;
+}

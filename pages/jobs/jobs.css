@@ -13,8 +13,9 @@
 
 .page-type-jobs .head-content h1{
     font-size: var(--page-header-size);
-    font-weight: var(--weight-regular);
+    font-weight: var(--weight-black);
     margin: var(--page-header-margin);
+    margin-bottom: 2.5em;
     width:45%;
 }
 .page-type-jobs .head-content p{

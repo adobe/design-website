@@ -9,7 +9,7 @@
 
 .toolkit-header h1{
     color: white;
-    font-weight: var(--weight-light);
+    font-weight: var(--weight-black);
     margin: var(--page-header-margin);
     font-size: var(--page-header-size);
 }
