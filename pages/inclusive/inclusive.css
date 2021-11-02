@@ -37,7 +37,13 @@ body > main > div > div > p {
     margin-bottom: 0;
     max-width: 90%;
 }
-
+.inclusive-design .image-text.block .text .dek, .image-text.block .text .dek:not(.article-title){
+    font-size: 1em;
+    line-height: 1.7em;
+}
+.inclusive-design .people.block .person img{
+    padding-bottom: 1em;
+}
 .inclusive-design .article-card.block .text .byline {
     margin-top: 1rem;
     font-size: 1.1rem;
@@ -67,6 +73,9 @@ body > main > div > div > p {
 .inclusive-design .statement h2{
     margin: 0;
     margin-top: 5em;
+    font-size: 1.2em;
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-black);
 }
 .inclusive-design .statement p{
     color: white;
@@ -85,8 +94,8 @@ body > main > div > div > p{
     font-size: 4em;
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
-    padding: 2em 2em;
-    text-align: center;
+    padding: 2em 3em 2em 4em;
+    text-align: left;
     margin: 0;
 }
 .inclusive-design .article-card.block{
@@ -94,7 +103,7 @@ body > main > div > div > p{
 }
 .inclusive-design .statementTwo{
     background: #F7EFFC;
-    padding: 5em 15em;
+    padding: 0 10em 5em 13em;
     width: auto;
     margin: 0;
 }
