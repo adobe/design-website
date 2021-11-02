@@ -13,32 +13,35 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #0B1C40;
+    background-color: #F5F3EF;
 }
 .scoreboards > div:first-child{
-    background-color:  #FAECE7;
-    color: #0B1C40;
+    order: 3
 }
 .scoreboards > div:nth-child(2){
-    background-color: #0B1C40;
-    color: white;
+    background-color: #FDEADA;
+    order: 2
 }
 .scoreboards > div:nth-child(3){
-    background-color: #FFFAE2;
-    color: #0B1C40;
+    order: 1
 }
 .scoreboards .number {
-    font-size: 10em;
+    font-size: 9em;
+    height:48%;
+    font-family: var(--serif-font);
 }
 .scoreboards .caption{
     font-size: 1.1em;
-    width: 80%;
+    width: 60%;
 }
 
 
-@media (max-width: 1024px) and (min-width: 767px){
+@media (max-width: 1024px){
 
     .scoreboards .number{
-        font-size: 9em;
+        font-size: 8em;
+        height:40%;
     }
     .scoreboards .caption{
         width: 80%;
@@ -50,20 +53,35 @@
     .scoreboards > div{
         height: 35em;
     }
+    .scoreboards .number {
+        height:25%;
+    }
+}
+
+@media (max-width: 768px){
+    .scoreboards > div{
+        height: 30em;
+    }
+
+    .scoreboards .number{
+        font-size: 8em;
+        height:30%;
+    }
 }
 
 @media (max-width: 425px){
-    
+    .scoreboards > div{
+        height: 25em;
+    }
+
     .scoreboards .number{
         font-size: 8em;
+        height:35%;
     }
+    
     .scoreboards .caption{
         font-size: 1.1em;
         width: 90%;
-    }
-
-    .scoreboards > div{
-        height: 30em;
     }
 }
 @media only screen and (max-width: 375px){
@@ -76,6 +94,7 @@
 
     .scoreboards .number{
         font-size: 6em;
+        height:32%;
     }
 
     .scoreboards .caption{

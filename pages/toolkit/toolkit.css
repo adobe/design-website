@@ -28,27 +28,27 @@
     box-sizing: border-box;
 }
 
-.toolkit .toolkit-page-content > .article-card{
+.toolkit .toolkit-page-content > .article-card.block{
     min-width: unset;
     margin: 10px 30px 10px 30px
 }
 
-.toolkit .toolkit-page-content > .article-card .hed{
+.toolkit .toolkit-page-content > .article-card.block .text .hed{
     width: 60%;
     font-size: 2.7em;
     padding-top: 1.5rem;
     font-weight: var(--weight-light);
     overflow: unset;
 }
-.toolkit .toolkit-page-content > .article-card .dek{
+.toolkit .toolkit-page-content > .article-card.block .text .dek{
     font-size: 1em;
     padding-top: 1.5em;
     font-weight: var(--weight-light);
     max-width: 95%;
 }
 
-.toolkit .toolkit-page-content > .article-card .tag-link,
-.toolkit .toolkit-page-content > .article-card .byline{
+.toolkit .toolkit-page-content > .article-card.block .text .tag-link,
+.toolkit .toolkit-page-content > .article-card.block .text .byline{
     display: none;
 }
 

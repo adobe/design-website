@@ -31,9 +31,15 @@
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-regular);
     line-height:1.5em;
+    padding-right: 4em;
 }
 .page-type-article .content .lede.block{
     color: #4A4545;
+    padding-bottom: 3em;
+    padding: 1em 1em 3em 2em;
+}
+body > main > div > div > p:nth-child(3){
+    padding-bottom: 1em;
 }
 .page-type-article h1{
     text-align: left;
@@ -56,8 +62,21 @@
     font-weight: var(--weight-regular);
     padding-top: 1em;
     padding-left: 5.5em;
+    padding-bottom: .7em;
     color: #4A4545;
 
+}
+.page-type-article .content h3{
+    font-size: 2.4em;
+    font-family: var(--serif-font);
+    font-weight: var(--weight-regular);
+    padding-top: 1em;
+    padding-left: 6.8em;
+    padding-bottom: .7em;
+    color: #4A4545;
+}
+body > main > div > div > p:nth-child(8){
+    padding-bottom: 1em;
 }
 .page-type-article .header >div:not(.author){
     display: flex;
@@ -81,10 +100,6 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     display:flex;
     width:15em;
     gap: 5%;
-}
-
-.page-type-article .header .author-body picture{
-    width:25%;
 }
 
 .page-type-article .header .author-desc{
@@ -114,14 +129,17 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
 .page-type-article main p {
     font-size: 1.5em;
     text-align: left;
-    padding-left: 11em;
+    padding-left: 16.5em;
+    
     padding-right: 0;
 }
 .page-type-article .content li{
-    padding-left: 9.4em;
+    padding-left:13.9em;
     padding-right: 4em;
     padding-bottom: 1em;
-    font-size: var(--li-font-size);
+    font-size: var(--p-font-size);
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-regular);
 }
 .page-type-article .article-picture{
     padding: 0;
@@ -221,7 +239,7 @@ body > main > div > div.content > picture > img{
 }
 
 .page-type-article .author-image {
-    width: 6em;
+    width: 4em;
 }
 
 .page-type-article .author-name {
@@ -256,15 +274,16 @@ body > main > div > div.content > picture > img{
 }
 
 .page-type-article .similar-stories-content{
-    /* max-width: 1280px; */
-    /* width: 90%; */
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-    margin: 6em;
+    max-width: 1280px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin: 6em; */
 }
 
 .page-type-article .similar-stories .similar-stories-header{
-    font-weight: var(--weight-regular);
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-black);
     font-size: 2.5rem;
     padding-bottom: 3rem;
     color: white;
@@ -296,7 +315,7 @@ body > main > div > div.content > picture > img{
 }
 
 .page-type-article .similar-stories .stories .block.story a > .story-text > * {
-    padding-left: 5rem;
+    padding-left: clamp(1rem, 5.5vw,5rem);
     margin: unset;
 }
 
@@ -305,6 +324,7 @@ body > main > div > div.content > picture > img{
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     margin-top: 1rem;
+    line-height: 1em;
 }
 
 .page-type-article .similar-stories .stories .block.story a > .story-text > h3{
@@ -338,6 +358,16 @@ body > main > div > div.content > picture > img{
     width: 100%;
 }
 
+/* @media(max-width: 700px){
+    .page-type-article .similar-stories .stories{
+        flex-direction: column;
+        gap: 3em;
+    }
+    .page-type-article .similar-stories .stories .block.story a > .story-text > * {
+        padding-left: 10px;
+    }
+} */
+
 
 @media (max-width: 1024px) and (min-width:769px) {
     .page-type-article .content .header.block h1{
@@ -345,6 +375,9 @@ body > main > div > div.content > picture > img{
     }
     .page-type-article .content .header.block h2{
         padding-left: 2.5em;
+    }
+    .page-type-article .content .header.block .author-desc h2{
+        padding-left: 0;
     }
 }
 @media (max-width: 768px) and (min-width:426px) {
@@ -357,6 +390,9 @@ body > main > div > div.content > picture > img{
     .page-type-article .content .header.block h2{
         font-size: 1.7em;
         padding-left: 2.1em;
+    }
+    .page-type-article .content .header.block .author-desc h2{
+        padding-left: 0;
     }
 }
 @media (max-width: 425px) and (min-width:376px) {
@@ -372,6 +408,9 @@ body > main > div > div.content > picture > img{
         font-size: 1.2em;
         padding-left: 2.2em;
         padding-right: 0;
+    }
+    .page-type-article .content .header.block .author-desc h2{
+        padding-left: 0;
     }
     .page-type-article .content h2{
         padding: 0;
@@ -423,6 +462,9 @@ body > main > div > div.content > picture > img{
         justify-items: center;
         text-align: center;
     }
+    .page-type-article .similar-stories .stories .block.story{
+        margin-bottom: 2em;
+    }
     .page-type-article .similar-stories .stories .block.story a > .story-text > *{
         padding: 0;
     }
@@ -441,8 +483,9 @@ body > main > div > div.content > picture > img{
         padding-left: 1.9em;
         padding-right: 0;
     }
-    .page-type-article .lede.block{
+    .page-type-article .content .lede.block{
         font-size: 1.5em;
+        padding: 0;
     }
     .page-type-article .content h2{
         padding: 0;
@@ -493,6 +536,9 @@ body > main > div > div.content > picture > img{
         grid-template-columns: 100%;
         justify-items: center;
         text-align: center;
+    }
+    .page-type-article .similar-stories .stories .block.story{
+        margin-bottom: 2em;
     }
     .page-type-article .similar-stories .stories .block.story a > .story-text > *{
         padding: 0;
@@ -512,6 +558,9 @@ body > main > div > div.content > picture > img{
         padding-left: 1.9em;
         padding-right: 0;
     }
+    .page-type-article .content .header.block .author-desc h2{
+        padding-left: 0;
+    }
     .page-type-article .lede.block{
         font-size: 1.5em;
     }
@@ -565,13 +614,27 @@ body > main > div > div.content > picture > img{
         justify-items: center;
         text-align: center;
     }
+    .page-type-article .similar-stories .stories .block.story{
+        margin-bottom: 2em;
+    }
     .page-type-article .similar-stories .stories .block.story a > .story-text > *{
         padding: 0;
     }
 }
 
 
-
+#who-should-you-whiteboard-with{
+    padding-right: 6em;
+}
+body > main > div > div > p:nth-child(13){
+    padding-top: 4em;
+}
+body > main > div > div > p:nth-child(27){
+    padding-bottom: 6em;
+}
+body > main > div > div > p:nth-child(16){
+    padding-bottom: 4em;
+}
 
 
 

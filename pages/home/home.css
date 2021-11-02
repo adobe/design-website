@@ -66,3 +66,11 @@
 .page-type-home .scroll-tip-container {
     max-width: 900px;
 }
+
+.page-type-home .people {
+    margin: .5em auto;
+}
+
+.article-card-container > div > div:nth-child(7) {
+    margin-bottom: 0;
+}

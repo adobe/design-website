@@ -34,171 +34,63 @@
     margin-right: 0px;
 }
 
-.name {
-    font-size: 1.8rem;
-    font-weight: bold;
-    padding: 20px 0 30px 20px;
+.person .name,
+.person .title{
+    margin-left: 20px;
 }
 
-.title {
+
+.person .name {
+    font-size: clamp(1em, 2.8vw, 1.8em);
+    font-weight: var(--weight-bold);
+}
+
+.person .title {
     font-size: .8rem;
-    font-weight: bold;
-    padding: 20px 0 30px 20px;
+    font-weight: var(--weight-regular);
+    top: auto;
+    font-size: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+.person .title >p{
+    display: unset;
+    margin-block: 0;
+    margin-inline: 0;
+    margin: 0;
+}
+.person .title > p:nth-child(1) {
+    margin-right: 0.5em;
+}
+.person .title > p:nth-child(2) {
+    margin-right: 1em;
+}
+.person .title > p:nth-child(1)::after {
+    content: ", ";
 }
 
-.pad {
+.person .pad {
     margin-top: 0;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px){
 
-    .name {
-        font-size: 1.3rem;
-        padding: 20px 0 5px 20px;
-    }
 
-    .title {
-        padding: 10px 0 50px 20px;
-    }
-
-}
-
-@media (max-width: 767px) {
+@media (max-width: 700px) {
     .people {
-        display: inherit;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .person {
-        margin: 10px 0 10px 0;
-        background: #ffffff;
-    }
-    .name {
-        text-align: center;
-        font-size: 2em;
-        position: relative;
-    }
-    .title {
-        text-align: center;
-        position: relative;
-    }
-}
-
-@media only screen and (max-width: 767px){
-    .people.block{
-        margin: 0;
-    }
-
-    .people.block > .tag:nth-child(1){
-        position: static;
-    }
-    .people.block > .tag:nth-child(2){
-        position: static;
-    }
-    .people.block > .tag:nth-child(3){
-        position: static;
-    }
-}
-
-@media only screen and (min-width: 425px) and (max-width: 767px){
-    .person {
-        background: #ffffff;
-
-        width: auto;
-        margin: 10px 0 30px 0;
-    }
-}
-
-@media only screen and (min-width: 500px) and (max-width: 700px) {
-    .name {
-        top: auto;
-    }
-    .title {
-        top: auto;
-        font-size: 1em;
-        display: flex;
-        justify-content: center;
-    }
-    .title > p:nth-child(1) {
-        margin-right: .5em;
-    }
-    .title > p:nth-child(1)::after {
-        content: " | ";
-    }
-}
-
-@media only screen and (min-width: 701px) and (max-width: 767px){ 
-    .people.block {
-        display: flex;
-        height: 25em;
-        width: auto;
-        max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .person {
-        background: white;
-        height: 24em;
-        margin-top: 0;
-    }
-    .people.block > div:nth-child(2) {
-        margin: 0 10px;
-    }
-    .name {
-        margin-top: 4em;
-        top: -150px;
-    }
-    .title {
-        top: -190px;
-    }
-}
-
-@media (max-width: 500px){
-    .name {
-        top: auto;
-    }
-    .title {
-        top: auto;
-        font-size: 1em;
-        display: flex;
-        justify-content: center;
-    }
-    .title > p:nth-child(1) {
-        margin-right: .5em;
-    }
-    .title > p:nth-child(1)::after {
-        content: " | ";
-    }
-    .people.block > .tag:nth-child(1){
-        position: absolute;
-        top: 300em;
-    }
-    .people.block > .tag:nth-child(2){
-        position: absolute;
-        top: 310em;
-    }
-    .people.block > .tag:nth-child(3){
-        position: absolute;
-        top: 355em;
-    }
-}
-@media only screen and (min-width: 321px) and (max-width: 375px){
-    .people.block{
-        display: flex;
         flex-direction: column;
-        width: 100%;
+        margin-bottom: 0;
     }
-    .people.block .person{
-        margin: 0;
-        margin-top: 1em;
+    .person {
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 16px;
     }
-}
-    .people.block > .tag:nth-child(1){
-    top: 310em;
-}
-    .people.block > .tag:nth-child(2){
-    top: 333em;
-}
-    .people.block > .tag:nth-child(3){
-    top: 355em;
+    .person .name {
+        font-size: clamp(1em, 6vw, 1.8em);
+        font-weight: var(--weight-regular);
+    }
+    .person .title {
+        font-size: clamp(0.5em, 3vw, 1em);
+    }
 }
