@@ -110,6 +110,9 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     display:flex;
     flex-direction: column;
 }
+.page-type-article .author.block .name{
+    font-size: 1.3em;
+}
 
 .page-type-article .header .author-desc h2,
 .page-type-article .header .author-desc h3{
