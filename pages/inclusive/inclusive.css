@@ -162,14 +162,14 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 
 /* Title of Person */
 .people > .person > div:nth-child(3) {
-    padding: 0 0 .5em 2em;
+    padding: .5em 0 .5em 2em;
     font-size: .75em;
 }
 
 /* Fact about Person */
 .people > .person > div:nth-child(4) {
     color: #917496;
-    padding: 1em 0 3em 1.5em;
+    padding: 2em 0 3em 1.5em;
     font-size: 1em;
     width: 12em;
 }
@@ -355,3 +355,6 @@ body > main > div > div > div:nth-child(10){
         width: auto;
     }
 }
+
+
+
