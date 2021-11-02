@@ -12,6 +12,7 @@ export default function decorate($main) {
     });
     // moveHeaderContent();
     $main.querySelector(':scope > div > div').classList.add('content');
+    $main.querySelector('.header.block > div:nth-child(2) > div:nth-child(2)').classList.add('art');
     buildSimilarStories();
     buildAuthorBio();
 }
