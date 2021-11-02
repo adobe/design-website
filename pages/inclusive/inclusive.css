@@ -149,7 +149,9 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     font-weight: var(--weight-regular);
     font-style: italic;
 }
-body > main > div > div > div:nth-child(8) > div:nth-child(2) > div:nth-child(2)
+
+
+
 
 /* Name of person */
 .people > .person > div:nth-child(2) {
