@@ -9,6 +9,8 @@ import {
  * @param {HTMLElement} $block
  */
 export default function decorate($block) {
+    const truncateDekTextPages = ['/']
+    const truncateDekText = truncateDekTextPages.includes(window.document.location.pathname)
 
   // Get the properties and identify the blocks
   const result = decorateDivisions($block, [
@@ -27,9 +29,13 @@ export default function decorate($block) {
      */
   const $text = $element('.text');
   const $tag = decorateTagLink( $element('div', `#${props.tag}`), { color: 'black' } );
+  $tag.innerHTML = $tag.innerHTML.replace(/[A-Za-z ]+/gm, '<span class="tag">$&</span>')
   const $hed = $element('.hed', props.hed);
   const DEK_TEXT_LIMIT = 70;
-  let dekText = props.dek.length<DEK_TEXT_LIMIT ? props.dek:props.dek.substring(0,DEK_TEXT_LIMIT-3)+'...';
+  let dekText = props.dek;
+  if(truncateDekText){
+    dekText = props.dek.length<DEK_TEXT_LIMIT ? props.dek:props.dek.substring(0,DEK_TEXT_LIMIT-3)+'...';
+  }
   const $dek = $element('.dek', dekText);
   const $byline = $element('.byline');
 
@@ -38,9 +44,8 @@ export default function decorate($block) {
     const $author = $element('span.author', props.author);
     if (!!props.position) {
       const $position = $element('span.position', props.position);
-      /* Also add in a pipe boi if author's position exists: */
-      const $pipe = $element('span.pipe', '|');
-      $byline.append($author, $pipe, $position);
+      $byline.append($author);
+      $byline.append($position);
     } else {
       $byline.append($author);
     }

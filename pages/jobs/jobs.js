@@ -121,13 +121,6 @@ export default function decorate($main) {
         what: "Acrobat | Permanent",
         section: "Prototyping and Engineering",
         link: "/"
-      },
-      {
-        title: "Research and Strategy Intern",
-        location: "New York City",
-        what: "Acrobat | Permanent",
-        section: "Research and Strategy",
-        link: "/"
       }
     ]
     jobsBlockContainer.querySelectorAll(".job-listings").forEach(element=>{
@@ -135,11 +128,17 @@ export default function decorate($main) {
     })
 
     jobsBlockContainer.querySelectorAll(".job-category").forEach(element=>{
+      let hasJob = false;
       dummyJobs.forEach(job=>{
 
-        if((element.id.replaceAll('-', ' ').includes(job.section.toLowerCase())))
+        if((element.id.replaceAll('-', ' ').includes(job.section.toLowerCase()))){
+          hasJob = true;
           element.append(buildJobListings(job))
+        }
+          
       })
+      if(!hasJob)
+        element.append($element(".no-oppenings", "There are no openings right now"))
     })
 }
 

@@ -54,7 +54,7 @@ function buildStory( story ) {
                     $element("source", { attr: { media: mediaAttr, srcset: story.image }}),
                     $element("img", { attr: { src: story.image } }),
                 ]),
-                $element("p.tag", "#LEADING DESIGN"),
+                $element("p.tag", ['#', $element("span", 'LEADING DESIGN')]),
             ]),
             $element(".story-text", [
                 $element("h2.story-header", story.title || "[TITLE MISSING]" ),

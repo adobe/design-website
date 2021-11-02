@@ -29,7 +29,7 @@ export default async function decorate($block) {
     seeJobsDiv.classList.add("see-jobs");
     seeJobsDiv.setAttribute("href", "/jobs/");
     const seeJobs = document.createElement("span");
-    seeJobs.innerHTML = "See our job openings";
+    seeJobs.innerHTML = "VIEW OUR JOB OPENINGS";
     seeJobsDiv.append(seeJobs);
 
     $block.querySelector.innerHTML = "";

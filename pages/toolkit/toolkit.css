@@ -12,13 +12,14 @@
     font-weight: var(--weight-light);
     margin: var(--page-header-margin);
     font-size: var(--page-header-size);
-    font-weight: 400;
 }
+
 .toolkit-header h3{
     color: white;
-    font-size: 35px;
-    font-weight: 300;
-    margin-bottom: 7rem;
+    font-family: var(--serif-font);
+    font-size: 3.5em;
+    font-weight: var(--weight-light);
+    margin-bottom: 8rem;
 }
 
 .toolkit-page-content{
@@ -27,26 +28,44 @@
     box-sizing: border-box;
 }
 
-body > .toolkit > div > div > div.toolkit-page-content > .article-card{
+.toolkit .toolkit-page-content > .article-card.block{
     min-width: unset;
     margin: 10px 30px 10px 30px
 }
 
+.toolkit .toolkit-page-content > .article-card.block .text .hed{
+    width: 60%;
+    font-size: 2.7em;
+    padding-top: 1.5rem;
+    font-weight: var(--weight-light);
+    overflow: unset;
+}
+.toolkit .toolkit-page-content > .article-card.block .text .dek{
+    font-size: 1em;
+    padding-top: 1.5em;
+    font-weight: var(--weight-light);
+    max-width: 95%;
+}
+
+.toolkit .toolkit-page-content > .article-card.block .text .tag-link,
+.toolkit .toolkit-page-content > .article-card.block .text .byline{
+    display: none;
+}
 
 
 .toolkit > .text{
     color: white;
 }
-.toolkit > div > div > div.toolkit-page-content > div:nth-child(2) > div > div.image{
+.toolkit .toolkit-page-content > div:nth-child(2) .image{
     background-color: #F4F4F4;
 }
-body > main.toolkit > div > div > div.toolkit-page-content > div > div > div.text{
+.toolkit .toolkit-page-content .text{
     color: white;
 }
-body > main.toolkit > div > div > div.toolkit-page-content > div:nth-child(5) > div > div.text{
+.toolkit .toolkit-page-content > div:nth-child(5) .text{
     color: black;
 }
-body > main.toolkit > div > div > div.toolkit-page-content > div:nth-child(8) > div > div.text{
+.toolkit .toolkit-page-content > div:nth-child(8) .text{
     color: black;
 }
 .big-red-text{

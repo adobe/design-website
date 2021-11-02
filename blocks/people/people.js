@@ -7,7 +7,9 @@ export default function decorate($block) {
 
        person.classList.add("person");
        person.querySelector("div:nth-child(1)").classList.add("content");
-       person.querySelector("p:nth-child(1)").classList.add("tag");
+       const personTag = person.querySelector("p:nth-child(1)")
+       personTag.classList.add("tag");
+       personTag.innerHTML = personTag.innerHTML.replace(/[A-Za-z ]+/gm, '<span class="tag-underline">$&</span>')
        person.querySelector("p:nth-child(2)").classList.add("pad");
        person.querySelector("p:nth-child(2) > picture > img").classList.add("image");
        person.querySelector("div:nth-child(2)").classList.add("name");
