@@ -8,6 +8,27 @@
         font-size: 1.6vw; /* 16px-30.7px */
     }
 }
+
+/* Hides scroll tip */
+@media (min-width: 1000px) {
+    .scroll-tip-content {       
+        display: none;
+    }
+    .chevron-down {
+        display: none;
+    }
+}
+@media (max-width: 690px) {
+    .scroll-tip-content {       
+        display: none;
+    }
+    .chevron-down {
+        display: none;
+    }
+}
+/* end of scroll tip media queries */
+
+
 @media screen and (min-width: 1921px) {
     .carousel {
         font-size: 30.7px;
