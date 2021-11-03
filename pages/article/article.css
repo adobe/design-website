@@ -28,14 +28,19 @@
 .page-type-article .content .block{
     width: auto
 }
-.page-type-article .content p {
+body > main > div > div > p:nth-child(4) > em{
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-light);
+    font-style: italic;
+}
+.page-type-article .content p:not(.article-picture) {
     text-align:left;
     font-size:var(--p-font-size);
     color: #4A4545;
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-regular);
-    line-height:1.5em;
-    padding-right: 4em;
+    line-height:2em;
+    /* padding-right: 4em; */
 }
 .page-type-article .content .lede.block{
     color: #4A4545;
@@ -144,9 +149,11 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     padding-right: 0;
 }
 .page-type-article .content li{
+    color: #4A4545;
     padding-left:13.9em;
-    padding-right: 4em;
+    /* padding-right: 4em; */
     padding-bottom: 1em;
+    line-height: 1.8;
     font-size: var(--p-font-size);
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-regular);
@@ -172,7 +179,10 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
 .page-type-article .pull-quote.block{
     font-size: 2em;
     justify-items: center;
-    padding: 2em 3em;
+    padding: 2em 0 2em 3em;
+}
+body > main > div > div > div:nth-child(41) > div > div{
+    padding-right: 6em;
 }
 .page-type-article .content div:nth-child(3){
     padding: 0;
@@ -248,7 +258,7 @@ body > main > div > div.content > picture > img{
 }
 
 .page-type-article .author-image {
-    width: 4em;
+    width: 3.5em;
 }
 
 .page-type-article .author-name {
@@ -329,7 +339,8 @@ body > main > div > div.content > picture > img{
 }
 
 .page-type-article .similar-stories .stories .block.story a > .story-text > .story-header{
-    font-weight: var(--weight-regular);
+    font-weight: var(--weight-black);
+    font-family: var( --sans-serif-font);
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     margin-top: 1rem;
@@ -337,17 +348,22 @@ body > main > div > div.content > picture > img{
 }
 
 .page-type-article .similar-stories .stories .block.story a > .story-text > h3{
+    font-family: var(--serif-font);
     font-weight: var(--weight-regular);
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     margin-bottom: 2rem;
+    padding-top: 1em;
 }
 
 .page-type-article .similar-stories .stories .block.story a > .story-text > .author{
     font-weight: var(--weight-bold);
 }
 .page-type-article .similar-stories .stories .block.story a > .story-text > .position{
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-regular);
     margin-bottom: 1em;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    padding-top: 1em;
 }
 .page-type-article .similar-stories .stories .block.story .image{
     position: relative;
