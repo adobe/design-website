@@ -36,15 +36,13 @@
 .toolkit .toolkit-page-content > .article-card.block .text .hed{
     width: 60%;
     font-size: 2.7em;
-    padding-top: 1.5rem;
-    font-weight: var(--weight-light);
+    font-weight: var(--weight-bold);
     overflow: unset;
 }
 .toolkit .toolkit-page-content > .article-card.block .text .dek{
-    font-size: 1em;
-    padding-top: 1.5em;
+    font-size: 0.9em;
     font-weight: var(--weight-light);
-    max-width: 95%;
+    max-width: 93%;
 }
 
 .toolkit .toolkit-page-content > .article-card.block .text .tag-link,
@@ -62,12 +60,12 @@
 .toolkit .toolkit-page-content .text{
     color: white;
 }
-.toolkit .toolkit-page-content > div:nth-child(5) .text{
-    color: black;
-}
+.toolkit .toolkit-page-content > div:nth-child(4) .text,
+.toolkit .toolkit-page-content > div:nth-child(5) .text,
 .toolkit .toolkit-page-content > div:nth-child(8) .text{
     color: black;
 }
+
 .big-red-text{
     height: 300px;
     width: 100%;

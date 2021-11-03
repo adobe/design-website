@@ -53,10 +53,10 @@ function buildStory( story ) {
                 $element("picture", [
                     $element("source", { attr: { media: mediaAttr, srcset: story.image }}),
                     $element("img", { attr: { src: story.image } }),
-                ]),
-                $element("p.tag", ['#', $element("span", 'LEADING DESIGN')]),
+                ])
             ]),
             $element(".story-text", [
+                $element("p.tag", ['#', $element("span", 'LEADING DESIGN')]),
                 $element("h2.story-header", story.title || "[TITLE MISSING]" ),
                 $element("h3", "Creating art with synthesia"),
                 $element("p.author", "Laura Herman"),
