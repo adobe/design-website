@@ -19,16 +19,15 @@
         margin: 0;
     }
 }
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .two-column.block > div {
         flex-direction: column;
     }
     .two-column.block > div > div {
         height: auto;
     }
+    .two-column.block >div >div:last-child{
+        display:none;
+    }
     
-}
-@media only screen and (min-width: 321px) and (max-width: 375px){
-
-
 }
