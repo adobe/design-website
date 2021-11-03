@@ -37,26 +37,24 @@
     position: relative;
     min-height: 300px;
 }
-.block.story .image p{
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    margin: unset;
-    /* text-decoration: underline 2px;
-    text-underline-offset: 3px; */
-    
-    color: black;
-}
 
-.block.story .image .tag span{
-    border-bottom: 2px solid black;
-}
 .stories .story-text > * {
     padding-left: 30px;
     color: black;
     text-decoration: none;
     margin: unset;
 }
+
+.stories .story-text .tag{
+    font-size: 0.8em;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+}
+
+.stories .story-text .tag span{
+    border-bottom: 2px solid black;
+}
+
 .stories .story-text > .story-header{
     font-weight: var(--weight-black);
     font-size: 2em;
@@ -64,8 +62,9 @@
     margin-top: 6px;
 }
 .stories .story-text > h3{
-    font-weight: 400;
-    font-size: 17px;
+    font-family: var(--serif-font);
+    font-weight: var(--weight-light);
+    font-size: 1em;
     margin-top: 3px;
     margin-bottom: 16px;
 
@@ -76,10 +75,11 @@
 }
 
 .stories .story-text > .author{
-    font-weight: 600;
+    font-weight: var(--weight-bold);
 
 }
 .stories .story-text > .position{
+    font-weight: var(--weight-light);
     margin-bottom: 20px;
 
 }
