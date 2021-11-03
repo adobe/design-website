@@ -63,7 +63,7 @@ async function buildAuthorBio() {
   let $authorBlock
   let $bioBlock;
 
-  if (author) {
+  if (author && !author.bio.startsWith('Error')) {
     const $bio = $element('p');
     $bio.innerHTML = author.bio;
 
