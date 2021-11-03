@@ -27,14 +27,15 @@
 
 .page-type-team .head-content .title{
     font-family: var(--serif-font);
-    padding-left: 6rem;
-    font-size: 3em;
+    padding: 0 6rem;
+    font-size: 3.4em;
 }
 
 .page-type-team .head-content .head-text{
+    font-family: var(--serif-font);
     display: grid;
     grid-template-columns: 43% 57%;
-    font-size: 1.3em;
+    font-size: 1.4em;
     
 }
 
@@ -50,7 +51,8 @@
 }
 
 .page-type-team .head-content h2 {
-    margin-top: 3em;
+    margin-top: 2.5em;
+    margin-bottom: 1.5em;
 }
 /*
     Team Card content
@@ -60,38 +62,38 @@
     position: relative;
 
     display:grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 50% 50%;
 
-    height: 280px;
+    height: 350px;
 
     overflow-y: hidden;
     transition: height 0.5s;
 }
 .page-type-team .team-cards .team-card.active{
-    height: 600px;
+    height: 720px;
 }
 
-.page-type-team .teams img {
-    width: 75%;
-    padding-left: 3em;
+
+.page-type-team .team-cards .team-card div:first-child{
+    padding-top: 2.5rem;
 }
 .page-type-team .team-cards .team-card .card-header{
     position: absolute;
     margin: 2em 5%;
-    padding: 1em 0;
+    padding: 0.5em 0;
     border-bottom: black 2px solid;
     width: 90%;
     display: flex;
-    gap: 1em;
 }
-
 .page-type-team .team-cards .team-card .chevron-down{
     width: 20px;
+
+    margin-right: 2rem;
     
     box-sizing: border-box;
     background-image: url("../../resources/chevron-down-black.svg");
     background-size:contain;
-    background-position: center top 10px;
+    background-position: center top 6px;
     background-repeat: no-repeat;
 }
 .page-type-team .team-cards .team-card h3{
@@ -101,30 +103,30 @@
     font-size: 1.7rem;
 }
 
-.page-type-team .team-cards .team-card div{
-    padding-top: 12rem;
+.page-type-team .team-cards .team-card div:nth-of-type(2){
+    padding-top: 13rem;
+    
+}
+.page-type-team .team-cards .team-card div:nth-of-type(2) img {
+    width: 85%;
+    padding-left: 2em;
 }
 
-.page-type-team .team-cards .team-card div:first-child{
-    padding-top: 0;
-}
-
-.page-type-team .team-cards .team-card div:last-child{
+.page-type-team .team-cards .team-card div:nth-of-type(3){
+    padding-top: 14.5rem;
     padding-left: 4rem;
     padding-right: 3rem;
     color: white;
 }
-
-.page-type-team .team-cards .team-card div:last-child > p:first-child{
-    width: 75%;
+.page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+    width: 85%;
     font-family: var(--serif-font);
     color: #FAECE7;
     font-size: 1.6rem;
-    line-height: 1.6em;
-    padding-bottom: 2em;
+    line-height: 1.7em;
+    padding-bottom: 1.5em;
 }
-
-.page-type-team .team-cards .team-card div:last-child .view-jobs{
+.page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs{
     font-size: 0.6em;
     text-decoration: underline 2px;
     text-underline-offset: 3px;
@@ -225,12 +227,12 @@
 .page-type-team .foot-content .resources-section .resources .resource a{
     color: white;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: var(--weight-black);
 }
 .page-type-team .foot-content .resources-section .resources .resource .learn-more-button {
     color: white;
-    font-size: 14px;
+    font-size: 11px;
     width: fit-content;
     padding-bottom:2px;
     box-sizing: border-box;
@@ -239,7 +241,7 @@
 .resource-bottom-container{
     background: var(--bkg-red);
     width: 100%;
-    padding: 20px;
+    padding: 15px 20px 35px 45px;
     box-sizing: border-box;
 }
 .resource.js-scroll.fade-in-left.scrolled > div.resource-bottom-container > p > a > strong {
@@ -250,12 +252,69 @@
     content: "+";
     vertical-align: super;
     font-size: .5em;
+    line-height: 0;
 }
 
 @media (max-width: 1000px){
     .page-type-team .team-cards .team-card div:last-child > p:first-child {
         width: 85%;
         font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px){
+    /*TEAM CARD*/
+
+    .page-type-team .team-cards .team-card{
+        grid-template-columns: 40% 60%;
+    
+        height: 160px;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 470px;
+    }
+
+
+    .page-type-team .team-cards .team-card div:first-child{
+        padding-top: 0.25rem;
+    }
+    .page-type-team .team-cards .team-card .card-header{
+        margin: 2em 7.5%;
+        width: 85%;
+    }
+    .page-type-team .team-cards .team-card .chevron-down{
+        width: 15px;
+        margin-right: 1rem;
+        background-position: center top 1.5px;
+    }
+    .page-type-team .team-cards .team-card h3{
+        font-size: 1rem;
+    }
+
+    .page-type-team .team-cards .team-card div:nth-of-type(2){
+        padding-top: 6rem;
+        
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(2) img {
+        width: 82.5%;
+        padding-left: 2em;
+    } 
+    
+    .page-type-team .team-cards .team-card div:nth-of-type(3){
+        padding-top: 6rem;
+        padding-left: 5rem;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        width: 95%;
+        font-size: 1.4rem;
+        line-height: 1.5em;
+        padding-bottom: 1em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs{
+        font-size: 0.6em;
+        text-decoration: underline 2px;
+        text-underline-offset: 3px;
+        color: white;
     }
 }
 @media (max-width: 700px){
@@ -278,7 +337,7 @@
 
     .page-type-team .head-content .title{
         font-size: 2em;
-        padding-left: unset;
+        padding: unset;
     }
 
     .page-type-team .head-content .head-text{
@@ -296,31 +355,64 @@
         font-size: 2.2em;
     }
 
-    .page-type-team .team-cards .team-card .card-header{
-        border:none;
-    }
-
-    .page-type-team .team-cards .team-card.active{
-        height: auto;
-    }
-    .page-type-team .team-cards .team-card h3{
-        width: 80%;
-        font-size: 1.5rem;
-    }
+    /*TEAM CARD*/
 
     .page-type-team .team-cards .team-card{
         grid-template-columns: unset;
-        grid-template-rows: 100px 100%;
+        grid-template-rows: 100% 0;
+    
+        height: 280px;
+    }
+    .page-type-team .team-cards .team-card.active{
+        grid-template-rows: 53% 47%;
+        height: 970px;
     }
 
-    .page-type-team .team-cards .team-card div:last-child{
-        padding-top: 4rem;
-        padding-bottom: 3rem;
+    .page-type-team .team-cards .team-card div:first-child{
+        padding-top: 1.5rem;
     }
-    .page-type-team .team-cards .team-card div:last-child > p:first-child {
-        width: 90%;
+    .page-type-team .team-cards .team-card .card-header{
+        margin: 2em 15%;
+        width: 70%;
+    }
+    .page-type-team .team-cards .team-card .chevron-down{
+        width: 18px;
+        margin-right: 0.5rem;
+        background-position: center top 2px;
+    }
+    .page-type-team .team-cards .team-card h3{
+        width: 100%;
+        font-size: 1.3rem;
     }
 
+    .page-type-team .team-cards .team-card div:nth-of-type(2){
+        padding-top: 8rem;
+        
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(2) img {
+        width: 75%;
+        justify-self: center;
+    } 
+
+    .page-type-team .team-cards .team-card div:nth-of-type(3){
+        padding-top: 2.5rem;
+        padding-left: 5rem;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        width: 95%;
+        font-size: 1.3rem;
+        line-height: 1.5em;
+        padding-bottom: 2em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs{
+        font-size: 0.7em;
+        text-decoration: underline 3px;
+        text-underline-offset: 3px;
+        color: white;
+    }
+
+
+    /*Resources*/
 
     .page-type-team .foot-content .resources-section h2{
         width: 80%;

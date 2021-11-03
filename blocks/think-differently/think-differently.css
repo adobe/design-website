@@ -1,10 +1,10 @@
 .think-differently.block{
     background: var(--bkg-navy-dark);
-    color: #FAECE7;
+    color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 600px;
+    height: 700px;
 }
 
 .think-differently.block .think-differently-content{
@@ -12,6 +12,7 @@
     grid-template-rows: 20% 20% 20% 40%;
     grid-template-columns: 1fr 0.5fr 1fr 0.5fr 1.5fr;
     grid-column-gap: 2%;
+    grid-row-gap: 3%;
     align-items: center;
     justify-content: center;
 
@@ -56,6 +57,7 @@
     text-align:center;
     width:80%;
     justify-self: center;
+    align-self:start;
 }
 
 .think-differently.block .think-differently-content p:nth-of-type(1){
@@ -64,6 +66,7 @@
 
 .think-differently.block .think-differently-content p:nth-of-type(2){
     grid-column: 3/4;
+    
 }
 
 .think-differently.block .think-differently-content p:nth-of-type(3){
@@ -72,8 +75,11 @@
 
 .think-differently.block .think-differently-content .think-differently-slash{
     background-image: url("../../resources/think-different-slash.png");
-    background-position: center;
-    height:6em;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    height:10em;
+
+    align-self:start;
 }
 
 .think-differently.block .think-differently-content .slash-1{
@@ -87,16 +93,15 @@
 .think-differently.block .think-differently-content .think-differently-number{
     display:block;
     font-size:8rem;
+    line-height:1em;
     font-weight: var(--weight-regular);
 }
 
-.think-differently.block .think-differently-content > p:nth-child(4) {
-    margin-bottom: 0;
-}
+
 
 @media (max-width: 1000px) {
-    .think-differently.block .think-differently-content > p:nth-child(4) {
-        height: 1em;
+    .think-differently.block .think-differently-content .think-differently-slash{
+        background-position-y: center;
     }
 }
 
