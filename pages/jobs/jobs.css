@@ -34,13 +34,13 @@
 
 .page-type-jobs .jobs-block-container{
     color: white;
+    font-family: var(--serif-font);
     background-color: #0B1C40;
     padding: 1em;
 }
 
 .page-type-jobs .jobs-block-container #opportunities{
-    font-family: var(--serif-font);
-    font-weight: var(--weight-bold);
+    font-weight: var(--weight-regular);
     font-size: 3rem;
     padding: 2rem 3rem;
     color: #FFFE8B;
