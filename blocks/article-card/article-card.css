@@ -1,6 +1,6 @@
 /* ------- ARTICLE CARD BLOCK ------- */
 
- .article-card.block{ margin-bottom: 1rem; }
+ .article-card.block{ margin-bottom: 0.5rem; }
 
 @media screen and (min-width: 1025px) and (min-height: 620px) {
     /* Ensure Article Card doesn't cut off content on short desktop screens */
