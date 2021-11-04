@@ -49,6 +49,7 @@ html{
         font-weight: var(--weight-regular);
 }
 
+/* The built in fonts should only appear of Adobe Clean doesn't load properly: */
 body {
     font-family: var(--fast-sans-serif-font);
 }
@@ -61,6 +62,7 @@ body.loaded {
     font-family:  var(--sans-serif-font);
 }
 
+/* Button should animate as per Adobe Spectrum specs: */
 html body button{
     --button-transition :
         background 130ms ease-out,
@@ -78,9 +80,17 @@ html body button{
 .page-type-inclusive .inclusive-design > div > div,
 .page-type-index main,
 .page-type-article main,
-main > div > div > div:not(.full-bleed) {
+.people.block,
+.article-card.block,
+.two-column.block{
+/*
+    this line is toooo specific for how broad it is,
+    it over writes other styling accross pages indiscriminently:
+    main > div > div > div:not(.full-bleed) {
+*/
     width: 95vw;
-    max-width:1000px;
+    max-width: 62.54em;
+    /* ^ limits to 1000px - 1920px depending on base font-size */
     margin-left:auto;
     margin-right:auto;
 }
@@ -98,6 +108,21 @@ main > div > div > div:not(.full-bleed) {
     /* border-bottom: solid 4px#17212D; */
 }
 
+/*
+ *  Write D.R.Y. code/styles as much as possible:
+ * - If an attribute applies to multiple elements, write it once,
+ * - Only update an attribute if it changes,
+*/
+
+.hed,
+.dek,
+.dek-1,
+.dek-2,
+.subhead-a{
+    font-family: var(--serif-font);
+}
+
+
 /* Header */
 .hed{
     font-weight: var(--weight-black);
@@ -106,26 +131,22 @@ main > div > div > div:not(.full-bleed) {
 
 /* Subheader/ summary/ hook */
 .dek{
-    font-family: var(--serif-font);
-    font-size: 2em; /* 32px; 61px if 1em = 30.7 */
+    font-size: 2em; /* 32px; 61px */
 }
 
 /* dek 1 */
 .dek-1{
-    font-family: var(--serif-font);
-    font-size: 1.1em;    /* 90px  if 1em = 30.7 */
-    line-height: 1.57em; /* 110px if 1em = 30.7 */
+    font-size:   2.93em; /* 90px */
+    line-height: 1.22em; /* 110px,  = 110 / 90 */
 }
-/* dek 2, if 1em = 30.7 */
+/* dek 2 */
 .dek-2{
-    font-family: var(--serif-font);
-    font-size: 1.1em;    /* 35px if 1em = 30.7 */
-    line-height: 1.57em; /* 55px if 1em = 30.7 */
+    font-size:   1.1em;  /* 35px */
+    line-height: 1.57em; /* 55px */
 }
 
-/* Subheader, if 1em = 30.7 */
+/* Subheader */
 .subhead-a{
-    font-family: var(--serif-font);
     font-size: 1.6em;   /* 50px */
     line-height: 1.4em; /* 70px */
 }
@@ -140,17 +161,27 @@ main > div > div > div:not(.full-bleed) {
     opacity: 1;
 }
 
+.scrolled.fade-in,
+.scrolled.fade-in-top,
+.scrolled.fade-in-right,
+.scrolled.fade-in-left{
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.63, 0.07, 0.46, 0.99);
+    animation-delay: 0s;
+    animation-fill-mode: both;
+}
+
 .scrolled.fade-in {
-    animation: scroll-fade-in-bottom .6s cubic-bezier(.63,.07,.46,.99) both;
+    animation-name: scroll-fade-in-bottom;
 }
 .scrolled.fade-in-top {
-    animation: scroll-fade-in-top .6s cubic-bezier(.63,.07,.46,.99) both;
+    animation-name: scroll-fade-in-top;
 }
 .scrolled.fade-in-right{
-    animation: scroll-fade-in-right .6s cubic-bezier(.63,.07,.46,.99) both;
+    animation-name: scroll-fade-in-right;
 }
 .scrolled.fade-in-left{
-    animation: scroll-fade-in-left .6s cubic-bezier(.63,.07,.46,.99) both;
+    animation-name: scroll-fade-in-left;
 }
 
 /* scroll animations */
@@ -203,41 +234,9 @@ main > div > div > div:not(.full-bleed) {
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px){
-    .page-home main > div{
-        width: auto;
-        margin: 1em;
-        overflow-x: hidden;
-    }
-    main > div > div > div:not(.full-bleed) {
-        width: auto;
-        max-width:1000px;
-        margin-left:auto;
-        margin-right:auto;
-    }
-}
-@media only screen and (min-width: 425px) and (max-width: 768px){
-    .page-home main > div{
-        width: auto;
-        margin: 1em;
-        overflow-x: hidden;
-    }
-}
-@media only screen and (min-width: 375px) and (max-width: 425px){
-    .page-home main > div{
-        width: auto;
-        margin: 1em;
-        overflow-x: hidden;
-    }
-    main > div > div > div:not(.full-bleed) {
-        width: auto;
-        max-width:1000px;
-        margin-left:auto;
-        margin-right:auto;
-        overflow-x: hidden;
-    }
-}
-@media only screen and (min-width: 321px) and (max-width: 375px){
+/* If the styles are the same for each media query, combine them: */
+
+@media only screen and (min-width: 321px) and (max-width: 1024px){
     .page-home main > div{
         width: auto;
         margin: 1em;
