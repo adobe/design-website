@@ -2,55 +2,35 @@
     width: 100%;
     background: var(--bkg-red);
     color: white;
-}
-
-.about-adobe-design > div{
-    padding: 5.875em 7.5em 12.5em 7.5em; /* 94px 120px 200px 120px*/
-    box-sizing: border-box;
-    height: fit-content;
-    width: fit-content;
-    max-width: 1000px;
-    margin: auto;
     font-family: var(--serif-font);
 }
 
+.about-adobe-design > div{
+    padding: 4.39em 8.33em 7em 8.33em; /* 150px 256px 216px 256px*/
+    box-sizing: border-box;
+    margin: auto;
+    max-width: 62.5em;
+}
+
+.about-adobe-design > div h2,
+.about-adobe-design > div p{
+    width: 100%;
+    max-width: 45.8632em;
+}
+
 .about-adobe-design > div h2{
-    font-size: 1.375em; /* 22px */
-    margin-block: 0em 3.625em; /* 0 80px */
+    font-weight: var(--weight-regular);
+    font-size: 1.33em; /* 40px */
+    margin-block: 0em 3.68em; /* 0 ~147px */
 }
 .about-adobe-design > div p{
-    font-size: 2em; /* 32px */
+    font-size: 2em; /* 61px */
     line-height: 1.75em;
-    margin-block: 2.5em  0em; /* 80px 0 */
+    margin-block: 2.4em  0em; /* ~147px 0 */
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     .about-adobe-design > div{
-        font-size: 10px;
-        padding: 3.5em 3.75em 6.25em 3.75em; /* 94px 120px 200px 120px*/
-    }
-}
-
-@media screen and (min-width: 601px) and (max-width: 1200px) {
-    .about-adobe-design > div{
-        font-size: 14px;
-        padding: 4em 3em;
-    }
-    .about-adobe-design > div p{
-        font-size: 1.75em;
-    }
-    .about-adobe-design > div h2,
-    .about-adobe-design > div p{
-        margin-block: 2em 1em;
-    }
-}
-@media screen and (min-width: 1201px) and (max-width: 1600px) {
-    .about-adobe-design{
-        font-size: 16px;
-    }
-}
-@media screen and (min-width: 1601px) {
-    .about-adobe-design{
-        font-size: 18px;
+        padding: 4em 3em 6em 3em;
     }
 }

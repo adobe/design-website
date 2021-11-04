@@ -85,11 +85,11 @@ body > main > div > div > p:nth-child(3){
 
 }
 .page-type-article .content h3{
-    font-size: 2.4em;
+    font-size: 1.8em;
     font-family: var(--serif-font);
     font-weight: var(--weight-regular);
     padding-top: 1em;
-    padding-left: 6.8em;
+    padding-left: 9em;
     padding-bottom: .7em;
     color: #4A4545;
 }
@@ -451,7 +451,10 @@ body > div.author-bio.block > div > author-name{
         padding-left: 6.5em;
     }
     .page-type-article .pull-quote.block{
-        padding-left: 3.1em;
+        padding-left: 1em;
+    }
+    body > main > div > div > div:nth-child(41) > div > div{
+        padding: 1em;
     }
     .page-type-article .content li{
         padding-left: 4em;
@@ -492,6 +495,9 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .pull-quote.block{
         font-size: 1.7em;
+        padding: 0;
+    }
+    body > main > div > div > div:nth-child(41) > div > div{
         padding: 0;
     }
     .page-type-article .content .caption{
@@ -573,6 +579,9 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .pull-quote.block{
         font-size: 1.7em;
+        padding: 0;
+    }
+    body > main > div > div > div:nth-child(41) > div > div{
         padding: 0;
     }
     .page-type-article .content .caption{
@@ -660,6 +669,9 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .pull-quote.block{
         font-size: 1.7em;
+        padding: 0;
+    }
+    body > main > div > div > div:nth-child(41) > div > div{
         padding: 0;
     }
     .page-type-article .content .caption{
