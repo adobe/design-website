@@ -46,7 +46,7 @@ export default function decorate($page) {
   let buttonFunction = () => {
     console.log(" Clicked Apply Now Button")
   };
-  const $button_apply_now = addButton("Apply Now", buttonFunction, ['unfilled'], text_dark);
+  const $button_apply_now = addButton("Apply Now", buttonFunction, 'unfilled lt-bkg', text_dark);
   /* Add button below suggested articles, for some reason?  */
   postText.append($button_apply_now);
 

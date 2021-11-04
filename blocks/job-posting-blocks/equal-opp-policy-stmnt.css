@@ -1,27 +1,44 @@
 .eq-op-policy-stmnt{
+    font-size: 30.7px;
     width: 100%;
     background: white;
     color: var(--text-dark);
 }
-.eq-op-policy-stmnt > div{
-    font-size: 0.75em; /* 12px */
-    font-size: 12px;
-    padding: 8.75em 7.5em; /* 140px 120px */
-    box-sizing: border-box;
-    height: fit-content;
-    width: fit-content;
-    max-width: 1000px;
-    margin: auto;
+
+@media screen and (max-width:1000px) {
+    .eq-op-policy-stmnt{
+        font-size: 16px;
+    }
 }
 
-.eq-op-policy-stmnt > div p{
-    font-size: 1em; /* 12px */
-    line-height: 1.67em; /* = 20px; 12px based */
-    margin-block: 1.5em; /* Should be 18px between paragraphs ( 12 * 1.5 = 18 ) */
+@media screen and (min-width:1000px) {
+    .eq-op-policy-stmnt{
+        font-size: 1.6vw;
+    }
+}
+
+@media screen and (min-width:1920px) {
+    .eq-op-policy-stmnt{
+        font-size: 30.7px;
+    }
+}
+
+.eq-op-policy-stmnt > div{
+    box-sizing: border-box;
+    max-width: 62.5em;
+    margin: auto;
+    padding: 3.4em 4.5em 3.1em 8.7em; /* 104px 138px 94px 268px*/
 }
 
 @media screen and (max-width: 1200px) {
     .eq-op-policy-stmnt > div{
-        padding: 3em; /* 42px */
+        padding: 3.4em 3em; /* 42px */
     }
 }
+
+.eq-op-policy-stmnt > div p{
+    font-size: 0.75em; /* 12px */
+    line-height: 1.67em; /* = 20px; 12px based */
+    margin-block: 1.5em; /* Should be 18px between paragraphs ( 12 * 1.5 = 18 ) */
+}
+

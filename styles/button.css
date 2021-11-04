@@ -1,12 +1,52 @@
-button{
+/*
+Height: min: 48px
+width: min 2.25x height,
+overflow: wrap,  1-2 words, max max 4 words/20 characters/no punctuation marks
+sentence case
+hover: has blue ring outline for keyboard focus,
+keyboard interactions: space or enter
+*/
+
+
+button, button.reg, button.med, button.primary{
+    cursor: pointer;
+    width: fit-content;
+    box-sizing: border-box;
+
     background-color: unset;
-    border: 2px solid transparent;
-    border-radius: 1.5em;
-    height: 3em;
-    font-size: 1em;
-    padding: 0.5em 1.5em;
-    line-height: 1em;
+    /* border: 2px solid inherit; */
+    border-width: 2px;
+    border-style: solid;
+    border-color: inherit;
+    color: inherit;
+    transition:
+
 }
+
+@media screen and (max-width: 1000px) {
+    button.med, button.reg{
+        min-height: 48px;
+        min-width: 108px;
+        height: 48px;
+        border-radius: 24px;
+        line-height: 44px;
+        padding: 0 20px;
+        font-size: 18px;
+    }
+}
+@media screen and (min-width: 1000px) {
+     button.med, button.reg{
+        border-radius: 17px;
+        min-height: 32px;
+        min-width: 72px;
+        height: 32px;
+        line-height: 28px;
+        padding: 0 16px; /* 16px min */
+        font-size: 15px; /* 15px */
+    }
+}
+
+
 
 button.black{
     color: black;
@@ -17,21 +57,69 @@ button.white{
     border-color:white;
 }
 
-button.reg{
+@function contrasting-color($color) {
+    @if( lightness( $color ) > 50) {
+        @return #000000;
+    }
+    @if( lightness( $color ) < 50) {
+        @return #000000;
+    }
 }
 
 /*
 Set button color like so:
 jsButtonElm.style("--btn-color: #000000");
 */
-button.reg.unfilled{
-    border: 2px solid var(--btn-color);
+button.unfilled,
+button.filled:hover{
+    border-color: var(--btn-color);
     color: var(--btn-color);
     background-color: unset;
-    margin-left: 0.25em;
 }
 
-button.reg.filled{
-    border: none;
+button.filled,
+button.unfilled:hover{
+    border-color: transparent;
     background-color: var(--btn-color);
+    /* color: contrasting-color(var(--btn-color)); */
+    color: transparent;
+    filter: brightness(0.9);
 }
+
+button.unfilled.dk-bkg:hover{
+    color: #000000;
+}
+button.unfilled.lt-bkg:hover{
+    color: #ffffff;
+}
+
+button.filled:focus,
+button.unfilled:hover:focus{
+    filter: brightness(1);
+}
+
+button:focus,
+button:focus-within,
+button:focus-visible {
+    outline-offset: 6px;
+    outline-style: solid;
+    outline-color: var(--color-focus);
+    outline-width: 2px;
+}
+
+/* button:active, */
+button:target{
+    filter: brightness(1);
+}
+
+/*
+
+button.filled:hover{
+
+} */
+
+
+
+/* outline color on focus should be adobe blue; */
+
+/* button.unfilled:hover */
