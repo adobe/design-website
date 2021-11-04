@@ -5,7 +5,12 @@ import addButton from "../button/button.js";
  * @param {HTMLElement} $block
  */
 export default async function makeHeaderBlock($block) {
-    const $button_apply_now = addButton("Apply Now")
+    const $button_apply_now = addButton(
+        "Apply Now",
+        ()=> {console.log( "APPLY NOW CLICKED IN HEADER OF JOB POST")},
+        "dk-bkg unfilled",
+        "#ffffff"
+    )
     const $dek              = $element(".dek", getMetadata('dek'));
     const $jobTitle         = $element("h1.hed.job-title", getMetadata('job-title'));
     // const $jobTitle         = $element("h1.hed.job-title", (getMetadata('job-title')||document.querySelector("h1")));

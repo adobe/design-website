@@ -28,7 +28,7 @@ export default function addButton(
   button.addEventListener("click", action)
   button.innerText = innerText;
   button.classList = classList += " reg";
-  button.style= `--btn-color: ${textColor}; margin-left: .5em;`;
+  button.style= `--btn-color: ${textColor};`;
 
   return button;
 }

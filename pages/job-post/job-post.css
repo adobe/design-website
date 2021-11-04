@@ -10,12 +10,38 @@
 } */
 
 
-/* .post-container,
+.post-container,
 .about-adobe-design{
     width: fit-content;
-    max-width: 62.5em;
     margin: auto;
-} */
+    max-width: calc(100vw - 6em);
+    /* max-width: 62.5em; */
+}
+
+/* Small Screen */
+@media screen and (max-width: 1000px) {
+    .post-container,
+    .about-adobe-design{
+        font-size: 16px;
+
+    }
+}
+/* Medium Screen */
+/* font size scales with screen: smallest: 16px, largest: 30.7px */
+@media screen and (min-width: 1000px) {
+    .post-container,
+    .about-adobe-design{
+        font-size: 1.6vw;
+
+    }
+}
+/* XL screen */
+@media screen and (min-width: 1920px) {
+    .post-container,
+    .about-adobe-design{
+        font-size: 30.7px;
+    }
+}
 
 body.job-post main {
     display: grid;
@@ -24,11 +50,14 @@ body.job-post main {
 
 .post-container{
     width: fit-content;
-    max-width: 62.5em;
+    max-width: 62.5em; /* ~= 1920 xxl, 1000px sm */
     margin: auto;
     display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: 50% 50%;
+
+    border: 2px dotted orangered;
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -45,6 +74,8 @@ body.job-post main {
     grid-row: 1 / span 1;
     display: grid;
     grid-template-columns: 50% 50%;
+
+    border: 2px dotted #0077ff;
 }
 
 /*
@@ -97,12 +128,18 @@ body.job-post main {
     }
 }
 
-.job-post .post-text h2,
+.job-post .post-text h2{
+    font-family: var(--serif-font);
+    font-weight: var(--weight-regular);
+    font-size: 1.62em;  /* 50px */
+    margin-block: 1.6em; /* 80px */
+}
+
 .job-post .post-text h3{
     font-weight: var(--weight-bold);
-    font-size: 1.375em;  /* 22px */
-    line-height: 1.27em; /* 28px */
-    margin-block: 2.91em 1.82em;
+    font-size: 1.375em;    /* 30px */
+    line-height: 1.27em;   /* 3.7px */
+    margin-block: 1.62em;  /* 50px */
 }
 
 .job-post .post-text p,
@@ -127,6 +164,7 @@ body.job-post main {
 
 .job-post .post-text button.unfilled{
     margin-top: 2em;
+    /* height: 48px; */
 }
 
 

@@ -1,23 +1,16 @@
-button{
-    background-color: unset;
-    color: white;
-    border: 2px solid white;
-    border-radius: 1.5em;
-    height: 3em;
-    font-size: 1em;
-    padding: 0.5em 1.5em;
-    line-height: 1em;
-}
+@import url(../../styles/button.css);
+
+
 
 button.reg{
-    border-radius: 1.5em;
-    height: 3em;
-    font-size: 1em;
-    padding: 0.5em 1.5em;
-    line-height: 1em;
+    /* border-radius: 1.5em; */
+    /* height: 3em; */
+    /* font-size: 1em; */
+    /* padding: 0em 1.5em; */
+    /* line-height: 1em; */
 }
 
-button.reg.unfilled{
+/* button.reg.unfilled{
     border: 2px solid var(--btn-color);
     color: var(--btn-color);
     background-color: unset;
@@ -27,7 +20,7 @@ button.reg.filled{
     color: var(--btn-color);
     background-color: unset;
 }
-
+ */
 
 
 .carousel .carousel__actions button,
