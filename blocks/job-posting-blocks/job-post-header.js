@@ -16,7 +16,7 @@ export default async function makeHeaderBlock($block) {
 
     /* Big Giant element builder function: */
     const $header_block = $element("div.header-block", [
-        $element("div.left", [$jobTitle, $button_apply_now]),
+        $element("div.job-header-container", [$jobTitle, $button_apply_now]),
     ]);
     document.querySelector("main > div.section-wrapper").insertBefore(
         $header_block,

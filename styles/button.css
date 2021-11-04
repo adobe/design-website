@@ -36,13 +36,13 @@ button, button.reg, button.med, button.primary{
 }
 @media screen and (min-width: 1000px) {
      button.med, button.reg{
-        border-radius: 17px;
-        min-height: 32px;
-        min-width: 72px;
-        height: 32px;
-        line-height: 28px;
-        padding: 0 16px; /* 16px min */
-        font-size: 15px; /* 15px */
+        height: 48px;
+        min-height: 48px;
+        min-width: 108px; /* 2.25 x height */
+        line-height: 44px; /* button height - border height*/
+        border-radius: 22px;
+        padding: 0 18px; /* 18px min */
+        font-size: 18px; /* 15px */
     }
 }
 
