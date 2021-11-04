@@ -9,7 +9,6 @@
     font-weight: 1rem;
 } */
 
-
 .post-container,
 .about-adobe-design{
     width: fit-content;
@@ -23,18 +22,18 @@
     .post-container,
     .about-adobe-design{
         font-size: 16px;
-
     }
 }
+
 /* Medium Screen */
 /* font size scales with screen: smallest: 16px, largest: 30.7px */
 @media screen and (min-width: 1000px) {
     .post-container,
     .about-adobe-design{
         font-size: 1.6vw;
-
     }
 }
+
 /* XL screen */
 @media screen and (min-width: 1920px) {
     .post-container,
@@ -47,7 +46,6 @@ body.job-post main {
     display: grid;
 }
 
-
 .post-container{
     width: fit-content;
     max-width: 62.5em; /* ~= 1920 xxl, 1000px sm */
@@ -57,7 +55,6 @@ body.job-post main {
     grid-template-columns: 50% 50%;
 
     border: 2px dotted orangered;
-
 }
 
 @media screen and (max-width: 1000px) {
@@ -114,7 +111,7 @@ body.job-post main {
 
 /* -------- SUB HEADER START --------- */
 
-.job-post .header-block .details{
+.job-post .right .details{
     display: inline-grid;
     width: max-content;
     grid-template-columns: 50% 50%;

@@ -81,10 +81,14 @@ button.filled,
 button.unfilled:hover{
     border-color: transparent;
     background-color: var(--btn-color);
-    /* color: contrasting-color(var(--btn-color)); */
     color: transparent;
     filter: brightness(0.9);
 }
+/*
+ * As per Adobe Spectrum specs:
+ * Button highlights on select,
+ * or darkens on hover to show interaction feedback
+ */
 
 button.unfilled.dk-bkg:hover{
     color: #000000;
@@ -98,6 +102,11 @@ button.unfilled:hover:focus{
     filter: brightness(1);
 }
 
+/*
+ * Button should have an outline as per Adobe Spectrum specs:
+ * Outline is needed on focus for those who use a keyboard instead of
+ * mouse, touch, or other pointer. (Accessability)
+*/
 button:focus,
 button:focus-within,
 button:focus-visible {
@@ -111,15 +120,3 @@ button:focus-visible {
 button:target{
     filter: brightness(1);
 }
-
-/*
-
-button.filled:hover{
-
-} */
-
-
-
-/* outline color on focus should be adobe blue; */
-
-/* button.unfilled:hover */
