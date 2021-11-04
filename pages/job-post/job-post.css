@@ -14,8 +14,8 @@
 .about-adobe-design{
     width: fit-content;
     margin: auto;
-    max-width: calc(100vw - 6em);
-    /* max-width: 62.5em; */
+    max-width: 100vw;
+    width: 100%;
 }
 
 /* Small Screen */
