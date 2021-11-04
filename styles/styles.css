@@ -49,7 +49,7 @@ html{
         font-weight: var(--weight-regular);
 }
 
-/* The built in fonts should only appear of Adobe Clean doesn't load properly*/
+/* The built in fonts should only appear of Adobe Clean doesn't load properly: */
 body {
     font-family: var(--fast-sans-serif-font);
 }
@@ -109,7 +109,7 @@ html body button{
 }
 
 /*
- *  Wright D.R.Y. code/styles as much as possible:
+ *  Write D.R.Y. code/styles as much as possible:
  * - If an attribute applies to multiple elements, write it once,
  * - Only update an attribute if it changes,
 */
@@ -136,12 +136,12 @@ html body button{
 
 /* dek 1 */
 .dek-1{
-    font-size:   2.93em;    /* 90px */
-    line-height: 1.22em;    /* 110px,  = 110 / 90 */
+    font-size:   2.93em; /* 90px */
+    line-height: 1.22em; /* 110px,  = 110 / 90 */
 }
 /* dek 2 */
 .dek-2{
-    font-size: 1.1em;    /* 35px */
+    font-size:   1.1em;  /* 35px */
     line-height: 1.57em; /* 55px */
 }
 
