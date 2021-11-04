@@ -5,7 +5,7 @@
 }
 @media screen and (min-width: 601px) {
     .carousel {
-        font-size: 1.6vw; /* 16px-30.7px */
+        font-size: 1vw; /* 16px-30.7px */
     }
 }
 
@@ -39,7 +39,7 @@
     overflow: hidden;
     position: relative;
     height: calc(76vh - 87px);
-    width: 54.74em;
+    width: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,7 +66,6 @@
     width:  46.9em;
     align-items: center;
     justify-content: center;
-    margin: 0 0 0 auto;
 
     display: grid;
     grid-template-columns: 23.25em 19.25em;
@@ -143,7 +142,7 @@
     display: flex;
     width: 100%;
     /* max-width: 1920px; */
-    max-width: 54.74em;
+    max-width: 100%;
     justify-content: space-between;
     position: absolute;
     top: 50%;
