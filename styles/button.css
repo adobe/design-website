@@ -19,7 +19,7 @@ button, button.reg, button.med, button.primary{
     border-style: solid;
     border-color: inherit;
     color: inherit;
-    transition:
+    transition: var(--button-transition);
 
 }
 
