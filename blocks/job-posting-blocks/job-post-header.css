@@ -24,8 +24,8 @@
     .job-post .header-block{
         font-size: 1.6vw;
         /* padding: 5.86em 3.9em 0 0; */
-        width: calc(50vw - 10px); /*10px for gutter*/
-        max-width: calc(50vw - 10px); /*10px for gutter*/
+        width: calc(50vw - 5px); /*10px for gutter*/
+        max-width: calc(50vw - 5px); /*10px for gutter*/
     }
 }
 /* XL */
@@ -72,13 +72,6 @@
     }
 }
 
-.job-post .header-block  button.unfilled.reg,
-.job-post .header-block .job-title{
-
-    /* em based on 120px or 15px */
-}
-
-
 .job-post .header-block .job-title{
     font-size: 3.91em; /* 120px */
     max-width: 5.83em;
@@ -86,7 +79,8 @@
     line-height: 0.96em; /* 115px */
     font-weight: var(--weight-black);
     color: white;
-    margin: 1.47em 0; /* 176px */
+    margin-top: 2.4em;    /* 276px */
+    margin-bottom: 2.4em; /* 276px */
 }
 
 .job-post .header-block  button.unfilled.reg{
