@@ -5,27 +5,26 @@
 }
 @media screen and (min-width: 601px) {
     .carousel {
-        font-size: 1.6vw; /* 16px-30.7px */
+        font-size: 1vw; /* 16px-30.7px */
     }
 }
 
+
+
+/*
+    Strive for more D.R.Y. code
+    Combine media queries and selectors if it sets the same attribs:
+*/
 /* Hides scroll tip */
-@media (min-width: 1000px) {
-    .scroll-tip-content {       
+@media (min-width: 1000px), (max-width: 690px) {
+    .scroll-tip-content {
         display: none;
     }
     .chevron-down {
         display: none;
     }
 }
-@media (max-width: 690px) {
-    .scroll-tip-content {       
-        display: none;
-    }
-    .chevron-down {
-        display: none;
-    }
-}
+
 /* end of scroll tip media queries */
 
 
@@ -39,7 +38,7 @@
     overflow: hidden;
     position: relative;
     height: calc(76vh - 87px);
-    width: 54.74em;
+    width: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,7 +65,6 @@
     width:  46.9em;
     align-items: center;
     justify-content: center;
-    margin: 0 0 0 auto;
 
     display: grid;
     grid-template-columns: 23.25em 19.25em;
@@ -82,7 +80,6 @@
 }
 
 /* All text on right hand side: */
-.carousel__item--visible .number p.tag-link,
 .carousel__item--visible .number h2,
 .carousel__item--visible .number h3.dek-3,
 .carousel__item--visible .number p{
@@ -95,7 +92,7 @@
 .carousel__item--visible .number p.tag-link {
     height: 1.9em; /*57px;*/
     font-size: 0.67em; /*20px;*/
-    
+
     text-decoration: none;
     display: inline;
     line-height: 2em;
@@ -143,7 +140,7 @@
     display: flex;
     width: 100%;
     /* max-width: 1920px; */
-    max-width: 54.74em;
+    max-width: 100%;
     justify-content: space-between;
     position: absolute;
     top: 50%;
@@ -187,9 +184,7 @@
     background-position: center 1px;
     background-repeat: no-repeat;
 }
-.carousel .carousel__actions .carousel__button--prev {
-    border: transparent;
-}
+.carousel .carousel__actions .carousel__button--prev,
 .carousel .carousel__actions .carousel__button--next {
     border: transparent;
 }

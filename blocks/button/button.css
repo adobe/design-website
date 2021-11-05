@@ -1,28 +1,5 @@
 @import url(../../styles/button.css);
 
-
-
-button.reg{
-    /* border-radius: 1.5em; */
-    /* height: 3em; */
-    /* font-size: 1em; */
-    /* padding: 0em 1.5em; */
-    /* line-height: 1em; */
-}
-
-/* button.reg.unfilled{
-    border: 2px solid var(--btn-color);
-    color: var(--btn-color);
-    background-color: unset;
-}
-button.reg.filled{
-    border: none;
-    color: var(--btn-color);
-    background-color: unset;
-}
- */
-
-
 .carousel .carousel__actions button,
 .carousel .carousel__actions button img{
     background-color: transparent;

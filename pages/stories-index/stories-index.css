@@ -7,7 +7,7 @@
     color: white;
     font-weight: var(--weight-black);
     font-size: var(--page-header-size);
-    
+    padding: .5em 0 1.5em 0;
 }
 
 .page-type-index .content{
@@ -17,7 +17,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0px 30px;
     box-sizing: border-box;
 }
 
@@ -80,7 +79,7 @@
 }
 .stories .story-text > .position{
     font-weight: var(--weight-light);
-    margin-bottom: 20px;
+    margin-bottom: 90px;
 
 }
 

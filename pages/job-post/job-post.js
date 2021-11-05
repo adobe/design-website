@@ -7,6 +7,7 @@ import {
 import makeHeaderBlock from "../../blocks/job-posting-blocks/job-post-header.js";
 import { getJobsFragment } from "../../scripts/jobs-fragments.js";
 import makeSimilarOpportunitiesBlock from "../../blocks/job-posting-blocks/similar-opportunities.js";
+import assembleJobPost from "../../blocks/job-posting-blocks/job-post-assembler.js";
 
 const bkg_grey_lt = '#E8E8E8';
 const text_dark   = '#3E3E3E';
@@ -21,10 +22,16 @@ export default function decorate($page) {
   /* Add classes and ids to container elements */
   document.querySelector("body").classList.add("job-post");
   document.querySelector("#global-header").classList.add("split");
+
   let postContainer  = document.querySelector("main > div");
   postContainer.classList.add("post-container");
-  let postText  = document.querySelector(".post-container > div");
-  postText.classList.add("post-text");
+
+
+
+
+  let postBody = document.querySelector(".post-container > div");
+  postBody.classList.add("post-text");
+  buildJobPostSubheader(document);
 
   /* Assemble the header block. It needs to be here else HTML will break */
   makeHeaderBlock($page);
@@ -47,8 +54,7 @@ export default function decorate($page) {
     console.log(" Clicked Apply Now Button")
   };
   const $button_apply_now = addButton("Apply Now", buttonFunction, 'unfilled lt-bkg', text_dark);
-  /* Add button below suggested articles, for some reason?  */
-  postText.append($button_apply_now);
+  postBody.append($button_apply_now);
 
 
 
@@ -57,21 +63,6 @@ export default function decorate($page) {
     buildSimOpportunitiesBlock();
 
     document.querySelector("main").append($element("div.similarOpps-block"))
-
-  // //----------//
-//   /// has similar opportunities block here //
-// //----------//
-//   About adobe design: full width, background: red,
-//   header:
-//   40/100, adobe clean serif -- reg
-//   text:
-//   61/100, adobe clean serif --reg
-//   //----------//
-//   Sub-text-block
-//   small type -- background: white,full width,
-//   text:
-//   20/35, adobe clean -- reg
-
 
   /**
    * Element Constants:
@@ -87,10 +78,23 @@ export default function decorate($page) {
    */
 }
 
+async function buildJobPostSubheader(document){
+  let subheader = await assembleJobPost(document);
+  if(subheader) {
+    let postBody = document.querySelector(".post-container > div.post-text");
+    postBody.prepend(subheader)
+    // document.querySelector("div.similarOpps-block").append(subheader)
+  } else {
+    console.log(`Cannot fetch similar opportunities to build the block`)
+  }
+
+}
+
 
 async function buildSimOpportunitiesBlock(){
   let simOppsContent = await makeSimilarOpportunitiesBlock('nothing');
   if(simOppsContent) {
+
     document.querySelector("div.similarOpps-block").append(simOppsContent)
   } else {
     console.log(`Cannot fetch similar opportunities to build the block`)
