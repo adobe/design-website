@@ -47,7 +47,7 @@ body > main > div > div > div:nth-child(5) > div > div.text > div.dek{
     padding-right: 10em;
 }
 .inclusive-design .people.block .person img{
-    padding-bottom: 1em;
+    /* padding-bottom: 1em; */
 }
 .inclusive-design .article-card.block .text .byline {
     margin-top: 1rem;
@@ -180,7 +180,7 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 /* Fact about Person */
 .people > .person > div:nth-child(4) {
     color: #917496;
-    padding: 1em 0 3em 1.5em;
+    padding: 1.5em 0 3em 1.5em;
     font-size: 1em;
     width: 12em;
 }
