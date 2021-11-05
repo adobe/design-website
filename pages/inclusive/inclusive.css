@@ -1,8 +1,7 @@
 .inclusive-design h1{
     color: white;
     margin: var(--page-header-margin);
-    /* padding-left: var(--page-header-l-padding); */
-    padding-left: 2em ;
+    padding-left: var(--page-header-l-padding);
     font-size: var(--page-header-size);
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
@@ -48,7 +47,7 @@ body > main > div > div > div:nth-child(5) > div > div.text > div.dek{
     padding-right: 10em;
 }
 .inclusive-design .people.block .person img{
-    padding-bottom: 1em;
+    /* padding-bottom: 1em; */
 }
 .inclusive-design .article-card.block .text .byline {
     margin-top: 1rem;
@@ -181,7 +180,7 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 /* Fact about Person */
 .people > .person > div:nth-child(4) {
     color: #917496;
-    padding: 1em 0 3em 1.5em;
+    padding: 1.5em 0 3em 1.5em;
     font-size: 1em;
     width: 12em;
 }
@@ -227,11 +226,16 @@ body > main > div > div > div:nth-child(10){
     width: auto;
 }
 
+@media (max-width: 1024px){
+    .inclusive-design h1{
+        padding-left: var(--page-header-l-padding-tablet);
+    }
+}
 
 @media (max-width: 700px){
     .inclusive-design h1{
         margin: 6rem 0 4rem 0;
-        padding-left: 2rem;
+        padding-left: var(--page-header-l-padding-mobile);
         font-size: 3em;
         width: 80%
     } 

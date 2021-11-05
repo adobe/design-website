@@ -5,7 +5,7 @@
 }
 @media screen and (min-width: 601px) {
     .carousel {
-        font-size: 1vw; /* 16px-30.7px */
+        font-size: 18px; /* 16px-30.7px */
     }
 }
 
@@ -30,7 +30,7 @@
 
 @media screen and (min-width: 1921px) {
     .carousel {
-        font-size: 30.7px;
+        font-size: 18px;
     }
 }
 
@@ -138,7 +138,7 @@
 
 .carousel .carousel__actions {
     display: flex;
-    width: 100%;
+    width: 95%;
     /* max-width: 1920px; */
     max-width: 100%;
     justify-content: space-between;
