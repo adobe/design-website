@@ -4,11 +4,6 @@
 @import url(../../blocks/job-posting-blocks/similar-opportunities.css);
 @import url(../../blocks/job-posting-blocks/rec-articles.css);
 
-/* main > .job-post{
-    font-size: 16px;
-    font-weight: 1rem;
-} */
-
 body.job-post main {
     display: grid;
 }
@@ -72,17 +67,12 @@ body.job-post main {
     /* border: 2px dotted #0077ff; */
 }
 
-/*
-.job-post{grid}
+/*  .job-post{grid}
 -------------------------------------------------------
 |  .header-block           | .post-text               |
 |  grid-column: 1 / span 2 |  grid-column: 2 / span 1 |
 |  grid-row:    1 / span 1 |  grid-row:    1 / span 2 |
 |--------------------------|                          |
-|                          |                          |
-|                          |                          |
-|                          |                          |
-|                          |                          |
 |                          |                          |
 -------------------------------------------------------
 |          Similar Jobs *block* goes here...          |
@@ -90,24 +80,16 @@ body.job-post main {
 |  .about adobe design                                |
 |  grid-column: 1 / span 2                            |
 |  grid-row:    3 / span 1                            |
-|                                                     |
 -------------------------------------------------------
 |  .eo-stmt                                           |
 |  grid-column: 1 / span 2                            |
 |  grid-row:    4 / span 1                            |
-|       .eo-stmt-text                                 |
--------------------------------------------------------
-*/
-
-
-
+-------------------------------------------------------  */
 .job-post .left-block,
 .job-post .post-text {
     background: var(--bkg-grey-lt);
     /* border: 1px solid var(--bkg-grey-lt); */
 }
-
-
 
 /* -------- SUB HEADER START --------- */
 
@@ -216,24 +198,6 @@ body.job-post main {
 }
 
 .job-post .post-text button.unfilled{
-    margin-top: 2em;
-    /* height: 48px; */
+    margin-top: 2em; /* height: 48px; */
 }
-
-
-/* //----------//
-  /// has similar opportunities block here //
-//----------//
-  About adobe design: full width, background: red,
-  header:
-  40/100, adobe clean serif -- reg
-  text:
-  61/100, adobe clean serif --reg
-  //----------//
-  Sub-text-block
-  small type -- background: white,full width,
-  text:
-  20/35, adobe clean -- reg */
-
-
   /* 985px space height */
