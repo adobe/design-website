@@ -43,16 +43,6 @@
     padding: 3.45em 0 0 0;  /* 3.45em = 106px -- space for global header  */
 }
 
-
-
-
- /* 3.45em = 106px -- global header  */
- /* 8.99em = 276px -- above title    */
- /* 8.99em = 276px -- below title    */
- /* 5.21em = 160px -- below button   */
-
-/* (4.49em)138 left margin (3.91em)119 right margin */
-
 .job-post .header-block:after{
     content: '';
 }
@@ -90,7 +80,7 @@
     .job-post .header-block .job-header-container {
         box-sizing: border-box;
         max-width: calc(31.25em - 10px);
-        padding: 0 3.91em 0 4.49em;
+        padding: 0 3.91em 4.5em 4.49em;
         margin: 0 0 0  auto;
     }
 }
