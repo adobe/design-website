@@ -25,7 +25,7 @@ body.job-post main {
     display: grid;
     /* grid-template-rows: auto 1fr;
     grid-template-columns: 50% 50%; */
-    border: 2px dotted orangered;
+    /* border: 2px dotted orangered; */
     /* gap: 0px 10px; */
     grid-template-rows: auto 1fr;
     /* grid-template-columns: repeat(2, calc( 50% - 5px)); */
@@ -69,7 +69,7 @@ body.job-post main {
 .header-block{
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
-    border: 2px dotted #0077ff;
+    /* border: 2px dotted #0077ff; */
 }
 
 /*
@@ -104,7 +104,7 @@ body.job-post main {
 .job-post .left-block,
 .job-post .post-text {
     background: var(--bkg-grey-lt);
-    border: 1px solid var(--bkg-grey-lt);
+    /* border: 1px solid var(--bkg-grey-lt); */
 }
 
 
