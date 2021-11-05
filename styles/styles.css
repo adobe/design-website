@@ -41,7 +41,9 @@ html{
         --weight-black:      900;  /* bolder,    800-900 */
 
         /* Commonly used spacing */
-        --page-header-l-padding: 11rem;
+        --page-header-l-padding: 12.5rem;
+        --page-header-l-padding-tablet: 5rem;
+        --page-header-l-padding-mobile: 2rem;
         --page-header-size: 4rem;
         --page-header-margin: 7rem 0 5rem 0;
 

@@ -78,6 +78,10 @@
 
 @media (max-width: 700px) {
     .people {
+        display:none
+    }
+
+    /* .people {
         flex-direction: column;
         margin-bottom: 0;
     }
@@ -92,5 +96,5 @@
     }
     .person .title {
         font-size: clamp(0.5em, 3vw, 1em);
-    }
+    } */
 }

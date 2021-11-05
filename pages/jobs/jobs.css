@@ -107,6 +107,12 @@
     
 }
 
+@media (max-width: 1024px){
+    .page-type-jobs .head-content>*{
+        padding-left: var(--page-header-l-padding-tablet);
+    }
+}
+
 @media (max-width: 768px){
     .page-type-jobs .jobs-container .job-category a{
         grid-column-gap: 0;
@@ -118,47 +124,61 @@
     .page-type-jobs .jobs-container{
         grid-template-columns: 1fr;
     }
-    
+    .page-type-jobs .head-content{
+        display:flex;
+        flex-direction:column;
+        padding: 0 var(--page-header-l-padding-tablet);
+    }
     .page-type-jobs .head-content h1,
     .page-type-jobs .head-content p,
     .page-type-jobs .head-content p:last-child{
-        width: 80%;
+        width: 100%;
         padding: 0;
-        margin: 5rem 0;
-        padding-left: 2rem;
+        margin: 1.8em 0;
+        padding: 0;
     }
     .page-type-jobs .head-content h1{
         margin-block: unset;
         margin: 6rem 0 4rem 0;
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .page-type-jobs .head-content p{
-        font-size: 2rem;
+        font-size: 1.2rem;
     }
+    .page-type-jobs .head-content p:last-child{
+        font-size: 1rem;
+    }
+
+    
+
+    .page-type-jobs .jobs-block-container #opportunities,
+    .page-type-jobs .jobs-block-container .jobs-container{
+        padding: 0 calc(var(--page-header-l-padding-tablet) - 1rem);
+    }
+    .page-type-jobs .jobs-block-container #opportunities {
+        font-size: 2.5rem;
+    }
+    .page-type-jobs .jobs-block-container .jobs-container{
+        padding-bottom: 5rem;
+    }
+    .page-type-jobs .jobs-block-container .jobs-container .job-category {
+        grid-template-rows: 5em auto;
+    }
+    .page-type-jobs .jobs-block-container .jobs-container .job-category h2 {
+        font-size: 1.6rem;
+        font-weight: var(--weight-regular)
+    }
+    
 }
 
 @media (max-width: 425px){
-    .page-type-jobs .jobs-container .job-category a .job-title{
-        font-size: 1.3rem;
-    }
-    .page-type-jobs .jobs-container .job-category a{
+    .page-type-jobs .jobs-container .job-category a {
+        grid-template-columns: 70% 30%;
+        font-size: 0.5rem;
         height: auto;
     }
-
-    .page-type-jobs .jobs-block-container #opportunities{
-        padding: 2rem;
-    }
-    .page-type-jobs .jobs-container{
-        padding: 2rem 2rem 5rem 2rem;
-    }
-}
-
-@media (max-width: 320px){
-    .page-type-jobs .jobs-block-container #opportunities{
-        padding: 2rem 0;
-    }
-    .page-type-jobs .jobs-container{
-        padding: 2rem 1rem 5rem 1rem;
+    .page-type-jobs .jobs-container .job-category a .job-title{
+        font-size: 1rem;
     }
 }

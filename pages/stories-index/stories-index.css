@@ -98,10 +98,16 @@
     text-align: center;
 }
 
+@media screen and (max-width: 1024px){
+    .page-type-index .header{
+        padding-left: var(--page-header-l-padding-tablet);
+    }
+}
+
 @media screen and (max-width: 700px){
     .page-type-index .header{
         margin: 6rem 0 4rem 0;
-        padding-left: 2rem;
+        padding-left: var(--page-header-l-padding-mobile);
         width: 80%;
     }
 
