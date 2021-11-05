@@ -18,14 +18,18 @@
         max-width: 100vw;
         width: 100vw;
     }
+    .job-post .header-block .job-header-container{
+        max-width: 100vw;
+        margin: 2em;
+    }
 }
 /* Med */
 @media screen and (min-width: 1000px) {
     .job-post .header-block{
         font-size: 1.6vw;
         /* padding: 5.86em 3.9em 0 0; */
-        width: calc(50vw - 10px); /*10px for gutter*/
-        max-width: calc(50vw - 10px); /*10px for gutter*/
+        width: calc(50vw - 5px); /*10px for gutter*/
+        max-width: calc(50vw - 5px); /*10px for gutter*/
     }
 }
 /* XL */
@@ -49,17 +53,36 @@
 
 /* (4.49em)138 left margin (3.91em)119 right margin */
 
-
-
-
 .job-post .header-block:after{
     content: '';
 }
 
+.job-post .header-block  button.unfilled.reg{
+    width: max-content;
+}
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 640px) {
+    .job-post .header-block .job-header-container{
+        max-width: 100vw;
+        margin-left:  auto;
+        margin-right: auto;
+    }
+    .job-header-container h1,
+    .job-post .header-block  button.unfilled.reg{
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .job-post .header-block  button.unfilled.reg{
+        width: max-content;
+        margin: 0 2em 2em 2em; /* 120px */
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1000px) {
     .job-post .header-block .job-header-container{
         max-width: calc(31.25em - 10px);
+        margin-left: 5.6875em;
+        margin-right: 5.6875em;
     }
 }
 
@@ -72,13 +95,6 @@
     }
 }
 
-.job-post .header-block  button.unfilled.reg,
-.job-post .header-block .job-title{
-
-    /* em based on 120px or 15px */
-}
-
-
 .job-post .header-block .job-title{
     font-size: 3.91em; /* 120px */
     max-width: 5.83em;
@@ -86,10 +102,6 @@
     line-height: 0.96em; /* 115px */
     font-weight: var(--weight-black);
     color: white;
-    margin: 1.47em 0; /* 176px */
-}
-
-.job-post .header-block  button.unfilled.reg{
-    width: max-content;
-    margin: 0 0 8em 0; /* 120px */
+    margin-top: 2.4em;    /* 276px */
+    margin-bottom: 2.4em; /* 276px */
 }

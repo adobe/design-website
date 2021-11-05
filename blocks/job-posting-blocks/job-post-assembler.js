@@ -17,7 +17,7 @@ export default async function assembleJobPost(document){
     /* const $department       = $element("p.detail-value",   getMetadata('department')); */
 
     /* Big Giant element builder function: */
-    const $header_bit = $element("div.right", [
+    const $header_bit = $element("div.subhead-container", [
         $element("div.details", [
             $element("span.left-detail", [
                 $element("p.detail-label", "Location"),

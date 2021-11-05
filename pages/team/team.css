@@ -42,6 +42,7 @@
 
 .page-type-team .head-content .head-text p{
     grid-column-start: 2;
+    line-height: 1.5em;
 }
 
 .page-type-team .head-content h2,
@@ -52,7 +53,7 @@
 }
 
 .page-type-team .head-content h2 {
-    margin-top: 2.5em;
+    margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
 /*
@@ -210,7 +211,7 @@
 }
 
 .page-type-team .foot-content .resources-section .resources .resource{
-    width: 32.5%;
+    width: 32.8%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -256,6 +257,44 @@
     vertical-align: super;
     font-size: .5em;
     line-height: 0;
+}
+
+/* iPad Media Queries */
+@media (min-width: 414px) and (max-width: 1024px) {
+    .page-type-team .title-content {
+        padding-left: 5em;
+    }
+    .page-type-team .title-content h1 {
+        font-size: 5em;
+        width: 60%;
+    }
+    .page-type-team .head-content .title {
+        padding: 0 2rem;
+    }
+    .page-type-team .head-content .head-text p {
+        margin-right: 1em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs {
+        font-size: 1em;
+        text-decoration: underline 3px;
+        text-underline-offset: 9px;
+    }
+    .page-type-team .team-cards .team-card {
+        height: 300px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource {
+        height: 585px;
+    }
+    .resource-logo {
+        width: 140px;
+        height: 120px;
+    }
+    .resource-bottom-container {
+        padding: 15px 20px 85px 45px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource .learn-more-button {
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 1000px){
