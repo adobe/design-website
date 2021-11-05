@@ -18,6 +18,13 @@
     .job-listing p{
         margin: 0;
     }
+
+    .two-column.block > div > div:first-child {
+        flex-grow:7;
+    }
+    .two-column.block > div > div:last-child {
+        flex-grow:5;
+    }
 }
 @media (max-width: 767px) {
     .two-column.block > div {
