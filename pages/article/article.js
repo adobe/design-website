@@ -44,9 +44,9 @@ function buildStory( story ) {
                   $element("source", { attr: { media: mediaAttr, srcset: story.image }}),
                   $element("img", { attr: { src: story.image } }),
               ]),
-              $element("p.tag", "#LEADING DESIGN"),
           ]),
           $element(".story-text", [
+              $element("p.tag", ['#', $element("span", 'LEADING DESIGN')]),
               $element("h2.story-header", 'From mind to canvas' ),
               $element("h3", "Creating art with synthesia"),
               $element("p.author", "Laura Herman"),
