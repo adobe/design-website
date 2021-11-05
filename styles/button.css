@@ -17,7 +17,8 @@ button, button.reg, button.med, button.primary{
     /* border: 2px solid inherit; */
     border-width: 2px;
     border-style: solid;
-    border-color: inherit;
+    border-color: transparent;
+    outline-color: transparent;
     color: inherit;
     transition: var(--button-transition);
 
