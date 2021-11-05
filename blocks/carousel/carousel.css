@@ -37,7 +37,7 @@
 .carousel {
     overflow: hidden;
     position: relative;
-    height: calc(76vh - 87px);
+    height: calc(70vh - 87px);
     width: 1000px;
     display: flex;
     justify-content: center;
@@ -210,59 +210,35 @@
     }
 }
 
-@media only screen and (max-width: 1000px) {
+/* iPad Media Query */
+@media (min-width: 414px) and (max-width: 1024px) {
+    .carousel .carousel__actions {
+        top: 80%;
+        left: 75%;
+        width: 30%;
+    }
     .carousel {
-        margin: 0.5em 0;
-        max-width: 90vw;
-        height: fit-content;
+        font-size: 21px;
     }
-    .carousel .carousel__item--visible {
-        grid-template-columns: unset;
-        /* grid-template-rows: 45vw auto; */
-        grid-template-rows: 65vw 65vw;
-        gap: 4rem;
+    .carousel .carousel__actions button img {
+        height: 30px;
     }
+}
 
-    .carousel__item.carousel__item--visible .number {
-        width: calc(100% - 2em);
-        margin: auto;
-    }
-    .carousel__item--visible .number h2,
-    .carousel__item--visible .number h3.dek-3,
-    .carousel__item--visible .number p{
-        margin-block: 1rem 1rem;
-        margin: 1rem 0;
-        line-height: 1.4em;
-    }
-    .carousel__item--visible .number p,
+@media only screen and (max-width: 1000px) {
     .carousel__item--visible .number p.tag-link{
         font-size: 1rem;
         margin-block: .5rem .5rem;
         margin: 0.5rem 0;
     }
-    .carousel__item--visible .number h2{
-        font-size: 2.5rem;
-        line-height: .95em;
-        /* margin-block: 0em; */
-    }
+
     .carousel__item--visible .number h3.dek-3{
         font-size: 1.75rem;
     }
 
-    .carousel .carousel__item .image{
-        width: 90vw;
-        /* height: 45vw; */
-        height: 65vw;
-        overflow: hidden;
-    }
-    .carousel .carousel__item img,
     .carousel__item--visible .image picture{
         position: relative;
         transform: translateY(-15%);
     }
-    .carousel .carousel__actions {
-        top: 66vw;
-        /* top: 15vw; */
-        transform: translate(-50%);
-    }
+
 }
