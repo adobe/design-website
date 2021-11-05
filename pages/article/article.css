@@ -447,7 +447,7 @@ body > div.author-bio.block > div > author-name{
         padding-right: 3em;
     }
     .page-type-article .content .header.block h2{
-        padding-left: 2.5em;
+        padding-left: 3.8em;
     }
     .page-type-article .content .header.block .author-desc h2{
         padding-left: 0;
@@ -464,13 +464,17 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .content .header.block h2{
         font-size: 1.7em;
-        padding-left: 2.1em;
+        padding-left: 3.1em;
+        padding-right: 1em;
     }
     .page-type-article .content .header.block .author-desc h2{
         padding-left: 0;
     }
     .page-type-article .content .lede.block{
         padding: 0;
+    }
+    .page-type-article .content h2{
+        padding-left: 2.1em;
     }
     .page-type-article .content .article-picture{
         padding-right: 0;
