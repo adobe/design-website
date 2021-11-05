@@ -66,12 +66,12 @@ body > main > div > div > p:nth-child(3){
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
     color: #3A3A3A;
-    padding-left: 1em;
+    padding-left: 1.6em;
     padding-right: 2em;
 }
 .page-type-article .header.block h2{
     text-align: left;
-    padding: 0 7em 1em 3em;
+    padding: 0 7em 1em 4.1em;
     font-size: 2em;
 }
 .page-type-article .content h2{
