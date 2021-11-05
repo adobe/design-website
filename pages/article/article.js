@@ -63,26 +63,29 @@ async function buildAuthorBio() {
   let $authorBlock
   let $bioBlock;
 
-  if (author && !author.bio.startsWith('Error')) {
+  if (author) {
     const $bio = $element('p');
     $bio.innerHTML = author.bio;
-
-    $bioBlock = $element('.author-bio.block', [
-      $element('div', [
-        $element('author-name', [
-          $element('picture', [
-            $element('source', { attr: { media: '', srcset: author.image }}),
-            $element('img.author-image', { attr: { src: author.image } }),
+    if(!author.bio.name){ //Check if the author bio is an error
+      $bioBlock = $element('.author-bio.block', [
+        $element('div', [
+          $element('author-name', [
+            $element('picture', [
+              $element('source', { attr: { media: '', srcset: author.image }}),
+              $element('img.author-image', { attr: { src: author.image } }),
+            ]),
+            $element('h2.name', author.name),
+            $element('h3.author-title', author.title),
           ]),
-          $element('h2.name', author.name),
-          $element('h3.author-title', author.title),
+          $element('.author-info', [
+            $element('strong', 'Author Bio'),
+            $bio,
+          ]),
         ]),
-        $element('.author-info', [
-          $element('strong', 'Author Bio'),
-          $bio,
-        ]),
-      ]),
-    ]);
+      ]);
+
+      document.body.insertBefore($bioBlock, document.body.querySelector('main').nextSibling);
+    }
 
     $authorBlock = $element('.author.block', [
       $element('.author-body', [
@@ -97,14 +100,11 @@ async function buildAuthorBio() {
       ])
     ]);
   } else {
-    $bioBlock = $element('.author-bio.block', [
-      $element(".not-found", `Author ${authorName} not found`),
-    ]);
     $authorBlock = $element('.author.block', [
       $element(".not-found", `Author ${authorName} not found`),
     ]);
   }
-  document.body.insertBefore($bioBlock, document.body.querySelector('main').nextSibling);
+  
   document.querySelector('.block.header').append($authorBlock)
 }
 
