@@ -1,6 +1,6 @@
 /* Beginning of global-header styling */
 header#global-header {
-    font-size: clamp(16px, 1.6vw, 30.6px);
+    font-size: clamp(16px, 1.6vw, 20px);
     display:flex;
     /* padding: 20px 0px; */
     box-sizing: border-box;
@@ -46,8 +46,8 @@ header#global-header {
 /* Desktop / Med Screens */ /* XXL Screens */
 @media screen and (min-width: 1000px) {
     header#global-header{
-        width: clamp(1000px, 62.54em, 1633px);
-        max-width: clamp(1000px, 62.54em, 1633px);
+        width: 1000px;
+        max-width: 1000px;
         padding-left:  10px;
         padding-right: 10px;
         align-items: center;
