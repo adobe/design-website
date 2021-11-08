@@ -26,6 +26,13 @@ body > main > div > div > p {
     overflow: visible;
     margin-top: 0.5em;
 }
+.image-text.block .text .hed, .image-text.block .text .hed a{
+    max-width: 100%;
+}
+.image-text.block .text .dek, .image-text.block .text .dek:not(.article-title){
+    max-width: 100%;
+    text-overflow: clip;
+}
 
 .inclusive-design .article-card.block .text .dek {
     font-size: 1.15em;
@@ -41,6 +48,7 @@ body > main > div > div > p {
     font-size: .9em;
     font-weight: var(--weight-regular);
     line-height: 1.7em;
+
 }
 /* word break on "how to implement inclusive design dek" */
 body > main > div > div > div:nth-child(5) > div > div.text > div.dek{
@@ -255,6 +263,7 @@ body > main > div > div > div:nth-child(10){
         padding: 1em;
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 450px,rgba(224,72,39, 1) 450px);
     }
+    
     #wed-like-to-share-what-weve-learned-with-you{
         background: white;
         color: red;
@@ -306,11 +315,15 @@ body > main > div > div > div:nth-child(10){
         padding: 1em;
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 250px,rgba(224,72,39, 1) 250px);
     }
+    .inclusive-design .statement h2{
+        font-size: 1.5em;
+    }
     .inclusive-design .statement p{
         font-size: 2em
     }
     .inclusive-design .statementTwo h2{
         padding-top: 1em;
+        font-size: 1.5em;
     }
     #wed-like-to-share-what-weve-learned-with-you{
         background: white;
@@ -382,6 +395,9 @@ body > main > div > div > div:nth-child(10){
     }
     .inclusive-design .statementThree p{
         font-size: 2em;
+    }
+    .inclusive-design .statementThree h2{
+        font-size: 1.5em;
     }
 }
 
