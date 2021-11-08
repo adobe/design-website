@@ -38,7 +38,6 @@ export function decorateTagLink($el, location, _modifiers) {
     if (modifiers.color === "black") {
         $el.classList.add("black");
     }
-    console.log(location)
     return $wrap($element("a.stories-link", { attr: { href: `/stories/?tag=${location.toUpperCase()}` } }), $el);
 }
 
