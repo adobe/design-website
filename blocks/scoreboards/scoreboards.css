@@ -35,6 +35,11 @@
     font-size: 1.1em;
     width: 60%;
 }
+.two-column.block > div > div:nth-child(2) > div > div:nth-child(1) {
+    height: 45%;
+    justify-content: flex-start;
+    padding-top: 3em;
+}
 
 
 @media (max-width: 1024px){
