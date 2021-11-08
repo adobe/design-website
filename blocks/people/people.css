@@ -5,14 +5,14 @@
     margin-bottom: 16px;
 }
 
-.person .tag {
+.person .tag-link {
     font-size: 0.8em;
     display: inline;
     position:absolute;
     padding-left: 20px; 
     color: white;
 }
-.person .tag .tag-underline {
+.person .tag-link .tag {
     border-bottom: 3px solid;
 }
 

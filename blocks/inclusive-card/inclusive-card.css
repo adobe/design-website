@@ -1,0 +1,61 @@
+/*
+ *   Copyright (c) 2021 Busy Human LLC
+ *   All rights reserved.
+ *   This file, its contents, concepts, methods, behavior, and operation  (collectively the \"Software\") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by  the license agreement.
+ */
+
+.inclusive-design .inclusive-card.block{
+
+}
+.inclusive-design .block-content{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    background: #360D5A;
+    color: #FFFFFF;
+    /* height: 500px; */
+}
+.inclusive-design .block-content .text{
+    padding: 2em 6em 0 4em;
+}
+ .inclusive-design .text .hed {
+    font-size: 2.5em;
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-black);
+    padding-right: 2em;
+    padding-bottom: 1em;
+    margin-top: 0.5em;
+}
+.inclusive-design .text .dek {
+    font-size: 1.15em;
+    font-weight: 300;
+    font-family: var(--serif-font);
+    font-weight: var(--weight-regular);
+    padding-top: 1em;
+    /* max-height: 10em;  */
+    margin-bottom: 0;
+    /* max-width: 90%; */
+}
+.image-text.block .text .dek, .image-text.block .text .dek{
+    max-width: 100%;
+}
+.inclusive-design .block .text .byline {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-family: var(--serif-font);
+    padding-bottom: 7em;
+}
+body > main > div > div > div:nth-child(6) > div > div.text{
+    grid-column-start: 2;
+}
+.inclusive-design .inclusive-card.block .image{
+    background-repeat: no-repeat;
+    background-size:cover ;
+}
+
+body > main > div > div > div:nth-child(6) > div > div.image{
+    grid-column-start: 1;
+}
+body > main > div > div > div:nth-child(6) > div > div.text{
+    background: red;
+}

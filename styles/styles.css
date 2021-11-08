@@ -116,6 +116,11 @@ html body button{
     margin-right:auto;
 }
 
+.stories-link{
+    color:inherit;
+    text-decoration: none;
+}
+
 .tag-link {
     color: #D8D8D8;
     text-decoration: underline solid 4px #D8D8D8;

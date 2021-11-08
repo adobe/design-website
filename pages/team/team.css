@@ -248,11 +248,11 @@
     padding: 15px 20px 35px 45px;
     box-sizing: border-box;
 }
-.resource.js-scroll.fade-in-left.scrolled > div.resource-bottom-container > p > a > strong {
+.resource > div.resource-bottom-container > p > a > strong {
     font-weight: var(--weight-black);
 }
 
-.content > div.foot-content > div.think-differently.block.js-scroll.fade-in-right.scrolled > div > div > p:nth-child(2) > span::after {
+.content > div.foot-content > div.think-differently.block > div > div > p:nth-child(2) > span::after {
     content: "+";
     vertical-align: super;
     font-size: .5em;

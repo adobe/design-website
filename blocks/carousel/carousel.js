@@ -1,5 +1,5 @@
 import { Background } from "../../scripts/background.js";
-import { $element, decorateDivisions } from "../../scripts/helpers.js";
+import { $element, decorateDivisions, decorateTagLink } from "../../scripts/helpers.js";
 import { addArrowButton } from "../button/button.js";
 const SLIDE_TIME = 7000;
 const ANIMATION_TIME = 250;
@@ -52,9 +52,11 @@ export default function decorate($block) {
 
     /* Add class names and remove ids from h2 and h3 on slides: */
     let rightSide = slide.querySelector("div:nth-child(2)");
-    let tagLink = rightSide.querySelector("p:first-of-type")
-    tagLink.classList.add('tag-link');
-    tagLink.innerHTML = tagLink.innerHTML.replace(/[A-Za-z ]+/gm, '<span class="tag">$&</span>')
+    let tag = rightSide.querySelector("p:first-of-type")
+    tag.innerText = tag.innerText.replace('#', '')
+    let tagLink = decorateTagLink($element("p", ['#', $element('span.tag', tag.innerText)]), tag.innerText.replaceAll(' ', '-'))
+    rightSide.prepend(tagLink)
+    tag.remove();
     let header3 = rightSide.querySelector("h3");
     rightSide.querySelector("h2").removeAttribute('id');
     header3.removeAttribute('id');
