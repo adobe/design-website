@@ -15,7 +15,6 @@ export default function decorate($main) {
     var mainImg = inclusive.querySelector('img').classList.add('main-img')
   
     // our mission
-    // test is the element before so I can place the targeted element after
     var placement = inclusive.querySelector('.inclusive-design h1')
     var mainImg = inclusive.querySelector('.main-img')
     var ourMission = inclusive.querySelector('#our-mission')
@@ -26,7 +25,6 @@ export default function decorate($main) {
     div.append(mainImg,ourMission, ourMissionP)
     
     // our collaborators
-    // test is the element before so I can place the targeted element after 
     var placement = inclusive.querySelector('.people.block')
     var ourCollaborators = inclusive.querySelector('#our-collaborators')
     var ourCollaboratorsP = inclusive.querySelector('#our-collaborators + p')
@@ -36,7 +34,6 @@ export default function decorate($main) {
     div.append(ourCollaborators, ourCollaboratorsP)    
 
     // Adobe facilitators
-    // test is the element before so I can place the targeted element after 
     var placement = inclusive.querySelector('.people.block')
     var adobeFacilitators = inclusive.querySelector('#adobe-facilitators')
     var adobeFacilitatorsP = inclusive.querySelector('#adobe-facilitators + p')
