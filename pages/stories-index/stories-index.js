@@ -37,7 +37,9 @@ export default async function decorator($main) {
     $loadMoreButton.addEventListener("click", function () {
         //TODO: Fix this once we filter stories
         index.stories.data.forEach(story => {
-            $results.append(buildStory(story));
+            if(storyMatch(tagFilter, story)) {
+                $results.append(buildStory(story));
+            }
         });
     })
 }
