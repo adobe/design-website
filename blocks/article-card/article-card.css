@@ -119,12 +119,6 @@
         font-size: 0.7em;
         margin: 3em 0em 1rem 0em;
     }
-    .scroll-tip-content {
-        display: none;
-    }
-    .chevron-down {
-        display: none;
-    }
 }
 /*
  * Header h2 hed
