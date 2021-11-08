@@ -27,7 +27,7 @@ export function decorateLink($el) {
     $el.parentElement.classList.add("link-wrapper");
 }
 
-export function decorateTagLink($el, _modifiers) {
+export function decorateTagLink($el, location, _modifiers) {
     let modifiers;
     if (!_modifiers) {
         modifiers = {};
@@ -38,7 +38,8 @@ export function decorateTagLink($el, _modifiers) {
     if (modifiers.color === "black") {
         $el.classList.add("black");
     }
-    return $el;
+    console.log(location)
+    return $wrap($element("a.stories-link", { attr: { href: `/stories/?tag=${location.toUpperCase()}` } }), $el);
 }
 
 /**
