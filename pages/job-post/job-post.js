@@ -8,6 +8,7 @@ import makeHeaderBlock from "../../blocks/job-posting-blocks/job-post-header.js"
 import { getJobsFragment } from "../../scripts/jobs-fragments.js";
 import makeSimilarOpportunitiesBlock from "../../blocks/job-posting-blocks/similar-opportunities.js";
 import assembleJobPost from "../../blocks/job-posting-blocks/job-post-assembler.js";
+import makeSideArticlesBlock from "../../blocks/job-posting-blocks/side-articles.js";
 
 const bkg_grey_lt = '#E8E8E8';
 const text_dark   = '#3E3E3E';
@@ -41,7 +42,10 @@ export default function decorate($page) {
 
 
   /* Add Spacer and suggested article blocks */
-  let suggestedArticles = $element("div.suggested-articles");
+  // let suggestedArticles = $element("div.suggested-articles");
+  let suggestedArticles = buildSideArticlesBlock(document);
+
+
   let leftBlock = $element("div.left-block",[
     $element("div.spacer"),
     suggestedArticles
@@ -78,12 +82,24 @@ export default function decorate($page) {
    */
 }
 
+
 async function buildJobPostSubheader(document){
   let subheader = await assembleJobPost(document);
   if(subheader) {
     let postBody = document.querySelector(".post-container > div.post-text");
     postBody.prepend(subheader)
     // document.querySelector("div.similarOpps-block").append(subheader)
+  } else {
+    console.log(`Cannot fetch similar opportunities to build the block`)
+  }
+
+}
+
+async function buildSideArticlesBlock(document){
+  let sideArticles = await makeSideArticlesBlock(document);
+  if(sideArticles) {
+    console.log(" SHOULD HAVE ATTACHED SIDE ARTICLES TO JOB POSTING PAGE ? ")
+    return sideArticles;
   } else {
     console.log(`Cannot fetch similar opportunities to build the block`)
   }

@@ -33,8 +33,6 @@ export default function addButton(
   return button;
 }
 
-
-
 /**
  * @param {String} [direction] ('prev' | 'next')
 //  * @param {any} [action]

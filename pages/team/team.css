@@ -110,7 +110,7 @@
     
 }
 .page-type-team .team-cards .team-card div:nth-of-type(2) img {
-    width: 85%;
+    width: calc(100% - 4em);
     padding-left: 2em;
 }
 
@@ -259,10 +259,11 @@
     line-height: 0;
 }
 
-/* iPad Media Queries */
-@media (min-width: 414px) and (max-width: 1024px) {
+
+/*Ipad Size*/
+@media (max-width: 1024px){
     .page-type-team .title-content {
-        padding-left: 5em;
+        padding-left: var(--page-header-l-padding-tablet);
     }
     .page-type-team .title-content h1 {
         font-size: 5em;
@@ -274,14 +275,57 @@
     .page-type-team .head-content .head-text p {
         margin-right: 1em;
     }
+
+    /*TEAM CARD*/
+
+    .page-type-team .team-cards .team-card{
+        grid-template-columns: 40% 60%;
+
+        height: 205px;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 630px;
+    }
+
+    .page-type-team .team-cards .team-card div:first-child{
+        padding-top: 0.25rem;
+    }
+    .page-type-team .team-cards .team-card .card-header{
+        margin: 3em 7.5%;
+        width: 85%;
+    }
+    .page-type-team .team-cards .team-card .chevron-down{
+        width: 17px;
+        margin-right: 0.8rem;
+        background-position: center top 2.5px;
+    }
+    .page-type-team .team-cards .team-card h3{
+        font-size: 1.3rem;
+    }
+
+    .page-type-team .team-cards .team-card div:nth-of-type(2){
+        padding-top: 8rem;
+        
+    }
+
+    .page-type-team .team-cards .team-card div:nth-of-type(3){
+        padding-top: 8rem;
+        padding-left: 5rem;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        width: 92%;
+        font-size: 2em;
+        line-height: 1.4em;
+        padding-bottom: 1em;
+    }
     .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs {
         font-size: 1em;
         text-decoration: underline 3px;
         text-underline-offset: 9px;
     }
-    .page-type-team .team-cards .team-card {
-        height: 300px;
-    }
+
+    /*RESOURCES*/
+
     .page-type-team .foot-content .resources-section .resources .resource {
         height: 585px;
     }
@@ -296,70 +340,20 @@
         font-size: 15px;
     }
 }
-
 @media (max-width: 1000px){
+    .page-type-team .title-content h1 {
+        width: 75%;
+    }
     .page-type-team .team-cards .team-card div:last-child > p:first-child {
         width: 85%;
         font-size: 1.4rem;
     }
 }
-@media (max-width: 1024px){
-/*TEAM CARD*/
-
-.page-type-team .team-cards .team-card{
-    grid-template-columns: 40% 60%;
-
-    height: 205px;
-}
-.page-type-team .team-cards .team-card.active{
-    height: 630px;
-}
-
-
-.page-type-team .team-cards .team-card div:first-child{
-    padding-top: 0.25rem;
-}
-.page-type-team .team-cards .team-card .card-header{
-    margin: 3em 7.5%;
-    width: 85%;
-}
-.page-type-team .team-cards .team-card .chevron-down{
-    width: 17px;
-    margin-right: 0.8rem;
-    background-position: center top 2.5px;
-}
-.page-type-team .team-cards .team-card h3{
-    font-size: 1.3rem;
-}
-
-.page-type-team .team-cards .team-card div:nth-of-type(2){
-    padding-top: 8rem;
-    
-}
-.page-type-team .team-cards .team-card div:nth-of-type(2) img {
-    width: 82.5%;
-    padding-left: 2em;
-} 
-
-.page-type-team .team-cards .team-card div:nth-of-type(3){
-    padding-top: 8rem;
-    padding-left: 5rem;
-}
-.page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
-    width: 92%;
-    font-size: 2em;
-    line-height: 1.4em;
-    padding-bottom: 1em;
-}
-.page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs{
-    font-size: 0.9em;
-    text-decoration: underline 4px;
-    text-underline-offset: 4px;
-    color: white;
-}
-}
 
 @media (max-width: 768px){
+    .page-type-team .title-content h1 {
+        width: 85%;
+    }
     /*TEAM CARD*/
 
     .page-type-team .team-cards .team-card{
@@ -399,10 +393,11 @@
         font-size: 0.6em;
     }
 }
+
 @media (max-width: 700px){
     .page-type-team .title-content{
         margin: 6rem 0 4rem 0;
-        padding-left: 2rem;
+        padding-left: var(--page-header-l-padding-mobile);
         width: 80%;
     }
 
@@ -474,13 +469,13 @@
         
     }
     .page-type-team .team-cards .team-card div:nth-of-type(2) img {
-        width: 75%;
-        justify-self: center;
+        width: calc(100% - 8em);
+        padding-left: 4rem;
     } 
 
     .page-type-team .team-cards .team-card div:nth-of-type(3){
         padding-top: 2.5rem;
-        padding-left: 5rem;
+        padding-left: 4.5rem;
     }
     .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
         font-size: 1.3rem;
@@ -508,9 +503,11 @@
         margin: 0.5em;
     }
 }
-
-
 @media (max-width: 320px){
+    .page-type-team .team-cards .team-card div:nth-of-type(2) img {
+        width: calc(100% - 5em);
+        padding-left: 2.5rem;
+    } 
     .page-type-team .content .team-cards .team-card div:nth-of-type(3){
         padding-left: 3rem;
     }

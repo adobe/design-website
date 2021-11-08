@@ -7,17 +7,17 @@
 }
 
 .carousel .carousel__actions button img{
-    height:  1.5em;
-    width:   1.5em;
+    height:  2.75em;
+    width:   3.5em;
 }
 
 .carousel .carousel__actions button{
     box-sizing: border-box;
     border: 0.1em solid transparent;
     border-radius: 50%;
-    padding: 0.125em;
-    height: 1.95em;
-    width:  1.95em;
+    height: 60px;
+    width: 30px;
+    padding: 7px;
 }
 
 .carousel .carousel__actions button:focus,
@@ -39,7 +39,7 @@ button.carousel__button--prev{
 @media screen and (max-width: 1090px) {
     .carousel .carousel__actions button{
         height: 60px;
-        width: 60px;
+        width: 30px;
         padding: 7px;
         box-sizing: border-box;
 

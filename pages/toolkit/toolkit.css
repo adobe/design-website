@@ -79,9 +79,15 @@
     font-weight: var(--weight-black);
 }
 
+@media screen and (max-width: 1024px){
+    .toolkit-header{
+        padding-left: var(--page-header-l-padding-tablet);
+    }
+}
+
 @media screen and (max-width: 700px){
     .toolkit-header{
-        padding-left: 2rem;
+        padding-left: var(--page-header-l-padding-mobile);
     }
 
     .toolkit-header h1{
