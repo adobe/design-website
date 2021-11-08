@@ -28,8 +28,7 @@ export default function decorate($block) {
      * $byline : Author | Author's Position
      */
   const $text = $element('.text');
-  const $tag = decorateTagLink( $element('div', `#${props.tag}`), { color: 'black' } );
-  $tag.innerHTML = $tag.innerHTML.replace(/[A-Za-z ]+/gm, '<span class="tag">$&</span>')
+  const $tag = decorateTagLink( $element('div', ['#', $element("span.tag", props.tag)]), props.tag, {color: 'black'});
   const $hed = $element('.hed', props.hed);
   const DEK_TEXT_LIMIT = 70;
   let dekText = props.dek;

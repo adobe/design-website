@@ -17,7 +17,7 @@ body > main > div > div > p {
     display: none;
 }
 
-.inclusive-design .article-card.block .text .hed {
+/* .inclusive-design .article-card.block .text .hed {
     font-size: 2.5em;
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
@@ -25,16 +25,16 @@ body > main > div > div > p {
     width: 60%;
     overflow: visible;
     margin-top: 0.5em;
-}
-.image-text.block .text .hed, .image-text.block .text .hed a{
+} */
+/* .image-text.block .text .hed, .image-text.block .text .hed a{
     max-width: 100%;
-}
-.image-text.block .text .dek, .image-text.block .text .dek:not(.article-title){
+} */
+/* .image-text.block .text .dek, .image-text.block .text .dek:not(.article-title){
     max-width: 100%;
-    text-overflow: clip;
-}
+    text-overflow: unset;
+} */
 
-.inclusive-design .article-card.block .text .dek {
+/* .inclusive-design .article-card.block .text .dek {
     font-size: 1.15em;
     font-weight: 300;
     font-family: var(--serif-font);
@@ -43,25 +43,25 @@ body > main > div > div > p {
     max-height: 10em;
     margin-bottom: 0;
     max-width: 90%;
-}
-.inclusive-design .image-text.block .text .dek, .image-text.block .text .dek:not(.article-title){
+} */
+/* .inclusive-design .image-text.block .text .dek, .image-text.block .text .dek:not(.article-title){
     font-size: .9em;
     font-weight: var(--weight-regular);
     line-height: 1.7em;
 
-}
+} */
 /* word break on "how to implement inclusive design dek" */
-body > main > div > div > div:nth-child(5) > div > div.text > div.dek{
+/* body > main > div > div > div:nth-child(5) > div > div.text > div.dek{
     padding-right: 10em;
-}
+} */
 .inclusive-design .people.block .person img{
     /* padding-bottom: 1em; */
 }
-.inclusive-design .article-card.block .text .byline {
+/* .inclusive-design .article-card.block .text .byline {
     margin-top: 1rem;
     font-size: 1.1rem;
     font-family: var(--serif-font);
-}
+} */
 
 .inclusive-design .article-card.block .text .byline .author {
     font-weight: 300;
@@ -135,14 +135,7 @@ body > main > div > div > p{
     font-family: var(--serif-font);
     font-weight: var(--weight-regular);
 }
-body > main > div > div > div:nth-child(5) > div > div.text{
-    color: white;
-    background: #360D5A;
-}
-body > main > div > div > div:nth-child(6) > div > div.text{
-    color: white;
-    background: #E91D25;
-}
+
 .inclusive-design .people.block{
     display: grid;
     grid-template-columns: 33.3% 33.3% 33.3%;
@@ -249,14 +242,14 @@ body > main > div > div > div:nth-child(10){
     } 
 }
 @media (min-width: 768px) and (max-width:1024px){
-    .inclusive-design .article-card.block .text .dek {
+    /* .inclusive-design .article-card.block .text .dek {
         font-size: 2em;
-        /* font-weight: 300; */
+        font-weight: 300;
         padding-top: 4em;
         max-height: 10em;
         margin-bottom: 0;
         max-width: 90%;
-    }
+    } */
 }
 @media (min-width: 426px) and (max-width:768px){
     .inclusive-design .statement{
@@ -277,18 +270,18 @@ body > main > div > div > div:nth-child(10){
     .inclusive-design .article-card.block .block-content{
         display: grid;
     }
-    .inclusive-design .article-card.block .text .hed{
+    /* .inclusive-design .article-card.block .text .hed{
         padding-right: 0;
-    }
-    .inclusive-design .article-card.block .text .dek {
+    } */
+    /* .inclusive-design .article-card.block .text .dek {
         font-size: 1.5em;
-        /* font-weight: 300; */
+        font-weight: 300;
         padding-top: 1em;
         margin-top: 0;
         max-height:none;
         margin-bottom: 0;
         max-width: 100%;
-    }
+    } */
     .inclusive-design .statementTwo{
         background: #F7EFFC;
         padding: 5em 1em;
@@ -334,39 +327,39 @@ body > main > div > div > div:nth-child(10){
         text-align: center;
         margin: 0;
     }
-    .inclusive-design .block-content{
+    /* .inclusive-design .block-content{
         display: block;
     }
 
 
     .article-card.block .block-content{
         grid-template-rows: auto;
-    }
+    } */
 
-    .inclusive-design .article-card.block .text{
+    /* .inclusive-design .article-card.block .text{
         height: auto;
         padding: 0em;
         margin: 0;
-    }
-    .inclusive-design .article-card.block .text .hed {
+    } */
+    /* .inclusive-design .article-card.block .text .hed {
         height: auto;
         padding: 1em;
         margin: 0;
-    }
-    .inclusive-design .article-card.block .text .dek{
+    } */
+    /* .inclusive-design .article-card.block .text .dek{
         overflow: visible;
         padding: 0;
         padding-top: 2em;
         padding-left: 2.1em;
         padding-right: 1em;
         margin: 0;
-    }
-    .inclusive-design .article-card.block .byline{
+    } */
+    /* .inclusive-design .article-card.block .byline{
         padding-left: 1.6em;
         padding-right: 1em;
         padding-bottom: 1em;
 
-    }
+    } */
     .inclusive-design .statementTwo{
         background: #F7EFFC;
         padding: 5em 1em;
