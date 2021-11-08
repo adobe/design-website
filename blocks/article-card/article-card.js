@@ -1,6 +1,7 @@
 import {
   convertToBackground,
   $element,
+  $wrap,
   decorateTagLink,
   decorateDivisions,
 } from '../../scripts/helpers.js';
@@ -61,16 +62,20 @@ export default function decorate($block) {
      * Remove image and place on proper side:
      */
   result['.image'].remove();
-  result['.block-content'].prepend($text);
+
+  //TODO: Add paths to the article card generation and use that instead of assuming the path is the same as the header
+  let path = `/stories/${props.tag}/${props.hed}`
+  const articleLink = $element('a.stories-link', { attr: { href: path.replaceAll(' ', '-').toLowerCase() } })
+  result['.block-content'].append(articleLink)
+  articleLink.prepend($text)
 
   if (!result.properties['image-side'] || result.properties['image-side'] === 'left') {
-    result['.block-content'].prepend(result['.image']);
+    articleLink.prepend(result['.image']);
   } else {
-    result['.block-content'].append(result['.image']);
+    articleLink.append(result['.image']);
   }
 
   result['.image'].classList.add('image');
-
   convertToBackground(result['.image'].querySelector('img'), result['.image']);
 }
 

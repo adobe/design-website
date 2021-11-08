@@ -138,11 +138,14 @@ header#global-header {
 
 
 /* Used in Job Posting pages */
-#global-header.split{
+header#global-header.split{
+    font-size: clamp(16px, 1.6vw, 30.6px);
+    width: clamp(1000px, 62.54em, 1633px);
+    max-width: clamp(1000px, 62.54em, 1633px);
     background-color: transparent;
     background: transparent;
 }
-#global-header.split nav a{
+header#global-header.split nav a{
     color: var(--text-dark)
 }
 /* End .split */

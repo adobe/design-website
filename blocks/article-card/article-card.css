@@ -26,19 +26,21 @@
 
 /* ------- BLOCK CONTENT ------- */
 .article-card.block .block-content{
+    height:100%;
+}
+.article-card.block .block-content > a{
     display: grid;
     grid-template-columns: 50% 50%;
     height:100%;
 }
 
 @media screen and (max-width: 700px) {
-    .article-card.block .block-content{
+    .article-card.block .block-content > a{
         grid-template-rows: 50% 50%;
         grid-template-columns: 100%;
         grid-auto-flow: row;
-        height:100%;
     }
-    .article-card.block .block-content .image{
+    .article-card.block .block-content > a .image{
         grid-row: 1/2;
     }
 }

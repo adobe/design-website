@@ -28,8 +28,10 @@
     .job-post .header-block{
         font-size: 1.6vw;
         /* padding: 5.86em 3.9em 0 0; */
-        width: calc(50vw - 5px); /*10px for gutter*/
-        max-width: calc(50vw - 5px); /*10px for gutter*/
+        /* width: calc(50vw - 5px);*/ /*10px for gutter*/
+        /* max-width: calc(50vw - 5px);*/ /*10px for gutter*/
+        width: 50vw;
+        max-width: 50vw;
     }
 }
 /* XL */
@@ -40,7 +42,7 @@
 }
 
 .job-post .header-block{
-    padding: 3.45em 0 0 0;  /* 3.45em = 106px -- space for global header  */
+    padding: 5em 0 0 0;  /* 5em = 105.6px -- space for global header  */
 }
 
 .job-post .header-block:after{
