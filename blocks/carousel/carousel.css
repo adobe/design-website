@@ -259,6 +259,7 @@
         font-size: 2em;
     }
 }
+/* End of iPad queries */
 
 @media only screen and (max-width: 1000px) {
     .carousel__item--visible .number p.tag-link{
