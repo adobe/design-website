@@ -79,7 +79,7 @@ export default function decorate($main) {
       }
     })
     let animateWhatWeDo = headDiv.querySelector("h2")
-    animateWhatWeDo.classList.add("js-scroll", "fade-in-right")
+    animateWhatWeDo.classList.add("js-scroll", "fade-in")
     firstElement.insertAdjacentElement('afterend', shiftedContent)
 
     //Oranizing individual teams cards
@@ -119,7 +119,7 @@ export default function decorate($main) {
     //Organize Foot content
     const resourcesDiv = $element(".resources-section");
     const resources = $element(".resources");
-    resources.classList.add("js-scroll", "fade-in-top")
+    resources.classList.add("js-scroll", "fade-in")
 
     let section = 0;
     let imgCount = 1;
@@ -130,7 +130,7 @@ export default function decorate($main) {
         
       if(section === 1){
         if(element.nodeName === "H2"){
-          element.classList.add("js-scroll", "fade-in-right")
+          element.classList.add("js-scroll", "fade-in")
           resourcesDiv.append(element)
           
           resourcesDiv.append(resources)
@@ -150,14 +150,7 @@ export default function decorate($main) {
           resource.append(resourceLogo)
           resource.append(resourceBottom)
           resource.style.backgroundImage = `url(../../resources/products-${imgCount}.png)`
-          resource.classList.add("js-scroll")
-          if(imgCount === 1){
-            resource.classList.add("fade-in-right")
-          } else if (imgCount === 2) {
-            resource.classList.add("fade-in-top")
-          } else {
-            resource.classList.add("fade-in-left")
-          }
+          resource.classList.add("js-scroll", "fade-in")
           imgCount++
           resources.append(resource)
         }

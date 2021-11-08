@@ -14,12 +14,7 @@ export default function decorate($block){
     thinkAboutContent.append($element(".think-differently-slash.slash-2"))
     thinkAboutContent.append($element("a.view-jobs", { attr: { href: '/jobs/' } }, "VIEW OUR JOB OPENINGS"))
     
-    $block.classList.add("js-scroll", "fade-in-right")
-    document.querySelectorAll(".think-differently-content > *").forEach((article, index) => {
-      if(index > 0){
-        article.classList.add("js-scroll", "fade-in-right")
-      }
-    })
+    $block.classList.add("js-scroll", "fade-in")
     
     $scrollAnimation();
 }

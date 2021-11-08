@@ -12,7 +12,7 @@ export default async function makeHeaderBlock($block) {
         "#ffffff"
     )
 
-    const $jobTitle         = $element("h1.hed.job-title", getMetadata('job-title'));
+    const $jobTitle = $element("h1.hed.job-title", getMetadata('job-title'));
 
     /* Big Giant element builder function: */
     const $header_block = $element("div.header-block", [
