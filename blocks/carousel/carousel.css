@@ -261,6 +261,32 @@
 }
 /* End of iPad queries */
 
+/* Mobile queries */
+@media (min-width: 414px) and (max-width: 700px) {
+    .carousel .carousel__actions {
+        top: 80%;
+        left: 74vw;
+        width: 30%;
+    }
+    .carousel {
+        font-size: 21px;
+    }
+    .carousel .carousel__actions button img {
+        height: 30px;
+    }
+    .carousel .carousel__item--visible {
+        grid-template-columns: 44.25vw 21.25em;
+        width: 95vw;
+        max-width: 62.54em;
+    }
+    .carousel .number {
+        width: 38vw;
+    }
+    .carousel .carousel__item img {
+        width: 48vw;
+    }
+}
+
 @media only screen and (max-width: 1000px) {
     .carousel__item--visible .number p.tag-link{
         font-size: 1rem;
