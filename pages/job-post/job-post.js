@@ -77,17 +77,6 @@ export default async function decorate($page) {
   buildSimOpportunitiesBlock();
 
   document.querySelector("main").append($element("div.similarOpps-block"));
-  document.querySelector("div.job-header-container") ?
-  console.log(
-    " job-header-container ",
-    document.querySelector("div.job-header-container").clientHeight,
-    document.querySelector("div.job-header-container").scrollHeight,
-    document.querySelector("div.job-header-container").getAttribute("style"),
-    document.querySelector("div.job-header-container")
-  )
-  :
-  console.log(" job-header-container ", "undefined")
-
 
 }
 
@@ -106,10 +95,9 @@ async function buildJobPostSubheader(document){
 
 //** Builds the "Working at Adobe" section/ recommended articles*/
 async function buildSideArticlesBlock(document){
-  console.log(" SHOULD HAVE ATTACHED SIDE ARTICLES TO JOB POSTING PAGE ? ")
+  // console.log(" SHOULD HAVE ATTACHED SIDE ARTICLES TO JOB POSTING PAGE ? ")
   let sideArticles = await makeSideArticlesBlock(document);
   if(sideArticles) {
-
     document.querySelector("div.left-block").append(sideArticles)
   } else {
     console.log(`Cannot fetch similar opportunities to build the block`)
@@ -144,6 +132,7 @@ async function buildJobBlockFragments() {
   } else {
     console.log(`Cannot fetch ${aboutURL} fragment or fragment doesn't exist`)
   };
+
   /* ------ Equal Opportunities Policy ------- */
   /** Get "Equal Opportunity Policy" Fragment: */
   const eopsInnerHtml  = await getJobsFragment(eopsURL);
