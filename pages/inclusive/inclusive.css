@@ -374,7 +374,7 @@ body > main > div > div > div:nth-child(10){
         grid-template-columns: auto;
         grid-template-rows: auto;
         background: #F7EFFC;
-        padding: 0;
+        padding: 1em;
         margin: 0;
         width: auto;
     }
