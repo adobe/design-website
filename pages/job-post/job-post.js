@@ -16,7 +16,7 @@ const text_dark   = '#3E3E3E';
 /**
  * @param {HTMLElement} $page
  */
-export default function decorate($page) {
+export default async function decorate($page) {
   /* Set Background Color */
   Background.setColor(getMetadata('color') || bkg_grey_lt);
 
@@ -26,9 +26,6 @@ export default function decorate($page) {
 
   let postContainer  = document.querySelector("main > div");
   postContainer.classList.add("post-container");
-
-
-
 
   let postBody = document.querySelector(".post-container > div");
   postBody.classList.add("post-text");
@@ -40,17 +37,11 @@ export default function decorate($page) {
   let title_h1 = document.querySelector("div.post-text > h1");
   if(title_h1){ title_h1.remove() };
 
+  /** Add "Working at Adobe"/ Suggested articles block: */
+  let leftBlock = $element("div.left-block");
+  postContainer.append(leftBlock);
 
-  /* Add Spacer and suggested article blocks */
-  // let suggestedArticles = $element("div.suggested-articles");
-  let suggestedArticles = buildSideArticlesBlock(document);
-
-
-  let leftBlock = $element("div.left-block",[
-    $element("div.spacer"),
-    suggestedArticles
-  ]);
-  postContainer.prepend(leftBlock);
+  buildSideArticlesBlock(document);
 
   /* Assemble "Apply Now" Button */
   /* Declare the function for "onClick" action */
@@ -59,47 +50,67 @@ export default function decorate($page) {
   };
   const $button_apply_now = addButton("Apply Now", buttonFunction, 'unfilled lt-bkg', text_dark);
   postBody.append($button_apply_now);
-
-
-
-    buildJobBlockFragments();
-
-    buildSimOpportunitiesBlock();
-
-    document.querySelector("main").append($element("div.similarOpps-block"))
-
   /**
-   * Element Constants:
-   *
-   * $job-title      : h1         / Job Title
-   * $detail-label   : label  --ex: "Position Type"
-   * $detail-value   : value  --ex: "Full-time"
-   * $dek            : Like the summary/hook for position
-
-   * $section-header : sub header / What you'll be working on
-   * $paragraph      : p          / basically just <p>
-   * $paragraph.list
+   // SHAMEful code: - SLJ - 11/08/21
+   * Because the Blue header block has to be fixed position but has variable height,
+   * and even though rest of content depends on its height, we have to do some
+   * black-magic-eff'ery to try to guess the blue block's height:
    */
+  let headerHeight = (
+    document.querySelector(".header-block").clientHeight > 155
+  ) ? (
+    document.querySelector(".header-block").clientHeight + "px"
+  ) : (
+    (
+      /**
+       * Get roughly how <p> many lines job title will take:
+       * Times it by 'em's (3.62), add margin/'em's:
+      */
+      Math.ceil(getMetadata('job-title').length / 11) * 3.63
+    ) + 24.84 + "em"
+  );
+
+  let gridString = `grid-template-rows: clamp(30.7em, ${headerHeight}, 40em)`;
+  document.querySelector(".post-container").setAttribute("style", gridString);
+
+  buildJobBlockFragments();
+  buildSimOpportunitiesBlock();
+
+  document.querySelector("main").append($element("div.similarOpps-block"));
+  document.querySelector("div.job-header-container") ?
+  console.log(
+    " job-header-container ",
+    document.querySelector("div.job-header-container").clientHeight,
+    document.querySelector("div.job-header-container").scrollHeight,
+    document.querySelector("div.job-header-container").getAttribute("style"),
+    document.querySelector("div.job-header-container")
+  )
+  :
+  console.log(" job-header-container ", "undefined")
+
+
 }
 
-
+//** Builds the section with the location, position type, & dek */
 async function buildJobPostSubheader(document){
   let subheader = await assembleJobPost(document);
   if(subheader) {
     let postBody = document.querySelector(".post-container > div.post-text");
     postBody.prepend(subheader)
-    // document.querySelector("div.similarOpps-block").append(subheader)
+        // document.querySelector("div.similarOpps-block").append(subheader)
   } else {
     console.log(`Cannot fetch similar opportunities to build the block`)
   }
 
 }
 
+//** Builds the "Working at Adobe" section/ recommended articles*/
 async function buildSideArticlesBlock(document){
+  console.log(" SHOULD HAVE ATTACHED SIDE ARTICLES TO JOB POSTING PAGE ? ")
   let sideArticles = await makeSideArticlesBlock(document);
   if(sideArticles) {
-    console.log(" SHOULD HAVE ATTACHED SIDE ARTICLES TO JOB POSTING PAGE ? ")
-    return sideArticles;
+
+    document.querySelector("div.left-block").append(sideArticles)
   } else {
     console.log(`Cannot fetch similar opportunities to build the block`)
   }

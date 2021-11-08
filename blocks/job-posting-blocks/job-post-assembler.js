@@ -30,8 +30,5 @@ export default async function assembleJobPost(document){
         ]),
         $dek
     ]);
-
-    console.log( " HEADER BIT BUILT? ", $header_bit)
-
     return $header_bit
 }
