@@ -22,10 +22,6 @@ export default async function decorate($page) {
   /* Set Background Color */
   let backgroundColoring = `linear-gradient(90deg, #ffffff 0%, #ffffff 50%, #e8e8e8 50%, #e8e8e8 100% )`
   Background.setColor(backgroundColoring);
-  // Background.setColor("unset")
-  // Background.setColor("none")
-  // Background.setColor(backgroundColoring)
-  // document.querySelector("#global-background").setAttribute("style", `background: ${backgroundColoring};`)
   document.querySelector("#global-background .background-fade.fade1").setAttribute("style", `background: ${backgroundColoring}; background-color: ${backgroundColoring};`)
 
   /* Add classes and ids to container elements */
