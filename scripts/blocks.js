@@ -63,7 +63,8 @@ export async function loadBlocks($main) {
 export function decorateBlock($block) {
     const classes = Array.from($block.classList.values());
     const blockName = classes[0];
-    if (!blockName) return;
+    const isBlock = blockName.indexOf('--') !== 0;
+    if (!blockName || !isBlock) return;
     const $section = $block.closest('.section-wrapper');
     if ($section) {
         $section.classList.add(`${blockName}-container`.replace(/--/g, '-'));

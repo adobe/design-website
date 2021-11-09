@@ -1,4 +1,4 @@
-.joinus.block{
+.--joinus {
     display:flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +10,7 @@
     padding: 1.33em 4.66em 0em 4.66em;
 }
 
-.joinus h2 {
+.--joinus h2 {
     margin-top: 0.5em;
     font-size: 10em;
     font-weight: var(--weight-black);
@@ -83,7 +83,7 @@
 }
 .job-list .see-jobs span {
     font-size: .80em;
-    font-weight: 500;
+    font-weight: 800;
     border: 2px solid black;
     border-radius: 2em;
     padding: 0.75em 1.5em;

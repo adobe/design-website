@@ -105,7 +105,6 @@
     font-weight: var(--weight-black);
     font-size: 2.66em; /* 80px; 80 / 30.07 = 2.66 */
     line-height: 0.94em; /* 75/80 */
-    overflow: hidden;
 }
 
 /* title styles */
@@ -210,12 +209,14 @@
 /* iPad Media Query */
 @media (min-width: 425px) and (max-width: 1024px) {
     .carousel .carousel__actions {
-        top: 80%;
+        top: 85%;
         left: 74vw;
         width: 30%;
+        padding-bottom: 3em;
     }
     .carousel {
         font-size: 21px;
+        margin-bottom: 5em;
     }
     .carousel .carousel__actions button img {
         height: 30px;

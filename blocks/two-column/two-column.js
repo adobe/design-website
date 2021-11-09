@@ -26,13 +26,21 @@ export default function decorate($block) {
 function processColumn($columnElement, columnTargets) {
     columnTargets.forEach(targetString => {
         const $target = getColumnTarget(targetString);
-        $target.remove();
-        $columnElement.append($target);
+        if($target) {
+            $target.remove();
+            $columnElement.append($target);
+        } else {
+            console.warn(`two-column, no such target: `, targetString);
+        }
     });
 }
 
 function getColumnTarget(targetString) {
-    return document.querySelector(`.${targetString}.block`);
+    if(targetString.indexOf('--') === 0) {
+        return document.querySelector(`.${targetString}`);
+    } else {
+        return document.querySelector(`.${targetString}.block`);
+    }
 }
 
 /**

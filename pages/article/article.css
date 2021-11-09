@@ -11,6 +11,7 @@
 
 .page-type-article a{
     color: #FF7D4F;
+    cursor: pointer;
 }
 
 .art {
@@ -29,6 +30,14 @@
     padding-top:140px;
     padding-bottom: 5em;
     background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 1000px,rgba(255,255,255, 1) 1000px);
+}
+.page-type-article .header-tag{
+    margin-left: 8em;
+    color: black;
+    border-bottom: solid .2em black;
+    border-radius: 10%;
+    font-family: var(--sans-serif-font);
+    font-weight: var(--weight-regular);
 }
 .page-type-article .content:not(.page-type-article .header.block) {
     padding-left: 5rem;
@@ -49,7 +58,7 @@ body > main > div > div > p:nth-child(4) > em{
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-regular);
     line-height:2em;
-    /* padding-right: 4em; */
+    padding-right: 4em;
 }
 .page-type-article .content .lede.block{
     color: #4A4545;
@@ -68,6 +77,7 @@ body > main > div > div > p:nth-child(3){
     color: #3A3A3A;
     padding-left: 1.6em;
     padding-right: 2em;
+    padding-top: .2em;
 }
 .page-type-article .header.block h2{
     text-align: left;
@@ -150,11 +160,10 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     font-size: .7em;
 }
 
-.page-type-article main p {
-    font-size: 1.5em;
+.page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag) {
+    font-size: 1em;
     text-align: left;
     padding-left: 16.5em;
-    
     padding-right: 0;
 }
 .page-type-article .content li{
@@ -255,10 +264,11 @@ body > main > div > div.content > picture > img{
 
 .page-type-article .author-bio {
     background: #F5F5F5;
-    height: 30em;
-    display: flex;
-    align-items: center;
+    /* height: 30em; */
+    /* display: flex; */
+    /* align-items: center; */
     /* margin: 0 218px; */
+    padding: 5em 6em 8em 6em;
 }
 
 body > div.author-bio.block > div > author-name{
@@ -267,9 +277,9 @@ body > div.author-bio.block > div > author-name{
 .page-type-article .author-bio > div {
     /* display: flex; */
     display: grid;
-    /* grid-template-columns: 14% 70%; */
     grid-template-columns: auto auto;
-    margin: 0 25% 5em 25%;
+    /* grid-template-columns: 14% 70%; */
+    /* margin: 0 25% 5em 25%; */
     /* align-items: center; */
 }
 
@@ -277,15 +287,16 @@ body > div.author-bio.block > div > author-name{
     width: 4em;
 }
 
-.page-type-article .author-name {
+.page-type-article author-name {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 45%
+    padding-right: 6em;
+    /* width: 45% */
 }
 
 .page-type-article .author-info {
-    margin-left: 7em;
+    /* margin-left: 7em; */
 }
 
 .page-type-article .author-info > p:nth-child(1) {
@@ -395,6 +406,9 @@ body > div.author-bio.block > div > author-name{
 .page-type-article .similar-stories .stories .block.story .image{
     position: relative;
 }
+.page-type-article .author-info p{
+    margin-top: 0;
+}
 
 
 
@@ -458,6 +472,12 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .content{
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 700px,rgba(255,255,255, 1) 700px);
     }
+    .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
+        padding-left: 6.5em;
+    }
+    .page-type-article .header-tag{
+        margin-left: 5.2em;
+    }
     .page-type-article .content .header.block h1{
         font-size: 3.3em;
         padding-right: 3em;
@@ -484,7 +504,7 @@ body > div.author-bio.block > div > author-name{
         padding-left: 3.5em;
     }
     .page-type-article main p{
-        padding-left: 6.5em;
+        /* padding-left: 6.5em; */
     }
     .page-type-article .pull-quote.block{
         padding-left: 1em;
@@ -498,11 +518,18 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .additional-reading.block > div{
         padding-left: 4.7em;
     }
+
 }
 @media (max-width: 425px) and (min-width:376px) {
     .page-type-article .content:not(.page-type-article .header.block){
         padding: 10px;
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 450px,rgba(255,255,255, 1) 450px);
+    }
+    .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
+        padding: 0
+    }
+    .page-type-article .header-tag{
+        margin-left: 0;
     }
     .page-type-article .content .header.block h1{
         font-size:3em;
@@ -577,12 +604,24 @@ body > div.author-bio.block > div > author-name{
         text-align: center;
         margin-left: 0em;
     }
+    .page-type-article .content p:not(.article-picture){
+        padding: 0;
+    }
+    .page-type-article author-name{
+        padding: 0;
+    }
     
 }
 @media (max-width: 375px) and (min-width:321px) {
     .page-type-article .content:not(.page-type-article .header.block){
         padding: 1em;
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 390px,rgba(255,255,255, 1) 390px);
+    }
+    .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
+        padding: 0
+    }
+    .page-type-article .header-tag{
+        margin-left: 0;
     }
     .page-type-article .content .header.block h1{
         font-size:2.6em;
@@ -654,11 +693,23 @@ body > div.author-bio.block > div > author-name{
         text-align: center;
         margin-left: 0em;
     }
+    .page-type-article .content p:not(.article-picture){
+        padding: 0;
+    }
+    .page-type-article author-name{
+        padding: 0;
+    }
 }
 @media (max-width: 320px) and (min-width:0px) {
     .page-type-article .content:not(.page-type-article .header.block){
         padding: 1em;
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 340px,rgba(255,255,255, 1) 340px);
+    }
+    .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
+        padding: 0
+    }
+    .page-type-article .header-tag{
+        margin-left: 0;
     }
     .page-type-article .content .header.block h1{
         font-size:2.3em;
@@ -731,6 +782,12 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .author-info{
         text-align: center;
         margin-left: 0em;
+    }
+    .page-type-article .content p:not(.article-picture){
+        padding: 0;
+    }
+    .page-type-article author-name{
+        padding: 0;
     }
 
 }

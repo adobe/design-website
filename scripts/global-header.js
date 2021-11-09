@@ -1,6 +1,6 @@
 export default function decorate(win = window) {
     console.log(win.document.location.pathname)
-    const blackHeaderPages = ['/jobs/']
+    const blackHeaderPages = ['/jobs/', '/stories/process/whiteboard-101']
     const useBlackHeader = blackHeaderPages.includes(win.document.location.pathname)
     var headerImage = useBlackHeader?'/resources/adobe-black-tag.png':'/resources/tag+adobe.svg';
     var headerImageMobile = useBlackHeader?'/resources/adobe-design.png':'./media_1d3601e007f7c9b5cb83303a390ca0e7fec040eef.png';

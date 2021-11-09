@@ -11,10 +11,24 @@ export default function decorate($main) {
       }
     });
     // moveHeaderContent();
-    $main.querySelector(':scope > div > div').classList.add('content');
-    $main.querySelector('.header.block > div:nth-child(2) > div:nth-child(2)').classList.add('art');
+    try {
+      $main.querySelector(':scope > div > div').classList.add('content');
+      $main.querySelector('.header.block > div:nth-child(2) > div:nth-child(2)').classList.add('art');
+    } catch(err) {
+      console.error(err);
+    }
     buildSimilarStories();
     buildAuthorBio();
+
+    var headerTag = document.createElement('a');
+    headerTag.classList.add('header-tag')
+    headerTag.innerText = '#LEADING DESIGN';
+
+    try {
+      document.querySelector('.content > h1').before(headerTag);
+    } catch(err) {
+      console.error(err);
+    }
 }
 
 async function buildSimilarStories(){
@@ -78,13 +92,12 @@ async function buildAuthorBio() {
             $element('h3.author-title', author.title),
           ]),
           $element('.author-info', [
-            $element('strong', 'Author Bio'),
             $bio,
           ]),
         ]),
       ]);
 
-      document.body.insertBefore($bioBlock, document.body.querySelector('main').nextSibling);
+      document.querySelector('main').append($bioBlock)
     }
 
     $authorBlock = $element('.author.block', [
@@ -104,8 +117,12 @@ async function buildAuthorBio() {
       $element(".not-found", `Author ${authorName} not found`),
     ]);
   }
-  
-  document.querySelector('.block.header').append($authorBlock)
+
+  try {
+    document.querySelector('.block.header').append($authorBlock);
+  } catch(err) {
+    console.error(err);
+  }
 }
 
 function moveHeaderContent() {
