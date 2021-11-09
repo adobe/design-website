@@ -15,6 +15,11 @@ export default function decorate($main) {
     $main.querySelector('.header.block > div:nth-child(2) > div:nth-child(2)').classList.add('art');
     buildSimilarStories();
     buildAuthorBio();
+
+    var test = document.createElement('a')
+    test.classList.add('header-tag')
+    test.innerText = '#LEADING DESIGN'
+    document.querySelector('#whiteboarding-101').before(test)
 }
 
 async function buildSimilarStories(){
