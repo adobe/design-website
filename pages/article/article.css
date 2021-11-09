@@ -501,7 +501,7 @@ body > div.author-bio.block > div > author-name{
         padding-left: 3.5em;
     }
     .page-type-article main p{
-        padding-left: 6.5em;
+        /* padding-left: 6.5em; */
     }
     .page-type-article .pull-quote.block{
         padding-left: 1em;
@@ -515,6 +515,7 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .additional-reading.block > div{
         padding-left: 4.7em;
     }
+
 }
 @media (max-width: 425px) and (min-width:376px) {
     .page-type-article .content:not(.page-type-article .header.block){
@@ -603,6 +604,9 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .content p:not(.article-picture){
         padding: 0;
     }
+    .page-type-article author-name{
+        padding: 0;
+    }
     
 }
 @media (max-width: 375px) and (min-width:321px) {
@@ -687,6 +691,9 @@ body > div.author-bio.block > div > author-name{
         margin-left: 0em;
     }
     .page-type-article .content p:not(.article-picture){
+        padding: 0;
+    }
+    .page-type-article author-name{
         padding: 0;
     }
 }
@@ -774,6 +781,9 @@ body > div.author-bio.block > div > author-name{
         margin-left: 0em;
     }
     .page-type-article .content p:not(.article-picture){
+        padding: 0;
+    }
+    .page-type-article author-name{
         padding: 0;
     }
 
