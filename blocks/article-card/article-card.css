@@ -6,7 +6,7 @@
     /* Ensure Article Card doesn't cut off content on short desktop screens */
     .article-card.block{
         font-size: 1rem;
-        height:500px;
+        height:550px;
         overflow:hidden;
         min-width: 62.5em;
     }
@@ -26,19 +26,21 @@
 
 /* ------- BLOCK CONTENT ------- */
 .article-card.block .block-content{
+    height:100%;
+}
+.article-card.block .block-content > a{
     display: grid;
     grid-template-columns: 50% 50%;
     height:100%;
 }
 
 @media screen and (max-width: 700px) {
-    .article-card.block .block-content{
+    .article-card.block .block-content > a{
         grid-template-rows: 50% 50%;
         grid-template-columns: 100%;
         grid-auto-flow: row;
-        height:100%;
     }
-    .article-card.block .block-content .image{
+    .article-card.block .block-content > a .image{
         grid-row: 1/2;
     }
 }
@@ -62,7 +64,7 @@
 @media screen and (max-width: 700px) {
     .article-card.block .block-content .text,
     .article-card.block .block-content .image {
-        height: 36em;
+        height: 55vh;
         width: 100%;
     }
 }
@@ -77,7 +79,7 @@
     /* Not adding border color makes it inherit properly:  */
     
     color: inherit;
-    font-size:   0.6em;
+    font-size:   .8em;
     line-height: 1.125em;
     margin:  0em 0em 0.5em 0em;
     text-decoration: none;
@@ -103,24 +105,19 @@
 /* iPad Media Query */
 @media (min-width: 414px) and (max-width: 1024px) {
     .article-card.block .text .tag-link {
-        font-size: 0.8em;
+        font-size: 1em;
         margin: 2.5em 0em 0.5em 0em;
     }
     div.article-card.block .text .hed {
-        margin: 1.5em 0rem 0em;
+        margin: 1em 0rem 0em;
+        font-size: 3.8em;
     }
     div.article-card.block .text .dek {
-        margin: 2em 0em 0.5rem 0em;
+        margin: 5em 0em 0.5rem 0em;
     }
     div.article-card.block .text .byline {
         font-size: 0.7em;
-        margin: 3em 0em 3rem 0em;
-    }
-    .scroll-tip-content {
-        display: none;
-    }
-    .chevron-down {
-        display: none;
+        margin: 3em 0em 1rem 0em;
     }
 }
 /*
@@ -129,12 +126,16 @@
  */
 .article-card.block .text .hed,
 .article-card.block .text .hed a {
-    font-size: 2.5em;
+    font-size: 3.5em;
     line-height: 1em; 
-    margin: 2.8em 0rem 0em;
+    margin: 2em 0rem 0em;
     max-width: 100%;
     text-decoration: none;
     color: inherit;
+}
+
+.article-card.block .text .hed {
+    font-family: var(--sans-serif-font);
 }
 
 
@@ -144,7 +145,7 @@
 .article-card.block .text .dek{
     font-size: 1.4em;    
     line-height: 1.2em; 
-    margin: 3em 0em 0.5rem 0em; 
+    margin: 2em 0em 0.5rem 0em; 
     font-weight: var(--weight-light);
     text-overflow: ellipsis;
     max-height: 3.6em;              /* 3x line-height */

@@ -71,14 +71,14 @@
     #global-footer .footer-content {
         grid-template-columns: 50% 50%;
         grid-template-rows: auto;
-        padding: 3em 5% 3em 5%;
+        padding: 4em 5% 3em 15%;
         box-sizing: border-box;
         width: 90%
     }
 
     #global-footer .footer-content .source {
         grid-area: 1/1/2/3;
-        height: 4.5em;
+        height: 3em;
         margin: unset;
         margin-bottom: 3em;
     }
@@ -96,7 +96,7 @@
     #global-footer .footer-content > nav:nth-of-type(3) {
         grid-area: 3/1/4/3;
         flex-direction: row;
-        width: 60%;
+        width: 80%;
         flex-wrap: wrap;
     }
     #global-footer .footer-content > nav:nth-of-type(3) > * {
@@ -105,15 +105,7 @@
     #global-footer > div > nav:nth-of-type(3) > p:nth-child(2) {
         display: none;
     }
-    #global-footer > div > nav:nth-of-type(3) > p:nth-child(6) {
-        display: none;
-    }
-    #global-footer > div > nav:nth-of-type(3) > p:nth-child(4) {
-        display: none;
-    }
-    #global-footer > div > nav:nth-of-type(3) > p:nth-child(8) {
-        display: none;
-    }
+    
 }
 
 body:not(.loaded) #global-footer {

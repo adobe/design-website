@@ -16,11 +16,8 @@
     Combine media queries and selectors if it sets the same attribs:
 */
 /* Hides scroll tip */
-@media (min-width: 1000px), (max-width: 690px) {
-    .scroll-tip-content {
-        display: none;
-    }
-    .chevron-down {
+@media (min-width: 768px) {
+    .home-view-container .scroll-tip-container {
         display: none;
     }
 }
@@ -211,7 +208,7 @@
 }
 
 /* iPad Media Query */
-@media (min-width: 414px) and (max-width: 1024px) {
+@media (min-width: 425px) and (max-width: 1024px) {
     .carousel .carousel__actions {
         top: 80%;
         left: 74vw;
@@ -244,7 +241,7 @@
     }
 }
 
-@media (min-width: 414px) and (max-width: 700px) {
+@media (min-width: 425px) and (max-width: 700px) {
     .carousel .carousel__item--visible {
         grid-template-columns: 44.25vw 32.25em;
         width: 95vw;
@@ -262,7 +259,7 @@
 /* End of iPad queries */
 
 /* Mobile queries */
-@media (max-width: 414px) {
+@media (max-width: 425px) {
     .carousel .carousel__actions {
         top: 5em;
         left: 46.5vw;
@@ -272,7 +269,7 @@
         font-size: 21px;
         width: 100%;
         flex-direction: column;
-        height: 45em;
+        height: 42em;
         justify-content: flex-start;
     }
     .carousel .carousel__actions button img {

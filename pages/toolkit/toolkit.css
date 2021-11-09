@@ -34,13 +34,15 @@
 }
 
 .toolkit .toolkit-page-content > .article-card.block .text .hed{
-    width: 60%;
-    font-size: 2.7em;
+    width: 70%;
+    font-size: 3em;
+    margin-bottom: .75em;
     font-weight: var(--weight-black);
     overflow: unset;
 }
 .toolkit .toolkit-page-content > .article-card.block .text .dek{
-    font-size: 0.9em;
+    font-size: 1em;
+    line-height: 1.5em;
     font-weight: var(--weight-light);
     max-width: 93%;
 }

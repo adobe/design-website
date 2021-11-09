@@ -6,14 +6,14 @@
 }
 
 .person .tag-link {
-    font-size: 0.8em;
-    display: inline;
-    position:absolute;
-    padding-left: 20px; 
-    color: white;
+    font-weight: var(--weight-light);
+    font-size: 0.75em;
+    text-decoration: none;
+    border-bottom: none;
+    color: inherit;
 }
 .person .tag-link .tag {
-    border-bottom: 3px solid;
+    border-bottom: 2px solid;
 }
 
 .person .image{
@@ -34,6 +34,7 @@
     margin-right: 0px;
 }
 
+.person .tag-link,
 .person .name,
 .person .title{
     margin-left: 20px;
@@ -42,17 +43,17 @@
 
 .person .name {
     font-size: clamp(1em, 2.8vw, 1.8em);
-    font-weight: var(--weight-bold);
+    font-weight: var(--weight-black);
+    margin-top: 20px;
 }
 
 .person .title {
-    font-size: .8rem;
-    font-weight: var(--weight-regular);
-    top: auto;
-    font-size: 0.5em;
+    font-weight: var(--weight-light);
+    font-size: 0.75em;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 40px;
+    margin-top: 10px;
+    margin-bottom: 25px;
 }
 .person .title >p{
     display: unset;
@@ -72,11 +73,12 @@
 
 .person .pad {
     margin-top: 0;
+    margin-block:unset;
 }
 
 
 
-@media (max-width: 700px) {
+@media (max-width: 1024px) {
     .people {
         display:none
     }
