@@ -204,7 +204,7 @@ export default function decorate($block) {
     //   console.log(test);
 
     //   if(test.classList.contains('.carousel__item--visible')){
-    //     
+    //
     //   }
     //   if(myStr.innerText > 13){
     //     myStr.innerText = myStr.innerText.substring(0,13) + '...'
@@ -220,7 +220,7 @@ export default function decorate($block) {
       if(myStr[h2Index].innerText.length > 25){
         myStr[h2Index].innerText = myStr[h2Index].innerText.substring(0,25) + '...'
       }
-      console.log(myStr[index].innerText);
+      console.log(myStr[h2Index].innerText);
 
     }
 
