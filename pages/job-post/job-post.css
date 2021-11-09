@@ -16,15 +16,12 @@ body.job-post main {
 }
 
 .post-container{
-    max-width: 62.541em; /* ~= 1920 xxl, 1000px sm */
+    width: 100vw;
     display: grid;
-    /* grid-template-rows: auto 1fr;
-    grid-template-columns: 50% 50%; */
-    /* border: 2px dotted orangered; */
-    /* gap: 0px 10px; */
     grid-template-rows: auto 1fr;
-    /* grid-template-columns: repeat(2, calc( 50% - 5px)); */
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(2, 31.27em);
+    padding: 0px calc(50vw - 31.27em);
+
 }
 
 /* Small Screen */
@@ -85,10 +82,15 @@ body.job-post main {
 |  grid-column: 1 / span 2                            |
 |  grid-row:    4 / span 1                            |
 -------------------------------------------------------  */
-.job-post .left-block,
+
+/* .job-post .left-block,.job-post .post-text {background: var(--bkg-grey-lt);} */
+
+/* .job-post .left-block,.job-post .post-text {} */
+.job-post .left-block{
+    /* background-color: white; */
+}
 .job-post .post-text {
-    background: var(--bkg-grey-lt);
-    /* border: 1px solid var(--bkg-grey-lt); */
+    border: 1px solid var(--bkg-grey-lt);
 }
 
 /* -------- SUB HEADER START --------- */

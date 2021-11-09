@@ -2,7 +2,9 @@ import addButton from "../../blocks/button/button.js";
 import { Background } from "../../scripts/background.js";
 import {
   $element,
+  $wrap,
   getMetadata,
+  wrapWithElement,
 } from "../../scripts/helpers.js";
 import makeHeaderBlock from "../../blocks/job-posting-blocks/job-post-header.js";
 import { getJobsFragment } from "../../scripts/jobs-fragments.js";
@@ -18,7 +20,13 @@ const text_dark   = '#3E3E3E';
  */
 export default async function decorate($page) {
   /* Set Background Color */
-  Background.setColor(getMetadata('color') || bkg_grey_lt);
+  let backgroundColoring = `linear-gradient(90deg, #ffffff 0%, #ffffff 50%, #e8e8e8 50%, #e8e8e8 100% )`
+  Background.setColor(backgroundColoring);
+  // Background.setColor("unset")
+  // Background.setColor("none")
+  // Background.setColor(backgroundColoring)
+  // document.querySelector("#global-background").setAttribute("style", `background: ${backgroundColoring};`)
+  document.querySelector("#global-background .background-fade.fade1").setAttribute("style", `background: ${backgroundColoring}; background-color: ${backgroundColoring};`)
 
   /* Add classes and ids to container elements */
   document.querySelector("body").classList.add("job-post");
@@ -29,6 +37,7 @@ export default async function decorate($page) {
 
   let postBody = document.querySelector(".post-container > div");
   postBody.classList.add("post-text");
+
   buildJobPostSubheader(document);
 
   /* Assemble the header block. It needs to be here else HTML will break */
@@ -84,7 +93,7 @@ export default async function decorate($page) {
 async function buildJobPostSubheader(document){
   let subheader = await assembleJobPost(document);
   if(subheader) {
-    let postBody = document.querySelector(".post-container > div.post-text");
+    let postBody = document.querySelector(".post-container div.post-text");
     postBody.prepend(subheader)
         // document.querySelector("div.similarOpps-block").append(subheader)
   } else {
