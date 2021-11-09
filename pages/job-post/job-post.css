@@ -5,7 +5,7 @@
 @import url(../../blocks/job-posting-blocks/side-articles.css);
 
 body.job-post main {
-    display: grid;
+    /* display: grid; */
 }
 
 .post-container,
