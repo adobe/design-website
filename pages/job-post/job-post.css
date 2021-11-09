@@ -57,11 +57,9 @@ body.job-post main {
     }
 }
 
-
 .header-block{
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
-    /* border: 2px dotted #0077ff; */
 }
 
 /*  .job-post{grid}
@@ -83,12 +81,6 @@ body.job-post main {
 |  grid-row:    4 / span 1                            |
 -------------------------------------------------------  */
 
-/* .job-post .left-block,.job-post .post-text {background: var(--bkg-grey-lt);} */
-
-/* .job-post .left-block,.job-post .post-text {} */
-.job-post .left-block{
-    /* background-color: white; */
-}
 .job-post .post-text {
     border: 1px solid var(--bkg-grey-lt);
 }
@@ -96,7 +88,7 @@ body.job-post main {
 /* -------- SUB HEADER START --------- */
 
 .job-post .subhead-container{
-    padding-top: 9.5em;
+    padding-top: 9.93em; /*  305px */
 }
 
 .job-post .subhead-container .details{
@@ -203,7 +195,6 @@ body.job-post main {
     margin-top: 2em; /* height: 48px; */
 }
   /* 985px space height */
-
 
 .job-post .left-block{
     background-color: white;
