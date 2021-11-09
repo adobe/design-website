@@ -153,6 +153,7 @@ body.job-post main {
     grid-row: 1 / span 2;
     max-width: 31.25em; /* 250px */
     padding: 0 2.5em 2.5em 2.5em; /* 40px */
+    background:#E4E4E4;
 }
 @media screen and (max-width: 1000px) {
     .job-post .post-text{
