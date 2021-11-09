@@ -183,7 +183,7 @@ body > main > div > div > p{
     color: #917496;
     padding: 1.5em 0 3em 1.5em;
     font-size: 1em;
-    width: 12em;
+    /* width: 12em; */
 }
 
 .inclusive-design .people.block img{
@@ -374,7 +374,7 @@ body > main > div > div > div:nth-child(10){
         grid-template-columns: auto;
         grid-template-rows: auto;
         background: #F7EFFC;
-        padding: 0;
+        padding: 1em;
         margin: 0;
         width: auto;
     }
