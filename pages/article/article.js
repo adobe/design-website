@@ -16,10 +16,11 @@ export default function decorate($main) {
     buildSimilarStories();
     buildAuthorBio();
 
-    var test = document.createElement('a')
-    test.classList.add('header-tag')
-    test.innerText = '#LEADING DESIGN'
-    document.querySelector('#whiteboarding-101').before(test)
+    var headerTag = document.createElement('a')
+    headerTag.classList.add('header-tag')
+    headerTag.innerText = '#LEADING DESIGN'
+    document.querySelector('#whiteboarding-101').before(headerTag)
+
 }
 
 async function buildSimilarStories(){
