@@ -406,6 +406,9 @@ body > div.author-bio.block > div > author-name{
 .page-type-article .similar-stories .stories .block.story .image{
     position: relative;
 }
+.page-type-article .author-info p{
+    margin-top: 0;
+}
 
 
 
