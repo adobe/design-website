@@ -210,12 +210,14 @@
 /* iPad Media Query */
 @media (min-width: 425px) and (max-width: 1024px) {
     .carousel .carousel__actions {
-        top: 80%;
+        top: 85%;
         left: 74vw;
         width: 30%;
+        padding-bottom: 3em;
     }
     .carousel {
         font-size: 21px;
+        margin-bottom: 5em;
     }
     .carousel .carousel__actions button img {
         height: 30px;

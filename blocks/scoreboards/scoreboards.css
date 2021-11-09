@@ -34,6 +34,7 @@
 .scoreboards .caption{
     font-size: 1.1em;
     width: 60%;
+    font-family: var(--serif-font);
 }
 .two-column.block > div > div:nth-child(2) > div > div:nth-child(1) {
     height: 45%;
