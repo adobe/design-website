@@ -1,6 +1,8 @@
 .job-post .left-block{
-    position: sticky;
-    top: 900px;
+    /* position: sticky;
+    top: 900px; */
+    background-color: white;
+    height: 100%;
 }
 
 

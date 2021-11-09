@@ -47,6 +47,19 @@ body.job-post main {
     .about-adobe-design{
         font-size: 1.6vw;
     }
+    .post-container{
+        max-height: 92.5em;
+        overflow-y: scroll;
+    }
+    .header-block{
+        position: sticky;
+        top: 3.42em;
+    }
+    .left-block{
+        position: sticky;
+        top: 32em;
+        display: block;
+    }
 }
 
 /* XL screen */
@@ -153,9 +166,10 @@ body.job-post main {
         margin: auto;
     }
     .job-post .left-block{
-        grid-column: span 1;
-        grid-row: 3 / span 1;
+         grid-column: span 1;
+        /* grid-row: 3 / span 1; */
         margin: auto;
+        height: max-content;
     }
 }
 .job-post .post-text h2{
@@ -198,6 +212,11 @@ body.job-post main {
 
 .job-post .left-block{
     background-color: white;
-    grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
+    /* grid-column: 1 / span 1;
+    grid-row: 2 / span 1; */
+    height: fit-content;
+    /* width: 50vw; */
+    right: 50vw;
+    margin: none;
+    display: fixed;
 }
