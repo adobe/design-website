@@ -78,7 +78,6 @@ async function buildAuthorBio() {
             $element('h3.author-title', author.title),
           ]),
           $element('.author-info', [
-            $element('strong', 'Author Bio'),
             $bio,
           ]),
         ]),
