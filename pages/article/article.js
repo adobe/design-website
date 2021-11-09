@@ -84,7 +84,7 @@ async function buildAuthorBio() {
         ]),
       ]);
 
-      document.body.insertBefore($bioBlock, document.body.querySelector('main').nextSibling);
+      document.querySelector('main').append($bioBlock)
     }
 
     $authorBlock = $element('.author.block', [
