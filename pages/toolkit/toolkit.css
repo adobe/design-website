@@ -81,6 +81,10 @@
     font-weight: var(--weight-black);
 }
 
+.toolkit .toolkit-page-content .think-differently.block .think-differently-content{
+    grid-template-columns: 2fr 1fr 2fr 1fr 4fr; /*Increasing the size on the last stat since its way too big*/
+}
+
 @media screen and (max-width: 1024px){
     .toolkit-header{
         padding-left: var(--page-header-l-padding-tablet);
