@@ -28,10 +28,10 @@ export default function decorate(win = window) {
                             <div>                \
                                 <div class="logo">  \
                                     <a href="/">      \
-                                    <picture>       \
-                                        <source media="(max-width: 400px)" srcset="${headerImage}?width=750&format=webply&optimize=medium"> \
-                                        <img src="${headerImage}?width=2000&format=webply&optimize=medium" alt="" loading="eager"> \
-                                    </picture>      \
+                                        <picture>       \
+                                            <source media="(max-width: 400px)" srcset="${headerImage}?width=750&format=webply&optimize=medium"> \
+                                            <img src="${headerImage}?width=2000&format=webply&optimize=medium" alt="" loading="eager"> \
+                                        </picture>      \
                                     </a>              \
                                 </div>              \
                             </div>                \
