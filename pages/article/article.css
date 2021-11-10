@@ -316,7 +316,7 @@ body > div.author-bio.block > div > author-name{
 
 .page-type-article .similar-stories{
     background-color: var(--bkg-navy-dark);
-    padding: 2rem 0 4rem 0;
+    padding: 2rem 0 6rem 0;
 }
 
 .page-type-article .similar-stories-content{
