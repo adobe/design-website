@@ -96,4 +96,5 @@
     color: white;
     margin-top: 2.4em;    /* 276px */
     margin-bottom: 2.4em; /* 276px */
+    font-family: var(--sans-serif-font);
 }
