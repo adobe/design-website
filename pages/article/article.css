@@ -268,7 +268,10 @@ body > main > div > div.content > picture > img{
     /* display: flex; */
     /* align-items: center; */
     /* margin: 0 218px; */
-    padding: 5em 6em 8em 6em;
+    padding: 5em 6em 8em 5em;
+}
+.page-type-article .author-bio > div p:nth-child(2){
+    padding-top: 4em;
 }
 
 body > div.author-bio.block > div > author-name{
@@ -308,6 +311,7 @@ body > div.author-bio.block > div > author-name{
 }
 .page-type-article .author-bio .author-title {
     font-size: clamp(5px, 6vw, 12px);
+    margin-top: .3em;
 }
 .page-type-article .author-bio .name {
     font-size: clamp(20px, 5vw, 25px);
@@ -316,7 +320,7 @@ body > div.author-bio.block > div > author-name{
 
 .page-type-article .similar-stories{
     background-color: var(--bkg-navy-dark);
-    padding: 2rem 0 4rem 0;
+    padding: 2rem 0 6rem 0;
 }
 
 .page-type-article .similar-stories-content{
@@ -405,6 +409,12 @@ body > div.author-bio.block > div > author-name{
 }
 .page-type-article .similar-stories .stories .block.story .image{
     position: relative;
+}
+.page-type-article .author-bio > div{
+    padding-right: 10em;
+}
+.page-type-article .author-info p{
+    margin-top: 0;
 }
 
 

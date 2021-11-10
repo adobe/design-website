@@ -97,6 +97,13 @@
     background-size:contain;
     background-position: center top 6px;
     background-repeat: no-repeat;
+
+    transition: transform 0.5s;
+}
+.page-type-team .team-cards .team-card.active .chevron-down{
+    transform: rotate(180deg);
+    /* transform: scaleY(-1); */
+    background-position: center bottom 6px;
 }
 .page-type-team .team-cards .team-card h3{
     font-family: var(--serif-font);
@@ -299,6 +306,9 @@
         margin-right: 0.8rem;
         background-position: center top 2.5px;
     }
+    .page-type-team .team-cards .team-card.active .chevron-down{
+        background-position: center bottom 2.5px;
+    }
     .page-type-team .team-cards .team-card h3{
         font-size: 1.3rem;
     }
@@ -370,6 +380,9 @@
         width: 15px;
         margin-right: 1rem;
         background-position: center top 1.5px;
+    }
+    .page-type-team .team-cards .team-card.active .chevron-down{
+        background-position: center bottom 1.5px;
     }
     .page-type-team .team-cards .team-card h3{
         font-size: 1rem;
@@ -457,7 +470,10 @@
     .page-type-team .team-cards .team-card .chevron-down{
         width: 18px;
         margin-right: 0.5rem;
-        background-position: center top 2px;
+        background-position: center top 3px;
+    }
+    .page-type-team .team-cards .team-card.active .chevron-down{
+        background-position: center bottom 3px;
     }
     .page-type-team .team-cards .team-card h3{
         width: 100%;

@@ -10,8 +10,8 @@ import {
  * @param {HTMLElement} $block
  */
 export default function decorate($block) {
-    const truncateDekTextPages = ['/']
-    const truncateDekText = truncateDekTextPages.includes(window.document.location.pathname)
+    const truncateTextPages = ['/']
+    const truncateText = truncateTextPages.includes(window.document.location.pathname)
 
   // Get the properties and identify the blocks
   const result = decorateDivisions($block, [
@@ -30,13 +30,18 @@ export default function decorate($block) {
      */
   const $text = $element('.text');
   const $tag = decorateTagLink( $element('div', ['#', $element("span.tag", props.tag)]), props.tag.replaceAll(' ', '-'), {color: 'black'});
-  const $hed = $element('.hed', props.hed);
-  const DEK_TEXT_LIMIT = 70;
+
+  const HED_TEXT_LIMIT = 50;
+  const DEK_TEXT_LIMIT = 71;
+  let hedText = props.hed;
   let dekText = props.dek;
-  if(truncateDekText){
+  if(truncateText){
     dekText = props.dek.length<DEK_TEXT_LIMIT ? props.dek:props.dek.substring(0,DEK_TEXT_LIMIT-3)+'...';
+    hedText = props.hed.length<HED_TEXT_LIMIT ? props.hed:props.hed.substring(0,HED_TEXT_LIMIT-3)+'...';
   }
+  const $hed = $element('.hed', hedText);
   const $dek = $element('.dek', dekText);
+  
   const $byline = $element('.byline');
 
   /** if props.author exists: */

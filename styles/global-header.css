@@ -97,6 +97,10 @@ header#global-header {
     height: 24px;
     width: 36px;
 }
+#global-header .dropdown-menu-button img.close-menu{
+    height: 36px;
+    width: 36px;
+}
 
 /* Hamburger Menu */
 #global-header .menu-dropdown-container{

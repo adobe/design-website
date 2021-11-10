@@ -5,7 +5,7 @@
 @import url(../../blocks/job-posting-blocks/side-articles.css);
 
 body.job-post main {
-    display: grid;
+    /* display: grid; */
 }
 
 .post-container,
@@ -47,6 +47,19 @@ body.job-post main {
     .about-adobe-design{
         font-size: 1.6vw;
     }
+    .post-container{
+        max-height: 92.5em;
+        overflow-y: scroll;
+    }
+    .header-block{
+        position: sticky;
+        top: 3.42em;
+    }
+    .left-block{
+        position: sticky;
+        top: 32em;
+        display: block;
+    }
 }
 
 /* XL screen */
@@ -57,11 +70,9 @@ body.job-post main {
     }
 }
 
-
 .header-block{
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
-    /* border: 2px dotted #0077ff; */
 }
 
 /*  .job-post{grid}
@@ -83,12 +94,6 @@ body.job-post main {
 |  grid-row:    4 / span 1                            |
 -------------------------------------------------------  */
 
-/* .job-post .left-block,.job-post .post-text {background: var(--bkg-grey-lt);} */
-
-/* .job-post .left-block,.job-post .post-text {} */
-.job-post .left-block{
-    /* background-color: white; */
-}
 .job-post .post-text {
     border: 1px solid var(--bkg-grey-lt);
 }
@@ -96,7 +101,7 @@ body.job-post main {
 /* -------- SUB HEADER START --------- */
 
 .job-post .subhead-container{
-    padding-top: 9.5em;
+    padding-top: 9.93em; /*  305px */
 }
 
 .job-post .subhead-container .details{
@@ -153,6 +158,7 @@ body.job-post main {
     grid-row: 1 / span 2;
     max-width: 31.25em; /* 250px */
     padding: 0 2.5em 2.5em 2.5em; /* 40px */
+    background:#E4E4E4;
 }
 @media screen and (max-width: 1000px) {
     .job-post .post-text{
@@ -161,9 +167,10 @@ body.job-post main {
         margin: auto;
     }
     .job-post .left-block{
-        grid-column: span 1;
-        grid-row: 3 / span 1;
+         grid-column: span 1;
+        /* grid-row: 3 / span 1; */
         margin: auto;
+        height: max-content;
     }
 }
 .job-post .post-text h2{
@@ -204,9 +211,13 @@ body.job-post main {
 }
   /* 985px space height */
 
-
 .job-post .left-block{
     background-color: white;
-    grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
+    /* grid-column: 1 / span 1;
+    grid-row: 2 / span 1; */
+    height: fit-content;
+    /* width: 50vw; */
+    right: 50vw;
+    margin: none;
+    display: fixed;
 }

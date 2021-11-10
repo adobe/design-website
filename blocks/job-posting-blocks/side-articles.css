@@ -1,0 +1,59 @@
+.job-post .left-block{
+    /* position: sticky;
+    top: 900px; */
+    background-color: white;
+    height: 100%;
+}
+
+
+.job-post .artcl-card{
+    font-size: 30.7px;
+    width:  15.08em;
+    height: 23.88em;
+    padding: 0.65em 1em 2.4em 1em;
+    margin: 3.88em 11.56em 5.08em auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.job-post .artcl-card .tag-link{
+    margin: 1.1em auto 1.1em 0;
+}
+
+.job-post .artcl-card .artcl-img{
+    /* width: 12.9em; */
+    height:  8.73em;
+    min-height: 8.73em;
+    overflow: hidden;
+    /* background-size: cover; */
+    margin: 1.1em 0;
+    box-sizing: border-box;
+}
+
+.job-post .artcl-card .artcl-img .article_img{
+    height: 8.73em;
+    min-height: 8.73em;
+    width: auto;
+    overflow: hidden;
+    margin: auto;
+    /* background-size: cover; */
+}
+
+.job-post .artcl-card .artcl-title,
+.job-post .artcl-card .written-date{
+    /* margin: 1.6em 0px 3em 0px; */
+    text-align: center;
+}
+
+.job-post .artcl-card .artcl-title{
+    margin: 1.6em 0px 0px 0px;
+    font-size:   1.3em;
+    line-height: 1.125em;
+}
+
+.job-post .artcl-card .written-date{
+    margin: 3em auto 2.4em auto;
+    font-size:   0.72em;
+    line-height: 1.125em;
+}

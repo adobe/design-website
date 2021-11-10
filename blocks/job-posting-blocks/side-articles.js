@@ -5,19 +5,19 @@ const sideArticles_fake_content = [
     {
         tag_text: "AdobeLife",
         tag_link: "https://www.adobe.com",
-        image: "../../resources/images/filler-image.png",
+        img: "./media_1ec0286ab799a2e6532016cdfa7eaa13ef325b24f.png?width=750&format=webply&optimize=medium",
         article_tite: "Adobe achieves global gender pay parity",
         date: "July 13, 2020",
-        backgroundColor: '#ff00aa',
+        backgroundColor: '#ff0000',
         textColor: "#ffffff",
 
     },
     {
         tag_text: "AdobeLife",
         tag_link: "https://www.adobe.com",
-        image: "../../resources/images/filler-image.png",
-        article_tite: "Adobe achieves global gender pay parity",
-        date: "July 13, 2020",
+        img: "./media_165f4f8868b26c3ffd9f1129462ad5ee2392f3222.jpeg?width=750&amp;format=webply&amp;optimize=medium",
+        article_tite: "What an interview panel could tell you about the job",
+        date: "December 13, 2019",
         backgroundColor: '#ffffff',
         textColor: "#000000",
 
@@ -33,11 +33,21 @@ export default async function makeSideArticlesBlock(document) {
     sideArticles_fake_content.forEach(
         elm => {
             let $art_card = $element("div.artcl-card", [
-                    $element("a.tag-link",`\
-                        href="${elm.tag_link || ' '}" \
-                        ${elm.tag_text|| 'Link'}
-                    `),
-                    $element("div.artcl-img", `src=${elm.img}`),
+                    $element("a.tag-link",
+                        { attr:{ href: elm.tag_link || ' ', target: "_blank"}},elm.tag_text|| 'Link'
+                    ),
+                    /**
+                     * TODO:  style artcl-img
+                     * Set a height/width to container so that loading images
+                     * don't mess up style/format
+                     * */
+                    $element(
+                        "div.artcl-img",
+                        $element(
+                            "img.article_img",
+                             { attr: { src: elm.img, srcset: elm.img, alt: "Placeholder "} }
+                        )
+                    ),
                     $element("div.artcl-title", elm.article_tite),
                     $element("div.written-date", elm.date),
                 ]);

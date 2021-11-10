@@ -161,14 +161,14 @@ export default function decorate($main) {
     endDiv.prepend(resourcesDiv)
 
     // Rig up teamsCards to open and close
-    teamCardsDiv.querySelectorAll("div.card-header").forEach(function(element){
+    teamCardsDiv.querySelectorAll("div.team-card").forEach(function(element){
       element.addEventListener("click", function(){
         let alreadyActive;
-        if(element.parentElement.classList.contains("active"))
+        if(element.classList.contains("active"))
           alreadyActive = true;
         removeActive()
         if(!alreadyActive)
-          element.parentElement.classList.add("active")
+          element.classList.add("active")
       })
     })
 
