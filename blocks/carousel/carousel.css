@@ -34,12 +34,13 @@
 .carousel {
     overflow: hidden;
     position: relative;
-    height: calc(70vh - 87px);
+    height: calc(50vh - 87px);
     width: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
+    margin-bottom: 60px;
 }
 .carousel .carousel__item,
 .carousel .carousel__item--hidden {
