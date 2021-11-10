@@ -34,13 +34,13 @@
 .carousel {
     overflow: hidden;
     position: relative;
-    height: calc(50vh - 87px);
+    height: 494px ;
     width: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
-    margin-bottom: 60px;
+    margin-bottom: 76px;
 }
 .carousel .carousel__item,
 .carousel .carousel__item--hidden {
@@ -209,7 +209,7 @@
 /* iPad Media Query */
 @media (min-width: 425px) and (max-width: 1024px) {
     .carousel .carousel__actions {
-        top: 85%;
+        top: 100%;
         left: 74vw;
         width: 30%;
         padding-bottom: 3em;
@@ -217,6 +217,7 @@
     .carousel {
         font-size: 21px;
         margin-bottom: 5em;
+        overflow: visible;
     }
     .carousel .carousel__actions button img {
         height: 30px;
@@ -249,7 +250,7 @@
         max-width: 62.54em;
     }
     .carousel .carousel__actions {
-        top: 80%;
+        top: 100%;
         left: 50vw;
         width: 30%;
     }

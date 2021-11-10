@@ -32,7 +32,7 @@ export default function decorate($block) {
   const $tag = decorateTagLink( $element('div', ['#', $element("span.tag", props.tag)]), props.tag.replaceAll(' ', '-'), {color: 'black'});
 
   const HED_TEXT_LIMIT = 50;
-  const DEK_TEXT_LIMIT = 71;
+  const DEK_TEXT_LIMIT = 75;
   let hedText = props.hed;
   let dekText = props.dek;
   if(truncateText){
