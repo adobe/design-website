@@ -5,7 +5,9 @@ export default function decorate(win = window) {
     if ($footer) {
       $footer.innerHTML = 
         '<div class="footer-content">                                 \
-          <img class="source" src="/resources/adobe-design.png">      \
+          <a href="/">      \
+            <img class="source" src="/resources/adobe-design.png">      \
+          </a> \
           <nav>                                                       \
             <a href="">Behance</a>                                    \
             <a href="/jobs/">Jobs</a>                                 \
