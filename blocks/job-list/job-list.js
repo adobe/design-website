@@ -25,12 +25,13 @@ export default async function decorate($block) {
       ]);
       $block.append($el);
     }
-    const seeJobsDiv = document.createElement("a");
+    const seeJobsDiv = $element("a.see-jobs", { attr: { href: "/jobs/" } }, $element("span", "VIEW OUR JOB OPENINGS"))
+    /* const seeJobsDiv = $element("a.see-jobs");
     seeJobsDiv.classList.add("see-jobs");
     seeJobsDiv.setAttribute("href", "/jobs/");
     const seeJobs = document.createElement("span");
     seeJobs.innerHTML = "VIEW OUR JOB OPENINGS";
-    seeJobsDiv.append(seeJobs);
+    seeJobsDiv.append(seeJobs); */
 
     $block.querySelector.innerHTML = "";
     $block.append(seeJobsDiv);
