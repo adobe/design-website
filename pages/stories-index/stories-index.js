@@ -17,15 +17,15 @@ export default async function decorator($main) {
     }
     const allStories = index.stories.data;
 
-    //Code to demo the load more button
-    const demoStory = {
+    //Code to demo the load more button while we only have 5 stories in index
+    /* const demoStory = {
         path: "/stories/process/designing-for-creative-systems",
         image: "",
         title: ""}
 
     for(let i = 0; i < 12; i++){
         allStories.push(demoStory)
-    }
+    } */
 
     var tagFilter = location.search ? location.search.split("=")[1] : null;
     $main.classList.add("stories-index-view");
