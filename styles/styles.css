@@ -50,8 +50,8 @@ html{
         /* Font Families */
         --fast-sans-serif-font: Helvetica, Arial, sans-serif;
 
-        --serif-font: "Adobe Clean Serif", adobe-clean-serif, Georgia, serif;
-        --sans-serif-font: "Adobe Clean", adobe-clean, Helvetica, Arial, sans-serif;
+        --serif-font: "adobe-clean-serif", adobe-clean-serif, Georgia, serif;
+        --sans-serif-font: "adobe-clean", adobe-clean, Helvetica, Arial, sans-serif;
 
         /* Font Weights */
         --weight-light:      200;  /* lighter,   100-300 */

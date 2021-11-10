@@ -51,7 +51,7 @@ export const Background = {
             this.setGradientColors(color);
             Background.$activeFade.style.opacity = 1;
             this.swapActive();
-        }, TRANS_TIME);
+        }, (TRANS_TIME - 3000));
     },
     swapActive() {
         Background.$inactiveFade.style["z-index"] = 1;

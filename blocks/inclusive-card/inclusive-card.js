@@ -36,7 +36,7 @@ import {
     // const $tag = decorateTagLink( $element('div', `#${props.tag}`), { color: 'black' } );
     // $tag.innerHTML = $tag.innerHTML.replace(/[A-Za-z ]+/gm, '<span class="tag">$&</span>')
     const $hed = $element('.hed', props.hed);
-    const DEK_TEXT_LIMIT = 70;
+    const DEK_TEXT_LIMIT = 75;
     let dekText = props.dek;
     if(truncateDekText){
       dekText = props.dek.length<DEK_TEXT_LIMIT ? props.dek:props.dek.substring(0,DEK_TEXT_LIMIT-3)+'...';
