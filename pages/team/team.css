@@ -82,7 +82,7 @@
     .page-type-team .team-cards .team-card:focus-within{
         /* height: 11.4em; */
         height: 15.4em;
-        transform:translate3d(0px, -2em, 0px)
+        transform:translate3d(0px, -2em, 0px);
     }
 }
 
@@ -125,8 +125,6 @@
     width: 30%;
     font-size: 1.7rem;
 }
-
-
 
 .page-type-team .team-cards .team-card div:nth-of-type(2){
     padding-top: 13rem;
@@ -184,8 +182,13 @@
     margin: 8.5rem auto;
     font-size: 4em;
     line-height: 1em;
-
     width: 85%;
+}
+
+.page-type-team .foot-content .resources-section h2:first-of-type{
+    background: #ffffff;
+    padding: 8.5rem 4.7rem;
+    margin: 0px auto;
 }
 
 
