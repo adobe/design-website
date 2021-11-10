@@ -15,6 +15,18 @@ export default async function decorator($main) {
     if (!index) {
         index = await fetchIndex();
     }
+    const allStories = index.stories.data;
+
+    //Code to demo the load more button while we only have 5 stories in index
+    /* const demoStory = {
+        path: "/stories/process/designing-for-creative-systems",
+        image: "",
+        title: ""}
+
+    for(let i = 0; i < 12; i++){
+        allStories.push(demoStory)
+    } */
+
     var tagFilter = location.search ? location.search.split("=")[1] : null;
     $main.classList.add("stories-index-view");
 
@@ -26,23 +38,35 @@ export default async function decorator($main) {
     const $target = $main.querySelector(":scope > div > div");
     const $thinkDifferent = document.querySelector(".think-differently");
     const $results = $element(".stories");
-    const $loadMoreButton = $element(".load-more-stories", "Load More");
+    const $loadMoreButton = $element(".load-more-stories", $element("span", "LOAD MORE"))
     $target.append( $wrap($element('.content'), [$results, $loadMoreButton, $thinkDifferent]));
-    index.stories.data.forEach(story => {
-        if(storyMatch(tagFilter, story)) {
-            $results.append(buildStory(story));
-        }
-    });
+
+    let storyCount = 0;
+    appendStories(allStories);
+
+    if(storyCount >= allStories.length)
+        $loadMoreButton.remove();
 
     $loadMoreButton.addEventListener("click", function () {
-        //TODO: Fix this once we filter stories
-        index.stories.data.forEach(story => {
+        appendStories(allStories)
+        if(storyCount >= allStories.length)
+            $loadMoreButton.remove();
+    })
+
+    function appendStories(allStories, count = 6){
+        
+        for(let i = 0; i<count && storyCount<allStories.length;){
+            let story = allStories[storyCount]
             if(storyMatch(tagFilter, story)) {
                 $results.append(buildStory(story));
+                i++;
             }
-        });
-    })
+            storyCount++;
+        }
+    }
 }
+
+
 
 function buildStory( story ) {
     const mediaAttr = "(max-width: 400px)";
