@@ -76,8 +76,8 @@ export default function decorate($block) {
 
   let slidePosition = 0;
   const slides = document.getElementsByClassName('carousel__item');
-  let next = document.getElementsByClassName('carousel__button--next');
-  let prev = document.getElementsByClassName('carousel__button--prev');
+  let prev = document.getElementsByClassName('carousel__button--next');
+  let next = document.getElementsByClassName('carousel__button--prev');
   const totalSlides = slides.length;
 
   function applySlide() {
@@ -154,7 +154,7 @@ export default function decorate($block) {
   }
 
   let autoInterval = setInterval(() => {
-    moveToNextSlide();
+    moveToPrevSlide();
   }, SLIDE_TIME);
 
   var timeout = null;
@@ -217,7 +217,7 @@ export default function decorate($block) {
 
     var myStr = document.querySelectorAll('.carousel h2')
     for(let h2Index = 0; h2Index < myStr.length; h2Index++){
-      if(myStr[h2Index].innerText.length > 25){
+      if(myStr[h2Index].innerText.length > 50){
         myStr[h2Index].innerText = myStr[h2Index].innerText.substring(0,25) + '...'
       }
       console.log(myStr[h2Index].innerText);
