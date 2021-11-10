@@ -10,7 +10,7 @@
 }
 
 .page-type-article a{
-    color: #FF7D4F;
+    color: black;
     cursor: pointer;
 }
 
@@ -63,7 +63,7 @@ body > main > div > div > p:nth-child(4) > em{
 .page-type-article .content .lede.block{
     color: #4A4545;
     padding-bottom: 3em;
-    padding: 1em 1em 3em 2em;
+    padding: 1em 1em 3em 0;
 }
 body > main > div > div > p:nth-child(3){
     padding-bottom: 1em;
@@ -81,7 +81,7 @@ body > main > div > div > p:nth-child(3){
 }
 .page-type-article .header.block h2{
     text-align: left;
-    padding: 0 7em 1em 4.1em;
+    padding: 0 7em 2em 4.1em;
     font-size: 2em;
 }
 .page-type-article .content h2{
@@ -245,7 +245,6 @@ body > main > div > div.content > picture > img{
     margin-top: 0;
 }
 .page-type-article .additional-reading.block a{
-    text-decoration: none;
     font-family: var( --sans-serif-font);
     font-weight: var( --weight-regular);
 }
@@ -268,7 +267,7 @@ body > main > div > div.content > picture > img{
     /* display: flex; */
     /* align-items: center; */
     /* margin: 0 218px; */
-    padding: 5em 6em 8em 5em;
+    padding: 5em 6em 8em 6em;
 }
 .page-type-article .author-bio > div p:nth-child(2){
     padding-top: 4em;
@@ -294,7 +293,7 @@ body > div.author-bio.block > div > author-name{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-right: 6em;
+    padding-right: 9em;
     /* width: 45% */
 }
 
@@ -361,7 +360,6 @@ body > div.author-bio.block > div > author-name{
 .page-type-article .similar-stories .stories .block.story a{
     color: white;
     
-    text-decoration: none;
 }
 .page-type-article .similar-stories .stories .block.story a > .story-text{
     margin-top: 1em;
