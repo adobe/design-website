@@ -1,6 +1,6 @@
 export default function decorate(win = window) {
     console.log(win.document.location.pathname)
-    const blackHeaderPages = ['/jobs/', '/stories/process/whiteboard-101']
+    const blackHeaderPages = ['/jobs/', '/stories/process/whiteboard-101', '/stories/process/designing-for-creative-systems']
     const useBlackHeader = blackHeaderPages.includes(win.document.location.pathname)
     var headerImage = useBlackHeader?'/resources/adobe-black-tag.png':'/resources/tag+adobe.svg';
     var headerImageMobile = useBlackHeader?'/resources/adobe-design.png':'./media_1d3601e007f7c9b5cb83303a390ca0e7fec040eef.png';
@@ -28,10 +28,10 @@ export default function decorate(win = window) {
                             <div>                \
                                 <div class="logo">  \
                                     <a href="/">      \
-                                    <picture>       \
-                                        <source media="(max-width: 400px)" srcset="${headerImage}?width=750&format=webply&optimize=medium"> \
-                                        <img src="${headerImage}?width=2000&format=webply&optimize=medium" alt="" loading="eager"> \
-                                    </picture>      \
+                                        <picture>       \
+                                            <source media="(max-width: 400px)" srcset="${headerImage}?width=750&format=webply&optimize=medium"> \
+                                            <img src="${headerImage}?width=2000&format=webply&optimize=medium" alt="" loading="eager"> \
+                                        </picture>      \
                                     </a>              \
                                 </div>              \
                             </div>                \
@@ -75,6 +75,7 @@ export default function decorate(win = window) {
                         if(showMenuDropdown){
                             $header.querySelector(".menu-dropdown-container").classList.add("exit-menu");
                             $header.querySelector("#menu-toggle").src = hamburgerMenu;
+                            $header.querySelector("#menu-toggle").classList.remove("close-menu")
                             setTimeout(() => {
                                 if(showMenuDropdown){
                                 $header.querySelector(".menu-dropdown-container").classList.add("hide-menu");
@@ -82,6 +83,7 @@ export default function decorate(win = window) {
                             }, 400)
                         } else {
                             $header.querySelector("#menu-toggle").src = closeIcon
+                            $header.querySelector("#menu-toggle").classList.add("close-menu")
                             $header.querySelector(".menu-dropdown-container").classList.remove("hide-menu");
                             setTimeout(() => {
                                 $header.querySelector(".menu-dropdown-container").classList.remove("exit-menu");
