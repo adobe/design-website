@@ -271,7 +271,7 @@
         font-size: 21px;
         width: 100%;
         flex-direction: column;
-        height: 42em;
+        height: 100%;
         justify-content: flex-start;
     }
     .carousel .carousel__actions button img {
@@ -291,7 +291,8 @@
         width: 66vw;
     }
     .carousel.block .carousel__item--visible .number h2 {
-        margin-bottom: 1em;
+        margin-bottom: .5em;
+        margin-top: .5em;
     }
     .carousel .carousel__item--visible .number h3.dek-3 {
         margin-bottom: 1.5em;
