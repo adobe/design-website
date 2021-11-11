@@ -82,6 +82,7 @@ export default function decorate($main) {
     animateWhatWeDo.classList.add("js-scroll", "fade-in")
     firstElement.insertAdjacentElement('afterend', shiftedContent)
 
+    /** Build Accordian Cards */
     //Oranizing individual teams cards
     let card = 0;
     let teamCard = $element(".team-card");
@@ -89,29 +90,35 @@ export default function decorate($main) {
     let leftBlock = document.createElement("div");
     let rightBlock = document.createElement("div");
 
-    teamCardsDiv.querySelectorAll(":scope > *").forEach(element =>{
-      if(card !== 0 && element.nodeName === "H3"){
-        rightBlock.append($element("a.view-jobs", { attr: { href: '/jobs/' } }, "VIEW OUR JOB OPENINGS"))
-        teamCard = $wrap(teamCard, [leftBlock,rightBlock])
-        teamCardsDiv.append(teamCard)
-        teamCard = $element(".team-card");
-        teamCard.classList.add("card-"+card)
-        leftBlock = document.createElement("div");
-        rightBlock = document.createElement("div");
-      }
+    teamCardsDiv.querySelectorAll(":scope > *").forEach(
+      element =>{
+        if(card !== 0 && element.nodeName === "H3"){
+          rightBlock.append(
+            $element("a.view-jobs",
+              {attr: { href: '/jobs/' }},
+              "VIEW OUR JOB OPENINGS"
+            )
+          )
+          teamCard = $wrap(teamCard, [leftBlock,rightBlock])
+          teamCardsDiv.append(teamCard)
+          teamCard = $element(".team-card");
+          teamCard.classList.add("card-"+card)
+          leftBlock = document.createElement("div");
+          rightBlock = document.createElement("div");
+        }
 
-      if(element.nodeName === "H3"){
-        teamCard.append($wrap($element('.card-header'), [$element('.chevron-down'), element]))
-        card++
-      }else if(element.nodeName ==="P")
-        if(element.innerHTML.includes('picture'))
+        if(element.nodeName === "H3"){
+          teamCard.append($wrap($element('.card-header'), [$element('.chevron-down'), element]))
+          card++
+        } else if(element.nodeName ==="P"){
+          if(element.innerHTML.includes('picture')){
+            leftBlock.append(element)
+          } else { rightBlock.append(element)}
+        } else {
           leftBlock.append(element)
-        else
-          rightBlock.append(element)
-      else
-        leftBlock.append(element)
-
-    })
+        }
+      }
+    )
     rightBlock.append($element("a.view-jobs", { attr: { href: '/jobs/' } }, "VIEW OUR JOB OPENINGS"))
     teamCard = $wrap(teamCard, [leftBlock,rightBlock])
     teamCardsDiv.append(teamCard)
@@ -127,12 +134,12 @@ export default function decorate($main) {
     endDiv.querySelectorAll(":scope > *").forEach(element =>{
       if(element.nodeName === "H2" || element.nodeName ==="DIV")
         section++
-        
+
       if(section === 1){
         if(element.nodeName === "H2"){
           element.classList.add("js-scroll", "fade-in")
           resourcesDiv.append(element)
-          
+
           resourcesDiv.append(resources)
         }else if(element.nodeName === "P"){
           let resource = $element(".resource");
@@ -160,6 +167,7 @@ export default function decorate($main) {
     })
     endDiv.prepend(resourcesDiv)
 
+    /** Accordian Cards open / close events:  */
     // Rig up teamsCards to open and close
     teamCardsDiv.querySelectorAll("div.team-card").forEach(function(element){
       element.addEventListener("click", function(){
@@ -177,5 +185,6 @@ export default function decorate($main) {
         card.classList.remove("active")
       })
     }
+
     $scrollAnimation();
 }

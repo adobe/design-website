@@ -5,7 +5,7 @@
 .page-type-team .title-content{
     margin: var(--page-header-margin);
     padding-left: var(--page-header-l-padding);
-    
+
     color: white;
 }
 
@@ -16,11 +16,10 @@
     font-weight: var(--weight-black);
 }
 
-.page-type-team .content{
-    background: white;
-}
+/* .page-type-team .content{} */
 
 .page-type-team .head-content{
+    background: white;
     padding: 4em;
     color: #3E3E3E;
 }
@@ -37,7 +36,7 @@
     grid-template-columns: 43% 57%;
     font-size: 1.4em;
     line-height: 1.6em;
-    
+
 }
 
 .page-type-team .head-content .head-text p{
@@ -56,29 +55,85 @@
     margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
-/*
-    Team Card content
-*/
+
+/* --- Team Card content --- */
 
 .page-type-team .team-cards .team-card{
     position: relative;
-
     display:grid;
     grid-template-columns: 50% 50%;
-
-    height: 350px;
-
-    overflow-y: hidden;
-    transition: height 0.5s;
+    height: 11.4em; /* 350px; */
+    transition: all 0.5s;
+    box-sizing: border-box;
 }
+
+/* ----- team card -- Magic Hover state ----- */
+/* ----- Query to include desktop or mouse/stylus input: ----- */
+@media screen and (min-width: 1000px), screen and (any-pointer: fine) {
+    .page-type-team .content,
+    .page-type-team .content.scroll-passing{
+        z-index: 10;
+        /* Set up 3d voodoo magic on container*/
+        -webkit-transform-style: preserve-3d;
+           -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+              -webkit-box-align: center;
+                    align-items: center;
+            -webkit-perspective: 300px;
+                    perspective: 300px;
+    }
+    .page-type-team .team-cards{
+        font-size: clamp(16px, 1.6vw, 30.7px);
+        /* 3d voodoo magic on items*/
+        -webkit-perspective-origin: top;
+                perspective-origin: top;
+        -webkit-transform-style: preserve-3d;
+           -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+            -webkit-perspective: 1000px;
+                    perspective: 1000px;
+    }
+    .page-type-team .team-cards:hover .team-card:not(:hover),
+    .page-type-team .team-cards.scroll-passing .team-card:not(.scroll-passing){
+        /* More magic, to make effect and preserve height: */
+        transform: rotateX(-0.5deg) translate3d(0px, -3px, 2px) scale3d(1, 1.06, 1);
+    }
+    .page-type-team .team-cards:hover .team-card.active:not(:hover),
+    .page-type-team .team-cards.scroll-passing .team-card.active:not(.scroll-passing){
+        /* More magic, to make effect and preserve height: */
+        transform: rotateX(deg) translate3d(0px, 0px, 0px) scale3d(1, 1, 1)
+    }
+    .page-type-team .team-cards .team-card:not(:hover),
+    .page-type-team .team-cards .team-card:not(.scroll-passing){
+        /* More magic, to make effect and preserve height: */
+        overflow-y: hidden;
+        -webkit-transform: rotateX(0deg) translate3d(0px, 0px, 0px) scale3d(1, 1, 1);
+                transform: rotateX(0deg) translate3d(0px, 0px, 0px) scale3d(1, 1, 1);
+    }
+    .page-type-team .team-cards .team-card:hover,
+    .page-type-team .team-cards .team-card.scroll-passing{
+        overflow-y: hidden;
+            height: 13.4em;
+        /* More magic, to make effect and preserve height: */
+        -webkit-perspective-origin: top;
+                perspective-origin: top;
+        -webkit-transform: rotateX(-1deg) translate3d(0px, -12px, 4px) scale3d(1, 1.1086, 1);
+                transform: rotateX(-1deg) translate3d(0px, -12px, 4px) scale3d(1, 1.1086, 1);
+    }
+}
+/* ----- END team card -- Magic Hover state ----- */
+
 .page-type-team .team-cards .team-card.active{
+    height: 25.45em;/* 720px; */
     height: 720px;
 }
-
 
 .page-type-team .team-cards .team-card div:first-child{
     padding-top: 2.5rem;
 }
+
 .page-type-team .team-cards .team-card .card-header{
     position: absolute;
     margin: 2em 5%;
@@ -87,24 +142,24 @@
     width: 90%;
     display: flex;
 }
-.page-type-team .team-cards .team-card .chevron-down{
-    width: 20px;
 
-    margin-right: 2rem;
-    
+.page-type-team .team-cards .team-card .chevron-down{
     box-sizing: border-box;
+    margin-right: 2rem;
+    width:  20px;
+    height: 20px;
     background-image: url("../../resources/chevron-down-black.svg");
-    background-size:contain;
     background-position: center top 6px;
     background-repeat: no-repeat;
-
     transition: transform 0.5s;
+    background-size: contain;
+    transform-origin: center;
 }
 .page-type-team .team-cards .team-card.active .chevron-down{
     transform: rotate(180deg);
-    /* transform: scaleY(-1); */
-    background-position: center bottom 6px;
+    background-position: center;
 }
+
 .page-type-team .team-cards .team-card h3{
     font-family: var(--serif-font);
     margin-block: unset;
@@ -114,13 +169,11 @@
 
 .page-type-team .team-cards .team-card div:nth-of-type(2){
     padding-top: 13rem;
-    
 }
 .page-type-team .team-cards .team-card div:nth-of-type(2) img {
     width: calc(100% - 4em);
     padding-left: 2em;
 }
-
 .page-type-team .team-cards .team-card div:nth-of-type(3){
     padding-top: 14.5rem;
     padding-left: 4rem;
@@ -142,56 +195,22 @@
     color: white;
 }
 
+
 /* COLORS */
-
-.page-type-team .team-cards .team-card{
-    background-color: lightgrey;
-}
-.page-type-team .team-cards .team-card div:last-child{
-    background-color: grey;
-}
-
-.page-type-team .team-cards .team-card.card-0{
-    background-color: #FFCAB9;
-}
-.page-type-team .team-cards .team-card.card-0 div:last-child{
-    background-color: #FF7D4F;
-}
-
-.page-type-team .team-cards .team-card.card-1{
-    background-color: #D4CEFF;
-}
-.page-type-team .team-cards .team-card.card-1 div:last-child{
-    background-color: #3021A0;
-}
-
-.page-type-team .team-cards .team-card.card-2{
-    background-color: #FFDDDE;
-}
-.page-type-team .team-cards .team-card.card-2 div:last-child{
-    background-color: #E51D24;
-}
-
-.page-type-team .team-cards .team-card.card-3{
-    background-color: #C5D1C7;
-}
-.page-type-team .team-cards .team-card.card-3 div:last-child{
-    background-color: #3E5241;
-}
-
-.page-type-team .team-cards .team-card.card-4{
-    background-color: #C7FFEF;
-}
-.page-type-team .team-cards .team-card.card-4 div:last-child{
-    background-color: #4A9681;
-}
-
-.page-type-team .team-cards .team-card.card-5{
-    background-color: #D5E2FF;
-}
-.page-type-team .team-cards .team-card.card-5 div:last-child{
-    background-color: #3D517B;
-}
+.page-type-team .team-cards .team-card div:nth-child(2){background-color: lightgrey;}
+.page-type-team .team-cards .team-card div:last-child{background-color: grey;}
+.page-type-team .team-cards .team-card.card-0 div:nth-child(2){background-color: #FFCAB9;}
+.page-type-team .team-cards .team-card.card-0 div:last-child{background-color: #FF7D4F;}
+.page-type-team .team-cards .team-card.card-1 div:nth-child(2){background-color: #D4CEFF;}
+.page-type-team .team-cards .team-card.card-1 div:last-child{background-color: #3021A0;}
+.page-type-team .team-cards .team-card.card-2 div:nth-child(2){background-color: #FFDDDE;}
+.page-type-team .team-cards .team-card.card-2 div:last-child{background-color: #E51D24;}
+.page-type-team .team-cards .team-card.card-3 div:nth-child(2){background-color: #C5D1C7;}
+.page-type-team .team-cards .team-card.card-3 div:last-child{background-color: #3E5241;}
+.page-type-team .team-cards .team-card.card-4 div:nth-child(2){background-color: #C7FFEF;}
+.page-type-team .team-cards .team-card.card-4 div:last-child{background-color: #4A9681;}
+.page-type-team .team-cards .team-card.card-5 div:nth-child(2){background-color: #D5E2FF;}
+.page-type-team .team-cards .team-card.card-5 div:last-child{background-color: #3D517B;}
 
 
 /*
@@ -204,17 +223,19 @@
     margin: 8.5rem auto;
     font-size: 4em;
     line-height: 1em;
-    
     width: 85%;
 }
 
-
+.page-type-team .foot-content .resources-section h2:first-of-type{
+    background: #ffffff;
+    padding: 8.5rem 4.7rem;
+    margin: 0px auto;
+}
 
 .page-type-team .foot-content .resources-section .resources{
     display:flex;
     justify-content: space-between;
     width: 100%;
-    
 }
 
 .page-type-team .foot-content .resources-section .resources .resource{
@@ -315,7 +336,7 @@
 
     .page-type-team .team-cards .team-card div:nth-of-type(2){
         padding-top: 8rem;
-        
+
     }
 
     .page-type-team .team-cards .team-card div:nth-of-type(3){
@@ -390,9 +411,9 @@
 
     .page-type-team .team-cards .team-card div:nth-of-type(2){
         padding-top: 6rem;
-        
+
     }
-    
+
     .page-type-team .team-cards .team-card div:nth-of-type(3){
         padding-top: 6rem;
         padding-left: 5rem;
@@ -452,7 +473,7 @@
     .page-type-team .team-cards .team-card{
         grid-template-columns: unset;
         grid-template-rows: 100% 0;
-    
+
         height: 280px;
     }
     .page-type-team .team-cards .team-card.active{
@@ -482,12 +503,12 @@
 
     .page-type-team .team-cards .team-card div:nth-of-type(2){
         padding-top: 8rem;
-        
+
     }
     .page-type-team .team-cards .team-card div:nth-of-type(2) img {
         width: calc(100% - 8em);
         padding-left: 4rem;
-    } 
+    }
 
     .page-type-team .team-cards .team-card div:nth-of-type(3){
         padding-top: 2.5rem;
@@ -523,7 +544,7 @@
     .page-type-team .team-cards .team-card div:nth-of-type(2) img {
         width: calc(100% - 5em);
         padding-left: 2.5rem;
-    } 
+    }
     .page-type-team .content .team-cards .team-card div:nth-of-type(3){
         padding-left: 3rem;
     }
