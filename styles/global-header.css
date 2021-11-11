@@ -1,6 +1,6 @@
 /* Beginning of global-header styling */
 header#global-header {
-    font-size: clamp(16px, 1.6vw, 20px);
+    font-size: clamp(12px, 1.6vw, 16px);
     display:flex;
     /* padding: 20px 0px; */
     box-sizing: border-box;
@@ -77,7 +77,7 @@ header#global-header {
 }
 
 #global-header nav a {
-    padding:10px;
+    padding: 10px 17px;
     box-sizing: border-box;
     color: #FFFFFF;
     text-decoration: none;

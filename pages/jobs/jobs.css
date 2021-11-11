@@ -27,7 +27,7 @@
 .page-type-jobs .head-content p:last-child{
     line-height: 1.6em;
     margin: 7rem 0 10rem 0;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     padding-left: 30%;
     padding-right: 10%;
 }
@@ -55,30 +55,32 @@
 }
 .page-type-jobs .jobs-container .job-category{
     display: grid;
-    grid-template-rows: 8em auto;
     padding-top: 5rem;
 }
 .page-type-jobs .jobs-container .job-category h2{
     font-weight: var(--weight-bold);
     font-size: 2rem;
-    padding-bottom: 2rem;
 }
 
 .page-type-jobs .jobs-container .job-category a{
-    font-size: 0.6em;
+    font-size: clamp(0.6em, 1.5vw,0.8em);
     line-height: 1em;
     display:grid;
-    grid-template-columns: 78% 20%;
+    grid-template-columns: 73% 25%;
     grid-column-gap: 2%;
-    grid-template-rows: repeat(4, 32%);
+    grid-template-rows: repeat(4, 25%);
     align-items: start;
 
     color: white;
     text-decoration: none;
-    padding: 2.5em 0;
-    height: 5em;
+    margin: 2em 0;
+    padding-bottom: 2em;
+    height: 6em;
 
     border-bottom: 2px white solid
+}
+.page-type-jobs .jobs-container .job-category a:hover{
+    background-color: #172c5a;
 }
 .page-type-jobs .jobs-container .job-category a>p{
     display: unset;
@@ -161,9 +163,6 @@
     }
     .page-type-jobs .jobs-block-container .jobs-container{
         padding-bottom: 5rem;
-    }
-    .page-type-jobs .jobs-block-container .jobs-container .job-category {
-        grid-template-rows: 5em auto;
     }
     .page-type-jobs .jobs-block-container .jobs-container .job-category h2 {
         font-size: 1.6rem;
