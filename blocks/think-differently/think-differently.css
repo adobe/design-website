@@ -30,10 +30,6 @@
     grid-row: 1/2;
 }
 
-.think-differently.block.js-scroll.fade-in.scrolled > div > div > p {
-    font-size: 1em;
-} 
-
 .think-differently.block .think-differently-content .view-jobs{
     font-weight: 100;
     font-size: 0.8em;
@@ -82,7 +78,7 @@
     background-image: url("../../resources/think-different-slash.png");
     background-position-x: center;
     background-repeat: no-repeat;
-    height:10em;
+    height:9em;
 
     align-self:start;
 }
@@ -149,8 +145,8 @@
     .think-differently.block .think-differently-content p:nth-of-type(1),
     .think-differently.block .think-differently-content p:nth-of-type(2),
     .think-differently.block .think-differently-content p:nth-of-type(3){
-        margin:4em;
-        font-size: 1.2em;
+        margin:2em;
+        font-size: 1.8em;
         align-self: center;
     }
 
