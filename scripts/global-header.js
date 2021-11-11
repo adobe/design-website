@@ -1,5 +1,6 @@
 export default function decorate(win = window) {
-    console.log(win.document.location.pathname)
+
+    //console.log(win.document.location.pathname)
     const blackHeaderPages = ['/jobs/', '/stories/process/whiteboard-101', '/stories/process/designing-for-creative-systems']
     const useBlackHeader = blackHeaderPages.includes(win.document.location.pathname)
     var headerImage = useBlackHeader?'/resources/adobe-black-tag.png':'/resources/tag+adobe.svg';

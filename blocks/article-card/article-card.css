@@ -128,7 +128,7 @@
 .article-card.block .text .hed a {
     font-size: 3.5em;
     line-height: 1em; 
-    margin: 2em 0rem 0em;
+    margin: 1.5em 0rem 0em;
     max-width: 100%;
     text-decoration: none;
     color: inherit;
@@ -145,7 +145,7 @@
 .article-card.block .text .dek{
     font-size: 1.4em;    
     line-height: 1.2em; 
-    margin: 2em 0em 0.5rem 0em; 
+    margin: 1.25em 0em 0.5rem 0em; 
     font-weight: var(--weight-light);
     text-overflow: ellipsis;
     max-height: 3.6em;              /* 3x line-height */
