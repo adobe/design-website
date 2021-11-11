@@ -141,6 +141,7 @@ body > main > div > div > p{
     grid-template-columns: 33.3% 33.3% 33.3%;
     background: #F7EFFC;
     padding: 3.5em;
+    padding-bottom: 0;
     margin: 0;
     width: auto;
 }
@@ -183,7 +184,7 @@ body > main > div > div > div:nth-child(10) > div:nth-child(2) > div:nth-child(4
 /* Fact about Person */
 .people > .person > div:nth-child(4) {
     color: #917496;
-    padding: 1.5em 0 3em 1.5em;
+    padding: 1.5em 0 8em 1.5em;
     font-size: 1em;
     /* width: 12em; */
 }
@@ -205,7 +206,7 @@ body > main > div > div > div:nth-child(17) > div:nth-child(2) > div:nth-child(1
 .inclusive-design .statementThree{
     background: #F7EFFC;
     color: #3E3E3E;
-    padding: 2em 12em 2em 7em;
+    padding: 2em 12em 5em 7em;
     line-height: 1.2;
     width: auto;
 }
