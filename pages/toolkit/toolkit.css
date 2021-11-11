@@ -18,7 +18,7 @@
 .toolkit-header h3{
     color: white;
     font-family: var(--serif-font);
-    font-size: 3.5em;
+    font-size: 3rem;
     font-weight: var(--weight-light);
     margin-bottom: 12rem;
 }
