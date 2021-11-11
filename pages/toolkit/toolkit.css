@@ -12,6 +12,7 @@
     font-weight: var(--weight-black);
     margin: var(--page-header-margin);
     font-size: var(--page-header-size);
+    margin-bottom: 5rem;
 }
 
 .toolkit-header h3{
@@ -19,11 +20,10 @@
     font-family: var(--serif-font);
     font-size: 3.5em;
     font-weight: var(--weight-light);
-    margin-bottom: 10rem;
+    margin-bottom: 12rem;
 }
 
 .toolkit-page-content{
-    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 160px,rgba(255,255,255, 1) 160px);
     /* padding: 30px 30px 1px 30px; */
     box-sizing: border-box;  
 }
@@ -52,6 +52,10 @@
     display: none;
 }
 
+.toolkit-page-content > p {
+    background: #FFFFFF;
+    margin: 5px 0;
+}
 
 .toolkit > .text{
     color: white;
@@ -69,7 +73,7 @@
 }
 
 .big-red-text{
-    height: 300px;
+    height: 450px;
     width: 100%;
     display: flex;
     align-items: center;
