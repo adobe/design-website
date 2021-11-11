@@ -14,6 +14,7 @@
     width:50%;
     line-height: 1em;
     font-weight: var(--weight-black);
+    padding: 0.5em 0;
 }
 
 /* .page-type-team .content{} */
@@ -220,20 +221,19 @@
 /*
     Foot Content
 */
+.page-type-team .foot-content .resources-section{
+    background-color: #ffffff;
+}
+
 .page-type-team .foot-content .resources-section h2{
     display:flex;
     flex-direction: column;
     align-items: center;
-    margin: 8.5rem auto;
+    margin: 0 auto;
+    padding: 9.5rem 0;
     font-size: 4em;
     line-height: 1em;
     width: 85%;
-}
-
-.page-type-team .foot-content .resources-section h2:first-of-type{
-    background: #ffffff;
-    padding: 8.5rem 4.7rem;
-    margin: 0px auto;
 }
 
 .page-type-team .foot-content .resources-section .resources{
@@ -263,12 +263,12 @@
 .page-type-team .foot-content .resources-section .resources .resource a{
     color: white;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: var(--weight-black);
 }
 .page-type-team .foot-content .resources-section .resources .resource .learn-more-button {
     color: white;
-    font-size: 11px;
+    font-size: 16px;
     width: fit-content;
     padding-bottom:2px;
     box-sizing: border-box;
@@ -368,9 +368,6 @@
     .resource-bottom-container {
         padding: 15px 20px 85px 45px;
     }
-    .page-type-team .foot-content .resources-section .resources .resource .learn-more-button {
-        font-size: 15px;
-    }
 }
 @media (max-width: 1000px){
     .page-type-team .title-content h1 {
@@ -424,6 +421,10 @@
     .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs{
         font-size: 0.6em;
     }
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 3em;
+        width: 85%;
+    }
 }
 
 @media (max-width: 700px){
@@ -463,7 +464,7 @@
 
     .page-type-team .head-content h2,
     .page-type-team .foot-content .resources-section h2{
-        font-size: 2.2em;
+        font-size: 2em;
     }
 
     /*TEAM CARD*/
