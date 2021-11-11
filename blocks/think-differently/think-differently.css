@@ -31,8 +31,7 @@
 }
 
 .think-differently.block .think-differently-content .view-jobs{
-    font-weight: 100;
-    font-size: 0.8em;
+    font-size: 1em;
     grid-column: 2/4;
     grid-row: 2/3;
     text-decoration: underline 2px;
