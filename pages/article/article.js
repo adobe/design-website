@@ -25,7 +25,7 @@ export default function decorate($main) {
     headerTag.innerText = '#LEADING DESIGN';
 
     try {
-      document.querySelector('.content > h1').before(headerTag);
+      document.querySelector('main h1').before(headerTag);
     } catch(err) {
       console.error(err);
     }
