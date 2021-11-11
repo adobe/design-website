@@ -209,18 +209,19 @@
 /* iPad Media Query */
 @media (min-width: 425px) and (max-width: 1024px) {
     .carousel .carousel__actions {
-        top: 100%;
-        left: 74vw;
+        top: 110%;
+        left: 73vw;
         width: 30%;
         padding-bottom: 3em;
     }
     .carousel {
         font-size: 21px;
-        margin-bottom: 5em;
+        margin-top: 5em;
+        margin-bottom: 12em;
         overflow: visible;
     }
     .carousel .carousel__actions button img {
-        height: 30px;
+        height: 25px;
     }
     .carousel .carousel__item--visible {
         grid-template-columns: 44.25vw 21.25em;
@@ -229,6 +230,7 @@
     }
     .carousel .number {
         width: 38vw;
+        margin-left: 2em;
     }
     .carousel .carousel__item img {
         width: 48vw;
