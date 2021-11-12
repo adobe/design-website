@@ -28,7 +28,7 @@
     box-sizing: border-box;  
 }
 
-.toolkit .toolkit-page-content > .article-card.block{
+/* .toolkit .toolkit-page-content > .article-card.block{
     min-width: unset;
     margin: 10px 0px 10px 0px
 }
@@ -50,7 +50,7 @@
 .toolkit .toolkit-page-content > .article-card.block .text .tag-link,
 .toolkit .toolkit-page-content > .article-card.block .text .byline{
     display: none;
-}
+} */
 
 .toolkit-page-content > p {
     background: #FFFFFF;
