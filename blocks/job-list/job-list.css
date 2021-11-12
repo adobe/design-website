@@ -32,52 +32,41 @@
 
 .job-list .single-job {
     font-family: var(--serif-font);
-    font-size: 0.8em;
-    line-height: 1.5em;
-    display: grid;
-    grid-template-columns: 75% 23%;
-    grid-column-gap: 2%;
-    grid-template-rows: repeat(6, 22%);
-    justify-items: start;
-    padding-bottom: 5em !important;
+    font-size: 0.8rem;
+    line-height: 1.6em;
+    display:flex;
+    flex-direction: column;
+    align-items: start;
+
     color: #0B1C40;
     text-decoration: none;
-    padding: 5.5em 0;
-    height: 5em;
     border-bottom: 2px #0B1C40 solid;
-    align-items: end;
+
+    margin: 2em 0;
+    padding-bottom: 1em;
 
 }
 
-.job-list .single-job>p,
-.job-list .single-job>h3{
+.job-list .single-job>p{
     display: unset;
     margin-block: unset;
 }
 .job-list .single-job h3{
     font-weight: 300; /*Currently we only have vars for 200 and 400*/
     font-size: 1.7em;
-    line-height: 1em;
-    grid-area: 1/1/2/2;
 }
 .job-list .single-job p:nth-of-type(1){
-    grid-area: 4/1/5/2
 }
 .job-list .single-job p:nth-of-type(2){
-    padding-top:0.2em;
-    grid-area: 5/1/5/2;
-    text-align: end;
 }
 .job-list .single-job p:nth-of-type(3){
-    grid-area: 1/2/2/3;
-    text-align: end;
 }
 
 .job-list .see-jobs{
-    margin-top:8em;
+    margin-top:4em;
     border-bottom: none;
     align-self: flex-start;
-    margin-bottom:2em;
+    margin-bottom:4em;
     text-decoration:none;
     color: #252525;
 }
@@ -95,21 +84,17 @@
     font-weight: 300;
     padding-top: 200px;
 }
-
-@media (min-width: 425px) and (max-width: 1024px) {
-    .job-list .single-job {
-        align-items: center;
-        padding-bottom: 3em !important;
-        padding: 3.5em 0;
-    }
-    .job-list .see-jobs {
-        margin-top: 6em;
+@media (max-width: 1024px){
+    .job-list .single-job h3{
+        text-decoration: underline solid;
     }
 }
 
-@media (max-width:1023px){
-    .job-list .see-jobs{
-        align-self: unset;
+@media (min-width: 425px) and (max-width: 1024px) {
+    .job-list .single-job {
+    }
+    .job-list .see-jobs {
+        margin-top: 6em;
     }
 }
 
