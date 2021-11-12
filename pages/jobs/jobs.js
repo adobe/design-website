@@ -81,44 +81,44 @@ export default function decorate($main) {
     jobsBlockContainer.appendChild(jobsContainer);
     var dummyJobs = [
       {
-        title: "Sr Experience Designer",
-        location: "San Francisco",
-        what: "Acrobat | Permanent",
+        title: "User Experience Design(Contractor)",
+        location: ["San Francisco", "San Jose", "Seattle"],
+        team: "Adobe Spark",
         section: "Experience Design",
         link: "/"
       },
       {
-        title: "Sr Experience Designer",
-        location: "San Francisco",
-        what: "Acrobat | Permanent",
+        title: "User Experience Design(Contractor)",
+        location: ["San Francisco", "San Jose", "Seattle"],
+        team: "Adobe Spark",
         section: "Experience Design",
         link: "/"
       },
       {
         title: "Sr Content Strategist",
         location: "Los Angeles",
-        what: "Acrobat | Permanent",
+        team: "Adobe Spark",
         section: "Content Strategy",
         link: "/"
       },
       {
         title: "Jr Team Operator",
         location: "Salt Lake City",
-        what: "Acrobat | Permanent",
+        team: "Adobe Helix",
         section: "Team Operations",
         link: "/"
       },
       {
         title: "Jr Design Operator",
         location: "Orem",
-        what: "Acrobat | Permanent",
+        team: "Adobe Spark",
         section: "Design Operations",
         link: "/"
       },
       {
         title: "Prototyping and Engineering Intern",
         location: "New York City",
-        what: "Acrobat | Permanent",
+        team: "Adobe Spark",
         section: "Prototyping and Engineering",
         link: "/"
       }
@@ -145,11 +145,32 @@ export default function decorate($main) {
 function buildJobListings(job){
   let jobBlock = $element("a.job", [
     $element("p.job-title", job.title),
-    $element("p.job-location", job.location ),
-    $element("p.job-whatchamacallit", job.what ),
-    $element("p.job-section", job.section )
+    $element("p.job-team", job.team ),
+    $element("p.job-location", formatLocation(job.location) )
   ])
   jobBlock.href = job.link
 
   return jobBlock
+}
+
+function formatLocation(location){
+  if(!Array.isArray(location)){
+    return location;
+  }
+
+  if(location.length == 2)
+    return (location[0]+" and "+location[1])
+  
+  let formatString = ""
+  for(let i = 0; i< location.length; i++){
+    if(i != 0)
+      formatString += ", "
+
+    if(i == location.length -1)
+      formatString += "and "
+
+    formatString += location[i]
+  }
+
+  return formatString;
 }

@@ -54,8 +54,10 @@ html{
         --sans-serif-font: "adobe-clean", adobe-clean, Helvetica, Arial, sans-serif;
 
         /* Font Weights */
-        --weight-light:      200;  /* lighter,   100-300 */
+        /*--weight-light:      200;*/  /* lighter,   100-300 */
+        --weight-light:      300;  /* lighter,   100-300 */
         --weight-regular:    400;  /* normal,    400-500 */
+        --weight-medium:     500;  /* normal,    400-500 */
         --weight-bold:       700;  /* semi-bold, 700-600 */
         --weight-black:      900;  /* bolder,    800-900 */
 

@@ -17,22 +17,23 @@ const text_dark     = '#3E3E3E';
  * @param {HTMLElement} $page
  */
 export default async function decorate($page) {
-    /* Set Background Color */
-    let backgroundColoring = `linear-gradient(90deg, #ffffff 0%, #ffffff 50%, #e8e8e8 50%, #e8e8e8 100% )`
-    Background.setColor(backgroundColoring);
-    document.querySelector("#global-background .background-fade.fade1").setAttribute("style", `background: ${backgroundColoring}; background-color: ${backgroundColoring};`)
+
 
     /* Add classes and ids to container elements */
-    document.querySelector("body").classList.add("job-post");
+    let body_job_post = document.querySelector("body");
+    body_job_post.classList.add("job-post");
+    body_job_post.setAttribute("style", "background-image: none;")
     document.querySelector("#global-header").classList.add("split");
+    document.querySelector("div#global-background").remove();
 
-    let postContainer    = document.querySelector("main > div");
-    postContainer.classList.add("post-container");
+    /* Set Background Color */ // let backgroundColoring = "linear-gradient(90deg, #ffffff 0%, #ffffff 50%, #e8e8e8 50%, #e8e8e8 100% )"; document.querySelector(".job-post #global-background .background-fade.fade1").setAttribute("style", `background: ${backgroundColoring}; background-color: ${backgroundColoring};`)
+
+    let postContainer  = document.querySelector("main > div");
+        postContainer.classList.add("post-container");
 
     let postBody = document.querySelector(".post-container > div");
-    postBody.classList.add("post-text");
-
-    buildJobPostSubheader(document);
+        postBody.classList.add("post-text");
+        buildJobPostSubheader(document);
 
     /* Assemble the header block. It needs to be here else HTML will break */
     makeHeaderBlock($page);
@@ -41,7 +42,9 @@ export default async function decorate($page) {
     if(title_h1){ title_h1.remove() };
 
     /** Add "Working at Adobe"/ Suggested articles block: */
-    let leftBlock = $element("div.left-block");
+
+    let leftBlock = document.querySelector("div.sticky-container")
+        leftBlock.classList.add(".left-block")
     postContainer.append(leftBlock);
 
     buildSideArticlesBlock(document);
@@ -102,6 +105,7 @@ async function buildSideArticlesBlock(document){
     let sideArticles = await makeSideArticlesBlock(document);
     if(sideArticles) {
         document.querySelector("div.left-block").append(sideArticles)
+        // querySelector("div.sticky-container").insertAfter(querySelector("div.header-block"))
     } else {
         console.log(`Cannot fetch similar opportunities to build the block`)
     }
@@ -112,7 +116,6 @@ async function buildSideArticlesBlock(document){
 async function buildSimOpportunitiesBlock(){
     let simOppsContent = await makeSimilarOpportunitiesBlock('nothing');
     if(simOppsContent) {
-
         document.querySelector("div.similarOpps-block").append(simOppsContent)
     } else {
         console.log(`Cannot fetch similar opportunities to build the block`)
