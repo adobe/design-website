@@ -484,6 +484,29 @@ export function $eachChild($target, fn) {
     }
 }
 
+/**
+ * Creates an additional element layer between parent and child(ren) elements
+ * @param {*} $parent
+ * @param {String} selector -- the new elm that'll be created and added between parent and children
+ *
+ */
+
+export function $addLayerElm($parent, selector){
+    let resolvedChildren = [];
+    !(children instanceof Array)?
+        resolvedChildren = [children]
+      : resolvedChildren =  children;
+
+
+    for(let i = 1; i < resolvedChildren.length; i++){
+        resolvedChildren[i].remove();
+    }
+
+    $parent = $parent.append($element(selector, resolvedChildren))
+
+    return $parent;
+}
+
 export function $remainder($target, selector) {
     let $targetEl;
     if (typeof target === "string") {
