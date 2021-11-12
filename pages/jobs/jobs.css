@@ -77,7 +77,7 @@
     
 }
 .page-type-jobs .jobs-container .job-category a:hover{
-    padding-bottom: calc(2em - 2px);
+    padding-bottom: calc(1em - 2px);
     border-bottom: 2px white solid
 }
 .page-type-jobs .jobs-container .job-category a>p{
