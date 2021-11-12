@@ -331,6 +331,12 @@ body > div.author-bio.block > div > author-name{
     background-color: var(--bkg-navy-dark);
     padding: 2rem 0 6rem 0;
 }
+.page-type-article .author-info{
+    font-family: var(--serif-font);
+    color: #4A4545;
+    /* font-size: .9em; */
+}
+
 
 .page-type-article .similar-stories-content{
     max-width: 1000px;
@@ -421,7 +427,7 @@ body > div.author-bio.block > div > author-name{
     position: relative;
 }
 .page-type-article .author-bio > div{
-    padding-right: 10em;
+    padding-right: 2em;
 }
 .page-type-article .author-info p{
     margin-top: 0;
