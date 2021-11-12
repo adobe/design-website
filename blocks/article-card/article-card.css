@@ -126,9 +126,9 @@
  */
 .article-card.block .text .hed,
 .article-card.block .text .hed a {
-    font-size: 3.5em;
+    font-size: 3em;
     line-height: 1em; 
-    margin: 1.5em 0rem 0em;
+    margin: 2em 0rem 0em;
     max-width: 100%;
     text-decoration: none;
     color: inherit;
@@ -152,11 +152,14 @@
     max-width: 70%;
 }
 
+body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > div.hed {
+    margin: 1em 0rem 0em;
+}
 /*
  * By-Line byline
  */
 .article-card.block .text .byline{
-    font-size: 0.6em;  
+    font-size: 16px;  
     margin: 3em 0em 0.5rem 0em; 
     line-height: 1.6em;
 }

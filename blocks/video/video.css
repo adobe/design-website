@@ -1,0 +1,7 @@
+main .block.video {
+    max-height: 600px;
+    width: unset;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 64px;
+}

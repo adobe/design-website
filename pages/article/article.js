@@ -20,9 +20,11 @@ export default function decorate($main) {
     buildSimilarStories();
     buildAuthorBio();
 
-    var headerTag = document.createElement('a');
-    headerTag.classList.add('header-tag')
-    headerTag.innerText = '#LEADING DESIGN';
+    let tag = window.document.location.pathname.split('/')[2]
+    var headerTag = $element(
+      'a.header-tag.stories-link', //Tag type and classes
+      { attr: { href: `/stories/?tag=${tag.toUpperCase()}` } }, //Link
+      ['#', $element("span.tag", tag.toUpperCase())]) //Tag content
 
     try {
       document.querySelector('main h1').before(headerTag);

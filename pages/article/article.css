@@ -46,10 +46,12 @@
 .page-type-article .header-tag{
     margin-left: 8em;
     color: black;
-    border-bottom: solid .2em black;
     border-radius: 10%;
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-regular);
+}
+.page-type-article .header-tag .tag{
+    border-bottom: solid .2em black;
 }
 .page-type-article .content:not(.page-type-article .header.block) {
     padding-left: 5rem;
