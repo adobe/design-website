@@ -26,6 +26,7 @@ import {
        */
     const $text = $element('.text');
   
+    let truncateText = false;
     const HED_TEXT_LIMIT = 50;
     const DEK_TEXT_LIMIT = 75;
     let hedText = props.hed;
@@ -51,7 +52,7 @@ import {
   
     //TODO: Add paths to the card generation and use that instead of assuming the path is the same as the header
     let path = props.path
-    const toolkitLink = $element('a.stories-link', { attr: { href: path.replaceAll(' ', '-').toLowerCase() } })
+    const toolkitLink = $element('a.stories-link', { attr: { href: "/" } })
     result['.block-content'].append(toolkitLink)
     toolkitLink.prepend($text)
   
