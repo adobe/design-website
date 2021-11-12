@@ -610,9 +610,6 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .additional-reading.block > div{
         padding: 0;
     }
-    #a-few-good-books{
-        font-size: 2.5em;
-    }
     .page-type-article .author-bio.block{
         padding: 1em;
     }
@@ -699,9 +696,6 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .additional-reading.block > div{
         padding: 0;
     }
-    #a-few-good-books{
-        font-size: 2.2em;
-    }
     .page-type-article .author-bio.block{
         padding: 1em;
     }
@@ -764,9 +758,6 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .content p{
         padding: 0;
-    }
-    #a-few-good-books{
-        font-size: 1.9em;
     }
     .page-type-article .pull-quote.block{
         font-size: 1.4em;
