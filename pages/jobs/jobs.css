@@ -16,12 +16,12 @@
     font-weight: var(--weight-black);
     margin: var(--page-header-margin);
     margin-bottom: 2.5em;
-    width:45%;
+    width:50%;
 }
 .page-type-jobs .head-content p{
     font-family: var(--serif-font);
     font-size: 3rem;
-    padding-right: 9rem;
+    padding-right: 15%;
 }
 
 .page-type-jobs .head-content p:last-child{
@@ -29,7 +29,7 @@
     margin: 7rem 0 10rem 0;
     font-size: 1.35rem;
     padding-left: 30%;
-    padding-right: 10%;
+    padding-right: 15%;
 }
 
 .page-type-jobs .jobs-block-container{
@@ -58,51 +58,43 @@
     padding-top: 5rem;
 }
 .page-type-jobs .jobs-container .job-category h2{
-    font-weight: var(--weight-bold);
-    font-size: 2rem;
+    font-weight: var(--weight-regular);
+    font-size: 1.8rem;
 }
 
 .page-type-jobs .jobs-container .job-category a{
-    font-size: clamp(0.6em, 1.5vw,0.8em);
-    line-height: 1em;
-    display:grid;
-    grid-template-columns: 73% 25%;
-    grid-column-gap: 2%;
-    grid-template-rows: repeat(4, 25%);
+    font-size: 0.8rem;
+    line-height: 1.6em;
+    display:flex;
+    flex-direction: column;
     align-items: start;
 
     color: white;
     text-decoration: none;
     margin: 2em 0;
-    padding-bottom: 2em;
-    height: 6em;
+    padding-bottom: 1em;
 
-    border-bottom: 2px white solid
+    
 }
 .page-type-jobs .jobs-container .job-category a:hover{
-    background-color: #172c5a;
+    padding-bottom: calc(2em - 2px);
+    border-bottom: 2px white solid
 }
 .page-type-jobs .jobs-container .job-category a>p{
+
+}
+.page-type-jobs .jobs-container .job-category a .job-title{
+    font-size: 1.8em;
+    margin-block: 0.5em;
+    
+}
+.page-type-jobs .jobs-container .job-category a .job-team{
     display: unset;
     margin-block: unset;
 }
-.page-type-jobs .jobs-container .job-category a .job-title{
-    font-weight: 300; /*Currently we only have vars for 200 and 400*/
-    font-size: 2em;
-    line-height: 1em;
-    grid-area: 1/1/2/2;
-}
-.page-type-jobs .jobs-container .job-category a .job-whatchamacallit{
-    grid-area: 4/1/5/2
-}
-.page-type-jobs .jobs-container .job-category a .job-section{
-    padding-top:0.2em;
-    grid-area: 1/2/2/3;
-    text-align: end;
-}
 .page-type-jobs .jobs-container .job-category a .job-location{
-    grid-area: 3/2/4/3;
-    text-align: end;
+    display: unset;
+    margin-block: unset;
 }
 
 .page-type-jobs .jobs-container .job-category .no-oppenings{
@@ -113,12 +105,14 @@
     .page-type-jobs .head-content>*{
         padding-left: var(--page-header-l-padding-tablet);
     }
+    .page-type-jobs .jobs-container .job-category a .job-title{
+        text-decoration: underline solid;
+    }
 }
 
 @media (max-width: 768px){
-    .page-type-jobs .jobs-container .job-category a{
-        grid-column-gap: 0;
-        grid-template-columns: 75% 25%;
+    .page-type-jobs .head-content p {
+        font-size: 2.5rem;
     }
 }
 
@@ -137,11 +131,13 @@
         width: 100%;
         padding: 0;
         margin: 1.8em 0;
-        padding: 0;
+    }
+    .page-type-jobs .head-content p:last-child{
+        margin-bottom: 4.5em;
     }
     .page-type-jobs .head-content h1{
         margin-block: unset;
-        margin: 6rem 0 4rem 0;
+        margin: var(--page-header-margin);
         font-size: 2.5rem;
     }
 
@@ -164,20 +160,19 @@
     .page-type-jobs .jobs-block-container .jobs-container{
         padding-bottom: 5rem;
     }
-    .page-type-jobs .jobs-block-container .jobs-container .job-category h2 {
-        font-size: 1.6rem;
-        font-weight: var(--weight-regular)
-    }
     
 }
 
 @media (max-width: 425px){
-    .page-type-jobs .jobs-container .job-category a {
-        grid-template-columns: 70% 30%;
-        font-size: 0.5rem;
-        height: auto;
+    .page-type-jobs .head-content{
+        padding: 0 calc(40vw - (var(--page-header-l-padding-tablet)));
     }
-    .page-type-jobs .jobs-container .job-category a .job-title{
-        font-size: 1rem;
+
+    .page-type-jobs .jobs-block-container #opportunities,
+    .page-type-jobs .jobs-block-container .jobs-container{
+        padding: 0 calc(35vw - (var(--page-header-l-padding-tablet)));
+    }
+    .page-type-jobs .jobs-block-container .jobs-container{
+        padding-bottom: 5rem;
     }
 }
