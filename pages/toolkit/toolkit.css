@@ -21,6 +21,7 @@
     font-size: 3rem;
     font-weight: var(--weight-light);
     margin-bottom: 12rem;
+    padding-right: 2em;
 }
 
 .toolkit-page-content{
@@ -93,6 +94,9 @@
     .toolkit-header{
         padding-left: var(--page-header-l-padding-tablet);
     }
+    .toolkit-header h3{
+        padding-right: 3em;
+    }
 }
 
 @media screen and (max-width: 700px){
@@ -109,6 +113,7 @@
 
     .toolkit-header h3{
         font-size: 25px;
+        padding: 0;
     }
 
     .toolkit-page-content{
