@@ -62,7 +62,5 @@ export default async function makeSideArticlesBlock(document) {
     )
     console.log( " MAKE SIDE ARTICLES BLOCK< TYPE: ", typeof $article_container, "\n CONTAINER: ", $article_container )
     return $article_container
-    // document.querySelector("main > div.section-wrapper").append(
-    //     $article_container
-    // );
+
 }

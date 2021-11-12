@@ -4,8 +4,8 @@
 @import url(../../blocks/job-posting-blocks/similar-opportunities.css);
 @import url(../../blocks/job-posting-blocks/side-articles.css);
 
-body.job-post main {
-    /* display: grid; */
+body.job-post {
+    background-image: none;
 }
 
 .post-container,
