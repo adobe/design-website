@@ -96,6 +96,17 @@
     padding-top: 200px;
 }
 
+@media (min-width: 425px) and (max-width: 1024px) {
+    .job-list .single-job {
+        align-items: center;
+        padding-bottom: 3em !important;
+        padding: 3.5em 0;
+    }
+    .job-list .see-jobs {
+        margin-top: 6em;
+    }
+}
+
 @media (max-width:1023px){
     .job-list .see-jobs{
         align-self: unset;
