@@ -57,3 +57,21 @@
     margin: 3em 0em 0.5rem 0em;
     line-height: 1.6em;
 }
+@media (max-width: 1000px) and (min-width: 767px) {
+    .seventy.block {
+        width: 62vw;
+    }
+}
+@media (max-width: 766px) and (min-width: 400px) {
+    .seventy {
+        flex-direction: column;
+    }
+    .seventy .content {
+        width: auto;
+        margin-bottom: .5em;
+        padding: 1.6em 10em 1em 4em;
+    }
+    .seventy .image {
+        display: none;
+    }
+}
