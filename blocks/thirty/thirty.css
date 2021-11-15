@@ -1,0 +1,63 @@
+.thirty.block {
+    height: 31.5em;
+}
+.thirty {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+}
+.thirty .image {
+    height: 10em;
+    width: 20em;
+}
+.thirty .image img {
+    width: 100%;
+    height: 8em;
+}
+.thirty .content {
+    width: 20em;
+    height: 24em;
+    background-color: #FFFE8B;
+    display: flex;
+    flex-direction: column;
+    padding: 1.6em 3em 1em 4em;
+    box-sizing: border-box;
+}
+.thirty .tag {
+    border-bottom: solid 0.2em #000000;
+    width: fit-content;
+    color: inherit;
+    font-size: .8em;
+    line-height: 1.125em;
+    margin: 0em 0em 0.5em 0em;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: max-content;
+}
+.thirty .hed {
+    font-family: var(--sans-serif-font);
+    font-size: 2em;
+    line-height: 1em;
+    margin: 1em 0rem 0em;
+    max-width: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+.thirty .dek {
+    font-size: 1em;
+    line-height: 1.2em;
+    margin: 2.5em 0em 2.5rem 0em;
+    font-weight: var(--weight-light);
+    text-overflow: ellipsis;
+    max-height: 3.6em;
+    max-width: 85%;
+}
+.thirty .byline {
+    font-size: 16px;
+    margin: 1em 0em 0rem 0em;
+    line-height: 1.6em;
+}
+.thirty .title {
+    font-size: 14px;
+    margin-top: 0;
+}
