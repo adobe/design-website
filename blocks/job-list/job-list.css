@@ -11,7 +11,8 @@
 }
 
 .--joinus h2 {
-    margin-top: 0.5em;
+    margin-top: 0.75em;
+    margin-bottom: .5em;
     font-size: 10em;
     font-weight: var(--weight-black);
     line-height: 0.6em;  /* 150px line height / 250px font-height = 0.6em */
@@ -21,7 +22,7 @@
 .job-list.block{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     color: #0B1C40;
     background-color: #ffffff;
     width: 100%;
@@ -40,11 +41,8 @@
 
     color: #0B1C40;
     text-decoration: none;
-    border-bottom: 2px #0B1C40 solid;
 
-    margin: 2em 0;
-    padding-bottom: 1em;
-
+    margin: .5em 0;
 }
 
 .job-list .single-job>p{
@@ -63,10 +61,10 @@
 }
 
 .job-list .see-jobs{
-    margin-top:4em;
+    margin-top: 7em;
+    margin-bottom: 2em;
     border-bottom: none;
     align-self: flex-start;
-    margin-bottom:4em;
     text-decoration:none;
     color: #252525;
 }
