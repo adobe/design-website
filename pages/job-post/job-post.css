@@ -2,7 +2,7 @@
 @import url(../../blocks/job-posting-blocks/about-adobe-design.css);
 @import url(../../blocks/job-posting-blocks/equal-opp-policy-stmnt.css);
 @import url(../../blocks/job-posting-blocks/similar-opportunities.css);
-@import url(../../blocks/job-posting-blocks/side-articles.css);
+@import url(../../blocks/job-posting-blocks/left-side.css);
 
 body.job-post {
     background-image: none;
