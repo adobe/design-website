@@ -75,7 +75,7 @@
 @media screen and (max-width: 700px) {
     .toolkit-card.block .block-content .text,
     .toolkit-card.block .block-content .image {
-        min-height: 35vh;
+        min-height: 50vh;
         width: 100%;
         justify-content: flex-start;
     }
