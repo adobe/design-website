@@ -69,8 +69,15 @@ export default function decorate($block) {
   result['.image'].remove();
 
   //TODO: Add paths to the article card generation and use that instead of assuming the path is the same as the header
-  let path = `/stories/${props.tag}/${props.hed}`
-  const articleLink = $element('a.stories-link', { attr: { href: path.replaceAll(' ', '-').toLowerCase() } })
+  let path;
+  if(props.path)
+    path = props.path
+  else{
+    path = `/stories/${props.tag}/${props.hed}`
+    path = path.replaceAll(' ', '-').replaceAll(/[^a-zA-Z-\d/:]/g, '').toLowerCase()
+  }
+
+  const articleLink = $element('a.stories-link', { attr: { href: path } })
   result['.block-content'].append(articleLink)
   articleLink.prepend($text)
 

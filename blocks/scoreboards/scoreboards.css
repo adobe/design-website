@@ -53,12 +53,7 @@
     }
 }
 
-@media (max-width: 1023px){
 
-    .scoreboards > div{
-        height: 35em;
-    }
-}
 
 @media (max-width: 768px){
     .scoreboards > div{
