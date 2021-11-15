@@ -24,7 +24,7 @@ export default function decorate($main) {
     var headerTag = $element(
       'a.header-tag.stories-link', //Tag type and classes
       { attr: { href: `/stories/?tag=${tag.toUpperCase()}` } }, //Link
-      ['#', $element("span.tag", tag.toUpperCase())]) //Tag content
+      ['#', $element("span.tag", tag.toUpperCase().replaceAll('-', ' '))]) //Tag content
 
     try {
       document.querySelector('main h1').before(headerTag);
