@@ -7,7 +7,7 @@
 @media screen and (min-width: 701px){
         .toolkit-card.block{
             font-size: 1rem;
-            height:400px;
+            height: clamp(400px, 43vw,500px);
             overflow:hidden;
         }
     }
@@ -61,6 +61,7 @@
     width: 100%;
     padding: 1.6em 3em 3em 4em;
     box-sizing: border-box;
+    justify-content: center;
 }
 
 .toolkit-card.block .image{
@@ -74,8 +75,12 @@
 @media screen and (max-width: 700px) {
     .toolkit-card.block .block-content .text,
     .toolkit-card.block .block-content .image {
-        min-height: 50vh;
+        min-height: 35vh;
         width: 100%;
+        justify-content: flex-start;
+    }
+    .toolkit-card.block .block-content .text{
+        padding-top: 5em;
     }
 }
 
@@ -88,7 +93,6 @@
 .toolkit-card.block .text .hed,
 .toolkit-card.block .text .hed a {
     line-height: 1em; 
-    margin: 1.5em 0rem 0em;
     max-width: 100%;
     text-decoration: none;
     color: inherit;

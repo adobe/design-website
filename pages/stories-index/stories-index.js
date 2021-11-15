@@ -32,7 +32,7 @@ export default async function decorator($main) {
 
     if(tagFilter) {
         const header = document.querySelector("#all-stories");
-        header.innerHTML = `#${tagFilter}`;
+        header.innerHTML = `#${tagFilter.replaceAll('-', ' ')}`;
     }
 
     const $target = $main.querySelector(":scope > div > div");
