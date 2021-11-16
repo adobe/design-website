@@ -1,7 +1,8 @@
 .inclusive-design h1{
     color: white;
     margin: var(--page-header-margin);
-    padding-left: var(--page-header-l-padding);
+    /* padding-left: var(--page-header-l-padding); */
+    padding-left: 3.7em;
     font-size: var(--page-header-size);
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);

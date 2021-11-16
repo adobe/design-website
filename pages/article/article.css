@@ -614,6 +614,7 @@ body > div.author-bio.block > div > author-name{
         padding: 0;
         margin: 0;
     }
+
     .page-type-article .content ul{
         padding: 0;
     }
@@ -822,6 +823,11 @@ body > div.author-bio.block > div > author-name{
     }
 
 }
+
+.page-type-article .caption{
+    margin: 0;
+}
+
 
 
 /* #who-should-you-whiteboard-with{
