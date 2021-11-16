@@ -12,7 +12,7 @@
     font-weight: var(--weight-black);
     margin: var(--page-header-margin);
     font-size: var(--page-header-size);
-    margin-bottom: 5rem;
+    margin-bottom: 6rem;
 }
 
 .toolkit-header h3{
@@ -22,6 +22,7 @@
     font-weight: var(--weight-light);
     margin-bottom: 9rem;
     padding-right: 2em;
+    width: 80%;
 }
 
 .toolkit-page-content{
@@ -79,7 +80,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
+    font-size: 55px;
     color: #E91D25;
     padding: 0 20%;
     box-sizing: border-box;
@@ -107,12 +108,13 @@
     .toolkit-header h1{
         margin: 6rem 0 4rem 0;
         font-size: 3em;
-        width: 80%;
+        width: 100%;
     }
 
     .toolkit-header h3{
         font-size: 25px;
         padding: 0;
+        margin-bottom: 7rem;
     }
 
     .toolkit-page-content{
