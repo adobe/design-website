@@ -10,13 +10,11 @@
     padding: .5em 0 1.5em 0;
 }
 
-.page-type-index .content{
-    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 120px,rgba(255,255,255, 1) 120px);
-}
 .page-type-index .stories {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    row-gap: 5px;
     box-sizing: border-box;
 }
 
@@ -34,11 +32,18 @@
 
 .block.story .image {
     position: relative;
-    min-height: 400px;
+    min-height: clamp(250px, 36vw, 378px);
+}
+
+.block.story .story-text{
+    min-height: 220px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .stories .story-text > * {
-    padding-left: 70px;
+    padding-left: clamp(30px, 6.5vw, 70px);
     color: black;
     text-decoration: none;
     margin: unset;
@@ -70,7 +75,7 @@
 }
 .stories .story-text > .author,
 .stories .story-text > .position{
-    font-size: 0.5em;
+    font-size: 0.8em;
 }
 
 .stories .story-text > .author{
@@ -79,7 +84,6 @@
 }
 .stories .story-text > .position{
     font-weight: var(--weight-light);
-    margin-bottom: 90px;
 
 }
 
@@ -88,11 +92,11 @@
 }
 
 .page-type-index .content .load-more-stories{
-    margin: 3em auto;
+    margin: 5px auto 2em;
+    padding: 2em;
     text-align: center;
-    margin-top:4em;
-    margin-bottom:4em;
     color: #252525;
+    background-color: white;
 }
 .page-type-index .content .load-more-stories span {
     font-size: 1em;
@@ -100,6 +104,10 @@
     border: 2px solid black;
     border-radius: 2em;
     padding: 0.75em 1.5em;
+}
+
+.page-type-index .think-differently.block{
+    margin-top: 1em;
 }
 
 @media screen and (max-width: 1024px){
@@ -120,10 +128,6 @@
         font-size: 3em;
     }
 
-    .page-type-index .content{
-        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 120px,rgba(255,255,255, 1) 120px);
-    }
-
     .page-type-index .stories {
         display: flex;
         flex-wrap: nowrap;
@@ -141,6 +145,10 @@
     }
 
     .block.story .image {
-        min-height: unset;
+        min-height: clamp(100px,72vw,500px);
+    }
+
+    .stories .story-text > * {
+        padding-left: clamp(30px, 10vw, 70px)
     }
 }
