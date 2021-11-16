@@ -29,6 +29,19 @@ const sideArticles_fake_content = [
  * @param {HTMLElement} $block
  */
 export default async function makeSideArticlesBlock(document) {
+    /* Header Block */
+    const $button_apply_now = addButton(
+        "Apply Now",
+        ()=> {console.log( "APPLY NOW CLICKED IN HEADER OF JOB POST")},
+        "dk-bkg unfilled",
+        "#ffffff"
+    )
+    const $jobTitle = $element("h1.hed.job-title", getMetadata('job-title'));
+    const $header_block = $element("div.header-block", [
+        $element("div.job-header-container", [$jobTitle, $button_apply_now]),
+    ]);
+    /* End Header Block */
+    /*  Side Articles   */
     const $side_articles = [];
     sideArticles_fake_content.forEach(
         elm => {
@@ -37,7 +50,6 @@ export default async function makeSideArticlesBlock(document) {
                         { attr:{ href: elm.tag_link || ' ', target: "_blank"}},elm.tag_text|| 'Link'
                     ),
                     /**
-                     * TODO:  style artcl-img
                      * Set a height/width to container so that loading images
                      * don't mess up style/format
                      * */
@@ -61,6 +73,9 @@ export default async function makeSideArticlesBlock(document) {
         $element("div.side-articles", $side_articles)
     )
     console.log( " MAKE SIDE ARTICLES BLOCK< TYPE: ", typeof $article_container, "\n CONTAINER: ", $article_container )
-    return $article_container
+
+
+    return $element(".sticky-container", [$header_block, $article_container])
+
 
 }

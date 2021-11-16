@@ -1,0 +1,207 @@
+/* --------------- START Sticky   Container Block --------------- */
+
+/* .job-post .left-block{
+    background-color: white;
+    height: 100%;
+} */
+/* --------------- END   Sticky   Container Block --------------- */
+/* --------------- START Sticky Blue Header Block --------------- */
+
+.job-post .sticky-container{
+    display: block;
+    position: sticky;
+    top: 0px;
+    right: 50vw;
+    height: 100%;
+}
+
+.job-post .header-block{
+    height: 35.5em;
+    display: grid;
+    gap: 0px;
+    position: relative;
+    background-color: var(--bkg-navy-dark);
+}
+/* SM */
+@media screen and (max-width: 1000px) {
+    .job-post .header-block{
+        font-size: 16px;
+        grid-column: 1 / span 1;
+        max-width: 100vw;
+        width: 100vw;
+    }
+    .job-post .header-block .job-header-container{
+        max-width: 100vw;
+        margin: 2em;
+    }
+}
+/* Med */
+@media screen and (min-width: 1000px) {
+    .job-post .header-block{
+        font-size: 1.6vw;
+        /* padding: 5.86em 3.9em 0 0; */
+        /* width: calc(50vw - 5px);*/ /*10px for gutter*/
+        /* max-width: calc(50vw - 5px);*/ /*10px for gutter*/
+        /* width: 50vw;
+        max-width: 50vw; */
+    }
+}
+/* XL */
+@media screen and (min-width: 1920px) {
+    .job-post .header-block{
+        font-size: 30.7px;
+    }
+}
+
+.job-post .header-block  button.unfilled.reg{
+    width: max-content;
+}
+
+@media screen and (max-width: 640px) {
+    .job-post .header-block .job-header-container{
+        max-width: 100vw;
+        margin-left:  auto;
+        margin-right: auto;
+    }
+    .job-header-container h1,
+    .job-post .header-block  button.unfilled.reg{
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .job-post .header-block  button.unfilled.reg{
+        width: max-content;
+        margin: 0 2em 2em 2em; /* 120px */
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1000px) {
+    .job-post .header-block .job-header-container{
+        max-width: calc(31.25em - 10px);
+        margin-left: 5.6875em;
+        margin-right: 5.6875em;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .job-post .header-block .job-header-container {
+        box-sizing: border-box;
+        max-width: calc(31.25em - 10px);
+        padding: 0 3.91em 4.5em 4.49em;
+        margin: 0 0 0  auto;
+        height: 36.67em;
+        max-height: 36.67em;
+    }
+}
+
+.job-post .header-block .job-title{
+    font-size: 3.91em; /* 120px */
+    max-width: 5.83em;
+    width: 5.83em;
+    line-height: 0.96em; /* 115px */
+    font-weight: var(--weight-black);
+    color: white;
+    margin-top: 2.4em;    /* 276px */
+    margin-bottom: 2.4em; /* 276px */
+    font-family: var(--sans-serif-font);
+}
+
+
+
+
+
+/* --------------- END   Sticky Blue Header Block --------------- */
+
+/* --------------- START Suggested Articles Block --------------- */
+
+.job-post .side-articles,
+.job-post .side-articles-container{
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.job-post .side-articles{
+    display: grid;
+    padding: 3.88em 11.56em 5em 0px;
+    margin-left: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fill, 24em);
+    grid-template-rows: repeat(auto-fit, 24em);
+    gap: .67em  0px ;
+    width: 32em;
+    justify-items: end;
+}
+
+
+.job-post .artcl-card{
+    font-size: 30.7px;
+    width:  15em;
+    max-height: 24em;
+    min-height: 24em;
+
+    /* max-height: 26.9em; */
+    padding: 2.5em .67em ;
+    /* margin: 3.88em 11.56em 5.08em auto; */
+    display: grid;
+    /* align-items: center; */
+
+    justify-items: center;
+
+    flex-direction: column;
+    box-sizing: border-box;
+
+
+    /* gap: 2em; */
+}
+.job-post .artcl-card .tag-link{
+    /* margin: 1.1em auto 1.1em 0; */
+    margin: 0 auto 0 0;
+    color:#ffffff;
+    text-decoration: underline solid 4px#ffffff;
+
+}
+
+.job-post .artcl-card .artcl-img{
+    /* width: 12.9em; */
+    height:  8.6em;
+    min-height: 8.6em;
+    overflow: hidden;
+    /* background-size: cover; */
+    /* margin: 1.1em 0; */
+    box-sizing: border-box;
+}
+
+.job-post .artcl-card .artcl-img .article_img{
+    height: 8.6em;
+    min-height: 8.6em;
+    width: auto;
+    overflow: hidden;
+    margin: auto;
+    /* background-size: cover; */
+}
+
+.job-post .artcl-card .artcl-title,
+.job-post .artcl-card .written-date{
+    /* margin: 1.6em 0px 3em 0px; */
+    text-align: center;
+}
+
+.job-post .artcl-card .artcl-title{
+    /* margin: 1.6em 0px 0px 0px; */
+    font-size:   1.3em;
+    line-height: 1.125em;
+    height: 3em;
+    min-height: 3em;
+}
+
+.job-post .artcl-card .written-date{
+    /* margin: 3em auto 2.4em auto; */
+    /* margin: 0 auto; */
+    font-size:   0.72em;
+    line-height: 1.125em;
+}
+
+/* --------------- END   Suggested Articles Block --------------- */
+
+
+
+

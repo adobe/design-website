@@ -484,6 +484,45 @@ export function $eachChild($target, fn) {
     }
 }
 
+/**
+ * Creates an additional element layer between parent and child(ren) elements
+ * @param {*} $oldParent
+ * @param {String} selector -- the new elm that'll be created and added between parent and children
+ */
+ export function $addNewLayerElm($oldParent, selector){
+    let $newParent = $element(selector);
+    for(let i = 1; i < $oldParent.childNodes.length; i++){
+        $newParent.appendChild($oldParent.childNodes[i])
+    }
+    $oldParent = $oldParent.prepend($newParent);
+    return $oldParent;
+}
+
+/**
+ * Creates an additional element layer between parent and child elements
+ * @param {*} $outerElm Outer container
+ * @param {*} $innerElm Inner element
+ * @param {String} selector -- the new elm that'll be created and added between parent and child
+ */
+ export function $addMiddleElm($outerElm, selector,$innerElm){
+    // $outerElm.remove($innerElm)
+    $outerElm = $outerElm.append($element(selector, $innerElm));
+    return $outerElm;
+}
+
+/**
+ * Move all child elements from one parent to a new parent Element
+ * @param {*} $newParent Where you want the children located
+ * @param {*} $oldParent Where the children are currently located
+ */
+ export function $relocateChildElms($newParent, $oldParent){
+    for(let i = 1; i < $oldParent.childNodes.length; i++){
+        $newParent.appendChild($oldParent.childNodes[i])
+    }
+    $newParent = $newParent.append(resolvedChildren);
+    return $newParent;
+}
+
 export function $remainder($target, selector) {
     let $targetEl;
     if (typeof target === "string") {
