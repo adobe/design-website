@@ -113,14 +113,16 @@
 
     .job-list.block{
         padding: 0 2em;
+        display: flex;
+        align-items: center;
     }
     .job-list .single-job h3{
         font-size: 1.3rem;
+        line-height: 2em;
     }
     .job-list .single-job{
         height: auto;
-        border-bottom: 2px solid black;
-        padding-bottom: 2em;
+        margin: 1.5em 0;
         width: 20em;
     }
     .job-list .see-jobs {
