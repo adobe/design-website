@@ -44,13 +44,13 @@
     color: inherit;
 }
 .thirty .dek {
-    font-size: 1em;
+    font-size: 1.2em;
     line-height: 1.2em;
     margin: 2.5em 0em 2.5rem 0em;
     font-weight: var(--weight-light);
     text-overflow: ellipsis;
     max-height: 3.6em;
-    max-width: 85%;
+    max-width: 95%;
 }
 .thirty .byline {
     font-size: 16px;
