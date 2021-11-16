@@ -494,8 +494,20 @@ export function $eachChild($target, fn) {
     for(let i = 1; i < $oldParent.childNodes.length; i++){
         $newParent.appendChild($oldParent.childNodes[i])
     }
-    $oldParent = $oldParent.append($newParent.append(resolvedChildren));
+    $oldParent = $oldParent.prepend($newParent);
     return $oldParent;
+}
+
+/**
+ * Creates an additional element layer between parent and child elements
+ * @param {*} $outerElm Outer container
+ * @param {*} $innerElm Inner element
+ * @param {String} selector -- the new elm that'll be created and added between parent and child
+ */
+ export function $addMiddleElm($outerElm, selector,$innerElm){
+    // $outerElm.remove($innerElm)
+    $outerElm = $outerElm.append($element(selector, $innerElm));
+    return $outerElm;
 }
 
 /**
