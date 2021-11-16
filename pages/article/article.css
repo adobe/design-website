@@ -528,6 +528,10 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .content .lede.block{
         padding: 0;
+        padding-bottom: 2em;
+    }
+    .page-type-article p + p + .pull-quote.block{
+        padding-right: 0;
     }
     .page-type-article .content h2{
         padding-left: 2.1em;
@@ -546,10 +550,10 @@ body > div.author-bio.block > div > author-name{
         padding-left: 1em;
     }
     body > main > div > div > div:nth-child(41) > div > div{
-        padding: 1em;
+
     }
-    .page-type-article .content li{
-        padding-left: 4em;
+    .page-type-article .content ul{
+        padding-left: 6.5em;
     }
     .page-type-article .additional-reading.block > div{
         padding-left: 4.7em;
