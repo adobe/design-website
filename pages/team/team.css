@@ -548,6 +548,17 @@
         margin: 0.5em;
     }
 }
+@media (max-width: 425px) {
+    .page-type-team .team-cards .team-card h3 {
+        font-size: 1.7em;
+    }
+    .page-type-team .team-cards .team-card div:first-child {
+        padding-top: 2.3rem;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs {
+        font-size: 1em;
+    }
+}
 @media (max-width: 320px){
     .page-type-team .team-cards .team-card.active{
         height: 600px;
