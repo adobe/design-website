@@ -81,6 +81,8 @@
     }
     .toolkit-card.block .block-content .text{
         padding-top: 5em;
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -107,7 +109,6 @@
     overflow: unset;
 }
 
-
 /*
  * SubHeader h3 dek
  */
@@ -129,5 +130,6 @@
 
     .toolkit-card.block .text .dek{
         max-width: 90%;
+        font-size: 16px;
     }
 }

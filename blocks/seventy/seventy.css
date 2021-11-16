@@ -46,11 +46,11 @@
 .seventy .dek {
     font-size: 1.4em;
     line-height: 1.2em;
-    margin: 1.25em 0em 4.5rem 0em;
+    margin: 3em 0em 2rem 0em;
     font-weight: var(--weight-light);
     text-overflow: ellipsis;
     max-height: 3.6em;
-    max-width: 85%;
+    max-width: 100%;
 }
 .seventy .byline {
     font-size: 16px;
