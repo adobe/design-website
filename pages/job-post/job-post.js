@@ -1,7 +1,10 @@
 import addButton from "../../blocks/button/button.js";
 import { Background } from "../../scripts/background.js";
 import {
+    $addMiddleElm,
+    $addNewLayerElm,
     $element,
+    $wrap,
     getMetadata,
 } from "../../scripts/helpers.js";
 import makeHeaderBlock from "../../blocks/job-posting-blocks/job-post-header.js";
@@ -24,13 +27,19 @@ export default async function decorate($page) {
     document.querySelector("#global-header").classList.add("split");
     document.querySelector("div#global-background").remove();
 
+
+
     let postContainer  = document.querySelector("main > div");
-        postContainer.classList.add("post-container");
+    postContainer.classList.add("post-container");
 
 
     let postBody = document.querySelector(".post-container > div");
-        postBody.classList.add("post-text");
-        buildJobPostSubheader(document);
+    postBody.classList.add("post-text");
+
+
+    $addMiddleElm(document.querySelector(".post-container"), "div.inner_post_contnr", document.querySelector(".post-text") )
+
+    buildJobPostSubheader(document);
 
     buildSideArticlesBlock(document);
 
@@ -52,7 +61,11 @@ export default async function decorate($page) {
     buildJobBlockFragments();
     /* Assemble "Similar Opportunities" block */
     buildSimOpportunitiesBlock();
+
     document.querySelector("main").append($element("div.similarOpps-block"));
+    // $element("div.similarOpps-block").after(document.querySelector("main .section-wrapper"))
+
+    // $wrap($element("div.main-wrapper"), document.querySelector("main"))
 
 }
 
@@ -63,6 +76,7 @@ async function buildJobPostSubheader(document){
     if(subheader) {
         let postBody = document.querySelector(".post-container div.post-text");
         postBody.prepend(subheader)
+        // document.querySelector(".inner_post_contnr")
                 // document.querySelector("div.similarOpps-block").append(subheader)
     } else {
         console.log(`Cannot fetch similar opportunities to build the block`)
@@ -74,7 +88,8 @@ async function buildJobPostSubheader(document){
 async function buildSideArticlesBlock(document){
     let sideArticles = await makeSideArticlesBlock(document);
     if(sideArticles) {
-        document.querySelector(".post-container").prepend(sideArticles)
+        // document.querySelector(".post-container").prepend(sideArticles)
+        document.querySelector(".inner_post_contnr").prepend(sideArticles)
     } else {
         console.log(`Cannot fetch similar opportunities to build the block`)
     }

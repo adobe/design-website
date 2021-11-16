@@ -50,7 +50,6 @@ export default async function makeSideArticlesBlock(document) {
                         { attr:{ href: elm.tag_link || ' ', target: "_blank"}},elm.tag_text|| 'Link'
                     ),
                     /**
-                     * TODO:  style artcl-img
                      * Set a height/width to container so that loading images
                      * don't mess up style/format
                      * */
