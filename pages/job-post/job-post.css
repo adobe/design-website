@@ -4,12 +4,44 @@
 @import url(../../blocks/job-posting-blocks/similar-opportunities.css);
 @import url(../../blocks/job-posting-blocks/left-blocks.css);
 
+
+body.job-post,
+body.job-post header.split,
+body.job-post main > div{
+    font-size: clamp(16px, 1.6vw, 30.7px);
+}
 body.job-post {
     background-image: none;
-    background: linear-gradient(90deg, var(--bkg-navy-dark) 0%, var(--bkg-navy-dark) 50%, var(--bkg-grey-lt) 50%, var(--bkg-grey-lt) 100%);
 }
-body.job-post header.split{
-    width: 100vw;
+
+@media screen and (max-width: 1300px) {
+    body.job-post {
+        background: var(--bkg-navy-dark);
+        background-color: var(--bkg-navy-dark);
+    }
+}
+@media screen and (min-width: 1300px) {
+    body.job-post {
+        background-image: none;
+        background: linear-gradient(90deg,
+            var(--bkg-navy-dark) 0%,
+            var(--bkg-navy-dark) 50%,
+            var(--bkg-grey-lt) 50%,
+            var(--bkg-grey-lt) 100%
+        );
+    }
+}
+@media screen and (min-width: 1000px) {
+    body.job-post {
+        background-image: none;
+        background: linear-gradient(90deg,
+            var(--bkg-navy-dark) 0%,
+            var(--bkg-navy-dark) 50%,
+            var(--bkg-grey-lt) 50%,
+            var(--bkg-grey-lt) 100%
+        );
+    }
+
 }
 
 .inner_post_contnr,
