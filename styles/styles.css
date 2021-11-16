@@ -111,8 +111,8 @@ html body button{
     it over writes other styling accross pages indiscriminently:
     main > div > div > div:not(.full-bleed) {
 */
-    width: 95vw;
-    max-width: 62.54em;
+    width: 1567px;
+    max-width: 100%;
     /* ^ limits to 1000px - 1920px depending on base font-size */
     margin-left:auto;
     margin-right:auto;
@@ -263,6 +263,13 @@ html body button{
 }
 
 /* If the styles are the same for each media query, combine them: */
+
+@media only screen and (min-width: 1025px) and (max-width: 1920px) {
+    .page-type-article main{
+        width: 1567px;
+        max-width:100%;
+    }
+}
 
 @media only screen and (min-width: 321px) and (max-width: 1024px){
     .page-home main > div{

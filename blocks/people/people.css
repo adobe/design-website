@@ -42,7 +42,7 @@
 
 
 .person .name {
-    font-size: clamp(1em, 2.8vw, 1.8em);
+    font-size: clamp(2.7em, 2.8vw, 1.8em);
     font-weight: var(--weight-black);
     margin-top: 20px;
 }
@@ -99,4 +99,13 @@
     .person .title {
         font-size: clamp(0.5em, 3vw, 1em);
     } */
+}
+
+@media (max-width: 1920px) and (min-width: 1025px){
+    .person .tag-link{
+        font-size: 1em;
+    }
+    .person .title{
+        font-size: 1em;
+    }
 }

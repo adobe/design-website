@@ -319,3 +319,20 @@
 
 }
 
+
+@media (max-width: 1920px) and (min-width: 1025px){
+    .carousel{
+        width: auto;
+        padding-top: 10em;
+    }
+    .carousel .carousel__item--visible{
+        grid-template-columns: 35.25em 47.25em;
+    }
+    .carousel .carousel__actions{
+        width: 84%;
+    }
+    .carousel__item--visible .number h2{
+        font-size: 4em;
+        padding-right: 3em;
+    }
+}
