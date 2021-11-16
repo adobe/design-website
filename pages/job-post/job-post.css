@@ -1,102 +1,107 @@
-@import url(../../blocks/job-posting-blocks/job-post-header.css);
+/* @import url(../../blocks/job-posting-blocks/job-post-header.css); */
 @import url(../../blocks/job-posting-blocks/about-adobe-design.css);
 @import url(../../blocks/job-posting-blocks/equal-opp-policy-stmnt.css);
 @import url(../../blocks/job-posting-blocks/similar-opportunities.css);
-@import url(../../blocks/job-posting-blocks/side-articles.css);
+@import url(../../blocks/job-posting-blocks/left-blocks.css);
 
+
+body.job-post,
+body.job-post header.split,
+body.job-post main > div{
+    font-size: clamp(16px, 1.6vw, 30.7px);
+}
 body.job-post {
     background-image: none;
 }
 
-.post-container,
+@media screen and (max-width: 1300px) {
+    body.job-post {
+        background: var(--bkg-navy-dark);
+        background-color: var(--bkg-navy-dark);
+    }
+}
+@media screen and (min-width: 1300px) {
+    body.job-post {
+        background-image: none;
+        background: linear-gradient(90deg,
+            var(--bkg-navy-dark) 0%,
+            var(--bkg-navy-dark) 50%,
+            var(--bkg-grey-lt) 50%,
+            var(--bkg-grey-lt) 100%
+        );
+    }
+}
+@media screen and (min-width: 1000px) {
+    body.job-post {
+        background-image: none;
+        background: linear-gradient(90deg,
+            var(--bkg-navy-dark) 0%,
+            var(--bkg-navy-dark) 50%,
+            var(--bkg-grey-lt) 50%,
+            var(--bkg-grey-lt) 100%
+        );
+    }
+
+}
+
+.inner_post_contnr,
 .about-adobe-design{
     margin: auto;
     max-width: 100vw;
-    width: 100%;
+    width: 100vw;
 }
 
-.post-container{
-    width: 100vw;
+.inner_post_contnr{
     display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: repeat(2, 31.27em);
-    padding: 0px calc(50vw - 31.27em);
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 100%;
+    position: relative;
+    overflow: hidden;
+    max-height: 95em;
+    background-color: var(--bkg-grey-lt);
+}
 
+.post-text{
+    max-height: 95em;
+    overflow-y: auto;
+    background-color: var(--bkg-grey-lt);
 }
 
 /* Small Screen */
 @media screen and (max-width: 1000px) {
-    .post-container,
+    .inner_post_contnr,
     .about-adobe-design{
         font-size: 16px;
     }
-    .post-container{
+    .inner_post_contnr{
         max-width: 100vw;
         /* grid-template-rows: auto; */
         grid-template-columns: 100%;
         grid-auto-flow: row dense;
 
         grid-template-rows: repeat(auto-fill, 590px);
+        max-height: 96.25em;
+        height: 96.25em;
     }
 }
 
 /* Medium Screen */
 /* font size scales with screen: smallest: 16px, largest: 30.7px */
 @media screen and (min-width: 1000px) {
-    .post-container,
+    .inner_post_contnr,
     .about-adobe-design{
         font-size: 1.6vw;
-    }
-    .post-container{
-        max-height: 92.5em;
-        overflow-y: scroll;
-    }
-    .header-block{
-        position: sticky;
-        top: 3.42em;
-    }
-    .left-block{
-        position: sticky;
-        top: 32em;
-        display: block;
     }
 }
 
 /* XL screen */
 @media screen and (min-width: 1920px) {
-    .post-container,
+    .inner_post_contnr,
     .about-adobe-design{
         font-size: 30.7px;
     }
 }
 
-.header-block{
-    grid-column: 1 / span 1;
-    grid-row: 1 / span 1;
-}
-
-/*  .job-post{grid}
--------------------------------------------------------
-|  .header-block           | .post-text               |
-|  grid-column: 1 / span 2 |  grid-column: 2 / span 1 |
-|  grid-row:    1 / span 1 |  grid-row:    1 / span 2 |
-|--------------------------|                          |
-|                          |                          |
--------------------------------------------------------
-|          Similar Jobs *block* goes here...          |
--------------------------------------------------------
-|  .about adobe design                                |
-|  grid-column: 1 / span 2                            |
-|  grid-row:    3 / span 1                            |
--------------------------------------------------------
-|  .eo-stmt                                           |
-|  grid-column: 1 / span 2                            |
-|  grid-row:    4 / span 1                            |
--------------------------------------------------------  */
-
-.job-post .post-text {
-    border: 1px solid var(--bkg-grey-lt);
-}
 
 /* -------- SUB HEADER START --------- */
 
@@ -158,10 +163,9 @@ body.job-post {
     grid-row: 1 / span 2;
     max-width: 31.25em; /* 250px */
     padding: 0 2.5em 2.5em 2.5em; /* 40px */
-    background:#E4E4E4;
 }
 @media screen and (max-width: 1000px) {
-    .job-post .post-text{
+    .job-post .inner_post_contnr{
         grid-column: span 1;
         grid-row: 2;
         margin: auto;
@@ -221,3 +225,24 @@ body.job-post {
     margin: none;
     display: fixed;
 }
+
+
+
+/*  .job-post{grid}
+-------------------------------------------------------
+|  .header-block           | .post-text               |
+|  grid-column: 1 / span 2 |  grid-column: 2 / span 1 |
+|  grid-row:    1 / span 1 |  grid-row:    1 / span 2 |
+|--------------------------|                          |
+|                          |                          |
+-------------------------------------------------------
+|          Similar Jobs *block* goes here...          |
+-------------------------------------------------------
+|  .about adobe design                                |
+|  grid-column: 1 / span 2                            |
+|  grid-row:    3 / span 1                            |
+-------------------------------------------------------
+|  .eo-stmt                                           |
+|  grid-column: 1 / span 2                            |
+|  grid-row:    4 / span 1                            |
+-------------------------------------------------------  */

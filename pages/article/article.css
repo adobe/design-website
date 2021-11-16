@@ -100,7 +100,7 @@ body > main > div > div > p:nth-child(3){
     font-size: var(--h2-font-size);
     font-family: var(--serif-font);
     font-weight: var(--weight-regular);
-    padding-top: 1em;
+    padding-top: .5em;
     padding-left: 5.5em;
     padding-bottom: .7em;
     color: #4A4545;

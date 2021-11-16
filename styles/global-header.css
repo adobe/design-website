@@ -53,7 +53,7 @@ header#global-header {
         align-items: center;
     }
     #global-header .logo img{
-        height: 44px;
+        height: 40px;
     }
 }
 
@@ -140,8 +140,9 @@ header#global-header {
     border-bottom: unset;
 }
 
-
+/* START  .split */
 /* Used in Job Posting pages */
+.job-post #global-header,
 header#global-header.split{
     font-size: clamp(16px, 1.6vw, 30.6px);
     width: clamp(1000px, 62.54em, 1633px);
@@ -149,8 +150,20 @@ header#global-header.split{
     background-color: transparent;
     background: transparent;
 }
-header#global-header.split nav a{
-    color: var(--text-dark)
+
+@media screen and (max-width: 1300px) {
+    .job-post #global-header,
+    header#global-header.split,
+    header#global-header.split nav a{
+        background-color: var(--bkg-navy-dark);
+        background: var(--bkg-navy-dark);
+        color: #FFFFFF;
+    }
+}
+@media screen and (min-width: 1300px) {
+    header#global-header.split nav a{
+        color: var(--text-dark)
+    }
 }
 /* End .split */
 
