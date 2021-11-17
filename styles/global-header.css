@@ -43,7 +43,7 @@ header#global-header {
         padding: 24px 0px;
     }
 }
-/* Desktop / Med Screens */ /* XXL Screens */
+/* Desktop / Med Screens */ /* L Screens */
 @media screen and (min-width: 1000px) {
     header#global-header{
         width: 1000px;
@@ -56,6 +56,22 @@ header#global-header {
         height: 40px;
     }
 }
+
+/* Desktop / XXL Screens */
+/* @media screen and (min-width: 1400px) {
+    header#global-header{
+        font-size: clamp(16px, 1.6vw, 30.7);
+        width: 100%;
+        max-width: 1920px;
+        padding: 1em 138px;
+        align-items: center;
+        height: 105px;
+        margin: auto;
+    }
+    #global-header .logo img{
+        height: 1.4em;
+    }
+} */
 
 #global-header .tagline {
     font-family: var(--serif-font);
@@ -136,6 +152,16 @@ header#global-header {
     text-align: right;
     font-size: 20px;
 }
+
+/* Desktop / XXL Screens */
+/* @media screen and (min-width: 1400px) {
+    #global-header nav a {
+        //padding: 0.65em 1.11em;  15px 20px
+        font-size: 20px;
+        padding: 0.5em 1em;
+    }
+} */
+
 #global-header .menu-dropdown-container a:last-child {
     border-bottom: unset;
 }
