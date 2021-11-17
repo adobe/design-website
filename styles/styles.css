@@ -264,10 +264,16 @@ html body button{
 
 /* If the styles are the same for each media query, combine them: */
 
-@media only screen and (min-width: 1441px) and (max-width: 1920px) {
+@media only screen and (min-width: 1651px) and (max-width: 1920px) {
     .page-type-article main{
-        width: 1567px;
+        width: 103em;
         max-width:100%;
+    }
+    
+}
+@media only screen and (min-width: 1441px) and (max-width: 1650px){
+    .page-type-article main{
+        width: 90em;
     }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1440px) {
@@ -276,10 +282,38 @@ html body button{
         max-width:100%;
     }
 }
-@media only screen and (min-width: 321px) and (max-width: 1024px){
-    .page-home main > div{
-        width: auto;
-        margin: 1em;
-        overflow-x: hidden;
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+    .page-type-article main{
+        width: 950px;
+        max-width: 100%;
+
+    }
+}
+@media only screen and (min-width: 426px) and (max-width: 768px){
+    .page-type-article main{
+        width: 750px;
+        max-width: 100%;
+
+    }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px){
+    .page-type-article main{
+        width: 410px;
+        max-width: 100%;
+
+    }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px){
+    .page-type-article main{
+        width: 355px;
+        max-width: 100%;
+
+    }
+}
+@media only screen and (min-width: 0px) and (max-width: 320px){
+    .page-type-article main{
+        width: 310px;
+        max-width: 100%;
+
     }
 }
