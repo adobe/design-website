@@ -540,8 +540,8 @@ body > div.author-bio.block > div > author-name{
 @media (max-width: 1440px) and (min-width: 1025px){
     :root{
         --h1-font-size: 5em;
-        --h2-font-size: 5em;
-        --h3-font-size: 3em;
+        --h2-font-size: 4em;
+        --h3-font-size: 2.5em;
         --font-size-lede: 2.8em;
         --p-font-size: 1em;
         --li-font-size: 1.5em;
@@ -570,18 +570,18 @@ body > div.author-bio.block > div > author-name{
         font-size: var(--font-size-lede);
     }
     .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
-        font-size: 1.8em;
+        font-size: 1.4em;
         padding-left: 12.5em;
     }
     .page-type-article .content h2{
-        padding-left: 4.5em;
+        padding-left: 4.4em;
     }
     .page-type-article .content .pull-quote.block{
         font-size: var(--font-size-lede);
-        padding: 2em 1.4em 2em 2em;
+        padding: 2em 1.6em 2em 2em;
     }
     .page-type-article .content ul{
-        font-size: 1.8em;
+        font-size: 1.4em;
         padding-left: 12.5em;
     }
     .page-type-article .content li{
@@ -589,13 +589,13 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .content h3{
         font-size: var(--h3-font-size);
-        padding-left: 7.5em;
+        padding-left: 7em;
     }
     .page-type-article .additional-reading.block > div{
-        padding-left: 18em;
+        padding-left: 13.7em;
     }
     .page-type-article .additional-reading.block ul{
-        font-size: 1.3em;
+        font-size: 1em;
     }
 }
 @media (max-width: 1024px) and (min-width:769px) {
