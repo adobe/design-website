@@ -8,3 +8,6 @@
     text-align: left;
     color: #FF7D4F;
 }
+.block.pull-quote .attribution {
+    padding-top: 1em;
+}
