@@ -5,12 +5,36 @@
     height: 100%;
 } */
 
+
 .job-post .sticky-container{
     display: block;
-    position: sticky;
-    top: 0px;
-    right: 50vw;
-    height: 100%;
+    /* position: sticky; */
+    /* top: 0px; */
+    /* right: 50vw; */
+    /* height: 100%; */
+    /* height: max-content; */
+    box-sizing: border-box;
+}
+@media screen and (max-width: 1300px) {
+    .job-post .sticky-container{
+        display: block;
+        position: relative;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .job-post .inner-post-contnr,
+    .job-post .sticky-container{
+        min-height: 93.05em;
+        height: 93.05em;
+    }
+    .job-post .sticky-container{
+        display: block;
+        position: sticky;
+        top: 0px;
+        right: 50vw;
+        height: max-content;
+        box-sizing: border-box;
+    }
 }
 
 /* --------------- END   Sticky   Container Block --------------- */
@@ -73,15 +97,28 @@
 @media screen and (min-width: 640px) and (max-width: 1300px) {
     .job-post .header-block .job-header-container,
     .job-post .header-block .job-title{
-        width: clamp(calc(31.25em - 10px), calc(100vw - 20px), calc(100vw - 20px));
-        /* margin-left: 5.6875em;
-        margin-right: 5.6875em; */
-        margin-left: auto;
+        width:
+            clamp(
+                calc(31.25em - 10px),
+                calc(31.25em - 10px),
+                calc(100vw - 20px)
+            );
+        margin-left: 5.6875em;
+        /* margin-right: 5.6875em; */
+        /* margin-left: auto;*/
         margin-right: auto;
+        margin: auto;
     }
     .job-post .header-block .job-title{
-        /* width: 100%; */
-        width: clamp(calc(31.25em - 10px), calc(100vw - 20px), calc(100vw - 20px));
+        margin-left: unset;
+        max-width: 100%;
+        margin-top: 2.4em;    /* 276px */
+        margin-bottom: 2.4em; /* 276px */
+    }
+}
+@media screen and (max-width: 1300px) {
+    .side-articles-container{
+        display: none;
     }
 }
 
@@ -120,27 +157,27 @@
 .job-post .side-articles,
 .job-post .side-articles-container{
     height: 100%;
+    min-height: 57.55em;
     background-color: #ffffff;
 }
 
 .job-post .side-articles{
     display: grid;
-    padding: 3.88em 11.56em 5em 0px;
+    padding: 3.88em 0em 0em 3.8em;
     margin-left: auto;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(auto-fill, 24em);
     grid-template-rows: repeat(auto-fit, 24em);
     gap: .67em  0px ;
-    width: 32em;
-    justify-items: end;
+    max-width: clamp(50vw, 32em, 50vw);
+    justify-items: start;
 }
 
 
 .job-post .artcl-card{
     font-size: 30.7px;
     width:  15em;
-    max-height: 24em;
-    min-height: 24em;
+    height: 24em;
 
     /* max-height: 26.9em; */
     padding: 2.5em .67em ;
@@ -154,6 +191,37 @@
     box-sizing: border-box;
     /* gap: 2em; */
 }
+
+@media screen and (max-width: 1000px) {
+    .job-post .side-articles-container,
+    .job-post .side-articles,
+    .job-post .artcl-card{
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .job-post .side-articles-container,
+    .job-post .side-articles,
+    .job-post .artcl-card{
+    }
+    .job-post .artcl-card{
+        height: 24em;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    /* .job-post .side-articles-container, */
+    /* .job-post .side-articles, */
+    .job-post .artcl-card{
+        height: 24em;
+    }
+    .job-post .side-articles{
+        justify-items: end;
+        padding: 3.88em 11.56em 5em 0px;
+    }
+}
+
+
 .job-post .artcl-card .tag-link{
     /* margin: 1.1em auto 1.1em 0; */
     margin: 0 auto 0 0;
