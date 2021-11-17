@@ -211,9 +211,7 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     justify-items: center;
     padding: 2em 0 2em 3em;
 }
-body > main > div > div > div:nth-child(41) > div > div{
-    padding-right: 6em;
-}
+
 .page-type-article .content div:nth-child(3){
     padding: 0;
     padding-bottom: 1em;
@@ -479,7 +477,7 @@ body > div.author-bio.block > div > author-name{
     }
 }
 
-@media (max-width: 1920px) and (min-width: 1025px){
+@media (max-width: 1920px) and (min-width: 1441px){
     :root{
         --h1-font-size: 5em;
         --h2-font-size: 5em;
@@ -539,7 +537,67 @@ body > div.author-bio.block > div > author-name{
         font-size: 1.3em;
     }
 }
+@media (max-width: 1440px) and (min-width: 1025px){
+    :root{
+        --h1-font-size: 5em;
+        --h2-font-size: 5em;
+        --h3-font-size: 3em;
+        --font-size-lede: 2.8em;
+        --p-font-size: 1em;
+        --li-font-size: 1.5em;
+    }
+    
+    .page-type-article .header-tag{
+        padding-left: 1.8em;
+    }
+    .page-type-article h1{
+        font-size: 6em;
+        padding-right: 3em;
 
+    }
+    .page-type-article .header.block h2{
+        font-size: 2em;
+        padding-left: 5em;
+        padding-right: 14em;
+    }
+    .page-type-article .author.block{
+
+    }
+    .page-type-article .author.block .name{
+        padding: 0;
+    }
+    .page-type-article .lede.block{
+        font-size: var(--font-size-lede);
+    }
+    .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
+        font-size: 1.8em;
+        padding-left: 12.5em;
+    }
+    .page-type-article .content h2{
+        padding-left: 4.5em;
+    }
+    .page-type-article .content .pull-quote.block{
+        font-size: var(--font-size-lede);
+        padding: 2em 1.4em 2em 2em;
+    }
+    .page-type-article .content ul{
+        font-size: 1.8em;
+        padding-left: 12.5em;
+    }
+    .page-type-article .content li{
+        padding-left: 0;
+    }
+    .page-type-article .content h3{
+        font-size: var(--h3-font-size);
+        padding-left: 7.5em;
+    }
+    .page-type-article .additional-reading.block > div{
+        padding-left: 18em;
+    }
+    .page-type-article .additional-reading.block ul{
+        font-size: 1.3em;
+    }
+}
 @media (max-width: 1024px) and (min-width:769px) {
     .page-type-article .content .header.block h1{
         font-size: 4.7em;
@@ -868,6 +926,9 @@ body > div.author-bio.block > div > author-name{
 
 }
 
+.page-type-article .content .pull-quote.block p{
+    padding: 0;
+}
 
 /* #who-should-you-whiteboard-with{
     padding-right: 6em;
