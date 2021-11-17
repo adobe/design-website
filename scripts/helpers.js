@@ -1,3 +1,5 @@
+import { resolveIndex } from "./queries.js";
+
 /**
  *
  * @param {HTMLImageElement} $image
@@ -147,6 +149,57 @@ export function extractProperties($block, $propBlock) {
         $resolvedPropBlock.remove();
     }
     return props;
+}
+
+export async function propertiesFromUrl( url, def ) {
+    const index = await resolveIndex();
+    var match = index.whereUrlMatchesPath(url);
+    console.log("MATCH", match);
+    if(match) {
+        const result = {};
+        const keys = Object.keys(def);
+        for(let i = 0; i < keys.length; i++) {
+            let key = keys[i];
+            let mapKey = def[key];
+            if(typeof mapKey === "string") {
+                result[key] = match[mapKey];
+            } else {
+                result[key] = match[mapKey.field] || mapKey.default;
+            }
+        }
+        console.log("RESULT", result);
+        return result;
+    } else {
+        return {};
+    }
+}
+
+/**
+ *
+ * @param {HTMLDivElement} $div
+ * @param {*} options
+ */
+export async function propsFromBlockLink( $div, def ) {
+    var link = $div.querySelector("a");
+    if(link) {
+        var url = link.getAttribute("href");
+        link.remove();
+        return propertiesFromUrl(url, def);
+    } else {
+        return {};
+    }
+}
+
+export async function propsFromLinks( $div, def ) {
+    var results = [];
+    var link = $div.querySelector("a");
+    while(link) {
+        var url = link.getAttribute("href");
+        link.remove();
+        var result = propertiesFromUrl(url, def);
+        results.push( result );
+    }
+    return results;
 }
 
 function arrayToDefinitions( arr ) {
