@@ -7,6 +7,10 @@ header#global-header {
     height: 5.2em; /* 93px; */
 }
 
+#global-header > div > div > a {
+    display: -webkit-inline-box;
+}
+
 /* iPhone / X-Small Screens */
 @media screen and (max-width: 700px) {
     header#global-header{
