@@ -4,7 +4,7 @@ import {
   $wrap,
   decorateTagLink,
   decorateDivisions,
-  transformBlockWithLink,
+  propsFromBlockLink,
 } from '../../scripts/helpers.js';
 
 /**
@@ -14,7 +14,7 @@ export default async function decorate($block) {
     const truncateTextPages = ['/']
     const truncateText = truncateTextPages.includes(window.document.location.pathname)
 
-  let props = await transformBlockWithLink($block, {
+  let props = await propsFromBlockLink($block, {
     path: 'path',
     hed: 'title',
     dek: 'description',

@@ -179,18 +179,18 @@ export async function propertiesFromUrl( url, def ) {
  * @param {HTMLDivElement} $div
  * @param {*} options
  */
-export async function transformBlockWithLink( $div, def ) {
+export async function propsFromBlockLink( $div, def ) {
     var link = $div.querySelector("a");
     if(link) {
         var url = link.getAttribute("href");
         link.remove();
         return propertiesFromUrl(url, def);
     } else {
-        return null;
+        return {};
     }
 }
 
-export async function transformLinks( $div, def ) {
+export async function propsFromLinks( $div, def ) {
     var results = [];
     var link = $div.querySelector("a");
     while(link) {
