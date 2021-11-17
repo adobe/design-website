@@ -175,8 +175,8 @@ header#global-header {
 .job-post #global-header,
 header#global-header.split{
     font-size: clamp(16px, 1.6vw, 30.6px);
-    width: clamp(1000px, 62.54em, 1633px);
-    max-width: clamp(1000px, 62.54em, 1633px);
+    /* width: clamp(1000px, 62.54em, 1633px); */
+    /* max-width: clamp(1000px, 62.54em, 1633px); */
     background-color: transparent;
     background: transparent;
 }
@@ -189,10 +189,19 @@ header#global-header.split{
         background: var(--bkg-navy-dark);
         color: #FFFFFF;
     }
+    .job-post  header#global-header.split{
+        /* width: calc(100vw - 236px); */
+        width: 100vw;
+        padding: 0px 20px;
+    }
 }
 @media screen and (min-width: 1300px) {
+    header#global-header.split{
+        max-width: clamp(1000px, 62.54em, 1633px);
+        width: clamp(1000px, 62.54em, 1633px);
+    }
     header#global-header.split nav a{
-        color: var(--text-dark)
+        color: var(--text-dark);
     }
 }
 /* End .split */
