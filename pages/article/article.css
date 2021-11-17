@@ -477,7 +477,7 @@ body > div.author-bio.block > div > author-name{
     }
 }
 
-@media (max-width: 1920px) and (min-width: 1441px){
+@media (max-width: 1920px) and (min-width: 1651px){
     :root{
         --h1-font-size: 5em;
         --h2-font-size: 5em;
@@ -536,6 +536,65 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .additional-reading.block ul{
         font-size: 1.3em;
     }
+    .page-type-article .similar-stories-content{
+        max-width: 103em;
+    }
+}
+@media (max-width: 1650px) and (min-width: 1441px){
+    :root{
+        --h2-font-size: 4.5em;
+        --h3-font-size: 2.7em;
+        --font-size-lede: 3.3em;
+        --li-font-size: 1.5em;
+    }
+    .page-type-article .header-tag{
+        padding-left: 3.5em;
+    }
+    .page-type-article h1{
+        font-size: 7em;
+        padding-right: 3em;
+        
+    }
+    .page-type-article .header.block h2{
+        font-size: 2.5em;
+        padding-left: 4.6em;
+        padding-right: 14em;
+    }
+    .page-type-article .author.block .name{
+        padding: 0;
+    }
+    .page-type-article .lede.block{
+        font-size: var(--font-size-lede);
+    }
+    .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
+        font-size: 1.7em;
+        padding-left: 12.5em;
+    }
+    .page-type-article .content h2{
+        padding-left: 4.8em;
+    }
+    .page-type-article .content .pull-quote.block{
+        font-size: var(--font-size-lede);
+        padding: 2em 1.6em 2em 2em;
+    }
+    .page-type-article .content ul{
+        font-size: 1.4em;
+        padding-left: 15.3em;
+    }
+    .page-type-article .content li{
+        padding-left: 0;
+    }
+    .page-type-article .content h3{
+        font-size: var(--h3-font-size);
+        padding-left: 7.9em;
+    }
+    .page-type-article .additional-reading.block > div{
+        padding-left: 17.5em;
+    }
+    .page-type-article .similar-stories-content{
+        max-width: 1440px;
+    }
+
 }
 @media (max-width: 1440px) and (min-width: 1025px){
     :root{
@@ -596,6 +655,9 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .additional-reading.block ul{
         font-size: 1em;
+    }
+    .page-type-article .similar-stories-content{
+        max-width: 1269px;
     }
 }
 @media (max-width: 1024px) and (min-width:769px) {
