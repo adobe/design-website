@@ -220,7 +220,7 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     padding: 2em 0 2em 3em;
 }
 .page-type-article p + p + .pull-quote.block {
-    padding-right: 5em;
+    /* padding-right: 5em; */
 }
 
 .page-type-article .content div:nth-child(3){
