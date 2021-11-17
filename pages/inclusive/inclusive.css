@@ -101,6 +101,7 @@ body > main > div > div > p{
 .inclusive-design .people.block{
     display: grid;
     grid-template-columns: 33.3% 33.3% 33.3%;
+    align-items: baseline;
     background: #F7EFFC;
     padding: 3.5em;
     padding-bottom: 0;

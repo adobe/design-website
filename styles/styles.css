@@ -37,10 +37,11 @@ html{
         /* Common Colors */
         --text-dark:      #3E3E3E;
         --bkg-navy-dark:  #0B1C40;
-        --bkg-green:      #4BA88E;
         --bkg-grey-lt:    #E8E8E8;
         --bkg-red:        #E91D25;
         --bkg-orange:     #E94E27;
+        --lt-yellow:      #FFFE8B;
+        --bkg-green:      #4BA88E;
         --color-navy:     #3041A0;
         --color-blue-med: #3C5CB4;
 
@@ -112,7 +113,7 @@ html body button{
     main > div > div > div:not(.full-bleed) {
 */
     width: 95vw;
-    max-width: 62.54em;
+    max-width: 62.54rem;
     /* ^ limits to 1000px - 1920px depending on base font-size */
     margin-left:auto;
     margin-right:auto;
