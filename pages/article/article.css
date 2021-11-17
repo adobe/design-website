@@ -154,6 +154,7 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
 }
 .page-type-article .author.block .name{
     font-size: 1.3em;
+    height: auto;
 }
 
 .page-type-article .header .author-desc h2,
@@ -312,7 +313,7 @@ body > div.author-bio.block > div > author-name{
 }
 
 .page-type-article .author-image {
-    width: 5em;
+    width: 4em;
 }
 
 .page-type-article author-name {
