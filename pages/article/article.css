@@ -293,7 +293,7 @@ body > main > div > div.content > picture > img{
     /* display: flex; */
     /* align-items: center; */
     /* margin: 0 218px; */
-    padding: 5em 6em 8em 6em;
+    padding: 5em 6em 2em 6em;
 }
 .page-type-article .author-bio > div p:nth-child(2){
     padding-top: 4em;
@@ -312,7 +312,7 @@ body > div.author-bio.block > div > author-name{
 }
 
 .page-type-article .author-image {
-    width: 3em;
+    width: 5em;
 }
 
 .page-type-article author-name {
@@ -339,7 +339,7 @@ body > div.author-bio.block > div > author-name{
     margin-top: .3em;
 }
 .page-type-article .author-bio .name {
-    font-size: clamp(20px, 5vw, 25px);
+    font-size: clamp(20px, 5vw, 22px);
     margin: 0;
 }
 
