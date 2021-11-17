@@ -24,6 +24,7 @@ export default function decorate($block) {
   scrollHintContainer.append(scrollHintContent);
   scrollHintContainer.append(scrollHintChevron);
 
+  // TODO: Use propsFromLinks here
 
   var i = 0;
 
