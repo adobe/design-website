@@ -188,3 +188,17 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
         max-width: 90%;
     }
 }
+@media screen and (max-width: 700px) {
+    .article-card.block .text .tag-link {
+        font-size: 1.25em;
+    }
+    div.article-card.block .text .hed {
+        margin: 1.25em 0rem 0em;
+    }
+    .article-card.block .text .hed {
+        height: auto;
+    }
+    .article-card.block .block-content .text, .article-card.block .block-content .image {
+        height: 50vh;
+    }
+}

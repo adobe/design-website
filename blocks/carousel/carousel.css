@@ -207,7 +207,7 @@
 }
 
 /* iPad Media Query */
-@media (min-width: 425px) and (max-width: 1024px) {
+@media (min-width: 426px) and (max-width: 1024px) {
     .carousel .carousel__actions {
         top: 110%;
         left: 73vw;
@@ -245,7 +245,7 @@
     }
 }
 
-@media (min-width: 425px) and (max-width: 700px) {
+@media (min-width: 426px) and (max-width: 700px) {
     .carousel .carousel__item--visible {
         grid-template-columns: 44.25vw 32.25em;
         width: 95vw;
@@ -275,9 +275,13 @@
         flex-direction: column;
         height: 100%;
         justify-content: flex-start;
+        margin-bottom: 30px;
+    }
+    .home-view-container .scroll-tip-container {
+        display: none;
     }
     .carousel .carousel__actions button img {
-        height: 30px;
+        height: 25px;
     }
     .carousel .carousel__item--visible {
         display: flex;
@@ -293,6 +297,7 @@
         width: 66vw;
     }
     .carousel.block .carousel__item--visible .number h2 {
+        font-size: 2em;
         margin-bottom: .5em;
         margin-top: .5em;
     }
