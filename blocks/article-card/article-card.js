@@ -7,6 +7,8 @@ import {
   propsFromBlockLink,
 } from '../../scripts/helpers.js';
 
+let counter = 0;
+
 /**
  * @param {HTMLElement} $block
  */
@@ -102,7 +104,7 @@ export default async function decorate($block) {
   result['.block-content'].append(articleLink)
   articleLink.prepend($text)
 
-  if (!props['image-side'] || props['image-side'] === 'left') {
+  if ((!props['image-side'] && counter % 2 === 0) || props['image-side'] === 'left') {
     articleLink.prepend(result['.image']);
   } else {
     articleLink.append(result['.image']);
@@ -110,6 +112,7 @@ export default async function decorate($block) {
 
   result['.image'].classList.add('image');
   convertToBackground(result['.image'].querySelector('img'), result['.image']);
+  counter += 1;
 }
 
 
