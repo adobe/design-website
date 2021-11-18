@@ -250,3 +250,54 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
         font-size: 1.7em;
     }
 }
+@media (max-width: 425px) and (min-width: 415px){
+    .article-card.block{
+        width: 415px;
+    }
+    .article-card.block .text{
+        padding: 1em 1em .5em 3em;
+    }
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 2.6em;
+    }
+    .article-card.block .text .dek{
+        font-size: 1.7em;
+    }
+    .article-card.block .block-content .text, .article-card.block .block-content .image{
+        height: 35vh;
+    }
+}
+@media (max-width: 414px) and (min-width: 376px){
+    .article-card.block{
+        width: 399px;
+    }
+    .article-card.block .text{
+        padding: 1em 3em 4.5em 3em;
+    }
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 2.6em;
+    }
+    .article-card.block .text .dek{
+        font-size: 1.7em;
+    }
+    .article-card.block .block-content .text, .article-card.block .block-content .image{
+        height: 50vh;
+    }
+}
+@media (max-width: 375px) and (min-width: 321px){
+    .article-card.block{
+        width: 365px;
+    }
+    .article-card.block .text{
+        padding: 1em 3em 4.5em 3em;
+    }
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 2.6em;
+    }
+    .article-card.block .text .dek{
+        font-size: 1.7em;
+    }
+    .article-card.block .block-content .text, .article-card.block .block-content .image{
+        height: 35vh;
+    }
+}
