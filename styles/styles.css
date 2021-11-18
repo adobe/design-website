@@ -294,15 +294,11 @@ html body button{
     .people.block{
         width: 1267px;
     }
-    .people.block .person .stories-link{
 
-    }
     .people.block .person .name{
         font-size: 2em;
     }
-    .people.block .person .title{
 
-    }
     .two-column.block{
         width: 1440px;
     }
@@ -329,35 +325,25 @@ html body button{
 @media only screen and (min-width: 769px) and (max-width: 1024px){
     .page-type-article main{
         width: 950px;
-        max-width: 100%;
-
     }
 }
 @media only screen and (min-width: 426px) and (max-width: 768px){
     .page-type-article main{
         width: 750px;
-        max-width: 100%;
-
     }
 }
 @media only screen and (min-width: 376px) and (max-width: 425px){
     .page-type-article main{
         width: 410px;
-        max-width: 100%;
-
     }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px){
     .page-type-article main{
         width: 355px;
-        max-width: 100%;
-
     }
 }
 @media only screen and (min-width: 0px) and (max-width: 320px){
     .page-type-article main{
         width: 310px;
-        max-width: 100%;
-
     }
 }

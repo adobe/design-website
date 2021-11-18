@@ -221,7 +221,7 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
         font-size: 2em;
     }
 }
-@media (max-width: 1280px) and (min-width: 1024px){
+@media (max-width: 1280px) and (min-width: 1025px){
     .article-card.block{
         width: 1024px;
     }
@@ -235,4 +235,18 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
         font-size: 1.7em;
     }
     
+}
+@media (max-width: 768px) and (min-width: 426px){
+    .article-card.block{
+        width: 758px;
+    }
+    .article-card.block .text{
+        padding: 1em 1em .5em 3em;
+    }
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 2.6em;
+    }
+    .article-card.block .text .dek{
+        font-size: 1.7em;
+    }
 }
