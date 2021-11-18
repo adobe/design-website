@@ -206,7 +206,7 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
     padding-bottom: 1em;
 }
 .page-type-article .content p.article-picture{
-    line-height: 0;
+    line-height: 1.6;
 
 }
 .page-type-article main img{
