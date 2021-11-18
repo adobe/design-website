@@ -343,6 +343,6 @@
 }
 @media (max-width: 1440px) and (min-width: 1025px){
     .carousel .carousel__item--visible{
-        grid-template-columns: 27.25em 25.25em;
+        grid-template-columns: 27.25em  25.25em;
     }
 }
