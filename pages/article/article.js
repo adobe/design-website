@@ -17,10 +17,10 @@ export default function decorate($main) {
     } catch(err) {
       console.error(err);
     }
-    buildSimilarStories();
+    let tag = window.document.location.pathname.split('/')[2]
+    buildSimilarStories(tag);
     buildAuthorBio();
 
-    let tag = window.document.location.pathname.split('/')[2]
     var headerTag = $element(
       'a.header-tag.stories-link', //Tag type and classes
       { attr: { href: `/stories/?tag=${tag.toUpperCase()}` } }, //Link
@@ -33,26 +33,26 @@ export default function decorate($main) {
     }
 }
 
-async function buildSimilarStories(){
+async function buildSimilarStories(tag){
   if (!index) {
     index = await fetchIndex();
   }
 
-  let stories = index.stories.data
+  let similarStories = index.stories.data.filter(story => story.path.split('/')[2] == tag)
   let storiesContent = $element('.stories')
-  if(stories.length > 0)
-    storiesContent.appendChild(buildStory(stories[0]))
-  if(stories.length > 1)
-    storiesContent.appendChild(buildStory(stories[1]))
+  if(similarStories.length > 0)
+    storiesContent.appendChild(buildStory(similarStories[0]))
+  if(similarStories.length > 1)
+    storiesContent.appendChild(buildStory(similarStories[1]))
   let $similarStoriesBlock = $wrap($element('.similar-stories'),$wrap($element('.similar-stories-content'), [$element('h2.similar-stories-header', 'Similar Stories'), storiesContent]))
   document.body.insertBefore($similarStoriesBlock, document.querySelector('#global-footer'));
 }
 
 function buildStory( story ) {
   const mediaAttr = "(max-width: 400px)";
-  if(!story.title) {
-      story.title = "[TITLE_MISSING]";
-  }
+
+  var storyTag = story.path.split('/')[2];
+
   return $element(".story.block", [
       $element("a.link", { attr: { href: story.path } }, [
           $element(".image", [
@@ -62,8 +62,8 @@ function buildStory( story ) {
               ]),
           ]),
           $element(".story-text", [
-              $element("p.tag", ['#', $element("span", 'LEADING DESIGN')]),
-              $element("h2.story-header", 'From mind to canvas' ),
+              $element("p.tag", ['#', $element("span", storyTag.toUpperCase().replaceAll('-', ' '))]),
+              $element("h2.story-header", story.title || "[TITLE MISSING]" ),
               $element("h3", "Creating art with synthesia"),
               $element("p.author", "Laura Herman"),
               $element("p.position", "User Experience Researcher")
