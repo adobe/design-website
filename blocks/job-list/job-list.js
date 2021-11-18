@@ -17,14 +17,14 @@ export default async function decorate($block) {
   $block.innerHTML = "";
   if(index && index.jobs) {
     for (const job of index.jobs.data) {
-      var $el = $element("a.single-job", { attr: { href: job.path } }, [
+      var $el = $element("a.single-job", { attr: { href: job.path, target: "_blank" } }, [
         $element("h3.job-title", job.title || "No Title"),
         $element("p.experience", "Test Experience"),
         $element("p.location", "California"),
       ]);
       $block.append($el);
     }
-    const seeJobsDiv = $element("a.see-jobs", { attr: { href: "/jobs/" } }, $element("span", "VIEW OUR JOB OPENINGS"))
+    const seeJobsDiv = $element("a.see-jobs", { attr: { href: "/jobs/", target: "_blank" } }, $element("span", "VIEW OUR JOB OPENINGS"))
     /* const seeJobsDiv = $element("a.see-jobs");
     seeJobsDiv.classList.add("see-jobs");
     seeJobsDiv.setAttribute("href", "/jobs/");

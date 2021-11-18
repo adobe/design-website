@@ -131,6 +131,7 @@ function checkWebpFeature(callback) {
       });
     // catch link-only figures (like embed blocks);
     } else if (blockEl.firstChild.nodeName === 'A') {
+      blockEl.firstChild.target = "_blank"
       figEl.append(blockEl.firstChild);
     }
   }
@@ -364,8 +365,13 @@ export function getLanguage() {
           const aArr = [...valueEl.querySelectorAll('a')];
           if (aArr.length === 1) {
             value = aArr[0].href;
+            aArr[0].target = "_blank";
           } else {
-            value = aArr.map((a) => a.href);
+            value = aArr.map(
+              (a) => {
+                a.href;
+                a.target = "_blank";
+              });
           }
         } else if (valueEl.querySelector('p')) {
           const pArr = [...valueEl.querySelectorAll('p')];

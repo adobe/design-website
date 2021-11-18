@@ -102,7 +102,7 @@ export function readBlockConfig($block) {
                     if ($as.length === 1) {
                         value = $as[0].href;
                     } else {
-                        value = $as.map(($a) => $a.href);
+                        value = $as.map(($a) => {$a.href; $a.target = "_blank";});
                     }
                 } else if ($value.querySelector('p')) {
                     const $ps = [...$value.querySelectorAll('p')];
