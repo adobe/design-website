@@ -275,12 +275,56 @@ html body button{
     .page-type-article main{
         width: 90em;
     }
+    .article-card.block{
+        width: 90em;
+    }
+    .people.block{
+        width: 90em;
+    }
 }
-@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+@media only screen and (min-width: 1281px) and (max-width: 1440px) {
     .page-type-article main{
-        width: 1269px;
+        width: 1280px;
         max-width:100%;
     }
+    
+    .article-card.block{
+        width: 1269px;
+    }
+    .people.block{
+        width: 1267px;
+    }
+    .people.block .person .stories-link{
+
+    }
+    .people.block .person .name{
+        font-size: 2em;
+    }
+    .people.block .person .title{
+
+    }
+    .two-column.block{
+        width: 1440px;
+    }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1280px){
+    .page-type-article main{
+        width: 1024px;
+        max-width:100%;
+    }
+    .people.block{
+        width: 1024px;
+    }
+    .people.block .person .stories-link{
+        font-size: .8em;
+    }
+    .people.block .person .name{
+        font-size: 1.7em;
+    }
+    .people.block .person .title{
+        font-size: .8em;
+    }
+    
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px){
     .page-type-article main{

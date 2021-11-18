@@ -491,7 +491,7 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article h1{
         font-size: 7em;
-        padding-right: 3em;
+        padding-right: 4em;
 
     }
     .page-type-article .header.block h2{
@@ -596,7 +596,7 @@ body > div.author-bio.block > div > author-name{
     }
 
 }
-@media (max-width: 1440px) and (min-width: 1025px){
+@media (max-width: 1440px) and (min-width: 1281px){
     :root{
         --h1-font-size: 5em;
         --h2-font-size: 4em;
@@ -658,6 +658,11 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .similar-stories-content{
         max-width: 1269px;
+    }
+}
+@media (max-width: 1280px) and (min-width: 1024) {
+    .page-type-article .similar-stories-content{
+        width: 1024px;
     }
 }
 @media (max-width: 1024px) and (min-width:769px) {
