@@ -4,15 +4,23 @@
     min-width: unset;
     margin: 10px 0px 10px 0px; }
 
+@media screen and (min-width: 701px){
+        .toolkit-card.block{
+            font-size: 1rem;
+            height: clamp(400px, 43vw,500px);
+            overflow:hidden;
+        }
+    }
 @media screen and (min-width: 1025px) and (min-height: 620px) {
     /* Ensure Toolkit Card doesn't cut off content on short desktop screens */
     .toolkit-card.block{
         font-size: 1rem;
         height:550px;
         overflow:hidden;
-        min-width: 62.5em;
     }
 }
+
+
 /* --- SET FONT SIZE (em)s HERE: ---*/
 /* All following/decendant em measurements will be based on this font-size: */
 @media screen and (min-width: 700px) and (max-width: 1025px) {
@@ -53,6 +61,7 @@
     width: 100%;
     padding: 1.6em 3em 3em 4em;
     box-sizing: border-box;
+    justify-content: center;
 }
 
 .toolkit-card.block .image{
@@ -66,8 +75,14 @@
 @media screen and (max-width: 700px) {
     .toolkit-card.block .block-content .text,
     .toolkit-card.block .block-content .image {
-        height: 60vh;
+        min-height: 50vh;
         width: 100%;
+        justify-content: flex-start;
+    }
+    .toolkit-card.block .block-content .text{
+        padding-top: 5em;
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -80,7 +95,6 @@
 .toolkit-card.block .text .hed,
 .toolkit-card.block .text .hed a {
     line-height: 1em; 
-    margin: 1.5em 0rem 0em;
     max-width: 100%;
     text-decoration: none;
     color: inherit;
@@ -95,7 +109,6 @@
     overflow: unset;
 }
 
-
 /*
  * SubHeader h3 dek
  */
@@ -104,8 +117,7 @@
     line-height: 1.5em; 
     margin: 1.25em 0em 0.5rem 0em; 
     font-weight: var(--weight-light);
-    text-overflow: ellipsis;
-    max-height: 3.6em;              /* 3x line-height */
+    text-overflow: ellipsis;           /* 3x line-height */
     max-width: 93%;
 }
 
@@ -114,10 +126,10 @@
     .toolkit-card.block .text .hed,
     .toolkit-card.block .text .hed a {
         font-size: 3em;
-        height: 7rem;
     }
 
     .toolkit-card.block .text .dek{
         max-width: 90%;
+        font-size: 16px;
     }
 }

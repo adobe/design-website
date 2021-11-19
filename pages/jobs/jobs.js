@@ -1,6 +1,13 @@
 import {$wrap, $element, $remainder} from "../../scripts/helpers.js";
+import { fetchIndex } from "../../scripts/queries.js";
+let index;
 
-export default function decorate($main) {
+export default async function decorate($main) {
+    if (!index) {
+      index = await fetchIndex();
+    }
+    const allJobs = index.jobs.data;
+
     var jobs = document.querySelector("body > main");
     jobs.classList.add("jobs")
     /* jobs.forEach(t => {
@@ -79,7 +86,64 @@ export default function decorate($main) {
     $wrap(jobsContainer, [jobsColLeft, jobsColRight]);
 
     jobsBlockContainer.appendChild(jobsContainer);
-    var dummyJobs = [
+
+    jobsBlockContainer.querySelectorAll(".job-listings").forEach(element=>{
+      element.remove()
+    })
+
+    jobsBlockContainer.querySelectorAll(".job-category").forEach(element=>{
+      let hasJob = false;
+      allJobs.forEach(job=>{
+        if(!job.section)
+          job.section = "Experience Design"
+        if((element.id.replaceAll('-', ' ').includes(job.section.toLowerCase()))){
+          hasJob = true;
+          element.append(buildJobListings(job))
+        }
+          
+      })
+      if(!hasJob)
+        element.append($element(".no-oppenings", "There are no openings right now"))
+    })
+}
+
+function buildJobListings(job){
+  let jobBlock = $element("a.job", [
+    $element("p.job-title", job.title || "[TITLE MISSING]"),
+    $element("p.job-team", job.team || "[TEAM MISSING]"),
+    $element("p.job-location", formatLocation(job.location) )
+  ])
+  jobBlock.href = job.path
+
+  return jobBlock
+}
+
+function formatLocation(location){
+  if(!location)
+    location = ["[LOCATION MISSING]"]
+  if(!Array.isArray(location)){
+    return location;
+  }
+
+  if(location.length == 2)
+    return (location[0]+" and "+location[1])
+  
+  let formatString = ""
+  for(let i = 0; i< location.length; i++){
+    if(i != 0){
+      formatString += ", "
+      if(i == location.length -1)
+        formatString += "and "
+    }
+
+    formatString += location[i]
+  }
+
+  return formatString;
+}
+
+
+    /* var dummyJobs = [
       {
         title: "User Experience Design(Contractor)",
         location: ["San Francisco", "San Jose", "Seattle"],
@@ -122,55 +186,4 @@ export default function decorate($main) {
         section: "Prototyping and Engineering",
         link: "/"
       }
-    ]
-    jobsBlockContainer.querySelectorAll(".job-listings").forEach(element=>{
-      element.remove()
-    })
-
-    jobsBlockContainer.querySelectorAll(".job-category").forEach(element=>{
-      let hasJob = false;
-      dummyJobs.forEach(job=>{
-
-        if((element.id.replaceAll('-', ' ').includes(job.section.toLowerCase()))){
-          hasJob = true;
-          element.append(buildJobListings(job))
-        }
-          
-      })
-      if(!hasJob)
-        element.append($element(".no-oppenings", "There are no openings right now"))
-    })
-}
-
-function buildJobListings(job){
-  let jobBlock = $element("a.job", [
-    $element("p.job-title", job.title),
-    $element("p.job-team", job.team ),
-    $element("p.job-location", formatLocation(job.location) )
-  ])
-  jobBlock.href = job.link
-
-  return jobBlock
-}
-
-function formatLocation(location){
-  if(!Array.isArray(location)){
-    return location;
-  }
-
-  if(location.length == 2)
-    return (location[0]+" and "+location[1])
-  
-  let formatString = ""
-  for(let i = 0; i< location.length; i++){
-    if(i != 0)
-      formatString += ", "
-
-    if(i == location.length -1)
-      formatString += "and "
-
-    formatString += location[i]
-  }
-
-  return formatString;
-}
+    ] */

@@ -1,3 +1,5 @@
+import { resolveIndex } from "./queries.js";
+
 /**
  *
  * @param {HTMLImageElement} $image
@@ -16,6 +18,23 @@ export function convertToBackground($image, $target) {
 export function getMetadata(name) {
     const attr = name && name.includes(':') ? 'property' : 'name';
     const $meta = document.head.querySelector(`meta[${attr}="${name}"]`);
+    return $meta && $meta.content;
+}
+
+/**
+ * Retrieves the content of a metadata tag.
+ * @param {string} name The metadata name (or property)
+ * @param {Document} parsedDoc an ouside document, in string or HTML Doc item
+ * @returns {string} The metadata value
+ */
+ export function getMetadataFromOutsideDoc(name, parsedDoc) {
+    // if(typeof parsedDoc === 'string' ) {}
+    const attr = name && name.includes(':') ? 'property' : 'name';
+    const $meta = parsedDoc.head.querySelector(`meta[${attr}="${name}"]`) ||
+                  parsedDoc.head.querySelector(`meta[${attr}="og:${name}"]`);
+    if(name.includes("image") || name.includes("img")) {
+        console.log( " META ", $meta)
+    }
     return $meta && $meta.content;
 }
 
@@ -147,6 +166,57 @@ export function extractProperties($block, $propBlock) {
         $resolvedPropBlock.remove();
     }
     return props;
+}
+
+export async function propertiesFromUrl( url, def ) {
+    const index = await resolveIndex();
+    var match = index.whereUrlMatchesPath(url);
+    console.log("MATCH", match);
+    if(match) {
+        const result = {};
+        const keys = Object.keys(def);
+        for(let i = 0; i < keys.length; i++) {
+            let key = keys[i];
+            let mapKey = def[key];
+            if(typeof mapKey === "string") {
+                result[key] = match[mapKey];
+            } else {
+                result[key] = match[mapKey.field] || mapKey.default;
+            }
+        }
+        console.log("RESULT", result);
+        return result;
+    } else {
+        return {};
+    }
+}
+
+/**
+ *
+ * @param {HTMLDivElement} $div
+ * @param {*} options
+ */
+export async function propsFromBlockLink( $div, def ) {
+    var link = $div.querySelector("a");
+    if(link) {
+        var url = link.getAttribute("href");
+        link.remove();
+        return propertiesFromUrl(url, def);
+    } else {
+        return {};
+    }
+}
+
+export async function propsFromLinks( $div, def ) {
+    var results = [];
+    var link = $div.querySelector("a");
+    while(link) {
+        var url = link.getAttribute("href");
+        link.remove();
+        var result = propertiesFromUrl(url, def);
+        results.push( result );
+    }
+    return results;
 }
 
 function arrayToDefinitions( arr ) {
@@ -484,6 +554,45 @@ export function $eachChild($target, fn) {
     }
 }
 
+/**
+ * Creates an additional element layer between parent and child(ren) elements
+ * @param {*} $oldParent
+ * @param {String} selector -- the new elm that'll be created and added between parent and children
+ */
+ export function $addNewLayerElm($oldParent, selector){
+    let $newParent = $element(selector);
+    for(let i = 1; i < $oldParent.childNodes.length; i++){
+        $newParent.appendChild($oldParent.childNodes[i])
+    }
+    $oldParent = $oldParent.prepend($newParent);
+    return $oldParent;
+}
+
+/**
+ * Creates an additional element layer between parent and child elements
+ * @param {*} $outerElm Outer container
+ * @param {*} $innerElm Inner element
+ * @param {String} selector -- the new elm that'll be created and added between parent and child
+ */
+ export function $addMiddleElm($outerElm, selector,$innerElm){
+    // $outerElm.remove($innerElm)
+    $outerElm = $outerElm.append($element(selector, $innerElm));
+    return $outerElm;
+}
+
+/**
+ * Move all child elements from one parent to a new parent Element
+ * @param {*} $newParent Where you want the children located
+ * @param {*} $oldParent Where the children are currently located
+ */
+ export function $relocateChildElms($newParent, $oldParent){
+    for(let i = 1; i < $oldParent.childNodes.length; i++){
+        $newParent.appendChild($oldParent.childNodes[i])
+    }
+    $newParent = $newParent.append(resolvedChildren);
+    return $newParent;
+}
+
 export function $remainder($target, selector) {
     let $targetEl;
     if (typeof target === "string") {
@@ -565,16 +674,20 @@ export function $scrollAnimation() {
 /**
  * Fetches a fragment based on its reliatve page url
  * @param {*} relativePath
+ * @param {Object} options {metadata: bool} If
  * @returns
  */
-export async function fetchFragment( relativePath ) {
+export async function fetchFragment( relativePath, options = {matadata: false} ) {
+    let metaData = !!options.metadata; /* Boolean */
     try {
-        const url = `${location.origin}/${relativePath}.plain.html`;
+        const url = metaData ? `${location.origin}/${relativePath}` : `${location.origin}/${relativePath}.plain.html`;
         const res = await fetch(url);
         if(!res.ok) {
             throw new Error(`Failed to fetch fragment: ${url}`);
         }
-        return await res.text();
+        let response_ = await res;
+        let response_text = response_.text();
+        return response_text;
     } catch(err) {
         console.warn(`Fragment not found ${relativePath}`);
         console.error(err);

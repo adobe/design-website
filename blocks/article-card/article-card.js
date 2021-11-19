@@ -4,20 +4,35 @@ import {
   $wrap,
   decorateTagLink,
   decorateDivisions,
+  propsFromBlockLink,
 } from '../../scripts/helpers.js';
+
+let counter = 0;
 
 /**
  * @param {HTMLElement} $block
  */
-export default function decorate($block) {
+export default async function decorate($block) {
     const truncateTextPages = ['/']
     const truncateText = truncateTextPages.includes(window.document.location.pathname)
+
+  let props = await propsFromBlockLink($block, {
+    path: 'path',
+    hed: 'title',
+    dek: 'description',
+    image: 'image',
+    background: { field: "color", default: "white" },
+    textcolor: { field: "textcolor", default: "black" },
+    tag: { field: 'tags', default: '' },
+  });
 
   // Get the properties and identify the blocks
   const result = decorateDivisions($block, [
     '.image',
   ]);
-  const props = result.properties;
+  if( result.properties ) {
+    Object.assign(props, result.properties );
+  }
 
   /**
      *  Text Constants:
@@ -41,7 +56,7 @@ export default function decorate($block) {
   }
   const $hed = $element('.hed', hedText);
   const $dek = $element('.dek', dekText);
-  
+
   const $byline = $element('.byline');
 
   /** if props.author exists: */
@@ -59,22 +74,37 @@ export default function decorate($block) {
   $text.append($tag, $hed, $dek, $byline);
 
   /* Apply the properties to the block */
-  $block.style.backgroundColor = result.properties.background;
-  $block.style.color = result.properties.textcolor;
+  $block.style.backgroundColor = props.background;
+  $block.style.color = props.textcolor;
 
   /* ---------  - IMAGES - ---------  */
   /**
      * Remove image and place on proper side:
      */
-  result['.image'].remove();
+  if (result['.image'] && result['.image'].querySelector('img')) {
+    result['.image'].remove();
+  } else {
+    result['.image'] = $element("picture", [
+      $element("source", [
+        $element("img", { attr: {src: props.image} }),
+      ]),
+    ]);
+  }
 
   //TODO: Add paths to the article card generation and use that instead of assuming the path is the same as the header
-  let path = `/stories/${props.tag}/${props.hed}`
-  const articleLink = $element('a.stories-link', { attr: { href: path.replaceAll(' ', '-').toLowerCase() } })
+  let path;
+  if(props.path)
+    path = props.path
+  else{
+    path = `/stories/${props.tag}/${props.hed}`
+    path = path.replaceAll(' ', '-').replaceAll(/[^a-zA-Z-\d/:]/g, '').toLowerCase()
+  }
+
+  const articleLink = $element('a.stories-link', { attr: { href: path } })
   result['.block-content'].append(articleLink)
   articleLink.prepend($text)
 
-  if (!result.properties['image-side'] || result.properties['image-side'] === 'left') {
+  if ((!props['image-side'] && counter % 2 === 0) || props['image-side'] === 'left') {
     articleLink.prepend(result['.image']);
   } else {
     articleLink.append(result['.image']);
@@ -82,6 +112,7 @@ export default function decorate($block) {
 
   result['.image'].classList.add('image');
   convertToBackground(result['.image'].querySelector('img'), result['.image']);
+  counter += 1;
 }
 
 

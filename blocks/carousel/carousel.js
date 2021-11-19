@@ -1,5 +1,5 @@
 import { Background } from "../../scripts/background.js";
-import { $element, decorateDivisions, decorateTagLink } from "../../scripts/helpers.js";
+import { $wrap, $element, decorateDivisions, decorateTagLink,propsFromBlockLink } from "../../scripts/helpers.js";
 import { addArrowButton } from "../button/button.js";
 const SLIDE_TIME = 7000;
 const ANIMATION_TIME = 250;
@@ -8,7 +8,7 @@ const carouselProperties = {
   slides: [],
 };
 
-export default function decorate($block) {
+export default async function decorate($block) {
   $block.classList.add("full-bleed");
 
   //Adds everything for the scroll tip
@@ -30,8 +30,26 @@ export default function decorate($block) {
   const length = Object.entries($carousel).length;
 
   for (const slide of $carousel) {
+    /*
+     * Helper function for changing the doc content while we are still have old structure
+     * Remove once we update the doc
+     */
+    convertSlideToUseProperties(slide)
+
+    //It might be better to just use propsFromBlockLink function here instead of propsFromLinks
+    let props = await propsFromBlockLink(slide, {
+      path: 'path',
+      hed: 'title',
+      dek: 'description',
+      image: 'image',
+      background: { field: "color", default: "red" },
+      textcolor: { field: "textcolor", default: "white" },
+      tag: { field: 'tags', default: '' },
+    });
     const { properties } = decorateDivisions(slide, null, { level: "child" });
-    carouselProperties.slides.push(properties);
+    Object.assign(props, properties );
+    carouselProperties.slides.push(props);
+
     if ((i + 1) === length) {
       /**
        * Currently the last slide is a depreciated carousel__actions div,
@@ -43,14 +61,14 @@ export default function decorate($block) {
       slide.classList.add("carousel__item--visible", "firstChild");
     }
     i++;
-    if (i === 1) {
-      document.querySelector("body").classList.add("slide-1");
-    }
     slide.classList.add("carousel__item");
     slide.querySelector("div:nth-child(1)").classList.add("image");
+
+    /*
+    
     slide.querySelector("div:nth-child(2)").classList.add("number");
 
-    /* Add class names and remove ids from h2 and h3 on slides: */
+     // Add class names and remove ids from h2 and h3 on slides: 
     let rightSide = slide.querySelector("div:nth-child(2)");
     let tag = rightSide.querySelector("p:first-of-type")
     tag.innerText = tag.innerText.replace('#', '')
@@ -60,7 +78,19 @@ export default function decorate($block) {
     let header3 = rightSide.querySelector("h3");
     rightSide.querySelector("h2").removeAttribute('id');
     header3.removeAttribute('id');
-    header3.classList.add('dek-3');
+    header3.classList.add('dek-3'); */
+    
+    let rightSide = $element(".number")
+    let tag = decorateTagLink($element("p", ['#', $element('span.tag', props.tag)]), props.tag.replaceAll(' ', '-'))
+    let hed = $element("h2", props.hed)
+    let dek = $element("h3.dek-3", props.dek)
+    let author = $element("p", props.author)
+
+    slide.append($wrap(rightSide, [tag, hed, dek, author])) 
+    if(!!props.position){
+      rightSide.append($element("p", props.position))
+    }
+   
   }
 
   const actions = document.createElement("div");
@@ -240,4 +270,35 @@ export default function decorate($block) {
 
 function applyColor(slideIndex) {
   Background.setColor(carouselProperties.slides[slideIndex].background);
+}
+
+
+//Function for testing building of carousel while I cant change the doc
+function convertSlideToUseProperties(slide){
+
+  let imageSection = slide.querySelector("div:nth-child(1)")
+  let rawSection = slide.querySelector("div:nth-child(2)")
+  let propSection = slide.querySelector("div:nth-child(3)")
+  
+  if(!imageSection || !rawSection || !propSection)
+    return
+
+  if(!rawSection.innerHTML)
+    return
+
+  let tag = rawSection.querySelector(":nth-child(1)")
+  let hed = rawSection.querySelector(":nth-child(2)")
+  let dek = rawSection.querySelector(":nth-child(3)")
+  let author = rawSection.querySelector(":nth-child(4)")
+  let position = rawSection.querySelector(":nth-child(5)")
+  
+  propSection.append($element('p', `Tag: ${tag.innerHTML.replaceAll('#', ' ').toUpperCase()}`))
+  propSection.append($element('p', `hed: ${hed.innerHTML}`))
+  propSection.append($element('p', `dek: ${dek.innerHTML}`))
+  propSection.append($element('p', `author: ${author.innerHTML}`))
+  if(!!position){
+    propSection.append($element('p', `position: ${position.innerHTML}`))
+  }
+
+  rawSection.remove()
 }

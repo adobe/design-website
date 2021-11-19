@@ -1,7 +1,8 @@
 .inclusive-design h1{
     color: white;
     margin: var(--page-header-margin);
-    padding-left: var(--page-header-l-padding);
+    /* padding-left: var(--page-header-l-padding); */
+    padding-left: 3.3em;
     font-size: var(--page-header-size);
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
@@ -16,52 +17,6 @@ body > main > div > div > p {
 .inclusive-design .tag-link {
     display: none;
 }
-
-/* .inclusive-design .article-card.block .text .hed {
-    font-size: 2.5em;
-    font-family: var(--sans-serif-font);
-    font-weight: var(--weight-black);
-    padding-right: 2em;
-    width: 60%;
-    overflow: visible;
-    margin-top: 0.5em;
-} */
-/* .image-text.block .text .hed, .image-text.block .text .hed a{
-    max-width: 100%;
-} */
-/* .image-text.block .text .dek, .image-text.block .text .dek:not(.article-title){
-    max-width: 100%;
-    text-overflow: unset;
-} */
-
-/* .inclusive-design .article-card.block .text .dek {
-    font-size: 1.15em;
-    font-weight: 300;
-    font-family: var(--serif-font);
-    font-weight: var(--weight-regular);
-    padding-top: 1em;
-    max-height: 10em;
-    margin-bottom: 0;
-    max-width: 90%;
-} */
-/* .inclusive-design .image-text.block .text .dek, .image-text.block .text .dek:not(.article-title){
-    font-size: .9em;
-    font-weight: var(--weight-regular);
-    line-height: 1.7em;
-
-} */
-/* word break on "how to implement inclusive design dek" */
-/* body > main > div > div > div:nth-child(5) > div > div.text > div.dek{
-    padding-right: 10em;
-} */
-.inclusive-design .people.block .person img{
-    /* padding-bottom: 1em; */
-}
-/* .inclusive-design .article-card.block .text .byline {
-    margin-top: 1rem;
-    font-size: 1.1rem;
-    font-family: var(--serif-font);
-} */
 
 .inclusive-design .article-card.block .text .byline .author {
     font-weight: 300;
@@ -79,10 +34,12 @@ body > main > div > div > p {
     width: auto;
 
 }
+
 .inclusive-design .statement img{
     width: 100%;
     background: white;
 }
+
 .inclusive-design .statement h2{
     margin: 0;
     margin-top: 5em;
@@ -90,6 +47,7 @@ body > main > div > div > p {
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
 }
+
 .inclusive-design .statement p{
     color: white;
     font-size: 3.5em;
@@ -107,13 +65,15 @@ body > main > div > div > p{
     font-size: 4em;
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
-    padding: 2em 4em 2em 2em;
+    padding: 2em 4em 2.5em 2em;
     text-align: left;
     margin: 0;
 }
+
 .inclusive-design .article-card.block{
     margin-bottom: 0;
 }
+
 .inclusive-design .statementTwo{
     background: #F7EFFC;
     color: #3E3E3E;
@@ -122,6 +82,7 @@ body > main > div > div > p{
     width: auto;
     margin: 0;
 }
+
 .inclusive-design .statementTwo h2{
     color: #3E3E3E;
     font-size: 1.8em;
@@ -129,6 +90,7 @@ body > main > div > div > p{
     padding-bottom: 1em;
     margin: 0;
 }
+
 .inclusive-design .statementTwo p{
     font-size: 3.5em;
     margin: 0;
@@ -139,32 +101,34 @@ body > main > div > div > p{
 .inclusive-design .people.block{
     display: grid;
     grid-template-columns: 33.3% 33.3% 33.3%;
+    align-items: baseline;
     background: #F7EFFC;
     padding: 3.5em;
     padding-bottom: 0;
     margin: 0;
     width: auto;
 }
+
 .inclusive-design .people.block .person{
     text-align: left;
 }
+
 .inclusive-design .people.block .person > div:nth-child(2){
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
     font-size: 1.6em;
     padding-left: .9em;
     color: #574B77;
-    /* text-align: center; */
 }
+
 .inclusive-design .people.block .person > div:nth-child(4){
     font-family: var(--serif-font);
     font-style: italic;
 }
+
 body > main > div > div > div:nth-child(10) > div:nth-child(2) > div:nth-child(4){
     padding-bottom: 15em;
 }
-
-
 
 /* Name of person */
 .people > .person > div:nth-child(2) {
@@ -186,19 +150,18 @@ body > main > div > div > div:nth-child(10) > div:nth-child(2) > div:nth-child(4
     color: #917496;
     padding: 1.5em 0 8em 1.5em;
     font-size: 1em;
-    /* width: 12em; */
 }
 
 .inclusive-design .people.block img{
     width: 100%;
-    /* height: 18em; */
-    
 }
+
 .inclusive-design .person{
     padding: .2em;
     margin: 0;
     background: none;
 }
+
 body > main > div > div > div:nth-child(17) > div:nth-child(2) > div:nth-child(1){
     margin: 1em;
 }
@@ -210,6 +173,7 @@ body > main > div > div > div:nth-child(17) > div:nth-child(2) > div:nth-child(1
     line-height: 1.2;
     width: auto;
 }
+
 .inclusive-design .statementThree h2{
     color: #3E3E3E;
     margin: 0;
@@ -218,6 +182,7 @@ body > main > div > div > div:nth-child(17) > div:nth-child(2) > div:nth-child(1
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
 }
+
 .inclusive-design .statementThree p{
     margin: 0;
     font-size: 3.5em;
@@ -235,22 +200,17 @@ body > main > div > div > div:nth-child(10){
     .inclusive-design h1{
         padding-left: var(--page-header-l-padding-tablet);
     }
+
     .inclusive-design .people.block{
         padding: 2.5em;
     }
+
     .inclusive-design .statement{
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 500px,rgba(224,72,39, 1) 500px);
     }
+    
 }
 
-@media (max-width: 700px){
-    .inclusive-design h1{
-        margin: 6rem 0 4rem 0;
-        padding-left: var(--page-header-l-padding-mobile);
-        font-size: 3em;
-        width: 80%
-    } 
-}
 @media (min-width: 768px) and (max-width:1024px){
     /* .inclusive-design .article-card.block .text .dek {
         font-size: 2em;
@@ -266,32 +226,16 @@ body > main > div > div > div:nth-child(10){
         padding: 1em;
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 380px,rgba(224,72,39, 1) 380px);
     }
-    
     #wed-like-to-share-what-weve-learned-with-you{
         background: white;
         color: red;
         font-size: 3em;
-        /* font-weight: 400; */
-        padding: 5em 3em;
-        text-align: center;
+        padding: 3em 3em 3em 2em;
         margin: 0;
     }
-
     .inclusive-design .article-card.block .block-content{
         display: grid;
     }
-    /* .inclusive-design .article-card.block .text .hed{
-        padding-right: 0;
-    } */
-    /* .inclusive-design .article-card.block .text .dek {
-        font-size: 1.5em;
-        font-weight: 300;
-        padding-top: 1em;
-        margin-top: 0;
-        max-height:none;
-        margin-bottom: 0;
-        max-width: 100%;
-    } */
     .inclusive-design .statementTwo{
         background: #F7EFFC;
         padding: 5em 1em;
@@ -307,10 +251,22 @@ body > main > div > div > div:nth-child(10){
         margin: 0;
         width: auto;
     }
+    .inclusive-design .statementTwo{
+        padding: 3em 6em 9em 5em;
+    }
+    
+    .inclusive-design .statementTwo p{
+        font-size: 3em;
+    }
+
     .inclusive-design .statementThree{
         background: #F7EFFC;
-        padding: 3em 1em;
+        padding: 3em 3em 9em 5em;
         width: auto;
+    }
+
+    .inclusive-design .statementThree p{
+        font-size: 3em;
     }
 }
 @media (min-width: 320px) and (max-width:425px){
@@ -332,44 +288,10 @@ body > main > div > div > div:nth-child(10){
         background: white;
         color: red;
         font-size: 3em;
-        /* font-weight: 400; */
         padding: 2em .2em;
         text-align: center;
         margin: 0;
     }
-    /* .inclusive-design .block-content{
-        display: block;
-    }
-
-
-    .article-card.block .block-content{
-        grid-template-rows: auto;
-    } */
-
-    /* .inclusive-design .article-card.block .text{
-        height: auto;
-        padding: 0em;
-        margin: 0;
-    } */
-    /* .inclusive-design .article-card.block .text .hed {
-        height: auto;
-        padding: 1em;
-        margin: 0;
-    } */
-    /* .inclusive-design .article-card.block .text .dek{
-        overflow: visible;
-        padding: 0;
-        padding-top: 2em;
-        padding-left: 2.1em;
-        padding-right: 1em;
-        margin: 0;
-    } */
-    /* .inclusive-design .article-card.block .byline{
-        padding-left: 1.6em;
-        padding-right: 1em;
-        padding-bottom: 1em;
-
-    } */
     .inclusive-design .statementTwo{
         background: #F7EFFC;
         padding: 5em 1em;

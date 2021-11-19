@@ -8,6 +8,7 @@ export default function decorateTags(blockEl) {
       a.setAttribute('href', `../tags/${tag.toLowerCase().replace(/\s+/g, '-')}`);
       a.textContent = tag;
       a.classList.add('button');
+      a.target = "_blank";
       container.append(a);
     });
   }

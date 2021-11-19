@@ -3,7 +3,7 @@ export default function decorate(win = window) {
     //console.log(win.document.location.pathname)
     const blackHeaderPages = ['/jobs/', '/stories/process/whiteboard-101', '/stories/process/designing-for-creative-systems']
     const useBlackHeader = blackHeaderPages.includes(win.document.location.pathname)
-    var headerImage = useBlackHeader?'/resources/adobe-black-tag.png':'/resources/tag+adobe.svg';
+    var headerImage = useBlackHeader?'/resources/adobe-black-tag.png':'/resources/adobe-white-header.svg';
     var headerImageMobile = useBlackHeader?'/resources/adobe-design.png':'./media_1d3601e007f7c9b5cb83303a390ca0e7fec040eef.png';
     var hamburgerMenu = useBlackHeader ? '/resources/black-hamburger.png' : '/resources/white-hamburger.png';
     var closeIcon = useBlackHeader ? '/resources/close-icon.png' : '/resources/close-icon-white.png';
@@ -29,10 +29,10 @@ export default function decorate(win = window) {
                             <div>                \
                                 <div class="logo">  \
                                     <a href="/">      \
-                                        <picture>       \
+                                        <img>       \
                                             <source media="(max-width: 400px)" srcset="${headerImage}?width=750&format=webply&optimize=medium"> \
                                             <img src="${headerImage}?width=2000&format=webply&optimize=medium" alt="" loading="eager"> \
-                                        </picture>      \
+                                        </img>      \
                                     </a>              \
                                 </div>              \
                             </div>                \

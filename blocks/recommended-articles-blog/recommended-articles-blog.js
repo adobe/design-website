@@ -3,7 +3,7 @@ import {
     getBlogArticle,
     fetchPlaceholders,
   } from '../../scripts/scripts.js';
-  
+
   async function decorateRecommendedArticles(recommendedArticlesEl, paths) {
     if (recommendedArticlesEl.classList.contains('small')) {
       recommendedArticlesEl.parentNode.querySelectorAll('a').forEach((aEl) => {
@@ -32,10 +32,10 @@ import {
       recommendedArticlesEl.parentNode.parentNode.remove();
     }
   }
-  
+
   export default function decorate(blockEl) {
     const anchors = [...blockEl.querySelectorAll('a')];
     blockEl.innerHTML = '';
-    const paths = anchors.map((a) => new URL(a.href).pathname);
+    const paths = anchors.map((a) => {new URL(a.href).pathname; a.target = "_blank"});
     decorateRecommendedArticles(blockEl, paths);
   }

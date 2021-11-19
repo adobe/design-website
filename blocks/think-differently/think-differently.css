@@ -42,7 +42,7 @@
 .think-differently.block .think-differently-content p{
     font-family: var(--serif-font);
     grid-row: 4/5;
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 .think-differently.block .think-differently-content p:nth-of-type(1),
@@ -145,7 +145,7 @@
     .think-differently.block .think-differently-content p:nth-of-type(2),
     .think-differently.block .think-differently-content p:nth-of-type(3){
         margin:2em;
-        font-size: 1.8em;
+        font-size: 1.3em;
         align-self: center;
     }
 
@@ -161,5 +161,10 @@
 
     .think-differently.block .think-differently-content .think-differently-number{
         font-size: 7.5rem;
+    }
+}
+@media (max-width: 425px){ 
+    .think-differently.block .think-differently-content p:nth-of-type(1) {
+        margin-bottom: 5em;
     }
 }

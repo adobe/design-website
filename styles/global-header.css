@@ -7,6 +7,10 @@ header#global-header {
     height: 5.2em; /* 93px; */
 }
 
+#global-header > div > div > a {
+    display: -webkit-inline-box;
+}
+
 /* iPhone / X-Small Screens */
 @media screen and (max-width: 700px) {
     header#global-header{
@@ -43,7 +47,7 @@ header#global-header {
         padding: 24px 0px;
     }
 }
-/* Desktop / Med Screens */ /* XXL Screens */
+/* Desktop / Med Screens */ /* L Screens */
 @media screen and (min-width: 1000px) {
     header#global-header{
         width: 1000px;
@@ -53,9 +57,25 @@ header#global-header {
         align-items: center;
     }
     #global-header .logo img{
-        height: 44px;
+        height: 40px;
     }
 }
+
+/* Desktop / XXL Screens */
+/* @media screen and (min-width: 1400px) {
+    header#global-header{
+        font-size: clamp(16px, 1.6vw, 30.7);
+        width: 100%;
+        max-width: 1920px;
+        padding: 1em 138px;
+        align-items: center;
+        height: 105px;
+        margin: auto;
+    }
+    #global-header .logo img{
+        height: 1.4em;
+    }
+} */
 
 #global-header .tagline {
     font-family: var(--serif-font);
@@ -136,21 +156,53 @@ header#global-header {
     text-align: right;
     font-size: 20px;
 }
+
+/* Desktop / XXL Screens */
+/* @media screen and (min-width: 1400px) {
+    #global-header nav a {
+        //padding: 0.65em 1.11em;  15px 20px
+        font-size: 20px;
+        padding: 0.5em 1em;
+    }
+} */
+
 #global-header .menu-dropdown-container a:last-child {
     border-bottom: unset;
 }
 
-
+/* START  .split */
 /* Used in Job Posting pages */
+.job-post #global-header,
 header#global-header.split{
     font-size: clamp(16px, 1.6vw, 30.6px);
-    width: clamp(1000px, 62.54em, 1633px);
-    max-width: clamp(1000px, 62.54em, 1633px);
+    /* width: clamp(1000px, 62.54em, 1633px); */
+    /* max-width: clamp(1000px, 62.54em, 1633px); */
     background-color: transparent;
     background: transparent;
 }
-header#global-header.split nav a{
-    color: var(--text-dark)
+
+@media screen and (max-width: 1300px) {
+    .job-post #global-header,
+    header#global-header.split,
+    header#global-header.split nav a{
+        background-color: var(--bkg-navy-dark);
+        background: var(--bkg-navy-dark);
+        color: #FFFFFF;
+    }
+    .job-post  header#global-header.split{
+        /* width: calc(100vw - 236px); */
+        width: 100vw;
+        padding: 0px 20px;
+    }
+}
+@media screen and (min-width: 1300px) {
+    header#global-header.split{
+        max-width: clamp(1000px, 62.54em, 1633px);
+        width: clamp(1000px, 62.54em, 1633px);
+    }
+    header#global-header.split nav a{
+        color: var(--text-dark);
+    }
 }
 /* End .split */
 

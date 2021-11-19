@@ -2,9 +2,12 @@ import { $element, $wrap } from "../../scripts/helpers.js";
 import { fetchIndex } from "../../scripts/queries.js";
 let index;
 
-function storyMatch( tag, story ) {
-    var title = story.title;
-    if(!tag || (title && title.toLowerCase().indexOf(tag) >= 0)) {
+function storyMatch( pageTag, story ) {
+    var storyTag = story.path.split('/')[2];
+    console.log(storyTag)
+    console.log(pageTag)
+
+    if(!pageTag || pageTag.toLowerCase() == storyTag.toLowerCase()) {
         return true;
     } else {
         return false;
@@ -32,7 +35,7 @@ export default async function decorator($main) {
 
     if(tagFilter) {
         const header = document.querySelector("#all-stories");
-        header.innerHTML = `#${tagFilter}`;
+        header.innerHTML = `#${tagFilter.replaceAll('-', ' ')}`;
     }
 
     const $target = $main.querySelector(":scope > div > div");
@@ -48,7 +51,7 @@ export default async function decorator($main) {
         $loadMoreButton.remove();
 
     $loadMoreButton.addEventListener("click", function () {
-        appendStories(allStories)
+        appendStories(allStories, 20)
         if(storyCount >= allStories.length)
             $loadMoreButton.remove();
     })
@@ -70,9 +73,8 @@ export default async function decorator($main) {
 
 function buildStory( story ) {
     const mediaAttr = "(max-width: 400px)";
-    if(!story.title) {
-        story.title = "[TITLE_MISSING]";
-    }
+
+    var storyTag = story.path.split('/')[2];
     return $element(".story.block", [
         $element("a.link", { attr: { href: story.path } }, [
             $element(".image", [
@@ -82,7 +84,7 @@ function buildStory( story ) {
                 ])
             ]),
             $element(".story-text", [
-                $element("p.tag", ['#', $element("span", 'LEADING DESIGN')]),
+                $element("p.tag", ['#', $element("span", storyTag.toUpperCase().replaceAll('-', ' '))]),
                 $element("h2.story-header", story.title || "[TITLE MISSING]" ),
                 $element("h3", "Creating art with synthesia"),
                 $element("p.author", "Laura Herman"),

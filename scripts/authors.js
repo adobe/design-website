@@ -1,4 +1,4 @@
-import { fetchFragment } from "./helpers.js";
+import { fetchFragment, getMetadata, getMetadataFromOutsideDoc } from "./helpers.js";
 
 const RE_CLEAN_URL = /[^a-z0-9]/gi;
 
@@ -6,13 +6,20 @@ export async function lookupAuthor(name) {
     const urlName = name.replace(RE_CLEAN_URL,"-").toLowerCase();
 
     try {
-        const bio = await fetchFragment(`authors/${urlName}`);
-
+        const bio = await fetchFragment(`authors/${urlName}`,{metadata: true});
+        let parser = new DOMParser();
+        let parsed = parser.parseFromString(bio, 'text/html')
+        const position = getMetadataFromOutsideDoc('position',parsed) || getMetadataFromOutsideDoc('title',parsed);
+        const image = getMetadataFromOutsideDoc('image',parsed);
+        // console.log(" BIO, authors.js: ", bio,
+        //  '\n - \n - \n - position: ', position,
+        //  '\n - \n - \n - image: ', image,
+        //  '\n - \n - \n - parsed: ', parsed)
         return {
             bio,
-            name: 'John Doe',
-            title: 'Director of Examples',
-            image: './media_16fd3a6e96f49f43ba7d3ced9ec935ed493b7a305.png?width=750&amp;format=webply&amp;optimize=medium'
+            name,
+            title: position,
+            image,
         }
     } catch(err) {
         console.log(`Author ${name} not found`);

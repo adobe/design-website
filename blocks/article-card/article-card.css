@@ -151,7 +151,7 @@
     font-weight: var(--weight-light);
     text-overflow: ellipsis;
     max-height: 3.6em;              /* 3x line-height */
-    max-width: 70%;
+    max-width: 85%;
 }
 
 body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > div.hed {
@@ -300,4 +300,18 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
     .article-card.block .block-content .text, .article-card.block .block-content .image{
         height: 35vh;
     }
+@media screen and (max-width: 700px) {
+    .article-card.block .text .tag-link {
+        font-size: 1.25em;
+    }
+    div.article-card.block .text .hed {
+        margin: 1.25em 0rem 0em;
+    }
+    .article-card.block .text .hed {
+        height: auto;
+    }
+    .article-card.block .block-content .text, .article-card.block .block-content .image {
+        height: 50vh;
+    }
+}
 }
