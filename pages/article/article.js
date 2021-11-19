@@ -62,12 +62,12 @@ function buildStory( story ) {
               ]),
           ]),
           $element(".story-text", [
-              $element("p.tag", ['#', $element("span", storyTag.toUpperCase().replaceAll('-', ' '))]),
-              $element("h2.story-header", story.title || "[TITLE MISSING]" ),
-              $element("h3", "Creating art with synthesia"),
-              $element("p.author", "Laura Herman"),
-              $element("p.position", "User Experience Researcher")
-          ])
+            $element("p.tag", ['#', $element("span", storyTag.toUpperCase().replaceAll('-', ' '))]),
+            $element("h2.story-header", story.title || "[TITLE MISSING]" ),
+            $element("h3", story.subtitle || "[SUBTITLE MISSING]"),
+            $element("p.author", story.author || "[AUTHOR MISSING]"),
+            $element("p.position", story.position || "[POSITION MISSING]")
+        ])
       ]),
   ]);
 }

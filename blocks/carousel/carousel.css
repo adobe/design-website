@@ -324,3 +324,30 @@
 
 }
 
+
+@media (max-width: 1920px) and (min-width: 1025px){
+    .carousel{
+        width: auto;
+        padding-top: 10em;
+    }
+    .carousel .carousel__item--visible{
+        grid-template-columns: 35.25em 33.25em;
+    }
+    .carousel .carousel__actions{
+        width: 84%;
+    }
+    .carousel__item--visible .number h2{
+        font-size: 4em;
+        padding-right: 3em;
+    }
+}
+@media (max-width: 1650px) and (min-width: 1441px){
+    .carousel .carousel__item--visible{
+        grid-template-columns: 27.25em 34.25em;
+    }
+}
+@media (max-width: 1440px) and (min-width: 1025px){
+    .carousel .carousel__item--visible{
+        grid-template-columns: 27.25em  25.25em;
+    }
+}

@@ -112,8 +112,8 @@ html body button{
     it over writes other styling accross pages indiscriminently:
     main > div > div > div:not(.full-bleed) {
 */
-    width: 95vw;
-    max-width: 62.54rem;
+    width: 1567px;
+    max-width: 100%;
     /* ^ limits to 1000px - 1920px depending on base font-size */
     margin-left:auto;
     margin-right:auto;
@@ -265,10 +265,86 @@ html body button{
 
 /* If the styles are the same for each media query, combine them: */
 
-@media only screen and (min-width: 321px) and (max-width: 1024px){
-    .page-home main > div{
-        width: auto;
-        margin: 1em;
-        overflow-x: hidden;
+@media only screen and (min-width: 1651px) and (max-width: 1920px) {
+    .page-type-article main{
+        width: 103em;
+        max-width:100%;
+    }
+    
+}
+@media only screen and (min-width: 1441px) and (max-width: 1650px){
+    .page-type-article main{
+        width: 90em;
+    }
+    .article-card.block{
+        width: 90em;
+    }
+    .people.block{
+        width: 90em;
+    }
+}
+@media only screen and (min-width: 1281px) and (max-width: 1440px) {
+    .page-type-article main{
+        width: 1280px;
+        max-width:100%;
+    }
+    
+    .article-card.block{
+        width: 1269px;
+    }
+    .people.block{
+        width: 1267px;
+    }
+
+    .people.block .person .name{
+        font-size: 2em;
+    }
+
+    .two-column.block{
+        width: 1440px;
+    }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1280px){
+    .page-type-article main{
+        width: 1024px;
+        max-width:100%;
+    }
+    .people.block{
+        width: 1024px;
+    }
+    .people.block .person .stories-link{
+        font-size: .8em;
+    }
+    .people.block .person .name{
+        font-size: 1.7em;
+    }
+    .people.block .person .title{
+        font-size: .8em;
+    }
+    
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+    .page-type-article main{
+        width: 950px;
+    }
+}
+@media only screen and (min-width: 426px) and (max-width: 768px){
+    .page-type-article main{
+        width: 750px;
+    }
+}
+@media only screen and (min-width: 376px) and (max-width: 425px){
+    .page-type-article main{
+        width: 410px;
+    }
+}
+@media only screen and (min-width: 321px) and (max-width: 375px){
+    .page-type-article main{
+        width: 355px;
+    }
+}
+@media only screen and (min-width: 0px) and (max-width: 320px){
+    .page-type-article main{
+        width: 310px;
     }
 }

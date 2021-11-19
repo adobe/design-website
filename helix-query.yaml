@@ -17,6 +17,10 @@ indices:
         select: head > meta[property="og:title"]
         value: |
           attribute(el, 'content')
+      subtitle:
+        select: head > meta[property="subtitle"]
+        value: |
+          attribute(el, 'content')
       author:
         select: head > meta[name="author"]
         value: |
@@ -33,19 +37,43 @@ indices:
         select: head > meta[name="description"]
         value: |
           attribute(el, 'content')
-      category:
-        select: head > meta[name="category"]
-        value: |
-          attribute(el, 'content')
       type:
         select: head > meta[name="page-type"]
         value: |
-          attribute(el, 'content')
-      tags:
-        select: head > meta[property="article:tag"]
-        values: |
           attribute(el, 'content')
       lastModified:
         select: none
         value: |
           parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
+      position:
+        select: head > meta[property="position"]
+        value: |
+          attribute(el, 'content')
+      department:
+        select: head > meta[property="department"]
+        value: |
+          attribute(el, 'content')
+      location:
+        select: head > meta[property="location"]
+        value: |
+          attribute(el, 'content')
+      backgroundColor:
+        select: head > meta[property="color:background"]
+        value: |
+          attribute(el, 'content')
+      textColor:
+        select: head > meta[property="color:text"]
+        value: |
+          attribute(el, 'content')
+      group:
+        select: head > meta[property="group"]
+        value: |
+          attribute(el, 'content')
+      category:
+        select: head > meta[property="category"]
+        value: |
+          attribute(el, 'content')
+      endDate:
+        select: head > meta[property="date:end"]
+        value: |
+          attribute(el, 'content')
