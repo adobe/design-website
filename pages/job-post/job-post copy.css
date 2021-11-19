@@ -22,27 +22,17 @@ body.job-post {
 }
 @media screen and (min-width: 1300px) {
     body.job-post {
+        background-image: none;
+        /* background: linear-gradient(90deg,
+            var(--bkg-navy-dark) 0%,
+            var(--bkg-navy-dark) 50%,
+            var(--bkg-grey-lt) 50%,
+            var(--bkg-grey-lt) 100%
+        ); */
         background: var(--bkg-grey-lt);
         background-color: var(--bkg-grey-lt);
     }
 }
-
-.sticky-container{
-    height: 100%;
-    width: 100px;
-    background: red;
-    background-color: red;
-    display: inline;
-    position: fixed;
-    top:0px;
-    left:0px;
-}
-
-
-
-
-
-
 
 .inner_post_contnr,
 .about-adobe-design{

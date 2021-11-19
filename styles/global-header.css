@@ -170,42 +170,6 @@ header#global-header {
     border-bottom: unset;
 }
 
-/* START  .split */
-/* Used in Job Posting pages */
-.job-post #global-header,
-header#global-header.split{
-    font-size: clamp(16px, 1.6vw, 30.6px);
-    /* width: clamp(1000px, 62.54em, 1633px); */
-    /* max-width: clamp(1000px, 62.54em, 1633px); */
-    background-color: transparent;
-    background: transparent;
-}
-
-@media screen and (max-width: 1300px) {
-    .job-post #global-header,
-    header#global-header.split,
-    header#global-header.split nav a{
-        background-color: var(--bkg-navy-dark);
-        background: var(--bkg-navy-dark);
-        color: #FFFFFF;
-    }
-    .job-post  header#global-header.split{
-        /* width: calc(100vw - 236px); */
-        width: 100vw;
-        padding: 0px 20px;
-    }
-}
-@media screen and (min-width: 1300px) {
-    header#global-header.split{
-        max-width: clamp(1000px, 62.54em, 1633px);
-        width: clamp(1000px, 62.54em, 1633px);
-    }
-    header#global-header.split nav a{
-        color: var(--text-dark);
-    }
-}
-/* End .split */
-
 /*  If we do a drop down header like Adobe Spectrum: */
 /* #global-header nav::after,
 #global-header .menu-dropdown-container{
@@ -230,3 +194,43 @@ header#global-header.split{
         max-width: 1800px;
 
     }
+}
+
+
+/* START  .split */
+/* Used in Job Posting pages */
+.job-post #global-header,
+header#global-header.split{
+    font-size: clamp(16px, 1.6vw, 30.6px);
+    /* width: clamp(1000px, 62.54em, 1633px); */
+    /* max-width: clamp(1000px, 62.54em, 1633px); */
+    background-color: transparent;
+    background: transparent;
+    color: inherit;
+}
+
+@media screen and (max-width: 1300px) {
+    .job-post #global-header,
+    header#global-header.split,
+    header#global-header.split nav a{
+        /* background-color: var(--bkg-navy-dark);
+        background: var(--bkg-navy-dark); */
+        /* color: inherit; */
+        color: var(--text-dark);
+    }
+    .job-post  header#global-header.split{
+        /* width: calc(100vw - 236px); */
+        width: 100vw;
+        padding: 0px 20px;
+    }
+}
+@media screen and (min-width: 1300px) {
+    header#global-header.split{
+        max-width: clamp(1000px, 62.54em, 1633px);
+        width: clamp(1000px, 62.54em, 1633px);
+    }
+    header#global-header.split nav a{
+        /* color: var(--text-dark); */
+    }
+}
+/* End .split */

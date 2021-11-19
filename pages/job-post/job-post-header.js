@@ -12,12 +12,12 @@ export default async function makeHeaderBlock($block) {
         "#ffffff"
     )
 
-    const $jobTitle = $element("h1.hed.job-title", getMetadata('job-title'));
+    // const $jobTitle = $element("h1.hed.job-title", getMetadata('job-title'));
 
     /* Big Giant element builder function: */
     const $header_block = $element("div.sticky-container",
         $element("div.header-block", [
-            $element("div.job-header-container", [$jobTitle, $button_apply_now]),
+            $element("div.job-header-container", [ $button_apply_now]),
         ])
     );
     document.querySelector("main > div.section-wrapper").insertBefore(
