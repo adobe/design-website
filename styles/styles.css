@@ -282,6 +282,9 @@ html body button{
     .people.block{
         width: 90em;
     }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 1440px;
+    }
 }
 @media only screen and (min-width: 1281px) and (max-width: 1440px) {
     .page-type-article main{
@@ -303,6 +306,9 @@ html body button{
     .two-column.block{
         width: 1440px;
     }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 1280px;
+    }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1280px){
     .page-type-article main{
@@ -321,30 +327,53 @@ html body button{
     .people.block .person .title{
         font-size: .8em;
     }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 1024px;
+    }
     
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px){
     .page-type-article main{
         width: 950px;
     }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 768px;
+    }
 }
 @media only screen and (min-width: 426px) and (max-width: 768px){
     .page-type-article main{
         width: 750px;
     }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 758px;
+    }
 }
-@media only screen and (min-width: 376px) and (max-width: 425px){
+@media only screen and (min-width: 376px) and (max-width: 415px){
     .page-type-article main{
         width: 410px;
+    }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 415px;
+    }
+}
+@media only screen and (min-width: 376px) and (max-width: 414px){
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 399px;
     }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px){
     .page-type-article main{
         width: 355px;
     }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 355px;
+    }
 }
 @media only screen and (min-width: 0px) and (max-width: 320px){
     .page-type-article main{
+        width: 310px;
+    }
+    .page-type-inclusive .inclusive-design > div > div{
         width: 310px;
     }
 }
