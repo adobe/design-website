@@ -22,6 +22,23 @@ export function getMetadata(name) {
 }
 
 /**
+ * Retrieves the content of a metadata tag.
+ * @param {string} name The metadata name (or property)
+ * @param {Document} parsedDoc an ouside document, in string or HTML Doc item
+ * @returns {string} The metadata value
+ */
+ export function getMetadataFromOutsideDoc(name, parsedDoc) {
+    // if(typeof parsedDoc === 'string' ) {}
+    const attr = name && name.includes(':') ? 'property' : 'name';
+    const $meta = parsedDoc.head.querySelector(`meta[${attr}="${name}"]`) ||
+                  parsedDoc.head.querySelector(`meta[${attr}="og:${name}"]`);
+    if(name.includes("image") || name.includes("img")) {
+        console.log( " META ", $meta)
+    }
+    return $meta && $meta.content;
+}
+
+/**
  *
  * @param {HTMLAnchorElement} $el
  */
@@ -657,16 +674,20 @@ export function $scrollAnimation() {
 /**
  * Fetches a fragment based on its reliatve page url
  * @param {*} relativePath
+ * @param {Object} options {metadata: bool} If
  * @returns
  */
-export async function fetchFragment( relativePath ) {
+export async function fetchFragment( relativePath, options = {matadata: false} ) {
+    let metaData = !!options.metadata; /* Boolean */
     try {
-        const url = `${location.origin}/${relativePath}.plain.html`;
+        const url = metaData ? `${location.origin}/${relativePath}` : `${location.origin}/${relativePath}.plain.html`;
         const res = await fetch(url);
         if(!res.ok) {
             throw new Error(`Failed to fetch fragment: ${url}`);
         }
-        return await res.text();
+        let response_ = await res;
+        let response_text = response_.text();
+        return response_text;
     } catch(err) {
         console.warn(`Fragment not found ${relativePath}`);
         console.error(err);
