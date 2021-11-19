@@ -1,4 +1,5 @@
-import { $element, $wrap, decorateTagLink } from "../../scripts/helpers.js";
+import { $element, $wrap, buildStory } from "../../scripts/helpers.js";
+import { lookupAuthor } from '../../scripts/authors.js';
 import { fetchIndex } from "../../scripts/queries.js";
 let index;
 
@@ -17,7 +18,7 @@ export default async function decorator($main) {
         index = await fetchIndex();
     }
     console.log("INDEX", index)
-    const allStories = index.stories.data;
+    const allStories = index.fullindex.data.filter(data => data.path.split('/')[1] == 'stories');
 
     var tagFilter = location.search ? location.search.split("=")[1] : null;
     $main.classList.add("stories-index-view");
@@ -47,37 +48,14 @@ export default async function decorator($main) {
             $loadMoreButton.remove();
     })
 
-    function appendStories(stories, count = 6){
+    /*async*/ function appendStories(stories, count = 6){
         
         for(let i = 0; i<count && storyCount<stories.length;){
             let story = stories[storyCount]
+            //let author = await lookupAuthor(story.author)
             $results.append(buildStory(story));
             i++;
             storyCount++;
         }
     }
-}
-
-
-function buildStory( story ) {
-    const mediaAttr = "(max-width: 400px)";
-
-    var storyTag = story.path.split('/')[2];
-    return $element(".story.block", [
-        $element("a.link", { attr: { href: story.path } }, [
-            $element(".image", [
-                $element("picture", [
-                    $element("source", { attr: { media: mediaAttr, srcset: story.image }}),
-                    $element("img", { attr: { src: story.image } }),
-                ])
-            ]),
-            $element(".story-text", [
-                decorateTagLink($element("p.tag", ['#', $element("span", storyTag.toUpperCase().replaceAll('-', ' '))]), storyTag),
-                $element("h2.story-header", story.title || "[TITLE MISSING]" ),
-                $element("h3", story.subtitle || "[SUBTITLE MISSING]"),
-                $element("p.author", story.author || "[AUTHOR MISSING]"),
-                $element("p.position", story.position || "[POSITION MISSING]")
-            ])
-        ]),
-    ]);
 }

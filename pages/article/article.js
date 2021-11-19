@@ -1,5 +1,5 @@
 import { lookupAuthor } from '../../scripts/authors.js';
-import { $element, getMetadata, $wrap } from '../../scripts/helpers.js';
+import { $element, getMetadata, $wrap, decorateTagLink, buildStory } from '../../scripts/helpers.js';
 import { fetchIndex } from "../../scripts/queries.js";
 let index;
 
@@ -37,8 +37,8 @@ async function buildSimilarStories(tag){
   if (!index) {
     index = await fetchIndex();
   }
-
-  let similarStories = index.stories.data.filter(story => story.path.split('/')[2] == tag)
+  const allStories = index.fullindex.data.filter(data => data.path.split('/')[1] == 'stories');
+  let similarStories = allStories.filter(story => story.path.split('/')[2] == tag)
   let storiesContent = $element('.stories')
   if(similarStories.length > 0)
     storiesContent.appendChild(buildStory(similarStories[0]))
@@ -46,30 +46,6 @@ async function buildSimilarStories(tag){
     storiesContent.appendChild(buildStory(similarStories[1]))
   let $similarStoriesBlock = $wrap($element('.similar-stories'),$wrap($element('.similar-stories-content'), [$element('h2.similar-stories-header', 'Similar Stories'), storiesContent]))
   document.body.insertBefore($similarStoriesBlock, document.querySelector('#global-footer'));
-}
-
-function buildStory( story ) {
-  const mediaAttr = "(max-width: 400px)";
-
-  var storyTag = story.path.split('/')[2];
-
-  return $element(".story.block", [
-      $element("a.link", { attr: { href: story.path } }, [
-          $element(".image", [
-              $element("picture", [
-                  $element("source", { attr: { media: mediaAttr, srcset: story.image }}),
-                  $element("img", { attr: { src: story.image } }),
-              ]),
-          ]),
-          $element(".story-text", [
-            $element("p.tag", ['#', $element("span", storyTag.toUpperCase().replaceAll('-', ' '))]),
-            $element("h2.story-header", story.title || "[TITLE MISSING]" ),
-            $element("h3", story.subtitle || "[SUBTITLE MISSING]"),
-            $element("p.author", story.author || "[AUTHOR MISSING]"),
-            $element("p.position", story.position || "[POSITION MISSING]")
-        ])
-      ]),
-  ]);
 }
 
 async function buildAuthorBio() {
