@@ -542,6 +542,7 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .content h3{
         font-size: var(--h3-font-size);
         padding-left: 7.5em;
+        margin-bottom: 0;
     }
     .page-type-article .additional-reading.block > div{
         padding-left: 18em;

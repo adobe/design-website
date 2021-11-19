@@ -196,6 +196,21 @@ body > main > div > div > div:nth-child(10){
     width: auto;
 }
 
+@media (max-width: 1920) and (min-width: 1650px){
+    .inclusive-design h1{
+        font-size: 2em;
+    }
+}
+@media (max-width: 1650px) and (min-width: 1441px){
+    
+}
+@media (max-width: 1440px) and (min-width: 1281px){
+    
+}
+@media (max-width: 1280px) and (min-width: 1025px){
+    
+}
+
 @media (max-width: 1024px){
     .inclusive-design h1{
         padding-left: var(--page-header-l-padding-tablet);
@@ -274,7 +289,7 @@ body > main > div > div > div:nth-child(10){
         padding: 0;
         margin: 3em 1em 3em 1em;
         padding-right: 2em;
-        font-size: 2em;
+        font-size: 2.5em;
         width: 100%;
     }
     .inclusive-design .statement{
