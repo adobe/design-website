@@ -10,25 +10,18 @@ const carouselProperties = {
 
 export default async function decorate($block) {
   $block.classList.add("full-bleed");
-
+  
   //Adds everything for the scroll tip
-  let scrollHintContainer = document.createElement("div");
-  scrollHintContainer.classList.add("scroll-tip-container");
+  let scrollHintContainer = $element(".scroll-tip-container")
+  let scrollHintContent = $element("h2.scroll-tip-content", "Scroll Down")
+  let scrollHintChevron = $element(".chevron-down")
+
+  $wrap(scrollHintContainer, [scrollHintContent, scrollHintChevron])
   $block.parentNode.insertBefore(scrollHintContainer, $block.nextSibling)
+
+
   const $carousel = $block.querySelectorAll(":scope > div");
-  let scrollHintContent = document.createElement("h2");
-  scrollHintContent.innerHTML = "Scroll Down";
-  let scrollHintChevron = document.createElement("div");
-  scrollHintChevron.classList.add("chevron-down")
-  scrollHintContent.classList.add("scroll-tip-content");
-  scrollHintContainer.append(scrollHintContent);
-  scrollHintContainer.append(scrollHintChevron);
-
-
-  var i = 0;
-
-  const length = Object.entries($carousel).length;
-
+  var firstSlide = true;
   for (const slide of $carousel) {
     /*
      * Helper function for changing the doc content while we are still have old structure
@@ -36,7 +29,7 @@ export default async function decorate($block) {
      */
     convertSlideToUseProperties(slide)
 
-    //It might be better to just use propsFromBlockLink function here instead of propsFromLinks
+    //Get Properties
     let props = await propsFromBlockLink(slide, {
       path: 'path',
       hed: 'title',
@@ -50,12 +43,13 @@ export default async function decorate($block) {
     Object.assign(props, properties );
     carouselProperties.slides.push(props);
     
-    if (i === 0) {
-      slide.classList.add("carousel__item--visible", "firstChild");
-    }
-    i++;
     slide.classList.add("carousel__item");
+    if (firstSlide) {
+      slide.classList.add("carousel__item--visible", "firstChild");
+      firstSlide = false;
+    }
 
+    //Add Image
     let imageSide = slide.querySelector("div:nth-child(1)")
     imageSide.classList.add("image");
     if(!imageSide.innerHTML && !!props.image)
@@ -64,38 +58,24 @@ export default async function decorate($block) {
           $element("img", { attr: {src: props.image} }),
         ]),
       ]))
-
-
-    /*
     
-    slide.querySelector("div:nth-child(2)").classList.add("number");
+    //Add Slide Details
+    const HED_TEXT_LIMIT = 50;
+    const DEK_TEXT_LIMIT = 75;
 
-     // Add class names and remove ids from h2 and h3 on slides: 
-    let rightSide = slide.querySelector("div:nth-child(2)");
-    let tag = rightSide.querySelector("p:first-of-type")
-    tag.innerText = tag.innerText.replace('#', '')
-    let tagLink = decorateTagLink($element("p", ['#', $element('span.tag', tag.innerText)]), tag.innerText.replaceAll(' ', '-'))
-    rightSide.prepend(tagLink)
-    tag.remove();
-    let header3 = rightSide.querySelector("h3");
-    rightSide.querySelector("h2").removeAttribute('id');
-    header3.removeAttribute('id');
-    header3.classList.add('dek-3'); */
-    
     let rightSide = $element(".number")
-    
     if(!!props.tag)
       rightSide.append(decorateTagLink($element("p", ['#', $element('span.tag', props.tag)]), props.tag.replaceAll(' ', '-')))
-
-    if(!!props.tag)
-      rightSide.append($element("h2", props.hed))
-
-    if(!!props.tag)
-      rightSide.append($element("h3.dek-3", props.dek))
-
-    if(!!props.tag)
+    if(!!props.hed){
+      let hedText = props.hed.length<HED_TEXT_LIMIT ? props.hed:props.hed.substring(0,HED_TEXT_LIMIT-3)+'...';
+      rightSide.append($element("h2", hedText))
+    }
+    if(!!props.dek){
+      let dekText = props.dek.length<DEK_TEXT_LIMIT ? props.dek:props.dek.substring(0,DEK_TEXT_LIMIT-3)+'...';
+      rightSide.append($element("h3.dek-3", dekText))
+    }
+    if(!!props.author)
       rightSide.append($element("p", props.author))
-
     if(!!props.position)
       rightSide.append($element("p", props.position))
 
@@ -103,8 +83,7 @@ export default async function decorate($block) {
    
   }
 
-  const actions = document.createElement("div");
-  actions.classList.add("carousel__actions")
+  const actions = $element(".carousel__actions")
 
   const prevDiv = addArrowButton('prev')
   const nextDiv = addArrowButton('next')
@@ -225,57 +204,6 @@ export default async function decorate($block) {
   }
 
   applySlide();
-
-
-  // if(myStr.innerText > 13){
-    //   myStr.innerText = myStr.innerText.substring(0,13) + '...'
-    // }
-
-
-
-    // var carouselBlock = document.querySelector('.carousel.block')
-    // for( var num = 0; num < carouselBlock.childElementCount; num++){
-
-
-    //   var myStr = document.querySelector('.carousel h2')
-
-    //   var test = carouselBlock.children[num].classList
-
-    //   console.log(test);
-
-    //   if(test.classList.contains('.carousel__item--visible')){
-    //
-    //   }
-    //   if(myStr.innerText > 13){
-    //     myStr.innerText = myStr.innerText.substring(0,13) + '...'
-    //   }
-    // }
-
-    // var carouselItem = document.querySelectorAll('.carousel__item')
-    // console.log(carouselItem);
-
-
-    var myStr = document.querySelectorAll('.carousel h2')
-    for(let h2Index = 0; h2Index < myStr.length; h2Index++){
-      if(myStr[h2Index].innerText.length > 50){
-        myStr[h2Index].innerText = myStr[h2Index].innerText.substring(0,25) + '...'
-      }
-      console.log(myStr[h2Index].innerText);
-
-    }
-
-
-
-    // let maxLength = 13
-    // let test = document.querySelector('.carousel__item--visible .number h2')
-    // if(test.innerText.length > maxLength){
-
-    //   test.innerText = test.innerText.substring(0,maxLength) + '...'
-    // }
-
-
-
-
 }
 
 function applyColor(slideIndex) {
@@ -295,8 +223,6 @@ function convertSlideToUseProperties(slide){
 
   if(!rawSection.innerHTML)
     return
-
-  console.log('Trying to convert slides')
 
   let tag = rawSection.querySelector(":nth-child(1)")
   let hed = rawSection.querySelector(":nth-child(2)")
