@@ -54,7 +54,7 @@ import {
     let path = props.path
     if(!path)
         path = "/"
-    const toolkitLink = $element('a.stories-link', { attr: { href: path, target: "_blank" } })
+    const toolkitLink = $element('a.stories-link', { attr: { href: path, target: path.includes('http')? "_blank" : "" } })
     result['.block-content'].append(toolkitLink)
     toolkitLink.prepend($text)
 

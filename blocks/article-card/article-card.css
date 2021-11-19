@@ -2,11 +2,13 @@
 
  .article-card.block{ margin-bottom: 0.5rem; }
 
+ 
+
 @media screen and (min-width: 1025px) and (min-height: 620px) {
     /* Ensure Article Card doesn't cut off content on short desktop screens */
     .article-card.block{
         font-size: 1rem;
-        height:550px;
+        /* height:56em; */
         overflow:hidden;
         min-width: 62.5em;
     }
@@ -26,7 +28,7 @@
 
 /* ------- BLOCK CONTENT ------- */
 .article-card.block .block-content{
-    height:100%;
+    /* height:100%; */
 }
 .article-card.block .block-content > a{
     display: grid;
@@ -49,7 +51,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 1.6em 3em 3em 4em;
+    padding: 2.6em 7em 10em 8em;
     box-sizing: border-box;
 }
 
@@ -126,7 +128,7 @@
  */
 .article-card.block .text .hed,
 .article-card.block .text .hed a {
-    font-size: 3em;
+    font-size: 6em;
     line-height: 1em; 
     margin: 2em 0rem 0em;
     max-width: 100%;
@@ -143,7 +145,7 @@
  * SubHeader h3 dek
  */
 .article-card.block .text .dek{
-    font-size: 1.4em;    
+    font-size: 2.7em;    
     line-height: 1.2em; 
     margin: 1.25em 0em 0.5rem 0em; 
     font-weight: var(--weight-light);
@@ -159,7 +161,7 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
  * By-Line byline
  */
 .article-card.block .text .byline{
-    font-size: 16px;  
+    font-size: 1.2em;  
     margin: 3em 0em 0.5rem 0em; 
     line-height: 1.6em;
 }
@@ -188,6 +190,116 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
         max-width: 90%;
     }
 }
+
+@media (max-width: 1920px) and (min-width: 1025px){
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 4.6em;
+    }
+    .article-card.block .text .dek{
+        max-width: 100%;
+    }
+}
+@media (max-width: 1650px) and (min-width: 1441px){
+    .article-card.block .text{
+        padding: 1.6em 7em 9em 6em;
+    }
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 4em;
+    }
+    .article-card.block .text .dek{
+        font-size: 2.3em;
+    }
+}
+@media (max-width: 1440px) and (min-width: 1280px){
+    .article-card.block .text{
+        padding: 1.6em 7em 7em 6em;
+    }
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 3em;
+    }
+    .article-card.block .text .dek{
+        font-size: 2em;
+    }
+}
+@media (max-width: 1280px) and (min-width: 1025px){
+    .article-card.block{
+        width: 1024px;
+    }
+    .article-card.block .text{
+        padding: 1.6em 3em 5em 6em;
+    }
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 2.6em;
+    }
+    .article-card.block .text .dek{
+        font-size: 1.7em;
+    }
+    
+}
+@media (max-width: 768px) and (min-width: 426px){
+    .article-card.block{
+        width: 758px;
+    }
+    .article-card.block .text{
+        padding: 1em 1em .5em 3em;
+    }
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 2.6em;
+    }
+    .article-card.block .text .dek{
+        font-size: 1.7em;
+    }
+}
+@media (max-width: 425px) and (min-width: 415px){
+    .article-card.block{
+        width: 415px;
+    }
+    .article-card.block .text{
+        padding: 1em 1em .5em 3em;
+    }
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 2.6em;
+    }
+    .article-card.block .text .dek{
+        font-size: 1.7em;
+    }
+    .article-card.block .block-content .text, .article-card.block .block-content .image{
+        height: 35vh;
+    }
+}
+@media (max-width: 414px) and (min-width: 376px){
+    .article-card.block{
+        width: 399px;
+    }
+    .article-card.block .text{
+        padding: 1em 3em 4.5em 3em;
+    }
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 2.6em;
+    }
+    .article-card.block .text .dek{
+        font-size: 1.7em;
+    }
+    .article-card.block .block-content .text, .article-card.block .block-content .image{
+        height: 50vh;
+    }
+}
+@media (max-width: 375px) and (min-width: 321px){
+    .article-card.block{
+        width: 365px;
+    }
+    .article-card.block .text{
+        padding: 1em 3em 4.5em 3em;
+    }
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 2.6em;
+    }
+    .article-card.block .text .dek{
+        font-size: 1.7em;
+    }
+    .article-card.block .block-content .text, .article-card.block .block-content .image{
+        height: 35vh;
+    }
 @media screen and (max-width: 700px) {
     .article-card.block .text .tag-link {
         font-size: 1.25em;
@@ -201,4 +313,5 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
     .article-card.block .block-content .text, .article-card.block .block-content .image {
         height: 50vh;
     }
+}
 }
