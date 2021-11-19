@@ -135,6 +135,11 @@
     margin-top: 0;
 }
 
+.carousel .carousel__item,
+.carousel .carousel__actions button{
+    z-index: 1;
+}
+
 
 .carousel .carousel__actions {
     display: flex;
