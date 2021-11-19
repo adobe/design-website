@@ -56,6 +56,13 @@
     padding-bottom: 1em;
 }
 
+.stories .story-text .tag.tag-link{
+    text-decoration: unset;
+    border-bottom: unset;
+    color: inherit;
+
+}
+
 .stories .story-text .tag span{
     border-bottom: 2px solid black;
 }
