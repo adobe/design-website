@@ -6,7 +6,7 @@ import {
 import { getJobsFragment } from "../../scripts/jobs-fragments.js";
 import makeSimilarOpportunitiesBlock from "../../blocks/job-posting-blocks/similar-opportunities.js";
 import assembleJobPost from "../../blocks/job-posting-blocks/job-post-assembler.js";
-import makeSideArticlesBlock from "../../blocks/job-posting-blocks/left-blocks.js";
+import makeJobLeftBlock from "../../blocks/job-posting-blocks/left-blocks.js";
 
 const text_dark     = '#3E3E3E';
 
@@ -65,9 +65,9 @@ async function buildJobPostSubheader(document){
 
 //** Builds the Blue Header block + "Working at Adobe" section/recommended articles*/
 async function buildSideArticlesBlock(document){
-    let sideArticles = await makeSideArticlesBlock(document);
-    if(sideArticles) {
-        document.querySelector(".inner_post_contnr").prepend(sideArticles)
+    let jobLeft = await makeJobLeftBlock(document);
+    if(jobLeft) {
+        document.querySelector(".inner_post_contnr").prepend(jobLeft)
     } else {
         console.log(`Cannot fetch similar opportunities to build the block`)
     }

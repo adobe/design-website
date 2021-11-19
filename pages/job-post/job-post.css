@@ -14,8 +14,7 @@ body.job-post {
     background-image: none;
 }
 
-@media screen and (max-width: 1300px),
-       screen and (max-width: 1000px) {
+@media screen and (max-width: 1300px){
     body.job-post {
         background: var(--bkg-navy-dark);
         background-color: var(--bkg-navy-dark);
@@ -31,18 +30,6 @@ body.job-post {
             var(--bkg-grey-lt) 100%
         );
     }
-}
-@media screen and (min-width: 1300px) {
-    body.job-post {
-        background-image: none;
-        background: linear-gradient(90deg,
-            var(--bkg-navy-dark) 0%,
-            var(--bkg-navy-dark) 50%,
-            var(--bkg-grey-lt) 50%,
-            var(--bkg-grey-lt) 100%
-        );
-    }
-
 }
 
 .inner_post_contnr,
@@ -71,7 +58,6 @@ body.job-post {
     .inner_post_contnr,
     .about-adobe-design{
         font-size: 16px;
-        /* height:calc(115em - (1.6vw * 7)) */
     }
     .inner_post_contnr{
         max-width: 100vw;
@@ -82,9 +68,7 @@ body.job-post {
         min-height: max-content;
         grid-row: 1 / span 2;
     }
-
 }
-
 
 /* Medium Screen */
 /* font size scales with screen: smallest: 16px, largest: 30.7px */
