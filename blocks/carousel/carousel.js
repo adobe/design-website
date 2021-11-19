@@ -49,20 +49,22 @@ export default async function decorate($block) {
     const { properties } = decorateDivisions(slide, null, { level: "child" });
     Object.assign(props, properties );
     carouselProperties.slides.push(props);
-
-    if ((i + 1) === length) {
-      /**
-       * Currently the last slide is a depreciated carousel__actions div,
-       * remove this when its removed from the doc
-       */
-      slide.remove()
-      break;
-    } else if (i === 0) {
+    
+    if (i === 0) {
       slide.classList.add("carousel__item--visible", "firstChild");
     }
     i++;
     slide.classList.add("carousel__item");
-    slide.querySelector("div:nth-child(1)").classList.add("image");
+
+    let imageSide = slide.querySelector("div:nth-child(1)")
+    imageSide.classList.add("image");
+    if(!imageSide.innerHTML && !!props.image)
+      imageSide.append($element("picture", [
+        $element("source", [
+          $element("img", { attr: {src: props.image} }),
+        ]),
+      ]))
+
 
     /*
     
@@ -81,15 +83,23 @@ export default async function decorate($block) {
     header3.classList.add('dek-3'); */
     
     let rightSide = $element(".number")
-    let tag = decorateTagLink($element("p", ['#', $element('span.tag', props.tag)]), props.tag.replaceAll(' ', '-'))
-    let hed = $element("h2", props.hed)
-    let dek = $element("h3.dek-3", props.dek)
-    let author = $element("p", props.author)
+    
+    if(!!props.tag)
+      rightSide.append(decorateTagLink($element("p", ['#', $element('span.tag', props.tag)]), props.tag.replaceAll(' ', '-')))
 
-    slide.append($wrap(rightSide, [tag, hed, dek, author])) 
-    if(!!props.position){
+    if(!!props.tag)
+      rightSide.append($element("h2", props.hed))
+
+    if(!!props.tag)
+      rightSide.append($element("h3.dek-3", props.dek))
+
+    if(!!props.tag)
+      rightSide.append($element("p", props.author))
+
+    if(!!props.position)
       rightSide.append($element("p", props.position))
-    }
+
+    slide.append(rightSide) 
    
   }
 
@@ -285,6 +295,8 @@ function convertSlideToUseProperties(slide){
 
   if(!rawSection.innerHTML)
     return
+
+  console.log('Trying to convert slides')
 
   let tag = rawSection.querySelector(":nth-child(1)")
   let hed = rawSection.querySelector(":nth-child(2)")
