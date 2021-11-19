@@ -58,7 +58,10 @@
     max-height: 24em;
 }
 
-.carousel .carousel__item--visible {
+.carousel .carousel__item--visible{
+    display: block;
+}
+.carousel .carousel__item--visible a{
     transition: all .6s ease;
     max-width: 46.9em;
     width:  46.9em;
