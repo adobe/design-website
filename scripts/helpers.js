@@ -467,6 +467,38 @@ export function $element(selector, options, content) {
     return $div;
 }
 
+export function buildStory( story, author ) {
+    const mediaAttr = "(max-width: 400px)";
+
+    var storyTag = story.path.split('/')[2];
+    let storyText = $element(".story-text")
+    let $story = $element(".story.block", [
+        $element("a.link", { attr: { href: story.path } }, [
+            $element(".image", [
+                $element("picture", [
+                    $element("source", { attr: { media: mediaAttr, srcset: story.image }}),
+                    $element("img", { attr: { src: story.image } }),
+                ])
+            ]),
+            storyText
+        ])
+    ])
+
+    storyText.append(decorateTagLink($element("p.tag", ['#', $element("span", storyTag.toUpperCase().replaceAll('-', ' '))]), storyTag))
+    storyText.append($element("h2.story-header", (!!story.title && story.title != 0)?story.title : "[TITLE MISSING]" ))
+    storyText.append($element("h3", story.subtitle || "[SUBTITLE MISSING]"))
+    if(!!author){
+        storyText.append($element("p.author", author.name || "[AUTHOR MISSING]"))
+        if(author.position)
+            storyText.append($element("p.position", author.position))
+    }else{
+        storyText.append($element("p.author", (!!story.author && story.author != 0)? story.author : "[AUTHOR MISSING]"))
+        storyText.append($element("p.author", story.position || "[POSITION MISSING]"))
+    }
+
+    return $story
+}
+
 
 // export function $changeTag(selector, oldSelector) {
 //     if (!selector) {

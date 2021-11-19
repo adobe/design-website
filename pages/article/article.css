@@ -401,6 +401,10 @@ body > div.author-bio.block > div > author-name{
 .page-type-article .similar-stories .stories .block.story .story-text .tag{
     font-weight:var(--weight-light)
 }
+.page-type-article .similar-stories .stories .block.story .story-text .tag.tag-link{
+    color: inherit;
+    text-decoration: none;
+}
 
 .page-type-article .similar-stories .stories .block.story .story-text .tag span{
     text-decoration: underline 3px;
