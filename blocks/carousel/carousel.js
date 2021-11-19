@@ -275,7 +275,14 @@ function applyColor(slideIndex) {
 
 //Function for testing building of carousel while I cant change the doc
 function convertSlideToUseProperties(slide){
+
+  let imageSection = slide.querySelector("div:nth-child(1)")
   let rawSection = slide.querySelector("div:nth-child(2)")
+  let propSection = slide.querySelector("div:nth-child(3)")
+  
+  if(!imageSection || !rawSection || !propSection)
+    return
+
   if(!rawSection.innerHTML)
     return
 
@@ -285,8 +292,7 @@ function convertSlideToUseProperties(slide){
   let author = rawSection.querySelector(":nth-child(4)")
   let position = rawSection.querySelector(":nth-child(5)")
   
-  let propSection = slide.querySelector("div:nth-child(3)")
-  propSection.append($element('p', `Tag: ${tag.innerHTML.replaceAll('#', ' ').toLowerCase()}`))
+  propSection.append($element('p', `Tag: ${tag.innerHTML.replaceAll('#', ' ').toUpperCase()}`))
   propSection.append($element('p', `hed: ${hed.innerHTML}`))
   propSection.append($element('p', `dek: ${dek.innerHTML}`))
   propSection.append($element('p', `author: ${author.innerHTML}`))

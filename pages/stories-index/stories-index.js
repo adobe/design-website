@@ -2,9 +2,12 @@ import { $element, $wrap } from "../../scripts/helpers.js";
 import { fetchIndex } from "../../scripts/queries.js";
 let index;
 
-function storyMatch( tag, story ) {
-    var title = story.title;
-    if(!tag || (title && title.toLowerCase().indexOf(tag) >= 0)) {
+function storyMatch( pageTag, story ) {
+    var storyTag = story.path.split('/')[2];
+    console.log(storyTag)
+    console.log(pageTag)
+
+    if(!pageTag || pageTag.toLowerCase() == storyTag.toLowerCase()) {
         return true;
     } else {
         return false;
@@ -18,14 +21,14 @@ export default async function decorator($main) {
     const allStories = index.stories.data;
 
     //Code to demo the load more button while we only have 5 stories in index
-    const demoStory = {
+    /* const demoStory = {
         path: "/stories/process/designing-for-creative-systems",
         image: "",
         title: ""}
 
     for(let i = 0; i < 12; i++){
         allStories.push(demoStory)
-    }
+    } */
 
     var tagFilter = location.search ? location.search.split("=")[1] : null;
     $main.classList.add("stories-index-view");
@@ -70,9 +73,8 @@ export default async function decorator($main) {
 
 function buildStory( story ) {
     const mediaAttr = "(max-width: 400px)";
-    if(!story.title) {
-        story.title = "[TITLE_MISSING]";
-    }
+
+    var storyTag = story.path.split('/')[2];
     return $element(".story.block", [
         $element("a.link", { attr: { href: story.path } }, [
             $element(".image", [
@@ -82,7 +84,7 @@ function buildStory( story ) {
                 ])
             ]),
             $element(".story-text", [
-                $element("p.tag", ['#', $element("span", 'LEADING DESIGN')]),
+                $element("p.tag", ['#', $element("span", storyTag.toUpperCase().replaceAll('-', ' '))]),
                 $element("h2.story-header", story.title || "[TITLE MISSING]" ),
                 $element("h3", "Creating art with synthesia"),
                 $element("p.author", "Laura Herman"),
