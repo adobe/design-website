@@ -223,3 +223,10 @@ header#global-header.split{
     z-index: -1;
     background-color: rgba(0, 0, 0, 0.25);
 } */
+
+@media (max-width: 1920px) and (min-width: 1025px){
+    header#global-header{
+        width: 100%;
+        max-width: 1800px;
+
+    }
