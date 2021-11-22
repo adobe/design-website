@@ -113,7 +113,7 @@ html body button{
     main > div > div > div:not(.full-bleed) {
 */
     width: 1567px;
-    max-width: 100%;
+    max-width: 98%;
     /* ^ limits to 1000px - 1920px depending on base font-size */
     margin-left:auto;
     margin-right:auto;
@@ -276,10 +276,9 @@ html body button{
     .page-type-article main{
         width: 90em;
     }
-    .article-card.block{
-        width: 90em;
-    }
-    .people.block{
+    .article-card.block,
+    .people.block,
+    .two-column.block{
         width: 90em;
     }
 }
@@ -289,19 +288,14 @@ html body button{
         max-width:100%;
     }
     
-    .article-card.block{
-        width: 1269px;
-    }
+    .article-card.block, 
+    .two-column.block, 
     .people.block{
-        width: 1267px;
+        width: 1269px;
     }
 
     .people.block .person .name{
         font-size: 2em;
-    }
-
-    .two-column.block{
-        width: 1440px;
     }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1280px){
@@ -309,6 +303,8 @@ html body button{
         width: 1024px;
         max-width:100%;
     }
+    .article-card.block, 
+    .two-column.block, 
     .people.block{
         width: 1024px;
     }
@@ -326,6 +322,11 @@ html body button{
 @media only screen and (min-width: 769px) and (max-width: 1024px){
     .page-type-article main{
         width: 950px;
+    }
+    .article-card.block, 
+    .two-column.block, 
+    .people.block{
+        width: 1000px;
     }
 }
 @media only screen and (min-width: 426px) and (max-width: 768px){

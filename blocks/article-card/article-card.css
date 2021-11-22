@@ -191,12 +191,9 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
     }
 }
 
-@media (max-width: 1920px) and (min-width: 1025px){
+@media (max-width: 1920px) and (min-width: 1650px){
     .article-card.block .text .hed, .article-card.block .text .hed a{
         font-size: 4.6em;
-    }
-    .article-card.block .text .dek{
-        max-width: 100%;
     }
 }
 @media (max-width: 1650px) and (min-width: 1441px){
@@ -221,10 +218,7 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
         font-size: 2em;
     }
 }
-@media (max-width: 1280px) and (min-width: 1025px){
-    .article-card.block{
-        width: 1024px;
-    }
+@media (max-width: 1280px) and (min-width: 769px){
     .article-card.block .text{
         padding: 1.6em 3em 5em 6em;
     }

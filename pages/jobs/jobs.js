@@ -118,6 +118,7 @@ function buildJobListings(job){
   return jobBlock
 }
 
+/* Currently expecting location property to be an array of all locations for the job posting */
 function formatLocation(location){
   if(!location)
     location = ["[LOCATION MISSING]"]

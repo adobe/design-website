@@ -32,7 +32,7 @@
 
 .block.story .image {
     position: relative;
-    min-height: clamp(250px, 36vw, 378px);
+    min-height: clamp(250px, 37vw, 1000px);
 }
 
 .block.story .story-text{
@@ -54,6 +54,13 @@
     font-size: 0.8em;
     padding-top: 0.5em;
     padding-bottom: 1em;
+}
+
+.stories .story-text .tag.tag-link{
+    text-decoration: unset;
+    border-bottom: unset;
+    color: inherit;
+
 }
 
 .stories .story-text .tag span{
@@ -150,5 +157,11 @@
 
     .stories .story-text > * {
         padding-left: clamp(30px, 10vw, 70px)
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .block.story .image {
+        min-height: clamp(100px, calc(2*19vw), 600px);
     }
 }

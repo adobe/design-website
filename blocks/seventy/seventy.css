@@ -1,22 +1,21 @@
 .seventy.block {
     width: 134.5%;
+    height: 100%;
 }
 .seventy {
     display: flex;
-    align-items: center;
+    align-content: center;
 }
 .seventy .image {
     background-color: white;
-    height: 32em;
+    width: 100%;
 }
 .seventy .image img {
     width: 100%;
-    height: 32em;
+    height: 100%;
 }
 .seventy .content {
-    width: 25em;
     height: 100%;
-    height: 32em;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -57,19 +56,17 @@
     margin: 3em 0em 0.5rem 0em;
     line-height: 1.6em;
 }
-@media (max-width: 1000px) and (min-width: 767px) {
-    .seventy.block {
-        width: 62vw;
-    }
-}
 @media (max-width: 766px) and (min-width: 400px) {
+    .seventy.block{
+        width: auto;
+    }
     .seventy {
         flex-direction: column;
     }
     .seventy .content {
         width: auto;
         margin-bottom: .5em;
-        padding: 1.6em 10em 1em 4em;
+        padding: 1.6em 3em 1em 3em;
     }
     .seventy .image {
         display: none;
