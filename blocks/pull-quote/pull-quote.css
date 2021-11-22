@@ -12,6 +12,7 @@
     padding-top: 1em;
     margin-top: 0;
     font-size: .6em;
+    font-family: var(--sans-serif-font);
 }
 .block.pull-quote{
     padding: 0;
