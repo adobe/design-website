@@ -63,6 +63,14 @@
     background-position: center;
 }
 
+
+.article-card.block:nth-child(even) .image:not(.right),
+.article-card.block .image.left{
+    grid-row: 1;
+    grid-column: 1/2;
+}
+
+
 @media screen and (max-width: 700px) {
     .article-card.block .block-content .text,
     .article-card.block .block-content .image {
