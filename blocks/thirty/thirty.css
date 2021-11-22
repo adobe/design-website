@@ -2,10 +2,13 @@
     width: 64%;
     height: 100%
 }
-.thirty {
+.thirty{
+    margin-left: auto;
+    height: 100%;
+}
+.thirty .thirty-link{
     display: flex;
     flex-direction: column;
-    margin-left: auto;
     height: 100%;
 }
 .thirty .image {
@@ -32,6 +35,9 @@
     text-decoration: none;
     text-transform: uppercase;
     width: max-content;
+}
+.thirty .tag.tag-link{
+    border-bottom: none;
 }
 .thirty .hed {
     font-family: var(--sans-serif-font);
@@ -61,7 +67,7 @@
     margin-top: 0;
 }
 
-@media (max-width: 766px) and (min-width: 400px) {
+@media (max-width: 767px) and (min-width: 400px) {
     .thirty.block{
         width: auto;
     }
