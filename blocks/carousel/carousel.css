@@ -364,19 +364,34 @@
     }
 }
 @media (max-width: 1920px) and (min-width: 1025px){
-    .carousel{
-        width: auto;
-        padding-top: 10em;
+    body > main > div > div > div.carousel.block.full-bleed{
+        height: 100%;
+        width: 1280px;
+        /* padding-top: 8em; */
     }
     .carousel .carousel__item--visible a.carousel-link{
-        grid-template-columns: 35.25em 33.25em;
+        max-width: 100%;
+        width: 100%;
+        grid-template-columns: 50% 50%;
+        /* padding-left: 7em; */
+        padding-top: 7em;
+        gap: 1;
+        align-items: initial;
     }
-    .carousel .carousel__actions{
-        width: 84%;
+    .carousel .carousel__item--visible a.carousel-link .image{
+        width: 100%;
     }
-    .carousel__item--visible .number h2{
+    .carousel__item--visible .number{
+        max-height: 100%;
+        padding-top: 2em;
+    }
+    .carousel .carousel__item--visible a.carousel-link .number h2{
         font-size: 4em;
-        padding-right: 3em;
+        margin-bottom: .5em;
+    }
+    .carousel .carousel__item--visible a.carousel-link .number h3.dek-3{
+        font-size: 1em;
+        margin: 2em 0;
     }
 }
 @media (max-width: 1650px) and (min-width: 1441px){
