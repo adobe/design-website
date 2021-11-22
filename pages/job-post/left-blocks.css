@@ -7,34 +7,34 @@
 
 
 .job-post .sticky-container{
-    display: block;
+    /* display: block; */
     /* position: sticky; */
     /* top: 0px; */
     /* right: 50vw; */
     /* height: 100%; */
     /* height: max-content; */
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 @media screen and (max-width: 1300px) {
-    .job-post .sticky-container{
+    /* .job-post .sticky-container{
         display: block;
         position: relative;
-    }
+    } */
 }
 @media screen and (min-width: 1300px) {
-    .job-post .inner-post-contnr,
-    .job-post .sticky-container{
+    /* .job-post .sticky-container, */
+    .job-post .inner-post-contnr{
         min-height: 93.05em;
         height: 93.05em;
     }
-    .job-post .sticky-container{
+    /* .job-post .sticky-container{
         display: block;
         position: sticky;
         top: 0px;
         right: 50vw;
         height: max-content;
         box-sizing: border-box;
-    }
+    } */
 }
 
 /* --------------- END   Sticky   Container Block --------------- */
