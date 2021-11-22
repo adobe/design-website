@@ -60,7 +60,17 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     background: red;
 }
 
-
+@media (min-width: 1920px) and (max-width: 2560px){
+    .inclusive-design .text .hed{
+        font-size: 5.2em;
+    }
+    .inclusive-design .block .text .byline{
+        padding-bottom: 9em;
+    }
+    .inclusive-design .text .dek{
+        font-size: 1.4em;
+    }
+}
 @media (min-width: 1441px) and (max-width: 1650px){
     .inclusive-design .text .hed{
         font-size: 4em;
