@@ -278,12 +278,18 @@ html body button{
     .people.block{
         width: 1920px;
     }
+    #global-footer .footer-content{
+        width: 1920px;
+    }
 
 }
 @media only screen and (min-width: 1651px) and (max-width: 1920px) {
     .page-type-article main{
         width: 103em;
         max-width:100%;
+    }
+    #global-footer .footer-content{
+        width: 103em;
     }
     
 }
@@ -297,6 +303,9 @@ html body button{
         width: 90em;
     }
     .page-type-inclusive .inclusive-design > div > div{
+        width: 1440px;
+    }
+    #global-footer .footer-content{
         width: 1440px;
     }
 }
@@ -314,6 +323,9 @@ html body button{
 
     .people.block .person .name{
         font-size: 2em;
+    }
+    #global-footer .footer-content{
+        width: 1280px;
     }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1280px){
@@ -338,6 +350,9 @@ html body button{
     .page-type-inclusive .inclusive-design > div > div{
         width: 1024px;
     }
+    #global-footer .footer-content{
+        width: 1024px;
+    }
     
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px){
@@ -352,6 +367,9 @@ html body button{
     .page-type-inclusive .inclusive-design > div > div{
         width: 768px;
     }
+    #global-footer .footer-content{
+        width: 768px;
+    }
 }
 @media only screen and (min-width: 426px) and (max-width: 768px){
     .page-type-article main{
@@ -360,6 +378,7 @@ html body button{
     .page-type-inclusive .inclusive-design > div > div{
         width: 758px;
     }
+    
 }
 @media only screen and (min-width: 415px) and (max-width: 425px){
     .page-type-article main{

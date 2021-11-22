@@ -756,6 +756,13 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .content .header.block .author-desc h2{
         padding-left: 0;
     }
+    .page-type-article .author-bio.block .author-info{
+        width: 56%;
+    }
+    .page-type-article .similar-stories-content{
+        width: 925px;
+    }
+    
     
 }
 @media (max-width: 768px) and (min-width:426px) {
@@ -818,6 +825,9 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .additional-reading.block > div{
         padding-left: 4.7em;
+    }
+    .page-type-article .author-bio.block .author-info{
+        width: 56%;
     }
     .page-type-article .similar-stories .similar-stories-header{
         font-size: 2em;
