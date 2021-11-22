@@ -61,7 +61,7 @@
 .carousel .carousel__item--visible{
     display: block;
 }
-.carousel .carousel__item--visible a{
+.carousel .carousel__item--visible a.carousel-link{
     transition: all .6s ease;
     max-width: 46.9em;
     width:  46.9em;
@@ -231,7 +231,7 @@
     .carousel .carousel__actions button img {
         height: 25px;
     }
-    .carousel .carousel__item--visible {
+    .carousel .carousel__item--visible a.carousel-link{
         grid-template-columns: 44.25vw 21.25em;
         width: 95vw;
         max-width: 62.54em;
@@ -246,7 +246,7 @@
 }
 
 @media (min-width: 700px) and (max-width: 885px) {
-    .carousel .carousel__item--visible {
+    .carousel .carousel__item--visible a.carousel-link{
         grid-template-columns: 44.25vw 28.25em;
         width: 95vw;
         max-width: 62.54em;
@@ -254,7 +254,7 @@
 }
 
 @media (min-width: 426px) and (max-width: 700px) {
-    .carousel .carousel__item--visible {
+    .carousel .carousel__item--visible a.carousel-link{
         grid-template-columns: 44.25vw 32.25em;
         width: 95vw;
         max-width: 62.54em;
@@ -291,7 +291,7 @@
     .carousel .carousel__actions button img {
         height: 25px;
     }
-    .carousel .carousel__item--visible {
+    .carousel .carousel__item--visible a.carousel-link{
         display: flex;
         width: 95vw;
         max-width: 62.54em;
@@ -338,7 +338,7 @@
         width: auto;
         padding-top: 10em;
     }
-    .carousel .carousel__item--visible{
+    .carousel .carousel__item--visible a.carousel-link{
         grid-template-columns: 35.25em 33.25em;
     }
     .carousel .carousel__actions{
@@ -350,12 +350,12 @@
     }
 }
 @media (max-width: 1650px) and (min-width: 1441px){
-    .carousel .carousel__item--visible{
+    .carousel .carousel__item--visible a.carousel-link{
         grid-template-columns: 27.25em 34.25em;
     }
 }
 @media (max-width: 1440px) and (min-width: 1025px){
-    .carousel .carousel__item--visible{
+    .carousel .carousel__item--visible a.carousel-link{
         grid-template-columns: 27.25em  25.25em;
     }
 }
