@@ -261,21 +261,22 @@ export function addFavIcon(href) {
  * @param {Function} postLCP The callback function
  */
 function setLCPTrigger(doc, postLCP) {
-  const $lcpCandidate = doc.querySelector('main > div:first-of-type img');
-  if ($lcpCandidate) {
-    if ($lcpCandidate.complete) {
-      postLCP();
-    } else {
-      $lcpCandidate.addEventListener('load', () => {
-        postLCP();
-      });
-      $lcpCandidate.addEventListener('error', () => {
-        postLCP();
-      });
-    }
-  } else {
-    postLCP();
-  }
+  // const $lcpCandidate = doc.querySelector('main > div:first-of-type img');
+  // if ($lcpCandidate) {
+  //   if ($lcpCandidate.complete) {
+  //     postLCP();
+  //   } else {
+  //     $lcpCandidate.addEventListener('load', () => {
+  //       postLCP();
+  //     });
+  //     $lcpCandidate.addEventListener('error', () => {
+  //       postLCP();
+  //     });
+  //   }
+  // } else {
+  //   postLCP();
+  // }
+  setTimeout( postLCP, 1000 )
 }
 
 /**
