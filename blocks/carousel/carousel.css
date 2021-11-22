@@ -328,6 +328,7 @@
     body > main > div > div > div.carousel.block.full-bleed{
         height: 100%;
         width: 1920px;
+        padding-top: 8em;
     }
     .carousel .carousel__item--visible{
         max-width: 100%;
