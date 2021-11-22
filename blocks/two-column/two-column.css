@@ -8,6 +8,12 @@
     flex-basis:0;
 }
 
+@media only screen and (min-width: 1920px) and (max-width: 2560px){
+    .two-column.block{
+        width: 1920px;
+    }
+}
+
 @media (max-width: 1024px) and (min-width: 768px){
     
     .job-listing h3{
