@@ -202,6 +202,7 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
 .page-type-article .article-picture{
     padding: 0;
     margin: 0;
+    line-height: 0;
 }
 
 .page-type-article main img{
@@ -493,7 +494,68 @@ body > div.author-bio.block > div > author-name{
         font-size: 1.4em;
     }
 }
+@media (max-width: 2560px) and (min-width: 1920px){
+    
+    .page-type-article .header-tag{
+        padding-left: 3.5em;
+        font-size: 1.2em;
+    }
+    .page-type-article h1{
+        font-size: 9em;
+        padding-right: 4em;
 
+    }
+    .page-type-article .header.block h2{
+        font-size: 4em;
+        padding-left: 3.5em;
+        padding-right: 9em;
+    }
+    .page-type-article .author.block{
+
+    }
+    .page-type-article .author.block .name{
+        padding: 0;
+    }
+    .page-type-article .content .lede.block{
+        font-size: 4.5em;
+        width: 100%;
+    }
+    .page-type-article .content .lede.block > div{
+        padding-right: 1em;
+    }
+    .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
+        font-size: 2em;
+        padding-left: 12.5em;
+    }
+    .page-type-article .content h2{
+        padding-left: 4.2em;
+        font-size: 6em;
+    }
+    .page-type-article .content .pull-quote.block{
+        font-size: 4.5em;
+        padding: 2em 1.4em 2em 2em;
+    }
+    .page-type-article .content ul{
+        font-size: 1.8em;
+        padding-left: 14em;
+    }
+    .page-type-article .content li{
+        padding-left: 0;
+    }
+    .page-type-article .content h3{
+        font-size: 3.5em;
+        padding-left: 7em;
+    }
+    .page-type-article .additional-reading.block > div{
+        padding-left: 21em;
+    }
+    .page-type-article .additional-reading.block ul{
+        font-size: 1.3em;
+    }
+    .page-type-article .similar-stories-content{
+        max-width: 103em;
+    }
+}
 @media (max-width: 1920px) and (min-width: 1651px){
     :root{
         --h1-font-size: 5em;

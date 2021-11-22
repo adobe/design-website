@@ -230,3 +230,10 @@ header#global-header.split{
         max-width: 1800px;
 
     }
+}
+@media (max-width: 2560px) and (min-width: 1920px){
+    header#global-header{
+        width: 1920px;
+        max-width: 1920px;
+    }
+}

@@ -10,6 +10,7 @@ export default function decorate($main) {
     });*/
 
     
+  
 
     
     var mainImg = inclusive.querySelector('img').classList.add('main-img')

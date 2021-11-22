@@ -332,7 +332,37 @@
 
 }
 
-
+@media (max-width: 2560px) and (min-width: 1920px){
+    body > main > div > div > div.carousel.block.full-bleed{
+        height: 100%;
+        width: 1920px;
+        padding-top: 8em;
+    }
+    .carousel .carousel__item--visible{
+        max-width: 100%;
+        width: 100%;
+        grid-template-columns: 50% 50%;
+        padding-left: 7em;
+        padding-top: 7em;
+        gap: 0;
+        align-items: initial;
+    }
+    .carousel .carousel__item--visible .image{
+        width: 92%;
+    }
+    .carousel__item--visible .number{
+        max-height: 100%;
+        padding-top: 2em;
+    }
+    .carousel__item--visible .number h2{
+        font-size: 6em;
+        margin-bottom: .5em;
+    }
+    .carousel .carousel__item--visible .number h3.dek-3{
+        font-size: 2em;
+        margin: 2em 0;
+    }
+}
 @media (max-width: 1920px) and (min-width: 1025px){
     .carousel{
         width: auto;
