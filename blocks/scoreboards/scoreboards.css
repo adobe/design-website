@@ -1,12 +1,12 @@
 /* A single scoreboard */
-/* .scoreboards.block{
+.scoreboards.block{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     text-align: center;
     height: 100%
-} */
-/* .scoreboards > div{
+}
+.scoreboards > div{
     width: 100%;
     height: 33.33%;
     display: flex;
@@ -15,35 +15,35 @@
     align-items: center;
     color: #0B1C40;
     background-color: #F5F3EF;
-} */
-/* .scoreboards > div:first-child{
+}
+.scoreboards > div:first-child{
     order: 3
-} */
-/* .scoreboards > div:nth-child(2){
+}
+.scoreboards > div:nth-child(2){
     background-color: #E3E3E3;
     order: 2
-} */
-/* .scoreboards > div:nth-child(3){
+}
+.scoreboards > div:nth-child(3){
     order: 1
-} */
-/* .scoreboards .number {
+}
+.scoreboards .number {
     font-size: 9em;
     line-height:1em;
     font-family: var(--serif-font);
-} */
-/* .scoreboards .caption{
+}
+.scoreboards .caption{
     font-size: 1.1em;
     width: 60%;
     font-family: var(--serif-font);
-} */
-/* .two-column.block > div > div:nth-child(2) > div > div:nth-child(1) {
+}
+.scoreboards > div:nth-child(1) {
     height: 45%;
     justify-content: flex-start;
     padding-top: 3em;
-} */
+}
 
 
-/* @media (max-width: 1024px){
+@media (max-width: 1024px){
 
     .scoreboards .number{
         font-size: 8em;
@@ -51,16 +51,16 @@
     .scoreboards .caption{
         width: 80%;
     }
-} */
+}
 
-/* @media (max-width: 1023px){
+@media (max-width: 1023px){
 
     .scoreboards > div{
         height: 35em;
     }
-} */
+}
 
-/* @media (max-width: 768px){
+@media (max-width: 768px){
     .scoreboards > div{
         height: 30em;
     }
@@ -68,4 +68,9 @@
     .scoreboards .number{
         font-size: 8em;
     }
-} */
+}
+@media (max-width: 767px){
+    .scoreboards {
+        display: none
+    }
+}

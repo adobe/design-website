@@ -18,10 +18,18 @@
         margin: 0;
     }
 
-    .two-column.block > div > div:first-child {
+    .two-column.block{
+        margin-bottom: 0.5rem;
+    }
+
+    /* Only targets the joinus/scoreboard block */
+    .two-column.block:last-of-type{
+        margin-bottom: 0;
+    }
+    .two-column.block:last-of-type > div > div:first-child {
         flex-grow:7;
     }
-    .two-column.block > div > div:last-child {
+    .two-column.block:last-of-type > div > div:last-child {
         flex-grow:5;
     }
 }
@@ -31,9 +39,6 @@
     }
     .two-column.block > div > div {
         height: auto;
-    }
-    .two-column.block >div >div:last-child{
-        display:none;
     }
     
 }

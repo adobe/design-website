@@ -222,9 +222,6 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
     }
 }
 @media (max-width: 1280px) and (min-width: 1025px){
-    .article-card.block{
-        width: 1024px;
-    }
     .article-card.block .text{
         padding: 1.6em 3em 5em 6em;
     }
