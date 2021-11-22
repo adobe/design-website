@@ -79,7 +79,12 @@ export default async function decorate($block) {
     if(!!props.position)
       rightSide.append($element("p", props.position))
 
-    slide.append(rightSide) 
+    const articleLink = $element('a.stories-link', { attr: { href: props.path || '/stories/' } })
+
+    articleLink.append(imageSide)
+    articleLink.append(rightSide)
+
+    slide.append(articleLink)
    
   }
 
