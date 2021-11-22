@@ -22,6 +22,23 @@ export function getMetadata(name) {
 }
 
 /**
+ * Retrieves the content of a metadata tag.
+ * @param {string} name The metadata name (or property)
+ * @param {Document} parsedDoc an ouside document, in string or HTML Doc item
+ * @returns {string} The metadata value
+ */
+ export function getMetadataFromOutsideDoc(name, parsedDoc) {
+    // if(typeof parsedDoc === 'string' ) {}
+    const attr = name && name.includes(':') ? 'property' : 'name';
+    const $meta = parsedDoc.head.querySelector(`meta[${attr}="${name}"]`) ||
+                  parsedDoc.head.querySelector(`meta[${attr}="og:${name}"]`);
+    if(name.includes("image") || name.includes("img")) {
+        console.log( " META ", $meta)
+    }
+    return $meta && $meta.content;
+}
+
+/**
  *
  * @param {HTMLAnchorElement} $el
  */
@@ -450,6 +467,38 @@ export function $element(selector, options, content) {
     return $div;
 }
 
+export function buildStory( story, author ) {
+    const mediaAttr = "(max-width: 400px)";
+
+    var storyTag = story.path.split('/')[2];
+    let storyText = $element(".story-text")
+    let $story = $element(".story.block", [
+        $element("a.link", { attr: { href: story.path } }, [
+            $element(".image", [
+                $element("picture", [
+                    $element("source", { attr: { media: mediaAttr, srcset: story.image }}),
+                    $element("img", { attr: { src: story.image } }),
+                ])
+            ]),
+            storyText
+        ])
+    ])
+
+    storyText.append(decorateTagLink($element("p.tag", ['#', $element("span", storyTag.toUpperCase().replaceAll('-', ' '))]), storyTag))
+    storyText.append($element("h2.story-header", (!!story.title && story.title != 0)?story.title : "[TITLE MISSING]" ))
+    storyText.append($element("h3", story.subtitle || "[SUBTITLE MISSING]"))
+    if(!!author){
+        storyText.append($element("p.author", author.name || "[AUTHOR MISSING]"))
+        if(author.position)
+            storyText.append($element("p.position", author.position))
+    }else{
+        storyText.append($element("p.author", (!!story.author && story.author != 0)? story.author : "[AUTHOR MISSING]"))
+        storyText.append($element("p.author", story.position || "[POSITION MISSING]"))
+    }
+
+    return $story
+}
+
 
 // export function $changeTag(selector, oldSelector) {
 //     if (!selector) {
@@ -657,16 +706,20 @@ export function $scrollAnimation() {
 /**
  * Fetches a fragment based on its reliatve page url
  * @param {*} relativePath
+ * @param {Object} options {metadata: bool} If
  * @returns
  */
-export async function fetchFragment( relativePath ) {
+export async function fetchFragment( relativePath, options = {matadata: false} ) {
+    let metaData = !!options.metadata; /* Boolean */
     try {
-        const url = `${location.origin}/${relativePath}.plain.html`;
+        const url = metaData ? `${location.origin}/${relativePath}` : `${location.origin}/${relativePath}.plain.html`;
         const res = await fetch(url);
         if(!res.ok) {
             throw new Error(`Failed to fetch fragment: ${url}`);
         }
-        return await res.text();
+        let response_ = await res;
+        let response_text = response_.text();
+        return response_text;
     } catch(err) {
         console.warn(`Fragment not found ${relativePath}`);
         console.error(err);

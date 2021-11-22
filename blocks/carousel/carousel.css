@@ -58,7 +58,10 @@
     max-height: 24em;
 }
 
-.carousel .carousel__item--visible {
+.carousel .carousel__item--visible{
+    display: block;
+}
+.carousel .carousel__item--visible a{
     transition: all .6s ease;
     max-width: 46.9em;
     width:  46.9em;
@@ -130,6 +133,11 @@
     font-size: 14px; /* 15px; (15/30.07 = 0.499) */
     line-height: 1.33em;/* 20px; (20   /15 = 1.333) */
     margin-top: 0;
+}
+
+.carousel .carousel__item,
+.carousel .carousel__actions button{
+    z-index: 1;
 }
 
 
@@ -324,3 +332,30 @@
 
 }
 
+
+@media (max-width: 1920px) and (min-width: 1025px){
+    .carousel{
+        width: auto;
+        padding-top: 10em;
+    }
+    .carousel .carousel__item--visible{
+        grid-template-columns: 35.25em 33.25em;
+    }
+    .carousel .carousel__actions{
+        width: 84%;
+    }
+    .carousel__item--visible .number h2{
+        font-size: 4em;
+        padding-right: 3em;
+    }
+}
+@media (max-width: 1650px) and (min-width: 1441px){
+    .carousel .carousel__item--visible{
+        grid-template-columns: 27.25em 34.25em;
+    }
+}
+@media (max-width: 1440px) and (min-width: 1025px){
+    .carousel .carousel__item--visible{
+        grid-template-columns: 27.25em  25.25em;
+    }
+}
