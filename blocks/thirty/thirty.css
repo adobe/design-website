@@ -67,6 +67,7 @@
     }
     .thirty {
         flex-direction: column;
+        margin-left: unset;
     }
     .thirty .content {
         width: auto;
