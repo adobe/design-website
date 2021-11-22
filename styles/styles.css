@@ -264,7 +264,12 @@ html body button{
 }
 
 /* If the styles are the same for each media query, combine them: */
+@media only screen and (min-width: 1920px) and (max-width: 2560px){
+    .page-type-article main{
+        width: 1920px;
+    }
 
+}
 @media only screen and (min-width: 1651px) and (max-width: 1920px) {
     .page-type-article main{
         width: 103em;
@@ -348,7 +353,7 @@ html body button{
         width: 758px;
     }
 }
-@media only screen and (min-width: 376px) and (max-width: 415px){
+@media only screen and (min-width: 415px) and (max-width: 425px){
     .page-type-article main{
         width: 410px;
     }
