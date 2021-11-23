@@ -12,7 +12,7 @@
 }
 .seventy .image {
     background-color: white;
-    width: 100%;
+    width: 60%;
 }
 .seventy .image img {
     width: 100%;
@@ -24,12 +24,14 @@
     flex-direction: column;
     padding: 1.6em 3em 1em 4em;
     box-sizing: border-box;
+    font-size: 28px;
+
 }
 .seventy .tag {
     border-bottom: solid 0.2em #000000;
     width: fit-content;
     color: inherit;
-    font-size: .8em;
+    font-size: .8rem;
     line-height: 1.125em;
     margin: 0em 0em 0.5em 0em;
     text-decoration: none;
@@ -58,11 +60,54 @@
     max-width: 100%;
 }
 .seventy .byline {
-    font-size: 16px;
+    font-size: 1em;
     margin: 3em 0em 0.5rem 0em;
     line-height: 1.6em;
 }
-@media (max-width: 767px) and (min-width: 400px) {
+
+
+@media(max-width: 1920px) and (min-width: 1651px){
+    .seventy .image {
+        width: 70%;
+    }
+    .seventy .content{
+        font-size: 24px;
+    }
+}
+@media(max-width: 1650px) and (min-width: 1441px){
+    .seventy .image {
+        width: 75%;
+    }
+    .seventy .content{
+        font-size: 20px;
+    }
+}
+@media(max-width: 1440px) and (min-width: 1281px){
+    .seventy .image {
+        width: 75%;
+    }
+    .seventy .content{
+        font-size: 18px;
+    }
+}
+@media(max-width: 1280px){
+    .seventy .image {
+        width: 100%;
+    }
+
+    .seventy .content{
+        font-size: 16px;
+    }
+    
+}
+
+@media (max-width: 1023px){
+    .seventy .image {
+        display: none;
+    }
+}
+
+@media (max-width: 767px){
     .seventy.block{
         width: auto;
     }
@@ -73,14 +118,5 @@
         width: auto;
         margin-bottom: .5em;
         padding: 1.6em 3em 1em 3em;
-    }
-    .seventy .image {
-        display: none;
-    }
-}
-
-@media (max-width: 1023px) and (min-width: 768px){
-    .seventy .image {
-        display: none;
     }
 }
