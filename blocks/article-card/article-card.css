@@ -252,6 +252,10 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
         font-size: 1.7em;
     }
 }
+
+/*  MOBILE  */
+
+
 @media (max-width: 425px) and (min-width: 415px){
     .article-card.block{
         width: 415px;
@@ -299,10 +303,6 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
     .article-card.block .text .dek{
         font-size: 1.7em;
     }
-    .article-card.block .block-content .text, .article-card.block .block-content .image{
-        height: 35vh;
-    }
-@media screen and (max-width: 700px) {
     .article-card.block .text .tag-link {
         font-size: 1.25em;
     }
@@ -315,5 +315,47 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
     .article-card.block .block-content .text, .article-card.block .block-content .image {
         height: 50vh;
     }
+
 }
+
+@media (max-width: 320px){
+    .article-card.block{
+        width: 365px;
+    }
+    .article-card.block .text{
+        padding: 1em 3em 4.5em 3em;
+    }
+    .article-card.block .text .hed, .article-card.block .text .hed a{
+        font-size: 2.6em;
+    }
+    .article-card.block .text .dek{
+        font-size: 1.7em;
+    }
+    .article-card.block .text .tag-link {
+        font-size: 1.25em;
+    }
+    div.article-card.block .text .hed {
+        margin: 1.25em 0rem 0em;
+    }
+    .article-card.block .text .hed {
+        height: auto;
+    }
+    .article-card.block .block-content .image ,.article-card.block .block-content .text{
+        height: auto;
+    }
+}
+
+@media(max-width: 425px){
+    .article-card.block .block-content .text{
+        min-height: 410px;
+    }
+
+    .article-card.block .block-content .image{
+        min-height: 350px;
+    }
+    @media (max-width: 320px) and (max-height: 600px){
+        .article-card.block .block-content .text{
+            height: auto;
+        }
+    }
 }
