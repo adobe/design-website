@@ -64,7 +64,7 @@
 }
 
 
-.article-card.block:nth-child(even) .image:not(.right),
+.article-card.block:nth-of-type(even) .image:not(.right),
 .article-card.block .image.left{
     grid-row: 1;
     grid-column: 1/2;
