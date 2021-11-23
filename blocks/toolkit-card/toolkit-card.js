@@ -58,12 +58,12 @@ import {
     result['.block-content'].append(toolkitLink)
     toolkitLink.prepend($text)
 
-    if (!result.properties['image-side'] || result.properties['image-side'] === 'left') {
-        toolkitLink.prepend(result['.image']);
-    } else {
-        toolkitLink.append(result['.image']);
+    if (result.properties['image-side'] === 'left') {
+      result['.image'].classList.add('left');
+    } else if(result.properties['image-side'] === 'right'){
+      result['.image'].classList.add('right');
     }
-
+    toolkitLink.append(result['.image']);
     result['.image'].classList.add('image');
     convertToBackground(result['.image'].querySelector('img'), result['.image']);
   }

@@ -72,6 +72,12 @@
     background-position: center;
 }
 
+.toolkit-card.block:nth-of-type(even) .image:not(.right),
+.toolkit-card.block .image.left{
+    grid-row: 1;
+    grid-column: 1/2;
+}
+
 @media screen and (max-width: 700px) {
     .toolkit-card.block .block-content .text,
     .toolkit-card.block .block-content .image {
