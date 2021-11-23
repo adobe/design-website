@@ -113,7 +113,7 @@ html body button{
     main > div > div > div:not(.full-bleed) {
 */
     width: 1567px;
-    max-width: 100%;
+    max-width: 98%;
     /* ^ limits to 1000px - 1920px depending on base font-size */
     margin-left:auto;
     margin-right:auto;
@@ -265,10 +265,34 @@ html body button{
 
 /* If the styles are the same for each media query, combine them: */
 
+@media only screen and (min-width: 1920px) and (max-width: 2560px){
+    .page-type-article main{
+        width: 1920px;
+    }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 1920px;
+    }
+    .article-card.block{
+        width: 1920px;
+    }
+    .people.block{
+        width: 1920px;
+    }
+    #global-footer .footer-content{
+        width: 1920px;
+    }
+    .two-column.block{
+        width: 1920px;
+    }
+
+}
 @media only screen and (min-width: 1651px) and (max-width: 1920px) {
     .page-type-article main{
         width: 103em;
         max-width:100%;
+    }
+    #global-footer .footer-content{
+        width: 103em;
     }
     
 }
@@ -276,11 +300,16 @@ html body button{
     .page-type-article main{
         width: 90em;
     }
-    .article-card.block{
+    .article-card.block,
+    .people.block,
+    .two-column.block{
         width: 90em;
     }
-    .people.block{
-        width: 90em;
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 1440px;
+    }
+    #global-footer .footer-content{
+        width: 1440px;
     }
 }
 @media only screen and (min-width: 1281px) and (max-width: 1440px) {
@@ -289,19 +318,17 @@ html body button{
         max-width:100%;
     }
     
-    .article-card.block{
-        width: 1269px;
-    }
+    .article-card.block, 
+    .two-column.block, 
     .people.block{
-        width: 1267px;
+        width: 1269px;
     }
 
     .people.block .person .name{
         font-size: 2em;
     }
-
-    .two-column.block{
-        width: 1440px;
+    #global-footer .footer-content{
+        width: 1280px;
     }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1280px){
@@ -309,6 +336,8 @@ html body button{
         width: 1024px;
         max-width:100%;
     }
+    .article-card.block, 
+    .two-column.block, 
     .people.block{
         width: 1024px;
     }
@@ -321,30 +350,65 @@ html body button{
     .people.block .person .title{
         font-size: .8em;
     }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 1024px;
+    }
+    #global-footer .footer-content{
+        width: 1024px;
+    }
     
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px){
     .page-type-article main{
         width: 950px;
     }
+    .article-card.block, 
+    .two-column.block, 
+    .people.block{
+        width: 1000px;
+    }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 768px;
+    }
+    #global-footer .footer-content{
+        width: 768px;
+    }
 }
 @media only screen and (min-width: 426px) and (max-width: 768px){
     .page-type-article main{
         width: 750px;
     }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 758px;
+    }
+    
 }
-@media only screen and (min-width: 376px) and (max-width: 425px){
+@media only screen and (min-width: 415px) and (max-width: 425px){
     .page-type-article main{
         width: 410px;
+    }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 415px;
+    }
+}
+@media only screen and (min-width: 376px) and (max-width: 414px){
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 399px;
     }
 }
 @media only screen and (min-width: 321px) and (max-width: 375px){
     .page-type-article main{
         width: 355px;
     }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 355px;
+    }
 }
 @media only screen and (min-width: 0px) and (max-width: 320px){
     .page-type-article main{
+        width: 310px;
+    }
+    .page-type-inclusive .inclusive-design > div > div{
         width: 310px;
     }
 }

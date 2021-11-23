@@ -61,7 +61,7 @@
 .carousel .carousel__item--visible{
     display: block;
 }
-.carousel .carousel__item--visible a{
+.carousel .carousel__item--visible a.carousel-link{
     transition: all .6s ease;
     max-width: 46.9em;
     width:  46.9em;
@@ -134,10 +134,16 @@
     line-height: 1.33em;/* 20px; (20   /15 = 1.333) */
     margin-top: 0;
 }
-
 .carousel .carousel__item,
-.carousel .carousel__actions button{
+.carousel .carousel__actions{
+    z-index: 0;
+}
+.carousel .carousel__item--visible a{
     z-index: 1;
+}
+
+.carousel .carousel__actions button{
+    z-index: 2;
 }
 
 
@@ -231,7 +237,7 @@
     .carousel .carousel__actions button img {
         height: 25px;
     }
-    .carousel .carousel__item--visible {
+    .carousel .carousel__item--visible a.carousel-link{
         grid-template-columns: 44.25vw 21.25em;
         width: 95vw;
         max-width: 62.54em;
@@ -246,7 +252,7 @@
 }
 
 @media (min-width: 700px) and (max-width: 885px) {
-    .carousel .carousel__item--visible {
+    .carousel .carousel__item--visible a.carousel-link{
         grid-template-columns: 44.25vw 28.25em;
         width: 95vw;
         max-width: 62.54em;
@@ -254,7 +260,7 @@
 }
 
 @media (min-width: 426px) and (max-width: 700px) {
-    .carousel .carousel__item--visible {
+    .carousel .carousel__item--visible a.carousel-link{
         grid-template-columns: 44.25vw 32.25em;
         width: 95vw;
         max-width: 62.54em;
@@ -291,7 +297,7 @@
     .carousel .carousel__actions button img {
         height: 25px;
     }
-    .carousel .carousel__item--visible {
+    .carousel .carousel__item--visible a.carousel-link{
         display: flex;
         width: 95vw;
         max-width: 62.54em;
@@ -332,30 +338,75 @@
 
 }
 
-
+@media (max-width: 2560px) and (min-width: 1920px){
+    body > main > div > div > div.carousel.block.full-bleed{
+        height: 100%;
+        width: 1920px;
+        padding-top: 8em;
+    }
+    .carousel .carousel__item--visible a.carousel-link{
+        max-width: 100%;
+        width: 100%;
+        grid-template-columns: 50% 50%;
+        padding-left: 7em;
+        padding-top: 7em;
+        gap: 0;
+        align-items: initial;
+    }
+    .carousel .carousel__item--visible a.carousel-link .image{
+        width: 86%;
+    }
+    .carousel__item--visible .number{
+        max-height: 100%;
+        padding-top: 2em;
+    }
+    .carousel .carousel__item--visible a.carousel-link .number h2{
+        font-size: 6em;
+        margin-bottom: .5em;
+    }
+    .carousel .carousel__item--visible a.carousel-link .number h3.dek-3{
+        font-size: 2em;
+        margin: 2em 0;
+    }
+}
 @media (max-width: 1920px) and (min-width: 1025px){
-    .carousel{
-        width: auto;
-        padding-top: 10em;
+    body > main > div > div > div.carousel.block.full-bleed{
+        height: 100%;
+        width: 1280px;
+        /* padding-top: 8em; */
     }
-    .carousel .carousel__item--visible{
-        grid-template-columns: 35.25em 33.25em;
+    .carousel .carousel__item--visible a.carousel-link{
+        max-width: 100%;
+        width: 100%;
+        grid-template-columns: 50% 50%;
+        /* padding-left: 7em; */
+        padding-top: 7em;
+        gap: 1;
+        align-items: initial;
     }
-    .carousel .carousel__actions{
-        width: 84%;
+    .carousel .carousel__item--visible a.carousel-link .image{
+        width: 100%;
     }
-    .carousel__item--visible .number h2{
+    .carousel__item--visible .number{
+        max-height: 100%;
+        padding-top: 2em;
+    }
+    .carousel .carousel__item--visible a.carousel-link .number h2{
         font-size: 4em;
-        padding-right: 3em;
+        margin-bottom: .5em;
+    }
+    .carousel .carousel__item--visible a.carousel-link .number h3.dek-3{
+        font-size: 1em;
+        margin: 2em 0;
     }
 }
 @media (max-width: 1650px) and (min-width: 1441px){
-    .carousel .carousel__item--visible{
+    .carousel .carousel__item--visible a.carousel-link{
         grid-template-columns: 27.25em 34.25em;
     }
 }
 @media (max-width: 1440px) and (min-width: 1025px){
-    .carousel .carousel__item--visible{
+    .carousel .carousel__item--visible a.carousel-link{
         grid-template-columns: 27.25em  25.25em;
     }
 }

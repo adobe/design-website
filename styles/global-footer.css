@@ -60,6 +60,9 @@
     display: unset;
     margin-block: unset;
 }
+@media (max-width: 2560px) and (min-width: 1921px){
+
+}
 
 @media (max-width: 1024px) and (min-width: 769px){
     #global-footer .footer-content {

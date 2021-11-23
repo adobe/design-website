@@ -234,3 +234,35 @@ header#global-header.split{
     }
 }
 /* End .split */
+
+/*  If we do a drop down header like Adobe Spectrum: */
+/* #global-header nav::after,
+#global-header .menu-dropdown-container{
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    right: 0px;
+
+}
+
+#global-header nav::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.25);
+} */
+
+@media (max-width: 1920px) and (min-width: 1025px){
+    header#global-header{
+        width: 100%;
+        max-width: 1800px;
+
+    }
+}
+@media (max-width: 2560px) and (min-width: 1920px){
+    header#global-header{
+        width: 1920px;
+        max-width: 1920px;
+    }
+}
