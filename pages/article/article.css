@@ -442,6 +442,7 @@ body > div.author-bio.block > div > author-name{
 }
 .page-type-article .similar-stories .stories .block.story .image{
     /* position: relative; */
+    min-height: clamp(100px, 34vw,730px);
 }
 
 .page-type-article .author-bio > div{
@@ -455,6 +456,12 @@ body > div.author-bio.block > div > author-name{
 
 .page-type-article .similar-stories .stories .block.story .image picture img{
     width: 100%;
+}
+@media (max-width: 1280px){
+    .page-type-article .similar-stories .stories .block.story .image{
+        /* position: relative; */
+        min-height: clamp(100px, calc(19vw*2),380px);
+    }
 }
 @media (max-width: 1024px){
     .page-type-article .similar-stories-content{
