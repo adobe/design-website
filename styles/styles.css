@@ -281,6 +281,9 @@ html body button{
     #global-footer .footer-content{
         width: 1920px;
     }
+    .two-column.block{
+        width: 1920px;
+    }
 
 }
 @media only screen and (min-width: 1651px) and (max-width: 1920px) {
