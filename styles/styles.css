@@ -410,5 +410,6 @@ html body button{
     }
     .page-type-inclusive .inclusive-design > div > div{
         width: 310px;
+        max-width: 100%;
     }
 }

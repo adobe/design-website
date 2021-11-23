@@ -458,7 +458,7 @@ body > div.author-bio.block > div > author-name{
 }
 @media (max-width: 1024px){
     .page-type-article .similar-stories-content{
-        width: 82%;
+        width: 96%;
     }
     .page-type-article .similar-stories .stories .block.story a > .story-text > .story-header {
         width: 50%;
@@ -467,7 +467,7 @@ body > div.author-bio.block > div > author-name{
 }
 @media(max-width: 700px){
     .page-type-article .similar-stories-content{
-        width: 70%;
+        width: 95%;
         margin: 2em auto;
     }
     .page-type-article .similar-stories .stories{
