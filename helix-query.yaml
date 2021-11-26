@@ -7,7 +7,7 @@ indices:
       - '/stories/**'
       - '/people/**'
       - '/toolkit/**'
-    target: https://adobe.sharepoint.com/sites/Adobe.design/Shared%20Documents/website/query-index.xlsx
+    target: /query-index.xlsx
     properties:
       inlineTitle:
         select: main > div > h1:first-child
