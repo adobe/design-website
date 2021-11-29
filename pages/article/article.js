@@ -40,10 +40,15 @@ async function buildSimilarStories(tag){
   const allStories = index.fullindex.data.filter(data => data.path.split('/')[1] == 'stories');
   let similarStories = allStories.filter(story => story.path.split('/')[2] == tag)
   let storiesContent = $element('.stories')
-  if(similarStories.length > 0)
-    storiesContent.appendChild(buildStory(similarStories[0]))
-  if(similarStories.length > 1)
-    storiesContent.appendChild(buildStory(similarStories[1]))
+
+  let currentPath = window.document.location.pathname
+  let postedStories = 0;
+  for(let i = 0; postedStories < 2 && i < similarStories.length;i++){
+    if(similarStories[i].path != currentPath){
+      storiesContent.appendChild(buildStory(similarStories[i]))
+      postedStories++
+    }
+  }
   let $similarStoriesBlock = $wrap($element('.similar-stories'),$wrap($element('.similar-stories-content'), [$element('h2.similar-stories-header', 'Similar Stories'), storiesContent]))
   document.body.insertBefore($similarStoriesBlock, document.querySelector('#global-footer'));
 }
