@@ -956,6 +956,12 @@ body > div.author-bio.block > div > author-name{
     .page-type-article author-name{
         padding: 0;
     }
+    .page-type-article .similar-stories .stories{
+        grid-template-columns: 100%;
+    }
+    .page-type-article .similar-stories .stories .block.story a > .story-text{
+        padding-bottom: 3em;
+    }
     .page-type-article .similar-stories .similar-stories-header{
         font-size: 2em;
     }
@@ -1062,6 +1068,12 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article author-name{
         padding: 0;
+    }
+    .page-type-article .similar-stories .stories{
+        grid-template-columns: 100%;
+    }
+    .page-type-article .similar-stories .stories .block.story a > .story-text{
+        padding-bottom: 3em;
     }
     .page-type-article .similar-stories .similar-stories-header{
         font-size: 2em;
@@ -1176,6 +1188,12 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article author-name{
         padding: 0;
+    }
+    .page-type-article .similar-stories .stories{
+        grid-template-columns: 100%;
+    }
+    .page-type-article .similar-stories .stories .block.story a > .story-text{
+        padding-bottom: 3em;
     }
     .page-type-article .similar-stories .similar-stories-header{
         font-size: 2em;
