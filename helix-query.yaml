@@ -10,9 +10,9 @@ indices:
     target: /query-index.xlsx
     properties:
       inlineTitle:
-        select: main > div > h1:first-child
+        select: main > div h1:first-child
         value: |
-          el.innerText
+          innerHTML(el)
       title:
         select: head > meta[property="og:title"]
         value: |
