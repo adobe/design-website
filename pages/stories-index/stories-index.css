@@ -117,6 +117,178 @@
     margin-top: 1em;
 }
 
+
+
+@media (max-width: 2560px) and (min-width: 1921px){
+    .page-type-index .header h1{
+        font-size: 8em;
+    }
+    .stories .story-text > *{
+        font-size: 1.7em;
+    }
+    .stories .story-text > .story-header{
+        font-size: 3em;
+    }
+    .stories .story-text > h3{
+        font-size: 1.5em;
+    }
+    .stories .story-text > .author, .stories .story-text > .position{
+        font-size: 1em;
+    }
+    .page-type-index .content .load-more-stories span{
+        font-size: 1.5em
+    }
+    .think-differently.block{
+        height: 1300px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 5em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 13em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 15em;
+    }
+}
+
+@media (max-width: 1920px) and (min-width: 1651px){
+    .page-type-index .header h1{
+        font-size: 6em;
+    }
+    .stories .story-text > *{
+        font-size: 1.3em;
+    }
+    .stories .story-text > .story-header{
+        font-size: 2.5em;
+    }
+    .stories .story-text > h3{
+        font-size: 1em;
+    }
+    .stories .story-text > .author, .stories .story-text > .position{
+        font-size: .9em;
+    }
+    .page-type-index .content .load-more-stories span{
+        font-size: 1em
+    }
+    .think-differently.block{
+        height: 1200px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 4.5em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 13em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 14em;
+    }
+}
+
+@media (max-width: 1650px) and (min-width: 1441px){
+    .page-type-index .header h1{
+        font-size: 5em;
+    }
+    .stories .story-text > *{
+        font-size: 1em;
+    }
+    .stories .story-text > .story-header{
+        font-size: 2.5em;
+    }
+    .stories .story-text > h3{
+        font-size: .9em;
+    }
+    .stories .story-text > .author, .stories .story-text > .position{
+        font-size: .9em;
+    }
+    .page-type-index .content .load-more-stories span{
+        font-size: 1em
+    }
+    .think-differently.block{
+        height: 1100px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 4.5em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 8.5em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 13em;
+    }
+}
+
+@media (max-width: 1440px) and (min-width: 1281px){
+    .page-type-index .header h1{
+        font-size: 4.5em;
+    }
+    .stories .story-text > *{
+        font-size: .9em;
+    }
+    .stories .story-text > .story-header{
+        font-size: 2.2em;
+    }
+    .stories .story-text > h3{
+        font-size: .9em;
+    }
+    .stories .story-text > .author, .stories .story-text > .position{
+        font-size: .9em;
+    }
+    .page-type-index .content .load-more-stories span{
+        font-size: 1em
+    }
+    .think-differently.block{
+        height: 1000px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 4em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 8.5em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 12em;
+    }
+}
+
+@media (max-width: 1280px) and (min-width: 1025px){
+    .page-type-index .header h1{
+        font-size: 4.2em;
+    }
+    .stories .story-text > *{
+        font-size: .9em;
+    }
+    .stories .story-text > .story-header{
+        font-size: 2em;
+    }
+    .stories .story-text > h3{
+        font-size: .9em;
+    }
+    .stories .story-text > .author, .stories .story-text > .position{
+        font-size: .9em;
+    }
+    .page-type-index .content .load-more-stories span{
+        font-size: 1em
+    }
+    .think-differently.block{
+        height: 900px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 3.5em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 9em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 11em;
+    }
+}
+
 @media screen and (max-width: 1024px){
     .page-type-index .header{
         padding-left: var(--page-header-l-padding-tablet);
