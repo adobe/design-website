@@ -82,6 +82,18 @@
     font-weight: 300;
     padding-top: 200px;
 }
+@media ( max-width: 2560px){
+    .--joinus h2{
+        font-size: 15em;
+        margin-top: .5em;
+    }
+    .job-list .single-job h3{
+        font-size: 2.7em;
+    }
+    .job-list.block{
+        padding: 0 3em 0 7.5em;
+    }
+}
 @media (max-width: 1024px){
     .job-list .single-job h3{
         text-decoration: underline solid;

@@ -42,7 +42,11 @@
     padding-top: 3em;
 }
 
-
+@media (max-width: 2560px){
+    .scoreboards .number{
+        font-size: 14em;
+    }
+}
 @media (max-width: 1024px){
 
     .scoreboards .number{
