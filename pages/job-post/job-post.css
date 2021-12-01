@@ -63,6 +63,14 @@
     background-image: none;
 }
 
+.job-post button.filled.lt-bkg{
+    font-size: 0.75em;
+    height: 3em;
+    border-radius: 1.5em;
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+}
+
 .job-post .post-container,
 .job-post .about-adobe-design{
     margin: auto;
@@ -101,9 +109,9 @@
         display: block;
         position: sticky;
         top: 8.5em;
-        margin: 16.3em 3.84em auto auto;
+        margin: 24em 3.84em auto auto;
     }
-    .job-post .sticky-container button.unfilled,
+    .job-post .sticky-container button.filled,
     .job-post .sticky-container .details{
         width: 100%;
     }
@@ -126,8 +134,8 @@
         line-height: 1.47em; /* 30px */
     }
 
-    .job-post .sticky-container button.unfilled {
-        margin: 14.6em 0 13.94em 0;
+    .job-post .sticky-container button.filled {
+        margin: 1em 0 13.94em 0;
         width: 100%;
     }
     .job-post .sticky-container .details{
@@ -177,17 +185,24 @@
 }
 .job-post .job-title{
     font-size: 3.91em; /* 120px */
+    line-height: 0.916em; /* 110px */
+    margin-top: 2.25em;    /* 270px */
     max-width: 5.83em;
     width: 5.83em;
-    line-height: 0.916em; /* 110px */
     font-weight: var(--weight-black);
-    margin-top: 2.25em;    /* 270px */
     /* margin-bottom: 2.3em; */
     font-family: var(--sans-serif-font);
 }
 @media screen and (min-width: 1300px) {
     .job-post .job-title{
         margin-bottom: 2.18em; /* 262px */
+    }
+}
+@media screen and (max-width: 1300px) {
+    .job-post .job-title{
+        font-size: 2.5em;   /* 40px */
+        line-height: 1em;   /* 40px */
+        margin-top: 2.95em; /* 117px */
     }
 }
 
@@ -246,7 +261,7 @@
     font-size: 3.5em; /* 56px */
 }
 
-.job-post .post-text button.unfilled{
+.job-post .post-text button.filled{
     margin-top: 2em; /* height: 48px; */
 }
 

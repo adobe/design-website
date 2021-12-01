@@ -10,6 +10,7 @@ import makeSimilarOpportunitiesBlock from "../../blocks/job-posting-blocks/simil
 
 const bkg_grey_lt = '#E8E8E8';
 const text_dark   = '#3E3E3E';
+const btn_blue    = '#1473E6';
 
 
 /**
@@ -33,7 +34,7 @@ export default async function decorate($page) {
     let buttonFunction = () => {
         console.log(" Clicked Apply Now Button")
     };
-    const $button_apply_now = addButton("Apply Now", buttonFunction, 'unfilled lt-bkg', text_dark);
+    const $button_apply_now = addButton("Apply Now", buttonFunction, 'filled lt-bkg', btn_blue);
     // postBody.append($button_apply_now);
     //-- START Job Position details subheader --//
     const $blurb              = $element(".dek_blurb",        getMetadata('dek'));
@@ -56,6 +57,8 @@ export default async function decorate($page) {
         ]),
         // $blurb
     ]);
+    const $xs_header_details = $header_details.cloneNode(true)
+    const $l_header_details = $header_details.cloneNode(true)
     //-- End Job Position details subheader --//
 
 
@@ -63,7 +66,8 @@ export default async function decorate($page) {
     let jobTitleH1 = postContainer.querySelector("h1");
     jobTitleH1.classList.add("job-title");
 
-    jobTitleH1.after($blurb) /** Insert .dek after h1.job-title */
+    jobTitleH1.after( $xs_header_details ); /** Insert .dek after h1.job-title */
+    $xs_header_details.after($blurb)
 
 
     //-- END   Job Posting Body Text Block --//
@@ -73,7 +77,7 @@ export default async function decorate($page) {
     let stickyContainer = $element("div.sticky-container")
     postContainer.prepend(stickyContainer);
     stickyContainer.append($button_apply_now)
-    stickyContainer.append($header_details)
+    stickyContainer.append($l_header_details)
 
     //-- END Sticky bits: --//
 

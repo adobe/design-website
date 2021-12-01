@@ -83,7 +83,11 @@ button.unfilled:hover{
     border-color: transparent;
     background-color: var(--btn-color);
     color: transparent;
-    filter: brightness(0.9);
+    /* filter: brightness(0.9); */
+}
+
+button.filled{
+    color: #ffffff;
 }
 /*
  * As per Adobe Spectrum specs:
