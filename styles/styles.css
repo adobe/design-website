@@ -284,6 +284,9 @@ html body button{
     .two-column.block{
         width: 1920px;
     }
+    .page-type-team .teams > div > div{
+        width: 2300px;
+    }
 
 }
 @media only screen and (min-width: 1651px) and (max-width: 1920px) {
@@ -293,6 +296,9 @@ html body button{
     }
     #global-footer .footer-content{
         width: 103em;
+    }
+    .page-type-team .teams > div > div{
+        width: 1650px;
     }
     
 }
@@ -311,6 +317,9 @@ html body button{
     #global-footer .footer-content{
         width: 1440px;
     }
+    .page-type-team .teams > div > div{
+        width: 1470px;
+    }
 }
 @media only screen and (min-width: 1281px) and (max-width: 1440px) {
     .page-type-article main{
@@ -328,6 +337,9 @@ html body button{
         font-size: 2em;
     }
     #global-footer .footer-content{
+        width: 1280px;
+    }
+    .page-type-team .teams > div > div{
         width: 1280px;
     }
 }
@@ -355,6 +367,9 @@ html body button{
     }
     #global-footer .footer-content{
         width: 1024px;
+    }
+    .page-type-team .teams > div > div{
+        width: 1100px;
     }
     
 }

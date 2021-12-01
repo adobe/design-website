@@ -70,6 +70,7 @@
 
 /* ----- team card -- Magic Hover state ----- */
 /* ----- Query to include desktop or mouse/stylus input: ----- */
+
 @media screen and (min-width: 1000px), screen and (any-pointer: fine) {
     .page-type-team .content,
     .page-type-team .content.scroll-passing{
@@ -293,6 +294,325 @@
 
 
 /*Ipad Size*/
+
+
+
+@media (max-width:2560px) and (min-width:1921px){
+    .page-type-team .title-content h1{
+        font-size: 10em;
+        padding: 1.5em 0;
+    }
+    .page-type-team .head-content .title{
+        font-size: 8em;
+        padding: 0 2em;
+    }
+    .page-type-team .head-content .head-text{
+        font-size: 3.4em;
+    }
+    .page-type-team .head-content h2{
+        font-size: 5.2em;
+    }
+    .page-type-team .team-cards .team-card{
+        height: 17.4em;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 1420px;
+    }
+    .page-type-team .team-cards .team-card h3{
+        font-size: 2em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        font-size: 2.2em;
+    }
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 8em;
+        padding: 2em 0;
+    }
+    .resource-logo{
+        height: 285px;
+        width: 285px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource{
+        height: 700px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource a{
+     font-size: 5em;   
+    }
+    .page-type-team .foot-content .resources-section .resources .resource .learn-more-button{
+        font-size: 1.2em;
+    }
+    .think-differently.block{
+        height: 1500px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 7.5em;
+    }
+    .think-differently.block .think-differently-content .view-jobs{
+        font-size: 1.4em;
+        padding-top: 1em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 19em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 13em;
+    }
+}
+
+@media (max-width: 1920px) and (min-width:1651px){
+    .page-type-team .title-content h1{
+        font-size: 7em;
+        padding: 1.5em 0;
+    }
+    .page-type-team .head-content .title{
+        font-size: 6em;
+        padding: 0 1.5em;
+    }
+    .page-type-team .head-content .head-text{
+        font-size: 2.4em;
+    }
+    .page-type-team .head-content h2{
+        font-size: 4.2em;
+    }
+    .page-type-team .team-cards .team-card{
+        height: 14.4em;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 1050px;
+    }
+    .page-type-team .team-cards .team-card h3{
+        font-size: 1.2em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        font-size: 1.5em;
+    }
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 6em;
+        padding: 2em 0;
+    }
+    .resource-logo{
+        height: 200px;
+        width: 200px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource{
+        height: 550px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource a{
+     font-size: 3em;   
+    }
+    .page-type-team .foot-content .resources-section .resources .resource .learn-more-button{
+        font-size: 1.2em;
+    }
+    .think-differently.block{
+        height: 1400px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 5.5em;
+    }
+    .think-differently.block .think-differently-content .view-jobs{
+        font-size: 1.1em;
+        padding-top: 1em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 14em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 12em;
+    }
+}
+
+@media (max-width: 1650px) and (min-width:1441px){
+    .page-type-team .title-content h1{
+        font-size: 6.3em;
+        padding: 1.5em 0;
+    }
+    .page-type-team .head-content .title{
+        font-size: 5.3em;
+        padding: 0 1.5em;
+    }
+    .page-type-team .head-content .head-text{
+        font-size: 2.1em;
+    }
+    .page-type-team .head-content h2{
+        font-size: 4em;
+    }
+    .page-type-team .team-cards .team-card{
+        height: 14.4em;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 950px;
+    }
+    .page-type-team .team-cards .team-card h3{
+        font-size: 1.2em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        font-size: 1.5em;
+    }
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 6em;
+        padding: 2em 0;
+    }
+    .resource-logo{
+        height: 200px;
+        width: 200px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource{
+        height: 550px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource a{
+     font-size: 3em;   
+    }
+    .page-type-team .foot-content .resources-section .resources .resource .learn-more-button{
+        font-size: 1.2em;
+    }
+    .think-differently.block{
+        height: 1200px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 4.8em;
+        line-height: 1;
+    }
+    .think-differently.block .think-differently-content .view-jobs{
+        font-size: 1.1em;
+        padding-top: 1em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 13em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 12em;
+    }
+}
+
+@media (max-width: 1440px) and (min-width:1281px){
+    .page-type-team .title-content h1{
+        font-size: 5.3em;
+        padding: 1.5em 0;
+    }
+    .page-type-team .head-content .title{
+        font-size: 4.5em;
+        padding: 0 1.5em;
+    }
+    .page-type-team .head-content .head-text{
+        font-size: 1.8em;
+    }
+    .page-type-team .head-content h2{
+        font-size: 3.5em;
+    }
+    .page-type-team .team-cards .team-card{
+        height: 16em;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 900px;
+    }
+    .page-type-team .team-cards .team-card h3{
+        font-size: 1.2em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        font-size: 1.5em;
+    }
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 5em;
+        padding: 2em 0;
+    }
+    .resource-logo{
+        height: 150px;
+        width: 150px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource{
+        height: 500px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource a{
+     font-size: 2.5em;   
+    }
+    .page-type-team .foot-content .resources-section .resources .resource .learn-more-button{
+        font-size: 1em;
+    }
+    .think-differently.block{
+        height: 1100px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 4.1em;
+    }
+    .think-differently.block .think-differently-content .view-jobs{
+        font-size: 1.1em;
+        padding-top: 1em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 12em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 12em;
+    }
+}
+
+@media (max-width: 1280px) and (min-width:1025px){
+    .page-type-team .title-content h1{
+        font-size: 4.4em;
+        padding: 1.5em 0;
+    }
+    .page-type-team .head-content .title{
+        font-size: 4em;
+        padding: 0 1em;
+    }
+    .page-type-team .head-content .head-text{
+        font-size: 1.5em;
+    }
+    .page-type-team .head-content h2{
+        font-size: 3em;
+    }
+    .page-type-team .team-cards .team-card{
+        height: 18em;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 800px;
+    }
+    .page-type-team .team-cards .team-card h3{
+        font-size: 1.2em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        font-size: 1.4em;
+    }
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 4em;
+        padding: 2em 0;
+    }
+    .resource-logo{
+        height: 150px;
+        width: 150px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource{
+        height: 500px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource a{
+     font-size: 2em;   
+    }
+    .page-type-team .foot-content .resources-section .resources .resource .learn-more-button{
+        font-size: .8em;
+    }
+    .think-differently.block{
+        height: 1000px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 3.5em;
+    }
+    .think-differently.block .think-differently-content .view-jobs{
+        font-size: 1.1em;
+        padding-top: 1em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 11em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 12em;
+    }
+}
+
 @media (max-width: 1024px){
     .page-type-team .title-content {
         padding-left: var(--page-header-l-padding-tablet);
