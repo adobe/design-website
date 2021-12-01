@@ -97,28 +97,28 @@ body.job-post {
     padding-top: 9.93em; /*  305px */
 }
 
-.job-post .subhead-container .details{
+.job-post .details{
     display: inline-grid;
     width: max-content;
     grid-template-columns: 50% 50%;
     gap: 6.5em;
 }
 
-.job-post .subhead-container .details .detail-value,
-.job-post .subhead-container .details .detail-label{
+.job-post .details .detail-value,
+.job-post .details .detail-label{
     width: fit-content;
     margin-block: 0em;
 }
 
-.job-post .subhead-container .details .detail-label{
+.job-post .details .detail-label{
     font-size: 0.65em; /* 20px */
     margin-block-end: 1.25em /* 25px; */
 }
 
-.job-post .subhead-container .details .detail-value{
+.job-post .details .detail-value{
     font-size: 0.98em; /* 30px */
 }
-.job-post .subhead-container .dek{
+.job-post .dek{
     margin-block: 2.17em;
 }
 

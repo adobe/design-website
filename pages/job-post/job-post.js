@@ -36,7 +36,7 @@ export default async function decorate($page) {
     const $button_apply_now = addButton("Apply Now", buttonFunction, 'unfilled lt-bkg', text_dark);
     // postBody.append($button_apply_now);
     //-- START Job Position details subheader --//
-    const $dek              = $element(".dek",           getMetadata('dek'));
+    const $blurb              = $element(".dek_blurb",        getMetadata('dek'));
     const $location         = $element("p.detail-value", getMetadata('location'));
     const $positionType     = $element("p.detail-value", getMetadata('position-type'));
     const $req_number       = $element("p.detail-value", getMetadata('req-number') || 'None Provided');
@@ -54,12 +54,16 @@ export default async function decorate($page) {
                 $element("p.detail-label", "Req Number"), $req_number
             ]),
         ]),
-        // $dek
+        // $blurb
     ]);
     //-- End Job Position details subheader --//
 
 
     //-- START Job Posting Body Text Block --//
+    let jobTitleH1 = postContainer.querySelector("h1");
+    jobTitleH1.classList.add("job-title");
+
+    jobTitleH1.after($blurb) /** Insert .dek after h1.job-title */
 
 
     //-- END   Job Posting Body Text Block --//
