@@ -1,27 +1,5 @@
-import { decorateDivisions, $element, getMetadata, $wrap } from "../../scripts/helpers.js";
-import addButton from "../button/button.js";
-
-/**
- * @param {HTMLElement} $block
+/*
+ *   Copyright (c) 2021 Busy Human LLC
+ *   All rights reserved.
+ *    This file, its contents, concepts, methods, behavior, and operation  (collectively the "Software") are protected by trade secret, patent,  and copyright laws. The use of the Software is governed by a license  agreement. Disclosure of the Software to third parties, in any form,  in whole or in part, is expressly prohibited except as authorized by  the license agreement.
  */
-export default async function makeHeaderBlock($block) {
-    const $button_apply_now = addButton(
-        "Apply Now",
-        ()=> {console.log( "APPLY NOW CLICKED IN HEADER OF JOB POST")},
-        "dk-bkg unfilled",
-        "#ffffff"
-    )
-
-    // const $jobTitle = $element("h1.hed.job-title", getMetadata('job-title'));
-
-    /* Big Giant element builder function: */
-    const $header_block = $element("div.sticky-container",
-        $element("div.header-block", [
-            $element("div.job-header-container", [ $button_apply_now]),
-        ])
-    );
-    document.querySelector("main > div.section-wrapper").insertBefore(
-        $header_block,
-        document.querySelector("main > div.section-wrapper > div")
-    );
-}
