@@ -5,53 +5,11 @@
 /* @import url(../../blocks/job-posting-blocks/left-blocks.css); */
 
 
-body.job-post,
-body.job-post header.split,
-body.job-post main > div{
-    font-size: clamp(16px, 1.6vw, 30.7px);
-}
-body.job-post {
-    background-image: none;
-}
+@media screen and (max-width: 1000px) {}
+@media screen and (min-width: 1000px) and (max-width: 1920px) {}
+@media screen and (min-width: 1920px) {}
 
-@media screen and (max-width: 1300px){
-    body.job-post {
-        background: var(--bkg-navy-dark);
-        background-color: var(--bkg-navy-dark);
-    }
-}
-@media screen and (min-width: 1300px) {
-    body.job-post {
-        background: var(--bkg-grey-lt);
-        background-color: var(--bkg-grey-lt);
-    }
-}
-
-.sticky-container{
-    /* height: 100%; */
-    width: 100px;
-    background: red;
-    background-color: red;
-    display: block;
-    position: sticky;
-    top:0px;
-    left:0px;
-}
-
-@media screen and (max-width: 1300px) {
-    .sticky-container{
-        display: none;
-    }
-}
-
-.post-container,
-.about-adobe-design{
-    margin: auto;
-    max-width: 100vw;
-    width: 100vw;
-}
-
-.section-wrapper.post-container{
+.job-post .section-wrapper.post-container{
     display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: 100%;
@@ -60,15 +18,47 @@ body.job-post {
     background-color: var(--bkg-grey-lt);
 }
 
-.post-text{
-    overflow-y: auto;
-    background-color: var(--bkg-grey-lt);
+
+@media screen and (min-width: 1300px) {
+    .job-post .section-wrapper.post-container{
+        width: 100%;
+        max-width: 62.54em; /* 1920px */
+        margin-right: auto;
+        margin-left: auto;
+        height:     calc(100vh - 5.2em);
+        max-height: calc(100vh - 5.2em);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 }
 
-/* Small Screen */
-/* Medium Screen */
-/* font size scales with screen: smallest: 16px, largest: 30.7px */
+
+.job-post,
+.job-post header.split,
+.job-post main > div,
+.job-post .post-container,
+.job-post .about-adobe-design{
+    font-size: clamp(16px, 1.6vw, 30.7px);
+}
+.job-post {
+    background-image: none;
+}
+
+.job-post .post-container,
+.job-post .about-adobe-design{
+    margin: auto;
+    max-width: 100vw;
+    width: 100vw;
+}
+
 @media screen and (max-width: 1300px) {
+    .job-post .sticky-container{
+        display: none;
+    }
+    body.job-post {
+        background: var(--bkg-navy-dark);
+        background-color: var(--bkg-navy-dark);
+    }
     .post-container,
     .about-adobe-design{
         font-size: 16px;
@@ -78,18 +68,60 @@ body.job-post {
         max-height: 95em;
     }
 }
+.job-post .subhead-container .detail-value,
+.job-post .subhead-container .detail-label{
+    width: fit-content;
+    margin-block-start: 0.68em; /* 21px; */
+    margin-block-end: 0.68em; /* 21px; */
+}
+.job-post .subhead-container .detail-label{
+    font-size: 0.5214em; /* 16px */
+    line-height: 1.25em; /* 20px */
+    text-transform: uppercase;
+}
+.job-post .subhead-container .detail-value{
+    font-size: 0.6515em; /* 20px */
+    line-height: 1.5em;  /* 30px */
+}
+.job-post .subhead-container .dek{
+    margin-block: 2.17em;
+}
 
-/* XL screen */
-@media screen and (min-width: 1920px) {
-    .post-container,
-    .about-adobe-design{
-        font-size: 30.7px;
+@media screen and (min-width: 1300px) {
+    body.job-post {
+        background: var(--bkg-grey-lt);
+        background-color: var(--bkg-grey-lt);
     }
-    .post-container .post-container,
+    .job-post .sticky-container{
+        width: 100%;
+        max-width: 7.36em; /* 226px */
+        background: #ff000081;
+        display: block;
+        position: sticky;
+        top: 8.5em;
+        margin: 24.8em 7.36em auto auto;
+    }
+    .job-post .sticky-container button.unfilled,
+    .job-post .sticky-container .details{
+        width: 100%;
+
+
+    }
+    .job-post .sticky-container button.unfilled {
+        margin: 8.5em 0 13.94em 0;
+        width: 100%;
+    }
+    .job-post .sticky-container .details{
+        margin: 2.4em 2.4em 8.5em auto ;
+        display: grid;
+        grid-template-rows: repeat(auto-fill, minmax(1fr, auto));
+        gap: 2.4em  0 ;
+    }
+    .post-container .post-body,
     .sticky-container{
         display: inline-block;
     }
-    .section-wrapper.post-container{
+    .post-container{
         max-width: 100vw;
         width: fit-content;
         display: block;
@@ -99,58 +131,17 @@ body.job-post {
     }
     .sticky-container{
         min-height: 41.5em;
-        max-height: 41.5em;
     }
 }
 
-/* -------- SUB HEADER START --------- */
-.job-post .subhead-container{
-    padding-top: 9.93em; /*  305px */
-}
-.job-post .subhead-container .details{
-    display: inline-grid;
-    width: max-content;
-    grid-template-columns: 50% 50%;
-    gap: 6.5em;
-}
-.job-post .subhead-container .detail-value,
-.job-post .subhead-container .detail-label{
-    width: fit-content;
-    margin-block: 0em;
-}
-.job-post .subhead-container .detail-label{
-    font-size: 0.65em; /* 20px */
-    margin-block-end: 1.25em /* 25px; */
-}
-.job-post .subhead-container .detail-value{
-    font-size: 0.98em; /* 30px */
-}
-.job-post .subhead-container .dek{
-    margin-block: 2.17em;
+/* ---------- START Post Body/Text Section: ---------- */
+
+
+.post-text{
+    overflow-y: auto;
+    background-color: var(--bkg-grey-lt);
 }
 
-@media screen and (max-width: 1000px) {
-    .job-post .subhead-container{
-        padding-top: 2em;
-    }
-    .job-post .header-block .details{
-        width: 100%;
-        gap: 0px;
-    }
-    .job-post .details .right-detail{
-        place-self: end;
-    }
-    .job-post .dek{
-        font-size: 1.67em;
-    }
-}
-@media screen and (min-width: 1000px) {
-    .job-post .header-block .details{
-        margin: 2.313em 0 3.9em 0;
-    }
-}
-
-/* ---------- SUB HEADER END ---------- */
 .job-post .post-text{
     max-width: 31.25em; /* 250px */
     padding: 0 2.5em 2.5em 2.5em; /* 40px */
@@ -229,3 +220,39 @@ body.job-post {
 |  grid-column: 1 / span 2                            |
 |  grid-row:    4 / span 1                            |
 -------------------------------------------------------  */
+
+
+
+.section-wrapper.post-container,
+.sticky-container,
+.post-body,
+.post-text,
+.job-info{
+    border: 3px dotted #ff0000;
+}
+
+.section-wrapper.post-container{
+    border-color: #77770088;
+}
+.sticky-container{
+    border-color: #00ff0088;
+}
+.post-body{
+    border-color: #00ffff88;
+}
+.post-text{
+    border-color: #0000ff88;
+}
+.job-info{
+    border-color: #ff00ff88;
+}
+
+div.boxy{
+    height: calc(100vh - 160px);
+    width: 100vw;
+    background: #ff00ff77;
+    position: absolute;
+    top: 160px;
+    left: 0;
+    color: #ff00ff00;
+}
