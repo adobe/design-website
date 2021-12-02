@@ -89,12 +89,10 @@ export default async function decorate() {
     document.querySelector('.post-text'),
   );
 
-  /* ------------------------------------------------------------ */
-  /* Assemble "Equal Opportunities" + "About Adobe Design" blocks */
+/* ------------------------------------------------------------ */
+/* Assemble  "Equal Opportunities" "About Adobe Design" "Sim Opps" blocks */
   // eslint-disable-next-line no-use-before-define
   buildJobBlockFragments();
-  /* Assemble "Similar Opportunities" block */
-  // eslint-disable-next-line no-use-before-define
   buildSimOpportunitiesBlock();
   document.querySelector('main').append($element('div.similarOpps-block'));
 }
