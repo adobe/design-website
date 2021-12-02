@@ -282,4 +282,46 @@
         width: auto;
         margin: 0;
     }
+    .page-type-jobs .head-content h1{
+        font-size: 4.9em;
+        padding-bottom: 2em;
+    }
+    .page-type-jobs .head-content p{
+        font-size: 4.8em;
+        padding-bottom: 2em;
+    }
+    .page-type-jobs .head-content p:last-child{
+        font-size: 2.5em;
+        padding-bottom: 2em;
+    }
+    .page-type-jobs .jobs-block-container > h2{
+        font-size: 4em;
+    }
+    .page-type-jobs .jobs-container .job-category h2{
+        font-size: 2.47em;
+    }
+}
+@media (max-width: 1920px) and (min-width: 1651px){
+    .page-type-jobs .jobs-block-container{
+        width: auto;
+        margin: 0;
+    }
+    .page-type-jobs .head-content h1{
+        font-size: 3.9em;
+        padding-bottom: 1.5em;
+    }
+    .page-type-jobs .head-content p{
+        font-size: 3.2em;
+        padding-bottom: 1.5em;
+    }
+    .page-type-jobs .head-content p:last-child{
+        font-size: 1.7em;
+        padding-bottom: 3em;
+    }
+    .page-type-jobs .jobs-block-container > h2{
+        font-size: 3em;
+    }
+    .page-type-jobs .jobs-container .job-category h2{
+        font-size: 2em;
+    }
 }

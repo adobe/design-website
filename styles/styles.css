@@ -321,7 +321,12 @@ html body button{
     .page-type-tools .toolkit > div > div{
         width: 1800px;
     }
-    
+    .page-type-jobs .jobs > div > div{
+        width: 1750px;
+    }
+    .page-type-jobs.loaded .section-wrapper > div{
+        width: 1750px;
+    }
     
 }
 @media only screen and (min-width: 1441px) and (max-width: 1650px){
