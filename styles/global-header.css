@@ -170,6 +170,33 @@ header#global-header {
     border-bottom: unset;
 }
 
+/*  If we do a drop down header like Adobe Spectrum: */
+/* #global-header nav::after,
+#global-header .menu-dropdown-container{
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    right: 0px;
+
+}
+
+#global-header nav::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.25);
+} */
+
+@media (max-width: 1920px) and (min-width: 1025px){
+    header#global-header{
+        width: 100%;
+        max-width: 1800px;
+
+    }
+}
+
+
 /* START  .split */
 /* Used in Job Posting pages */
 .job-post #global-header,
@@ -179,15 +206,17 @@ header#global-header.split{
     /* max-width: clamp(1000px, 62.54em, 1633px); */
     background-color: transparent;
     background: transparent;
+    color: inherit;
 }
 
 @media screen and (max-width: 1300px) {
     .job-post #global-header,
     header#global-header.split,
     header#global-header.split nav a{
-        background-color: var(--bkg-navy-dark);
-        background: var(--bkg-navy-dark);
-        color: #FFFFFF;
+        /* background-color: var(--bkg-navy-dark);
+        background: var(--bkg-navy-dark); */
+        /* color: inherit; */
+        color: var(--text-dark);
     }
     .job-post  header#global-header.split{
         /* width: calc(100vw - 236px); */
@@ -201,7 +230,7 @@ header#global-header.split{
         width: clamp(1000px, 62.54em, 1633px);
     }
     header#global-header.split nav a{
-        color: var(--text-dark);
+        /* color: var(--text-dark); */
     }
 }
 /* End .split */
