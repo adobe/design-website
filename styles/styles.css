@@ -35,7 +35,9 @@ html, body{
 
 html{
         /* Common Colors */
+        --text-med:       #6E6E6E;
         --text-dark:      #3E3E3E;
+        --text-dkr:       #000C1E;
         --bkg-navy-dark:  #0B1C40;
         --bkg-grey-lt:    #E8E8E8;
         --bkg-red:        #E91D25;
@@ -44,6 +46,7 @@ html{
         --bkg-green:      #4BA88E;
         --color-navy:     #3041A0;
         --color-blue-med: #3C5CB4;
+        --btn-prim-fil:   #1473E6;
 
         --color-focus: var(--color-blue-med);
 
@@ -284,6 +287,9 @@ html body button{
     .two-column.block{
         width: 1920px;
     }
+    .page-type-team .teams > div > div{
+        width: 2300px;
+    }
 
 }
 @media only screen and (min-width: 1651px) and (max-width: 1920px) {
@@ -294,7 +300,10 @@ html body button{
     #global-footer .footer-content{
         width: 103em;
     }
-    
+    .page-type-team .teams > div > div{
+        width: 1650px;
+    }
+
 }
 @media only screen and (min-width: 1441px) and (max-width: 1650px){
     .page-type-article main{
@@ -311,15 +320,18 @@ html body button{
     #global-footer .footer-content{
         width: 1440px;
     }
+    .page-type-team .teams > div > div{
+        width: 1470px;
+    }
 }
 @media only screen and (min-width: 1281px) and (max-width: 1440px) {
     .page-type-article main{
         width: 1280px;
         max-width:100%;
     }
-    
-    .article-card.block, 
-    .two-column.block, 
+
+    .article-card.block,
+    .two-column.block,
     .people.block{
         width: 1269px;
     }
@@ -330,14 +342,17 @@ html body button{
     #global-footer .footer-content{
         width: 1280px;
     }
+    .page-type-team .teams > div > div{
+        width: 1280px;
+    }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1280px){
     .page-type-article main{
         width: 1024px;
         max-width:100%;
     }
-    .article-card.block, 
-    .two-column.block, 
+    .article-card.block,
+    .two-column.block,
     .people.block{
         width: 1024px;
     }
@@ -356,14 +371,17 @@ html body button{
     #global-footer .footer-content{
         width: 1024px;
     }
-    
+    .page-type-team .teams > div > div{
+        width: 1100px;
+    }
+
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px){
     .page-type-article main{
         width: 950px;
     }
-    .article-card.block, 
-    .two-column.block, 
+    .article-card.block,
+    .two-column.block,
     .people.block{
         width: 1000px;
     }
@@ -381,7 +399,7 @@ html body button{
     .page-type-inclusive .inclusive-design > div > div{
         width: 758px;
     }
-    
+
 }
 @media only screen and (min-width: 415px) and (max-width: 425px){
     .page-type-article main{

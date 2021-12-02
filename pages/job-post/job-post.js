@@ -2,13 +2,16 @@ import addButton from "../../blocks/button/button.js";
 import {
     $addMiddleElm,
     $element,
+    getMetadata,
 } from "../../scripts/helpers.js";
 import { getJobsFragment } from "../../scripts/jobs-fragments.js";
 import makeSimilarOpportunitiesBlock from "../../blocks/job-posting-blocks/similar-opportunities.js";
-import assembleJobPost from "../../blocks/job-posting-blocks/job-post-assembler.js";
-import makeSideArticlesBlock from "../../blocks/job-posting-blocks/left-blocks.js";
 
-const text_dark     = '#3E3E3E';
+
+const bkg_grey_lt = '#E8E8E8';
+const text_dark   = '#3E3E3E';
+const btn_blue    = '#1473E6';
+
 
 /**
  * @param {HTMLElement} $page
@@ -17,60 +20,92 @@ export default async function decorate($page) {
     /* Add classes and ids to container elements */
     let body_job_post = document.querySelector("body");
     body_job_post.classList.add("job-post");
-    body_job_post.setAttribute("style", "background-image: none;")
     document.querySelector("#global-header").classList.add("split");
     document.querySelector("div#global-background").remove();
-
-    let postContainer  = document.querySelector("main > div");
+    let postContainer  = document.querySelector("main > div.section-wrapper");
     postContainer.classList.add("post-container");
-    let postBody = document.querySelector(".post-container > div");
-    postBody.classList.add("post-text");
+    let postText = document.querySelector(".post-container > div");
+    postText.classList.add("post-text");
 
-    $addMiddleElm(document.querySelector(".post-container"), "div.inner_post_contnr", document.querySelector(".post-text") )
-
-    buildJobPostSubheader(document);
-    buildSideArticlesBlock(document);
-
-    /* Remove extra header if it exists */
-    let title_h1 = document.querySelector("div.post-text > h1");
-    if(title_h1){ title_h1.remove() };
-
-    /* Assemble "Apply Now" Button */
-    // TODO: button onclick: !!!
+    /* Assemble "Apply Now" Button. It'll be used 3x */
     /* Declare the function for "onClick" action */
+
+    let jobURL = getMetadata('job-title')
     let buttonFunction = () => {
         console.log(" Clicked Apply Now Button")
     };
-    const $button_apply_now = addButton("Apply Now", buttonFunction, 'unfilled lt-bkg', text_dark);
-    postBody.append($button_apply_now);
+    const $button_apply_now = addButton("Apply Now", buttonFunction, 'filled lt-bkg', btn_blue);
+    // postBody.append($button_apply_now);
+    //-- START Job Position details subheader --//
+    const $blurb              = $element(".dek_blurb",        getMetadata('dek'));
+    const $location         = $element("p.detail-value", getMetadata('location'));
+    const $positionType     = $element("p.detail-value", getMetadata('position-type'));
+    const $req_number       = $element("p.detail-value", getMetadata('req-number') || 'None Provided');
+    const $header_details   = $element("div.subhead-container", [
+        $element("div.details", [
+            $element("span.detail", [
+                $element("p.detail-label", "Location"),
+                $location,
+            ]),
+            $element("span.detail", [
+                $element("p.detail-label", "Position Type"),
+                $positionType,
+            ]),
+            $element("span.detail", [
+                $element("p.detail-label", "Req Number"), $req_number
+            ]),
+        ]),
+        // $blurb
+    ]);
+    const $xs_header_details = $header_details.cloneNode(true)
+    const $l_header_details = $header_details.cloneNode(true)
+    //-- End Job Position details subheader --//
 
+
+    //-- START Job Posting Body Text Block --//
+    let jobTitleH1 = postContainer.querySelector("h1");
+    jobTitleH1.classList.add("job-title");
+
+    jobTitleH1.after( $xs_header_details ); /** Insert .dek after h1.job-title */
+    $xs_header_details.after($blurb)
+
+
+    //-- END   Job Posting Body Text Block --//
+
+
+    //-- START Sticky bits: --//
+    let stickyContainer = $element("div.sticky-container")
+    postContainer.prepend(stickyContainer);
+    stickyContainer.append($button_apply_now)
+    stickyContainer.append($l_header_details)
+
+    //-- END Sticky bits: --//
+
+
+    //-- Start Delete --//
+    let uselessBoxElm = $element("div.boxy", $element("p.stuff", "WOrds and stuff"))
+    body_job_post.prepend(uselessBoxElm);
+    //-- END Delete --//
+
+    $addMiddleElm(
+        document.querySelector("div.section-wrapper"),
+        ".post-body",
+        document.querySelector(".post-text")
+    )
+
+
+
+
+
+
+
+
+    /* ------------------------------------------------------------ */
     /* Assemble "Equal Opportunities" + "About Adobe Design" blocks */
     buildJobBlockFragments();
     /* Assemble "Similar Opportunities" block */
     buildSimOpportunitiesBlock();
     document.querySelector("main").append($element("div.similarOpps-block"));
-
-}
-
-//** Builds the section with the location, position type, & dek */
-async function buildJobPostSubheader(document){
-    let subheader = await assembleJobPost(document);
-    if(subheader) {
-        let postBody = document.querySelector(".post-container div.post-text");
-        postBody.prepend(subheader)
-    } else {
-        console.log(`Cannot fetch similar opportunities to build the block`)
-    }
-}
-
-//** Builds the Blue Header block + "Working at Adobe" section/recommended articles*/
-async function buildSideArticlesBlock(document){
-    let sideArticles = await makeSideArticlesBlock(document);
-    if(sideArticles) {
-        document.querySelector(".inner_post_contnr").prepend(sideArticles)
-    } else {
-        console.log(`Cannot fetch similar opportunities to build the block`)
-    }
 }
 
 async function buildSimOpportunitiesBlock(){
