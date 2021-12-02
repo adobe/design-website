@@ -286,27 +286,32 @@ body > main > div > div.content > picture > img{
 
 .page-type-article .author-bio {
     background: #F5F5F5;
-    /* height: 30em; */
-    /* display: flex; */
-    /* align-items: center; */
-    /* margin: 0 218px; */
-    padding: 5em 6em 2em 6em;
+    padding: 5em 6em 5em 4em;
 }
 
 body > div.author-bio.block > div > author-name{
     text-align: center;
 }
 .page-type-article .author-bio > div {
-    /* display: flex; */
     display: grid;
     grid-template-columns: auto auto;
-    /* grid-template-columns: 14% 70%; */
-    /* margin: 0 25% 5em 25%; */
-    /* align-items: center; */
+}
+
+/* First instance of author image on top of page */
+.header.block > div.author.block > div > picture > img {
+    width: 5em;
+}
+
+.header.block > div.author.block > div > div > h2 {
+    font-size: 1.5em;
+}
+
+.header.block > div.author.block > div > div > h3 {
+    font-size: 1em;
 }
 
 .page-type-article .author-image {
-    width: 3em;
+    width: 6em;
 }
 
 .page-type-article author-name {
@@ -314,11 +319,7 @@ body > div.author-bio.block > div > author-name{
     flex-direction: column;
     align-items: center;
     padding-right: 9em;
-    width: 45%
-}
-
-.page-type-article .author-info {
-    /* margin-left: 7em; */
+    width: 100%
 }
 
 .page-type-article .author-info > p:nth-child(1) {
@@ -344,7 +345,8 @@ body > div.author-bio.block > div > author-name{
 .page-type-article .author-info{
     font-family: var(--serif-font);
     color: #4A4545;
-    /* font-size: .9em; */
+    width: 70%;
+    padding-left: 3.5em;
 }
 
 
@@ -353,7 +355,6 @@ body > div.author-bio.block > div > author-name{
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    /* margin: 6em; */
 }
 
 .page-type-article .similar-stories .similar-stories-header{
@@ -365,12 +366,6 @@ body > div.author-bio.block > div > author-name{
 }
 
 .page-type-article .similar-stories .stories{
-    /* display: flex;
-    gap: 1em;
-    justify-content: space-between;
-    box-sizing: border-box;
-    align-items: center; */
-
     display: grid;
     grid-template-columns: 50% 50%;
     gap: .5em;
@@ -1168,224 +1163,3 @@ body > div.author-bio.block > div > author-name{
 .page-type-article .caption{
     margin: 0;
 }
-
-
-
-/* #who-should-you-whiteboard-with{
-    padding-right: 6em;
-}
-body > main > div > div > p:nth-child(13){
-    padding-top: 4em;
-}
-body > main > div > div > p:nth-child(27){
-    padding-bottom: 6em;
-}
-body > main > div > div > p:nth-child(16){
-    padding-bottom: 4em;
-} */
-
-
-
-
-
-/* @media (max-width: 767px) {
-    .author-bio {
-        height: 25em;
-    }
-    .author-bio .author-name {
-        width: 80%;
-    }
-    .author-bio .author-image {
-        border: 1px solid black;
-    }
-    .author-bio .author-bio > div {
-        margin: 0 12% 5em 12%;
-        flex-direction: column;
-    }
-    .author-bio .author-info {
-        padding-top: 1em;
-        margin-left: 0;
-        text-align: center;
-    }
-    .author-bio .author-info > p:nth-child(1) {
-        font-weight: bold;
-        font-size: 1.5em;
-        margin-bottom: 1em;
-    }
-    .author-bio .author-info > p:nth-child(3) {
-        margin-top: 2em;
-    }
-
-    .similar-stories .stories{
-        flex-direction: column;
-    }
-    .similar-stories .stories .block.story a > .story-text > * {
-        padding-left: 1rem;
-    }
-} */
-/** END AUTHOR BIO */
-
-
-
-
-
-
-/* @media (max-width:425px) and (min-width: 376px){
-    /* header */
-    /* .page-type-article .header.block{
-        padding-bottom: 0;
-    }
-    .page-type-article .content:not(.page-type-article .header.block){
-        padding: 1em;
-    }
-    .page-type-article .content .header.block h1{
-        padding: 0;
-        font-size: 2.7em;
-    }
-    .page-type-article .header.block h2{
-        padding: 0;
-    }
-    .page-type-article .header.block img:not(.author-image){
-        padding-bottom: 1em;
-    }
-
-    .page-type-article .header .author-body{
-        padding-bottom: 3em;
-    }  */
-    /* header */
-
-    /* main */
-    /* .page-type-article main{
-        width: 90%;
-    }
-    .page-type-article .content{
-        padding-left: 1rem;
-        padding-right: 1rem;
-        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 570px,rgba(255,255,255, 1) 570px);
-    }
-    .page-type-article .header.block > div{
-        padding: 0;
-        width: 100%;
-    }
-    .page-type-article .content .pull-quote.block{
-        padding: 0;
-        font-size: 1.7em;
-    }
-    .page-type-article .content .article-picture{
-        width: 100%;
-        padding: 0;
-    }
-    .page-type-article .content h2{
-        padding: 0;
-    }
-    .page-type-article .content p{
-        padding: 0;
-    }
-    .page-type-article .caption{
-        margin: 0;
-        padding: 0;
-    }
-    .page-type-article .content ul{
-        padding: 0;
-    }
-    .page-type-article .content li{
-        padding: 0;
-        padding-bottom: 1em;
-        font-family: var(--sans-serif-font);
-        font-weight: var(--weight-regular);
-    }   
-    .page-type-article .additional-reading.block{
-        width: auto;
-        padding: 0;
-    }
-    .page-type-article .additional-reading.block > div{
-        padding-left: 0;
-    } */
-    /* main */
-
-    /* authod bio block */
-    /* .page-type-article .author-bio.block{
-        height: auto;
-        padding: 1em;
-    }
-    .page-type-article .author-bio > div{
-        margin: 0;
-    }
-    .page-type-article .author-bio.block p{
-        padding: 0;
-    } */
-    /* authod bio block */
-/* }    */
-/* @media (max-width: 375px) and (min-width:321px){
-    .page-type-article .content .header.block h1{
-        font-size: 2.3em;
-    }
-    .page-type-article .content .header.block h2{
-        font-size: 1.5em;
-    }
-}
-@media (max-width: 320){
-    .page-type-article .content .header.block h1{
-        font-size: 1em;
-    }
-    .page-type-article .content .header.block h2{
-        font-size: 1.5em;
-    }
-} */
-
-/* @media (min-width: 426px) and (max-width: 767px){
-    .page-type-article .content{
-        background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 730px,rgba(255,255,255, 1) 730px);
-    }
-    .page-type-article .content .header.block h1{
-        padding: 0;
-        font-size: 1em;
-    }
-    .page-type-article .header.block h2{
-        padding: 0;
-    }
-    .page-type-article main > div > div > p{
-        padding-left: 2em;
-        padding-right: 1em;
-    }
-    .page-type-article .author-bio.block > div{
-        margin: 0 6% 5em 6%;
-    }
-    .similar-stories .stories .block.story a > .story-text > * {
-        padding-left: 1rem;
-    }
-} 
-
-/* @media (min-width:768px) and (max-width:1024px){
-    .page-type-article main{
-       width: 90%;
-    }
-    .page-type-article .content .header.block h1{
-        font-size: 4em;
-    }
-    .page-type-article .content h2{
-        padding-left: 4.4em;
-    }
-    .page-type-article main > div > div > p{
-        padding-left: 9em;
-        padding-right: 0;
-    }
-    .page-type-article .content .pull-quote.block{
-        padding: 0;
-    }
-    .page-type-article .content li{
-        padding-right: 0;
-        padding-left: 7em;
-    }
-    .page-type-article .author-bio.block > div{
-        margin: 0 10% 5em 10%;
-    }
-
-    .similar-stories .stories .block.story a > .story-text > * {
-        padding-left: 3rem;
-    }
-    .page-type-article .additional-reading.block > div{
-        padding-left: 10.3em;
-    }
-}
-*/
