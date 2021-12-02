@@ -145,7 +145,7 @@ body > main > div > div > div.header.block > div > div:nth-child(1){
 
 .page-type-article .header .author-body{
     display:flex;
-    width:15em;
+    width:21em;
     gap: 5%;
 }
 
@@ -345,7 +345,7 @@ body > div.author-bio.block > div > author-name{
 .page-type-article .author-info{
     font-family: var(--serif-font);
     color: #4A4545;
-    width: 70%;
+    width: 48vw;
     padding-left: 3.5em;
 }
 
@@ -876,6 +876,9 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .content .header.block .author-desc h2{
         padding-left: 0;
     }
+    .page-type-article .author-info {
+        padding-left: 0;
+    }
     .page-type-article .art{
         display: block;
         text-align: end;
@@ -1058,6 +1061,7 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .author-info{
         text-align: center;
         margin-left: 0em;
+        padding-left: 0;
     }
     .page-type-article .content p:not(.article-picture){
         padding: 0;
@@ -1178,6 +1182,7 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .author-info{
         text-align: center;
         margin-left: 0em;
+        padding-left: 0;
     }
     .page-type-article .content p:not(.article-picture){
         padding: 0;
