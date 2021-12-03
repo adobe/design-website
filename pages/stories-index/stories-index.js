@@ -3,6 +3,7 @@ import { $element, $wrap, buildStory } from '../../scripts/helpers.js';
 import { fetchIndex } from '../../scripts/queries.js';
 
 let index;
+const Console = console;
 
 function storyMatch(pageTag, story) {
   const storyTag = story.path.split('/')[2];
@@ -17,10 +18,10 @@ export default async function decorator($main) {
   if (!index) {
     index = await fetchIndex();
   }
-  console.log('INDEX', index);
+  Console.log('INDEX', index);
   const allStories = index.fullindex.data.filter((data) => data.path.split('/')[1] === 'stories');
-
-  const tagFilter = location.search ? location.search.split('=')[1] : null;
+  const locationCopy = { ...Location };
+  const tagFilter = locationCopy.search ? locationCopy.search.split('=')[1] : null;
   $main.classList.add('stories-index-view');
 
   if (tagFilter) {
@@ -29,7 +30,6 @@ export default async function decorator($main) {
   }
 
   const stories = allStories.filter((story) => storyMatch(tagFilter, story));
-
   const $target = $main.querySelector(':scope > div > div');
   const $thinkDifferent = document.querySelector('.think-differently');
   const $results = $element('.stories');
@@ -37,16 +37,7 @@ export default async function decorator($main) {
   $target.append($wrap($element('.content'), [$results, $loadMoreButton, $thinkDifferent]));
 
   let storyCount = 0;
-  appendStories(stories);
-
-  if (storyCount >= stories.length) $loadMoreButton.remove();
-
-  $loadMoreButton.addEventListener('click', () => {
-    appendStories(stories, 20);
-    if (storyCount >= stories.length)$loadMoreButton.remove();
-  });
-
-  /* async */ function appendStories(stories, count = 6) {
+  function appendStories(count = 6) {
     for (let i = 0; i < count && storyCount < stories.length;) {
       const story = stories[storyCount];
       // let author = await lookupAuthor(story.author)
@@ -55,4 +46,11 @@ export default async function decorator($main) {
       storyCount += 1;
     }
   }
+  appendStories();
+
+  if (storyCount >= stories.length) $loadMoreButton.remove();
+  $loadMoreButton.addEventListener('click', () => {
+    appendStories(stories, 20);
+    if (storyCount >= stories.length)$loadMoreButton.remove();
+  });
 }
