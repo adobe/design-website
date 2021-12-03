@@ -3,9 +3,10 @@
  * Initially it'll just be an unfilled, outlined button
  */
 
+const Console = console;
+
 function defaultAction() {
-  // eslint-disable-next-line no-console
-  return console.log('button.js: Button clicked, but no action set ');
+  return Console.log('button.js: Button clicked, but no action set ');
 }
 /**
  * @param {String} [innerText]
