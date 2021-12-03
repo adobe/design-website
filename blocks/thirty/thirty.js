@@ -31,10 +31,12 @@ function convertBlockToUseProperties(block) {
 
 export default async function decorate($block) {
   const $blocks = $block.querySelectorAll(':scope > div');
+  // eslint-disable-next-line no-restricted-syntax
   for (const block of $blocks) {
     block.classList.add('thirty');
     convertBlockToUseProperties(block);
 
+    // eslint-disable-next-line no-await-in-loop
     const props = await propsFromBlockLink(block, {
       path: 'path',
       hed: 'title',
