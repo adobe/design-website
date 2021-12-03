@@ -1,30 +1,29 @@
 export default function decorate(win = window) {
-
-    //console.log(win.document.location.pathname)
-    const blackHeaderPages = ['/jobs/', '/stories/process/whiteboard-101', '/stories/process/designing-for-creative-systems']
-    const useBlackHeader = blackHeaderPages.includes(win.document.location.pathname)
-    var headerImage = useBlackHeader?'/resources/adobe-black-tag.png':'/resources/adobe-white-header.svg';
-    var headerImageMobile = useBlackHeader?'/resources/adobe-design.png':'./media_1d3601e007f7c9b5cb83303a390ca0e7fec040eef.png';
-    var hamburgerMenu = useBlackHeader ? '/resources/black-hamburger.png' : '/resources/white-hamburger.png';
-    var closeIcon = useBlackHeader ? '/resources/close-icon.png' : '/resources/close-icon-white.png';
-    var colorClass = useBlackHeader?'black':'';
-    const doc = win.document;
-    const $header = doc.querySelector("body > header");
-    var windowWidth = window.innerWidth;
-    $header.id = "global-header";
-    const delay = 250;
-    var timeout = false;
-    var calls = 0;
-    var beforeIsMobile = windowWidth >= 1000;
-    var afterIsMobile = windowWidth >= 1000;
-    var showMenuDropdown = true;
-    function setupHeader(){
-        if ($header) {
-            windowWidth = window.innerWidth;
-            afterIsMobile = windowWidth >= 1000;
-            if(calls == 0 || beforeIsMobile != afterIsMobile){
-                if(windowWidth >= 1000){
-                    $header.innerHTML = 
+// console.log(win.document.location.pathname)
+  const blackHeaderPages = ['/jobs/', '/stories/process/whiteboard-101', '/stories/process/designing-for-creative-systems'];
+  const useBlackHeader = blackHeaderPages.includes(win.document.location.pathname);
+  const headerImage = useBlackHeader ? '/resources/adobe-black-tag.png' : '/resources/adobe-white-header.svg';
+  const headerImageMobile = useBlackHeader ? '/resources/adobe-design.png' : './media_1d3601e007f7c9b5cb83303a390ca0e7fec040eef.png';
+  const hamburgerMenu = useBlackHeader ? '/resources/black-hamburger.png' : '/resources/white-hamburger.png';
+  const closeIcon = useBlackHeader ? '/resources/close-icon.png' : '/resources/close-icon-white.png';
+  const colorClass = useBlackHeader ? 'black' : '';
+  const doc = win.document;
+  const $header = doc.querySelector('body > header');
+  let windowWidth = window.innerWidth;
+  $header.id = 'global-header';
+  const delay = 250;
+  let timeout = false;
+  let calls = 0;
+  let beforeIsMobile = windowWidth >= 1000;
+  let afterIsMobile = windowWidth >= 1000;
+  let showMenuDropdown = true;
+  function setupHeader() {
+    if ($header) {
+      windowWidth = window.innerWidth;
+      afterIsMobile = windowWidth >= 1000;
+      if (calls === 0 || beforeIsMobile !== afterIsMobile) {
+        if (windowWidth >= 1000) {
+          $header.innerHTML = 
                         ` \
                             <div>                \
                                 <div class="logo">  \
@@ -44,8 +43,8 @@ export default function decorate(win = window) {
                                 <a href="/jobs/">Jobs</a> \
                             </nav> \
                         `;
-                } else {
-                    $header.innerHTML = 
+        } else {
+          $header.innerHTML = 
                         ` \
                             <div>                \
                                 <div class="logo">  \
@@ -71,36 +70,35 @@ export default function decorate(win = window) {
                                 <a href="/jobs/">Jobs</a> \
                             </div> \
                         `;
-                    $header.querySelector(".dropdown-menu-button").addEventListener('click', () => {
-                        showMenuDropdown = !showMenuDropdown;
-                        if(showMenuDropdown){
-                            $header.querySelector(".menu-dropdown-container").classList.add("exit-menu");
-                            $header.querySelector("#menu-toggle").src = hamburgerMenu;
-                            $header.querySelector("#menu-toggle").classList.remove("close-menu")
-                            setTimeout(() => {
-                                if(showMenuDropdown){
-                                $header.querySelector(".menu-dropdown-container").classList.add("hide-menu");
-                                }
-                            }, 400)
-                        } else {
-                            $header.querySelector("#menu-toggle").src = closeIcon
-                            $header.querySelector("#menu-toggle").classList.add("close-menu")
-                            $header.querySelector(".menu-dropdown-container").classList.remove("hide-menu");
-                            setTimeout(() => {
-                                $header.querySelector(".menu-dropdown-container").classList.remove("exit-menu");
-                        
-                            }, 0)
-                        }
-                    })
+          $header.querySelector('.dropdown-menu-button').addEventListener('click', () => {
+            showMenuDropdown = !showMenuDropdown;
+            if (showMenuDropdown) {
+              $header.querySelector('.menu-dropdown-container').classList.add('exit-menu');
+              $header.querySelector('#menu-toggle').src = hamburgerMenu;
+              $header.querySelector('#menu-toggle').classList.remove('close-menu');
+              setTimeout(() => {
+                if (showMenuDropdown) {
+                  $header.querySelector('.menu-dropdown-container').classList.add('hide-menu');
                 }
-                beforeIsMobile = windowWidth >= 1000;
+              }, 400);
+            } else {
+              $header.querySelector('#menu-toggle').src = closeIcon;
+              $header.querySelector('#menu-toggle').classList.add('close-menu');
+              $header.querySelector('.menu-dropdown-container').classList.remove('hide-menu');
+              setTimeout(() => {
+                $header.querySelector('.menu-dropdown-container').classList.remove('exit-menu');
+              }, 0);
             }
+          });
         }
-        calls +=1;
+        beforeIsMobile = windowWidth >= 1000;
+      }
     }
-    window.addEventListener("resize",function(){
-        clearTimeout(timeout);
-        timeout = setTimeout(setupHeader, delay)
-    })
-    setupHeader();
+    calls += 1;
+  }
+  window.addEventListener('resize', () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(setupHeader, delay);
+  });
+  setupHeader();
 }

@@ -1,6 +1,7 @@
 export default function decorate($block) {
   const $boards = $block.querySelectorAll(':scope > div');
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const board of $boards) {
     /** const { properties } = decorateDivisions(board, null, { level: "child" }); */
     board.classList.add('scoreboard');

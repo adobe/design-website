@@ -51,6 +51,7 @@ export default async function decorate($block) {
 
   const $carousel = $block.querySelectorAll(':scope > div');
   let firstSlide = true;
+  // eslint-disable-next-line no-restricted-syntax
   for (const slide of $carousel) {
     /*
      * Helper function for changing the doc content while we are still have old structure
