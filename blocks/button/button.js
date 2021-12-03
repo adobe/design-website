@@ -50,7 +50,7 @@ export function addArrowButton(
   const button = document.createElement('button');
 
   // button.addEventListener("click", action)
-  button.innerHTML = `<img src="/resources/button-arrow-right.svg" alt="${direction === 'next'? direction : 'previous'} slide" />`;
+  button.innerHTML = `<img src="/resources/button-arrow-right.svg" alt="${direction === 'next' ? direction : 'previous'} slide" />`;
   button.classList.add(`carousel__button--${direction}`);
   return button;
 }
