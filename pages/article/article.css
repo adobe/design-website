@@ -826,8 +826,8 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .pull-quote.block{
         padding-left: 1em;
     }
-    body > main > div > div > div:nth-child(41) > div > div{
-
+    .page-type-article .author-bio {
+        padding: 5em 6em 5em 0em;
     }
     .page-type-article .content ul{
         padding-left: 6.5em;

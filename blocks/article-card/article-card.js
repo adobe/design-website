@@ -1,7 +1,7 @@
 import {
   convertToBackground,
   $element,
-  $wrap,
+  // $wrap,
   decorateTagLink,
   decorateDivisions,
   propsFromBlockLink,
@@ -11,16 +11,16 @@ import {
  * @param {HTMLElement} $block
  */
 export default async function decorate($block) {
-    const truncateTextPages = ['/']
-    const truncateText = truncateTextPages.includes(window.document.location.pathname)
+  const truncateTextPages = ['/'];
+  const truncateText = truncateTextPages.includes(window.document.location.pathname);
 
-  let props = await propsFromBlockLink($block, {
+  const props = await propsFromBlockLink($block, {
     path: 'path',
     hed: 'title',
     dek: 'description',
     image: 'image',
-    background: { field: "color", default: "white" },
-    textcolor: { field: "textcolor", default: "black" },
+    background: { field: 'color', default: 'white' },
+    textcolor: { field: 'textcolor', default: 'black' },
     tag: { field: 'tags', default: '' },
   });
 
@@ -28,8 +28,8 @@ export default async function decorate($block) {
   const result = decorateDivisions($block, [
     '.image',
   ]);
-  if( result.properties ) {
-    Object.assign(props, result.properties );
+  if (result.properties) {
+    Object.assign(props, result.properties);
   }
 
   /**
@@ -42,15 +42,15 @@ export default async function decorate($block) {
      * $byline : Author | Author's Position
      */
   const $text = $element('.text');
-  const $tag = decorateTagLink( $element('div', ['#', $element("span.tag", props.tag)]), props.tag.replaceAll(' ', '-'), {color: 'black'});
+  const $tag = decorateTagLink($element('div', ['#', $element('span.tag', props.tag)]), props.tag.replaceAll(' ', '-'), { color: 'black' });
 
   const HED_TEXT_LIMIT = 50;
   const DEK_TEXT_LIMIT = 75;
   let hedText = props.hed;
   let dekText = props.dek;
-  if(truncateText){
-    dekText = props.dek.length<DEK_TEXT_LIMIT ? props.dek:props.dek.substring(0,DEK_TEXT_LIMIT-3)+'...';
-    hedText = props.hed.length<HED_TEXT_LIMIT ? props.hed:props.hed.substring(0,HED_TEXT_LIMIT-3)+'...';
+  if (truncateText) {
+    dekText = props.dek.length < DEK_TEXT_LIMIT ? props.dek : `${props.dek.substring(0, DEK_TEXT_LIMIT - 3)}...`;
+    hedText = props.hed.length < HED_TEXT_LIMIT ? props.hed : `${props.hed.substring(0, HED_TEXT_LIMIT - 3)}...`;
   }
   const $hed = $element('.hed', hedText);
   const $dek = $element('.dek', dekText);
@@ -58,9 +58,9 @@ export default async function decorate($block) {
   const $byline = $element('.byline');
 
   /** if props.author exists: */
-  if (!!props.author) {
+  if (props.author) {
     const $author = $element('span.author', props.author);
-    if (!!props.position) {
+    if (props.position) {
       const $position = $element('span.position', props.position);
       $byline.append($author);
       $byline.append($position);
@@ -82,36 +82,29 @@ export default async function decorate($block) {
   if (result['.image'] && result['.image'].querySelector('img')) {
     result['.image'].remove();
   } else {
-    result['.image'] = $element("picture", [
-      $element("source", [
-        $element("img", { attr: {src: props.image} }),
+    result['.image'] = $element('picture', [
+      $element('source', [
+        $element('img', { attr: { src: props.image } }),
       ]),
     ]);
   }
 
-  //TODO: Add paths to the article card generation and use that instead of assuming the path is the same as the header
   let path;
-  if(props.path)
-    path = props.path
-  else{
-    path = `/stories/${props.tag}/${props.hed}`
-    path = path.replaceAll(' ', '-').replaceAll(/[^a-zA-Z-\d/:]/g, '').toLowerCase()
+  if (props.path) path = props.path;
+  else {
+    path = `/stories/${props.tag}/${props.hed}`;
+    path = path.replaceAll(' ', '-').replaceAll(/[^a-zA-Z-\d/:]/g, '').toLowerCase();
   }
 
-  const articleLink = $element('a.stories-link', { attr: { href: path } })
-  result['.block-content'].append(articleLink)
-  articleLink.prepend($text)
+  const articleLink = $element('a.stories-link', { attr: { href: path } });
+  result['.block-content'].append(articleLink);
+  articleLink.prepend($text);
 
-  if (props['image-side'] === 'left')
-    result['.image'].classList.add('left');
-  else if (props['image-side'] === 'right')
-    result['.image'].classList.add('right');
+  if (props['image-side'] === 'left') result['.image'].classList.add('left');
+  else if (props['image-side'] === 'right') result['.image'].classList.add('right');
 
   articleLink.append(result['.image']);
 
   result['.image'].classList.add('image');
   convertToBackground(result['.image'].querySelector('img'), result['.image']);
 }
-
-
-
