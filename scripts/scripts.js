@@ -1,3 +1,8 @@
+/* eslint-disable max-len */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-console */
+/* eslint-disable import/no-cycle */
 /*
  * Copyright 2021 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -10,16 +15,16 @@
  * governing permissions and limitations under the License.
  */
 
-import { setPageLoading, pageDoneLoading } from "./page-loader.js";
-setPageLoading();
+import { setPageLoading, pageDoneLoading } from './page-loader.js';
+import decorateHeader from './global-header.js';
+import decorateFooter from './global-footer.js';
+import { runPageTypeDecorators } from './page-type-decorator.js';
+import { decorateBackground } from './background.js';
+import registerPageTypes from './page-types.js';
+import { loadCSS } from './importer.js';
+import { decorateBlocks, loadBlocks } from './blocks.js';
 
-import decorateHeader from "./global-header.js";
-import decorateFooter from "./global-footer.js";
-import { runPageTypeDecorators } from "./page-type-decorator.js";
-import { decorateBackground } from "./background.js";
-import registerPageTypes from "./page-types.js";
-import { loadCSS } from "./importer.js";
-import { decorateBlocks, loadBlocks } from "./blocks.js";
+setPageLoading();
 
 /**
  * See if there's a way to get the loader in first
@@ -41,8 +46,6 @@ export function addPublishDependencies(url) {
   }
 }
 
-
-
 /**
  * Wraps each section in an additional {@code div}.
  * @param {[Element]} $sections The sections
@@ -57,7 +60,6 @@ function wrapSections($sections) {
     }
   });
 }
-
 
 /**
  * Official Google WEBP detection.
@@ -91,7 +93,7 @@ function checkWebpFeature(callback) {
  * @param {Element} pEl The original element to be placed in figcaption.
  * @returns figCaptionEl Generated figcaption
  */
- export function buildCaption(pEl) {
+export function buildCaption(pEl) {
   const figCaptionEl = document.createElement('figcaption');
   pEl.classList.add('caption');
   figCaptionEl.append(pEl);
@@ -103,7 +105,7 @@ function checkWebpFeature(callback) {
  * @param {Element} blockEl The original element to be placed in figure.
  * @returns figEl Generated figure
  */
- export function buildFigure(blockEl) {
+export function buildFigure(blockEl) {
   const figEl = document.createElement('figure');
   figEl.classList.add('figure');
   // content is picture only, no caption or link
@@ -131,13 +133,12 @@ function checkWebpFeature(callback) {
       });
     // catch link-only figures (like embed blocks);
     } else if (blockEl.firstChild.nodeName === 'A') {
-      blockEl.firstChild.target = "_blank"
+      blockEl.firstChild.target = '_blank';
       figEl.append(blockEl.firstChild);
     }
   }
   return figEl;
 }
-
 
 /**
  * Returns an image URL with optimization parameters
@@ -276,7 +277,7 @@ function setLCPTrigger(doc, postLCP) {
   // } else {
   //   postLCP();
   // }
-  setTimeout( postLCP, 1000 )
+  setTimeout(postLCP, 1000);
 }
 
 /**
@@ -342,7 +343,7 @@ export function getLanguage() {
  * @param {*} name The unsanitized name
  * @returns {string} The class name
  */
- export function toClassName(name) {
+export function toClassName(name) {
   return name && typeof name === 'string'
     ? name.toLowerCase().replace(/[^0-9a-z]/gi, '-')
     : '';
@@ -353,7 +354,7 @@ export function getLanguage() {
  * @param {Element} block The block element
  * @returns {object} The block config
  */
- export function readBlockConfig(block) {
+export function readBlockConfig(block) {
   const config = {};
   block.querySelectorAll(':scope>div').forEach((row) => {
     if (row.children) {
@@ -366,13 +367,15 @@ export function getLanguage() {
           const aArr = [...valueEl.querySelectorAll('a')];
           if (aArr.length === 1) {
             value = aArr[0].href;
-            aArr[0].target = "_blank";
+            aArr[0].target = '_blank';
           } else {
             value = aArr.map(
+              // eslint-disable-next-line array-callback-return
               (a) => {
                 a.href;
-                a.target = "_blank";
-              });
+                a.target = '_blank';
+              },
+            );
           }
         } else if (valueEl.querySelector('p')) {
           const pArr = [...valueEl.querySelectorAll('p')];
@@ -390,17 +393,30 @@ export function getLanguage() {
 }
 
 /**
+ * Returns the language dependent root path
+ * @returns {string} The computed root path
+ */
+export function getRootPath() {
+  const loc = getLanguage();
+  if (loc === LANG.EN) {
+    return '/blog';
+  }
+  return `/${loc}/blog`;
+}
+
+/**
  * Build article card
  * @param {Element} article The article data to be placed in card.
  * @returns card Generated card
  */
- export function buildArticleCard(article, type = 'article') {
+export function buildArticleCard(article, type = 'article') {
   const {
     title, description, image, imageAlt, category,
   } = article;
 
   const path = article.path.split('.')[0];
 
+  // eslint-disable-next-line no-undef
   const picture = createOptimizedPicture(image, imageAlt || title, type === 'featured-article', [{ width: '750' }]);
   const pictureTag = picture.outerHTML;
   const card = document.createElement('a');
@@ -424,7 +440,7 @@ export function getLanguage() {
  * @returns {object} localized variables
  */
 
- export async function fetchPlaceholders() {
+export async function fetchPlaceholders() {
   const resp = await fetch(`${getRootPath()}/placeholders.json`);
   const json = await resp.json();
   const placeholders = {};
@@ -439,7 +455,7 @@ export function getLanguage() {
  * @returns {object} index with data and path lookup
  */
 
- export async function fetchBlogArticleIndex() {
+export async function fetchBlogArticleIndex() {
   const pageSize = 1000;
   window.blogIndex = window.blogIndex || {
     data: [],
@@ -474,46 +490,34 @@ export function stamp(message) {
 
 stamp('start');
 
-function registerPerformanceLogger() {
-  try {
-    const polcp = new PerformanceObserver((entryList) => {
-      const entries = entryList.getEntries();
-      stamp(JSON.stringify(entries));
-      debug(entries[0].element);
-    });
-    polcp.observe({ type: 'largest-contentful-paint', buffered: true });
+// function registerPerformanceLogger() {
+//   try {
+//     const polcp = new PerformanceObserver((entryList) => {
+//       const entries = entryList.getEntries();
+//       stamp(JSON.stringify(entries));
+//       debug(entries[0].element);
+//     });
+//     polcp.observe({ type: 'largest-contentful-paint', buffered: true });
 
-    const pols = new PerformanceObserver((entryList) => {
-      const entries = entryList.getEntries();
-      stamp(JSON.stringify(entries));
-      debug(entries[0].sources[0].node);
-    });
-    pols.observe({ type: 'layout-shift', buffered: true });
+//     const pols = new PerformanceObserver((entryList) => {
+//       const entries = entryList.getEntries();
+//       stamp(JSON.stringify(entries));
+//       debug(entries[0].sources[0].node);
+//     });
+//     pols.observe({ type: 'layout-shift', buffered: true });
 
-    const pores = new PerformanceObserver((entryList) => {
-      const entries = entryList.getEntries();
-      entries.forEach((entry) => {
-        stamp(`resource loaded: ${entry.name} - [${Math.round(entry.startTime + entry.duration)}]`);
-      });
-    });
+//     const pores = new PerformanceObserver((entryList) => {
+//       const entries = entryList.getEntries();
+//       entries.forEach((entry) => {
+//         stamp(`resource loaded: ${entry.name} - [${Math.round(entry.startTime + entry.duration)}]`);
+//       });
+//     });
 
-    pores.observe({ type: 'resource', buffered: true });
-  } catch (e) {
-    // no output
-  }
-}
-
-/**
- * Returns the language dependent root path
- * @returns {string} The computed root path
- */
- export function getRootPath() {
-  const loc = getLanguage();
-  if (loc === LANG.EN) {
-    return '/blog';
-  }
-  return `/${loc}/blog`;
-}
+//     pores.observe({ type: 'resource', buffered: true });
+//   } catch (e) {
+//     // no output
+//   }
+// }
 
 // First register the decorators
 registerPageTypes();
