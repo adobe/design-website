@@ -1,8 +1,10 @@
+/* eslint-disable no-multi-str */
 export default function decorate(win = window) {
   const doc = win.document;
   const $footer = doc.querySelector('body > footer');
   $footer.id = 'global-footer';
   if ($footer) {
+    // eslint-disable-next-line operator-linebreak
     $footer.innerHTML =
         '<div class="footer-content">                                           \
           <a href="/">                                                          \
@@ -29,6 +31,6 @@ export default function decorate(win = window) {
             <p>/</p>                                                            \
             <a href="" target="_blank">Do not sell my personal information</a>  \
           </nav>                                                                \
-        </div>'
-    }
+        </div>';
+  }
 }
