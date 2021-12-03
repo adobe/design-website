@@ -1,7 +1,7 @@
-import { $element } from "../../scripts/helpers.js";
-import { fetchIndex } from "../../scripts/queries.js";
+import { $element } from '../../scripts/helpers.js';
+import { fetchIndex } from '../../scripts/queries.js';
 
-var index = null;
+let index = null;
 
 /**
  *
@@ -12,19 +12,20 @@ export default async function decorate($block) {
     index = await fetchIndex();
   }
 
-  console.log(" INDEX ", index, index.jobs);
+  console.log(' INDEX ', index, index.jobs);
 
-  $block.innerHTML = "";
-  if(index && index.jobs) {
+  $block.innerHTML = '';
+  if (index && index.jobs) {
+    // eslint-disable-next-line no-restricted-syntax
     for (const job of index.jobs.data) {
-      var $el = $element("a.single-job", { attr: { href: job.path, target: "_blank" } }, [
-        $element("h3.job-title", job.title || "No Title"),
-        $element("p.experience", "Test Experience"),
-        $element("p.location", "California"),
+      const $el = $element('a.single-job', { attr: { href: job.path, target: '_blank' } }, [
+        $element('h3.job-title', job.title || 'No Title'),
+        $element('p.experience', 'Test Experience'),
+        $element('p.location', 'California'),
       ]);
       $block.append($el);
     }
-    const seeJobsDiv = $element("a.see-jobs", { attr: { href: "/jobs/", target: "_blank" } }, $element("span", "VIEW OUR JOB OPENINGS"))
+    const seeJobsDiv = $element('a.see-jobs', { attr: { href: '/jobs/', target: '_blank' } }, $element('span', 'VIEW OUR JOB OPENINGS'));
     /* const seeJobsDiv = $element("a.see-jobs");
     seeJobsDiv.classList.add("see-jobs");
     seeJobsDiv.setAttribute("href", "/jobs/");
@@ -32,7 +33,7 @@ export default async function decorate($block) {
     seeJobs.innerHTML = "VIEW OUR JOB OPENINGS";
     seeJobsDiv.append(seeJobs); */
 
-    $block.querySelector.innerHTML = "";
+    $block.querySelector.innerHTML = '';
     $block.append(seeJobsDiv);
   }
 }

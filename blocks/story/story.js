@@ -1,19 +1,18 @@
-import {$wrap, $element, decorateDivisions} from "../../scripts/helpers.js";
-
-
-
+import {
+  // $wrap,
+  // $element,
+  decorateDivisions,
+} from '../../scripts/helpers.js';
 
 export default async function decorate($block) {
-
-
-    var mainContent = $block.querySelector(".section-wrapper > div");
-    decorateDivisions($block, [
-        ".image",
-        ".story-text"
-    ]);
+  // let mainContent = $block.querySelector('.section-wrapper > div');
+  decorateDivisions($block, [
+    '.image',
+    '.story-text',
+  ]);
 }
 
-    /**
+/**
      * var container = $wrap($element(".stories-stats"),
      * [
      *   document.querySelector("#think-about-design-differently"),
@@ -24,4 +23,3 @@ export default async function decorate($block) {
      * ])
      * mainContent.prepend(container);
      */
-
