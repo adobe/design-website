@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 export default function decorate(win = window) {
 // console.log(win.document.location.pathname)
   const blackHeaderPages = ['/jobs/', '/stories/process/whiteboard-101', '/stories/process/designing-for-creative-systems'];
@@ -44,6 +45,7 @@ export default function decorate(win = window) {
                             </nav> \
                         `;
         } else {
+          // eslint-disable-next-line operator-linebreak
           $header.innerHTML = 
                         ` \
                             <div>                \

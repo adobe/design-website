@@ -20,6 +20,7 @@ export default async function decorator($main) {
   console.log('INDEX', index);
   const allStories = index.fullindex.data.filter((data) => data.path.split('/')[1] === 'stories');
 
+  // eslint-disable-next-line no-restricted-globals
   const tagFilter = location.search ? location.search.split('=')[1] : null;
   $main.classList.add('stories-index-view');
 
@@ -37,15 +38,18 @@ export default async function decorator($main) {
   $target.append($wrap($element('.content'), [$results, $loadMoreButton, $thinkDifferent]));
 
   let storyCount = 0;
+  // eslint-disable-next-line no-use-before-define
   appendStories(stories);
 
   if (storyCount >= stories.length) $loadMoreButton.remove();
 
   $loadMoreButton.addEventListener('click', () => {
+    // eslint-disable-next-line no-use-before-define
     appendStories(stories, 20);
     if (storyCount >= stories.length)$loadMoreButton.remove();
   });
 
+  // eslint-disable-next-line no-shadow
   /* async */ function appendStories(stories, count = 6) {
     for (let i = 0; i < count && storyCount < stories.length;) {
       const story = stories[storyCount];
