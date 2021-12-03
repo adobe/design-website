@@ -3,9 +3,10 @@
  * Initially it'll just be an unfilled, outlined button
  */
 
+const Console = console;
+
 function defaultAction() {
-  // eslint-disable-next-line no-console
-  return console.log('button.js: Button clicked, but no action set ');
+  return Console.log('button.js: Button clicked, but no action set ');
 }
 /**
  * @param {String} [innerText]
@@ -49,7 +50,7 @@ export function addArrowButton(
   const button = document.createElement('button');
 
   // button.addEventListener("click", action)
-  button.innerHTML = `<img src="/resources/button-arrow-right.svg" alt="${direction === 'next'? direction : 'previous'} slide" />`;
+  button.innerHTML = `<img src="/resources/button-arrow-right.svg" alt="${direction === 'next' ? direction : 'previous'} slide" />`;
   button.classList.add(`carousel__button--${direction}`);
   return button;
 }
