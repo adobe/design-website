@@ -16,12 +16,12 @@ export function loadCSS(href) {
 }
 
 export function loadScript(src, options) {
-  let opts = options || {};
+  const opts = options || {};
   if (!document.querySelector(`head > script[src="${src}"]`)) {
-    const script = document.createElement("script");
-    script.setAttribute("src", src);
+    const script = document.createElement('script');
+    script.setAttribute('src', src);
     if (opts.type) {
-      script.setAttribute("type", opts.type);
+      script.setAttribute('type', opts.type);
     }
     document.head.appendChild(script);
     // script.onload(() => {
@@ -29,4 +29,3 @@ export function loadScript(src, options) {
     // });
   }
 }
-
