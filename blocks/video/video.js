@@ -6,10 +6,10 @@ export default function decorate(block) {
   }
   const poster = block.querySelector('img') ? `poster="${block.querySelector('img').src}"` : '';
   const a = block.querySelector('a');
-        a.target = "_blank";
   const videoSrc = a.href;
   const video = document.createElement('div');
   const figure = buildFigure(block.firstChild.firstChild);
+  a.target = '_blank';
   video.classList.add('video-wrapper');
   video.innerHTML = `<video controls preload="none" ${poster}>
     <source src="${videoSrc}" type="video/mp4">
