@@ -7,7 +7,7 @@
 
 @media screen and (max-width: 1000px) {
     .job-post,
-    .job-post header.split,
+    .job-post header,
     .job-post main > div,
     .job-post .post-container,
     .job-post .about-adobe-design{
@@ -16,7 +16,7 @@
 }
 @media screen and (min-width: 1000px) and (max-width: 1920px) {
     .job-post,
-    .job-post header.split,
+    .job-post header,
     .job-post main > div,
     .job-post .post-container,
     .job-post .about-adobe-design{
@@ -25,7 +25,7 @@
 }
 @media screen and (min-width: 1920px) {
     .job-post,
-    .job-post header.split,
+    .job-post header,
     .job-post main > div,
     .job-post .post-container,
     .job-post .about-adobe-design{

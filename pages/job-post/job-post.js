@@ -18,7 +18,7 @@ export default async function decorate() {
   /* Add classes and ids to container elements */
   const bodyJobPost = document.querySelector('body');
   bodyJobPost.classList.add('job-post');
-  document.querySelector('#global-header').classList.add('split');
+  // document.querySelector('#global-header').classList.add('split');
   document.querySelector('div#global-background').remove();
   const postContainer = document.querySelector('main > div.section-wrapper');
   postContainer.classList.add('post-container');
