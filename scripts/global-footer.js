@@ -1,9 +1,9 @@
 export default function decorate(win = window) {
-    const doc = win.document;
-    const $footer = doc.querySelector("body > footer");
-    $footer.id = "global-footer";
-    if ($footer) {
-      $footer.innerHTML =
+  const doc = win.document;
+  const $footer = doc.querySelector('body > footer');
+  $footer.id = 'global-footer';
+  if ($footer) {
+    $footer.innerHTML =
         '<div class="footer-content">                                           \
           <a href="/">                                                          \
             <img class="source" src="/resources/adobe-design.png">              \
