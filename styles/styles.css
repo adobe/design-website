@@ -290,6 +290,18 @@ html body button{
     .page-type-team .teams > div > div{
         width: 2300px;
     }
+    .page-type-index main{
+        width: 2300px;
+    }
+    .page-type-tools .toolkit > div > div{
+        width: 2300px;
+    }
+    .page-type-jobs .jobs > div > div{
+        width: 2300px;
+    }
+    .page-type-jobs.loaded .section-wrapper > div{
+        width: 2300px;
+    }
 
 }
 @media only screen and (min-width: 1651px) and (max-width: 1920px) {
@@ -303,7 +315,19 @@ html body button{
     .page-type-team .teams > div > div{
         width: 1650px;
     }
-
+    .page-type-index main{
+        width: 1800px;
+    }
+    .page-type-tools .toolkit > div > div{
+        width: 1800px;
+    }
+    .page-type-jobs .jobs > div > div{
+        width: 1750px;
+    }
+    .page-type-jobs.loaded .section-wrapper > div{
+        width: 1750px;
+    }
+    
 }
 @media only screen and (min-width: 1441px) and (max-width: 1650px){
     .page-type-article main{
@@ -322,6 +346,18 @@ html body button{
     }
     .page-type-team .teams > div > div{
         width: 1470px;
+    }
+    .page-type-index main{
+        width: 1540px;
+    }
+    .page-type-tools .toolkit > div > div{
+        width: 1540px;
+    }
+    .page-type-jobs .jobs > div > div{
+        width: 1540px;
+    }
+    .page-type-jobs.loaded .section-wrapper > div{
+        width: 1540px;
     }
 }
 @media only screen and (min-width: 1281px) and (max-width: 1440px) {
@@ -344,6 +380,18 @@ html body button{
     }
     .page-type-team .teams > div > div{
         width: 1280px;
+    }
+    .page-type-index main{
+        width: 1300px;
+    }
+    .page-type-tools .toolkit > div > div{
+        width: 1300px;
+    }
+    .page-type-jobs .jobs > div > div{
+        width: 1300px;
+    }
+    .page-type-jobs.loaded .section-wrapper > div{
+        width: 1300px;
     }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1280px){
@@ -374,7 +422,13 @@ html body button{
     .page-type-team .teams > div > div{
         width: 1100px;
     }
-
+    .page-type-index main{
+        width: 1100px;
+    }
+    .page-type-tools .toolkit > div > div{
+        width: 1100px;
+    }
+    
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px){
     .page-type-article main{

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // //--------------------------------------//
 // //----- Equal Opportunities Policy -----//
 // //--------------------------------------//
@@ -6,7 +7,6 @@
 // // document.querySelector("main").append(eqOpPolicy)
 
 // import { fetchFragment } from "../../scripts/helpers";
-
 
 // /**
 //  * Equal Opportunity Policy Statement

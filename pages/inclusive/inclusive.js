@@ -1,52 +1,48 @@
-import { $element } from "../../scripts/helpers.js";
+import { $element } from '../../scripts/helpers.js';
 
-export default function decorate($main) {
-    var inclusive = document.querySelector("body > main");
-    inclusive.classList.add("inclusive-design")
-   /* inclusive.forEach(t => {
-      if( t.querySelector("p") ) {
+export default function decorate() {
+  const inclusive = document.querySelector('body > main');
+  inclusive.classList.add('inclusive-design');
+  /* inclusive.forEach(t => {
+    if( t.querySelector("p") ) {
         t.classList.add("article-picture");
       }
-    });*/
+    }); */
 
-    
-  
+  let mainImg = inclusive.querySelector('img').classList.add('main-img');
 
-    
-    var mainImg = inclusive.querySelector('img').classList.add('main-img')
-  
-    // our mission
-    var placement = inclusive.querySelector('.inclusive-design h1')
-    var mainImg = inclusive.querySelector('.main-img')
-    var ourMission = inclusive.querySelector('#our-mission')
-    var ourMissionP = inclusive.querySelector('#our-mission + p')
-    var div = $element('.statement')
+  // our mission
+  let placement = inclusive.querySelector('.inclusive-design h1');
+  mainImg = inclusive.querySelector('.main-img');
+  const ourMission = inclusive.querySelector('#our-mission');
+  const ourMissionP = inclusive.querySelector('#our-mission + p');
+  let div = $element('.statement');
 
-    placement.after(div)
-    div.append(mainImg,ourMission, ourMissionP)
-    
-    // our collaborators
-    var placement = inclusive.querySelector('.people.block')
-    var ourCollaborators = inclusive.querySelector('#our-collaborators')
-    var ourCollaboratorsP = inclusive.querySelector('#our-collaborators + p')
-    var div = $element('.statementTwo')
+  placement.after(div);
+  div.append(mainImg, ourMission, ourMissionP);
 
-    placement.before(div)
-    div.append(ourCollaborators, ourCollaboratorsP)    
+  // our collaborators
+  placement = inclusive.querySelector('.people.block');
+  const ourCollaborators = inclusive.querySelector('#our-collaborators');
+  const ourCollaboratorsP = inclusive.querySelector('#our-collaborators + p');
+  div = $element('.statementTwo');
 
-    // Adobe facilitators
-    var placement = inclusive.querySelector('.people.block')
-    var adobeFacilitators = inclusive.querySelector('#adobe-facilitators')
-    var adobeFacilitatorsP = inclusive.querySelector('#adobe-facilitators + p')
-    var div = $element('.statementThree')
+  placement.before(div);
+  div.append(ourCollaborators, ourCollaboratorsP);
 
-    placement.after(div)
-    div.append(adobeFacilitators, adobeFacilitatorsP)
+  // Adobe facilitators
+  placement = inclusive.querySelector('.people.block');
+  const adobeFacilitators = inclusive.querySelector('#adobe-facilitators');
+  const adobeFacilitatorsP = inclusive.querySelector('#adobe-facilitators + p');
+  div = $element('.statementThree');
 
-    // Applies the person class to the cards in the people block
-    var peopleBlock = inclusive.querySelector('.people.block')
-    document.querySelector("body > main > div > div > div:nth-child(10) > div:nth-child(2)").classList.add('person')
-    for(let i = 0; i < peopleBlock.childElementCount; i++){
-      peopleBlock.children[i].classList.add('person');
+  placement.after(div);
+  div.append(adobeFacilitators, adobeFacilitatorsP);
+
+  // Applies the person class to the cards in the people block
+  const peopleBlock = inclusive.querySelector('.people.block');
+  document.querySelector('body > main > div > div > div:nth-child(10) > div:nth-child(2)').classList.add('person');
+  for (let i = 0; i < peopleBlock.childElementCount; i += 1) {
+    peopleBlock.children[i].classList.add('person');
   }
 }
