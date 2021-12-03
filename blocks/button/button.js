@@ -3,10 +3,10 @@
  * Initially it'll just be an unfilled, outlined button
  */
 
-let defaultAction = () => {
-  console.log( "button.js: Button clicked, but no action set ")
+function defaultAction() {
+  // eslint-disable-next-line no-console
+  return console.log('button.js: Button clicked, but no action set ');
 }
-
 /**
  * @param {String} [innerText]
  * @param {any} [action]
@@ -21,14 +21,14 @@ export default function addButton(
   textColor = 'white',
 ) {
   /** Normalize class list to be a string: */
-  if(!!classList && typeof classList === 'array') classList.join(" ");
+  if (!!classList && typeof classList === 'object') classList.join(' ');
 
-  let button = document.createElement("button");
+  const button = document.createElement('button');
 
-  button.addEventListener("click", action)
+  button.addEventListener('click', action);
   button.innerText = innerText;
-  button.classList = classList += " reg";
-  button.style= `--btn-color: ${textColor};`;
+  button.classList = `${classList} reg`;
+  button.style = `--btn-color: ${textColor};`;
 
   return button;
 }
@@ -46,7 +46,7 @@ export function addArrowButton(
 ) {
   /** Normalize class list to be a string: */
 
-  let button = document.createElement("button");
+  const button = document.createElement('button');
 
   // button.addEventListener("click", action)
   button.innerHTML = `<img src="/resources/button-arrow-right.svg" alt="${direction === 'next'? direction : 'previous'} slide" />`;

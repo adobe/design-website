@@ -41,6 +41,48 @@
     background-color: #ffffff;
 }
 
+/* START Buttons */
+.job-post button.filled.lt-bkg{
+    font-size: 0.75em;
+    height: 3em;
+    border-radius: 1.5em;
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+}
+@media screen and (max-width: 1300px) {
+    .job-post button.filled.lt-bkg{
+        font-size: 1em;
+        height: 3em;
+        border-radius: 1.5em;
+        font-weight: var(--weight-bold);
+        text-transform: uppercase;
+    }
+    .job-post button.filled.header_button{
+        margin: 3.385em auto 3.5em 0;
+    }
+    .job-post button.filled.last_button{
+        margin: 7.55em auto 2.46em 0;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .job-post button.filled.lt-bkg{
+        margin-top: 2em; /* height: 48px; */
+    }
+    .job-post button.filled.lt-bkg{
+        font-size: 0.75em;
+        height: 3em;
+        border-radius: 1.5em;
+    }
+    .job-post .post-text .header_button,
+    .job-post .post-text .last_button{
+        display: none;
+    }
+    .job-post .sticky-container button.filled {
+        margin: 1em 0 13.94em 0;
+        width: 100%;
+    }
+}
+/* END Buttons */
 
 @media screen and (min-width: 1300px) {
     .job-post .section-wrapper.post-container{
@@ -58,17 +100,8 @@
     }
 }
 
-
 .job-post {
     background-image: none;
-}
-
-.job-post button.filled.lt-bkg{
-    font-size: 0.75em;
-    height: 3em;
-    border-radius: 1.5em;
-    font-weight: var(--weight-bold);
-    text-transform: uppercase;
 }
 
 .job-post .post-container,
@@ -82,10 +115,6 @@
     .job-post .sticky-container{
         display: none;
     }
-    body.job-post {
-        /* background: var(--bkg-navy-dark);
-        background-color: var(--bkg-navy-dark); */
-    }
     .post-container,
     .about-adobe-design{
         font-size: 16px;
@@ -96,8 +125,10 @@
     }
 }
 
-
 @media screen and (min-width: 1300px) {
+    .job-post .post-text .subhead-container{
+        display: none;
+    }
     body.job-post {
         background: #ffffff;
         background-color: #ffffff;
@@ -111,11 +142,9 @@
         top: 8.5em;
         margin: 24em 3.84em auto auto;
     }
-    .job-post .sticky-container button.filled,
     .job-post .sticky-container .details{
         width: 100%;
     }
-
     .job-post .details .detail-value,
     .job-post .details .detail-label{
         width: fit-content;
@@ -134,10 +163,7 @@
         line-height: 1.47em; /* 30px */
     }
 
-    .job-post .sticky-container button.filled {
-        margin: 1em 0 13.94em 0;
-        width: 100%;
-    }
+
     .job-post .sticky-container .details{
         margin: 2.4em 2.4em 8.5em auto ;
         display: grid;
@@ -173,16 +199,6 @@
     max-width: 31.25em; /* 250px */
     padding: 0 2.5em 2.5em 2.5em; /* 40px */
 }
-@media screen and (max-width: 1300px) {
-    .job-post .post-text{
-        margin: auto;
-    }
-    .job-post .post-container{
-        grid-column: span 1;
-        grid-row: 2;
-        margin: auto;
-    }
-}
 .job-post .job-title{
     font-size: 3.91em; /* 120px */
     line-height: 0.916em; /* 110px */
@@ -197,15 +213,31 @@
     .job-post .job-title{
         margin-bottom: 2.18em; /* 262px */
     }
+    /* .job-post .post-text */
 }
 @media screen and (max-width: 1300px) {
+    .job-post .job-title{
+        margin-bottom: 1.675em; /* 67px */
+    }
+    .job-post .post-text{
+        margin: auto;
+        padding: 0 3.57em 2.5em 5.07em;
+    }
+    .job-post .post-container{
+        grid-column: span 1;
+        grid-row: 2;
+        margin: auto;
+    }
     .job-post .job-title{
         font-size: 2.5em;   /* 40px */
         line-height: 1em;   /* 40px */
         margin-top: 2.95em; /* 117px */
     }
 }
-
+.job-post .hed{
+    font-weight: var(--weight-black);
+    font-size: 3.5em; /* 56px */
+}
 .job-post .dek_blurb,
 .job-post .post-text h2{
     font-family: var(--serif-font);
@@ -235,12 +267,10 @@
     margin-block: 0px;  /* TODO: 74px */
     margin: 2.46em 0;
 }
+
 .job-post .post-text p,
 .job-post .post-text li {
     font-weight: var(--weight-regular);
-    font-size: 0.977em; /* 30px */
-    line-height: 1.56em; /* 28px  (28/18=1.555) */
-    margin-block: 1.5em 1.5em;
 }
 
 .job-post .post-text p:last-of-type,
@@ -256,74 +286,51 @@
 .job-post .post-text ul li:before{
     content: "• ";
 }
-.job-post .hed{
-    font-weight: var(--weight-black);
-    font-size: 3.5em; /* 56px */
-}
-
-.job-post .post-text button.filled{
-    margin-top: 2em; /* height: 48px; */
-}
-
-
-
-
 
 .job-post footer{
     font-size: 16px;
 }
+@media screen and (max-width: 1300px) {
+    .job-post .post-text p,
+    .job-post .post-text li {
+        font-size: 1.065em;   /* 17px */
+        line-height: 1.468em; /* 25px */
+        margin-block: 1.77em; /* 30px */
+    }
+    .job-post .details .detail-label,
+    .job-post .details .detail-value{
+        font-size:   1em; /* 16px */
+        line-height: 1.285em; /* 21px */
+        margin-block: 0px;
+    }
+    /* dist bet label -> value: 14px
+    dist bet value -> label: 27px */
 
+    .job-post .post-text p:last-of-type,
+    .job-post .post-text li:last-of-type {
+        margin-bottom: 3.5em;
+    }
+    .job-post .dek_blurb, .job-post .post-text h2{
+        font-size: 1.57em;  /*25px*/
+        line-height: 1.4em; /*35px*/
+    }
+    .job-post .details .detail-label{
+        text-transform: uppercase;
+        margin: 1.7em 0px 0.88em 0px;
+    }
+    .job-post .details .detail-value{
+        margin: 0.88em 0px 1.7em 0px;
+    }
+    .job-post .details .detail:last-of-type{
+        margin-bottom: 5.33rem;
+    }
 
-/*  .job-post{grid}
--------------------------------------------------------
-|                          | .post-text               |
-|--------------------------|                          |
-|  .sticky-container       |                          |
-|                          |                          |
--------------------------------------------------------
-|          Similar Jobs *block* goes here...          |
--------------------------------------------------------
-|  .about adobe design                                |
-|  grid-column: 1 / span 2                            |
-|  grid-row:    3 / span 1                            |
--------------------------------------------------------
-|  .eo-stmt                                           |
-|  grid-column: 1 / span 2                            |
-|  grid-row:    4 / span 1                            |
--------------------------------------------------------  */
-
-
-
-.section-wrapper.post-container,
-.sticky-container,
-.post-body,
-.post-text,
-.job-info{
-    /* border: 3px dotted #ff0000; */
 }
-
-.section-wrapper.post-container{
-    /* border-color: #77770088; */
-}
-.sticky-container{
-    /* border-color: #00ff0088; */
-}
-.post-body{
-    /* border-color: #00ffff88; */
-}
-.post-text{
-    /* border-color: #0000ff88; */
-}
-.job-info{
-    /* border-color: #ff00ff88; */
-}
-
-div.boxy{
-    height: calc(100vh - 160px);
-    width: 100vw;
-    /* background: #ff00ff77; */
-    position: absolute;
-    top: 160px;
-    left: 0;
-    color: #ff00ff00;
+@media screen and (min-width: 1300px) {
+    .job-post .post-text p,
+    .job-post .post-text li {
+        font-size: 0.977em; /* 30px */
+        line-height: 1.56em; /* 28px  (28/18=1.555) */
+        margin-block: 1.5em 1.5em;
+    }
 }

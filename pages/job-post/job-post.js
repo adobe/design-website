@@ -24,16 +24,20 @@ export default async function decorate() {
   postContainer.classList.add('post-container');
   const postText = document.querySelector('.post-container > div');
   postText.classList.add('post-text');
-
   /* Assemble "Apply Now" Button. It'll be used 3x */
   /* Declare the function for "onClick" action */
 
   // eslint-disable-next-line no-unused-vars
-  const jobURL = getMetadata('job-title');
-  const buttonFunction = () => {
-    // eslint-disable-next-line no-console
-    console.log(' Clicked Apply Now Button');
-  };
+  const jobURL = getMetadata('apply-now-link')
+              || getMetadata('job-listing-reference')
+              || getMetadata('apply-now');
+
+  // function buttonFunction() { return window.open(jobURL, '_blank'); }
+  const buttonFunction = () => window.open(jobURL, '_blank');
+  // {
+  // eslint-disable-next-line no-console
+  // console.log(' Clicked Apply Now Button');
+  // };
   const $buttonApplyNow = addButton('Apply Now', buttonFunction, 'filled lt-bkg', btnBlue);
   // postBody.append($buttonApplyNow);
   // -- START Job Position details subheader --//
@@ -60,12 +64,14 @@ export default async function decorate() {
   const $xsHeaderDetails = $headerDetails.cloneNode(true);
   const $lHeaderDetails = $headerDetails.cloneNode(true);
   // -- End Job Position details subheader --//
-
+  const $headerButton = $buttonApplyNow.cloneNode(true);
+  $headerButton.addEventListener('click', buttonFunction);
+  $headerButton.classList.add('header_button');
   // -- START Job Posting Body Text Block --//
   const jobTitleH1 = postContainer.querySelector('h1');
   jobTitleH1.classList.add('job-title');
-
   jobTitleH1.after($xsHeaderDetails); /** Insert .dek after h1.job-title */
+  jobTitleH1.after($headerButton);
   $xsHeaderDetails.after($blurb);
 
   // -- END   Job Posting Body Text Block --//
@@ -78,21 +84,24 @@ export default async function decorate() {
 
   // -- END Sticky bits: --//
 
-  // -- Start Delete --//
-  const uselessBoxElm = $element('div.boxy', $element('p.stuff', 'WOrds and stuff'));
-  bodyJobPost.prepend(uselessBoxElm);
-  // -- END Delete --//
+  const $postText = document.querySelector('.post-text');
 
   $addMiddleElm(
     document.querySelector('div.section-wrapper'),
     '.post-body',
-    document.querySelector('.post-text'),
+    $postText,
   );
 
-/* ------------------------------------------------------------ */
-/* Assemble  "Equal Opportunities" "About Adobe Design" "Sim Opps" blocks */
+  const $lastButton = $buttonApplyNow.cloneNode(true);
+  $lastButton.classList.add('last_button');
+  $postText.append($lastButton);
+  $lastButton.addEventListener('click', buttonFunction);
+
+  /* ------------------------------------------------------------ */
+  /* Assemble  "Equal Opportunities" "About Adobe Design" "Sim Opps" blocks */
   // eslint-disable-next-line no-use-before-define
   buildJobBlockFragments();
+  // eslint-disable-next-line no-use-before-define
   buildSimOpportunitiesBlock();
   document.querySelector('main').append($element('div.similarOpps-block'));
 }
