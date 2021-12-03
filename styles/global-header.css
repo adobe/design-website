@@ -1,229 +1,201 @@
 /* Beginning of global-header styling */
 header#global-header {
-    font-size: clamp(12px, 1.6vw, 16px);
-    display:flex;
-    /* padding: 20px 0px; */
-    box-sizing: border-box;
-    height: 5.2em; /* 93px; */
+  font-size: clamp(12px, 1.6vw, 16px);
+  display:flex;
+  /* padding: 20px 0px; */
+  box-sizing: border-box;
+  height: 5.2em; /* 93px; */
 }
 
 #global-header > div > div > a {
-    display: -webkit-inline-box;
+  display: -webkit-inline-box;
 }
 
 /* iPhone / X-Small Screens */
 @media screen and (max-width: 700px) {
-    header#global-header{
-        width: 100%;
-        padding: unset;
-        height: 92px;
-    }
-    #global-header .logo{
-        height: 44px;
-        padding: 33px 15px;
-        align-self: center;
-        align-items: center;
-    }
-    #global-header .logo a,
-    #global-header .logo picture,
-    #global-header .logo source,
-    #global-header .logo img{
-        height: 26px;
-        width: 30px;
-        width: auto;
-        padding: 2px 0px;
-        align-self: center;
-        align-items: center;
-    }
+  header#global-header{
+    width: 100%;
+    padding: unset;
+    height: 92px;
+  }
+  #global-header .logo{
+    height: 44px;
+    padding: 33px 15px;
+    align-self: center;
+    align-items: center;
+  }
+  #global-header .logo a,
+  #global-header .logo picture,
+  #global-header .logo source,
+  #global-header .logo img{
+    height: 26px;
+    width: 30px;
+    width: auto;
+    padding: 2px 0px;
+    align-self: center;
+    align-items: center;
+  }
 }
 /* iPad / Small Screens */
 @media screen and (min-width: 700px) {
-    header#global-header{
-        width: 100%;
-        padding: 0px 10px;
-    }
-    #global-header .logo img{
-        height: 44px;
-        padding: 24px 0px;
-    }
+  header#global-header{
+    width: 100%;
+    padding: 0px 10px;
+  }
+  #global-header .logo img{
+    height: 44px;
+    padding: 24px 0px;
+  }
 }
 /* Desktop / Med Screens */ /* L Screens */
 @media screen and (min-width: 1000px) {
-    header#global-header{
-        width: 1000px;
-        max-width: 1000px;
-        padding-left:  10px;
-        padding-right: 10px;
-        align-items: center;
-    }
-    #global-header .logo img{
-        height: 40px;
-    }
+  header#global-header{
+    width: 1000px;
+    max-width: 1000px;
+    padding-left:  10px;
+    padding-right: 10px;
+    align-items: center;
+  }
+  #global-header .logo img{
+    height: 40px;
+  }
 }
 
 /* Desktop / XXL Screens */
 /* @media screen and (min-width: 1400px) {
-    header#global-header{
-        font-size: clamp(16px, 1.6vw, 30.7);
-        width: 100%;
-        max-width: 1920px;
-        padding: 1em 138px;
-        align-items: center;
-        height: 105px;
-        margin: auto;
-    }
-    #global-header .logo img{
-        height: 1.4em;
-    }
+  header#global-header{
+    font-size: clamp(16px, 1.6vw, 30.7);
+    width: 100%;
+    max-width: 1920px;
+    padding: 1em 138px;
+    align-items: center;
+    height: 105px;
+    margin: auto;
+  }
+  #global-header .logo img{
+    height: 1.4em;
+  }
 } */
 
 #global-header .tagline {
-    font-family: var(--serif-font);
-    margin-left: 5em;
-    color: #FFFFFF;
-    width: 18vw;
+  font-family: var(--serif-font);
+  margin-left: 5em;
+  color: #FFFFFF;
+  width: 18vw;
 }
 #global-header .tagline.black {
-    color: var(--text-dark);
+  color: var(--text-dark);
 }
 
 #global-header nav {
-    box-sizing: border-box;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: var(--weight-black);
+  box-sizing: border-box;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--weight-black);
 }
 
 #global-header nav a {
-    padding: 10px 17px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    text-decoration: none;
+  padding: 10px 17px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  text-decoration: none;
 }
 #global-header nav.black a {
-    color: var(--text-dark);
-    font-weight: var(--weight-black);
+  color: var(--text-dark);
+  font-weight: var(--weight-black);
 }
 
 /* Hamburger Menu Button */
 #global-header .dropdown-menu-button{
-    height: 48px;
-    width: 69px;
-    padding: 8px 14px 10px 14px;
+  height: 48px;
+  width: 69px;
+  padding: 8px 14px 10px 14px;
 }
 #global-header .dropdown-menu-button img{
-    height: 24px;
-    width: 36px;
+  height: 24px;
+  width: 36px;
 }
 #global-header .dropdown-menu-button img.close-menu{
-    height: 36px;
-    width: 36px;
+  height: 36px;
+  width: 36px;
 }
 
 /* Hamburger Menu */
 #global-header .menu-dropdown-container{
-    position: absolute;
-    top: 88px;
-    right: 15px;
-    width: 215px;
-    padding: 8px 20px;
-    background: #FAFAFA;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    opacity: 1;
-    transition: all .2s cubic-bezier(.63,.07,.46,.99);
-    z-index: 150
-
+  position: absolute;
+  top: 88px;
+  right: 15px;
+  width: 215px;
+  padding: 8px 20px;
+  background: #FAFAFA;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  opacity: 1;
+  transition: all .2s cubic-bezier(.63,.07,.46,.99);
+  z-index: 150
 }
+
 #global-header .exit-menu{
-    transform: translate(2% ,-4px ) skew(-1.5deg, -1.5deg) scale(.98);
-    opacity: 0;
+  transform: translate(2% ,-4px ) skew(-1.5deg, -1.5deg) scale(.98);
+  opacity: 0;
 }
 #global-header  .hide-menu{
-    display: none;
+  display: none;
 }
 #global-header .menu-dropdown-container a {
-    padding: 15px 20px;
-    box-sizing: border-box;
-    text-decoration: none;
-    color: var(--text-dark);
-    border-bottom: 1px solid #F3F3F3;
-    width: 100%;
-    text-align: right;
-    font-size: 20px;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: var(--text-dark);
+  border-bottom: 1px solid #F3F3F3;
+  width: 100%;
+  text-align: right;
+  font-size: 20px;
 }
 
 /* Desktop / XXL Screens */
 /* @media screen and (min-width: 1400px) {
-    #global-header nav a {
-        //padding: 0.65em 1.11em;  15px 20px
-        font-size: 20px;
-        padding: 0.5em 1em;
-    }
+  #global-header nav a {
+    //padding: 0.65em 1.11em;  15px 20px
+    font-size: 20px;
+    padding: 0.5em 1em;
+  }
 } */
 
 #global-header .menu-dropdown-container a:last-child {
-    border-bottom: unset;
+  border-bottom: unset;
 }
-
-/*  If we do a drop down header like Adobe Spectrum: */
-/* #global-header nav::after,
-#global-header .menu-dropdown-container{
-    position: fixed;
-    top: 0px;
-    height: 100%;
-    right: 0px;
-
-}
-
-#global-header nav::after{
-    content: '';
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: rgba(0, 0, 0, 0.25);
-} */
 
 @media (max-width: 1920px) and (min-width: 1025px){
-    header#global-header{
-        width: 100%;
-        max-width: 1800px;
-
-    }
-}
-
-/*  If we do a drop down header like Adobe Spectrum: */
-/* #global-header nav::after,
-#global-header .menu-dropdown-container{
-    position: fixed;
-    top: 0px;
-    height: 100%;
-    right: 0px;
-
-}
-
-#global-header nav::after{
-    content: '';
+  header#global-header{
     width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: rgba(0, 0, 0, 0.25);
-} */
-
-@media (max-width: 1920px) and (min-width: 1025px){
-    header#global-header{
-        width: 100%;
-        max-width: 1800px;
-
-    }
+    max-width: 1800px;
+  }
 }
 @media (max-width: 2560px) and (min-width: 1920px){
-    header#global-header{
-        width: 1920px;
-        max-width: 1920px;
-    }
+  header#global-header{
+    width: 1920px;
+    max-width: 1920px;
+  }
 }
+
+/*  If we do a drop down header like Adobe Spectrum: */
+/* #global-header nav::after,
+#global-header .menu-dropdown-container{
+  position: fixed;
+  top: 0px;
+  height: 100%;
+  right: 0px;
+}
+
+#global-header nav::after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.25);
+} */
