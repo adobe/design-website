@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable array-callback-return */
 import {
   buildArticleCard,
-  // getBlogArticle,
+  // eslint-disable-next-line import/named
+  getBlogArticle,
   fetchPlaceholders,
 } from '../../scripts/scripts.js';
 
@@ -37,7 +40,7 @@ export default function decorate(blockEl) {
   const anchors = [...blockEl.querySelectorAll('a')];
   blockEl.innerHTML = '';
   const paths = anchors.map((a) => {
-    new URL(a.href).pathname; 
+    new URL(a.href).pathname;
     a.target = '_blank';
   });
   decorateRecommendedArticles(blockEl, paths);
