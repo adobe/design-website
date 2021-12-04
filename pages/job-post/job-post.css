@@ -1,9 +1,6 @@
-/* @import url(../../blocks/job-posting-blocks/job-post-header.css); */
 @import url(../../blocks/job-posting-blocks/about-adobe-design.css);
 @import url(../../blocks/job-posting-blocks/equal-opp-policy-stmnt.css);
 @import url(../../blocks/job-posting-blocks/similar-opportunities.css);
-/* @import url(../../blocks/job-posting-blocks/left-blocks.css); */
-
 
 @media screen and (max-width: 1000px) {
     .job-post,
@@ -38,7 +35,7 @@
     grid-template-rows: 100%;
     position: relative;
     overflow: hidden;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
 }
 
 /* START Buttons */
@@ -129,10 +126,10 @@
     .job-post .post-text .subhead-container{
         display: none;
     }
-    body.job-post {
-        background: #ffffff;
-        background-color: #ffffff;
-    }
+    /* body.job-post { */
+        /* background: #ffffff;
+        background-color: #ffffff; */
+    /* } */
     .job-post .sticky-container{
         width: 100%;
         max-width: 7.36em; /* 226px */
@@ -192,7 +189,7 @@
 
 .post-text{
     overflow-y: auto;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
 }
 
 .job-post .post-text{

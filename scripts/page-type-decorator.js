@@ -3,6 +3,7 @@
 import { loadCSS } from './importer.js';
 
 const DECORATORS = [];
+const consoleObj = console;
 
 export function addPageTypeDecorator(name, options) {
   DECORATORS.push({ name, options });
@@ -16,14 +17,14 @@ export async function loadPageType(name) {
   try {
     const mod = await import(`/pages/${name}/${name}.js`);
     if (mod.default) {
-      console.log(`Decorate page type ${name}`);
+      consoleObj.log(`Decorate page type ${name}`);
       const main = document.querySelector('main');
       await mod.default(main);
     }
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.log(`failed to load module for page type: ${name}`);
-    console.error(err);
+    consoleObj.log(`failed to load module for page type: ${name}`);
+    consoleObj.error(err);
   }
   const pageTypeClass = `page-type-${name}`;
   document.body.classList.add(pageTypeClass);
@@ -64,10 +65,10 @@ export async function runPageTypeDecorators() {
         // match = opts.test(properties);
       }
       if (testCount > 1) {
-        console.warn('PageMapping: ', pageMapping);
+        consoleObj.warn('PageMapping: ', pageMapping);
         throw new Error('Page Type Decorator options should only specify ONE of path, type, or test');
       } else if (testCount === 0) {
-        console.warn('PageMapping: ', pageMapping);
+        consoleObj.warn('PageMapping: ', pageMapping);
         throw new Error('Page Type decorator options must include a path, type, or test property');
       }
 
@@ -76,7 +77,7 @@ export async function runPageTypeDecorators() {
       }
     }
   } catch (err) {
-    console.warn('An error occurred while decorating page by type');
-    console.error(err);
+    consoleObj.warn('An error occurred while decorating page by type');
+    consoleObj.error(err);
   }
 }

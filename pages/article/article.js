@@ -5,6 +5,7 @@ import {
 // import { fetchIndex } from '../../scripts/queries.js';
 
 // let index;
+const consoleCopy = console;
 
 export default function decorate($main) {
   const paragraphs = document.querySelectorAll('body > main > div > div > p');
@@ -18,7 +19,7 @@ export default function decorate($main) {
     $main.querySelector(':scope > div > div').classList.add('content');
     $main.querySelector('.header.block > div:nth-child(2) > div:nth-child(2)').classList.add('art');
   } catch (err) {
-    console.error(err);
+    consoleCopy.error(err);
   }
   const tag = window.document.location.pathname.split('/')[2];
   // letbuildSimilarStories(tag);
@@ -32,7 +33,7 @@ export default function decorate($main) {
   try {
     document.querySelector('main h1').before(headerTag);
   } catch (err) {
-    console.error(err);
+    consoleCopy.error(err);
   }
 }
 
@@ -109,7 +110,7 @@ async function buildAuthorBio() {
   try {
     document.querySelector('.block.header').append($authorBlock);
   } catch (err) {
-    console.error(err);
+    consoleCopy.error(err);
   }
 }
 buildAuthorBio();

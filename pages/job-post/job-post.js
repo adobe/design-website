@@ -6,6 +6,7 @@ import {
 } from '../../scripts/helpers.js';
 import { getJobsFragment } from '../../scripts/jobs-fragments.js';
 import makeSimilarOpportunitiesBlock from '../../blocks/job-posting-blocks/similar-opportunities.js';
+import { Background } from '../../scripts/background.js';
 
 // const bkg_grey_lt = '#E8E8E8';
 // const text_dark   = '#3E3E3E';
@@ -19,11 +20,12 @@ export default async function decorate() {
   const bodyJobPost = document.querySelector('body');
   bodyJobPost.classList.add('job-post');
   // document.querySelector('#global-header').classList.add('split');
-  document.querySelector('div#global-background').remove();
+  // document.querySelector('div#global-background').remove();
   const postContainer = document.querySelector('main > div.section-wrapper');
   postContainer.classList.add('post-container');
   const postText = document.querySelector('.post-container > div');
   postText.classList.add('post-text');
+  Background.setColor('#FFFFFF');
   /* Assemble "Apply Now" Button. It'll be used 3x */
   /* Declare the function for "onClick" action */
 
