@@ -3,6 +3,11 @@
  .article-card.block{ margin-bottom: 0.5rem; }
 
  
+ @media (min-width: 1921px) {
+    .article-card.block .text .tag-link .tag {
+        font-size: 1.5em;
+    }
+ }
 
 @media screen and (min-width: 1025px) and (min-height: 620px) {
     /* Ensure Article Card doesn't cut off content on short desktop screens */
