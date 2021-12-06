@@ -49,16 +49,19 @@
 @media screen and (max-width: 1300px) {
     .job-post button.filled.lt-bkg{
         font-size: 1em;
-        height: 3em;
+        height: 2.25em;
+        min-height: 2.25em;
+        max-height: 2.25em;
+        line-height: 2.25em;
         border-radius: 1.5em;
         font-weight: var(--weight-bold);
         text-transform: uppercase;
     }
     .job-post button.filled.header_button{
-        margin: 3.385em auto 3.5em 0;
+        margin: 3.385em auto 3.75em 0;
     }
     .job-post button.filled.last_button{
-        margin: 7.55em auto 2.46em 0;
+        margin: 4.9em auto 3.13em 0;
     }
 }
 @media screen and (min-width: 1300px) {
@@ -121,6 +124,11 @@
         max-height: 95em;
     }
 }
+.job-post .details .detail-label{
+    color: var(--text-med);
+    font-weight: var(--weight-bold);
+}
+.job-post .details .detail-value{ }
 
 @media screen and (min-width: 1300px) {
     .job-post .post-text .subhead-container{
@@ -310,6 +318,9 @@
     .job-post .dek_blurb, .job-post .post-text h2{
         font-size: 1.57em;  /*25px*/
         line-height: 1.4em; /*35px*/
+    }
+    .job-post .dek_blurb{
+        margin-block-start: 3.35em;
     }
     .job-post .details .detail-label{
         text-transform: uppercase;
