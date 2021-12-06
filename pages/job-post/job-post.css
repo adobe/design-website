@@ -1,13 +1,13 @@
 @import url(../../blocks/job-posting-blocks/about-adobe-design.css);
 @import url(../../blocks/job-posting-blocks/equal-opp-policy-stmnt.css);
 @import url(../../blocks/job-posting-blocks/similar-opportunities.css);
+@import url(../../blocks/job-posting-blocks/block.css);
 
 @media screen and (max-width: 1000px) {
     .job-post,
     .job-post header,
     .job-post main > div,
-    .job-post .post-container,
-    .job-post .about-adobe-design{
+    .job-post .post-container{
         font-size: 16px
     }
 }
@@ -15,8 +15,7 @@
     .job-post,
     .job-post header,
     .job-post main > div,
-    .job-post .post-container,
-    .job-post .about-adobe-design{
+    .job-post .post-container{
         font-size: 1.6vw;
     }
 }
@@ -24,8 +23,7 @@
     .job-post,
     .job-post header,
     .job-post main > div,
-    .job-post .post-container,
-    .job-post .about-adobe-design{
+    .job-post .post-container{
         font-size: 30.7px;
     }
 }
@@ -35,7 +33,7 @@
     grid-template-rows: 100%;
     position: relative;
     overflow: hidden;
-    /* background-color: #ffffff; */
+    background-color: #ffffff;
 }
 
 /* START Buttons */
@@ -104,8 +102,7 @@
     background-image: none;
 }
 
-.job-post .post-container,
-.job-post .about-adobe-design{
+.job-post .post-container{
     margin: auto;
     max-width: 100vw;
     width: 100vw;
@@ -115,13 +112,8 @@
     .job-post .sticky-container{
         display: none;
     }
-    .post-container,
-    .about-adobe-design{
+    .post-container{
         font-size: 16px;
-    }
-    .about-adobe-design{
-        font-size: 1.6vw;
-        max-height: 95em;
     }
 }
 .job-post .details .detail-label{
@@ -332,8 +324,8 @@
     .job-post .details .detail:last-of-type{
         margin-bottom: 5.33rem;
     }
-
 }
+
 @media screen and (min-width: 1300px) {
     .job-post .post-text p,
     .job-post .post-text li {
