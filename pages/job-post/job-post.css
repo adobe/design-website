@@ -1,7 +1,7 @@
-@import url(../../blocks/job-posting-blocks/about-adobe-design.css);
-@import url(../../blocks/job-posting-blocks/equal-opp-policy-stmnt.css);
 @import url(../../blocks/job-posting-blocks/similar-opportunities.css);
 @import url(../../blocks/job-posting-blocks/block.css);
+/* @import url(../../blocks/job-posting-blocks/about-adobe-design.css);
+@import url(../../blocks/job-posting-blocks/equal-opp-policy-stmnt.css); */
 
 @media screen and (max-width: 1000px) {
     .job-post,
