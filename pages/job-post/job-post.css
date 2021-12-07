@@ -120,20 +120,14 @@
     color: var(--text-med);
     font-weight: var(--weight-bold);
 }
-.job-post .details .detail-value{ }
 
 @media screen and (min-width: 1300px) {
     .job-post .post-text .subhead-container{
         display: none;
     }
-    /* body.job-post { */
-        /* background: #ffffff;
-        background-color: #ffffff; */
-    /* } */
     .job-post .sticky-container{
         width: 100%;
         max-width: 7.36em; /* 226px */
-        /* background: #ff000081; */
         display: block;
         position: sticky;
         top: 8.5em;
@@ -185,13 +179,10 @@
 }
 
 /* ---------- START Post Body/Text Section: ---------- */
-
-
 .post-text{
     overflow-y: auto;
     /* background-color: #ffffff; */
 }
-
 .job-post .post-text{
     max-width: 31.25em; /* 250px */
     padding: 0 2.5em 2.5em 2.5em; /* 40px */
@@ -287,6 +278,7 @@
 .job-post footer{
     font-size: 16px;
 }
+
 @media screen and (max-width: 1300px) {
     .job-post .post-text p,
     .job-post .post-text li {
@@ -300,9 +292,6 @@
         line-height: 1.285em; /* 21px */
         margin-block: 0px;
     }
-    /* dist bet label -> value: 14px
-    dist bet value -> label: 27px */
-
     .job-post .post-text p:last-of-type,
     .job-post .post-text li:last-of-type {
         margin-bottom: 3.5em;

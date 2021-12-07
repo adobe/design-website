@@ -2,107 +2,31 @@
 header#global-header {
   font-size: clamp(12px, 1.6vw, 16px);
   display:flex;
-  /* padding: 20px 0px; */
   box-sizing: border-box;
   height: 5.2em; /* 93px; */
+  width: 100%;
 }
-
-#global-header > div > div > a {
-  display: -webkit-inline-box;
-}
-
-/* iPhone / X-Small Screens */
-@media screen and (max-width: 700px) {
-  header#global-header{
-    width: 100%;
-    padding: unset;
-    height: 92px;
-  }
-  #global-header .logo{
-    height: 44px;
-    padding: 33px 15px;
-    align-self: center;
-    align-items: center;
-  }
-  #global-header .logo a,
-  #global-header .logo picture,
-  #global-header .logo source,
-  #global-header .logo img{
-    height: 26px;
-    width: 30px;
-    width: auto;
-    padding: 2px 0px;
-    align-self: center;
-    align-items: center;
-  }
-}
-/* iPad / Small Screens */
-@media screen and (min-width: 700px) {
-  header#global-header{
-    width: 100%;
-    padding: 0px 10px;
-  }
-  #global-header .logo img{
-    height: 44px;
-    padding: 24px 0px;
-  }
-}
-/* Desktop / Med Screens */ /* L Screens */
-@media screen and (min-width: 1000px) {
-  header#global-header{
-    width: 1000px;
-    max-width: 1000px;
-    padding-left:  10px;
-    padding-right: 10px;
-    align-items: center;
-  }
-  #global-header .logo img{
-    height: 40px;
-  }
-}
-
-/* Desktop / XXL Screens */
-/* @media screen and (min-width: 1400px) {
-  header#global-header{
-    font-size: clamp(16px, 1.6vw, 30.7);
-    width: 100%;
-    max-width: 1920px;
-    padding: 1em 138px;
-    align-items: center;
-    height: 105px;
-    margin: auto;
-  }
-  #global-header .logo img{
-    height: 1.4em;
-  }
-} */
-
 #global-header .tagline {
   font-family: var(--serif-font);
   margin-left: 5em;
   color: #FFFFFF;
   width: 18vw;
 }
-#global-header .tagline.black {
-  color: var(--text-dark);
-}
-
 #global-header nav {
-  box-sizing: border-box;
   margin-left: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-weight: var(--weight-black);
 }
-
-#global-header nav a {
+#global-header a {
   padding: 10px 17px;
   box-sizing: border-box;
   color: #FFFFFF;
   text-decoration: none;
+  display: inline-box;
+  display: -webkit-inline-box;
 }
-#global-header nav.black a {
+#global-header nav.black a,
+#global-header .tagline.black {
   color: var(--text-dark);
   font-weight: var(--weight-black);
 }
@@ -118,8 +42,7 @@ header#global-header {
   width: 36px;
 }
 #global-header .dropdown-menu-button img.close-menu{
-  height: 36px;
-  width: 36px;
+  width: 24px;
 }
 
 /* Hamburger Menu */
@@ -138,7 +61,6 @@ header#global-header {
   transition: all .2s cubic-bezier(.63,.07,.46,.99);
   z-index: 150
 }
-
 #global-header .exit-menu{
   transform: translate(2% ,-4px ) skew(-1.5deg, -1.5deg) scale(.98);
   opacity: 0;
@@ -149,13 +71,82 @@ header#global-header {
 #global-header .menu-dropdown-container a {
   padding: 15px 20px;
   box-sizing: border-box;
-  text-decoration: none;
   color: var(--text-dark);
   border-bottom: 1px solid #F3F3F3;
   width: 100%;
   text-align: right;
   font-size: 20px;
 }
+#global-header .menu-dropdown-container a:last-child {
+  border-bottom: unset;
+}
+
+/* iPhone / X-Small Screens */
+@media screen and (max-width: 700px) {
+  header#global-header{
+    padding: unset;
+    height: 92px;
+  }
+  #global-header .logo{
+    height: 44px;
+    padding: 33px 15px;
+  }
+  #global-header .logo a,
+  #global-header .logo picture,
+  #global-header .logo source,
+  #global-header .logo img{
+    height: 26px;
+    width: auto;
+    padding: 2px 0px;
+  }
+}
+
+/* iPad / Small Screens */
+@media screen and (min-width: 700px) {
+  header#global-header{
+    padding: 0px 10px;
+  }
+  #global-header .logo img{
+    height: 44px;
+    padding: 24px 0px;
+  }
+}
+
+/* Desktop / Med Screens */ /* L Screens */
+@media screen and (min-width: 1000px) and (max-width: 1920px){
+  header#global-header{
+    max-width: 1800px;
+    align-items: center;
+  }
+  #global-header .logo img{
+    height: 40px;
+  }
+}
+
+/* Desktop / XXL Screens */
+@media (min-width: 1920px){
+  header#global-header{
+    width: 1920px;
+    max-width: 1920px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+
+}
+@media screen and (min-width: 1300px) {
+
+}
+@media screen and (min-width: 1920px) {
+  .job-post header#global-header{
+    width: 104em; /*1664px*/
+    max-width: 104em; /*1664px*/
+  }
+  .job-post header#global-header nav a{
+    font-size: 20px;
+  }
+}
+
 
 /* Desktop / XXL Screens */
 /* @media screen and (min-width: 1400px) {
@@ -165,23 +156,21 @@ header#global-header {
     padding: 0.5em 1em;
   }
 } */
-
-#global-header .menu-dropdown-container a:last-child {
-  border-bottom: unset;
-}
-
-@media (max-width: 1920px) and (min-width: 1025px){
+/* Desktop / XXL Screens */
+/* @media screen and (min-width: 1400px) {
   header#global-header{
+    font-size: clamp(16px, 1.6vw, 30.7);
     width: 100%;
-    max-width: 1800px;
-  }
-}
-@media (max-width: 2560px) and (min-width: 1920px){
-  header#global-header{
-    width: 1920px;
     max-width: 1920px;
+    padding: 1em 138px;
+    align-items: center;
+    height: 105px;
+    margin: auto;
   }
-}
+  #global-header .logo img{
+    height: 1.4em;
+  }
+} */
 
 /*  If we do a drop down header like Adobe Spectrum: */
 /* #global-header nav::after,
@@ -199,3 +188,4 @@ header#global-header {
   z-index: -1;
   background-color: rgba(0, 0, 0, 0.25);
 } */
+
