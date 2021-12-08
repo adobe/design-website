@@ -16,6 +16,12 @@
     width: 100vw;
     max-width: 100vw;
 }
+.job-post .similarOpps-block h1,
+.job-post .similarOpps-block button,
+.job-post .similarOpps-block p,
+.job-post .similarOpps-block .title{
+    font-family: var(--serif-font);
+}
 
 @media screen and (max-width: 1000px) {
     .job-post div.similarOpps-block{
@@ -36,9 +42,9 @@
 }
 
 .job-post .similarOpps-block,
-.job-post .similarOpps-block .job-post .opp-block,
-.job-post .similarOpps-block div.header-.job-post c,
-.job-post .similarOpps-block .psns-contain.job-post er{
+.job-post .similarOpps-block .opp-block,
+.job-post .similarOpps-block div.header-c,
+.job-post .similarOpps-block .psns-container{
     width: 100%;
 }
 
