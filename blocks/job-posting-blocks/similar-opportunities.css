@@ -17,7 +17,7 @@
     max-width: 100vw;
 }
 .job-post .similarOpps-block h1,
-.job-post .similarOpps-block button,
+.job-post .similarOpps-block button.job,
 .job-post .similarOpps-block p,
 .job-post .similarOpps-block .title{
     font-family: var(--serif-font);
@@ -130,8 +130,8 @@
         padding: 0;
     }
 }
-
-.job-post .similarOpps-block .psns-container button.job{
+.job-post div.similarOpps-block div.psns-container > button.job,
+.similarOpps-block .psns-container button.job{
     height: clamp(144px, 4.8em, 4.8em);
      /* = 144px / 30.7 */
     /* width: 22.6em; */
