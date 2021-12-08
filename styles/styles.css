@@ -34,46 +34,46 @@ html, body{
 
 
 html{
-        /* Common Colors */
-        --text-med:       #6E6E6E;
-        --text-dark:      #3E3E3E;
-        --text-dkr:       #000C1E;
-        --bkg-navy-dark:  #0B1C40;
-        --bkg-grey-lt:    #E8E8E8;
-        --bkg-red:        #E91D25;
-        --bkg-orange:     #E94E27;
-        --lt-yellow:      #FFFE8B;
-        --bkg-green:      #4BA88E;
-        --color-navy:     #3041A0;
-        --color-blue-med: #3C5CB4;
-        --btn-prim-fil:   #1473E6;
+    /* Common Colors */
+    --text-med:       #6E6E6E;
+    --text-dark:      #3E3E3E;
+    --text-dkr:       #000C1E;
+    --bkg-navy-dark:  #0B1C40;
+    --bkg-grey-lt:    #E8E8E8;
+    --bkg-red:        #E91D25;
+    --bkg-orange:     #E94E27;
+    --lt-yellow:      #FFFE8B;
+    --bkg-green:      #4BA88E;
+    --color-navy:     #3041A0;
+    --color-blue-med: #3C5CB4;
+    --btn-prim-fil:   #1473E6;
 
-        --color-focus: var(--color-blue-med);
+    --color-focus: var(--color-blue-med);
 
 
-        /* Font Families */
-        --fast-sans-serif-font: Helvetica, Arial, sans-serif;
+    /* Font Families */
+    --fast-sans-serif-font: Helvetica, Arial, sans-serif;
 
-        --serif-font: "adobe-clean-serif", adobe-clean-serif, Georgia, serif;
-        --sans-serif-font: "adobe-clean", adobe-clean, Helvetica, Arial, sans-serif;
+    --serif-font: "adobe-clean-serif", adobe-clean-serif, Georgia, serif;
+    --sans-serif-font: "adobe-clean", adobe-clean, Helvetica, Arial, sans-serif;
 
-        /* Font Weights */
-        /*--weight-light:      200;*/  /* lighter,   100-300 */
-        --weight-light:      300;  /* lighter,   100-300 */
-        --weight-regular:    400;  /* normal,    400-500 */
-        --weight-medium:     500;  /* normal,    400-500 */
-        --weight-bold:       700;  /* semi-bold, 700-600 */
-        --weight-black:      900;  /* bolder,    800-900 */
+    /* Font Weights */
+    /*--weight-light:      200;*/  /* lighter,   100-300 */
+    --weight-light:      300;  /* lighter,   100-300 */
+    --weight-regular:    400;  /* normal,    400-500 */
+    --weight-medium:     500;  /* normal,    400-500 */
+    --weight-bold:       700;  /* semi-bold, 700-600 */
+    --weight-black:      900;  /* bolder,    800-900 */
 
-        /* Commonly used spacing */
-        --page-header-l-padding: 12.5rem;
-        --page-header-l-padding-tablet: 5rem;
-        --page-header-l-padding-mobile: 2rem;
-        --page-header-size: 4rem;
-        --page-header-margin: 7rem 0 5rem 0;
+    /* Commonly used spacing */
+    --page-header-l-padding: 12.5rem;
+    --page-header-l-padding-tablet: 5rem;
+    --page-header-l-padding-mobile: 2rem;
+    --page-header-size: 4rem;
+    --page-header-margin: 7rem 0 5rem 0;
 
-        color:       var(--color-text);
-        font-weight: var(--weight-regular);
+    color:       var(--color-text);
+    font-weight: var(--weight-regular);
 }
 
 /* The built in fonts should only appear of Adobe Clean doesn't load properly: */
@@ -327,7 +327,7 @@ html body button{
     .page-type-jobs.loaded .section-wrapper > div{
         width: 1750px;
     }
-    
+
 }
 @media only screen and (min-width: 1441px) and (max-width: 1650px){
     .page-type-article main{
@@ -428,7 +428,7 @@ html body button{
     .page-type-tools .toolkit > div > div{
         width: 1100px;
     }
-    
+
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px){
     .page-type-article main{

@@ -73,15 +73,15 @@ jsButtonElm.style("--btn-color: #000000");
 */
 button.unfilled,
 button.filled:hover{
+    background-color: unset;
     border-color: var(--btn-color);
     color: var(--btn-color);
-    background-color: unset;
 }
 
 button.filled,
 button.unfilled:hover{
-    border-color: transparent;
     background-color: var(--btn-color);
+    border-color: transparent;
     color: transparent;
     /* filter: brightness(0.9); */
 }
@@ -95,8 +95,9 @@ button.filled{
  * or darkens on hover to show interaction feedback
  */
 
-button.unfilled.dk-bkg:hover{
-    color: #000000;
+button.unfilled.dk-bkg:hover,
+button.unfilled.dark-background:hover{
+    color: var(--color-focus);
 }
 button.unfilled.lt-bkg:hover{
     color: #ffffff;
