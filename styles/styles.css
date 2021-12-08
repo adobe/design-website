@@ -102,10 +102,10 @@ html body button{
 #global-footer .footer-content,
 .page-type-tools .toolkit > div > div,
 .page-type-team .teams >div > div,
-.page-type-index .stories-index-view > div > div,
+.page-type-stories-index .stories-index-view > div > div,
 .page-type-jobs .jobs >div > div,
 .page-type-inclusive .inclusive-design > div > div,
-.page-type-index main,
+.page-type-stories-index main,
 .page-type-article main,
 .people.block,
 .article-card.block,
@@ -290,7 +290,7 @@ html body button{
     .page-type-team .teams > div > div{
         width: 2300px;
     }
-    .page-type-index main{
+    .page-type-stories-index main{
         width: 2300px;
     }
     .page-type-tools .toolkit > div > div{
@@ -315,7 +315,7 @@ html body button{
     .page-type-team .teams > div > div{
         width: 1650px;
     }
-    .page-type-index main{
+    .page-type-stories-index main{
         width: 1800px;
     }
     .page-type-tools .toolkit > div > div{
@@ -347,7 +347,7 @@ html body button{
     .page-type-team .teams > div > div{
         width: 1470px;
     }
-    .page-type-index main{
+    .page-type-stories-index main{
         width: 1540px;
     }
     .page-type-tools .toolkit > div > div{
@@ -381,7 +381,7 @@ html body button{
     .page-type-team .teams > div > div{
         width: 1280px;
     }
-    .page-type-index main{
+    .page-type-stories-index main{
         width: 1300px;
     }
     .page-type-tools .toolkit > div > div{
@@ -422,7 +422,7 @@ html body button{
     .page-type-team .teams > div > div{
         width: 1100px;
     }
-    .page-type-index main{
+    .page-type-stories-index main{
         width: 1100px;
     }
     .page-type-tools .toolkit > div > div{

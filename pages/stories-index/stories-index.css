@@ -1,23 +1,23 @@
-.page-type-index .header {
+.page-type-stories-index .header {
     margin: var(--page-header-margin);
     padding-left: var(--page-header-l-padding);
 }
 
-.page-type-index .header h1 {
+.page-type-stories-index h1 {
     color: white;
     font-weight: var(--weight-black);
     font-size: var(--page-header-size);
-    padding: .5em 0 1.5em 0;
+    padding: 2em 0 2em 0;
+    padding-left: var(--page-header-l-padding);
 }
 
-.page-type-index .stories {
+.page-type-stories-index .stories {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    row-gap: 5px;
+    row-gap: 10px;
     box-sizing: border-box;
 }
-
 
 .block.story {
     background: white;
@@ -99,13 +99,13 @@
     text-decoration: none;
 }
 
-.page-type-index .content .load-more-stories{
+.page-type-stories-index .content .load-more-stories{
     margin: 5px auto 2em;
     padding: 2em;
     text-align: center;
     color: #252525;
 }
-.page-type-index .content .load-more-stories span {
+.page-type-stories-index .content .load-more-stories span {
     font-size: 1em;
     font-weight: 800;
     border: 2px solid black;
@@ -113,14 +113,14 @@
     padding: 0.75em 1.5em;
 }
 
-.page-type-index .think-differently.block{
+.page-type-stories-index .think-differently.block{
     margin-top: 1em;
 }
 
 
 
 @media (max-width: 2560px) and (min-width: 1921px){
-    .page-type-index .header h1{
+    .page-type-stories-index .header h1{
         font-size: 8em;
     }
     .stories .story-text > *{
@@ -135,7 +135,7 @@
     .stories .story-text > .author, .stories .story-text > .position{
         font-size: 1em;
     }
-    .page-type-index .content .load-more-stories span{
+    .page-type-stories-index .content .load-more-stories span{
         font-size: 1.5em
     }
     .think-differently.block{
@@ -154,7 +154,7 @@
 }
 
 @media (max-width: 1920px) and (min-width: 1651px){
-    .page-type-index .header h1{
+    .page-type-stories-index .header h1{
         font-size: 6em;
     }
     .stories .story-text > *{
@@ -169,7 +169,7 @@
     .stories .story-text > .author, .stories .story-text > .position{
         font-size: .9em;
     }
-    .page-type-index .content .load-more-stories span{
+    .page-type-stories-index .content .load-more-stories span{
         font-size: 1em
     }
     .think-differently.block{
@@ -188,7 +188,7 @@
 }
 
 @media (max-width: 1650px) and (min-width: 1441px){
-    .page-type-index .header h1{
+    .page-type-stories-index .header h1{
         font-size: 5em;
     }
     .stories .story-text > *{
@@ -203,7 +203,7 @@
     .stories .story-text > .author, .stories .story-text > .position{
         font-size: .9em;
     }
-    .page-type-index .content .load-more-stories span{
+    .page-type-stories-index .content .load-more-stories span{
         font-size: 1em
     }
     .think-differently.block{
@@ -222,7 +222,7 @@
 }
 
 @media (max-width: 1440px) and (min-width: 1281px){
-    .page-type-index .header h1{
+    .page-type-stories-index .header h1{
         font-size: 4.5em;
     }
     .stories .story-text > *{
@@ -237,7 +237,7 @@
     .stories .story-text > .author, .stories .story-text > .position{
         font-size: .9em;
     }
-    .page-type-index .content .load-more-stories span{
+    .page-type-stories-index .content .load-more-stories span{
         font-size: 1em
     }
     .think-differently.block{
@@ -256,7 +256,7 @@
 }
 
 @media (max-width: 1280px) and (min-width: 1025px){
-    .page-type-index .header h1{
+    .page-type-stories-index .header h1{
         font-size: 4.2em;
     }
     .stories .story-text > *{
@@ -271,7 +271,7 @@
     .stories .story-text > .author, .stories .story-text > .position{
         font-size: .9em;
     }
-    .page-type-index .content .load-more-stories span{
+    .page-type-stories-index .content .load-more-stories span{
         font-size: 1em
     }
     .think-differently.block{
@@ -290,24 +290,24 @@
 }
 
 @media screen and (max-width: 1024px){
-    .page-type-index .header{
+    .page-type-stories-index .header{
         padding-left: var(--page-header-l-padding-tablet);
     }
 }
 
 @media screen and (max-width: 700px){
-    .page-type-index .header{
+    .page-type-stories-index .header{
         margin: 6rem 0 4rem 0;
         padding-left: var(--page-header-l-padding-mobile);
         width: 80%;
     }
 
-    .page-type-index .header h1{
+    .page-type-stories-index .header h1{
         margin-block: unset;
         font-size: 3em;
     }
 
-    .page-type-index .stories {
+    .page-type-stories-index .stories {
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;

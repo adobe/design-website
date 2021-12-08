@@ -50,7 +50,8 @@ export default async function decorator($main) {
 
   if (storyCount >= stories.length) $loadMoreButton.remove();
   $loadMoreButton.addEventListener('click', () => {
-    appendStories(stories, 20);
-    if (storyCount >= stories.length)$loadMoreButton.remove();
+    console.log('load was clicked');
+    appendStories();
+    if (storyCount >= stories.length) $loadMoreButton.remove();
   });
 }
