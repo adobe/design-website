@@ -27,13 +27,14 @@
         font-size: 30.7px;
     }
 }
-
+.job-post main {
+    background-color: #ffffff;
+}
 .job-post .section-wrapper.post-container{
     display: grid;
     grid-template-rows: 100%;
     position: relative;
     overflow: hidden;
-    background-color: #ffffff;
 }
 
 /* START Buttons */
@@ -323,3 +324,7 @@
         margin-block: 1.5em 1.5em;
     }
 }
+
+/* .job-post .section-wrapper.post-container {
+    display: none;
+} */

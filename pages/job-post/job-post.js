@@ -19,8 +19,6 @@ export default async function decorate() {
   /* Add classes and ids to container elements */
   const bodyJobPost = document.querySelector('body');
   bodyJobPost.classList.add('job-post');
-  // document.querySelector('#global-header').classList.add('split');
-  // document.querySelector('div#global-background').remove();
   const postContainer = document.querySelector('main > div.section-wrapper');
   postContainer.classList.add('post-container');
   const postText = document.querySelector('.post-container > div');
@@ -36,10 +34,6 @@ export default async function decorate() {
 
   // function buttonFunction() { return window.open(jobURL, '_blank'); }
   const buttonFunction = () => window.open(jobURL, '_blank');
-  // {
-  // eslint-disable-next-line no-console
-  // console.log(' Clicked Apply Now Button');
-  // };
   const $buttonApplyNow = addButton('Apply Now', buttonFunction, 'filled lt-bkg', btnBlue);
   // postBody.append($buttonApplyNow);
   // -- START Job Position details subheader --//

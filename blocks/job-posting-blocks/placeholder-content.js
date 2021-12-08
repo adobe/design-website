@@ -16,7 +16,7 @@ const placeholderContent = () => [
   {
     title: 'Tester III',
     product: 'Acrobat',
-    posType: 'Internship',
+    posType: 'Contractor',
     department: 'Testing',
     city: 'Seattle',
   },
@@ -37,7 +37,7 @@ const placeholderContent = () => [
   {
     title: 'Mid Tester',
     product: 'Acrobat',
-    posType: 'Apprenticeship',
+    posType: 'Internship',
     department: 'Testing',
     city: 'San Fransisco',
   },
