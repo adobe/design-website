@@ -18,27 +18,27 @@
 }
 
 @media screen and (max-width: 1000px) {
-    div.similarOpps-block{
+    .job-post div.similarOpps-block{
         font-size: 16px
     }
 }
 
 @media screen and (min-width: 1001px){
-    div.similarOpps-block{
+    .job-post div.similarOpps-block{
         font-size: 1.6vw;
     }
 }
 
 @media screen and (min-width: 1921px) {
-    div.similarOpps-block{
+    .job-post div.similarOpps-block{
         font-size: 30.7px
     }
 }
 
-.similarOpps-block,
-.similarOpps-block .opp-block,
-.similarOpps-block div.header-c,
-.similarOpps-block .psns-container{
+.job-post .similarOpps-block,
+.job-post .similarOpps-block .job-post .opp-block,
+.job-post .similarOpps-block div.header-.job-post c,
+.job-post .similarOpps-block .psns-contain.job-post er{
     width: 100%;
 }
 
@@ -51,25 +51,25 @@
 }
 
 
-.similarOpps-block .opp-block{
+.job-post .similarOpps-block .opp-block{
     width: 100vw;
     max-width: 62.5em;
 }
 @media screen and (max-width: 1300px){
-    .similarOpps-block .opp-block{
+    .job-post .similarOpps-block .opp-block{
         padding-left: 4.31em;
         padding-right: 4.31em;
     }
 }
 @media screen and (min-width: 1300px){
-    .similarOpps-block .opp-block{
+    .job-post .similarOpps-block .opp-block{
         padding-left: 8.34em;
         padding-right: 8.34em;
     }
 }
 
 
-.similarOpps-block div.header-c > p.title{
+.job-post .similarOpps-block div.header-c > p.title{
     margin-block: unset;
     /* height: fit-content; */
     font-family: var(--serif-font);
@@ -77,22 +77,23 @@
     line-height: 1em;   /* 50px */
 }
 
-.similarOpps-block .psns-container{
+.job-post .similarOpps-block .psns-container{
     display: grid;
     grid-auto-flow: row dense;
     /* grid-template-rows: repeat(auto, minmax(4.69em, 12em)); */
     grid-template-rows: auto;
     margin: auto;
     width: 100%;
+    padding-top: 5.41em; /* 165px    */
 }
 
 @media screen and (max-width: 550px) {
-    .similarOpps-block .psns-container{
+    .job-post .similarOpps-block .psns-container{
         grid-template-columns: 1fr;
     }
 }
 @media screen and (min-width: 550px) {
-    .similarOpps-block .psns-container{
+    .job-post .similarOpps-block .psns-container{
         /* grid-template-columns: repeat(2, calc(50% - 4em)); */
         grid-template-columns: repeat(2, 1fr);
         gap: 80px clamp(2em, 12vw, 8em);
@@ -100,19 +101,19 @@
 }
 
 @media screen and (max-width: 1000px) {
-    .similarOpps-block .opp-block{
+    .job-post .similarOpps-block .opp-block{
         padding-top: 4.8em; /* 77px */
         padding-bottom: 6.75em; /* 108px */
     }
-    .similarOpps-block div.header-c,
-    .similarOpps-block .psns-container{
+    .job-post .similarOpps-block div.header-c,
+    .job-post .similarOpps-block .psns-container{
         place-items: center;
         margin: auto;
     }
 }
 
 @media screen and (min-width: 1001px) {
-    .similarOpps-block .opp-block{
+    .job-post .similarOpps-block .opp-block{
         /* padding: 5.86em 3.74em 7.25em 3.74em; */
         /* 80px 118px 222px 118px; */
         padding-top: 5.86em;
@@ -122,12 +123,9 @@
     .job-post .psns-container{
         padding: 0;
     }
-    .job-post .psns-container{
-        padding-top: 5.41em; /* 165px    */
-    }
 }
 
-.similarOpps-block .psns-container button.job{
+.job-post .similarOpps-block .psns-container button.job{
     height: clamp(144px, 4.8em, 4.8em);
      /* = 144px / 30.7 */
     /* width: 22.6em; */
@@ -141,7 +139,7 @@
     outline-offset: 3px;
 }
 
-.similarOpps-block .psns-container button.job::after{
+.job-post .similarOpps-block .psns-container button.job::after{
     height: 2px;
     width: calc(100% + 8px);
     position: absolute;
@@ -155,42 +153,42 @@
     transition: all .5s ease;
 }
 
-.similarOpps-block .psns-container button.job:active,
-.similarOpps-block .psns-container button.job:focus{
+.job-post .similarOpps-block .psns-container button.job:active,
+.job-post .similarOpps-block .psns-container button.job:focus{
     outline-style: auto;
     transition: all .5s ease;
 }
 
-.similarOpps-block .psns-container button.job:hover:after,
-.similarOpps-block .psns-container button.job:active:after,
-.similarOpps-block .psns-container button.job:focus:after{
+.job-post .similarOpps-block .psns-container button.job:hover:after,
+.job-post .similarOpps-block .psns-container button.job:active:after.job-post ,
+.job-post .similarOpps-block .psns-container button.job:focus:after{
     /* opacity: 1; */
     background-color: #fff;
 }
 
-.similarOpps-block .job .department,
-.similarOpps-block .job .product,
-.similarOpps-block .job .city,
-.similarOpps-block .job .title,
-.similarOpps-block .job .sub-title{
+.job-post .similarOpps-block .job .department,
+.job-post .similarOpps-block .job .product,.job-post
+.job-post .similarOpps-block .job .city,.job-post
+.job-post .similarOpps-block .job .title.job-post ,
+.job-post .similarOpps-block .job .sub-ti.job-post tle{
     grid-column: span 1;
     grid-row: span 1;
     align-items: end;
     margin-block: 0px;
 }
 
-.similarOpps-block .job .title{
+.job-post .similarOpps-block .job .title{
     font-size: clamp(20px, 3.2vw, 30px);
     margin-bottom: 1em;
 }
 
-.similarOpps-block .job .sub-title,
-.similarOpps-block .job .department,
-.similarOpps-block .job .product,
-.similarOpps-block .job .city{
+.job-post .similarOpps-block .job .sub-title,
+.job-post .similarOpps-block .job .department.job-post ,
+.job-post .similarOpps-block .job .product,.job-post
+.job-post .similarOpps-block .job .city{
     font-size: clamp(16px, 1.6vw, 18px);
     line-height: 1.33em;
 }
-.similarOpps-block .job p + p{
+.job-post similarOpps-block .job p + p{
     margin-top: 0.33em;
 }
