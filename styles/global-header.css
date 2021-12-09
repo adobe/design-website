@@ -3,25 +3,27 @@ header#global-header {
   font-size: clamp(12px, 1.6vw, 16px);
   display:flex;
   box-sizing: border-box;
-  height: 5.2em; /* 93px; */
+  height: 7.5em; /* 90px; */
   width: 100%;
 }
-#global-header .tagline {
+/* #global-header .tagline {
   font-family: var(--serif-font);
   margin-left: 5em;
   color: #FFFFFF;
   width: 18vw;
-}
+} */
 #global-header nav {
   margin-left: auto;
   display: flex;
   align-items: center;
 }
 #global-header a {
+  text-decoration: none;
+}
+#global-header nav a {
   padding: 10px 17px;
   box-sizing: border-box;
   color: #FFFFFF;
-  text-decoration: none;
   display: inline-box;
   display: -webkit-inline-box;
 }
@@ -33,25 +35,88 @@ header#global-header {
 
 /* Hamburger Menu Button */
 #global-header .dropdown-menu-button{
-  height: 48px;
-  width: 69px;
-  padding: 8px 14px 10px 14px;
+  height: 56px;
+  width: 55px;
+  padding: 10px 5px 10px 5px;
+  border-radius: 6px;
+  margin-right: 8px;
+  /* border: black dotted; */
 }
 #global-header .dropdown-menu-button img{
-  height: 24px;
-  width: 36px;
+  height: 23px;
+  width:  35px;
 }
 #global-header .dropdown-menu-button img.close-menu{
-  width: 24px;
+  width: 23px;
 }
+
+/* iPhone / X-Small Screens */
+@media screen and (max-width: 700px) {
+  header#global-header{
+    padding: unset;
+    height: 90px;
+  }
+  #global-header .logo{
+    height: 90px;
+    padding: 32px 15px;
+    box-sizing: border-box;
+  }
+  #global-header .logo a,
+  #global-header .logo picture,
+  #global-header .logo source,
+  #global-header .logo img{
+    height: 26px;
+    width: auto;
+  }
+}
+
+/* iPad / Small Screens */
+@media screen and (min-width: 700px) {
+  header#global-header{
+    padding: 0px 10px;
+    height: 5em;
+  }
+  #global-header .logo img{
+    height: 32px;
+    padding: 24px 0px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  header#global-header{
+    max-width: 120em;     /* 1920px*/
+    width:     120em;     /* 1920px*/
+    height: 6.625em; /*105px*/
+    padding: 1.8125em 8.625em 1.8125em 6.5em;  /* 29px 138 29 104   ~121px*/
+  }
+  header#global-header div,
+  header#global-header .logo,
+  header#global-header .logo img,
+  header#global-header img,
+  header#global-header source,
+  header#global-header > div > div > a{
+    padding: unset;
+    height: 2.94em; /*47px*/
+  }
+  header#global-header nav a{
+    font-size: 20px;
+    font-weight: var(--weight-black);
+    padding: 1.5em; /* 30px */
+  }
+  header#global-header nav a:last-of-type{
+    padding-right: 1.75em; /* 35px */
+  }
+}
+
+
 
 /* Hamburger Menu */
 #global-header .menu-dropdown-container{
   position: absolute;
-  top: 88px;
-  right: 15px;
-  width: 215px;
-  padding: 8px 20px;
+  top: 86px;
+  right: 0px;
+  width: 200px;
+  padding: 0px;
   background: #FAFAFA;
   box-sizing: border-box;
   display: flex;
@@ -59,7 +124,9 @@ header#global-header {
   align-items: flex-end;
   opacity: 1;
   transition: all .2s cubic-bezier(.63,.07,.46,.99);
-  z-index: 150
+  z-index: 150;
+  border-radius: 4px;
+  overflow: hidden;
 }
 #global-header .exit-menu{
   transform: translate(2% ,-4px ) skew(-1.5deg, -1.5deg) scale(.98);
@@ -77,100 +144,17 @@ header#global-header {
   text-align: right;
   font-size: 20px;
 }
+
+#global-header .menu-dropdown-container a:active,
+#global-header .menu-dropdown-container a:focus {
+  background-color: var(--bkg-grey-lt);
+}
+
 #global-header .menu-dropdown-container a:last-child {
   border-bottom: unset;
 }
 
-/* iPhone / X-Small Screens */
-@media screen and (max-width: 700px) {
-  header#global-header{
-    padding: unset;
-    height: 92px;
-  }
-  #global-header .logo{
-    height: 44px;
-    padding: 33px 15px;
-  }
-  #global-header .logo a,
-  #global-header .logo picture,
-  #global-header .logo source,
-  #global-header .logo img{
-    height: 26px;
-    width: auto;
-    padding: 2px 0px;
-  }
-}
 
-/* iPad / Small Screens */
-@media screen and (min-width: 700px) {
-  header#global-header{
-    padding: 0px 10px;
-  }
-  #global-header .logo img{
-    height: 44px;
-    padding: 24px 0px;
-  }
-}
-
-/* Desktop / Med Screens */ /* L Screens */
-@media screen and (min-width: 1000px) and (max-width: 1920px){
-  header#global-header{
-    max-width: 1800px;
-    align-items: center;
-  }
-  #global-header .logo img{
-    height: 40px;
-  }
-}
-
-/* Desktop / XXL Screens */
-@media (min-width: 1920px){
-  header#global-header{
-    width: 1920px;
-    max-width: 1920px;
-  }
-}
-
-@media screen and (max-width: 1300px) {
-
-}
-@media screen and (min-width: 1300px) {
-
-}
-@media screen and (min-width: 1920px) {
-  .job-post header#global-header{
-    width: 104em; /*1664px*/
-    max-width: 104em; /*1664px*/
-  }
-  .job-post header#global-header nav a{
-    font-size: 20px;
-  }
-}
-
-
-/* Desktop / XXL Screens */
-/* @media screen and (min-width: 1400px) {
-  #global-header nav a {
-    //padding: 0.65em 1.11em;  15px 20px
-    font-size: 20px;
-    padding: 0.5em 1em;
-  }
-} */
-/* Desktop / XXL Screens */
-/* @media screen and (min-width: 1400px) {
-  header#global-header{
-    font-size: clamp(16px, 1.6vw, 30.7);
-    width: 100%;
-    max-width: 1920px;
-    padding: 1em 138px;
-    align-items: center;
-    height: 105px;
-    margin: auto;
-  }
-  #global-header .logo img{
-    height: 1.4em;
-  }
-} */
 
 /*  If we do a drop down header like Adobe Spectrum: */
 /* #global-header nav::after,
