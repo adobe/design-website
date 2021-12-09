@@ -378,6 +378,9 @@ html body button{
     .people.block .person .name{
         font-size: 2em;
     }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 1280px;
+    }
     #global-footer .footer-content{
         width: 1280px;
     }
