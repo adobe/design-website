@@ -309,6 +309,9 @@ html body button{
         width: 103em;
         max-width:100%;
     }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 1750px;
+    }
     #global-footer .footer-content{
         width: 103em;
     }

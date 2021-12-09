@@ -44,14 +44,14 @@ body > main > div > div > p {
 .inclusive-design .statement h2{
     margin: 0;
     margin-top: 5em;
-    font-size: 1.7em;
+    font-size: 2em;
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
 }
 
 .inclusive-design .statement p{
     color: white;
-    font-size: 5.7em;
+    font-size: 6.5em;
     font-family: var(--serif-font);
     font-weight: var(--weight-regular);
 }
@@ -63,7 +63,7 @@ body > main > div > div > p{
 #wed-like-to-share-what-weve-learned-with-you{
     background: white;
     color: red;
-    font-size: 6.6em;
+    font-size: 7em;
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
     padding: 2em 4em 2.5em 2em;
@@ -78,7 +78,7 @@ body > main > div > div > p{
 .inclusive-design .statementTwo{
     background: #F7EFFC;
     color: #3E3E3E;
-    padding: 0 16em 5em 8em;
+    padding: 0 24em 5em 13em;
     line-height: 1.3;
     width: auto;
     margin: 0;
@@ -149,8 +149,8 @@ body > main > div > div > div:nth-child(10) > div:nth-child(2) > div:nth-child(4
 /* Fact about Person */
 .people > .person > div:nth-child(4) {
     color: #917496;
-    padding: 1.5em 0 8em 0em;
-    font-size: 1em;
+    padding: 1.5em 12em 8em 0em;
+    font-size: 1.2em;
 }
 
 .inclusive-design .people.block img{
@@ -170,7 +170,7 @@ body > main > div > div > div:nth-child(17) > div:nth-child(2) > div:nth-child(1
 .inclusive-design .statementThree{
     background: #F7EFFC;
     color: #3E3E3E;
-    padding: 2em 12em 5em 7em;
+    padding: 2em 14em 5em 14em;
     line-height: 1.2;
     width: auto;
 }
@@ -197,7 +197,7 @@ body > main > div > div > div:nth-child(10){
     width: auto;
 }
 
-@media (max-width: 2560px) and (min-width: 1920px){
+@media (max-width: 2560px) and (min-width: 1921px){
     .inclusive-design h1{
         font-size: 7em;
         padding: 2em;

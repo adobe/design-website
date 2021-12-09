@@ -534,6 +534,12 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .additional-reading.block ul{
         font-size: 1.3em;
     }
+    .page-type-article .author-bio{
+        padding: 6em 6em 14em 4em;
+    }
+    .page-type-article .author-info p{
+        font-size: 1.2em;
+    }
     .page-type-article .similar-stories-content{
         max-width: 1920px;
     }
