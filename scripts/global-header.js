@@ -3,7 +3,7 @@ export default function decorate(win = window) {
 // console.log(win.document.location.pathname)
   const blackHeaderPages = ['/jobs/', '/stories/process/whiteboard-101', '/stories/process/designing-for-creative-systems'];
   const useBlackHeader = blackHeaderPages.some((i) => win.document.location.pathname.includes(i)) || win.document.location.pathname.includes('/jobs/');
-  const headerImage = useBlackHeader ? '/resources/adobe-black-tag.png' : '/resources/adobe-white-header.svg';
+  const headerImage = useBlackHeader ? '/resources/adobe-black-tag-new.svg' : '/resources/adobe-white-tag-new.svg';
   const headerImageMobile = useBlackHeader ? '/resources/adobe-design.png' : './media_1d3601e007f7c9b5cb83303a390ca0e7fec040eef.png';
   const hamburgerMenu = useBlackHeader ? '/resources/black-hamburger.png' : '/resources/white-hamburger.png';
   const closeIcon = useBlackHeader ? '/resources/close-icon.png' : '/resources/close-icon-white.png';

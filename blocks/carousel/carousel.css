@@ -30,6 +30,10 @@
         font-size: 18px;
     }
 }
+.page-type-home .dek {
+    font-size: 1.5em;
+    font-weight: var(--weight-light);
+}
 
 .carousel {
     overflow: hidden;
@@ -83,7 +87,7 @@
 
 /* All text on right hand side: */
 .carousel__item--visible .number h2,
-.carousel__item--visible .number h3.dek-3,
+.carousel__item--visible .number h3.dek,
 .carousel__item--visible .number p{
     color: #fff;
 }
@@ -92,7 +96,7 @@
 .carousel__item--visible p:first-child,
 .carousel__item--visible .number p.tag-link {
     height: 1.9em; /*57px;*/
-    font-size: 0.67em; /*20px;*/
+    font-size: 0.75em; /*20px;*/
 
     text-decoration: none;
     display: inline;
@@ -343,6 +347,18 @@
 }
 
 @media (max-width: 2560px) and (min-width: 1920px){
+    .carousel .carousel__actions {
+        top: 55%;
+    }
+
+    .carousel__item--visible .number h3.dek {
+        margin-bottom: 1.5em;
+    }
+
+    .carousel__item--visible p:first-child, .carousel__item--visible .number p.tag-link {
+        font-size: 1em;
+    }
+
     body > main > div > div > div.carousel.block.full-bleed{
         height: 100%;
         width: 1920px;
@@ -365,7 +381,7 @@
         padding-top: 2em;
     }
     .carousel .carousel__item--visible a.carousel-link .number h2{
-        font-size: 6em;
+        font-size: 5em;
         margin-bottom: .5em;
     }
     .carousel .carousel__item--visible a.carousel-link .number h3.dek-3{
@@ -374,7 +390,7 @@
     }
 }
 @media (max-width: 1920px) and (min-width: 1025px){
-    body > main > div > div > div.carousel.block.full-bleed{
+    .carousel.block.full-bleed{
         height: 42em;
         width: 1280px;
         /* padding-top: 8em; */
@@ -396,12 +412,27 @@
         padding-top: 2em;
     }
     .carousel .carousel__item--visible a.carousel-link .number h2{
-        font-size: 4em;
+        font-size: 3.5em;
         margin-bottom: .5em;
     }
     .carousel .carousel__item--visible a.carousel-link .number h3.dek-3{
         font-size: 1em;
         margin: 2em 0;
+    }
+}
+@media (max-width: 1920px) and (min-width: 1650px){
+    .carousel__item--visible .number {
+        width: 75%;
+    }
+    .carousel .carousel__item--visible a.carousel-link {
+        padding-left: 7em;
+    }
+    body > main > div > div > div.carousel.block.full-bleed {
+        width: 1567px;
+    }
+    .carousel .carousel__item--visible a.carousel-link {
+        max-width: 95%;
+        width: 95%;
     }
 }
 @media (max-width: 1650px) and (min-width: 1441px){

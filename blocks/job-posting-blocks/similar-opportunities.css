@@ -1,177 +1,200 @@
 /*
  *  Similar Opportunities block should work on any screen:
  *  368 - inf px  wide
- *
  *  1000 -> 16 ||  1.6vw  | 62.5 x 16 = 1000
  *  1920 -> 30.72px -> 1rem
+
+    (xs-s) phones:    <  900
+    (m)tablets:   900 - 1300
+    (l-xxl)      1300 - 1920+
 */
 
+.job-post .similarOpps-block{
+    background-color: var(--bkg-navy-dark);
+    font-family: var(--serif-font);
+    color: white;
+    width: 100vw;
+    max-width: 100vw;
+}
+.job-post .similarOpps-block h1,
+.job-post .similarOpps-block button.job,
+.job-post .similarOpps-block p,
+.job-post .similarOpps-block .title{
+    font-family: var(--serif-font);
+}
+
 @media screen and (max-width: 1000px) {
-    div.similarOpps-block{ font-size: 14px}
-    div.similarOpps-block .opp-block{
-        max-width: 1000px;
+    .job-post div.similarOpps-block{
+        font-size: 16px
     }
 }
 
 @media screen and (min-width: 1001px){
-    div.similarOpps-block{
-        font-size: 16px;
+    .job-post div.similarOpps-block{
         font-size: 1.6vw;
-    }
-    div.similarOpps-block .opp-block{
-        max-width: 1920px;
     }
 }
 
 @media screen and (min-width: 1921px) {
-    div.similarOpps-block{ font-size: 30.7px}
-    /* div.similarOpps-block .opp-block{} */
-}
-
-.similarOpps-block,
-.similarOpps-block .opp-block,
-.similarOpps-block div.header-c,
-.similarOpps-block div.header-c p.title,
-/* Subheader, if 1em = 30.7 */
-.similarOpps-block .subhead-a,
-.similarOpps-block .psns-container{
-    width: 100%;
-}
-
-.similarOpps-block{
-    background-color: var(--bkg-navy-dark);
-    color: white;
-    width: 100vw;
-    font-family: var(--serif-font);
-}
-
-.similarOpps-block .opp-block{
-    /* max-width: 1000px; */
-    margin: auto;
-    padding: 5.2em 0em 7.7em 0em;/* 160px 132px 237px 132px; */
-    box-sizing: border-box;
-}
-
-@media screen and (min-width: 1000px) {
-    .similarOpps-block .opp-block{
-        padding: 5.2em 4.3em 7.7em 4.3em;/* 160px 132px 237px 132px; */
+    .job-post div.similarOpps-block{
+        font-size: 30.7px
     }
 }
 
-.similarOpps-block div.header-c p.title,
-.similarOpps-block div.header-c .subhead-a{
-    margin-block: unset;
-    height: fit-content;
-    font-family: var(--serif-font);
-    font-size: 1.6em;   /* 50px */
-    line-height: 1.4em; /* 70px */
-    height: 3em;
+.job-post .similarOpps-block,
+.job-post .similarOpps-block .opp-block,
+.job-post .similarOpps-block div.header-c,
+.job-post .similarOpps-block .psns-container{
+    width: 100%;
 }
 
-/* .similarOpps-block .psns-container{
-    display: grid;
-    gap: 0 6em;
-    grid-template-columns: repeat(2, 24em);
-    grid-template-rows: repeat(auto-fill, 4.69em);
-    grid-auto-flow: row dense;
-} */
-
-.similarOpps-block .psns-container{
-    display: grid;
-    grid-auto-flow: row dense;
-    grid-template-rows: repeat(auto-fill, 4.69em);
+.job-post .similarOpps-block .opp-container,
+.job-post .similarOpps-block .opp-block,
+.job-post .similarOpps-block .psns-container,
+.job-post .similarOpps-block .job{
+    box-sizing: border-box;
     margin: auto;
+}
+
+
+.job-post .similarOpps-block .opp-block{
+    width: 100vw;
+    max-width: 62.5em;
+}
+@media screen and (max-width: 1300px){
+    .job-post .similarOpps-block .opp-block{
+        padding-left: 4.31em;
+        padding-right: 4.31em;
+    }
+}
+@media screen and (min-width: 1300px){
+    .job-post .similarOpps-block .opp-block{
+        padding-left: 8.34em;
+        padding-right: 8.34em;
+    }
+}
+
+
+.job-post .similarOpps-block div.header-c > p.title{
+    margin-block: unset;
+    /* height: fit-content; */
+    font-family: var(--serif-font);
+    font-size: clamp(40px, 2.5em, 50px);   /* 50px */
+    line-height: 1em;   /* 50px */
+}
+
+.job-post .similarOpps-block .psns-container{
+    display: grid;
+    grid-auto-flow: row dense;
+    /* grid-template-rows: repeat(auto, minmax(4.69em, 12em)); */
+    grid-template-rows: auto;
+    margin: auto;
+    width: 100%;
+    padding-top: 5.41em; /* 165px    */
+}
+
+@media screen and (max-width: 550px) {
+    .job-post .similarOpps-block .psns-container{
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (min-width: 550px) {
+    .job-post .similarOpps-block .psns-container{
+        /* grid-template-columns: repeat(2, calc(50% - 4em)); */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 80px clamp(2em, 12vw, 8em);
+    }
 }
 
 @media screen and (max-width: 1000px) {
-    .similarOpps-block div.header-c,
-    .similarOpps-block .psns-container{
-        gap: 0em;
-        grid-template-columns: 1fr;
+    .job-post .similarOpps-block .opp-block{
+        padding-top: 4.8em; /* 77px */
+        padding-bottom: 6.75em; /* 108px */
+    }
+    .job-post .similarOpps-block div.header-c,
+    .job-post .similarOpps-block .psns-container{
         place-items: center;
-        width: fit-content;
         margin: auto;
     }
 }
+
 @media screen and (min-width: 1001px) {
-    .similarOpps-block .psns-container{
-        gap: 0 6em; /* = 245px/30.7 */
-        /* grid-template-columns: repeat(2, 1fr); */
-        grid-template-columns: repeat(2, 24em);
+    .job-post .similarOpps-block .opp-block{
+        /* padding: 5.86em 3.74em 7.25em 3.74em; */
+        /* 80px 118px 222px 118px; */
+        padding-top: 5.86em;
+        padding-bottom: 7.25em;
+    }
+    .job-post .header-c,
+    .job-post .psns-container{
+        padding: 0;
     }
 }
-
-
-
-.similarOpps-block .psns-container div.job{
-    /* border-bottom: 3px solid #ffffff; */
-    height: 4.8em; /* = 144px / 30.7 */
-    width: 22.6em;
-    grid-column: span 1;
-    grid-row: span 1;
-    display: grid;
-    gap: 1.1em 0;
-    grid-template-rows: 0.98em 0.5em; /* 30px, 15px*/
-    grid-template-columns: 16em 7em; /* 490px, 215px*/
-    padding: 1em 0em;
-    box-sizing: border-box;
-    grid-auto-flow: column;
-    align-items: end;
-    place-content: space-evenly;
-    position: relative;
-}
-.similarOpps-block .psns-container div.job::after{
-    height: 2px;
-    width: calc(100% + 8px);
-    position: absolute;
-    top: 100%;
-    left: -4px;
-    content: '';
-    display: block;
-    background-color: #fff;
-    border-radius: 1px;
-}
-
-/* .similarOpps-block .psns-container div.job div.left,
-.similarOpps-block .psns-container div.job div.right{
+.job-post div.similarOpps-block div.psns-container > button.job,
+.similarOpps-block .psns-container button.job{
+    height: clamp(144px, 4.8em, 4.8em);
+     /* = 144px / 30.7 */
+    /* width: 22.6em; */
     width: 100%;
     grid-column: span 1;
     grid-row: span 1;
-    padding: 0px;
-    height: fit-content;
-    grid-template-rows: 1em 0.5em;
-    gap: 1em 0em;
-    display: grid; */
-    /* grid-row: span 1; */
-/* } */
+    box-sizing: border-box;
+    position: relative;
+    text-align: left;
+    transition: all .5s ease;
+    outline-offset: 3px;
+}
 
-.similarOpps-block .department,
-.similarOpps-block .city,
-.similarOpps-block .title,
-.similarOpps-block .sub-title{
+.job-post .similarOpps-block .psns-container button.job::after{
+    height: 2px;
+    width: calc(100% + 8px);
+    position: absolute;
+    bottom: -5px;
+    left: -4px;
+    content: '';
+    display: block;
+    background-color: transparent;
+    border-radius: 1px;
+    /* opacity: 0; */
+    transition: all .5s ease;
+}
+
+.job-post .similarOpps-block .psns-container button.job:active,
+.job-post .similarOpps-block .psns-container button.job:focus{
+    outline-style: auto;
+    transition: all .5s ease;
+}
+
+.job-post .similarOpps-block .psns-container button.job:hover:after,
+.job-post .similarOpps-block .psns-container button.job:active:after.job-post ,
+.job-post .similarOpps-block .psns-container button.job:focus:after{
+    /* opacity: 1; */
+    background-color: #fff;
+}
+
+.job-post .similarOpps-block .job .department,
+.job-post .similarOpps-block .job .product,.job-post
+.job-post .similarOpps-block .job .city,.job-post
+.job-post .similarOpps-block .job .title.job-post ,
+.job-post .similarOpps-block .job .sub-ti.job-post tle{
     grid-column: span 1;
     grid-row: span 1;
-    margin-block: 0px;
-    padding-block: 0px;
-    padding: 0px;
     align-items: end;
+    margin-block: 0px;
 }
 
-
-
-
-.similarOpps-block .title{
-    font-size: 1em;
+.job-post .similarOpps-block .job .title{
+    font-size: clamp(20px, 3.2vw, 30px);
+    margin-bottom: 1em;
 }
 
-.similarOpps-block .sub-title,
-.similarOpps-block .department,
-.similarOpps-block .city{
-    font-size: 0.5em;
+.job-post .similarOpps-block .job .sub-title,
+.job-post .similarOpps-block .job .department.job-post ,
+.job-post .similarOpps-block .job .product,.job-post
+.job-post .similarOpps-block .job .city{
+    font-size: clamp(16px, 1.6vw, 18px);
+    line-height: 1.33em;
 }
-
-.similarOpps-block .department,
-.similarOpps-block .city{
-    text-align: right;
+.job-post similarOpps-block .job p + p{
+    margin-top: 0.33em;
 }
-
