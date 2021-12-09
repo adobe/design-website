@@ -104,6 +104,7 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     }
     .inclusive-design .text .hed{
         font-size: 3em;
+        padding-right: 3em;
     }
     .inclusive-design .block .text .byline{
         padding-bottom: 2em;
