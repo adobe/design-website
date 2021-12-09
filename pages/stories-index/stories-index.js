@@ -1,3 +1,4 @@
+import addButton from '../../blocks/button/button.js';
 import { $element, $wrap, buildStory } from '../../scripts/helpers.js';
 // import { lookupAuthor } from '../../scripts/authors.js';
 import { fetchIndex } from '../../scripts/queries.js';
@@ -18,24 +19,23 @@ export default async function decorator($main) {
   if (!index) {
     index = await fetchIndex();
   }
-  Console.log('INDEX', index);
+
+  // Console.log('INDEX', index);
+
   const allStories = index.fullindex.data.filter((data) => data.path.split('/')[1] === 'stories');
   const locationCopy = { ...Location };
   const tagFilter = locationCopy.search ? locationCopy.search.split('=')[1] : null;
   $main.classList.add('stories-index-view');
+  const $target = $main.querySelector(':scope > div > div');
+  const $thinkDifferent = document.querySelector('.think-differently');
 
   if (tagFilter) {
     const header = document.querySelector('#all-stories');
     header.innerHTML = `#${tagFilter.replaceAll('-', ' ')}`;
   }
 
-  const stories = allStories.filter((story) => storyMatch(tagFilter, story));
-  const $target = $main.querySelector(':scope > div > div');
-  const $thinkDifferent = document.querySelector('.think-differently');
   const $results = $element('.stories');
-  const $loadMoreButton = $element('.load-more-stories', $element('span', 'LOAD MORE'));
-  $target.append($wrap($element('.content'), [$results, $loadMoreButton, $thinkDifferent]));
-
+  const stories = allStories.filter((story) => storyMatch(tagFilter, story));
   let storyCount = 0;
   function appendStories(count = 6) {
     for (let i = 0; i < count && storyCount < stories.length;) {
@@ -46,12 +46,21 @@ export default async function decorator($main) {
       storyCount += 1;
     }
   }
+  const removeButtonCheck = () => {
+    if (storyCount >= stories.length) {
+      const elm = document.getElementById('load-more-section');
+      if (elm) elm.remove();
+    }
+  };
+
+  const buttonActionCallback = () => {
+    appendStories();
+    removeButtonCheck();
+  };
+
   appendStories();
 
-  if (storyCount >= stories.length) $loadMoreButton.remove();
-  $loadMoreButton.addEventListener('click', () => {
-    console.log('load was clicked');
-    appendStories();
-    if (storyCount >= stories.length) $loadMoreButton.remove();
-  });
+  const $loadButton = addButton('LOAD MORE', buttonActionCallback, 'unfilled dark-background');
+  const $loadMoreSection = $element('#load-more-section.load-more-stories', $loadButton);
+  $target.append($wrap($element('.content'), [$results, $loadMoreSection, $thinkDifferent]));
 }
