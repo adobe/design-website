@@ -4,7 +4,7 @@ import { $element, $wrap, buildStory } from '../../scripts/helpers.js';
 import { fetchIndex } from '../../scripts/queries.js';
 
 let index;
-const Console = console;
+// const Console = console;
 
 function storyMatch(pageTag, story) {
   const storyTag = story.path.split('/')[2];
