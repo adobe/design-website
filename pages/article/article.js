@@ -1,6 +1,7 @@
+/* eslint-disable no-trailing-spaces */
 import { lookupAuthor } from '../../scripts/authors.js';
 import {
-  $element, getMetadata,
+  $element, $wrap, getMetadata,
 } from '../../scripts/helpers.js';
 // import { fetchIndex } from '../../scripts/queries.js';
 
@@ -8,7 +9,9 @@ import {
 const consoleCopy = console;
 
 export default function decorate($main) {
+  const content = $main.querySelector('body > main > div.section-wrapper > div');
   const paragraphs = document.querySelectorAll('body > main > div > div > p');
+
   paragraphs.forEach((p) => {
     if (p.querySelector('picture')) {
       p.classList.add('article-picture');
@@ -19,7 +22,7 @@ export default function decorate($main) {
     $main.querySelector(':scope > div > div').classList.add('content');
     $main.querySelector('.header.block > div:nth-child(2) > div:nth-child(2)').classList.add('art');
   } catch (err) {
-    consoleCopy.error(err);
+    consoleCopy.log(err);
   }
   const tag = window.document.location.pathname.split('/')[2];
   // letbuildSimilarStories(tag);
@@ -35,6 +38,19 @@ export default function decorate($main) {
   } catch (err) {
     consoleCopy.error(err);
   }
+  const headerDiv = $element('.header');
+
+  const headerh1 = $main.querySelector('body > main > .section-wrapper > .content > h1').classList.add('header-h1');
+  const headerh2 = $main.querySelector('body > main > .section-wrapper > .content > h2').classList.add('header-sub');
+  const headerimg = $main.querySelector('body > main > .section-wrapper > .content > .article-picture').classList.add('header-img');
+
+  const headerContent = $wrap($element('.header'), [
+    headerDiv,
+    headerh1,
+    headerh2,
+    headerimg]);
+
+  content.append(headerContent);
 }
 
 // async function buildSimilarStories(tag) {
@@ -108,7 +124,7 @@ async function buildAuthorBio() {
   }
 
   try {
-    document.querySelector('.block.header').append($authorBlock);
+    document.querySelector('.header-img').append($authorBlock);
   } catch (err) {
     consoleCopy.error(err);
   }
