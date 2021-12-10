@@ -8,7 +8,7 @@ import {
 // let index;
 const consoleCopy = console;
 
-export default function decorate($main) {
+export default async function decorate($main) {
   const content = $main.querySelector('body > main > div.section-wrapper > div');
   const paragraphs = document.querySelectorAll('body > main > div > div > p');
 
@@ -38,19 +38,22 @@ export default function decorate($main) {
   } catch (err) {
     consoleCopy.error(err);
   }
-  const headerDiv = $element('.header');
+  const $art = $element('.art', getMetadata('image-attribution'));
+  
+  $main.querySelector('body > main > .section-wrapper > .content > h1').classList.add('header-h1');
+  $main.querySelector('body > main > .section-wrapper > .content > h2').classList.add('header-sub');
+  const headImage = $main.querySelector('body > main > .section-wrapper > .content > .article-picture').classList.add('header-img');
+  $main.querySelector('body > main > .section-wrapper > .content > .article-picture').append($art);
 
-  const headerh1 = $main.querySelector('body > main > .section-wrapper > .content > h1').classList.add('header-h1');
-  const headerh2 = $main.querySelector('body > main > .section-wrapper > .content > h2').classList.add('header-sub');
-  const headerimg = $main.querySelector('body > main > .section-wrapper > .content > .article-picture').classList.add('header-img');
+  // const headerContent = $wrap($element('.header'), [
+  //   headerDiv,
+  //   headerh1,
+  //   headerh2,
+  //   headerimg]);
 
-  const headerContent = $wrap($element('.header'), [
-    headerDiv,
-    headerh1,
-    headerh2,
-    headerimg]);
+  // content.append(headerContent);
 
-  content.append(headerContent);
+  // Beginning of image attribution
 }
 
 // async function buildSimilarStories(tag) {
