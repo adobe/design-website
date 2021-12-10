@@ -94,7 +94,7 @@
     /* Not adding border color makes it inherit properly:  */
     
     color: inherit;
-    font-size:   .8em;
+    font-size:   1em;
     line-height: 1.125em;
     margin:  0em 0em 0.5em 0em;
     text-decoration: none;
@@ -189,7 +189,7 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
     font-weight: bold;
 }
 .article-card.block .text .byline .position {
-    font-weight: regular;
+    font-size: .75em;
 }
 
 @media screen and (max-width: 700px) {
@@ -222,7 +222,7 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
 }
 @media (max-width: 1440px) and (min-width: 1280px){
     .article-card.block .text{
-        padding: 1.6em 7em 7em 6em;
+        padding: 2.6em 7em 7em 6em;
     }
     .article-card.block .text .hed, .article-card.block .text .hed a{
         font-size: 3em;
