@@ -60,7 +60,7 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     background: red;
 }
 
-@media (min-width: 1920px) and (max-width: 2560px){
+@media (min-width: 1921px) and (max-width: 2560px){
     .inclusive-design .text .hed{
         font-size: 5.2em;
     }
@@ -74,6 +74,16 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 @media (min-width: 1441px) and (max-width: 1650px){
     .inclusive-design .text .hed{
         font-size: 4em;
+    }
+    .inclusive-design .block-content .text{
+        padding: 2em 0 0 6em;
+    }
+    .inclusive-design .text .hed{
+        font-size: 3.9em;
+        padding-right: 3em;
+    }
+    .inclusive-design .text .dek{
+        padding-right: 12em;
     }
     .inclusive-design .block .text .byline{
         padding-bottom: 9em;
@@ -94,6 +104,7 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     }
     .inclusive-design .text .hed{
         font-size: 3em;
+        padding-right: 3em;
     }
     .inclusive-design .block .text .byline{
         padding-bottom: 2em;
@@ -104,10 +115,11 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 }
 @media (min-width: 769px) and (max-width: 1024px){
     .inclusive-design .block-content .text{
-        padding: 2em 3em 2em 4em;
+        padding: 1em 0 2em 2em;
     }
     .inclusive-design .text .hed{
         font-size: 2em;
+        padding-right: 4em;
     }
     .inclusive-design .text .dek{
         font-size: .9em;
@@ -122,10 +134,11 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 
 @media (min-width: 426px) and (max-width: 768px){
     .inclusive-design .block-content .text{
-        padding: 2em 3em 2em 4em;
+        padding: 1em 0 2em 1.5em;
     }
     .inclusive-design .text .hed{
         font-size: 2em;
+        padding-right: 4em;
     }
     .inclusive-design .text .dek{
         font-size: .9em;

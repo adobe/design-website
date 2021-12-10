@@ -541,6 +541,12 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .additional-reading.block ul{
         font-size: 1.3em;
     }
+    .page-type-article .author-bio{
+        padding: 6em 6em 14em 4em;
+    }
+    .page-type-article .author-info p{
+        font-size: 1.2em;
+    }
     .page-type-article .similar-stories-content{
         max-width: 1920px;
     }
@@ -553,6 +559,10 @@ body > div.author-bio.block > div > author-name{
         --font-size-lede: 3.6em;
         --p-font-size: 1em;
         --li-font-size: 1.5em;
+    }
+    .page-type-article .content{
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0) 1510px,rgba(255,255,255, 1) 1510px);
     }
     .page-type-article .header-tag{
         padding-left: 3em;
@@ -667,6 +677,9 @@ body > div.author-bio.block > div > author-name{
 
 }
 @media (max-width: 1440px) and (min-width: 1281px){
+    .page-type-article #global-background{
+        height: 160vh;
+    }
     .page-type-article .content{
         background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,
         rgba(255,255,255,0) 1190px,rgba(255,255,255, 1) 1190px);
@@ -764,14 +777,17 @@ body > div.author-bio.block > div > author-name{
     }
 }
 @media (max-width: 768px) and (min-width:426px) {
+    #global-background{
+        height: 140vh;
+    }
 .page-type-article #global-background{
         top: -850px;
     }
     .page-type-article .content{
         background: linear-gradient(
             to bottom, rgba(255,255,255,0) 0%,
-            rgba(255,255,255,0) 740px,
-            rgba(255,255,255, 1) 740px
+            rgba(255,255,255,0) 760px,
+            rgba(255,255,255, 1) 760px
         );
     }
     .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
