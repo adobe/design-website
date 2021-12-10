@@ -79,15 +79,28 @@ function applyPageBackground() {
 }
 
 export function decorateBackground() {
-  window.location.pathname.includes('jobs/');
-  if (!Background.$container) {
+  const jobsBack = window.location.pathname.includes('jobs/');
+  const toolsBack = window.location.pathname.includes('toolkit/');
+  if (jobsBack || toolsBack) {
+    if (!Background.$container) {
+      Background.$fade1 = $element('.background-fade.fade1');
+      Background.$fade2 = $element('.background-fade.fade2');
+      Background.$container = $element('#global-background-alt', [
+        Background.$fade1,
+        Background.$fade2,
+      ]);
+      Background.$activeFade = Background.$fade1;
+      Background.$inactiveFade = Background.$fade2;
+      document.body.prepend(Background.$container);
+      applyPageBackground();
+    }
+  } else if (!Background.$container) {
     Background.$fade1 = $element('.background-fade.fade1');
     Background.$fade2 = $element('.background-fade.fade2');
     Background.$container = $element('#global-background', [
       Background.$fade1,
       Background.$fade2,
     ]);
-
     Background.$activeFade = Background.$fade1;
     Background.$inactiveFade = Background.$fade2;
     document.body.prepend(Background.$container);

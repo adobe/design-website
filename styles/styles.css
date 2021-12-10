@@ -295,6 +295,9 @@ html body button{
         width: 103em;
         max-width:100%;
     }
+    .page-type-inclusive .inclusive-design > div > div{
+        width: 1750px;
+    }
     #global-footer .footer-content{
         width: 103em;
     }
@@ -349,7 +352,10 @@ html body button{
     .people.block .person .name{
         font-size: 2em;
     }
-
+    .page-type-inclusive .inclusive-design > div > div,
+    .page-type-team .teams > div > div{
+        width: 1280px;
+    }
     .page-type-stories-index main,
     .page-type-tools .toolkit > div > div,
     .page-type-jobs .jobs > div > div,
@@ -375,10 +381,10 @@ html body button{
     }
     .page-type-team .teams > div > div,
     .page-type-stories-index main,
-    .page-type-tools .toolkit > div > div{
+    .page-type-tools .toolkit > div > div,
+    .page-type-inclusive .inclusive-design > div > div{
         width: 1100px;
     }
-
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px){
     .page-type-article main{
@@ -390,7 +396,7 @@ html body button{
         width: 1000px;
     }
     .page-type-inclusive .inclusive-design > div > div{
-        width: 768px;
+        width: 900px;
     }
 }
 @media only screen and (min-width: 426px) and (max-width: 768px){

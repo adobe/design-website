@@ -44,14 +44,14 @@ body > main > div > div > p {
 .inclusive-design .statement h2{
     margin: 0;
     margin-top: 5em;
-    font-size: 1.7em;
+    font-size: 2em;
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
 }
 
 .inclusive-design .statement p{
     color: white;
-    font-size: 5.7em;
+    font-size: 6.5em;
     font-family: var(--serif-font);
     font-weight: var(--weight-regular);
 }
@@ -63,7 +63,7 @@ body > main > div > div > p{
 #wed-like-to-share-what-weve-learned-with-you{
     background: white;
     color: red;
-    font-size: 6.6em;
+    font-size: 7em;
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
     padding: 2em 4em 2.5em 2em;
@@ -78,7 +78,7 @@ body > main > div > div > p{
 .inclusive-design .statementTwo{
     background: #F7EFFC;
     color: #3E3E3E;
-    padding: 0 16em 5em 8em;
+    padding: 0 24em 5em 13em;
     line-height: 1.3;
     width: auto;
     margin: 0;
@@ -149,8 +149,8 @@ body > main > div > div > div:nth-child(10) > div:nth-child(2) > div:nth-child(4
 /* Fact about Person */
 .people > .person > div:nth-child(4) {
     color: #917496;
-    padding: 1.5em 0 8em 0em;
-    font-size: 1em;
+    padding: 1.5em 11em 8em 0em;
+    font-size: 1.2em;
 }
 
 .inclusive-design .people.block img{
@@ -170,7 +170,7 @@ body > main > div > div > div:nth-child(17) > div:nth-child(2) > div:nth-child(1
 .inclusive-design .statementThree{
     background: #F7EFFC;
     color: #3E3E3E;
-    padding: 2em 12em 5em 7em;
+    padding: 2em 14em 5em 14em;
     line-height: 1.2;
     width: auto;
 }
@@ -197,7 +197,7 @@ body > main > div > div > div:nth-child(10){
     width: auto;
 }
 
-@media (max-width: 2560px) and (min-width: 1920px){
+@media (max-width: 2560px) and (min-width: 1921px){
     .inclusive-design h1{
         font-size: 7em;
         padding: 2em;
@@ -224,6 +224,15 @@ body > main > div > div > div:nth-child(10){
     .inclusive-design .statementTwo p{
         font-size: 7em;
     }
+    .inclusive-design .people.block{
+        padding: 8.5em;
+    }
+    .inclusive-design .person{
+        padding: .5em;
+    }
+    .people > .person > div:nth-child(4){
+        padding-right: 15em;
+    }
     .inclusive-design .statementThree{
         padding: 2em 14em 10em 13em;
     }
@@ -234,6 +243,7 @@ body > main > div > div > div:nth-child(10){
 @media (max-width: 1650px) and (min-width: 1441px){
     .inclusive-design h1{
         font-size: 5.5em;
+        padding-left: 1.5em;
     }
     .inclusive-design .statement{
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 680px,rgba(224,72,39, 1) 680px);
@@ -244,11 +254,19 @@ body > main > div > div > div:nth-child(10){
     #wed-like-to-share-what-weve-learned-with-you{
         padding: 2em 2em 2.5em 2em;
     }
-
+    .inclusive-design .statementTwo{
+        padding: 0 17em 5em 11em;
+    }
     .inclusive-design .statementTwo p{
         font-size: 5.6em;
     }
-
+    .people > .person > div:nth-child(4){
+        padding: 1.5em 10em 8em 0em;
+        font-size: 1.1em;
+    }
+    .inclusive-design .statementThree{
+        padding: 2em 7em 5em 11em;
+    }
     .inclusive-design .statementThree p{
         font-size: 5.3em;
     }
@@ -256,23 +274,36 @@ body > main > div > div > div:nth-child(10){
 @media (max-width: 1440px) and (min-width: 1281px){
     .inclusive-design h1{
         font-size: 4.6em;
+        padding-left: 2em;
     }
     .inclusive-design .statement{
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 600px,rgba(224,72,39, 1) 600px);
     }
     .inclusive-design .statement p{
         font-size: 4.6em;
+        padding-right: 0em;
     }
     #wed-like-to-share-what-weve-learned-with-you{
         font-size: 5.6em;
         padding: 2em 2em 2.5em 2em;
     }
-
+    .inclusive-design .statementTwo{
+        padding: 0 10em 5em 11em;
+    }
     .inclusive-design .statementTwo p{
         font-size: 5em;
     }
     .inclusive-design .people.block .person > div:nth-child(2){
         font-size: 2em;
+    }
+    .inclusive-design .block .text .byline{
+        padding-right: 8em;
+    }
+    .people > .person > div:nth-child(4){
+        padding: 1.5em 5em 8em 0
+    }
+    .inclusive-design .statementThree{
+        padding: 2em 9em 5em 9em;
     }
     .inclusive-design .statementThree p{
         font-size: 5em;
@@ -281,34 +312,44 @@ body > main > div > div > div:nth-child(10){
 @media (max-width: 1280px) and (min-width: 1025px){
     .inclusive-design h1{
         font-size: 4em;
+        padding-left: 2.3em;
     }
     .inclusive-design .statement{
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 480px,rgba(224,72,39, 1) 480px);
     }
     .inclusive-design .statement p{
-        font-size: 3.7em;
+        font-size: 4em;
     }
-    
     #wed-like-to-share-what-weve-learned-with-you{
-        font-size: 4.5em;
+        font-size: 5em;
         padding: 2em 2em 2.5em 2em;
+    }
+    .inclusive-design .statementTwo{
+        padding: 0 14em 5em 10em;
     }
     .inclusive-design .statementTwo h2{
         padding-top: 4em;
     }
     .inclusive-design .statementTwo p{
-        font-size: 3.6em;
+        font-size: 4em;
     }
     .inclusive-design .people.block .person > div:nth-child(2){
         font-size: 1.7em;
     }
+    .people > .person > div:nth-child(4){
+        padding: 1.5em 2em 8em 0;
+    }
+    .inclusive-design .statementThree{
+        padding: 2em 10em 5em 9em;
+    }
     .inclusive-design .statementThree p{
-        font-size: 3.6em;
+        font-size: 4em;
     }
 }
 @media (max-width: 1024px) and (min-width: 769px){
     .inclusive-design h1{
         font-size: 3em;
+        padding-left: 2em;
     }
     .inclusive-design .statement{
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 360px,rgba(224,72,39, 1) 360px);
@@ -335,9 +376,20 @@ body > main > div > div > div:nth-child(10){
     .inclusive-design .people.block .person > div:nth-child(2){
         font-size: 1.7em;
     }
-
+    .inclusive-design .people.block{
+        grid-template-columns: 50% 50%;
+    }
+    .inclusive-design .person{
+        padding: 0.3em;
+    }
+    .people > .person > div:nth-child(4){
+        padding: 1.5em 2em 8em 0;
+    }
     .inclusive-design .statementThree{
         padding: 1em 1em 1em 3.5em;
+    }
+    .inclusive-design .statementThree h2{
+        font-size: 2em;
     }
     .inclusive-design .statementThree p{
         font-size: 3.5em;
@@ -345,8 +397,9 @@ body > main > div > div > div:nth-child(10){
 }
 @media (max-width: 768px) and (min-width: 426px){
     .inclusive-design h1{
-        font-size: 3em;
-        width: 78%;
+        font-size: 3.5em;
+        padding-left: 2.5em;
+        width: 60%;
     }   
     .inclusive-design .statement{
         background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 360px,rgba(224,72,39, 1) 360px);
@@ -373,9 +426,20 @@ body > main > div > div > div:nth-child(10){
     .inclusive-design .people.block .person > div:nth-child(2){
         font-size: 1.7em;
     }
-
+    .inclusive-design .people.block{
+        grid-template-columns: 50% 50%;
+    }
+    .inclusive-design .person{
+        padding: .3em;
+    }
+    .people > .person > div:nth-child(4){
+        padding-right: 1em;
+    }
     .inclusive-design .statementThree{
         padding: 1em 4em 1em 3.5em;
+    }
+    .inclusive-design .statementThree h2{
+        font-size: 2em;
     }
     .inclusive-design .statementThree p{
         font-size: 3em;
@@ -419,6 +483,9 @@ body > main > div > div > div:nth-child(10){
     }
     .inclusive-design .people.block .person > div:nth-child(4){
         padding-bottom: 4em;
+    }
+    .inclusive-design .people > .person > div:nth-child(4) {
+        padding: 1.5em 0 8em 0em;
     }
 
     .inclusive-design .statementThree{
@@ -469,6 +536,7 @@ body > main > div > div > div:nth-child(10){
     }
     .inclusive-design .people.block .person > div:nth-child(4){
         padding-bottom: 4em;
+        padding-right: 0;
     }
 
     .inclusive-design .statementThree{
@@ -519,6 +587,7 @@ body > main > div > div > div:nth-child(10){
     }
     .inclusive-design .people.block .person > div:nth-child(4){
         padding-bottom: 4em;
+        padding-right: 0;
     }
 
     .inclusive-design .statementThree{

@@ -719,13 +719,13 @@ export function buildStory(story, author) {
 
   storyText.append(decorateTagLink($element('p.tag', ['#', $element('span', storyTag.toUpperCase().replaceAll('-', ' '))]), storyTag));
   storyText.append($element('h2.story-header', (!!story.title && story.title !== 0) ? story.title : '[TITLE MISSING]'));
-  storyText.append($element('h3', story.subtitle || '[SUBTITLE MISSING]'));
+  storyText.append($element('h3', story.subtitle || ' '));
   if (author) {
     storyText.append($element('p.author', author.name || '[AUTHOR MISSING]'));
     if (author.position) storyText.append($element('p.position', author.position));
   } else {
     storyText.append($element('p.author', (!!story.author && story.author !== 0) ? story.author : '[AUTHOR MISSING]'));
-    storyText.append($element('p.author', story.position || '[POSITION MISSING]'));
+    storyText.append($element('p.author', story.position || ' '));
   }
 
   return $story;
