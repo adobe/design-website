@@ -149,7 +149,7 @@ body > main > div > div > div:nth-child(10) > div:nth-child(2) > div:nth-child(4
 /* Fact about Person */
 .people > .person > div:nth-child(4) {
     color: #917496;
-    padding: 1.5em 12em 8em 0em;
+    padding: 1.5em 11em 8em 0em;
     font-size: 1.2em;
 }
 
@@ -224,6 +224,15 @@ body > main > div > div > div:nth-child(10){
     .inclusive-design .statementTwo p{
         font-size: 7em;
     }
+    .inclusive-design .people.block{
+        padding: 8.5em;
+    }
+    .inclusive-design .person{
+        padding: .5em;
+    }
+    .people > .person > div:nth-child(4){
+        padding-right: 15em;
+    }
     .inclusive-design .statementThree{
         padding: 2em 14em 10em 13em;
     }
@@ -278,15 +287,6 @@ body > main > div > div > div:nth-child(10){
         font-size: 5.6em;
         padding: 2em 2em 2.5em 2em;
     }
-    .inclusive-design .block-content .text{
-        padding: 3em 0 0 4em;
-    }
-    .inclusive-design .text .hed{
-        padding-right: 4em;
-    }
-    .inclusive-design .text .dek{
-        padding-right: 9em;
-    }
     .inclusive-design .statementTwo{
         padding: 0 10em 5em 11em;
     }
@@ -320,7 +320,6 @@ body > main > div > div > div:nth-child(10){
     .inclusive-design .statement p{
         font-size: 4em;
     }
-    
     #wed-like-to-share-what-weve-learned-with-you{
         font-size: 5em;
         padding: 2em 2em 2.5em 2em;
@@ -485,6 +484,9 @@ body > main > div > div > div:nth-child(10){
     .inclusive-design .people.block .person > div:nth-child(4){
         padding-bottom: 4em;
     }
+    .inclusive-design .people > .person > div:nth-child(4) {
+        padding: 1.5em 0 8em 0em;
+    }
 
     .inclusive-design .statementThree{
         padding: 0 1em 3em 1em;
@@ -534,6 +536,7 @@ body > main > div > div > div:nth-child(10){
     }
     .inclusive-design .people.block .person > div:nth-child(4){
         padding-bottom: 4em;
+        padding-right: 0;
     }
 
     .inclusive-design .statementThree{
@@ -584,6 +587,7 @@ body > main > div > div > div:nth-child(10){
     }
     .inclusive-design .people.block .person > div:nth-child(4){
         padding-bottom: 4em;
+        padding-right: 0;
     }
 
     .inclusive-design .statementThree{

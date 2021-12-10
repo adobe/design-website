@@ -16,15 +16,16 @@
     /* height: 500px; */
 }
 .inclusive-design .block-content .text{
-    padding: 7em 6em 0 6em;
+    padding: 3em 0 0 8em;
 }
  .inclusive-design .text .hed {
-    font-size: 4.5em;
+    font-size: 5em;
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
-    padding-right: 1em;
-    padding-bottom: 1em;
+    padding-right: 0;
+    padding-bottom:.5em;
     margin-top: 0.5em;
+    width: 77%;
 }
 .inclusive-design .text .dek {
     font-size: 1.15em;
@@ -33,7 +34,7 @@
     font-weight: var(--weight-regular);
     padding-top: 1em;
     padding-bottom: 2em;
-    padding-right: 5em;
+    padding-right: 12.33em;
     margin-bottom: 0;
 }
 .image-text.block .text .dek, .image-text.block .text .dek{
@@ -44,6 +45,7 @@
     font-size: 1.1rem;
     font-family: var(--serif-font);
     padding-bottom: 13em;
+    padding-right: 13em;;
 }
 body > main > div > div > div:nth-child(6) > div > div.text{
     grid-column-start: 2;
@@ -61,8 +63,14 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 }
 
 @media (min-width: 1921px) and (max-width: 2560px){
+    .inclusive-design .block-content .text{
+        padding: 5em 0 0 9em;
+    }
     .inclusive-design .text .hed{
-        font-size: 5.2em;
+        font-size: 6.2em;
+        margin-top: 0;
+        padding-right: 0;
+        width: 86%;
     }
     .inclusive-design .block .text .byline{
         padding-bottom: 9em;
@@ -72,15 +80,13 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     }
 }
 @media (min-width: 1441px) and (max-width: 1650px){
-    .inclusive-design .text .hed{
-        font-size: 4em;
-    }
     .inclusive-design .block-content .text{
         padding: 2em 0 0 6em;
     }
     .inclusive-design .text .hed{
-        font-size: 3.9em;
+        font-size: 4em;
         padding-right: 3em;
+        width: 73%;
     }
     .inclusive-design .text .dek{
         padding-right: 12em;
@@ -92,11 +98,20 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 }
 @media (min-width: 1281px) and (max-width: 1440px){
     .inclusive-design .text .hed{
-        font-size: 3.4em;
+        font-size: 4em;
+        padding-right: 4em;
+        width: 68%;
     }
     .inclusive-design .block .text .byline{
         padding-bottom: 6em;
     }
+    .inclusive-design .block-content .text{
+        padding: 3em 0 0 4em;
+    }
+    .inclusive-design .text .dek{
+        padding-right: 9em;
+    }
+    
 }
 @media (min-width: 1025px) and (max-width: 1280px){
     .inclusive-design .block-content .text{
@@ -111,6 +126,9 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     }
     .inclusive-design .text .dek{
         padding-right: 0;
+    }
+    .inclusive-design .block .text .byline{
+        padding-right: 4em;
     }
 }
 @media (min-width: 769px) and (max-width: 1024px){
@@ -161,18 +179,21 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     }
     .inclusive-design .text .hed{
         font-size: 2em;
+        padding-right: 5em;
     }
     .inclusive-design .block-content .text{
         padding: 2em 1em 6em 1em;
     }
     .inclusive-design .text .dek{
         font-size: .9em;
+        padding-right: 0;
     }
     .inclusive-design .block .text .byline {
         margin-top: 1rem;
         font-size: 1.1rem;
         font-family: var(--serif-font);
         padding-bottom: 0;
+        padding-right: 0;
     }   
     body > main > div > div > div:nth-child(6) > div > div.text{
         grid-column-start: 1;
@@ -197,18 +218,21 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     }
     .inclusive-design .text .hed{
         font-size: 2em;
+        padding-right: 3em;
     }
     .inclusive-design .block-content .text{
         padding: 2em 1em 6em 1em;
     }
     .inclusive-design .text .dek{
         font-size: .9em;
+        padding-right: 0;
     }
     .inclusive-design .block .text .byline {
         margin-top: 1rem;
         font-size: 1.1rem;
         font-family: var(--serif-font);
         padding-bottom: 0;
+        padding-right: 0;
     }   
     body > main > div > div > div:nth-child(6) > div > div.text{
         grid-column-start: 1;
@@ -238,12 +262,14 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     }
     .inclusive-design .text .dek{
         font-size: .9em;
+        padding-right: 0;
     }
     .inclusive-design .block .text .byline {
         margin-top: 1rem;
         font-size: 1.1rem;
         font-family: var(--serif-font);
         padding-bottom: 0;
+        padding-right: 0;
     }   
     body > main > div > div > div:nth-child(6) > div > div.text{
         grid-column-start: 1;
