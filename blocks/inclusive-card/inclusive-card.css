@@ -16,13 +16,13 @@
     /* height: 500px; */
 }
 .inclusive-design .block-content .text{
-    padding: 7em 6em 0 6em;
+    padding: 3em 6em 0 6em;
 }
  .inclusive-design .text .hed {
     font-size: 4.5em;
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
-    padding-right: 1em;
+    padding-right: 2.3em;
     padding-bottom: 1em;
     margin-top: 0.5em;
 }
@@ -33,7 +33,7 @@
     font-weight: var(--weight-regular);
     padding-top: 1em;
     padding-bottom: 2em;
-    padding-right: 5em;
+    padding-right: 12.33em;
     margin-bottom: 0;
 }
 .image-text.block .text .dek, .image-text.block .text .dek{
@@ -44,6 +44,7 @@
     font-size: 1.1rem;
     font-family: var(--serif-font);
     padding-bottom: 13em;
+    padding-right: 13em;;
 }
 body > main > div > div > div:nth-child(6) > div > div.text{
     grid-column-start: 2;
