@@ -121,13 +121,16 @@
 }
 
 .page-type-jobs .jobs-container .job-category a{
+    font-family: var(--serif-font);
     font-size: 0.8rem;
     line-height: 1.6em;
     display:flex;
     flex-direction: column;
     align-items: start;
+
     color: white;
     text-decoration: none;
+    
     margin: 2em 0;
     padding-bottom: 1em;
 }
