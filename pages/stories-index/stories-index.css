@@ -112,6 +112,9 @@
     border-radius: 2em;
     padding: 0.75em 1.5em;
 }
+.page-type-stories-index .content .load-more-stories button{
+    font-family: var(--sans-serif-font);
+}
 
 .page-type-stories-index .think-differently.block{
     margin-top: 1em;
