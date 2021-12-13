@@ -101,7 +101,7 @@
     }
     .toolkit-header h3{
         font-size: 5.5em;
-        width: 60%;
+        width: 68%;
         padding-bottom: 3em;
         padding-left: 1.3em;
     }
@@ -119,12 +119,11 @@
     }
     .big-red-text{
         font-size: 8em;
-        padding-left: 2em;
-        padding-right: 5em;
+        padding: 0 2em;
         height: 1160px;
     }
     .think-differently.block .think-differently-content h2{
-        font-size: 6em;
+        font-size: 5em;
     }
 }
 
