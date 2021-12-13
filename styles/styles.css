@@ -283,10 +283,10 @@ html body button{
     }
     .page-type-team .teams > div > div,
     .page-type-stories-index main,
-    .page-type-tools .toolkit > div > div,
+    .page-type-toolkit .toolkit > div > div,
     .page-type-jobs .jobs > div > div,
     .page-type-jobs.loaded .section-wrapper > div{
-        width: 2300px;
+        width: 2200px;
     }
 
 }

@@ -11,7 +11,7 @@
 
 .page-type-team .title-content h1{
     font-size: var(--page-header-size);
-    width:50%;
+    width:55%;
     line-height: 1em;
     font-weight: var(--weight-black);
     padding: 0.5em 0;
@@ -104,20 +104,21 @@
 
 .page-type-team .team-cards .team-card .card-header{
     position: absolute;
-    margin: 2em 5%;
+    margin: 2rem 5%;
     padding: 0.5em 0;
-    border-bottom: black 2px solid;
+    border-bottom: black 0.1em solid;
     width: 90%;
     display: flex;
+
+    font-size: 1em;
 }
 
 .page-type-team .team-cards .team-card .chevron-down{
     box-sizing: border-box;
-    margin-right: 2rem;
-    width:  20px;
-    height: 20px;
+    margin-right: 2em;
+    width:  1em;
     background-image: url("../../resources/chevron-down-black.svg");
-    background-position: center top 10px;
+    background-position: center top 0.5em;
     background-repeat: no-repeat;
     transition: transform 0.5s;
     background-size: contain;
@@ -132,7 +133,7 @@
     font-family: var(--serif-font);
     margin-block: unset;
     width: 30%;
-    font-size: 1.7rem;
+    font-size: 1.2em;
 }
 
 .page-type-team .team-cards .team-card div:nth-of-type(2){
@@ -150,6 +151,7 @@
 }
 .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
     width: 85%;
+    margin: auto;
     font-family: var(--serif-font);
     color: #FAECE7;
     font-size: 1.6rem;
@@ -260,12 +262,15 @@
 
 
 @media (min-width:1921px){
+    .page-type-team .title-content{
+        padding-left: 20em;
+    }
     .page-type-team .title-content h1{
         font-size: 10em;
         padding: 1.5em 0;
     }
     .page-type-team .head-content .title{
-        font-size: 8em;
+        font-size: 7.5em;
         padding: 0 2em;
     }
     .page-type-team .head-content .head-text{
@@ -280,8 +285,8 @@
     .page-type-team .team-cards .team-card.active{
         height: 1420px;
     }
-    .page-type-team .team-cards .team-card h3{
-        font-size: 2em;
+    .page-type-team .team-cards .team-card .card-header{
+        font-size: 1.5em;
     }
     .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
         font-size: 2.2em;
@@ -613,9 +618,7 @@
         width: 85%;
     }
     .page-type-team .team-cards .team-card .chevron-down{
-        width: 17px;
         margin-right: 0.8rem;
-        background-position: center top 8px;
     }
     .page-type-team .team-cards .team-card h3{
         font-size: 1.3rem;
@@ -680,11 +683,6 @@
 
     .page-type-team .team-cards .team-card .card-header{
         margin: 2em 7.5%;
-    }
-    .page-type-team .team-cards .team-card .chevron-down{
-        width: 15px;
-        margin-right: 1rem;
-        background-position: center;
     }
     .page-type-team .team-cards .team-card h3{
         font-size: 1rem;
@@ -775,9 +773,6 @@
         padding-bottom: 1em;
     }
     .page-type-team .team-cards .team-card .chevron-down{
-        width: 18px;
-        margin-right: 0.5rem;
-        background-position: center;
         background-image: url("../../resources/chevron-down.svg");
     }
     .page-type-team .team-cards .team-card h3{
