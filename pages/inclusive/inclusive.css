@@ -533,7 +533,7 @@ body > main > div > div > div:nth-child(10){
         font-size: 1.5em;
     }
     .inclusive-design .statementTwo p{
-        font-size: 1.8em;
+        font-size: 1.7em;
     }
     .inclusive-design .people.block{
         grid-template-columns: 100%;
@@ -556,7 +556,7 @@ body > main > div > div > div:nth-child(10){
         font-size: 1.5em ;
     }
     .inclusive-design .statementThree p{
-        font-size: 1.8em;
+        font-size: 1.7em;
     }
 }
 @media (max-width: 320px) and (min-width: 0px){

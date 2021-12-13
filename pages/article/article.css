@@ -580,8 +580,9 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .author.block .name{
         padding: 0;
     }
-    .page-type-article .lede.block{
+    .page-type-article .content .lede.block{
         font-size: var(--font-size-lede);
+        font-size: 3.8em;
     }
     .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
         font-size: 1.8em;
