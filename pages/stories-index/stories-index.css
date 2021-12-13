@@ -44,7 +44,7 @@
 }
 
 .stories .story-text > * {
-    padding-left: clamp(30px, 6.5vw, 70px);
+    padding: 0 clamp(30px, 6.5vw, 70px);
     color: black;
     text-decoration: none;
     margin: unset;
@@ -111,6 +111,9 @@
     border: 2px solid black;
     border-radius: 2em;
     padding: 0.75em 1.5em;
+}
+.page-type-stories-index .content .load-more-stories button{
+    font-family: var(--sans-serif-font);
 }
 
 .page-type-stories-index .think-differently.block{
@@ -328,7 +331,7 @@
     }
 
     .stories .story-text > * {
-        padding-left: clamp(30px, 10vw, 70px)
+        padding: 0 clamp(30px, 10vw, 70px)
     }
 }
 
