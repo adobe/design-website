@@ -163,6 +163,7 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     }
     .inclusive-design .block .text .byline{
         padding-bottom: 2em;
+        padding-right: 1em;
     }
     .inclusive-design .text .dek{
         padding-right: 0;

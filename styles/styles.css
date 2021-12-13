@@ -289,6 +289,11 @@ html body button{
         width: 2200px;
     }
 
+    .toolkit-card-container{
+        width: 1920px;
+        margin: auto;
+    }
+
 }
 @media only screen and (min-width: 1651px) and (max-width: 1920px) {
     .page-type-article main{
@@ -307,6 +312,9 @@ html body button{
     }
     .page-type-jobs .jobs > div > div,
     .page-type-jobs.loaded .section-wrapper > div{
+        width: 1750px;
+    }
+    .toolkit-card-container{
         width: 1750px;
     }
 
@@ -331,6 +339,10 @@ html body button{
     .page-type-jobs .jobs > div > div,
     .page-type-jobs.loaded .section-wrapper > div{
         width: 1540px;
+    }
+    .toolkit-card-container{
+        width: 1500px;
+        margin: auto;
     }
 }
 @media only screen and (min-width: 1281px) and (max-width: 1440px) {
@@ -359,6 +371,10 @@ html body button{
     .page-type-jobs.loaded .section-wrapper > div{
         width: 1300px;
     }
+    .toolkit-card-container{
+        width: 1300px;
+        margin: auto;
+    }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1280px){
     .page-type-inclusive .inclusive-design > div > div,
@@ -382,6 +398,10 @@ html body button{
     .page-type-inclusive .inclusive-design > div > div{
         width: 1100px;
     }
+    .toolkit-card-container{
+        width: 1100px;
+        margin: auto;
+    }
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px){
     .page-type-article main{
@@ -395,6 +415,10 @@ html body button{
     .page-type-inclusive .inclusive-design > div > div{
         width: 900px;
     }
+    .toolkit-card-container{
+        width: 900px;
+        margin: auto;
+    }
 }
 @media only screen and (min-width: 426px) and (max-width: 768px){
     .page-type-article main{
@@ -403,11 +427,18 @@ html body button{
     .page-type-inclusive .inclusive-design > div > div{
         width: 758px;
     }
-
+    .toolkit-card-container{
+        width: 758px;
+        margin: auto;
+    }
 }
 @media only screen and (min-width: 415px) and (max-width: 425px){
     .page-type-article main{
         width: 410px;
+    }
+    .toolkit-header h3{
+        padding-right: 0;
+        width: 97%;
     }
     .page-type-inclusive .inclusive-design > div > div{
         width: 415px;
