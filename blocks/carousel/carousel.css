@@ -349,10 +349,12 @@
 @media (min-width: 1920px){
     .carousel .carousel__actions {
         top: 55%;
+        width: 98%;
     }
 
     .carousel__item--visible .number h3.dek {
         margin-bottom: 1.5em;
+        width: 95%;
     }
 
     .carousel__item--visible p:first-child, .carousel__item--visible .number p.tag-link {
@@ -361,7 +363,7 @@
 
     body > main > div > div > div.carousel.block.full-bleed{
         height: 100%;
-        width: 1920px;
+        width: 1700px;
         padding-top: 4em;
     }
     .carousel .carousel__item--visible a.carousel-link{
