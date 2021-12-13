@@ -93,7 +93,7 @@ export default async function decorate() {
   /* Currently expecting location property to be an array of all locations for the job posting */
   function formatLocation(location) {
     if (!location) {
-      return '[LOCATION MISSING]';
+      return '';
     }
 
     if (!Array.isArray(location)) {
@@ -120,8 +120,8 @@ export default async function decorate() {
 
   function buildJobListings(job) {
     const jobBlock = $element('a.job', [
-      $element('p.job-title', job.title || '[TITLE MISSING]'),
-      $element('p.job-team', job.team || '[TEAM MISSING]'),
+      $element('p.job-title', job.title || ''),
+      $element('p.job-team', job.team || ''),
       $element('p.job-location', formatLocation(job.location)),
     ]);
     jobBlock.href = job.path;

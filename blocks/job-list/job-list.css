@@ -43,6 +43,12 @@
     text-decoration: none;
 
     margin: .5em 0;
+    padding-bottom: 1em;
+}
+
+.job-list .single-job:hover{
+    padding-bottom: calc(1em - 2px);
+    border-bottom: 2px #0B1C40 solid
 }
 
 .job-list .single-job>p{
