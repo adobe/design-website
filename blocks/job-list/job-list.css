@@ -43,6 +43,12 @@
     text-decoration: none;
 
     margin: .5em 0;
+    padding-bottom: 1em;
+}
+
+.job-list .single-job:hover{
+    padding-bottom: calc(1em - 2px);
+    border-bottom: 2px #0B1C40 solid
 }
 
 .job-list .single-job>p{
@@ -50,8 +56,10 @@
     margin-block: unset;
 }
 .job-list .single-job h3{
+    margin-block: .5em;
     font-weight: 300; /*Currently we only have vars for 200 and 400*/
     font-size: 1.7em;
+    line-height: 1em;
 }
 .job-list .single-job p:nth-of-type(1){
 }

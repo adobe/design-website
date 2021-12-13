@@ -87,7 +87,7 @@ header#global-header {
     max-width: 120em;     /* 1920px*/
     width:     120em;     /* 1920px*/
     height: 6.625em; /*105px*/
-    padding: 1.8125em 8.625em 1.8125em 6.5em;  /* 29px 138 29 104   ~121px*/
+    padding: 1.8125em 4.625em 1.8125em 6.5em;  /* 29px 138 29 104   ~121px*/
   }
   header#global-header div,
   header#global-header .logo,

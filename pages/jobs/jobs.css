@@ -11,7 +11,7 @@
 
 @media screen and (min-width: 1920px) {
     html body.page-type-jobs main{
-        font-size: 30.7px;
+        font-size: 25px;
     }
 }
 
@@ -62,10 +62,23 @@
     padding-right: 15%;
 }
 
+@media screen and (min-width: 1920px) {
+    .page-type-jobs .head-content h1,
+    .page-type-jobs .head-content p,
+    .page-type-jobs .head-content p:last-child{
+        padding-left: 20rem;
+        color: #3E3E3E;
+    }
+
+    .page-type-jobs .head-content p:last-child{
+        padding-left: calc(20rem + 13%);
+    }
+}
 
 
 
-@media screen and (min-width: 1025px) {
+
+@media screen and (min-width: 1025px) and (max-width: 1919px)  {
     .page-type-jobs .head-content,
     .page-type-jobs .head-content h1,
     .page-type-jobs .head-content p,
@@ -121,13 +134,16 @@
 }
 
 .page-type-jobs .jobs-container .job-category a{
+    font-family: var(--serif-font);
     font-size: 0.8rem;
     line-height: 1.6em;
     display:flex;
     flex-direction: column;
     align-items: start;
+
     color: white;
     text-decoration: none;
+    
     margin: 2em 0;
     padding-bottom: 1em;
 }
@@ -292,7 +308,7 @@
         padding-bottom: 2em;
     }
     .page-type-jobs .head-content p:last-child{
-        font-size: 2.5em;
+        font-size: 2.2em;
         padding-bottom: 2em;
     }
     .page-type-jobs .jobs-block-container > h2{
