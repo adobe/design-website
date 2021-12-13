@@ -98,7 +98,7 @@ body > main > div > div > div:nth-child(6) > div > div.text{
 }
 @media (min-width: 1281px) and (max-width: 1440px){
     .inclusive-design .text .hed{
-        font-size: 4em;
+        font-size: 3.5em;
         padding-right: 4em;
         width: 68%;
     }
@@ -106,7 +106,7 @@ body > main > div > div > div:nth-child(6) > div > div.text{
         padding-bottom: 6em;
     }
     .inclusive-design .block-content .text{
-        padding: 3em 0 0 4em;
+        padding: 2.5em 0 0 4em;
     }
     .inclusive-design .text .dek{
         padding-right: 9em;
