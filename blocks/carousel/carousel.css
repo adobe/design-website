@@ -346,7 +346,7 @@
 
 }
 
-@media (max-width: 2560px) and (min-width: 1920px){
+@media (min-width: 1920px){
     .carousel .carousel__actions {
         top: 55%;
     }
