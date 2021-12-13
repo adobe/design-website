@@ -68,8 +68,10 @@
 .toolkit .toolkit-page-content .text{
     color: white;
 }
+.toolkit .toolkit-page-content > div:nth-child(3) .text,
 .toolkit .toolkit-page-content > div:nth-child(4) .text,
 .toolkit .toolkit-page-content > div:nth-child(5) .text,
+.toolkit .toolkit-page-content > div:nth-child(7) .text,
 .toolkit .toolkit-page-content > div:nth-child(8) .text{
     color: black;
 }
@@ -93,7 +95,7 @@
 
 
 
-@media (max-width: 2560px) and (min-width: 1921px){
+@media (min-width: 1921px){
     .toolkit-header h1{
         font-size: 7em;
         padding-bottom: 1em;
@@ -161,7 +163,7 @@
     }
 }
 
-@media (max-width: 1650px) and (min-width: 1441px){
+@media (max-width: 1650px ) and (min-width: 1441px){
     .toolkit-header h1{
         font-size: 7em;
         padding-bottom: 1em;
@@ -263,16 +265,19 @@
     }
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) and (min-width: 769px){
     .toolkit-header{
         padding-left: var(--page-header-l-padding-tablet);
     }
     .toolkit-header h3{
         padding-right: 3em;
     }
+    .big-red-text{
+        font-size: 10em;
+    }
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 768px) and (min-width: 426px){
     .toolkit-header{
         padding-left: var(--page-header-l-padding-mobile);
     }

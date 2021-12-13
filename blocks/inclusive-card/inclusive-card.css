@@ -19,13 +19,13 @@
     padding: 3em 0 0 8em;
 }
  .inclusive-design .text .hed {
-    font-size: 5em;
+    font-size: 4.5em;
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-black);
     padding-right: 0;
     padding-bottom:.5em;
     margin-top: 0.5em;
-    width: 77%;
+    width: 65%;
 }
 .inclusive-design .text .dek {
     font-size: 1.15em;

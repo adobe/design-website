@@ -273,192 +273,19 @@ html body button{
 
 /* If the styles are the same for each media query, combine them: */
 
-@media only screen and (min-width: 1920px) and (max-width: 2560px){
-    .page-type-article main,
-    .page-type-inclusive .inclusive-design > div > div,
-    .article-card.block,
-    .people.block,
-    .two-column.block{
-        width: 1920px;
-    }
-    .page-type-team .teams > div > div,
-    .page-type-stories-index main,
-    .page-type-tools .toolkit > div > div,
-    .page-type-jobs .jobs > div > div,
-    .page-type-jobs.loaded .section-wrapper > div{
-        width: 2300px;
-    }
-
-    .toolkit-card-container{
-        width: 1920px;
-        margin: auto;
-    }
-
-}
-@media only screen and (min-width: 1651px) and (max-width: 1920px) {
-    .page-type-article main{
-        width: 103em;
-        max-width:100%;
-    }
-    .page-type-inclusive .inclusive-design > div > div{
-        width: 1750px;
-    }
-    .page-type-team .teams > div > div{
-        width: 1650px;
-    }
-    .page-type-stories-index main,
-    .page-type-tools .toolkit > div > div{
-        width: 1800px;
-    }
-    .page-type-jobs .jobs > div > div,
-    .page-type-jobs.loaded .section-wrapper > div{
-        width: 1750px;
-    }
-    .toolkit-card-container{
-        width: 1750px;
-    }
-
-}
-@media only screen and (min-width: 1441px) and (max-width: 1650px){
-    .page-type-article main{
-        width: 90em;
-    }
-    .article-card.block,
-    .people.block,
-    .two-column.block{
-        width: 90em;
-    }
-    .page-type-inclusive .inclusive-design > div > div{
-        width: 1440px;
-    }
-    .page-type-team .teams > div > div{
-        width: 1470px;
-    }
-    .page-type-stories-index main,
-    .page-type-tools .toolkit > div > div,
-    .page-type-jobs .jobs > div > div,
-    .page-type-jobs.loaded .section-wrapper > div{
-        width: 1540px;
-    }
-    .toolkit-card-container{
-        width: 1500px;
-        margin: auto;
-    }
-}
-@media only screen and (min-width: 1281px) and (max-width: 1440px) {
-    .page-type-article main,
-    .page-type-team .teams > div > div{
-        width: 1280px;
-        max-width:100%;
-    }
-
-    .article-card.block,
-    .two-column.block,
-    .people.block{
-        width: 1269px;
-    }
-
-    .people.block .person .name{
-        font-size: 2em;
-    }
-    .page-type-inclusive .inclusive-design > div > div,
-    .page-type-team .teams > div > div{
-        width: 1280px;
-    }
-    .page-type-stories-index main,
-    .page-type-tools .toolkit > div > div,
-    .page-type-jobs .jobs > div > div,
-    .page-type-jobs.loaded .section-wrapper > div{
-        width: 1300px;
-    }
-    .toolkit-card-container{
-        width: 1300px;
-        margin: auto;
-    }
-}
-@media only screen and (min-width: 1025px) and (max-width: 1280px){
+@media (min-width: 1025px){
     .page-type-inclusive .inclusive-design > div > div,
     .page-type-article main,
-    .article-card.block,
-    .two-column.block,
-    .people.block{
-        max-width:100%;
-        width: 1024px;
-    }
-    .people.block .person .name{
-        font-size: 1.7em;
-    }
-    .people.block .person .stories-link,
-    .people.block .person .title{
-        font-size: .8em;
-    }
-    .page-type-team .teams > div > div,
-    .page-type-stories-index main,
-    .page-type-tools .toolkit > div > div,
-    .page-type-inclusive .inclusive-design > div > div{
-        width: 1100px;
-    }
     .toolkit-card-container{
-        width: 1100px;
+        width: clamp(933px, 85.6vw, 1920px);
         margin: auto;
     }
 }
-@media only screen and (min-width: 769px) and (max-width: 1024px){
-    .page-type-article main{
-        width: 950px;
-    }
-    .article-card.block,
-    .two-column.block,
-    .people.block{
-        width: 1000px;
-    }
-    .page-type-inclusive .inclusive-design > div > div{
-        width: 900px;
-    }
-    .toolkit-card-container{
-        width: 900px;
-        margin: auto;
-    }
-}
-@media only screen and (min-width: 426px) and (max-width: 768px){
-    .page-type-article main{
-        width: 750px;
-    }
-    .page-type-inclusive .inclusive-design > div > div{
-        width: 758px;
-    }
-    .toolkit-card-container{
-        width: 758px;
-        margin: auto;
-    }
-}
-@media only screen and (min-width: 415px) and (max-width: 425px){
-    .page-type-article main{
-        width: 410px;
-    }
-    .toolkit-header h3{
-        padding-right: 0;
-        width: 97%;
-    }
-    .page-type-inclusive .inclusive-design > div > div{
-        width: 415px;
-    }
-}
-@media only screen and (min-width: 376px) and (max-width: 414px){
-    .page-type-inclusive .inclusive-design > div > div{
-        width: 399px;
-    }
-}
-@media only screen and (min-width: 321px) and (max-width: 375px){
+@media (max-width: 1024px){
+    .page-type-inclusive .inclusive-design > div > div,
     .page-type-article main,
-    .page-type-inclusive .inclusive-design > div > div{
-        width: 355px;
-    }
-}
-@media only screen and (max-width: 320px){
-    .page-type-article main,
-    .page-type-inclusive .inclusive-design > div > div{
-        width: 310px;
-        max-width: 100%;
+    .toolkit-card-container{
+        width: calc(100vw - 20px);
+        margin: auto;
     }
 }
