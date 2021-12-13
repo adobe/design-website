@@ -181,6 +181,7 @@ body > main > div > div > div:nth-child(6) > div > div.text{
     .inclusive-design .text .hed{
         font-size: 2em;
         padding-right: 5em;
+        width: 61%;
     }
     .inclusive-design .block-content .text{
         padding: 2em 1em 6em 1em;
