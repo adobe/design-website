@@ -285,7 +285,7 @@ html body button{
     .page-type-inclusive .inclusive-design > div > div,
     .page-type-article main,
     .toolkit-card-container{
-        width: calc(100vw - 20px);
+        width: calc(100vw - 30px);
         margin: auto;
     }
 }

@@ -360,6 +360,7 @@ body > main > div > div > div:nth-child(10){
     #wed-like-to-share-what-weve-learned-with-you{
         font-size: 4.7em;
         padding: 2em 2em 2.5em 2em;
+        padding: clamp(100px, 9.8vw, 118px);
     }
     .inclusive-design .statementTwo{
         padding: 0 12em 3em 3.5em;
@@ -467,7 +468,7 @@ body > main > div > div > div:nth-child(10){
     }
     #wed-like-to-share-what-weve-learned-with-you{
         font-size: 2.3em;
-        padding: 4em .5em;
+        padding: 2em .5em;
     }
     .inclusive-design .statementTwo{
         padding: 0 1em 3em 1em;
@@ -523,7 +524,7 @@ body > main > div > div > div:nth-child(10){
     }
     #wed-like-to-share-what-weve-learned-with-you{
         font-size: 2em;
-        padding: 4em .5em;
+        padding: 2em .5em;
     }
     .inclusive-design .statementTwo{
         padding: 0 1em 3em 1em;
