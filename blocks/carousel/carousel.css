@@ -388,7 +388,7 @@
 @media (max-width: 1920px) and (min-width: 1025px){
     .carousel.block.full-bleed{
         height: 42em;
-        width: 1280px;
+        width: 85%;
         /* padding-top: 8em; */
     }
     .carousel .carousel__item--visible a.carousel-link{
@@ -416,7 +416,7 @@
         margin: 2em 0;
     }
 }
-@media (max-width: 1920px) and (min-width: 1650px){
+@media (max-width: 1920px) and (min-width: 1440px){
     .carousel__item--visible .number {
         width: 75%;
     }
@@ -424,7 +424,7 @@
         padding-left: 7em;
     }
     body > main > div > div > div.carousel.block.full-bleed {
-        width: 1567px;
+        width: 85%;
     }
     .carousel .carousel__item--visible a.carousel-link {
         max-width: 95%;
