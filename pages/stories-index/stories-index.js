@@ -63,4 +63,5 @@ export default async function decorator($main) {
   const $loadButton = addButton('LOAD MORE', buttonActionCallback, 'unfilled dark-background');
   const $loadMoreSection = $element('#load-more-section.load-more-stories', $loadButton);
   $target.append($wrap($element('.content'), [$results, $loadMoreSection, $thinkDifferent]));
+  removeButtonCheck();
 }
