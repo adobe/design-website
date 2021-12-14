@@ -104,7 +104,7 @@
 
 @media (min-width: 1921px) {
     .article-card.block .text .tag-link {
-        font-size: 1.5em;
+        font-size: 1.25em;
     }
  }
 
@@ -365,5 +365,11 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
         .article-card.block .block-content .text{
             height: auto;
         }
+    }
+}
+
+@media(min-width: 1920px) {
+    .article-card.block {
+        width: 1700px;
     }
 }

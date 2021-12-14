@@ -109,3 +109,10 @@
         font-size: 1em;
     }
 }
+
+@media (min-width: 1920px) {
+    .people.block {
+        width: 1700px;
+    }
+    
+}
