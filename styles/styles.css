@@ -275,6 +275,8 @@ html body button{
 /* If the styles are the same for each media query, combine them: */
 
 @media (min-width: 1025px){
+    .page-type-jobs .jobs,
+    .think-differently-container,
     .page-type-inclusive .inclusive-design > div > div,
     .page-type-article main,
     .toolkit-card-container{
@@ -283,6 +285,8 @@ html body button{
     }
 }
 @media (max-width: 1024px){
+    .page-type-jobs .jobs,
+    .think-differently-container,
     .page-type-inclusive .inclusive-design > div > div,
     .page-type-article main,
     .toolkit-card-container{
