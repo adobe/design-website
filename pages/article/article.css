@@ -590,6 +590,7 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .content h2{
         padding-left: 4.5em;
+        padding-right: 0;
     }
     .page-type-article .content .pull-quote.block{
         font-size: var(--font-size-lede);
@@ -653,6 +654,7 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .content h2{
         padding-left: 4.8em;
+        padding-right: 0;
     }
     .page-type-article .content .pull-quote.block{
         font-size: var(--font-size-lede);
@@ -720,6 +722,7 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .content h2{
         padding-left: 4.4em;
+        padding-right: 0;
     }
     .page-type-article .content .pull-quote.block{
         font-size: var(--font-size-lede);
@@ -764,13 +767,14 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .similar-stories-content{
         width: 1024px;
     }
+    .page-type-article .content h2{
+        padding-right: 0;
+    }
     .page-type-article .content h3{
         font-size: 2em;
         padding-left: 8.6em;
     }
-    .page-type-article .header.block h2{
-        padding-right: 10em;
-    }
+    
 }
 @media (max-width: 1024px) and (min-width:769px) {
     .page-type-article .content{
@@ -787,6 +791,7 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .content h2{
         font-size: 4em;
         padding-left: 4.2em;
+        padding-right: 0;
     }
     .page-type-article .content h3{
         font-size: 2.4em;
