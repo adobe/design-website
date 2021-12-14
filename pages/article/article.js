@@ -42,7 +42,8 @@ export default async function decorate($main) {
 
   try {
     $main.querySelector(':scope > div > div').classList.add('content');
-    $main.querySelector('.header.block > div:nth-child(2) > div:nth-child(2)').classList.add('art');
+    const artElement = $main.querySelector('.header.block > div:nth-child(2) > div:nth-child(2)');
+    if (artElement) artElement.classList.add('art');
   } catch (err) {
     consoleCopy.log(err);
   }
@@ -59,12 +60,10 @@ export default async function decorate($main) {
    * Links in article should open in new tab:
    */
   const additionalReading = document.querySelector('.additional-reading');
-  const readingList = additionalReading.querySelectorAll('ul > li > a');
+  const readingList = additionalReading ? additionalReading.querySelectorAll('ul > li > a') : null;
   const linksInArticle = document.querySelectorAll('.content > p > a');
-  readingList.forEach((elem) => elem.setAttribute('target', '_blank'));
-  linksInArticle.forEach((elem) => {
-    elem.setAttribute('target', '_blank');
-  });
+  if (readingList) readingList.forEach((elem) => elem.setAttribute('target', '_blank'));
+  if (linksInArticle) linksInArticle.forEach((elem) => elem.setAttribute('target', '_blank'));
 
   try {
     document.querySelector('main h1').before(headerTag);
@@ -73,7 +72,8 @@ export default async function decorate($main) {
   }
   const $art = $element('.art', getMetadata('image-attribution'));
 
-  $main.querySelector('body > main > .section-wrapper > .content > h1').classList.add('header-h1');
+  const headerH1 = $main.querySelector('body > main > .section-wrapper > .content > h1');
+  if (headerH1) headerH1.classList.add('header-h1');
   $main.querySelector('body > main > .section-wrapper > .content > h2').classList.add('header-sub');
   // eslint-disable-next-line no-unused-vars
   const headImage = $main.querySelector('body > main > .section-wrapper > .content > .article-picture').classList.add('header-img');
@@ -139,7 +139,7 @@ async function buildAuthorBio() {
   }
 
   try {
-    document.querySelector('.header-img').append($authorBlock);
+    if (document.querySelector('.header-img')) document.querySelector('.header-img').append($authorBlock);
   } catch (err) {
     consoleCopy.error(err);
   }

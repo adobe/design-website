@@ -13,5 +13,6 @@ export default function decorate($block) {
     author.querySelector('.author-name > h2').classList.add('name');
     author.querySelector('.author-name > h3').classList.add('title');
   }
+  console.log($block)
   document.body.insertBefore($block, document.querySelector('#global-footer'));
 }
