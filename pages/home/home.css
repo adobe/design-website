@@ -76,3 +76,15 @@
     vertical-align: super;
     font-size: .5em;
 }
+
+@media (max-width: 1440px) and (min-width: 1024px) {
+    .page-type-home .people {
+        width: 85%;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .page-type-home .people {
+        width: 85%;
+    }
+}

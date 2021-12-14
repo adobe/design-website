@@ -26,6 +26,7 @@
 
     .two-column.block{
         margin-bottom: 0.5rem;
+        width: 980px;
     }
 
     /* Only targets the joinus/scoreboard block */
@@ -77,6 +78,17 @@
     }
 }
 
+@media (max-width: 1440px) and (min-width: 1024px) {
+    .two-column.block {
+        width: 85%;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .two-column.block {
+        width: 85%;
+    }
+}
 
 /* .two-column.block > div {
     display:grid;
