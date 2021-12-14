@@ -22,9 +22,11 @@ button, button.reg, button.med, button.primary{
     color: inherit;
     transition: var(--button-transition);
 
+    font-family: var(--sans-serif-font);
+
 }
 
-@media screen and (max-width: 1000px) {
+@media (max-width: 1000px) {
     button.med, button.reg{
         min-height: 48px;
         min-width: 108px;
@@ -35,7 +37,7 @@ button, button.reg, button.med, button.primary{
         font-size: 18px;
     }
 }
-@media screen and (min-width: 1000px) {
+@media (min-width: 1000px) {
      button.med, button.reg{
         height: 48px;
         min-height: 48px;
@@ -47,8 +49,6 @@ button, button.reg, button.med, button.primary{
     }
 }
 
-
-
 button.black{
     color: black;
     border-color:black;
@@ -56,15 +56,6 @@ button.black{
 button.white{
     color: white;
     border-color:white;
-}
-
-@function contrasting-color($color) {
-    @if( lightness( $color ) > 50) {
-        @return #000000;
-    }
-    @if( lightness( $color ) < 50) {
-        @return #000000;
-    }
 }
 
 /*

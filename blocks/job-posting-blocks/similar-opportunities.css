@@ -66,6 +66,9 @@
         padding-left: 4.31em;
         padding-right: 4.31em;
     }
+    .job-post .similarOpps-block .opp-block .header-c .title{
+        color: var(--lt-yellow)
+    }
 }
 @media screen and (min-width: 1300px){
     .job-post .similarOpps-block .opp-block{
@@ -133,6 +136,8 @@
 .job-post div.similarOpps-block div.psns-container > button.job,
 .similarOpps-block .psns-container button.job{
     height: clamp(144px, 4.8em, 4.8em);
+    min-height: 144px;
+    height: fit-content;
      /* = 144px / 30.7 */
     /* width: 22.6em; */
     width: 100%;
@@ -173,10 +178,10 @@
 }
 
 .job-post .similarOpps-block .job .department,
-.job-post .similarOpps-block .job .product,.job-post
-.job-post .similarOpps-block .job .city,.job-post
-.job-post .similarOpps-block .job .title.job-post ,
-.job-post .similarOpps-block .job .sub-ti.job-post tle{
+.job-post .similarOpps-block .job .product,
+.job-post .similarOpps-block .job .city,
+.job-post .similarOpps-block .job .title,
+.job-post .similarOpps-block .job .sub-title{
     grid-column: span 1;
     grid-row: span 1;
     align-items: end;
@@ -189,8 +194,8 @@
 }
 
 .job-post .similarOpps-block .job .sub-title,
-.job-post .similarOpps-block .job .department.job-post ,
-.job-post .similarOpps-block .job .product,.job-post
+.job-post .similarOpps-block .job .department,
+.job-post .similarOpps-block .job .product,
 .job-post .similarOpps-block .job .city{
     font-size: clamp(16px, 1.6vw, 18px);
     line-height: 1.33em;
