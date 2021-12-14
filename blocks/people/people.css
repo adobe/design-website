@@ -5,15 +5,19 @@
     margin-bottom: 16px;
 }
 
+.person .content{
+    padding-bottom: 0.5em;
+}
+
 .person .tag-link {
-    font-weight: var(--weight-light);
-    font-size: 0.75em;
+    font-weight: var(--weight-regular);
+    font-size: 1.1em;
     text-decoration: none;
     border-bottom: none;
     color: inherit;
 }
 .person .tag-link .tag {
-    border-bottom: 2px solid;
+    border-bottom: 3px solid;
 }
 
 .person .image{
@@ -49,7 +53,7 @@
 
 .person .title {
     font-weight: var(--weight-light);
-    font-size: 1em;
+    font-size: 1.2em;
     display: flex;
     flex-wrap: wrap;
     margin-top: 15px;
