@@ -197,7 +197,7 @@ body > main > div > div > div:nth-child(10){
     width: auto;
 }
 
-@media (max-width: 2560px) and (min-width: 1921px){
+@media (min-width: 1921px){
     .inclusive-design h1{
         font-size: 7em;
         padding: 2em;
