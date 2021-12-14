@@ -516,7 +516,8 @@ body > div.author-bio.block > div > author-name{
         padding-left: 12.5em;
     }
     .page-type-article .content h2{
-        padding-left: 3.5em;
+        padding-left: 3.6em;
+        padding-right: 0;
         font-size: 7em;
     }
     .page-type-article .content .pull-quote.block{
