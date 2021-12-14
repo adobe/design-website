@@ -3,13 +3,6 @@
         font-size: 12px;
     }
 }
-@media screen and (min-width: 601px) {
-    .carousel {
-        font-size: 18px; /* 16px-30.7px */
-    }
-}
-
-
 
 /*
     Strive for more D.R.Y. code
@@ -229,8 +222,8 @@
 @media (min-width: 426px) and (max-width: 1024px) {
     .carousel .carousel__actions {
         top: 110%;
-        left: 73vw;
-        width: 30%;
+        left: 74vw;
+        width: 28%;
         padding-bottom: 3em;
     }
     .carousel {
@@ -238,6 +231,7 @@
         margin-top: 5em;
         margin-bottom: 12em;
         overflow: visible;
+        width: 1027px;
     }
     .carousel .carousel__actions button img {
         height: 25px;
@@ -248,7 +242,7 @@
         max-width: 62.54em;
     }
     .carousel .number {
-        width: 38vw;
+        width: 34vw;
         margin-left: 2em;
     }
     .carousel .carousel__item img {
@@ -288,7 +282,7 @@
     }
     .carousel .carousel__actions {
         top: 5em;
-        left: 46.5vw;
+        left: 50vw;
         width: 90%;
     }
     .carousel {
@@ -394,7 +388,7 @@
 @media (max-width: 1920px) and (min-width: 1025px){
     .carousel.block.full-bleed{
         height: 42em;
-        width: 1280px;
+        width: 85%;
         /* padding-top: 8em; */
     }
     .carousel .carousel__item--visible a.carousel-link{
@@ -422,7 +416,7 @@
         margin: 2em 0;
     }
 }
-@media (max-width: 1920px) and (min-width: 1650px){
+@media (max-width: 1920px) and (min-width: 1440px){
     .carousel__item--visible .number {
         width: 75%;
     }
@@ -430,7 +424,7 @@
         padding-left: 7em;
     }
     body > main > div > div > div.carousel.block.full-bleed {
-        width: 1567px;
+        width: 85%;
     }
     .carousel .carousel__item--visible a.carousel-link {
         max-width: 95%;

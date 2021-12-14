@@ -64,7 +64,11 @@
     margin: 3em 0em 0.5rem 0em;
     line-height: 1.6em;
 }
-
+@media (max-width: 1920px){
+    .seventy .content {
+        width: unset;
+    }
+}
 
 @media(max-width: 1920px) and (min-width: 1651px){
     .seventy .image {

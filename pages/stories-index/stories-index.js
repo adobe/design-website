@@ -23,7 +23,7 @@ export default async function decorator($main) {
   // Console.log('INDEX', index);
 
   const allStories = index.fullindex.data.filter((data) => data.path.split('/')[1] === 'stories');
-  const locationCopy = { ...Location };
+  const locationCopy = { ...window.location };
   const tagFilter = locationCopy.search ? locationCopy.search.split('=')[1] : null;
   $main.classList.add('stories-index-view');
   const $target = $main.querySelector(':scope > div > div');
@@ -63,4 +63,5 @@ export default async function decorator($main) {
   const $loadButton = addButton('LOAD MORE', buttonActionCallback, 'unfilled dark-background');
   const $loadMoreSection = $element('#load-more-section.load-more-stories', $loadButton);
   $target.append($wrap($element('.content'), [$results, $loadMoreSection, $thinkDifferent]));
+  removeButtonCheck();
 }

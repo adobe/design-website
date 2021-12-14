@@ -26,6 +26,7 @@
 
     .two-column.block{
         margin-bottom: 0.5rem;
+        width: 980px;
     }
 
     /* Only targets the joinus/scoreboard block */
@@ -39,6 +40,7 @@
         flex-grow:5;
     }
 }
+
 @media (max-width: 767px) {
     .two-column.block > div {
         flex-direction: column;
@@ -47,6 +49,45 @@
         height: auto;
     }
     
+}
+
+@media (max-width: 768px) and (min-width: 426px){
+    .two-column.block{
+        width: 758px;
+    }
+}
+@media (max-width: 425px) and (min-width: 415px){
+    .two-column.block{
+        width: 415px;
+    }
+}
+
+@media (max-width: 414px) and (min-width: 376px){
+    .two-column.block{
+        width: 399px;
+    }
+}
+@media (max-width: 375px) and (min-width: 321px){
+    .two-column.block{
+        width: 365px;
+    }
+}
+@media (max-width: 320px){
+    .two-column.block{
+        width: 365px;
+    }
+}
+
+@media (max-width: 1440px) and (min-width: 1024px) {
+    .two-column.block {
+        width: 85%;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .two-column.block {
+        width: 85%;
+    }
 }
 
 /* .two-column.block > div {
