@@ -165,7 +165,8 @@
 }
 
 .job-post .similarOpps-block .psns-container button.job:active,
-.job-post .similarOpps-block .psns-container button.job:focus{
+.job-post .similarOpps-block .psns-container button.job:focus,
+.job-post .similarOpps-block .psns-container button.job:hover{
     outline-style: auto;
     transition: all .5s ease;
 }
