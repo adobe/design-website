@@ -369,6 +369,18 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
     }
 }
 
+@media (max-width: 1440px) and (min-width: 1024px) {
+    .article-card.block {
+        width: 85%;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .article-card.block {
+        width: 85%;
+    }
+}
+
 @media(min-width: 1920px) {
     .article-card.block {
         width: 1700px;

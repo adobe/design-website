@@ -82,6 +82,18 @@ header#global-header {
   }
 }
 
+@media (max-width: 1440px) and (min-width: 1024px) {
+  header#global-header {
+      width: 85%;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+  header#global-header {
+    width: 85%;
+  }
+}
+
 @media screen and (min-width: 1920px) {
   header#global-header{
     max-width: 120em;     /* 1920px*/
