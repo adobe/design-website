@@ -906,6 +906,7 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .content .lede.block{
         width: auto;
         padding: 1em 73px 3em 73px;
+        font-size: 1.5em;
     }
     .page-type-article .content h2{
         font-size: 2.5em;
