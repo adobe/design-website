@@ -126,7 +126,7 @@
 }
 .page-type-team .team-cards .team-card.active .chevron-down{
     transform: rotate(180deg);
-    background-position: center;
+    background-position: center bottom 0.5em;
 }
 
 .page-type-team .team-cards .team-card h3{

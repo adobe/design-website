@@ -1,15 +1,37 @@
 /* eslint-disable no-trailing-spaces */
 import { lookupAuthor } from '../../scripts/authors.js';
 import {
-  $element, $wrap, getMetadata,
+  $element, $wrap, getMetadata, buildStory,
 } from '../../scripts/helpers.js';
-// import { fetchIndex } from '../../scripts/queries.js';
+import { fetchIndex } from '../../scripts/queries.js';
 
-// let index;
+let index;
 const consoleCopy = console;
 
+async function buildSimilarStories(tag) {
+  if (!index) {
+    index = await fetchIndex();
+  }
+  const allStories = index.fullindex.data.filter((data) => data.path.split('/')[1] === 'stories');
+  const similarStories = allStories.filter((story) => story.path.split('/')[2] === tag);
+  const storiesContent = $element('.stories');
+
+  const currentPath = window.document.location.pathname;
+  let postedStories = 0;
+  for (let i = 0; postedStories < 2 && i < similarStories.length; i += 1) {
+    if (similarStories[i].path !== currentPath) {
+      storiesContent.appendChild(buildStory(similarStories[i]));
+      postedStories += 1;
+    }
+  }
+  const $similarStoriesBlock = $wrap($element('.similar-stories'),
+    $wrap($element('.similar-stories-content'), [$element('h2.similar-stories-header',
+      'Similar Stories'), storiesContent]));
+  document.body.insertBefore($similarStoriesBlock, document.querySelector('#global-footer'));
+}
+
 export default async function decorate($main) {
-  const content = $main.querySelector('body > main > div.section-wrapper > div');
+  // const content = $main.querySelector('body > main > div.section-wrapper > div');
   const paragraphs = document.querySelectorAll('body > main > div > div > p');
 
   paragraphs.forEach((p) => {
@@ -25,7 +47,7 @@ export default async function decorate($main) {
     consoleCopy.log(err);
   }
   const tag = window.document.location.pathname.split('/')[2];
-  // letbuildSimilarStories(tag);
+  buildSimilarStories(tag);
 
   const headerTag = $element(
     'a.header-tag.stories-link', // Tag type and classes
@@ -53,6 +75,7 @@ export default async function decorate($main) {
 
   $main.querySelector('body > main > .section-wrapper > .content > h1').classList.add('header-h1');
   $main.querySelector('body > main > .section-wrapper > .content > h2').classList.add('header-sub');
+  // eslint-disable-next-line no-unused-vars
   const headImage = $main.querySelector('body > main > .section-wrapper > .content > .article-picture').classList.add('header-img');
   $main.querySelector('body > main > .section-wrapper > .content > .article-picture').append($art);
 
@@ -66,28 +89,6 @@ export default async function decorate($main) {
 
   // Beginning of image attribution
 }
-
-// async function buildSimilarStories(tag) {
-//   if (!index) {
-//     index = await fetchIndex();
-//   }
-//   const allStories = index.fullindex.data.filter((data) => data.path.split('/')[1] === 'stories')
-//   const similarStories = allStories.filter((story) => story.path.split('/')[2] === tag);
-//   const storiesContent = $element('.stories');
-
-//   const currentPath = window.document.location.pathname;
-//   let postedStories = 0;
-//   for (let i = 0; postedStories < 2 && i < similarStories.length; i += 1) {
-//     if (similarStories[i].path !== currentPath) {
-//       storiesContent.appendChild(buildStory(similarStories[i]));
-//       postedStories += 1;
-//     }
-//   }
-//   const $similarStoriesBlock = $wrap($element('.similar-stories'),
-//  $wrap($element('.similar-stories-content'), [$element('h2.similar-stories-header',
-//  'Similar Stories'), storiesContent]));
-//   document.body.insertBefore($similarStoriesBlock, document.querySelector('#global-footer'));
-// }
 
 async function buildAuthorBio() {
   const authorName = getMetadata('author');
