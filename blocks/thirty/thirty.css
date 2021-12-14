@@ -31,12 +31,13 @@
     border-bottom: solid 0.2em #000000;
     width: fit-content;
     color: inherit;
-    font-size: 1.1em;
+    font-size: 1em;
     line-height: 1.125em;
     margin: 0em 0em 0.5em 0em;
     text-decoration: none;
     text-transform: uppercase;
     width: max-content;
+    padding-bottom: .25em;
 }
 .thirty .tag.tag-link{
     border-bottom: none;
@@ -45,7 +46,7 @@
     font-family: var(--sans-serif-font);
     font-size: 3em;
     line-height: 1em;
-    margin: 1em 0rem 0em;
+    margin: 1.5em 0rem 0em;
     max-width: 100%;
     text-decoration: none;
     color: inherit;
@@ -61,8 +62,9 @@
 }
 .thirty .byline {
     font-size: 1.2em;
-    margin: 1em 0em 0rem 0em;
+    margin: 1em 0em -1rem 0em;
     line-height: 1.6em;
+    font-weight: bold;
 }
 .thirty .title {
     font-size: 0.875em;
