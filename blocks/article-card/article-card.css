@@ -367,3 +367,9 @@ body > main > .stories-link > .text > div:nth-child(9) > div > a > div.text > di
         }
     }
 }
+
+@media(min-width: 1920px) {
+    .article-card.block {
+        width: 1700px;
+    }
+}

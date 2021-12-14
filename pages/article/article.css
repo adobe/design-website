@@ -486,7 +486,7 @@ body > div.author-bio.block > div > author-name{
         font-size: 1.4em;
     }
 } */
-@media (max-width: 2560px) and (min-width: 1920px){
+@media (min-width: 1920px){
 
     .page-type-article .header-tag{
         padding-left: 3.5em;
@@ -580,8 +580,9 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .author.block .name{
         padding: 0;
     }
-    .page-type-article .lede.block{
+    .page-type-article .content .lede.block{
         font-size: var(--font-size-lede);
+        font-size: 3.8em;
     }
     .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
         font-size: 1.8em;

@@ -159,6 +159,9 @@
     padding-bottom: 1.5em;
 }
 .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs{
+    display:block;
+    margin: auto;
+    width: 85%;
     font-size: 0.6em;
     text-decoration: underline 2px;
     text-underline-offset: 3px;
@@ -703,6 +706,7 @@
         line-height: 1.5em;
     }
     .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs{
+        width: 95%;
         font-size: 0.6em;
     }
     .page-type-team .foot-content .resources-section h2{
@@ -796,9 +800,9 @@
     }
     .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child,
     .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs{
-        margin: 0 15%;
+        margin: auto;
         width: 70%;
-        padding-bottom: 2em;
+        padding-bottom: 4em;
     }
     .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
         font-size: 1.3rem;
