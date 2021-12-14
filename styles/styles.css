@@ -123,8 +123,8 @@ html body button{
 .people.block,
 .article-card.block,
 .two-column.block{
-    width: 1567px;
-    max-width: 98%;
+    /* width: 1567px;
+    max-width: 98%; */
 }
 
 .stories-link{

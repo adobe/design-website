@@ -767,6 +767,14 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .content .header.block h2{
         padding-left: 3.4em;
     }
+    .page-type-article .content h2{
+        font-size: 4em;
+        padding-left: 4.2em;
+    }
+    .page-type-article .content h3{
+        font-size: 2.4em;
+        padding-left: 7.2em;
+    }
     .page-type-article .content .header.block .author-desc h2{
         padding-left: 0;
     }
