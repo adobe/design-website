@@ -1,5 +1,5 @@
 .seventy.block {
-    width: 134.5%;
+    width: 135%;
     height: 100%;
 }
 .seventy{
@@ -22,10 +22,10 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    padding: 1.6em 3em 1em 4em;
+    padding: 1.6em 3em 1em 5em;
     box-sizing: border-box;
     font-size: 28px;
-
+    width: 80%;
 }
 .seventy .tag {
     border-bottom: solid 0.2em #000000;
@@ -37,6 +37,7 @@
     text-decoration: none;
     text-transform: uppercase;
     width: max-content;
+    padding-bottom: .25em;
 }
 .seventy .tag.tag-link {
     border-bottom: none;
@@ -55,7 +56,6 @@
     line-height: 1.2em;
     margin: 3em 0em 2rem 0em;
     font-weight: var(--weight-light);
-    text-overflow: ellipsis;
     max-height: 3.6em;
     max-width: 100%;
 }
@@ -118,5 +118,15 @@
         width: auto;
         margin-bottom: .5em;
         padding: 1.6em 3em 1em 3em;
+    }
+}
+
+@media(min-width: 1920px) {
+    .seventy .tag {
+        font-size: .85em;
+    }
+    .seventy .byline {
+        font-size: .8em;
+        font-weight: bold;
     }
 }
