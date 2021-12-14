@@ -135,7 +135,7 @@ export default async function decorate() {
       if (!job.section) {
         job.section = 'Experience Design';
       }
-      if ((element.id.replaceAll('-', ' ').includes(job.section.toLowerCase()))) {
+      if ((element.id && element.id.replaceAll('-', ' ').includes(job.section.toLowerCase()))) {
         hasJob = true;
         element.append(buildJobListings(job));
       }
