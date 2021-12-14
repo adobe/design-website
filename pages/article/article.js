@@ -33,13 +33,24 @@ export default async function decorate($main) {
     ['#', $element('span.tag', tag.toUpperCase().replaceAll('-', ' '))],
   ); // Tag content
 
+  /**
+   * Links in article should open in new tab:
+   */
+  const additionalReading = document.querySelector('.additional-reading');
+  const readingList = additionalReading.querySelectorAll('ul > li > a');
+  const linksInArticle = document.querySelectorAll('.content > p > a');
+  readingList.forEach((elem) => elem.setAttribute('target', '_blank'));
+  linksInArticle.forEach((elem) => {
+    elem.setAttribute('target', '_blank');
+  });
+
   try {
     document.querySelector('main h1').before(headerTag);
   } catch (err) {
     consoleCopy.error(err);
   }
   const $art = $element('.art', getMetadata('image-attribution'));
-  
+
   $main.querySelector('body > main > .section-wrapper > .content > h1').classList.add('header-h1');
   $main.querySelector('body > main > .section-wrapper > .content > h2').classList.add('header-sub');
   const headImage = $main.querySelector('body > main > .section-wrapper > .content > .article-picture').classList.add('header-img');
