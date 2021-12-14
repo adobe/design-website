@@ -16,9 +16,10 @@
 }
 /* --- SET FONT SIZE (em)s HERE: ---*/
 /* All following/decendant em measurements will be based on this font-size: */
-@media screen and (min-width: 700px) and (max-width: 1025px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     .article-card.block{
         font-size: 1.7vw;
+        width: 980px;
     }
 }
 @media screen and (max-width: 700px){

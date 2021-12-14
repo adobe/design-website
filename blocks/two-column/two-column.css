@@ -26,6 +26,7 @@
 
     .two-column.block{
         margin-bottom: 0.5rem;
+        width: 980px;
     }
 
     /* Only targets the joinus/scoreboard block */
