@@ -3,30 +3,14 @@
 /* @import url(../../blocks/job-posting-blocks/about-adobe-design.css);
 @import url(../../blocks/job-posting-blocks/equal-opp-policy-stmnt.css); */
 
-@media screen and (max-width: 1000px) {
-    .job-post,
-    .job-post header,
-    .job-post main > div,
-    .job-post .post-container{
-        font-size: 16px
-    }
+.job-post,
+.job-post header,
+.job-post main > div,
+.job-post .post-container{
+    font-size: clamp(16px, 1.6vw, 30.7px);
+    text-rendering: geometricPrecision;
 }
-@media screen and (min-width: 1000px) and (max-width: 1920px) {
-    .job-post,
-    .job-post header,
-    .job-post main > div,
-    .job-post .post-container{
-        font-size: 1.6vw;
-    }
-}
-@media screen and (min-width: 1920px) {
-    .job-post,
-    .job-post header,
-    .job-post main > div,
-    .job-post .post-container{
-        font-size: 30.7px;
-    }
-}
+
 .job-post main {
     background-color: #ffffff;
 }
@@ -44,17 +28,19 @@
     border-radius: 1.5em;
     font-weight: var(--weight-bold);
     text-transform: uppercase;
+    text-rendering: geometricPrecision;
 }
-@media screen and (max-width: 1300px) {
+@media (max-width: 1300px) {
     .job-post button.filled.lt-bkg{
         font-size: 1em;
         height: 2.25em;
         min-height: 2.25em;
         max-height: 2.25em;
-        line-height: 2.25em;
+        line-height: 2em;
         border-radius: 1.5em;
         font-weight: var(--weight-bold);
         text-transform: uppercase;
+;
     }
     .job-post button.filled.header_button{
         margin: 3.385em auto 3.75em 0;
@@ -63,7 +49,7 @@
         margin: 4.9em auto 3.13em 0;
     }
 }
-@media screen and (min-width: 1300px) {
+@media (min-width: 1300px) {
     .job-post button.filled.lt-bkg{
         margin-top: 2em; /* height: 48px; */
     }
@@ -80,10 +66,9 @@
         margin: 1em 0 13.94em 0;
         width: 100%;
     }
-}
 /* END Buttons */
 
-@media screen and (min-width: 1300px) {
+
     .job-post .section-wrapper.post-container{
         width:        100%;
         max-width: 62.54em; /* 1920px */
@@ -109,7 +94,7 @@
     width: 100vw;
 }
 
-@media screen and (max-width: 1300px) {
+@media (max-width: 1300px) {
     .job-post .sticky-container{
         display: none;
     }
@@ -122,7 +107,7 @@
     font-weight: var(--weight-bold);
 }
 
-@media screen and (min-width: 1300px) {
+@media (min-width: 1300px) {
     .job-post .post-text .subhead-container{
         display: none;
     }
@@ -198,13 +183,13 @@
     /* margin-bottom: 2.3em; */
     font-family: var(--sans-serif-font);
 }
-@media screen and (min-width: 1300px) {
+@media (min-width: 1300px) {
     .job-post .job-title{
         margin-bottom: 2.18em; /* 262px */
     }
     /* .job-post .post-text */
 }
-@media screen and (max-width: 1300px) {
+@media (max-width: 1300px) {
     .job-post .job-title{
         margin-bottom: 1.675em; /* 67px */
     }
@@ -280,7 +265,7 @@
     font-size: 16px;
 }
 
-@media screen and (max-width: 1300px) {
+@media (max-width: 1300px) {
     .job-post .post-text p,
     .job-post .post-text li {
         font-size: 1.065em;   /* 17px */
@@ -316,7 +301,7 @@
     }
 }
 
-@media screen and (min-width: 1300px) {
+@media (min-width: 1300px) {
     .job-post .post-text p,
     .job-post .post-text li {
         font-size: 0.977em; /* 30px */
