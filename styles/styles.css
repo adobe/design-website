@@ -5,7 +5,7 @@
 @import "global-footer.css";
 @import "./background.css";
 @import "../blocks/button/button.css";
-@import "./button.css";
+@import "button.css";
 
 html, body{
     width: 100vw;
