@@ -58,9 +58,6 @@
     font-family: var(--sans-serif-font);
     font-weight: var(--weight-regular);
 }
-.page-type-article .header-tag .tag{
-    border-bottom: solid .2em black;
-}
 .page-type-article .content:not(.page-type-article) {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -112,7 +109,12 @@ body > main > div > div > p:nth-child(3){
     font-size: 2em;
     font-family: var(--serif-font);
     font-weight: var(--weight-regular);
+}
+.page-type-article:not(.dark-header) .content .header-sub {
     color: #4A4545;
+}
+.page-type-article:not(.dark-header)  .header-tag .tag {
+    border-bottom: solid .2em #4A4545;
 }
 .page-type-article .content h2{
     font-size: var(--h2-font-size);
@@ -487,6 +489,13 @@ body > div.author-bio.block > div > author-name{
     }
 } */
 @media (min-width: 1921px){
+    #global-background{
+        height: 100vh;
+    }
+    .page-type-article .content{
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0) 1480px,rgba(255,255,255, 1) 1480px);
+    }
     .page-type-article .header-tag{
         padding-left: 8.5em;
         font-size: 1.2em;
@@ -495,6 +504,11 @@ body > div.author-bio.block > div > author-name{
         font-size: 9em;
         padding-right: 4em;
         padding-left: 2em;
+    }
+    .page-type-article .content .header-sub{
+        font-size: 5em;
+        padding-left: 3.7em;
+        padding-right: 2em;
     }
     .page-type-article .header.block h2{
         font-size: 4em;
@@ -508,9 +522,7 @@ body > div.author-bio.block > div > author-name{
         font-size: 4.5em;
         width: 100%;
     }
-    .page-type-article .content .lede.block > div{
-        padding-right: 1em;
-    }
+
     .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
         font-size: 2em;
         padding-left: 12.5em;
@@ -774,7 +786,7 @@ body > div.author-bio.block > div > author-name{
         font-size: 2em;
         padding-left: 8.6em;
     }
-    
+
 }
 @media (max-width: 1024px) and (min-width:769px) {
     .page-type-article .content{
@@ -825,16 +837,16 @@ body > div.author-bio.block > div > author-name{
         padding-left: 0;
         padding-right: 0;
     }
-    .page-type-article h1,    
+    .page-type-article h1,
     .page-type-article .content .header-sub,
-    .page-type-article .content h2, 
+    .page-type-article .content h2,
     .page-type-article .content h3,
     .page-type-article .content ul,
     .page-type-article .additional-reading.block,
     .page-type-article main p:not(.author-bio.block p,
      .additional-reading.block p, .article-picture, .header-tag){
         padding-left: 132px;
-        padding-right: 132px;     
+        padding-right: 132px;
     }
     .page-type-article .header-tag{
         margin-left: 132px;
@@ -865,7 +877,7 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .additional-reading.block > div{
         padding: 0;
     }
- 
+
 
 }
 @media (max-width: 425px) and (min-width:376px) {
@@ -884,16 +896,16 @@ body > div.author-bio.block > div > author-name{
         padding-left: 0;
         padding-right: 0;
     }
-    .page-type-article h1,    
+    .page-type-article h1,
     .page-type-article .content .header-sub,
-    .page-type-article .content h2, 
+    .page-type-article .content h2,
     .page-type-article .content h3,
     .page-type-article .content ul,
     .page-type-article .additional-reading.block,
     .page-type-article main p:not(.author-bio.block p,
      .additional-reading.block p, .article-picture, .header-tag){
         padding-left: 73px;
-        padding-right: 73px;     
+        padding-right: 73px;
     }
     .page-type-article .header-tag{
         margin-left: 73px;

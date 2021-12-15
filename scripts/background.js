@@ -1,4 +1,5 @@
 // eslint-disable-next-line import/no-cycle
+import getColors from './colors.js';
 import { $element, getMetadata } from './helpers.js';
 
 const RE_RGB = /rgb\((\s?[0-9]{1,3},?){3}\)/i;
@@ -15,6 +16,7 @@ export const Background = {
   $activeFade: null,
   $inactiveFade: null,
   transitionTimeout: null,
+  backgroundType: 'light',
   generateTransparentColor(baseColor, format) {
     switch (format) {
       case 'hex':
@@ -37,6 +39,12 @@ export const Background = {
       Background.$activeFade.style.background = Background.generateGradientFade(color, 'hex');
     } else {
       CONSOLE.warn(`Background.setColor must be provided a CSS rgb() value or a 6 digit hex value #123456. Received: ${color}`);
+    }
+  },
+  setBackgroundType(_type) {
+    this.backgroundType = _type;
+    if (_type.toLowerCase() === 'dark') {
+      document.body.classList.add('dark-header');
     }
   },
   setColor(color) {
@@ -67,14 +75,21 @@ export const Background = {
   },
 };
 
-export function resolvePageBackgroundColor() {
-  return getMetadata('color') || '#EB211F';
+export async function resolvePageBackgroundColor() {
+  const colors = await getColors();
+  const resolvedColor = getMetadata('color');
+  try {
+    return colors.byName(resolvedColor);
+  } catch (err) {
+    return { Value: '#EB211F', BackgroundType: 'light' };
+  }
 }
 
-function applyPageBackground() {
-  const color = resolvePageBackgroundColor();
+async function applyPageBackground() {
+  const color = await resolvePageBackgroundColor();
   if (color) {
-    Background.setColor(color);
+    Background.setColor(color.Value);
+    Background.setBackgroundType(color.BackgroundType);
   }
 }
 

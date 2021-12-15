@@ -1,3 +1,4 @@
+import getColors from '../../scripts/colors.js';
 import {
   convertToBackground,
   $element,
@@ -13,6 +14,8 @@ import {
 export default async function decorate($block) {
   const truncateTextPages = ['/'];
   const truncateText = truncateTextPages.includes(window.document.location.pathname);
+
+  const Colors = await getColors();
 
   const props = await propsFromBlockLink($block, {
     path: 'path',
@@ -31,6 +34,10 @@ export default async function decorate($block) {
   if (result.properties) {
     Object.assign(props, result.properties);
   }
+
+  const resolvedBackground = Colors.byName(props.background);
+  props.background = resolvedBackground.Value;
+  props.textcolor = resolvedBackground.BackgroundType === 'dark' ? 'white' : 'black';
 
   /**
      *  Text Constants:

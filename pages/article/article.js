@@ -61,25 +61,42 @@ export default async function decorate($main) {
   /**
    * Links in article should open in new tab:
    */
-  const additionalReading = document.querySelector('.additional-reading');
-  const readingList = additionalReading ? additionalReading.querySelectorAll('ul > li > a') : null;
-  const linksInArticle = document.querySelectorAll('.content > p > a');
-  if (readingList) readingList.forEach((elem) => elem.setAttribute('target', '_blank'));
-  if (linksInArticle) linksInArticle.forEach((elem) => elem.setAttribute('target', '_blank'));
+  try {
+    document.querySelector(
+      '.additional-reading',
+    )?.querySelectorAll(
+      'ul > li > a',
+    )?.forEach((elem) => {
+      elem.setAttribute('target', '_blank');
+    });
+    const linksInArticle = document.querySelectorAll('.content > p > a');
+    if (linksInArticle) linksInArticle.forEach((elem) => elem.setAttribute('target', '_blank'));
+  } catch (err) {
+    CONSOLE.error(err);
+  }
 
   try {
     document.querySelector('main h1').before(headerTag);
   } catch (err) {
     CONSOLE.error(err);
   }
-  const $art = $element('.art', getMetadata('image-attribution'));
 
-  const headerH1 = $main.querySelector('body > main > .section-wrapper > .content > h1');
-  if (headerH1) headerH1.classList.add('header-h1');
-  $main.querySelector('body > main > .section-wrapper > .content > h2').classList.add('header-sub');
-  // eslint-disable-next-line no-unused-vars
-  const headImage = $main.querySelector('body > main > .section-wrapper > .content > .article-picture').classList.add('header-img');
-  $main.querySelector('body > main > .section-wrapper > .content > .article-picture').append($art);
+  try {
+    const $art = $element('.art', getMetadata('image-attribution'));
+    const $date = $element('.date', getMetadata('date'));
+
+    // TODO: Remove CONSOLE.log: (SLJ 12/15/21)
+    CONSOLE.log($date);
+
+    const $articleContent = $main.querySelector('body > main > .section-wrapper > .content');
+    $articleContent.querySelector('h1')?.classList.add('header-h1');
+    $articleContent.querySelector('h2').classList.add('header-sub');
+    $articleContent.querySelector('.article-picture')?.headImage.classList.add('header-img');
+    $articleContent.querySelector('.article-picture').append($art);
+    $main.querySelector('div.author-bio.block > div > .author-info')?.append($date);
+  } catch (err) {
+    CONSOLE.error(err);
+  }
 
   // const headerContent = $wrap($element('.header'), [
   //   headerDiv,
@@ -94,6 +111,7 @@ export default async function decorate($main) {
 
 async function buildAuthorBio() {
   const authorName = getMetadata('author');
+  const date = getMetadata('date');
   const author = await lookupAuthor(authorName);
 
   let $authorBlock;
@@ -115,7 +133,11 @@ async function buildAuthorBio() {
           ]),
           $element('.author-info', [
             $bio,
+            $element('.date', [
+              date,
+            ]),
           ]),
+
         ]),
       ]);
 
