@@ -842,6 +842,16 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .art{
         padding-right: 132px;
     }
+    .header-img > div.author.block > div > picture > img{
+        width: 3em;
+    }
+    .page-type-article .header-img .author .name{
+        font-size: 1.5em;
+        padding-top: 0;
+    }
+    .header-img > div.author.block > div > div > h3{
+        font-size: 1em ;
+    }
     .page-type-article .content div:nth-child(3){
         padding-left: 132px;
     }
