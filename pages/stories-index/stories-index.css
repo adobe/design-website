@@ -340,3 +340,9 @@
         min-height: clamp(100px, calc(2*19vw), 600px);
     }
 }
+
+@media screen and (max-width: 414px){
+    .page-type-stories-index h1 {
+        padding: 1em 0 2em .7em;
+    }
+}
