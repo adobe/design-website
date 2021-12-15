@@ -1,22 +1,21 @@
 import {
   fetchFragment,
-  // getMetadata,
   getMetadataFromOutsideDoc,
 } from './helpers.js';
 
 const RE_CLEAN_URL = /[^a-z0-9]/gi;
+const Console = console;
 
-// eslint-disable-next-line import/prefer-default-export
-export async function lookupAuthor(name) {
+export default async function lookupAuthor(name) {
   const urlName = name.replace(RE_CLEAN_URL, '-').toLowerCase();
 
   try {
-    const bio = await fetchFragment(`authors/${urlName}`, { metadata: true });
+    const wholeBio = await fetchFragment(`authors/${urlName}`, { metadata: true });
     const parser = new DOMParser();
-    const parsed = parser.parseFromString(bio, 'text/html');
+    const parsed = parser.parseFromString(wholeBio, 'text/html');
     const position = getMetadataFromOutsideDoc('position', parsed) || getMetadataFromOutsideDoc('title', parsed);
     const image = getMetadataFromOutsideDoc('og:image', parsed);
-
+    const bio = getMetadataFromOutsideDoc('og:description', parsed);
     return {
       bio,
       name,
@@ -24,8 +23,8 @@ export async function lookupAuthor(name) {
       image,
     };
   } catch (err) {
-    console.log(`Author ${name} not found`);
-    console.error(err);
+    Console.log(`Author ${name} not found`);
+    Console.error(err);
     return null;
   }
 }

@@ -1,12 +1,14 @@
-/* eslint-disable no-trailing-spaces */
-import { lookupAuthor } from '../../scripts/authors.js';
+import lookupAuthor from '../../scripts/authors.js';
 import {
-  $element, $wrap, getMetadata, buildStory,
+  $element,
+  $wrap,
+  getMetadata,
+  buildStory,
 } from '../../scripts/helpers.js';
 import { fetchIndex } from '../../scripts/queries.js';
 
 let index;
-const consoleCopy = console;
+const CONSOLE = console;
 
 async function buildSimilarStories(tag) {
   if (!index) {
@@ -45,7 +47,7 @@ export default async function decorate($main) {
     const artElement = $main.querySelector('.header.block > div:nth-child(2) > div:nth-child(2)');
     if (artElement) artElement.classList.add('art');
   } catch (err) {
-    consoleCopy.log(err);
+    CONSOLE.log(err);
   }
   const tag = window.document.location.pathname.split('/')[2];
   buildSimilarStories(tag);
@@ -68,7 +70,7 @@ export default async function decorate($main) {
   try {
     document.querySelector('main h1').before(headerTag);
   } catch (err) {
-    consoleCopy.error(err);
+    CONSOLE.error(err);
   }
   const $art = $element('.art', getMetadata('image-attribution'));
 
@@ -141,7 +143,7 @@ async function buildAuthorBio() {
   try {
     if (document.querySelector('.header-img')) document.querySelector('.header-img').append($authorBlock);
   } catch (err) {
-    consoleCopy.error(err);
+    CONSOLE.error(err);
   }
 }
 buildAuthorBio();

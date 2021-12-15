@@ -114,7 +114,7 @@ html body button{
     margin: auto;
 }
 
-.page-type-tools .toolkit > div > div,
+/* .page-type-tools .toolkit > div > div,
 .page-type-team .teams >div > div,
 .page-type-stories-index .stories-index-view > div > div,
 .page-type-jobs .jobs >div > div,
@@ -124,9 +124,9 @@ html body button{
 .people.block,
 .article-card.block,
 .two-column.block{
-    /* width: 1567px;
-    max-width: 98%; */
-}
+    width: 1567px;
+    max-width: 98%;
+} */
 
 .stories-link{
     color:inherit;
