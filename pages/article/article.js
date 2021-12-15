@@ -72,12 +72,15 @@ export default async function decorate($main) {
     consoleCopy.error(err);
   }
   const $art = $element('.art', getMetadata('image-attribution'));
+  const $date = $element('.date', getMetadata('date'));
+  console.log($date);
 
   $main.querySelector('body > main > .section-wrapper > .content > h1').classList.add('header-h1');
   $main.querySelector('body > main > .section-wrapper > .content > h2').classList.add('header-sub');
   // eslint-disable-next-line no-unused-vars
   const headImage = $main.querySelector('body > main > .section-wrapper > .content > .article-picture').classList.add('header-img');
   $main.querySelector('body > main > .section-wrapper > .content > .article-picture').append($art);
+  $main.querySelector('div.author-bio.block > div > .author-info').append($date);
 
   // const headerContent = $wrap($element('.header'), [
   //   headerDiv,
@@ -92,6 +95,7 @@ export default async function decorate($main) {
 
 async function buildAuthorBio() {
   const authorName = getMetadata('author');
+  const date = getMetadata('date');
   const author = await lookupAuthor(authorName);
 
   let $authorBlock;
@@ -113,7 +117,11 @@ async function buildAuthorBio() {
           ]),
           $element('.author-info', [
             $bio,
+            $element('.date', [
+              date,
+            ]),
           ]),
+          
         ]),
       ]);
 
