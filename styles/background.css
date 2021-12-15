@@ -1,6 +1,16 @@
 body{
     position:relative
 }
+
+body.dark-header .header-h1,
+body.dark-header .header-sub,
+body.dark-header .header-tag {
+    color:white;
+}
+.page-type-article.dark-header .header-tag .tag {
+    border-bottom: solid .2em white;
+}
+
 #global-background {
     position:absolute;
     z-index:-1;
@@ -10,7 +20,6 @@ body{
     width:100%;
     height:200vh;
     max-height:100%;
-
 }
 
 #global-background-alt {
@@ -22,7 +31,6 @@ body{
     width:100%;
     height:275vh;
     max-height:100%;
-
 }
 
 #global-background .background-fade {

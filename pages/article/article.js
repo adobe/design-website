@@ -58,29 +58,39 @@ export default async function decorate($main) {
   /**
    * Links in article should open in new tab:
    */
-  const additionalReading = document.querySelector('.additional-reading');
-  const readingList = additionalReading.querySelectorAll('ul > li > a');
-  const linksInArticle = document.querySelectorAll('.content > p > a');
-  readingList.forEach((elem) => elem.setAttribute('target', '_blank'));
-  linksInArticle.forEach((elem) => {
-    elem.setAttribute('target', '_blank');
-  });
+  try {
+    const additionalReading = document.querySelector('.additional-reading');
+    const readingList = additionalReading.querySelectorAll('ul > li > a');
+    const linksInArticle = document.querySelectorAll('.content > p > a');
+    readingList.forEach((elem) => elem.setAttribute('target', '_blank'));
+    linksInArticle.forEach((elem) => {
+      elem.setAttribute('target', '_blank');
+    });
+  } catch(err) {
+    consoleCopy.error(err);
+  }
+
 
   try {
     document.querySelector('main h1').before(headerTag);
   } catch (err) {
     consoleCopy.error(err);
   }
-  const $art = $element('.art', getMetadata('image-attribution'));
-  const $date = $element('.date', getMetadata('date'));
-  console.log($date);
 
-  $main.querySelector('body > main > .section-wrapper > .content > h1').classList.add('header-h1');
-  $main.querySelector('body > main > .section-wrapper > .content > h2').classList.add('header-sub');
-  // eslint-disable-next-line no-unused-vars
-  const headImage = $main.querySelector('body > main > .section-wrapper > .content > .article-picture').classList.add('header-img');
-  $main.querySelector('body > main > .section-wrapper > .content > .article-picture').append($art);
-  $main.querySelector('div.author-bio.block > div > .author-info').append($date);
+  try {
+    const $art = $element('.art', getMetadata('image-attribution'));
+    const $date = $element('.date', getMetadata('date'));
+    console.log($date);
+
+    $main.querySelector('body > main > .section-wrapper > .content > h1').classList.add('header-h1');
+    $main.querySelector('body > main > .section-wrapper > .content > h2').classList.add('header-sub');
+    // eslint-disable-next-line no-unused-vars
+    const headImage = $main.querySelector('body > main > .section-wrapper > .content > .article-picture').classList.add('header-img');
+    $main.querySelector('body > main > .section-wrapper > .content > .article-picture').append($art);
+    $main.querySelector('div.author-bio.block > div > .author-info').append($date);
+  } catch (err) {
+    consoleCopy.error(err);
+  }
 
   // const headerContent = $wrap($element('.header'), [
   //   headerDiv,
@@ -121,7 +131,7 @@ async function buildAuthorBio() {
               date,
             ]),
           ]),
-          
+
         ]),
       ]);
 
