@@ -61,7 +61,7 @@
 .page-type-article .header-tag .tag{
     border-bottom: solid .2em black;
 }
-.page-type-article .content:not(.page-type-article .header.block) {
+.page-type-article .content:not(.page-type-article) {
     padding-left: 5rem;
     padding-right: 5rem;
 }
@@ -101,7 +101,7 @@ body > main > div > div > p:nth-child(3){
     padding: .2em 2em .3em 1.4em;
     line-height: 1;
 }
-.page-type-article .header.block h2{
+.page-type-article h2{
     text-align: left;
     padding: 0 7em 2.5em 3.5em;
     font-size: 2em;
@@ -486,8 +486,14 @@ body > div.author-bio.block > div > author-name{
         font-size: 1.4em;
     }
 } */
-@media (min-width: 1920px){
-
+@media (min-width: 1921px){
+    #global-background{
+        height: 100vh;
+    }
+    .page-type-article .content{
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0) 1480px,rgba(255,255,255, 1) 1480px);
+    }
     .page-type-article .header-tag{
         padding-left: 8.5em;
         font-size: 1.2em;
@@ -496,6 +502,11 @@ body > div.author-bio.block > div > author-name{
         font-size: 9em;
         padding-right: 4em;
         padding-left: 2em;
+    }
+    .page-type-article .content .header-sub{
+        font-size: 5em;
+        padding-left: 3.7em;
+        padding-right: 2em;
     }
     .page-type-article .header.block h2{
         font-size: 4em;
@@ -509,15 +520,14 @@ body > div.author-bio.block > div > author-name{
         font-size: 4.5em;
         width: 100%;
     }
-    .page-type-article .content .lede.block > div{
-        padding-right: 1em;
-    }
+    
     .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
         font-size: 2em;
         padding-left: 12.5em;
     }
     .page-type-article .content h2{
-        padding-left: 3.5em;
+        padding-left: 3.6em;
+        padding-right: 0;
         font-size: 7em;
     }
     .page-type-article .content .pull-quote.block{
@@ -555,7 +565,7 @@ body > div.author-bio.block > div > author-name{
     :root{
         --h1-font-size: 5em;
         --h2-font-size: 5em;
-        --h3-font-size: 3em;
+        --h3-font-size: 3.5em;
         --font-size-lede: 3.6em;
         --p-font-size: 1em;
         --li-font-size: 1.5em;
@@ -589,7 +599,8 @@ body > div.author-bio.block > div > author-name{
         padding-left: 12.5em;
     }
     .page-type-article .content h2{
-        padding-left: 3.8em;
+        padding-left: 4.5em;
+        padding-right: 0;
     }
     .page-type-article .content .pull-quote.block{
         font-size: var(--font-size-lede);
@@ -604,7 +615,7 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .content h3{
         font-size: var(--h3-font-size);
-        padding-left: 7.5em;
+        padding-left: 6.4em;
         margin-bottom: 0;
     }
     .page-type-article .additional-reading.block > div{
@@ -653,6 +664,7 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .content h2{
         padding-left: 4.8em;
+        padding-right: 0;
     }
     .page-type-article .content .pull-quote.block{
         font-size: var(--font-size-lede);
@@ -720,6 +732,7 @@ body > div.author-bio.block > div > author-name{
     }
     .page-type-article .content h2{
         padding-left: 4.4em;
+        padding-right: 0;
     }
     .page-type-article .content .pull-quote.block{
         font-size: var(--font-size-lede);
@@ -747,13 +760,31 @@ body > div.author-bio.block > div > author-name{
     }
 }
 @media (max-width: 1280px) and (min-width: 1025px) {
+    .page-type-article h1{
+        padding-right: 4em;
+    }
     .page-type-article .content{
         background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,
         rgba(255,255,255,0) 1040px,rgba(255,255,255, 1) 1040px);
     }
+    .page-type-article .content .lede.block{
+        padding-right: 0;
+        width: 100%;
+    }
+    .page-type-article.lede.block{
+        font-size: 2.5em;
+    }
     .page-type-article .similar-stories-content{
         width: 1024px;
     }
+    .page-type-article .content h2{
+        padding-right: 0;
+    }
+    .page-type-article .content h3{
+        font-size: 2em;
+        padding-left: 8.6em;
+    }
+    
 }
 @media (max-width: 1024px) and (min-width:769px) {
     .page-type-article .content{
@@ -770,6 +801,7 @@ body > div.author-bio.block > div > author-name{
     .page-type-article .content h2{
         font-size: 4em;
         padding-left: 4.2em;
+        padding-right: 0;
     }
     .page-type-article .content h3{
         font-size: 2.4em;
@@ -789,7 +821,7 @@ body > div.author-bio.block > div > author-name{
     #global-background{
         height: 140vh;
     }
-.page-type-article #global-background{
+    .page-type-article #global-background{
         top: -850px;
     }
     .page-type-article .content{
@@ -799,70 +831,51 @@ body > div.author-bio.block > div > author-name{
             rgba(255,255,255, 1) 760px
         );
     }
-    .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
-        padding-left: 6.5em;
-    }
-    .page-type-article .header-tag{
-        margin-left: 5.2em;
-    }
-    .page-type-article .content .header.block h1{
-        font-size: 3.3em;
-        padding-right: 3em;
-    }
-    .page-type-article .content .header.block h2{
-        font-size: 1.2em;
-        padding-left: 4.1em;
-        padding-right: 12em;
-    }
-    .page-type-article .content .header.block .author-desc .name{
+    .page-type-article .content:not(.page-type-article){
         padding-left: 0;
         padding-right: 0;
     }
-    .page-type-article .author-image{
-        width: 3.5em;
+    .page-type-article h1,    
+    .page-type-article .content .header-sub,
+    .page-type-article .content h2, 
+    .page-type-article .content h3,
+    .page-type-article .content ul,
+    .page-type-article .additional-reading.block,
+    .page-type-article main p:not(.author-bio.block p,
+     .additional-reading.block p, .article-picture, .header-tag){
+        padding-left: 132px;
+        padding-right: 132px;     
+    }
+    .page-type-article .header-tag{
+        margin-left: 132px;
+    }
+    .page-type-article .art{
+        padding-right: 132px;
+    }
+    .header-img > div.author.block > div > picture > img{
+        width: 3em;
+    }
+    .page-type-article .header-img .author .name{
+        font-size: 1.5em;
+        padding-top: 0;
+    }
+    .header-img > div.author.block > div > div > h3{
+        font-size: 1em ;
+    }
+    .page-type-article .content div:nth-child(3){
+        padding-left: 132px;
     }
     .page-type-article .content .lede.block{
-        padding: 0;
-        padding-bottom: 3em;
+        width: auto;
+        padding: 1em 132px 3em 132px;
     }
-    .page-type-article p:not(.article-picture) + .article-picture{
-        margin-top: 2em;
-        padding-bottom: 2em;
-    }
-    .page-type-article p + p + .pull-quote.block{
-        padding-right: 0;
-    }
-    .page-type-article .content h2{
-        padding-left: 2.1em;
-    }
-    .page-type-article .content .article-picture{
-        padding-right: 0;
-    }
-    .page-type-article .content h3{
-        padding: 0 0 0 3.5em;
-        margin: 1em 0 0 0;
-    }
-    .page-type-article .pull-quote.block{
-        padding-left: 1em;
-    }
-    .page-type-article .author-bio {
-        padding: 5em 6em 5em 0em;
-    }
-    .page-type-article .content ul{
-        padding-left: 6.5em;
+    .page-type-article .additional-reading.block{
+        width: auto;
     }
     .page-type-article .additional-reading.block > div{
-        padding-left: 4.7em;
+        padding: 0;
     }
-    .page-type-article .author-bio.block .author-info{
-        width: 56%;
-    }
-    .page-type-article .similar-stories .similar-stories-header{
-        font-size: 2em;
-    }
-    .page-type-article .similar-stories-content{
-        width: 96%;
-    }
+ 
 
 }
 @media (max-width: 425px) and (min-width:376px) {
@@ -870,123 +883,65 @@ body > div.author-bio.block > div > author-name{
         top: -990px;
     }
     .page-type-article .content:not(.page-type-article .header.block){
-        padding: 1.5em;
         background: linear-gradient(
             to bottom,
             rgba(255,255,255,0) 0%,
-            rgba(255,255,255,0) 535px,
-            rgba(255,255,255, 1) 535px
+            rgba(255,255,255,0) 650px,
+            rgba(255,255,255, 1) 650px
         );
     }
-    .page-type-article main p:not(.author-bio.block p, .additional-reading.block p, .article-picture, .header-tag){
-        padding: 0
+    .page-type-article .content:not(.page-type-article){
+        padding-left: 0;
+        padding-right: 0;
     }
-    .page-type-article .header.block{
-        padding-bottom: 4em;
+    .page-type-article h1,    
+    .page-type-article .content .header-sub,
+    .page-type-article .content h2, 
+    .page-type-article .content h3,
+    .page-type-article .content ul,
+    .page-type-article .additional-reading.block,
+    .page-type-article main p:not(.author-bio.block p,
+     .additional-reading.block p, .article-picture, .header-tag){
+        padding-left: 73px;
+        padding-right: 73px;     
     }
     .page-type-article .header-tag{
-        margin-left: 0;
+        margin-left: 73px;
     }
-    .page-type-article .content .header.block h1{
-        font-size:3em;
-        padding-right: 1em;
-        padding-left: 0;
-    }
-    .page-type-article .content .header.block h2{
-        font-size: 1.2em;
-        padding-left: 0;
-        padding-right: 2em;
-    }
-    .page-type-article .content .header.block .author-desc h2{
-        padding-left: 0;
-    }
-    .page-type-article .author-info {
-        padding-left: 0;
-    }
-    .page-type-article .art{
-        display: block;
-        text-align: end;
-        padding: 1em 3em 0 0;
-        margin: 0;
-    }
-    .page-type-article .author-image{
-        width: 2.8em;
-    }
-    .page-type-article .content .lede.block{
-        font-size: 1.4em;
-        padding: 0;
-        padding-bottom: 3em;
-    }
-    .page-type-article p:not(.article-picture) + .article-picture{
-        margin-top: 2em;
-    }
-    .page-type-article .content h2{
-        padding: 0;
+    .page-type-article h1{
         font-size: 2.5em;
     }
-    .page-type-article .content h3{
-        padding: 0;
-        margin: 1em 0 0 0;
+    .page-type-article .content .header-sub{
+        font-size: 1.2em;
     }
-    .page-type-article .content p{
-        padding: 0;
+    .page-type-article .art{
+        padding-right: 5px;
     }
-    .page-type-article .pull-quote.block{
-        font-size: 1.4em;
-        padding: 0;
+    .header-img > div.author.block > div > picture > img{
+        width: 3em;
     }
-    .page-type-article p + p + .pull-quote.block{
-        padding: 0;
+    .page-type-article .header-img .author .name{
+        font-size: 1em;
     }
-    body > main > div > div > div:nth-child(41) > div > div{
-        padding: 0;
+    .header-img > div.author.block > div > div > h3{
+        font-size: .7em ;
     }
-    .page-type-article .content .caption{
-        padding: 0;
-        margin: 0;
+    .page-type-article .content div:nth-child(3){
+        padding-left: 73px;
     }
-
-    .page-type-article .content ul{
-        padding: 0;
+    .page-type-article .content .lede.block{
+        width: auto;
+        padding: 1em 73px 3em 73px;
+        font-size: 1.5em;
     }
-    .page-type-article .content li{
-        padding: 0;
-        padding-bottom: 1em;
+    .page-type-article .content h2{
+        font-size: 2.5em;
     }
     .page-type-article .additional-reading.block{
-        padding: 0;
+        width: auto;
     }
     .page-type-article .additional-reading.block > div{
         padding: 0;
-    }
-    .page-type-article .author-bio.block{
-        padding: 1em;
-    }
-    .page-type-article .author-bio > div{
-        display: grid;
-        grid-template-columns: 100%;
-        justify-items: center;
-        padding: 1em;
-        margin: 0;
-    }
-    .page-type-article .author-info{
-        text-align: center;
-        margin-left: 0em;
-    }
-    .page-type-article .content p:not(.article-picture){
-        padding: 0;
-    }
-    .page-type-article author-name{
-        padding: 0;
-    }
-    .page-type-article .similar-stories .stories{
-        grid-template-columns: 100%;
-    }
-    .page-type-article .similar-stories .stories .block.story a > .story-text{
-        padding-bottom: 3em;
-    }
-    .page-type-article .similar-stories .similar-stories-header{
-        font-size: 2em;
     }
 
 }
