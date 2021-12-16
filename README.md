@@ -4,6 +4,7 @@ The Helix project for the adobe.design website
 ## Environments
 - Preview: https://main--design-website--adobe.hlx3.page/
 - Live: https://main--design-website--adobe.hlx.live/
+- Production: https://adobe.design/
 
 ## Updating Helix CLI
 
@@ -232,4 +233,4 @@ Whatever name you specify will be the name used when resolving the JS and CSS fi
   /pages/article/article.js
   /pages/article/article.css
 
-
+  

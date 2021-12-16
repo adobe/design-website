@@ -7,12 +7,12 @@ indices:
       - '/stories/**'
       - '/people/**'
       - '/toolkit/**'
-    target: https://adobe.sharepoint.com/sites/Adobe.design/Shared%20Documents/website/query-index.xlsx
+    target: /query-index.xlsx
     properties:
       inlineTitle:
-        select: main > div > h1:first-child
+        select: main > div h1:first-child
         value: |
-          el.innerText
+          innerHTML(el)
       title:
         select: head > meta[property="og:title"]
         value: |
