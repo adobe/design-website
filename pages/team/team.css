@@ -1,336 +1,863 @@
-.page-type-team .teams >div > div{
-    width: 98vw;
-    max-width:1000px;
-    margin-left:auto;
-    margin-right:auto;
-}
-
 .page-type-team .teams *{
     font-weight: var(--weight-light);
 }
 
 .page-type-team .title-content{
-    margin: 7rem 0 5rem 0;
-    padding-left: 5rem;
-    width:60%;
+    margin: var(--page-header-margin);
+    padding-left: var(--page-header-l-padding);
+
     color: white;
 }
 
 .page-type-team .title-content h1{
-    font-size: 4em;
+    font-size: var(--page-header-size);
+    width:55%;
+    line-height: 1em;
+    font-weight: var(--weight-black);
+    padding: 0.5em 0;
 }
 
-.page-type-team .content{
-    background: white;
-}
+/* .page-type-team .content{} */
 
 .page-type-team .head-content{
-    padding: 2em;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    background: white;
+    padding: 4em;
+    color: #3E3E3E;
 }
 
 .page-type-team .head-content .title{
-    font-size: 3em;
+    font-family: var(--serif-font);
+    padding: 0 6rem;
+    font-size: 3rem;
 }
 
 .page-type-team .head-content .head-text{
+    font-family: var(--serif-font);
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 43% 57%;
+    font-size: 1.4em;
+    line-height: 1.6em;
+
 }
 
 .page-type-team .head-content .head-text p{
     grid-column-start: 2;
+    line-height: 1.5em;
 }
 
 .page-type-team .head-content h2,
 .page-type-team .foot-content .resources-section h2{
-    font-size: 3em;
+    font-size: 3.2em;
     color: var(--bkg-red);
+    font-weight: var(--weight-black);
 }
 
-/*
-    Team Card content
-*/
+.page-type-team .head-content h2 {
+    margin-top: 2em;
+    margin-bottom: 1.5em;
+}
+
+/* --- Team Card content --- */
 
 .page-type-team .team-cards .team-card{
     position: relative;
-
     display:grid;
-    grid-template-columns: 40% 60%;
-
-    height: 250px;
-
-    overflow-y: hidden;
-    transition: height 0.5s;
+    grid-template-columns: 50% 50%;
+    height: 11.4em; /* 350px; */
+    transition: all 0.5s;
+    box-sizing: border-box;
 }
+
+/* ----- team card -- Magic Hover state ----- */
+/* ----- Query to include desktop or mouse/stylus input: ----- */
+
+@media screen and (pointer: fine),
+    screen and (min-width: 1000px),
+    screen and (any-pointer: fine){
+    .page-type-team .team-cards{
+        font-size: clamp(16px, 1.6vw, 30.7px);
+    }
+    .page-type-team .team-cards .team-card{
+        overflow-y: hidden;
+    }
+    /* .page-type-team .team-cards .team-card:not(:hover),
+    .page-type-team .team-cards .team-card:not(.scroll-passing){} */
+    .page-type-team .team-cards .team-card:hover,
+    .page-type-team .team-cards .team-card.scroll-passing{
+        height: 19.5em;
+    }
+}
+/* ----- END team card -- Magic Hover state ----- */
+
+.page-type-team .team-cards .team-card{
+    overflow: hidden;
+}
+
 .page-type-team .team-cards .team-card.active{
-    height: 500px;
+    height: 25.45em;/* 720px; */
+    height: 720px;
 }
 
+.page-type-team .team-cards .team-card div:first-child{
+    padding-top: 2.5rem;
+}
+
+.page-type-team .team-cards .team-card .card-header{
+    position: absolute;
+    margin: 2rem 5%;
+    padding: 0.5em 0;
+    border-bottom: black 0.1em solid;
+    width: 90%;
+    display: flex;
+
+    font-size: 1em;
+}
+
+.page-type-team .team-cards .team-card .chevron-down{
+    box-sizing: border-box;
+    margin-right: 2em;
+    width:  1em;
+    background-image: url("../../resources/chevron-down-black.svg");
+    background-position: center top 0.5em;
+    background-repeat: no-repeat;
+    transition: transform 0.5s;
+    background-size: contain;
+    transform-origin: center;
+}
+.page-type-team .team-cards .team-card.active .chevron-down{
+    transform: rotate(180deg);
+    background-position: center bottom 0.5em;
+}
 
 .page-type-team .team-cards .team-card h3{
-    position: absolute;
-    padding-top:0.5em;
-
-    /*This should be contained within the first 40% of the block its in*/
-    padding-left: 10%;
+    font-family: var(--serif-font);
+    margin-block: unset;
     width: 30%;
-
-    font-size: 1.5rem;
-}
-.page-type-team .team-cards .team-card h3::before{
-    content: "⌄";
-    position: absolute;
-    padding-top:0.5em;
-    font-weight: var(--weight-black);
-    left: 16%;
-    top: -0.6rem;
-}
-.page-type-team .team-cards .team-card h3::after{
-    content: "";
-    padding-top: 2em;
-
-    /*This is being positioned to the H3 itself which is contained within the first 40% of the block*/
-    position:absolute;
-    left: 12.5%; /* 40% * 12.5%  = 5% "padding left" */
-    width: 225%; /* 40% * 225%   = 90% "width"*/
-
-    border-bottom: 2px solid black;
+    font-size: 1.2em;
 }
 
-.page-type-team .team-cards .team-card div{
-    padding-top: 10rem;
+.page-type-team .team-cards .team-card div:nth-of-type(2){
+    padding-top: 13rem;
 }
-
-.page-type-team .team-cards .team-card div:last-child{
+.page-type-team .team-cards .team-card div:nth-of-type(2) img {
+    width: calc(100% - 4em);
+    padding-left: 2em;
+}
+.page-type-team .team-cards .team-card div:nth-of-type(3){
+    padding-top: 14.5rem;
+    padding-left: 4rem;
+    padding-right: 3rem;
+    color: white;
+}
+.page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+    width: 85%;
+    margin: auto;
+    font-family: var(--serif-font);
+    color: #FAECE7;
+    font-size: 1.6rem;
+    line-height: 1.7em;
+    padding-bottom: 1.5em;
+}
+.page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs{
+    display:block;
+    margin: auto;
+    width: 85%;
+    font-size: 0.6em;
+    text-decoration: underline 2px;
+    text-underline-offset: 3px;
     color: white;
 }
 
-.page-type-team .team-cards .team-card div:last-child > p:first-child{
-    padding: 0rem 3rem;
-    font-size: 1.6rem;
-    line-height: 1.6em;
-}
 
 /* COLORS */
-
-.page-type-team .team-cards .team-card{
-    background-color: lightgrey;
-}
-.page-type-team .team-cards .team-card div:last-child{
-    background-color: grey;
-}
-
-.page-type-team .team-cards .team-card.card-0{
-    background-color: #FFCAB9;
-}
-.page-type-team .team-cards .team-card.card-0 div:last-child{
-    background-color: #FF7D4F;
-}
-
-.page-type-team .team-cards .team-card.card-1{
-    background-color: #D4CEFF;
-}
-.page-type-team .team-cards .team-card.card-1 div:last-child{
-    background-color: #3021A0;
-}
-
-.page-type-team .team-cards .team-card.card-2{
-    background-color: #FFDDDE;
-}
-.page-type-team .team-cards .team-card.card-2 div:last-child{
-    background-color: #E51D24;
-}
-
-.page-type-team .team-cards .team-card.card-3{
-    background-color: #C5D1C7;
-}
-.page-type-team .team-cards .team-card.card-3 div:last-child{
-    background-color: #3E5241;
-}
-
-.page-type-team .team-cards .team-card.card-4{
-    background-color: #C7FFEF;
-}
-.page-type-team .team-cards .team-card.card-4 div:last-child{
-    background-color: #4A9681;
-}
-
-.page-type-team .team-cards .team-card.card-5{
-    background-color: #D5E2FF;
-}
-.page-type-team .team-cards .team-card.card-5 div:last-child{
-    background-color: #3D517B;
-}
+.page-type-team .team-cards .team-card div:nth-child(2){background-color: lightgrey;}
+.page-type-team .team-cards .team-card div:last-child{background-color: grey;}
+.page-type-team .team-cards .team-card.card-0 div:nth-child(2){background-color: #FFCAB9;}
+.page-type-team .team-cards .team-card.card-0 div:last-child{background-color: #FF7D4F;}
+.page-type-team .team-cards .team-card.card-1 div:nth-child(2){background-color: #D4CEFF;}
+.page-type-team .team-cards .team-card.card-1 div:last-child{background-color: #3021A0;}
+.page-type-team .team-cards .team-card.card-2 div:nth-child(2){background-color: #FFDDDE;}
+.page-type-team .team-cards .team-card.card-2 div:last-child{background-color: #E51D24;}
+.page-type-team .team-cards .team-card.card-3 div:nth-child(2){background-color: #C5D1C7;}
+.page-type-team .team-cards .team-card.card-3 div:last-child{background-color: #3E5241;}
+.page-type-team .team-cards .team-card.card-4 div:nth-child(2){background-color: #C7FFEF;}
+.page-type-team .team-cards .team-card.card-4 div:last-child{background-color: #4A9681;}
+.page-type-team .team-cards .team-card.card-5 div:nth-child(2){background-color: #D5E2FF;}
+.page-type-team .team-cards .team-card.card-5 div:last-child{background-color: #3D517B;}
 
 
 /*
     Foot Content
 */
+.page-type-team .foot-content .resources-section{
+    background-color: #ffffff;
+}
+
 .page-type-team .foot-content .resources-section h2{
     display:flex;
     flex-direction: column;
     align-items: center;
-    margin: 7rem auto;
-    
-    width: 70%;
+    margin: 0 auto;
+    padding: 9.5rem 0;
+    font-size: 4em;
+    line-height: 1em;
+    width: 85%;
 }
 
 .page-type-team .foot-content .resources-section .resources{
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
 }
 
 .page-type-team .foot-content .resources-section .resources .resource{
-    display:grid;
-    grid-template-rows: 60% 24% 16%;
-    height: 300px;
-    background: var(--bkg-red);
-    width: fit-content;
-    flex-basis: 0;
-    flex-grow: 1;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
+    width: 32.8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 333px;
 }
-.page-type-team .foot-content .resources-section .resources .resource:last-child{
-    margin-right: 0px;
+.resource-logo{
+    height: 95px;
+    width: 85px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
-
-.page-type-team .foot-content .resources-section .resources .resource p:first-child{
-    grid-row: 2/3;
-    padding-left: 2rem;
-    font-size: 1.5rem;
-}
-
 .page-type-team .foot-content .resources-section .resources .resource a{
     color: white;
     text-decoration: none;
+    font-size: 32px;
+    font-weight: var(--weight-black);
+}
+.page-type-team .foot-content .resources-section .resources .resource .learn-more-button {
+    color: white;
+    font-size: 16px;
+    width: fit-content;
+    padding-bottom:2px;
+    box-sizing: border-box;
+    border-bottom: 3px solid white;
+}
+.resource-bottom-container{
+    background: var(--bkg-red);
+    width: 100%;
+    padding: 15px 20px 35px 45px;
+    box-sizing: border-box;
+}
+.resource > div.resource-bottom-container > p > a > strong {
+    font-weight: var(--weight-black);
 }
 
-@media (max-width: 700px){
+.content > div.foot-content > div.think-differently.block > div > div > p:nth-child(2) > span::after {
+    content: "+";
+    vertical-align: super;
+    font-size: .5em;
+    line-height: 0;
+}
+
+
+/*Ipad Size*/
+
+
+
+@media (min-width:1921px){
+    .page-type-team .title-content{
+        padding-left: 20em;
+    }
+    .page-type-team .title-content h1{
+        font-size: 10em;
+        padding: 1.5em 0;
+        width: 65%;
+    }
+    .page-type-team .head-content .title{
+        font-size: 6.5em;
+        padding: 0 2em 0 2em;
+    }
+    .page-type-team .head-content .head-text{
+        font-size: 3.4em;
+    }
+    .page-type-team .head-content h2{
+        font-size: 5.2em;
+    }
+    .page-type-team .team-cards .team-card{
+        height: 17.4em;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 1420px;
+    }
+    .page-type-team .team-cards .team-card .card-header{
+        font-size: 1.5em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(2) {
+        padding-top: 16rem;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) {
+        padding-top: 20rem;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        font-size: 2.2em;
+    }
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 8em;
+        padding: 2em 0;
+    }
+    .resource-logo{
+        height: 285px;
+        width: 285px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource{
+        height: 700px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource .resource-bottom-container p{
+        width: 60%;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource a{
+        font-size: 5em;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource .learn-more-button{
+        font-size: 1.2em;
+    }
+    .page-type-team .think-differently.block{
+        height: 1300px;
+    }
+    .page-type-team .think-differently.block .think-differently-content h2{
+        font-size: 7.5em;
+    }
+    .page-type-team .think-differently.block .think-differently-content .view-jobs{
+        font-size: 1.4em;
+        padding-top: 1em;
+    }
+    .page-type-team .think-differently.block .think-differently-content p{
+        font-size: 2em;
+    }
+    .page-type-team .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 9em;
+    }
+    .page-type-team .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 13em;
+    }
+    .page-type-team .think-differently.block .think-differently-content h2{
+        grid-column: 2/6;
+    }
+}
+
+@media (max-width: 1920px) and (min-width:1651px){
+    .page-type-team .title-content h1{
+        font-size: 7em;
+        padding: 1.5em 0;
+    }
+    .page-type-team .head-content .title{
+        font-size: 6em;
+        padding: 0 1.5em;
+    }
+    .page-type-team .head-content .head-text{
+        font-size: 2.4em;
+    }
+    .page-type-team .head-content h2{
+        font-size: 4.2em;
+    }
+    .page-type-team .team-cards .team-card{
+        height: 14.4em;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 1050px;
+    }
     .page-type-team .team-cards .team-card h3{
-        padding-left: 15%;
-        width: 80%;
-        font-size: 1.5rem;
+        font-size: 1.2em;
     }
-    .page-type-team .team-cards .team-card h3::before{
-        left: 10%;
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        font-size: 1.5em;
     }
-    .page-type-team .team-cards .team-card h3::after{
-        left: 8%; /* 40% * 12.5%  = 5% "padding left" */
-        width: 90%; /* 40% * 225%   = 90% "width"*/
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 6em;
+        padding: 2em 0;
     }
+    .resource-logo{
+        height: 200px;
+        width: 200px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource{
+        height: 550px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource a{
+     font-size: 3em;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource .learn-more-button{
+        font-size: 1.2em;
+    }
+    .think-differently.block{
+        height: 1400px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 5.5em;
+    }
+    .think-differently.block .think-differently-content .view-jobs{
+        font-size: 1.1em;
+        padding-top: 1em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 14em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 12em;
+    }
+}
+
+@media (max-width: 1650px) and (min-width:1441px){
+    .page-type-team .title-content h1{
+        font-size: 6.3em;
+        padding: 1.5em 0;
+    }
+    .page-type-team .head-content .title{
+        font-size: 5.3em;
+        padding: 0 1.5em;
+    }
+    .page-type-team .head-content .head-text{
+        font-size: 2.1em;
+    }
+    .page-type-team .head-content h2{
+        font-size: 4em;
+    }
+    .page-type-team .team-cards .team-card{
+        height: 14.4em;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 950px;
+    }
+    .page-type-team .team-cards .team-card h3{
+        font-size: 1.2em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        font-size: 1.5em;
+    }
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 6em;
+        padding: 2em 0;
+    }
+    .resource-logo{
+        height: 200px;
+        width: 200px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource{
+        height: 550px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource a{
+     font-size: 3em;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource .learn-more-button{
+        font-size: 1.2em;
+    }
+    .think-differently.block{
+        height: 1200px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 4.8em;
+        line-height: 1;
+    }
+    .think-differently.block .think-differently-content .view-jobs{
+        font-size: 1.1em;
+        padding-top: 1em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 13em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 12em;
+    }
+}
+
+@media (max-width: 1440px) and (min-width:1281px){
+    .page-type-team .title-content h1{
+        font-size: 5.3em;
+        padding: 1.5em 0;
+    }
+    .page-type-team .head-content .title{
+        font-size: 4.5em;
+        padding: 0 1.5em;
+    }
+    .page-type-team .head-content .head-text{
+        font-size: 1.8em;
+    }
+    .page-type-team .head-content h2{
+        font-size: 3.5em;
+    }
+    .page-type-team .team-cards .team-card{
+        height: 16em;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 900px;
+    }
+    .page-type-team .team-cards .team-card h3{
+        font-size: 1.2em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        font-size: 1.5em;
+    }
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 5em;
+        padding: 2em 0;
+    }
+    .resource-logo{
+        height: 150px;
+        width: 150px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource{
+        height: 500px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource a{
+     font-size: 2.5em;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource .learn-more-button{
+        font-size: 1em;
+    }
+    .think-differently.block{
+        height: 1100px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 4.1em;
+    }
+    .think-differently.block .think-differently-content .view-jobs{
+        font-size: 1.1em;
+        padding-top: 1em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 12em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 12em;
+    }
+}
+
+@media (max-width: 1280px) and (min-width:1025px){
+    .page-type-team .title-content h1{
+        font-size: 4.4em;
+        padding: 1.5em 0;
+    }
+    .page-type-team .head-content .title{
+        font-size: 4em;
+        padding: 0 1em;
+    }
+    .page-type-team .head-content .head-text{
+        font-size: 1.5em;
+    }
+    .page-type-team .head-content h2{
+        font-size: 3em;
+    }
+    .page-type-team .team-cards .team-card{
+        height: 18em;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 800px;
+    }
+    .page-type-team .team-cards .team-card h3{
+        font-size: 1.2em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        font-size: 1.4em;
+    }
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 4em;
+        padding: 2em 0;
+    }
+    .resource-logo{
+        height: 150px;
+        width: 150px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource{
+        height: 500px;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource a{
+     font-size: 2em;
+    }
+    .page-type-team .foot-content .resources-section .resources .resource .learn-more-button{
+        font-size: .8em;
+    }
+    .think-differently.block{
+        height: 1000px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 3.5em;
+    }
+    .think-differently.block .think-differently-content .view-jobs{
+        font-size: 1.1em;
+        padding-top: 1em;
+    }
+    .think-differently.block .think-differently-content .think-differently-number{
+        font-size: 11em;
+    }
+    .think-differently.block .think-differently-content .think-differently-slash{
+        align-self: auto;
+        height: 12em;
+    }
+}
+
+@media (max-width: 1024px){
+    .page-type-team .title-content {
+        padding-left: var(--page-header-l-padding-tablet);
+    }
+    .page-type-team .title-content h1 {
+        font-size: 5em;
+        width: 60%;
+    }
+    .page-type-team .head-content .title {
+        padding: 0 2rem;
+    }
+
+    .page-type-team .head-content .head-text {
+        grid-template-columns: 35% 65%;
+    }
+    .page-type-team .head-content .head-text p {
+        margin-right: 1em;
+    }
+
+    /*TEAM CARD*/
 
     .page-type-team .team-cards .team-card{
-        grid-template-columns: unset;
-        grid-template-rows: 0% 100%;
+        grid-template-columns: 40% 60%;
+
+        height: 205px;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 630px;
     }
 
-    .page-type-team .team-cards .team-card div{
-        padding-top: 7rem;
+    .page-type-team .team-cards .team-card div:first-child{
+        padding-top: 0.25rem;
+    }
+    .page-type-team .team-cards .team-card .card-header{
+        margin: 3em 7.5%;
+        width: 85%;
+    }
+    .page-type-team .team-cards .team-card .chevron-down{
+        margin-right: 0.8rem;
+    }
+    .page-type-team .team-cards .team-card h3{
+        font-size: 1.3rem;
+    }
+
+    .page-type-team .team-cards .team-card div:nth-of-type(2){
+        padding-top: 8rem;
+
+    }
+
+    .page-type-team .team-cards .team-card div:nth-of-type(3){
+        padding-top: 8rem;
+        padding-left: 5rem;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        width: 92%;
+        font-size: 2em;
+        line-height: 1.4em;
+        padding-bottom: 1em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs {
+        font-size: 1em;
+        text-decoration: underline 3px;
+        text-underline-offset: 9px;
+    }
+
+    /*RESOURCES*/
+
+    .page-type-team .foot-content .resources-section .resources .resource {
+        height: 585px;
+    }
+    .resource-logo {
+        width: 140px;
+        height: 120px;
+    }
+    .resource-bottom-container {
+        padding: 15px 20px 85px 45px;
     }
 }
-
-
-/* We may reuse the .think-differently stylings on multiple pages*/
-/* .think-differently{
-    background: var(--bkg-navy-dark);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 600px;
-}
-
-.think-differently-body{
-    display: grid;
-    grid-template-rows: 20% 20% 20% 40%;
-    grid-template-columns: 1fr 0.5fr 1fr 0.5fr 1.5fr;
-    align-items: center;
-    justify-content: center;
-
-    height:75%;
-
-    padding-top: 1em;
-    
-    padding-left:2em;
-    padding-right: 2em;
-}
-
-.think-differently .think-differently-body h2{
-    font-size: 2em;
-    grid-column: 2/4;
-    grid-row: 1/2;
-}
-
-.think-differently .think-differently-body p{
-    grid-row: 4/5;
-    font-size: 0.9em;
-}
-
-.think-differently .think-differently-body p:nth-child(2){
-    grid-column: 2/4;
-    grid-row: 2/3;
-    text-decoration: underline 2px;
-    text-underline-offset: 3px;
-}
-
-.think-differently .think-differently-body p:nth-child(3),
-.think-differently .think-differently-body p:nth-child(4),
-.think-differently .think-differently-body p:nth-child(5){
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.think-differently .think-differently-body p:nth-child(3){
-    grid-column: 5/6;
-}
-
-.think-differently .think-differently-body p:nth-child(4){
-    grid-column: 3/4;
-}
-
-.think-differently .think-differently-body p:nth-child(5){
-    grid-column: 1/2;
-}
-
-.think-differently .think-differently-body .think-differently-slash-1,
-.think-differently .think-differently-body .think-differently-slash-2{
-    background-image: url("../../resources/think-different-slash.svg");
-    background-position: center;
-    height:6em;
-    opacity: 0.4;
-}
-
-.think-differently .think-differently-body .think-differently-slash-1{
-    grid-area: 4/2/5/3;
-}
-
-.think-differently .think-differently-body .think-differently-slash-2{
-    grid-area: 4/4/5/5;
-}
-
-.think-differently .think-differently-body .think-differently-number{
-    display:block;
-    font-size:8rem;
-    font-weight: var(--weight-regular);
+@media (max-width: 1000px){
+    .page-type-team .title-content h1 {
+        width: 75%;
+    }
+    .page-type-team .team-cards .team-card div:last-child > p:first-child {
+        width: 85%;
+        font-size: 1.4rem;
+    }
 }
 
 @media (max-width: 768px){
-    .think-differently .think-differently-body .think-differently-number{
-        font-size:7rem;
+    .page-type-team .title-content h1 {
+        width: 85%;
+    }
+    /*TEAM CARD*/
+
+    .page-type-team .team-cards .team-card{
+        height: 160px;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 470px;
     }
 
-    .think-differently .think-differently-body h2{
-        font-size: 1.5em;
+    .page-type-team .team-cards .team-card .card-header{
+        margin: 2em 7.5%;
     }
-    
-    .think-differently .think-differently-body p{
-        font-size: 0.8em;
+    .page-type-team .team-cards .team-card h3{
+        font-size: 1rem;
     }
-} */
+
+    .page-type-team .team-cards .team-card div:nth-of-type(2){
+        padding-top: 6rem;
+
+    }
+
+    .page-type-team .team-cards .team-card div:nth-of-type(3){
+        padding-top: 6rem;
+        padding-left: 5rem;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        width: 95%;
+        font-size: 1.4rem;
+        line-height: 1.5em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs{
+        width: 95%;
+        font-size: 0.6em;
+    }
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 3em;
+        width: 85%;
+    }
+}
+
+@media (max-width: 700px){
+    .page-type-team .title-content{
+        margin: 6rem 0 4rem 0;
+        padding-left: var(--page-header-l-padding-mobile);
+        width: 80%;
+    }
+
+    .page-type-team .title-content h1{
+        margin-block: unset;
+        font-size: 2.8em;
+        padding-left: 1.8rem;
+        width: auto;
+    }
+
+
+    .page-type-team .head-content{
+        padding: 2em 3.5em 2em 4em;
+    }
+
+    .page-type-team .head-content .title{
+        font-size: 1.4em;
+        line-height: 1.6em;
+        padding: unset;
+    }
+
+    .page-type-team .head-content .head-text{
+        display:block;
+        font-size: 1.1em;
+        padding-top: 1em;
+    }
+
+    .page-type-team .head-content h2{
+        margin-top: 3em;
+    }
+
+    .page-type-team .head-content h2,
+    .page-type-team .foot-content .resources-section h2{
+        font-size: 2em;
+    }
+
+    /*TEAM CARD*/
+
+    .page-type-team .team-cards .team-card{
+        grid-template-columns: unset;
+        grid-template-rows: 0 100% ;
+
+        height: 280px;
+        overflow: hidden;
+    }
+    .page-type-team .team-cards .team-card.active{
+        height: 560px;
+    }
+
+    .page-type-team .team-cards .team-card div:first-child{
+        padding-top: 1.5rem;
+    }
+    .page-type-team .team-cards .team-card .card-header{
+        margin: 2em 15%;
+        width: 70%;
+        padding-bottom: 1em;
+    }
+    .page-type-team .team-cards .team-card .chevron-down{
+        background-image: url("../../resources/chevron-down.svg");
+    }
+    .page-type-team .team-cards .team-card h3{
+        width: 100%;
+        font-size: 1.3rem;
+        color: white;
+    }
+
+/*     .page-type-team .team-cards .team-card div:nth-of-type(2){
+        padding-top: 8rem;
+
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(2) img {
+        width: calc(100% - 8em);
+        padding-left: 4rem;
+    } */
+
+    .page-type-team .team-cards .team-card div:nth-of-type(3){
+        padding: 0;
+        padding-top: 12rem;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child,
+    .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs{
+        margin: auto;
+        width: 70%;
+        padding-bottom: 4em;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) > p:first-child{
+        font-size: 1.3rem;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs{
+        font-size: 0.7em;
+    }
+
+
+    /*Resources*/
+
+    .page-type-team .foot-content .resources-section h2{
+        width: 83%;
+    }
+
+    .page-type-team .foot-content .resources-section .resources{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page-type-team .foot-content .resources-section .resources .resource{
+        width: 90%;
+        height: 500px;
+        margin: 0.5em;
+    }
+}
+@media (max-width: 425px) {
+    .page-type-team .team-cards .team-card h3 {
+        font-size: 1.7em;
+    }
+    .page-type-team .team-cards .team-card div:first-child {
+        padding-top: 2.3rem;
+    }
+    .page-type-team .team-cards .team-card div:nth-of-type(3) .view-jobs {
+        font-size: 1em;
+    }
+}
+@media (max-width: 320px){
+    .page-type-team .team-cards .team-card.active{
+        height: 600px;
+    }
+}

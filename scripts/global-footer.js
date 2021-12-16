@@ -1,8 +1,42 @@
+/* eslint-disable no-multi-str */
 export default function decorate(win = window) {
-    const doc = win.document;
-    const $footer = doc.querySelector("body > footer");
-    $footer.id = "global-footer";
-    if ($footer) {
-      $footer.innerHTML = '<div class="footer-content"><img class="source" src="/resources/adobe-design.png"> <nav> <a href="">Behance</a> <a href="">Instagram</a> <a href="">Twitter</a> </nav> <nav> <a href="">Adobe Jobs</a> <a href="">Adobe Stories</a> </nav> <nav> <p>Copyright © 2021 Adobe. All rights reserved.</p> <p>/</p> <a href="">Privacy</a> <p>/</p> <a href="">Terms of Use</a> <p>/</p> <a href="">Cookies</a> <p>/</p> <a href="">Do not sell my personal information</a> </nav> </div>';
-    }
+  const doc = win.document;
+  const $footer = doc.querySelector('body > footer');
+  $footer.id = 'global-footer';
+  if ($footer) {
+    // eslint-disable-next-line operator-linebreak
+    $footer.innerHTML =
+      '<div class="footer-content">                                                          \
+        <a href="/" class="footer logo">                                                     \
+          <img class="source" src="/resources/adobe-design.png">                             \
+        </a>                                                                                 \
+        <nav class="foot left">                                                              \
+          <a href="" target="_blank">Behance</a>                                             \
+          <a href="/jobs/">Jobs</a>                                                          \
+          <a href="/stories/">Stories</a>                                                    \
+        </nav>                                                                               \
+        <nav class="foot right">                                                             \
+          <a href="/team/">Team</a>                                                          \
+          <a href="/toolkit/">Toolkit</a>                                                    \
+          <a href="/toolkit/inclusive-design/">Inclusive Design</a>                          \
+        </nav>                                                                               \
+        <nav class="foot last">                                                              \
+          <div class="break lg">                                                             \
+            <p>Copyright © 2021 Adobe. All rights reserved.</p>                              \
+            <p class="lg">/</p>                                                              \
+          </div>                                                                             \
+          <div class="break med">                                                             \
+            <a id="privacy" href="" target="_blank">Privacy</a>                              \
+            <p class="sm">/</p>                                                              \
+            <a id="tou" href="" target="_blank">Terms of Use</a>                             \
+            <p class="sm">/</p>                                                              \
+            <a id="cookies" href="" target="_blank">Cookies</a>                              \
+          </div>                                                                             \
+          <div class="break sm">                                                            \
+            <p class="med">/</p>                                                             \
+            <a id="dns-pinfo" href="" target="_blank">Do not sell my personal information</a>\
+          </div>                                                                             \
+        </nav>                                                                               \
+      </div>';
+  }
 }

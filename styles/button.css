@@ -1,11 +1,52 @@
-button{
+/*
+Height: min: 48px
+width: min 2.25x height,
+overflow: wrap,  1-2 words, max max 4 words/20 characters/no punctuation marks
+sentence case
+hover: has blue ring outline for keyboard focus,
+keyboard interactions: space or enter
+*/
+
+
+button, button.reg, button.med, button.primary{
+    cursor: pointer;
+    width: fit-content;
+    box-sizing: border-box;
+
     background-color: unset;
-    border: 2px solid transparent;
-    border-radius: 1.5em;
-    height: 3em;
-    font-size: 1em;
-    padding: 0.5em 1.5em;
-    line-height: 1em;
+    /* border: 2px solid inherit; */
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    outline-color: transparent;
+    color: inherit;
+    transition: var(--button-transition);
+
+    font-family: var(--sans-serif-font);
+
+}
+
+@media (max-width: 1000px) {
+    button.med, button.reg{
+        min-height: 48px;
+        min-width: 108px;
+        height: 48px;
+        border-radius: 24px;
+        line-height: 44px;
+        padding: 0 20px;
+        font-size: 18px;
+    }
+}
+@media (min-width: 1000px) {
+     button.med, button.reg{
+        height: 48px;
+        min-height: 48px;
+        min-width: 108px; /* 2.25 x height */
+        line-height: 44px; /* button height - border height*/
+        border-radius: 22px;
+        padding: 0 18px; /* 18px min */
+        font-size: 18px; /* 15px */
+    }
 }
 
 button.black{
@@ -17,21 +58,62 @@ button.white{
     border-color:white;
 }
 
-button.reg{
-}
-
 /*
 Set button color like so:
 jsButtonElm.style("--btn-color: #000000");
 */
-button.reg.unfilled{
-    border: 2px solid var(--btn-color);
-    color: var(--btn-color);
+button.unfilled,
+button.filled:hover{
     background-color: unset;
-    margin-left: 0.25em;
+    border-color: var(--btn-color);
+    color: var(--btn-color);
 }
 
-button.reg.filled{
-    border: none;
+button.filled,
+button.unfilled:hover{
     background-color: var(--btn-color);
+    border-color: transparent;
+    color: transparent;
+    /* filter: brightness(0.9); */
+}
+
+button.filled{
+    color: #ffffff;
+}
+/*
+ * As per Adobe Spectrum specs:
+ * Button highlights on select,
+ * or darkens on hover to show interaction feedback
+ */
+
+button.unfilled.dk-bkg:hover,
+button.unfilled.dark-background:hover{
+    color: var(--color-focus);
+}
+button.unfilled.lt-bkg:hover{
+    color: #ffffff;
+}
+
+button.filled:focus,
+button.unfilled:hover:focus{
+    filter: brightness(1);
+}
+
+/*
+ * Button should have an outline as per Adobe Spectrum specs:
+ * Outline is needed on focus for those who use a keyboard instead of
+ * mouse, touch, or other pointer. (Accessability)
+*/
+button:focus,
+button:focus-within,
+button:focus-visible {
+    outline-offset: 6px;
+    outline-style: solid;
+    outline-color: var(--color-focus);
+    outline-width: 2px;
+}
+
+/* button:active, */
+button:target{
+    filter: brightness(1);
 }

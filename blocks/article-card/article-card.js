@@ -1,22 +1,45 @@
+import getColors from '../../scripts/colors.js';
 import {
-    convertToBackground,
-    $element,
-    decorateTagLink,
-    processDivisions,
-} from "../../scripts/helpers.js";
+  convertToBackground,
+  $element,
+  // $wrap,
+  decorateTagLink,
+  decorateDivisions,
+  propsFromBlockLink,
+} from '../../scripts/helpers.js';
 
 /**
  * @param {HTMLElement} $block
  */
-export default function decorate($block) {
+export default async function decorate($block) {
+  const truncateTextPages = ['/'];
+  const truncateText = truncateTextPages.includes(window.document.location.pathname);
 
-    // Get the properties and identify the blocks
-    const result = processDivisions($block, {
-        image:      $div => $div.querySelector("picture"),
-    });
-    const props = result.properties;
+  const Colors = await getColors();
 
-    /**
+  const props = await propsFromBlockLink($block, {
+    path: 'path',
+    hed: 'title',
+    dek: 'description',
+    image: 'image',
+    background: { field: 'color', default: 'white' },
+    textcolor: { field: 'textcolor', default: 'black' },
+    tag: { field: 'tags', default: '' },
+  });
+
+  // Get the properties and identify the blocks
+  const result = decorateDivisions($block, [
+    '.image',
+  ]);
+  if (result.properties) {
+    Object.assign(props, result.properties);
+  }
+
+  const resolvedBackground = Colors.byName(props.background);
+  props.background = resolvedBackground.Value;
+  props.textcolor = resolvedBackground.BackgroundType === 'dark' ? 'white' : 'black';
+
+  /**
      *  Text Constants:
      *
      * $text   : Text half of the card
@@ -25,48 +48,70 @@ export default function decorate($block) {
      * $dek    : Subheader / summary
      * $byline : Author | Author's Position
      */
-    const $text = $element(".text");
-    const $tag = decorateTagLink( $element("div", `#${props.tag}`), { color: "black" } );
-    const $hed = $element(".hed", props.hed);
-    const $dek = $element(".dek", props.dek);
-    const $byline = $element(".byline");
+  const $text = $element('.text');
+  const $tag = decorateTagLink($element('div', ['#', $element('span.tag', props.tag)]), props.tag.replaceAll(' ', '-'), { color: 'black' });
 
-    /** if props.author exists: */
-    if(!!props.author){
-        const $author = $element("span.author", props.author );
-        if(!!props.position){
-            const $position = $element("span.position", props.position );
-            /* Also add in a pipe boi if author's position exists: */
-            const $pipe = $element("span.pipe", "|");
-            $byline.append($author, $pipe, $position);
-        } else {
-            $byline.append($author);
-        }
+  const HED_TEXT_LIMIT = 50;
+  const DEK_TEXT_LIMIT = 75;
+  let hedText = props.hed;
+  let dekText = props.dek;
+  if (truncateText) {
+    dekText = props.dek.length < DEK_TEXT_LIMIT ? props.dek : `${props.dek.substring(0, DEK_TEXT_LIMIT - 3)}...`;
+    hedText = props.hed.length < HED_TEXT_LIMIT ? props.hed : `${props.hed.substring(0, HED_TEXT_LIMIT - 3)}...`;
+  }
+  const $hed = $element('.hed', hedText);
+  const $dek = $element('.dek', dekText);
+
+  const $byline = $element('.byline');
+
+  /** if props.author exists: */
+  if (props.author) {
+    const $author = $element('span.author', props.author);
+    if (props.position) {
+      const $position = $element('span.position', props.position);
+      $byline.append($author);
+      $byline.append($position);
+    } else {
+      $byline.append($author);
     }
+  }
 
-    $text.append($tag, $hed, $dek, $byline);
+  $text.append($tag, $hed, $dek, $byline);
 
-    /* Apply the properties to the block */
-    $block.style.backgroundColor = result.properties.background;
-    $block.style.color = result.properties.textcolor;
+  /* Apply the properties to the block */
+  $block.style.backgroundColor = props.background;
+  $block.style.color = props.textcolor;
 
-    /* ---------  - IMAGES - ---------  */
-    /**
+  /* ---------  - IMAGES - ---------  */
+  /**
      * Remove image and place on proper side:
      */
-    result.image.remove();
-    result.blockContent.prepend($text);
+  if (result['.image'] && result['.image'].querySelector('img')) {
+    result['.image'].remove();
+  } else {
+    result['.image'] = $element('picture', [
+      $element('source', [
+        $element('img', { attr: { src: props.image } }),
+      ]),
+    ]);
+  }
 
-    if (!result.properties["image-side"] || result.properties["image-side"] === "left") {
-        result.blockContent.prepend(result.image);
-    } else {
-        result.blockContent.append(result.image);
-    }
+  let path;
+  if (props.path) path = props.path;
+  else {
+    path = `/stories/${props.tag}/${props.hed}`;
+    path = path.replaceAll(' ', '-').replaceAll(/[^a-zA-Z-\d/:]/g, '').toLowerCase();
+  }
 
-    result.image.classList.add("image");
+  const articleLink = $element('a.stories-link', { attr: { href: path } });
+  result['.block-content'].append(articleLink);
+  articleLink.prepend($text);
 
-    convertToBackground(result.image.querySelector("img"), result.image);
+  if (props['image-side'] === 'left') result['.image'].classList.add('left');
+  else if (props['image-side'] === 'right') result['.image'].classList.add('right');
+
+  articleLink.append(result['.image']);
+
+  result['.image'].classList.add('image');
+  convertToBackground(result['.image'].querySelector('img'), result['.image']);
 }
-
-
-

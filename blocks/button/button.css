@@ -1,29 +1,52 @@
-button{
-    background-color: unset;
-    color: white;
-    border: 2px solid white;
-    border-radius: 1.5em;
-    height: 3em;
-    font-size: 1em;
-    padding: 0.5em 1.5em;
-    line-height: 1em;
+@import url(../../styles/button.css);
+
+.carousel .carousel__actions button,
+.carousel .carousel__actions button img{
+    background-color: transparent;
+
 }
 
-button.reg{
-    border-radius: 1.5em;
-    height: 3em;
-    font-size: 1em;
-    padding: 0.5em 1.5em;
-    line-height: 1em;
+.carousel .carousel__actions button img{
+    height:  2.5em;
+    width:   3.5em;
 }
 
-button.reg.unfilled{
-    border: 2px solid var(--btn-color);
-    color: var(--btn-color);
-    background-color: unset;
+.carousel .carousel__actions button{
+    box-sizing: border-box;
+    border: 0.1em solid transparent;
+    border-radius: 50%;
+    height: 60px;
+    width: 30px;
+    padding: 7px;
 }
-button.reg.filled{
-    border: none;
-    color: var(--btn-color);
-    background-color: unset;
+
+.carousel .carousel__actions button:focus,
+.carousel .carousel__actions button:focus{
+    border-color: var(--color-navy);
+    outline: none;
+}
+
+.carousel .carousel__actions button:active,
+.carousel .carousel__actions button:hover {
+    filter: brightness(0.8);
+    outline: none;
+}
+
+button.carousel__button--prev{
+    transform: rotate(180deg)
+}
+
+@media screen and (max-width: 1090px) {
+    .carousel .carousel__actions button{
+        height: 60px;
+        width: 30px;
+        padding: 7px;
+        box-sizing: border-box;
+
+    }
+    .carousel .carousel__actions button img{
+        height: 44px;
+        width: 44px;
+    }
+
 }

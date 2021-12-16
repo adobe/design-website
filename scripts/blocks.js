@@ -1,4 +1,20 @@
-import { loadCSS } from "./importer.js";
+/* eslint-disable no-unused-expressions */
+/* eslint-disable array-callback-return */
+/* eslint import/no-cycle: [2, { maxDepth: 1 }] */
+import { $element } from './helpers.js';
+import { loadCSS } from './importer.js';
+
+const BlockDecorationLimits = {
+  // "pull-quote": { nojs: true },
+};
+
+function blockHasLimit(blockName, limit) {
+  if (BlockDecorationLimits[blockName]) {
+    console.log(`Block ${blockName}: ${limit}`);
+    return BlockDecorationLimits[blockName][limit];
+  }
+  return false;
+}
 
 /**
  * Sanitizes a name for use as class name.
@@ -6,9 +22,9 @@ import { loadCSS } from "./importer.js";
  * @returns {string} The class name
  */
 export function toClassName(name) {
-    return name && typeof name === 'string'
-        ? name.toLowerCase().replace(/[^0-9a-z]/gi, '-')
-        : '';
+  return name && typeof name === 'string'
+    ? name.toLowerCase().replace(/[^0-9a-z]/gi, '-')
+    : '';
 }
 
 /**
@@ -16,18 +32,20 @@ export function toClassName(name) {
  * @param {Element} $block The block element
  */
 export async function loadBlock($block) {
-    const blockName = $block.getAttribute('data-block-name');
-    try {
-        const mod = await import(`/blocks/${blockName}/${blockName}.js`);
-        if (mod.default) {
-            await mod.default($block, blockName, document);
-        }
-    } catch (err) {
-        /* eslint-disable-next-line no-console */
-        console.log(`failed to load module for ${blockName}`);
-        console.error(err);
+  const blockName = $block.getAttribute('data-block-name');
+  try {
+    if (!blockHasLimit(blockName, 'nojs')) {
+      const mod = await import(`/blocks/${blockName}/${blockName}.js`);
+      if (mod.default) {
+        await mod.default($block, blockName, document);
+      }
     }
-    loadCSS(`/blocks/${blockName}/${blockName}.css`);
+  } catch (err) {
+    /* eslint-disable-next-line no-console */
+    console.log(`failed to load module for ${blockName}`);
+    console.error(err);
+  }
+  loadCSS(`/blocks/${blockName}/${blockName}.css`);
 }
 
 /**
@@ -35,9 +53,9 @@ export async function loadBlock($block) {
  * @param {Element} $main The container element
  */
 export async function loadBlocks($main) {
-    $main
-        .querySelectorAll('div.section-wrapper > div > .block')
-        .forEach(async ($block) => loadBlock($block));
+  $main
+    .querySelectorAll('div.section-wrapper > div > .block')
+    .forEach(async ($block) => loadBlock($block));
 }
 
 /**
@@ -45,15 +63,16 @@ export async function loadBlocks($main) {
  * @param {Element} $block The block element
  */
 export function decorateBlock($block) {
-    const classes = Array.from($block.classList.values());
-    const blockName = classes[0];
-    if (!blockName) return;
-    const $section = $block.closest('.section-wrapper');
-    if ($section) {
-        $section.classList.add(`${blockName}-container`.replace(/--/g, '-'));
-    }
-    $block.classList.add('block');
-    $block.setAttribute('data-block-name', blockName);
+  const classes = Array.from($block.classList.values());
+  const blockName = classes[0];
+  const isBlock = blockName.indexOf('--') !== 0;
+  if (!blockName || !isBlock) return;
+  const $section = $block.closest('.section-wrapper');
+  if ($section) {
+    $section.classList.add(`${blockName}-container`.replace(/--/g, '-'));
+  }
+  $block.classList.add('block');
+  $block.setAttribute('data-block-name', blockName);
 }
 
 /**
@@ -61,9 +80,9 @@ export function decorateBlock($block) {
  * @param {Element} $main The container element
  */
 export function decorateBlocks($main) {
-    $main
-        .querySelectorAll('div.section-wrapper > div > div')
-        .forEach(($block) => decorateBlock($block));
+  $main
+    .querySelectorAll('div.section-wrapper > div > div')
+    .forEach(($block) => decorateBlock($block));
 }
 
 /**
@@ -72,32 +91,41 @@ export function decorateBlocks($main) {
  * @returns {object} The block config
  */
 export function readBlockConfig($block) {
-    const config = {};
-    $block.querySelectorAll(':scope>div').forEach(($row) => {
-        if ($row.children) {
-            const $cols = [...$row.children];
-            if ($cols[1]) {
-                const $value = $cols[1];
-                const name = toClassName($cols[0].textContent);
-                let value = '';
-                if ($value.querySelector('a')) {
-                    const $as = [...$value.querySelectorAll('a')];
-                    if ($as.length === 1) {
-                        value = $as[0].href;
-                    } else {
-                        value = $as.map(($a) => $a.href);
-                    }
-                } else if ($value.querySelector('p')) {
-                    const $ps = [...$value.querySelectorAll('p')];
-                    if ($ps.length === 1) {
-                        value = $ps[0].textContent;
-                    } else {
-                        value = $ps.map(($p) => $p.textContent);
-                    }
-                } else value = $row.children[1].textContent;
-                config[name] = value;
-            }
-        }
-    });
-    return config;
+  const config = {};
+  $block.querySelectorAll(':scope>div').forEach(($row) => {
+    if ($row.children) {
+      const $cols = [...$row.children];
+      if ($cols[1]) {
+        const $value = $cols[1];
+        const name = toClassName($cols[0].textContent);
+        let value = '';
+        if ($value.querySelector('a')) {
+          const $as = [...$value.querySelectorAll('a')];
+          if ($as.length === 1) {
+            value = $as[0].href;
+          } else {
+            value = $as.map(($a) => { $a.href; $a.target = '_blank'; });
+          }
+        } else if ($value.querySelector('p')) {
+          const $ps = [...$value.querySelectorAll('p')];
+          if ($ps.length === 1) {
+            value = $ps[0].textContent;
+          } else {
+            value = $ps.map(($p) => $p.textContent);
+          }
+        } else value = $row.children[1].textContent;
+        config[name] = value;
+      }
+    }
+  });
+  return config;
+}
+
+export function insertBlockSeed(name, options) {
+  const { section } = { section: document.querySelector('main > div'), ...options || {} };
+
+  const $seed = $element(`.${name}`);
+
+  section.appendChild($seed);
+  return $seed;
 }

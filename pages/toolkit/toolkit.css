@@ -1,94 +1,315 @@
-
 .toolkit-header{
-    height: calc(60vh - 110px);
-    width: 1000px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: var(--page-header-l-padding);
+    padding-right: 7rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.think-differently h2 {
-    font-weight: var(--wight-light);
-}
-#our-toolkit{
+.toolkit-header h1{
     color: white;
-    font-size: 50px;
-    font-weight: 400;
+    font-weight: var(--weight-black);
+    margin: var(--page-header-margin);
+    font-size: var(--page-header-size);
+    margin-bottom: 6rem;
 }
-#the-ideas-systems-and-tools-that-guide-our-thinking-our-processes-and-our-designs{
+
+.toolkit-header h3{
     color: white;
-    font-size: 35px;
-    font-weight: 300;
+    font-family: var(--serif-font);
+    font-size: 2.5rem;
+    font-weight: var(--weight-light);
+    margin-bottom: 9rem;
+    padding-right: 2em;
+    width: 80%;
 }
-body > .toolkit > div{
-    display: flex;
-    justify-content: center;
-}
-body > .toolkit > div > div{
-    width: 1000px;
-}
+
 .toolkit-page-content{
-    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0) 160px,rgba(255,255,255, 1) 160px);
     /* padding: 30px 30px 1px 30px; */
-    box-sizing: border-box;
+    box-sizing: border-box;  
 }
 
-body > .toolkit > div > div > div.toolkit-page-content > .article-card{
+/* .toolkit .toolkit-page-content > .article-card.block{
     min-width: unset;
-    margin: 10px 30px 10px 30px
+    margin: 10px 0px 10px 0px
 }
 
+.toolkit .toolkit-page-content > .article-card.block .text .hed{
+    width: 70%;
+    font-size: 3em;
+    margin-bottom: .75em;
+    font-weight: var(--weight-black);
+    overflow: unset;
+}
+.toolkit .toolkit-page-content > .article-card.block .text .dek{
+    font-size: 1em;
+    line-height: 1.5em;
+    font-weight: var(--weight-light);
+    max-width: 93%;
+}
 
+.toolkit .toolkit-page-content > .article-card.block .text .tag-link,
+.toolkit .toolkit-page-content > .article-card.block .text .byline{
+    display: none;
+} */
+
+.toolkit-page-content > p {
+    background: #FFFFFF;
+    margin: 5px 0;
+}
 
 .toolkit > .text{
     color: white;
 }
-.toolkit > div > div > div.toolkit-page-content > div:nth-child(2) > div > div.image{
+.toolkit .toolkit-page-content > div:nth-child(2) .image{
     background-color: #F4F4F4;
 }
-body > main.toolkit > div > div > div.toolkit-page-content > div > div > div.text{
+.toolkit .toolkit-page-content .text{
     color: white;
 }
-body > main.toolkit > div > div > div.toolkit-page-content > div:nth-child(5) > div > div.text{
+.toolkit .toolkit-page-content > div:nth-child(3) .text,
+.toolkit .toolkit-page-content > div:nth-child(4) .text,
+.toolkit .toolkit-page-content > div:nth-child(5) .text,
+.toolkit .toolkit-page-content > div:nth-child(7) .text,
+.toolkit .toolkit-page-content > div:nth-child(8) .text{
     color: black;
 }
-body > main.toolkit > div > div > div.toolkit-page-content > div:nth-child(8) > div > div.text{
-    color: black;
-}
+
 .big-red-text{
-    height: 300px;
+    height: 450px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
+    font-size: 55px;
     color: #E91D25;
-    padding: 0 15%;
+    padding: 0 20%;
     box-sizing: border-box;
+    font-weight: var(--weight-black);
 }
 
-@media screen and (max-width: 700px){
-    #our-toolkit{
-        font-size: 30px;
-        font-weight: 400;
+.toolkit .toolkit-page-content .think-differently.block .think-differently-content{
+    grid-template-columns: 2fr 1fr 2fr 1fr 4fr; /*Increasing the size on the last stat since its way too big*/
+}
+
+.toolkit .think-differently.block .think-differently-content h2{
+    grid-column: 2/6;
+}
+
+
+
+@media (min-width: 1921px){
+    .toolkit-header h1{
+        font-size: 7em;
+        padding-bottom: 1em;
+        padding-left: 1em;
     }
+    .toolkit-header h3{
+        font-size: 5.5em;
+        width: 68%;
+        padding-bottom: 3em;
+        padding-left: 1.3em;
+    }
+    .toolkit-card.block{
+        height: 1160px;
+    }
+    .toolkit-card.block .text .hed{
+        font-size: 7em;
+        padding-left: .7em;
+    }
+    .toolkit-card.block .text .dek{
+        font-size: 2em;
+        padding-left: 2.5em;
+        padding-right: 6em;
+    }
+    .big-red-text{
+        font-size: 8em;
+        padding: 0 2em;
+        height: 1160px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 5em;
+    }
+}
+
+@media (max-width: 1920px) and (min-width: 1651px){
+    .toolkit-header h1{
+        font-size: 7em;
+        padding-bottom: 1em;
+        padding-left: 1em;
+    }
+    .toolkit-header h3{
+        font-size: 5.5em;
+        width: 80%;
+        padding-bottom: 3em;
+        padding-left: 1.3em;
+    }
+    .toolkit-card.block{
+        height: 910px;
+    }
+    .toolkit-card.block .text .hed{
+        font-size: 7em;
+        padding-left: .7em;
+    }
+    .toolkit-card.block .text .dek{
+        font-size: 1.5em;
+        padding-left: 3.5em;
+        padding-right: 7em;
+    }
+    .big-red-text{
+        font-size: 7em;
+        padding: 0 2.2em;
+        height: 910px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 4.6em;
+    }
+}
+
+@media (max-width: 1650px ) and (min-width: 1441px){
+    .toolkit-header h1{
+        font-size: 7em;
+        padding-bottom: 1em;
+        padding-left: 1em;
+    }
+    .toolkit-header h3{
+        font-size: 4.5em;
+        width: 80%;
+        padding-bottom: 2em;
+        padding-left: 1.3em;
+    }
+    .toolkit-card.block{
+        height: 775px;
+    }
+    .toolkit-card.block .text .hed{
+        font-size: 5em;
+        padding-left: .7em;
+    }
+    .toolkit-card.block .text .dek{
+        font-size: 1.2em;
+        padding-left: 3em;
+        padding-right: 8em;
+    }
+    .big-red-text{
+        font-size: 6em;
+        padding: 0 2.2em;
+        height: 775px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 4em;
+    }
+}
+
+@media (max-width: 1440px) and (min-width: 1281px){
+    .toolkit-header h1{
+        font-size: 6em;
+        padding-bottom: 1em;
+        padding-left: 1em;
+    }
+    .toolkit-header h3{
+        font-size: 4em;
+        width: 80%;
+        padding-bottom: 2em;
+        padding-left: 1.3em;
+    }
+    .toolkit-card.block{
+        height: 660px;
+    }
+    .toolkit-card.block .text .hed{
+        font-size: 5em;
+        padding-left: .7em;
+    }
+    .toolkit-card.block .text .dek{
+        font-size: 1em;
+        padding-left: 3.5em;
+        padding-right: 8em;
+    }
+    .big-red-text{
+        font-size: 5em;
+        padding: 0 2.5em;
+        height: 660px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 3.3em;
+    }
+}
+
+@media (max-width: 1280px) and (min-width: 1025px){
+    .toolkit-header h1{
+        font-size: 5em;
+        padding-bottom: 1em;
+        padding-left: 1em;
+    }
+    .toolkit-header h3{
+        font-size: 3.2em;
+        width: 80%;
+        padding-bottom: 2em;
+        padding-left: 1.3em;
+    }
+    .toolkit-card.block{
+        height: 560px;
+    }
+    .toolkit-card.block .text .hed{
+        font-size: 3.5em;
+        padding-left: .7em;
+    }
+    .toolkit-card.block .text .dek{
+        font-size: 1em;
+        padding-left: 2.5em;
+        padding-right: 1em;
+    }
+    .big-red-text{
+        font-size: 4em;
+        padding: 0 3em;
+        height: 560px;
+    }
+    .think-differently.block .think-differently-content h2{
+        font-size: 2.7em;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px){
+    .toolkit-header{
+        padding-left: var(--page-header-l-padding-tablet);
+    }
+    .toolkit-header h3{
+        padding-right: 3em;
+    }
+    .big-red-text{
+        font-size: 10em;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 426px){
+    .toolkit-header{
+        padding-left: var(--page-header-l-padding-mobile);
+    }
+
+    .toolkit-header h1{
+        margin: 6rem 0 4rem 0;
+        font-size: 3em;
+        width: 100%;
+    }
+
+    .toolkit-header h3{
+        font-size: 25px;
+        padding: 0;
+        margin-bottom: 7rem;
+        width: 97%;
+    }
+
     .toolkit-page-content{
         max-width: 100vw !important;
     }
-    #the-ideas-systems-and-tools-that-guide-our-thinking-our-processes-and-our-designs{
-        font-size: 25px;
-    }
+    
     body > .toolkit > div > div > div.toolkit-page-content > .article-card{
         margin: 10px 0px 10px 0px;
     }
-    .toolkit-header{
-        height: calc(82vh - 110px);
-    }
+    
     .big-red-text{
         font-size: 34px;
+        padding: 0 10%;
     }
     .article-card.block .text .dek, .article-card.block .text .dek:not(.article-title){
         margin: unset;

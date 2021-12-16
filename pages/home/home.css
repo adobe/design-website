@@ -31,12 +31,6 @@
     padding-left: 5em;
 }
 
-.page-type-index main {
-    width: 98vw;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
 .page-type-index .story picture {
     padding-left: 3em;
 }
@@ -64,7 +58,33 @@
     font-weight: 300;
 }
 
-.page-type-index .content > div > div:nth-child(2) > div > p:nth-child(4) {
+.page-type-home .content > div > div:nth-child(2) > div > p:nth-child(4) {
     font-size: .75em;
     font-weight: 300;
+}
+
+.page-type-home .scroll-tip-container {
+    max-width: 900px;
+}
+
+.page-type-home .people {
+    margin: 8px auto;
+}
+
+.two-column.block > div > div:nth-child(2) > div > div:nth-child(1) > div.number::after {
+    content: "+";
+    vertical-align: super;
+    font-size: .5em;
+}
+
+@media (max-width: 1440px) and (min-width: 1024px) {
+    .page-type-home .people {
+        width: 85%;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .page-type-home .people {
+        width: 85%;
+    }
 }

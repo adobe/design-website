@@ -4,12 +4,17 @@
 }
 
 .two-column.block > div > div {
-    height: 1500px;
     flex-grow:1;
     flex-basis:0;
 }
 
-@media (max-width: 1024px) and (min-width: 767px){
+@media (min-width: 1920px) {
+    .two-column.block{
+        width: 1700px;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 768px){
     
     .job-listing h3{
         margin-top: .8em;
@@ -18,8 +23,25 @@
     .job-listing p{
         margin: 0;
     }
+
+    .two-column.block{
+        margin-bottom: 0.5rem;
+        width: 980px;
+    }
+
+    /* Only targets the joinus/scoreboard block */
+    .two-column.block:last-of-type{
+        margin-bottom: 0;
+    }
+    .two-column.block:last-of-type > div > div:first-child {
+        flex-grow:7;
+    }
+    .two-column.block:last-of-type > div > div:last-child {
+        flex-grow:5;
+    }
 }
-@media (max-width: 1023px) {
+
+@media (max-width: 767px) {
     .two-column.block > div {
         flex-direction: column;
     }
@@ -28,7 +50,47 @@
     }
     
 }
-@media only screen and (min-width: 321px) and (max-width: 375px){
 
-
+@media (max-width: 768px) and (min-width: 426px){
+    .two-column.block{
+        width: 758px;
+    }
 }
+@media (max-width: 425px) and (min-width: 415px){
+    .two-column.block{
+        width: 415px;
+    }
+}
+
+@media (max-width: 414px) and (min-width: 376px){
+    .two-column.block{
+        width: 399px;
+    }
+}
+@media (max-width: 375px) and (min-width: 321px){
+    .two-column.block{
+        width: 365px;
+    }
+}
+@media (max-width: 320px){
+    .two-column.block{
+        width: 365px;
+    }
+}
+
+@media (max-width: 1440px) and (min-width: 1024px) {
+    .two-column.block {
+        width: 85%;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .two-column.block {
+        width: 85%;
+    }
+}
+
+/* .two-column.block > div {
+    display:grid;
+    grid-template-columns: 50% 50%;
+} */

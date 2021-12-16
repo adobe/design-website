@@ -1,7 +1,7 @@
-import { $element } from "../../scripts/helpers.js";
-import { fetchIndex } from "../../scripts/queries.js";
+import { $element } from '../../scripts/helpers.js';
+import { fetchIndex } from '../../scripts/queries.js';
 
-var index = null;
+let index = null;
 
 /**
  *
@@ -11,30 +11,29 @@ export default async function decorate($block) {
   if (!index) {
     index = await fetchIndex();
   }
-  const $jobs = $block.querySelectorAll(":scope > div");
 
-  $block.innerHTML = "";
+  console.log(' INDEX ', index, index.jobs);
 
-  for (const job of index.byType.jobs) {
-    var $el = $element("a.single-job", { attr: { href: job.path } }, [
-      $element("h3.job-title", job.title || "No Title"),
-      $element("p.experience", "Test Experience"),
-      $element("p.location", "California"),
-      $element("p.position", "Test Position"),
-    ]);
-    $block.append($el);
+  $block.innerHTML = '';
+  if (index && index.jobs) {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const job of index.jobs.data) {
+      const $el = $element('a.single-job', { attr: { href: job.path, target: '_blank' } }, [
+        $element('h3.job-title', job.title || 'No Title'),
+        $element('p.experience', 'Test Experience'),
+        $element('p.location', 'California'),
+      ]);
+      $block.append($el);
+    }
+    const seeJobsDiv = $element('a.see-jobs', { attr: { href: '/jobs/', target: '_blank' } }, $element('span', 'VIEW OUR JOB OPENINGS'));
+    /* const seeJobsDiv = $element("a.see-jobs");
+    seeJobsDiv.classList.add("see-jobs");
+    seeJobsDiv.setAttribute("href", "/jobs/");
+    const seeJobs = document.createElement("span");
+    seeJobs.innerHTML = "VIEW OUR JOB OPENINGS";
+    seeJobsDiv.append(seeJobs); */
+
+    $block.querySelector.innerHTML = '';
+    $block.append(seeJobsDiv);
   }
-
-  const seeJobsDiv = document.createElement("div");
-  seeJobsDiv.classList.add("see-jobs");
-  const seeJobs = document.createElement("h3");
-  seeJobs.innerHTML = "See our job openings";
-  seeJobsDiv.append(seeJobs);
-
-  seeJobs.addEventListener("click", () => {
-    console.log("Jobs page not setup");
-  });
-
-  $block.querySelector.innerHTML = "";
-  $block.append(seeJobsDiv);
 }

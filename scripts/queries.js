@@ -1,19 +1,27 @@
-import { getRootPath } from "./scripts.js";
+/* eslint-disable import/no-cycle */
+import { getRootPath } from './scripts.js';
 
-/**
- * fetches blog article index.
- * @returns {object} index with data and path lookup
- */
+class QueryIndex {
+  constructor(index) {
+    this.index = index;
+  }
 
-export async function fetchBlogArticleIndex() {
-    const resp = await fetch(`${getRootPath()}/query-index.json`);
-    const json = await resp.json();
-    const byPath = {};
-    json.data.forEach((post) => {
-        byPath[post.path.split('.')[0]] = post;
+  findRecord(fn) {
+    return this.index.fullindex.data.find(fn);
+  }
+
+  whereFieldContains(prop, val) {
+    return this.findRecord((rec) => {
+      if (typeof rec[prop] === 'string') {
+        return rec[prop].indexOf(val) >= 0;
+      }
+      return rec[prop] === val;
     });
-    const index = { data: json.data, byPath };
-    return (index);
+  }
+
+  whereUrlMatchesPath(url) {
+    return this.findRecord((rec) => url.indexOf(rec.path) >= 0);
+  }
 }
 
 /**
@@ -21,20 +29,49 @@ export async function fetchBlogArticleIndex() {
  * @returns {object} index with data and path lookup
  */
 
-export async function fetchIndex() {
-    const resp = await fetch(`/query-index.json`);
-    const json = await resp.json();
-    const byType = {
-        jobs: [],
-        stories: [],
-    };
-    json.data.forEach((post) => {
-        if ( post.path.indexOf("/jobs") === 0) {
-            byType.jobs.push(post);
-        } else if ( post.path.indexOf("/stories") === 0) {
-            byType.stories.push(post);
-        }
-    });
-    const index = { data: json.data, byType };
-    return (index);
+export async function fetchBlogArticleIndex() {
+  const resp = await fetch(`${getRootPath()}/query-index.json`);
+  const json = await resp.json();
+  const byPath = {};
+  json.data.forEach((post) => {
+    byPath[post.path.split('.')[0]] = post;
+  });
+  const index = { data: json.data, byPath };
+  return (index);
+}
+
+/**
+ * fetches blog article index.
+ * @returns {object} index with data and path lookup
+ */
+
+// eslint-disable-next-line no-unused-vars
+export async function fetchIndex(options) {
+  const resp = await fetch('/query-index.json');
+  const json = await resp.json();
+
+  const index = json;
+  return (index);
+}
+
+let cachedJson = null;
+let cachedQueryIndex = null;
+/**
+ * Resolves the index data, or re-uses it if its already been queried on the page
+ * @param {*} options
+ * @returns {QueryIndex}
+ */
+export async function resolveIndex(options) {
+  if (!options) {
+    // eslint-disable-next-line no-param-reassign
+    options = {};
+  }
+  if (!('force' in options)) {
+    options.force = false;
+  }
+  if (!cachedJson) {
+    cachedJson = await fetchIndex();
+    cachedQueryIndex = new QueryIndex(cachedJson);
+  }
+  return cachedQueryIndex;
 }

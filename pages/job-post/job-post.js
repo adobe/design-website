@@ -1,69 +1,143 @@
+import addButton from '../../blocks/button/button.js';
 import {
-  convertToBackground,
-  decorateLink,
-  decorateTagLink,
-  processDivisions,
-  wrapWithElement,
+  $addMiddleElm,
   $element,
-} from "../../scripts/helpers.js";
+  getMetadata,
+} from '../../scripts/helpers.js';
+import { getJobsFragment } from '../../scripts/jobs-fragments.js';
+import makeSimilarOpportunitiesBlock from '../../blocks/job-posting-blocks/similar-opportunities.js';
+import { Background } from '../../scripts/background.js';
+
+// const bkg_grey_lt = '#E8E8E8';
+// const text_dark   = '#3E3E3E';
+const btnBlue = '#1473E6';
 
 /**
- * @param {HTMLElement} $block
+ * @param {HTMLElement} $page
  */
-export default function decorate($block) {
+export default async function decorate() {
+  /* Add classes and ids to container elements */
+  const bodyJobPost = document.querySelector('body');
+  bodyJobPost.classList.add('job-post');
+  const postContainer = document.querySelector('main > div.section-wrapper');
+  postContainer.classList.add('post-container');
+  const postText = document.querySelector('.post-container > div');
+  postText.classList.add('post-text');
+  Background.setColor('#FFFFFF');
+  /* Assemble "Apply Now" Button. It'll be used 3x */
+  /* Declare the function for "onClick" action */
 
-  /** Get the properties and identify the blocks  */
-  // const result = processDivisions($block, {
-  //   image:      $div => $div.querySelector("picture"),
-  // });
-  // const props = result.properties;
+  // eslint-disable-next-line no-unused-vars
+  const jobURL = getMetadata('apply-now-link')
+              || getMetadata('job-listing-reference')
+              || getMetadata('apply-now');
 
+  // function buttonFunction() { return window.open(jobURL, '_blank'); }
+  const buttonFunction = () => window.open(jobURL, '_blank');
+  const $buttonApplyNow = addButton('Apply Now', buttonFunction, 'filled lt-bkg', btnBlue);
+  // postBody.append($buttonApplyNow);
+  // -- START Job Position details subheader --//
+  const $blurb = $element('.dek_blurb', getMetadata('dek'));
+  const $location = $element('p.detail-value', getMetadata('location'));
+  const $positionType = $element('p.detail-value', getMetadata('position-type'));
+  const $reqNumber = $element('p.detail-value', getMetadata('req-number') || 'None Provided');
+  const $headerDetails = $element('div.subhead-container', [
+    $element('div.details', [
+      $element('span.detail', [
+        $element('p.detail-label', 'Location'),
+        $location,
+      ]),
+      $element('span.detail', [
+        $element('p.detail-label', 'Position Type'),
+        $positionType,
+      ]),
+      $element('span.detail', [
+        $element('p.detail-label', 'Req Number'), $reqNumber,
+      ]),
+    ]),
+    // $blurb
+  ]);
+  const $xsHeaderDetails = $headerDetails.cloneNode(true);
+  const $lHeaderDetails = $headerDetails.cloneNode(true);
+  // -- End Job Position details subheader --//
+  const $headerButton = $buttonApplyNow.cloneNode(true);
+  $headerButton.addEventListener('click', buttonFunction);
+  $headerButton.classList.add('header_button');
+  // -- START Job Posting Body Text Block --//
+  const jobTitleH1 = postContainer.querySelector('h1');
+  jobTitleH1.classList.add('job-title');
+  jobTitleH1.after($xsHeaderDetails); /** Insert .dek after h1.job-title */
+  jobTitleH1.after($headerButton);
+  $xsHeaderDetails.after($blurb);
 
-  document.querySelector("body").classList.add("job-post");
-  // let postText = document.querySelector(".job-info-container")
-  // document.querySelector(".header-block")
+  // -- END   Job Posting Body Text Block --//
 
-  let postText= document.querySelector(".job-info-container").lastChild;
-  postText.classList.add("post-text");
-  console.log( " POST TEXT ", postText, "\n postText: ", postText)
-  postText.querySelectorAll('h6').forEach((tag) => {
-    tag.removeAttribute('id')
-    tag.classList.add('header-6')
-    console.log( " TAG ", tag)
-  })
+  // -- START Sticky bits: --//
+  const stickyContainer = $element('div.sticky-container');
+  postContainer.prepend(stickyContainer);
+  stickyContainer.append($buttonApplyNow);
+  stickyContainer.append($lHeaderDetails);
 
+  // -- END Sticky bits: --//
 
+  const $postText = document.querySelector('.post-text');
 
+  $addMiddleElm(
+    document.querySelector('div.section-wrapper'),
+    '.post-body',
+    $postText,
+  );
 
-  // //----------//
-//   /// has similar opportunities block here //
-// //----------//
-//   About adobe design: full width, background: red,
-//   header:
-//   40/100, adobe clean serif -- reg
-//   text:
-//   61/100, adobe clean serif --reg
-//   //----------//
-//   Sub-text-block
-//   small type -- background: white,full width,
-//   text:
-//   20/35, adobe clean -- reg
+  const $lastButton = $buttonApplyNow.cloneNode(true);
+  $lastButton.classList.add('last_button');
+  $postText.append($lastButton);
+  $lastButton.addEventListener('click', buttonFunction);
 
+  /* ------------------------------------------------------------ */
+  /* Assemble  "Equal Opportunities" "About Adobe Design" "Sim Opps" blocks */
+  // eslint-disable-next-line no-use-before-define
+  buildJobBlockFragments();
+  // eslint-disable-next-line no-use-before-define
+  buildSimOpportunitiesBlock();
+  document.querySelector('main').append($element('div.similarOpps-block'));
+}
 
+async function buildSimOpportunitiesBlock() {
+  const simOppsContent = await makeSimilarOpportunitiesBlock('nothing');
+  if (simOppsContent) {
+    document.querySelector('div.similarOpps-block').append(simOppsContent);
+  } else {
+    // eslint-disable-next-line no-console
+    console.log('Cannot fetch similar opportunities to build the block');
+  }
+}
 
-  // .nextSibling();
-  // postText.classList.add("post-text");
+async function buildJobBlockFragments() {
+  const aboutURL = 'about-adobe-design';
+  const eopsURL = 'equal-opportunity-policy-stmnt';
 
-  /**
-   * Element Constants:
-   *
-   * $job-title      : h1         / Job Title
-   * $detail-label   : label  --ex: "Position Type"
-   * $detail-value   : value  --ex: "Full-time"
-   * $dek            : Like the summary/hook for position
+  /* ----- About Adobe Design Element -----  */
+  /** Get "About Adobe Design" Fragment: */
+  const aboutInnerHTML = await getJobsFragment(aboutURL);
+  if (aboutInnerHTML) {
+    const aboutElm = $element('div.about-adobe-design');
+    aboutElm.innerHTML = aboutInnerHTML;
+    document.querySelector('main').append(aboutElm);
+  } else {
+    // eslint-disable-next-line no-console
+    console.log(`Cannot fetch ${aboutURL} fragment or fragment doesn't exist`);
+  }
 
-   * $section-header : sub header / What you'll be working on
-   * $paragraph      : p          / basically just <p>
-   * $paragraph.list
-   */
+  /* ------ Equal Opportunities Policy ------- */
+  /** Get "Equal Opportunity Policy" Fragment: */
+  const eopsInnerHtml = await getJobsFragment(eopsURL);
+
+  if (eopsInnerHtml) {
+    const eqOpPolicy = $element('div.eq-op-policy-stmnt');
+    eqOpPolicy.innerHTML = eopsInnerHtml;
+    document.querySelector('main').append(eqOpPolicy);
+  } else {
+    // eslint-disable-next-line no-console
+    console.log(`Cannot fetch ${eopsURL} fragment or fragment doesn't exist`);
+  }
 }

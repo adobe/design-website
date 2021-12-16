@@ -5,55 +5,132 @@
 @import "global-footer.css";
 @import "./background.css";
 @import "../blocks/button/button.css";
-@import ".button.css";
-
-body {
-    font-family:sans-serif;
-}
-body.loaded {
-    background-position: center top;
-    background-image: url("/resources/background-image.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: all .4s ease-in-out;
-    font-family: sans-serif;
-
-    /* Common Colors */
-    --text-dark:     #3E3E3E;
-    --bkg-navy-dark: #0B1C40;
-    --bkg-green:     #4BA88E;
-    --bkg-grey-lt:   #E8E8E8;
-    --bkg-red:       #E91D25;
-    --bkg-orange:    #E94E27;
-
-    /* Font Families */
-    --sarif-font: "Adobe Clean Serif", "Adobe Clean", "Roboto", sans-serif;
-    --sans-font: "Adobe Clean", "Roboto", sans-serif;
-
-    /* Font Weights */
-    --weight-light:      200;  /* lighter,   100-300 */
-    --weight-regular:    400;  /* normal,    400-500 */
-    --weight-bold:       700;  /* semi-bold, 700-600 */
-    --weight-black:      900;  /* bolder,    800-900 */
-
-    color:       var(--color-text);
-    font-weight: var(--weight-regular);
-
-}
-
-main > div > div > div:not(.full-bleed) {
-    width: 98vw;
-    max-width:1000px;
-    margin-left:auto;
-    margin-right:auto;
-}
+@import "button.css";
 
 html, body{
     width: 100vw;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    font-family: var(--sans-font);
+}
+
+
+/* @media screen and (max-width: 1000px) {
+    html, body{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 1920px) {
+    html, body{
+        font-size: 1.6vw;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    html, body{
+        font-size: 30.7px;
+    }
+} */
+
+
+html{
+    /* Common Colors */
+    --text-med:       #6E6E6E;
+    --text-dark:      #3E3E3E;
+    --text-dkr:       #000C1E;
+    --bkg-navy-dark:  #0B1C40;
+    --bkg-grey-lt:    #E8E8E8;
+    --bkg-red:        #E91D25;
+    --bkg-orange:     #E94E27;
+    --yellow-gold:    #FFBA0B;
+    --lt-yellow:      #FFFE8B;
+    --bkg-green:      #4BA88E;
+    --color-navy:     #3041A0;
+    --color-blue-med: #3C5CB4;
+    --btn-prim-fil:   #1473E6;
+
+    --color-focus: var(--color-blue-med);
+
+
+    /* Font Families */
+    --fast-sans-serif-font: Helvetica, Arial, sans-serif;
+
+    --serif-font: "adobe-clean-serif", adobe-clean-serif, Georgia, serif;
+    --sans-serif-font: "adobe-clean", adobe-clean, Helvetica, Arial, sans-serif;
+
+    /* Font Weights */
+    --weight-light:      300;  /* lighter,   100-300 */
+    --weight-regular:    400;  /* normal,    400-500 */
+    --weight-medium:     500;  /* normal,    400-500 */
+    --weight-bold:       700;  /* semi-bold, 700-600 */
+    --weight-black:      900;  /* bolder,    800-900 */
+
+    /* Commonly used spacing */
+    --page-header-l-padding: 12.5rem;
+    --page-header-l-padding-tablet: 5rem;
+    --page-header-l-padding-mobile: 2rem;
+    --page-header-size: 4rem;
+    --page-header-margin: 7rem 0 5rem 0;
+
+    color:       var(--color-text);
+    font-weight: var(--weight-regular);
+}
+
+/* The built in fonts should only appear if Adobe Clean doesn't load properly: */
+body {
+    font-family: var(--fast-sans-serif-font);
+    text-rendering: geometricPrecision;
+}
+
+body.loaded {
+    background-position: center top;
+    background-image: url("/resources/background-image.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family:  var(--sans-serif-font);
+}
+
+/* Button should animate as per Adobe Spectrum specs: */
+html body button{
+    --button-transition :
+        background 130ms ease-out,
+        border-color 130ms ease-out,
+        color 130ms ease-out,
+        box-shadow 130ms ease-out;
+}
+
+#global-header,
+#global-footer .footer-content,
+.page-type-tools .toolkit > div > div,
+.page-type-team .teams >div > div,
+.page-type-stories-index .stories-index-view > div > div,
+.page-type-jobs .jobs >div > div,
+.page-type-inclusive .inclusive-design > div > div,
+.page-type-stories-index main,
+.page-type-article main,
+.people.block,
+.article-card.block,
+.two-column.block{
+    margin: auto;
+}
+
+/* .page-type-tools .toolkit > div > div,
+.page-type-team .teams >div > div,
+.page-type-stories-index .stories-index-view > div > div,
+.page-type-jobs .jobs >div > div,
+.page-type-inclusive .inclusive-design > div > div,
+.page-type-stories-index main,
+.page-type-article main,
+.people.block,
+.article-card.block,
+.two-column.block{
+    width: 1567px;
+    max-width: 98%;
+} */
+
+.stories-link{
+    color:inherit;
+    text-decoration: none;
 }
 
 .tag-link {
@@ -67,9 +144,22 @@ html, body{
     color: #17212D;
     text-decoration: underline solid 4px #17212D;
     /* border-bottom: solid 4px#17212D; */
-    display: inline;
-    font-family: 'Adobe Clean','Roboto', sans-serif;
 }
+
+/*
+ *  Write D.R.Y. code/styles as much as possible:
+ * - If an attribute applies to multiple elements, write it once,
+ * - Only update an attribute if it changes,
+*/
+
+.hed,
+.dek,
+.dek-1,
+.dek-2,
+.subhead-a{
+    font-family: var(--serif-font);
+}
+
 
 /* Header */
 .hed{
@@ -79,8 +169,24 @@ html, body{
 
 /* Subheader/ summary/ hook */
 .dek{
-    font-family: var(--sarif-font);
-    font-size: 2em; /* 32px */
+    font-size: 2em; /* 32px; 61px */
+}
+
+/* dek 1 */
+.dek-1{
+    font-size:   2.93em; /* 90px */
+    line-height: 1.22em; /* 110px,  = 110 / 90 */
+}
+/* dek 2 */
+.dek-2{
+    font-size:   1.1em;  /* 35px */
+    line-height: 1.57em; /* 55px */
+}
+
+/* Subheader */
+.subhead-a{
+    font-size: 1.6em;   /* 50px */
+    line-height: 1.4em; /* 70px */
 }
 
 /* scroll animation */
@@ -93,11 +199,27 @@ html, body{
     opacity: 1;
 }
 
+.scrolled.fade-in,
+.scrolled.fade-in-top,
+.scrolled.fade-in-right,
+.scrolled.fade-in-left{
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.63, 0.07, 0.46, 0.99);
+    animation-delay: 0s;
+    animation-fill-mode: both;
+}
+
 .scrolled.fade-in {
-    animation: scroll-fade-in-bottom .8s cubic-bezier(.63,.07,.46,.99) both;
+    animation-name: scroll-fade-in-bottom;
+}
+.scrolled.fade-in-top {
+    animation-name: scroll-fade-in-top;
 }
 .scrolled.fade-in-right{
-    animation: scroll-fade-in-right .8s cubic-bezier(.63,.07,.46,.99) both;
+    animation-name: scroll-fade-in-right;
+}
+.scrolled.fade-in-left{
+    animation-name: scroll-fade-in-left;
 }
 
 /* scroll animations */
@@ -125,46 +247,50 @@ html, body{
       opacity: 1;
     }
 }
+@keyframes scroll-fade-in-left {
+    0% {
+      -webkit-transform: translateX(-100px) scale(.95);
+      transform: translateX(-100px) scale(.95);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      opacity: 1;
+    }
+}
+@keyframes scroll-fade-in-top {
+    0% {
+      -webkit-transform: translateY(-100px) scale(.95);
+      transform: translateY(-100px) scale(.95);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+}
 
-@media only screen and (min-width: 768px) and (max-width: 1024px){
-    .page-home main > div{
-        width: auto;
-        margin: 1em;
-        overflow-x: hidden;
-        margin-right: 2em;
-    }
-    main > div > div > div:not(.full-bleed) {
-        width: auto;
-        max-width:1000px;
-        margin-left:auto;
-        margin-right:auto;
+/* If the styles are the same for each media query, combine them: */
+
+@media (min-width: 1025px){
+    .page-type-jobs .jobs,
+    .think-differently-container,
+    .page-type-inclusive .inclusive-design > div > div,
+    .page-type-article main,
+    .toolkit-card-container{
+        width: clamp(933px, 85.6vw, 1920px);
+        margin: auto;
     }
 }
-@media only screen and (min-width: 425px) and (max-width: 768px){
-    .page-home main > div{
-        width: auto;
-        margin: 1em;
-        overflow-x: hidden;
-    }
-}
-@media only screen and (min-width: 375px) and (max-width: 425px){
-    .page-home main > div{
-        width: auto;
-        margin: 1em;
-        overflow-x: hidden;
-    }
-    main > div > div > div:not(.full-bleed) {
-        width: auto;
-        max-width:1000px;
-        margin-left:auto;
-        margin-right:auto;
-        overflow-x: hidden;
-    }
-}
-@media only screen and (min-width: 321px) and (max-width: 375px){
-    .page-home main > div{
-        width: auto;
-        margin: 1em;
-        overflow-x: hidden;
+@media (max-width: 1024px){
+    .page-type-jobs .jobs,
+    .think-differently-container,
+    .page-type-inclusive .inclusive-design > div > div,
+    .page-type-article main,
+    .toolkit-card-container{
+        width: calc(100vw - 30px);
+        margin: auto;
     }
 }

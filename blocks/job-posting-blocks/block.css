@@ -1,0 +1,110 @@
+.job-post .eq-op-policy-stmnt,
+.job-post .about-adobe-design{
+    font-size: 16px;
+}
+.job-post .about-adobe-design{
+    background: var(--bkg-red);
+    color: white;
+    font-family: var(--serif-font);
+}
+.job-post .about-adobe-design > div h2{
+    font-weight: var(--weight-regular);
+}
+.job-post .eq-op-policy-stmnt{
+    background: white;
+    color: var(--text-dark);
+}
+@media screen and (min-width: 400px) and (max-width: 600px) {
+    .job-post .eq-op-policy-stmnt,
+    .job-post .about-adobe-design{
+        font-size: 3.86vw;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 1300px) {
+    .job-post .eq-op-policy-stmnt,
+    .job-post .about-adobe-design{
+        font-size: 3.17vw;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .job-post .eq-op-policy-stmnt,
+    .job-post .about-adobe-design{
+        font-size: 1.6vw;
+    }
+    .job-post .about-adobe-design{
+        max-height: 95em;
+    }
+    .job-post .eq-op-policy-stmnt{
+        font-size: 1.0625em;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .about-adobe-design > div{
+        padding: 4.94em 4.31em 5.31em 4.31em; /* 79px 69px 85px 69px*/
+    }
+    .eq-op-policy-stmnt > div{
+        padding: 4.94em 4.31em 6.75em 4.31em; /* 79px 69px 108px 69px*/
+    }
+    .job-post .about-adobe-design > div h2{
+        font-size: 1.56em;        /* 25px   */
+        line-height: 1.2em;       /* 30px   */
+        margin-block: 0em 3.68em; /* 0 51px */
+    }
+    .job-post .about-adobe-design > div p{
+        font-size: 1.47em;         /* 17px   */
+        line-height: 1.56em;       /* 25px   */
+        margin-block: 2.04em  0em; /* 51px 0 */
+    }
+    .job-post .eq-op-policy-stmnt p{
+        font-size: 1.125em;   /* 18px */
+        line-height: 1.33em;  /* 24px */
+        margin-block: 1.67em; /* 30px */
+    }
+
+}
+
+@media screen and (min-width: 1300px) {
+    .job-post .eq-op-policy-stmnt,
+    .job-post .about-adobe-design{
+        font-size: 1.6vw;
+    }
+    .job-post .about-adobe-design > div{
+        padding: 6.97em 8.34em 7.98em 8.34em; /* 214 256px 245px 256px */
+    }
+    .job-post .eq-op-policy-stmnt > div{
+        /* padding: 5.64em 8.34em 4.04em 8.34em;  */
+        /* 173 256px 124px 256px */
+        padding: 4.07em 8.34em 2.48em 8.34em; /* 125 256px 76px 256px */
+    }
+    .job-post .about-adobe-design > div h2,
+    .job-post .about-adobe-design > div p{
+        font-size: 1.47em; /* 45px */
+        line-height: 1em;
+    }
+    .job-post .about-adobe-design > div h2{
+        line-height: 1em;
+        margin-block: 0em 3.68em; /* 0 ~147px */
+    }
+    .job-post .about-adobe-design > div p{
+        line-height: 1.56em; /* 70px */
+        margin-block: 2.4em  0em; /* ~147px 0 */
+    }
+    .job-post .eq-op-policy-stmnt p{
+        font-size: 0.654em; /* 20px */
+        line-height: 1.75em; /* 35px */
+        margin-block: 2.4em; /* 48 */
+    }
+}
+@media screen and (min-width:1920px) {
+    .job-post .eq-op-policy-stmnt,
+    .job-post .about-adobe-design{
+        font-size: 30.7px;
+    }
+    .job-post .about-adobe-design > div,
+    .job-post .eq-op-policy-stmnt > div{
+        box-sizing: border-box;
+        margin: auto;
+        max-width: 62.5em;
+    }
+}
