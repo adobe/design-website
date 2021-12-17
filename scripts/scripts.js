@@ -1,8 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-console */
-/* eslint-disable import/no-cycle */
 /*
  * Copyright 2021 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -15,22 +10,33 @@
  * governing permissions and limitations under the License.
  */
 
-import { setPageLoading, pageDoneLoading } from './page-loader.js';
-import decorateHeader from './global-header.js';
-import decorateFooter from './global-footer.js';
-import { runPageTypeDecorators } from './page-type-decorator.js';
-import { decorateBackground } from './background.js';
-import registerPageTypes from './page-types.js';
-import { loadCSS } from './importer.js';
-import { decorateBlocks, loadBlocks } from './blocks.js';
-
-setPageLoading();
+/**
+ * Loads a CSS file.
+ * @param {string} href The path to the CSS file
+ */
+export function loadCSS(href) {
+  if (!document.querySelector(`head > link[href="${href}"]`)) {
+    const link = document.createElement('link');
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', href);
+    link.onload = () => {
+    };
+    link.onerror = () => {
+    };
+    document.head.appendChild(link);
+  }
+}
 
 /**
- * See if there's a way to get the loader in first
- * <link rel="stylesheet" type="text/css" href="/styles/page-loader.css"/>
- * <script src="/scripts/page-loader.js"></script>
+ * Retrieves the content of a metadata tag.
+ * @param {string} name The metadata name (or property)
+ * @returns {string} The metadata value
  */
+export function getMetadata(name) {
+  const attr = name && name.includes(':') ? 'property' : 'name';
+  const $meta = document.head.querySelector(`meta[${attr}="${name}"]`);
+  return $meta && $meta.content;
+}
 
 /**
  * Adds one or more URLs to the dependencies for publishing.
@@ -47,12 +53,26 @@ export function addPublishDependencies(url) {
 }
 
 /**
+ * Sanitizes a name for use as class name.
+ * @param {*} name The unsanitized name
+ * @returns {string} The class name
+ */
+export function toClassName(name) {
+  return name && typeof name === 'string'
+    ? name.toLowerCase().replace(/[^0-9a-z]/gi, '-')
+    : '';
+}
+
+/**
  * Wraps each section in an additional {@code div}.
  * @param {[Element]} $sections The sections
  */
 function wrapSections($sections) {
   $sections.forEach(($div) => {
-    if (!$div.id) {
+    if ($div.childNodes.length === 0) {
+      // remove empty sections
+      $div.remove();
+    } else if (!$div.id) {
       const $wrapper = document.createElement('div');
       $wrapper.className = 'section-wrapper';
       $div.parentNode.appendChild($wrapper);
@@ -62,140 +82,202 @@ function wrapSections($sections) {
 }
 
 /**
- * Official Google WEBP detection.
- * @param {Function} callback The callback function
+ * Decorates a block.
+ * @param {Element} block The block element
  */
-function checkWebpFeature(callback) {
-  const webpSupport = sessionStorage.getItem('webpSupport');
-  if (!webpSupport) {
-    const kTestImages = 'UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
-    const img = new Image();
-    img.onload = () => {
-      const result = (img.width > 0) && (img.height > 0);
-      window.webpSupport = result;
-      sessionStorage.setItem('webpSupport', result);
-      callback();
-    };
-    img.onerror = () => {
-      sessionStorage.setItem('webpSupport', false);
-      window.webpSupport = false;
-      callback();
-    };
-    img.src = `data:image/webp;base64,${kTestImages}`;
-  } else {
-    window.webpSupport = (webpSupport === 'true');
-    callback();
+export function decorateBlock(block) {
+  const classes = Array.from(block.classList.values());
+  let blockName = classes[0];
+  if (!blockName) return;
+  const section = block.closest('.section-wrapper');
+  if (section) {
+    section.classList.add(`${blockName}-container`.replace(/--/g, '-'));
   }
+  const blocksWithVariants = ['recommended-articles'];
+  blocksWithVariants.forEach((b) => {
+    if (blockName.startsWith(`${b}-`)) {
+      const options = blockName.substring(b.length + 1).split('-').filter((opt) => !!opt);
+      blockName = b;
+      block.classList.add(b);
+      block.classList.add(...options);
+    }
+  });
+
+  block.classList.add('block');
+  block.setAttribute('data-block-name', blockName);
 }
 
 /**
- * Build figcaption element
- * @param {Element} pEl The original element to be placed in figcaption.
- * @returns figCaptionEl Generated figcaption
+ * Decorates all blocks in a container element.
+ * @param {Element} $main The container element
  */
-export function buildCaption(pEl) {
-  const figCaptionEl = document.createElement('figcaption');
-  pEl.classList.add('caption');
-  figCaptionEl.append(pEl);
-  return figCaptionEl;
+function decorateBlocks($main) {
+  $main
+    .querySelectorAll('div.section-wrapper > div > div')
+    .forEach(($block) => decorateBlock($block));
 }
 
 /**
- * Build figure element
- * @param {Element} blockEl The original element to be placed in figure.
- * @returns figEl Generated figure
+ * Builds a block DOM Element from a two dimensional array
+ * @param {string} blockName name of the block
+ * @param {any} content two dimensional array or string or object of content
  */
-export function buildFigure(blockEl) {
-  const figEl = document.createElement('figure');
-  figEl.classList.add('figure');
-  // content is picture only, no caption or link
-  if (blockEl.firstChild) {
-    if (blockEl.firstChild.nodeName === 'PICTURE' || blockEl.firstChild.nodeName === 'VIDEO') {
-      figEl.append(blockEl.firstChild);
-    } else if (blockEl.firstChild.nodeName === 'P') {
-      const pEls = Array.from(blockEl.children);
-      pEls.forEach((pEl) => {
-        if (pEl.firstChild) {
-          if (pEl.firstChild.nodeName === 'PICTURE' || pEl.firstChild.nodeName === 'VIDEO') {
-            figEl.append(pEl.firstChild);
-          } else if (pEl.firstChild.nodeName === 'EM') {
-            const figCapEl = buildCaption(pEl);
-            figEl.append(figCapEl);
-          } else if (pEl.firstChild.nodeName === 'A') {
-            const picEl = figEl.querySelector('picture');
-            if (picEl) {
-              pEl.firstChild.textContent = '';
-              pEl.firstChild.append(picEl);
-            }
-            figEl.prepend(pEl.firstChild);
+function buildBlock(blockName, content) {
+  const table = Array.isArray(content) ? content : [[content]];
+  const blockEl = document.createElement('div');
+  // build image block nested div structure
+  blockEl.classList.add(blockName);
+  table.forEach((row) => {
+    const rowEl = document.createElement('div');
+    row.forEach((col) => {
+      const colEl = document.createElement('div');
+      const vals = col.elems ? col.elems : [col];
+      vals.forEach((val) => {
+        if (val) {
+          if (typeof val === 'string') {
+            colEl.innerHTML += val;
+          } else {
+            colEl.appendChild(val);
           }
         }
       });
-    // catch link-only figures (like embed blocks);
-    } else if (blockEl.firstChild.nodeName === 'A') {
-      blockEl.firstChild.target = '_blank';
-      figEl.append(blockEl.firstChild);
-    }
-  }
-  return figEl;
+      rowEl.appendChild(colEl);
+    });
+    blockEl.appendChild(rowEl);
+  });
+  return (blockEl);
 }
 
 /**
- * Returns an image URL with optimization parameters
- * @param {string} url The image URL
+ * Loads JS and CSS for a block.
+ * @param {Element} $block The block element
  */
-export function getOptimizedImageURL(src) {
-  const url = new URL(src, window.location.href);
-  let result = src;
-  const { pathname, search } = url;
-  if (pathname.includes('media_')) {
-    const usp = new URLSearchParams(search);
-    usp.delete('auto');
-    if (!window.webpSupport) {
-      if (pathname.endsWith('.png')) {
-        usp.set('format', 'png');
-      } else if (pathname.endsWith('.gif')) {
-        usp.set('format', 'gif');
-      } else {
-        usp.set('format', 'pjpg');
+export async function loadBlock(block, eager = false) {
+  if (!(block.getAttribute('data-block-status') === 'loading' || block.getAttribute('data-block-status') === 'loaded')) {
+    block.setAttribute('data-block-status', 'loading');
+    const blockName = block.getAttribute('data-block-name');
+    try {
+      const cssLoaded = new Promise((resolve) => {
+        loadCSS(`/express/blocks/${blockName}/${blockName}.css${window.hlx.codeSearch}`, resolve);
+      });
+      const decorationComplete = new Promise((resolve) => {
+        (async () => {
+          try {
+            const mod = await import(`/express/blocks/${blockName}/${blockName}.js${window.hlx.codeSearch}`);
+            if (mod.default) {
+              await mod.default(block, blockName, document, eager);
+            }
+          } catch (err) {
+            console.log(`failed to load module for ${blockName}`, err);
+          }
+          resolve();
+        })();
+      });
+      await Promise.all([cssLoaded, decorationComplete]);
+    } catch (err) {
+      console.log(`failed to load block ${blockName}`, err);
+    }
+    block.setAttribute('data-block-status', 'loaded');
+  }
+}
+/**
+ * Loads JS and CSS for all blocks in a container element.
+ * @param {Element} $main The container element
+ */
+ export function loadBlocks($main) {
+  const blockPromises = [...$main.querySelectorAll('div.section-wrapper > div > .block')]
+    .map(($block) => loadBlock($block));
+  return blockPromises;
+}
+
+/**
+ * Extracts the config from a block.
+ * @param {Element} $block The block element
+ * @returns {object} The block config
+ */
+export function readBlockConfig($block) {
+  const config = {};
+  $block.querySelectorAll(':scope>div').forEach(($row) => {
+    if ($row.children) {
+      const $cols = [...$row.children];
+      if ($cols[1]) {
+        const $value = $cols[1];
+        const name = toClassName($cols[0].textContent);
+        let value = '';
+        if ($value.querySelector('a')) {
+          const $as = [...$value.querySelectorAll('a')];
+          if ($as.length === 1) {
+            value = $as[0].href;
+          } else {
+            value = $as.map(($a) => $a.href);
+          }
+        } else if ($value.querySelector('p')) {
+          const $ps = [...$value.querySelectorAll('p')];
+          if ($ps.length === 1) {
+            value = $ps[0].textContent;
+          } else {
+            value = $ps.map(($p) => $p.textContent);
+          }
+        } else value = $row.children[1].textContent;
+        config[name] = value;
       }
+    }
+  });
+  return config;
+}
+
+/**
+ * Returns a picture element with webp and fallbacks
+ * @param {string} src The image URL
+ * @param {boolean} eager load image eager
+ * @param {Array} breakpoints breakpoints and corresponding params (eg. width)
+ */
+export function createOptimizedPicture(src, alt = '', eager = false, breakpoints = [{ media: '(min-width: 400px)', width: '2000' }, { width: '750' }]) {
+  const url = new URL(src, window.location.href);
+  const picture = document.createElement('picture');
+  const { pathname } = url;
+  const ext = pathname.substring(pathname.lastIndexOf('.') + 1);
+
+  // webp
+  breakpoints.forEach((br) => {
+    const source = document.createElement('source');
+    if (br.media) source.setAttribute('media', br.media);
+    source.setAttribute('type', 'image/webp');
+    source.setAttribute('srcset', `${pathname}?width=${br.width}&format=webply&optimize=medium`);
+    picture.appendChild(source);
+  });
+
+  // fallback
+  breakpoints.forEach((br, i) => {
+    if (i < breakpoints.length - 1) {
+      const source = document.createElement('source');
+      if (br.media) source.setAttribute('media', br.media);
+      source.setAttribute('srcset', `${pathname}?width=${br.width}&format=${ext}&optimize=medium`);
+      picture.appendChild(source);
     } else {
-      usp.set('format', 'webply');
+      const img = document.createElement('img');
+      img.setAttribute('src', `${pathname}?width=${br.width}&format=${ext}&optimize=medium`);
+      img.setAttribute('loading', eager ? 'eager' : 'lazy');
+      img.setAttribute('alt', alt);
+      picture.appendChild(img);
     }
-    result = `${src.split('?')[0]}?${usp.toString()}`;
-  }
-  return (result);
+  });
+
+  return picture;
 }
 
 /**
- * Resets an elelemnt's attribute to the optimized image URL.
- * @see getOptimizedImageURL
- * @param {Element} $elem The element
- * @param {string} attrib The attribute
+ * Removes formatting from images.
+ * @param {Element} main The container element
  */
-function resetOptimizedImageURL($elem, attrib) {
-  const src = $elem.getAttribute(attrib);
-  if (src) {
-    const oSrc = getOptimizedImageURL(src);
-    if (oSrc !== src) {
-      $elem.setAttribute(attrib, oSrc);
-    }
-  }
-}
-
-/**
- * WEBP Polyfill for older browser versions.
- * @param {Element} $elem The container element
- */
-export function webpPolyfill($elem) {
-  if (!window.webpSupport) {
-    $elem.querySelectorAll('img').forEach(($img) => {
-      resetOptimizedImageURL($img, 'src');
-    });
-    $elem.querySelectorAll('picture source').forEach(($source) => {
-      resetOptimizedImageURL($source, 'srcset');
-    });
-  }
+function removeStylingFromImages(main) {
+  // remove styling from images, if any
+  const imgs = [...main.querySelectorAll('strong picture'), ...main.querySelectorAll('em picture')];
+  imgs.forEach((img) => {
+    const parentEl = img.closest('p');
+    parentEl.prepend(img);
+    parentEl.lastChild.remove();
+  });
 }
 
 /**
@@ -227,15 +309,66 @@ export function normalizeHeadings($elem, allowedHeadings) {
 }
 
 /**
- * Decorates the main element.
- * @param {Element} $main The main element
+ * Decorates the picture elements.
+ * @param {Element} main The container element
  */
-export function decorateMain($main) {
-  wrapSections($main.querySelectorAll(':scope > div'));
-  checkWebpFeature(() => {
-    webpPolyfill($main);
+function decoratePictures(main) {
+  main.querySelectorAll('img[src*="/media_"').forEach((img, i) => {
+    const newPicture = createOptimizedPicture(img.src, img.alt, !i);
+    const picture = img.closest('picture');
+    if (picture) picture.parentElement.replaceChild(newPicture, picture);
   });
-  decorateBlocks($main);
+}
+
+/**
+ * returns an image caption of a picture elements
+ * @param {Element} picture picture element
+ */
+function getImageCaption(picture) {
+  const parentEl = picture.parentNode;
+  const parentSiblingEl = parentEl.nextElementSibling;
+  return (parentSiblingEl && parentSiblingEl.firstChild.nodeName === 'EM' ? parentSiblingEl : undefined);
+}
+
+/**
+ * builds images blocks from default content.
+ * @param {Element} main The container element
+ */
+function buildImageBlocks(main) {
+  // select all non-featured, default (non-images block) images
+  const imgs = [...main.querySelectorAll(':scope > div > p > picture')];
+  imgs.forEach((img) => {
+    const parent = img.parentNode;
+    const imagesBlock = buildBlock('images', {
+      elems: [parent.cloneNode(true), getImageCaption(img)],
+    });
+    parent.parentNode.insertBefore(imagesBlock, parent);
+    parent.remove();
+  });
+}
+
+/**
+ * Builds all synthetic blocks in a container element.
+ * @param {Element} main The container element
+ */
+function buildAutoBlocks(main) {
+  removeStylingFromImages(main);
+  try {
+    buildImageBlocks(main);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Auto Blocking failed', error);
+  }
+}
+
+/**
+ * Removes the empty sections from the container element.
+ * @param {Element} main The container element
+ */
+function removeEmptySections(main) {
+  main.querySelectorAll(':scope > div:empty').forEach((div) => {
+    div.remove();
+  });
 }
 
 /**
@@ -243,284 +376,85 @@ export function decorateMain($main) {
  * @param {string} href The favicon URL
  */
 export function addFavIcon(href) {
-  const $link = document.createElement('link');
-  $link.rel = 'icon';
-  $link.type = 'image/svg+xml';
-  $link.href = href;
-  const $existingLink = document.querySelector('head link[rel="icon"]');
-  if ($existingLink) {
-    $existingLink.parentElement.replaceChild($link, $existingLink);
+  const link = document.createElement('link');
+  link.rel = 'icon';
+  link.type = 'image/svg+xml';
+  link.href = href;
+  const existingLink = document.querySelector('head link[rel="icon"]');
+  if (existingLink) {
+    existingLink.parentElement.replaceChild(link, existingLink);
   } else {
-    document.getElementsByTagName('head')[0].appendChild($link);
+    document.getElementsByTagName('head')[0].appendChild(link);
   }
 }
 
 /**
- * Sets the trigger for the LCP (Largest Contentful Paint) event.
- * @see https://web.dev/lcp/
- * @param {Document} doc The document
- * @param {Function} postLCP The callback function
+ * Decorates the main element.
+ * @param {Element} main The main element
  */
-function setLCPTrigger(doc, postLCP) {
-  // const $lcpCandidate = doc.querySelector('main > div:first-of-type img');
-  // if ($lcpCandidate) {
-  //   if ($lcpCandidate.complete) {
-  //     postLCP();
-  //   } else {
-  //     $lcpCandidate.addEventListener('load', () => {
-  //       postLCP();
-  //     });
-  //     $lcpCandidate.addEventListener('error', () => {
-  //       postLCP();
-  //     });
-  //   }
-  // } else {
-  //   postLCP();
-  // }
-  setTimeout(postLCP, 1000);
+export function decorateMain(main) {
+  // forward compatible pictures redecoration
+  decoratePictures(main);
+  buildAutoBlocks(main);
+  removeEmptySections(main);
+  wrapSections(main.querySelectorAll(':scope > div'));
+  decorateBlocks(main);
+}
+
+const LCP_BLOCKS = []; // add your LCP blocks to the list
+
+/**
+ * loads everything needed to get to LCP.
+ */
+async function loadEager(doc) {
+  const main = doc.querySelector('main');
+  if (main) {
+    decorateMain(main);
+
+    const lcpBlocks = [];
+    const block = document.querySelector('.block');
+    const hasLCPBlock = (block && lcpBlocks.includes(block.getAttribute('data-block-name')));
+    if (hasLCPBlock) await loadBlock(block, true);
+
+    document.querySelector('body').classList.add('appear');
+    const lcpCandidate = document.querySelector('main img');
+    await new Promise((resolve) => {
+      if (lcpCandidate && !lcpCandidate.complete) {
+        lcpCandidate.addEventListener('load', () => resolve());
+        lcpCandidate.addEventListener('error', () => resolve());
+      } else {
+        resolve();
+      }
+    });
+  }
+}
+
+/**
+ * loads everything that doesn't need to be delayed.
+ */
+async function loadLazy(doc) {
+  const main = doc.querySelector('main');
+
+  loadBlocks(main);
+  loadCSS('/styles/lazy-styles.css');
+  addFavIcon('/styles/favicon.svg');
+}
+
+/**
+ * loads everything that happens a lot later, without impacting
+ * the user experience.
+ */
+function loadDelayed() {
+  // load anything that can be postponed to the latest here
 }
 
 /**
  * Decorates the page.
- * @param {Window} win The window
  */
-async function decoratePage(win = window) {
-  try {
-    const doc = win.document;
-    const $main = doc.querySelector('main');
-    decorateBackground();
-    decorateHeader();
-    if ($main) {
-      decorateMain($main);
-      doc.querySelector('body').classList.add('appear');
-      setLCPTrigger(doc, async () => {
-        // post LCP actions go here
-        await loadBlocks($main);
-        runPageTypeDecorators();
-        loadCSS('/styles/lazy-styles.css');
-        addFavIcon('/favicon.svg');
-        pageDoneLoading();
-      });
-    }
-    decorateFooter();
-  } catch (err) {
-    console.error(err);
-    pageDoneLoading();
-  }
+async function decoratePage(doc) {
+  await loadEager(doc);
+  loadLazy(doc);
+  loadDelayed(doc);
 }
 
-let language;
-
-const LANG = {
-  EN: 'en',
-  DE: 'de',
-  FR: 'fr',
-  KO: 'ko',
-  ES: 'es',
-  IT: 'it',
-  JP: 'jp',
-  BR: 'br',
-};
-
-export function getLanguage() {
-  if (language) return language;
-  language = LANG.EN;
-  const segs = window.location.pathname.split('/');
-  if (segs && segs.length > 0) {
-    // eslint-disable-next-line no-restricted-syntax
-    for (const [, value] of Object.entries(LANG)) {
-      if (value === segs[1]) {
-        language = value;
-        break;
-      }
-    }
-  }
-  return language;
-}
-
-/**
- * Sanitizes a name for use as class name.
- * @param {*} name The unsanitized name
- * @returns {string} The class name
- */
-export function toClassName(name) {
-  return name && typeof name === 'string'
-    ? name.toLowerCase().replace(/[^0-9a-z]/gi, '-')
-    : '';
-}
-
-/**
- * Extracts the config from a block.
- * @param {Element} block The block element
- * @returns {object} The block config
- */
-export function readBlockConfig(block) {
-  const config = {};
-  block.querySelectorAll(':scope>div').forEach((row) => {
-    if (row.children) {
-      const cols = [...row.children];
-      if (cols[1]) {
-        const valueEl = cols[1];
-        const name = toClassName(cols[0].textContent);
-        let value = '';
-        if (valueEl.querySelector('a')) {
-          const aArr = [...valueEl.querySelectorAll('a')];
-          if (aArr.length === 1) {
-            value = aArr[0].href;
-            aArr[0].target = '_blank';
-          } else {
-            value = aArr.map(
-              // eslint-disable-next-line array-callback-return
-              (a) => {
-                a.href;
-                a.target = '_blank';
-              },
-            );
-          }
-        } else if (valueEl.querySelector('p')) {
-          const pArr = [...valueEl.querySelectorAll('p')];
-          if (pArr.length === 1) {
-            value = pArr[0].textContent;
-          } else {
-            value = pArr.map((p) => p.textContent);
-          }
-        } else value = row.children[1].textContent;
-        config[name] = value;
-      }
-    }
-  });
-  return config;
-}
-
-/**
- * Returns the language dependent root path
- * @returns {string} The computed root path
- */
-export function getRootPath() {
-  const loc = getLanguage();
-  if (loc === LANG.EN) {
-    return '/blog';
-  }
-  return `/${loc}/blog`;
-}
-
-/**
- * Build article card
- * @param {Element} article The article data to be placed in card.
- * @returns card Generated card
- */
-export function buildArticleCard(article, type = 'article') {
-  const {
-    title, description, image, imageAlt, category,
-  } = article;
-
-  const path = article.path.split('.')[0];
-
-  // eslint-disable-next-line no-undef
-  const picture = createOptimizedPicture(image, imageAlt || title, type === 'featured-article', [{ width: '750' }]);
-  const pictureTag = picture.outerHTML;
-  const card = document.createElement('a');
-  card.className = `${type}-card`;
-  card.href = path;
-  card.innerHTML = `<div class="${type}-card-image">
-      ${pictureTag}
-    </div>
-    <div class="${type}-card-body">
-      <p class="${type}-card-category">
-        <a href="${window.location.origin}${getRootPath()}/categories/${category}">${category}</a>
-      </p>
-      <h3>${title}</h3>
-      <p>${description}</p>
-    </div>`;
-  return card;
-}
-
-/**
- * fetches the string variables.
- * @returns {object} localized variables
- */
-
-export async function fetchPlaceholders() {
-  const resp = await fetch(`${getRootPath()}/placeholders.json`);
-  const json = await resp.json();
-  const placeholders = {};
-  json.data.forEach((placeholder) => {
-    placeholders[placeholder.Key] = placeholder.Text;
-  });
-  return (placeholders);
-}
-
-/**
- * fetches blog article index.
- * @returns {object} index with data and path lookup
- */
-
-export async function fetchBlogArticleIndex() {
-  const pageSize = 1000;
-  window.blogIndex = window.blogIndex || {
-    data: [],
-    byPath: {},
-    offset: 0,
-    complete: false,
-  };
-  if (window.blogIndex.complete) return (window.blogIndex);
-  const index = window.blogIndex;
-  const resp = await fetch(`http://localhost:3000/query-index.json?limit=${pageSize}&offset=${index.offset}`);
-  const json = await resp.json();
-  const complete = (json.limit + json.offset) === json.total;
-  json.data.forEach((post) => {
-    index.data.push(post);
-    index.byPath[post.path.split('.')[0]] = post;
-  });
-  index.complete = complete;
-  index.offset = json.offset + pageSize;
-  return (index);
-}
-
-/*
- * lighthouse performance instrumentation helper
- * (needs a refactor)
- */
-
-export function stamp(message) {
-  if (window.name.includes('performance')) {
-    debug(`${new Date() - performance.timing.navigationStart}:${message}`);
-  }
-}
-
-stamp('start');
-
-// function registerPerformanceLogger() {
-//   try {
-//     const polcp = new PerformanceObserver((entryList) => {
-//       const entries = entryList.getEntries();
-//       stamp(JSON.stringify(entries));
-//       debug(entries[0].element);
-//     });
-//     polcp.observe({ type: 'largest-contentful-paint', buffered: true });
-
-//     const pols = new PerformanceObserver((entryList) => {
-//       const entries = entryList.getEntries();
-//       stamp(JSON.stringify(entries));
-//       debug(entries[0].sources[0].node);
-//     });
-//     pols.observe({ type: 'layout-shift', buffered: true });
-
-//     const pores = new PerformanceObserver((entryList) => {
-//       const entries = entryList.getEntries();
-//       entries.forEach((entry) => {
-//         stamp(`resource loaded: ${entry.name} - [${Math.round(entry.startTime + entry.duration)}]`);
-//       });
-//     });
-
-//     pores.observe({ type: 'resource', buffered: true });
-//   } catch (e) {
-//     // no output
-//   }
-// }
-
-// First register the decorators
-registerPageTypes();
-
-// Second apply the decoration
-decoratePage(window);
+decoratePage(document);
