@@ -11,19 +11,71 @@
  */
 
 /**
+ * log RUM if part of the sample.
+ * @param {string} checkpoint identifies the checkpoint in funnel
+ * @param {Object} data additional data for RUM sample
+ */
+
+export function sampleRUM(checkpoint, data = {}) {
+  try {
+    window.hlx = window.hlx || {};
+    if (!window.hlx.rum) {
+      const usp = new URLSearchParams(window.location.search);
+      const weight = (usp.get('rum') === 'on') ? 1 : 100; // with parameter, weight is 1. Defaults to 100.
+      // eslint-disable-next-line no-bitwise
+      const hashCode = (s) => s.split('').reduce((a, b) => (((a << 5) - a) + b.charCodeAt(0)) | 0, 0);
+      const id = `${hashCode(window.location.href)}-${new Date().getTime()}-${Math.random().toString(16).substr(2, 14)}`;
+      const random = Math.random();
+      const isSelected = (random * weight < 1);
+      // eslint-disable-next-line object-curly-newline
+      window.hlx.rum = { weight, id, random, isSelected };
+    }
+    const { random, weight, id } = window.hlx.rum;
+    if (random && (random * weight < 1)) {
+      const sendPing = () => {
+        // eslint-disable-next-line object-curly-newline, max-len, no-use-before-define
+        const body = JSON.stringify({ weight, id, referer: window.location.href, generation: RUM_GENERATION, checkpoint, ...data });
+        const url = `https://rum.hlx3.page/.rum/${weight}`;
+        // eslint-disable-next-line no-unused-expressions
+        navigator.sendBeacon(url, body);
+      };
+      sendPing();
+      // special case CWV
+      if (checkpoint === 'cwv') {
+        // eslint-disable-next-line import/no-unresolved
+        import('./web-vitals-module-2-1-2.js').then((mod) => {
+          const storeCWV = (measurement) => {
+            data.cwv = {};
+            data.cwv[measurement.name] = measurement.value;
+            sendPing();
+          };
+          mod.getCLS(storeCWV);
+          mod.getFID(storeCWV);
+          mod.getLCP(storeCWV);
+        });
+      }
+    }
+  } catch (e) {
+    // something went wrong
+  }
+}
+
+/**
  * Loads a CSS file.
  * @param {string} href The path to the CSS file
  */
-export function loadCSS(href) {
+export function loadCSS(href, callback) {
   if (!document.querySelector(`head > link[href="${href}"]`)) {
     const link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('href', href);
-    link.onload = () => {
-    };
-    link.onerror = () => {
-    };
+    if (typeof callback === 'function') {
+      link.onload = (e) => callback(e.type);
+      link.onerror = (e) => callback(e.type);
+    }
     document.head.appendChild(link);
+  } else if (typeof callback === 'function') {
+    callback('noop');
   }
 }
 
@@ -86,25 +138,55 @@ function wrapSections($sections) {
  * @param {Element} block The block element
  */
 export function decorateBlock(block) {
+  const trimDashes = (str) => str.replace(/(^\s*-)|(-\s*$)/g, '');
   const classes = Array.from(block.classList.values());
-  let blockName = classes[0];
+  const blockName = classes[0];
   if (!blockName) return;
   const section = block.closest('.section-wrapper');
   if (section) {
     section.classList.add(`${blockName}-container`.replace(/--/g, '-'));
   }
-  const blocksWithVariants = ['recommended-articles'];
-  blocksWithVariants.forEach((b) => {
-    if (blockName.startsWith(`${b}-`)) {
-      const options = blockName.substring(b.length + 1).split('-').filter((opt) => !!opt);
-      blockName = b;
-      block.classList.add(b);
-      block.classList.add(...options);
-    }
-  });
+  const blockWithVariants = blockName.split('--');
+  const shortBlockName = trimDashes(blockWithVariants.shift());
+  const variants = blockWithVariants.map((v) => trimDashes(v));
+  block.classList.add(shortBlockName);
+  block.classList.add(...variants);
 
   block.classList.add('block');
-  block.setAttribute('data-block-name', blockName);
+  block.setAttribute('data-block-name', shortBlockName);
+  block.setAttribute('data-block-status', 'initialized');
+}
+
+/**
+ * Decorates all sections in a container element.
+ * @param {Element} $main The container element
+ */
+function decorateSections($main) {
+  wrapSections($main.querySelectorAll(':scope > div'));
+  $main.querySelectorAll(':scope > div.section-wrapper').forEach((section) => {
+    section.setAttribute('data-section-status', 'initialized');
+  });
+}
+
+/**
+ * Updates all section status in a container element.
+ * @param {Element} $main The container element
+ */
+function updateSectionsStatus($main) {
+  const sections = [...$main.querySelectorAll(':scope > div.section-wrapper')];
+  for (let i = 0; i < sections.length; i += 1) {
+    const section = sections[i];
+    const status = section.getAttribute('data-section-status');
+    if (status !== 'loaded') {
+      const loadingBlock = section.querySelector('.block[data-block-status="initialized"], .block[data-block-status="loading"]');
+      if (loadingBlock) {
+        section.setAttribute('data-section-status', 'loading');
+        break;
+      } else {
+        section.setAttribute('data-section-status', 'loaded');
+      }
+    }
+  }
 }
 
 /**
@@ -158,16 +240,17 @@ export async function loadBlock(block, eager = false) {
     const blockName = block.getAttribute('data-block-name');
     try {
       const cssLoaded = new Promise((resolve) => {
-        loadCSS(`/express/blocks/${blockName}/${blockName}.css${window.hlx.codeSearch}`, resolve);
+        loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.css`, resolve);
       });
       const decorationComplete = new Promise((resolve) => {
         (async () => {
           try {
-            const mod = await import(`/express/blocks/${blockName}/${blockName}.js${window.hlx.codeSearch}`);
+            const mod = await import(`../blocks/${blockName}/${blockName}.js`);
             if (mod.default) {
               await mod.default(block, blockName, document, eager);
             }
           } catch (err) {
+            // eslint-disable-next-line no-console
             console.log(`failed to load module for ${blockName}`, err);
           }
           resolve();
@@ -175,19 +258,25 @@ export async function loadBlock(block, eager = false) {
       });
       await Promise.all([cssLoaded, decorationComplete]);
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.log(`failed to load block ${blockName}`, err);
     }
     block.setAttribute('data-block-status', 'loaded');
   }
 }
+
 /**
  * Loads JS and CSS for all blocks in a container element.
  * @param {Element} $main The container element
  */
- export function loadBlocks($main) {
-  const blockPromises = [...$main.querySelectorAll('div.section-wrapper > div > .block')]
-    .map(($block) => loadBlock($block));
-  return blockPromises;
+export async function loadBlocks($main) {
+  updateSectionsStatus($main);
+  const blocks = [...$main.querySelectorAll('div.block')];
+  for (let i = 0; i < blocks.length; i += 1) {
+    // eslint-disable-next-line no-await-in-loop
+    await loadBlock(blocks[i]);
+    updateSectionsStatus($main);
+  }
 }
 
 /**
@@ -321,57 +410,6 @@ function decoratePictures(main) {
 }
 
 /**
- * returns an image caption of a picture elements
- * @param {Element} picture picture element
- */
-function getImageCaption(picture) {
-  const parentEl = picture.parentNode;
-  const parentSiblingEl = parentEl.nextElementSibling;
-  return (parentSiblingEl && parentSiblingEl.firstChild.nodeName === 'EM' ? parentSiblingEl : undefined);
-}
-
-/**
- * builds images blocks from default content.
- * @param {Element} main The container element
- */
-function buildImageBlocks(main) {
-  // select all non-featured, default (non-images block) images
-  const imgs = [...main.querySelectorAll(':scope > div > p > picture')];
-  imgs.forEach((img) => {
-    const parent = img.parentNode;
-    const imagesBlock = buildBlock('images', {
-      elems: [parent.cloneNode(true), getImageCaption(img)],
-    });
-    parent.parentNode.insertBefore(imagesBlock, parent);
-    parent.remove();
-  });
-}
-
-/**
- * Builds all synthetic blocks in a container element.
- * @param {Element} main The container element
- */
-function buildAutoBlocks(main) {
-  removeStylingFromImages(main);
-  try {
-    buildImageBlocks(main);
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Auto Blocking failed', error);
-  }
-}
-
-/**
- * Removes the empty sections from the container element.
- * @param {Element} main The container element
- */
-function removeEmptySections(main) {
-  main.querySelectorAll(':scope > div:empty').forEach((div) => {
-    div.remove();
-  });
-}
-
-/**
  * Adds the favicon.
  * @param {string} href The favicon URL
  */
@@ -389,19 +427,122 @@ export function addFavIcon(href) {
 }
 
 /**
+ * load LCP block and/or wait for LCP in default content.
+ */
+async function waitForLCP() {
+  // eslint-disable-next-line no-use-before-define
+  const lcpBlocks = LCP_BLOCKS;
+  const block = document.querySelector('.block');
+  const hasLCPBlock = (block && lcpBlocks.includes(block.getAttribute('data-block-name')));
+  if (hasLCPBlock) await loadBlock(block, true);
+
+  document.querySelector('body').classList.add('appear');
+  const lcpCandidate = document.querySelector('main img');
+  await new Promise((resolve) => {
+    if (lcpCandidate && !lcpCandidate.complete) {
+      lcpCandidate.addEventListener('load', () => resolve());
+      lcpCandidate.addEventListener('error', () => resolve());
+    } else {
+      resolve();
+    }
+  });
+}
+
+/**
+ * Decorates the page.
+ */
+async function loadPage(doc) {
+  // eslint-disable-next-line no-use-before-define
+  await loadEager(doc);
+  // eslint-disable-next-line no-use-before-define
+  await loadLazy(doc);
+  // eslint-disable-next-line no-use-before-define
+  loadDelayed(doc);
+}
+
+function initHlx() {
+  window.hlx = window.hlx || {};
+  window.hlx.lighthouse = new URLSearchParams(window.location.search).get('lighthouse') === 'on';
+  window.hlx.codeBasePath = '';
+
+  const scriptEl = document.querySelector('script[src$="/scripts/scripts.js"]');
+  if (scriptEl) {
+    try {
+      [window.hlx.codeBasePath] = new URL(scriptEl.src).pathname.split('/scripts/scripts.js');
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log(e);
+    }
+  }
+}
+
+initHlx();
+
+/*
+ * ------------------------------------------------------------
+ * Edit above at your own risk
+ * ------------------------------------------------------------
+ */
+
+const LCP_BLOCKS = ['hero']; // add your LCP blocks to the list
+const RUM_GENERATION = 'design-website-1'; // add your RUM generation information here
+
+sampleRUM('top');
+window.addEventListener('load', () => sampleRUM('load'));
+document.addEventListener('click', () => sampleRUM('click'));
+
+loadPage(document);
+
+function buildHeroBlock(main) {
+  const h1 = main.querySelector('h1');
+  const picture = main.querySelector('picture');
+  // eslint-disable-next-line no-bitwise
+  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
+    const section = document.createElement('div');
+    section.append(buildBlock('hero', { elems: [picture, h1] }));
+    main.prepend(section);
+  }
+}
+
+function loadHeader(header) {
+  const headerBlock = buildBlock('header', '');
+  header.append(headerBlock);
+  decorateBlock(headerBlock);
+  loadBlock(headerBlock);
+}
+
+function loadFooter(footer) {
+  const footerBlock = buildBlock('footer', '');
+  footer.append(footerBlock);
+  decorateBlock(footerBlock);
+  loadBlock(footerBlock);
+}
+
+/**
+ * Builds all synthetic blocks in a container element.
+ * @param {Element} main The container element
+ */
+function buildAutoBlocks(main) {
+  try {
+    buildHeroBlock(main);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Auto Blocking failed', error);
+  }
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
 export function decorateMain(main) {
   // forward compatible pictures redecoration
   decoratePictures(main);
+  removeStylingFromImages(main);
   buildAutoBlocks(main);
-  removeEmptySections(main);
-  wrapSections(main.querySelectorAll(':scope > div'));
+  decorateSections(main);
   decorateBlocks(main);
 }
-
-const LCP_BLOCKS = []; // add your LCP blocks to the list
 
 /**
  * loads everything needed to get to LCP.
@@ -410,22 +551,7 @@ async function loadEager(doc) {
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
-
-    const lcpBlocks = [];
-    const block = document.querySelector('.block');
-    const hasLCPBlock = (block && lcpBlocks.includes(block.getAttribute('data-block-name')));
-    if (hasLCPBlock) await loadBlock(block, true);
-
-    document.querySelector('body').classList.add('appear');
-    const lcpCandidate = document.querySelector('main img');
-    await new Promise((resolve) => {
-      if (lcpCandidate && !lcpCandidate.complete) {
-        lcpCandidate.addEventListener('load', () => resolve());
-        lcpCandidate.addEventListener('error', () => resolve());
-      } else {
-        resolve();
-      }
-    });
+    await waitForLCP();
   }
 }
 
@@ -434,10 +560,13 @@ async function loadEager(doc) {
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
+  await loadBlocks(main);
 
-  loadBlocks(main);
-  loadCSS('/styles/lazy-styles.css');
-  addFavIcon('/styles/favicon.svg');
+  loadHeader(doc.querySelector('header'));
+  loadFooter(doc.querySelector('footer'));
+
+  loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
+  addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.svg`);
 }
 
 /**
@@ -447,14 +576,3 @@ async function loadLazy(doc) {
 function loadDelayed() {
   // load anything that can be postponed to the latest here
 }
-
-/**
- * Decorates the page.
- */
-async function decoratePage(doc) {
-  await loadEager(doc);
-  loadLazy(doc);
-  loadDelayed(doc);
-}
-
-decoratePage(document);
