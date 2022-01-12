@@ -38,22 +38,22 @@ indices:
         value: |
           parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
       jobTitle:
-        select: head > meta[property="job-title"]
+        select: head > meta[name="job-title"]
         value: |
           attribute(el, 'content')
       jobTitle:
-        select: head > meta[property="job-title"]
+        select: head > meta[name="job-title"]
         value: |
           attribute(el, 'content')
       positionType:
-        select: head > meta[property="position-type"]
+        select: head > meta[name="position-type"]
         value: |
           attribute(el, 'content')
       location:
-        select: head > meta[property="location"]
+        select: head > meta[name="location"]
         value: |
           attribute(el, 'content')
       color:
-        select: head > meta[property="color"]
+        select: head > meta[name="color"]
         value: |
           attribute(el, 'content')
