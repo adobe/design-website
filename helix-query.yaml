@@ -15,7 +15,8 @@ indices:
           attribute(el, 'content')
       subtitle:
         select: main h2
-        value: el.textContent
+        value: |
+          innerHTML(el)
       author:
         select: head > meta[name="author"]
         value: |
