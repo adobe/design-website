@@ -11,10 +11,9 @@ indices:
     properties:
       title:
         select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
+        value: el.textContent
       subtitle:
-        select: head > meta[property="subtitle"]
+        select: main h2
         value: |
           attribute(el, 'content')
       author:
