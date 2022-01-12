@@ -9,10 +9,6 @@ indices:
       - '/toolkit/**'
     target: /query-index.xlsx
     properties:
-      inlineTitle:
-        select: main > div h1:first-child
-        value: |
-          innerHTML(el)
       title:
         select: head > meta[property="og:title"]
         value: |
@@ -28,7 +24,7 @@ indices:
       date:
         select: head > meta[name="publication-date"]
         value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
+          attribute(el, 'content')
       image:
         select: head > meta[property="og:image"]
         value: |
@@ -37,43 +33,27 @@ indices:
         select: head > meta[name="description"]
         value: |
           attribute(el, 'content')
-      type:
-        select: head > meta[name="page-type"]
-        value: |
-          attribute(el, 'content')
       lastModified:
         select: none
         value: |
           parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      position:
-        select: head > meta[property="position"]
+      jobTitle:
+        select: head > meta[property="job-title"]
         value: |
           attribute(el, 'content')
-      department:
-        select: head > meta[property="department"]
+      jobTitle:
+        select: head > meta[property="job-title"]
+        value: |
+          attribute(el, 'content')
+      positionType:
+        select: head > meta[property="position-type"]
         value: |
           attribute(el, 'content')
       location:
         select: head > meta[property="location"]
         value: |
           attribute(el, 'content')
-      backgroundColor:
-        select: head > meta[property="color:background"]
-        value: |
-          attribute(el, 'content')
-      textColor:
-        select: head > meta[property="color:text"]
-        value: |
-          attribute(el, 'content')
-      group:
-        select: head > meta[property="group"]
-        value: |
-          attribute(el, 'content')
-      category:
-        select: head > meta[property="category"]
-        value: |
-          attribute(el, 'content')
-      endDate:
-        select: head > meta[property="date:end"]
+      color:
+        select: head > meta[property="color"]
         value: |
           attribute(el, 'content')
