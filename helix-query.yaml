@@ -41,8 +41,8 @@ indices:
         select: head > meta[name="job-title"]
         value: |
           attribute(el, 'content')
-      jobTitle:
-        select: head > meta[name="job-title"]
+      department:
+        select: head > meta[name="department"]
         value: |
           attribute(el, 'content')
       positionType:
