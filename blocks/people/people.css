@@ -1,0 +1,16 @@
+main .people-person {
+    display: flex;
+    align-items: center;
+}
+
+main .people-person img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    object-fit: cover;
+    margin: 1rem;
+}
+
+main .people-person h2 {
+    margin: 0;
+}

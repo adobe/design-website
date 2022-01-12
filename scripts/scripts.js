@@ -484,7 +484,7 @@ initHlx();
  * ------------------------------------------------------------
  */
 
-const LCP_BLOCKS = ['hero']; // add your LCP blocks to the list
+const LCP_BLOCKS = ['hero', 'carousel']; // add your LCP blocks to the list
 const RUM_GENERATION = 'design-website-1'; // add your RUM generation information here
 
 sampleRUM('top');
@@ -492,6 +492,23 @@ window.addEventListener('load', () => sampleRUM('load'));
 document.addEventListener('click', () => sampleRUM('click'));
 
 loadPage(document);
+
+export async function lookupPages(pathnames) {
+  if (!window.pageIndex) {
+    const resp = await fetch('/query-index.json');
+    const json = await resp.json();
+    const lookup = {};
+    const sheets = Object.keys(json).filter((e) => !e.startsWith(':'));
+    sheets.forEach((sh) => {
+      json[sh].data.forEach((row) => {
+        lookup[row.path] = row;
+      });
+    });
+    window.pageIndex = { data: json, lookup };
+  }
+  const result = pathnames.map((path) => window.pageIndex.lookup[path]).filter((e) => e);
+  return (result);
+}
 
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');

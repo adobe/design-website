@@ -1,0 +1,27 @@
+main .stories {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main .stories .stories-card {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    height: 350px;
+    border-radius: 5px;
+    border: 2px solid rgba(var(--text-color),.1);
+    background-color: rgba(var(--text-color),.1);
+    margin: 1rem;
+}
+
+main .stories .stories-card h2 {
+    padding: 0 20px;
+    font-size: medium;
+}
+
+main .stories .stories-card img {
+    height: 150px;
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    object-fit: cover;
+}
