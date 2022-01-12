@@ -14,7 +14,7 @@ indices:
         value: |
           attribute(el, 'content')
       subtitle:
-        select: main h2
+        select: main h2:first-of-type
         value: |
           innerHTML(el)
       author:
