@@ -10,7 +10,39 @@
  * governing permissions and limitations under the License.
  */
 
- :root {
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* stylelint-disable */
+ /*
+:root {
   --link-color: 3,95,230;
   --background-color: 255,255,255;
   --text-color: 0,0,0;
@@ -191,10 +223,12 @@ main img {
       margin: auto;
   }    
 }
+*/
 
 /* above the fold CSS goes here to squash CLS */
 
+/*
 main .section-wrapper[data-section-status='loading'], main .section-wrapper[data-section-status='initialized'] {
     display: none;
   }
-  
+*/

@@ -7,7 +7,9 @@
     "start": "hlx up",
     "test": "karma start karma.config.js",
     "integration-test": "mocha integration/*.test.js",
-    "lint": "eslint ."
+    "lint:js": "eslint .",
+    "lint:css": "stylelint 'blocks/**/*.css' 'styles/*.css'",
+    "lint": "npm run lint:js && npm run lint:css"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,9 @@
     "karma-mocha-reporter": "2.2.5",
     "mocha": "9.1.1",
     "puppeteer": "10.2.0",
-    "shelljs": "0.8.4"
+    "shelljs": "0.8.4",
+    "stylelint": "^14.2.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^24.0.0"
   }
 }
