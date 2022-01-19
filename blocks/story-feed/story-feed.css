@@ -1,0 +1,108 @@
+.cmp-stories__inner-wrap .story-feed {
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: repeat(6, [col-start] 1fr);
+  column-gap: 12px;
+  row-gap: 12px;
+  margin: 0 auto;
+  width: 95%;
+  max-width: var(--layout-max-width-desktop);
+}
+
+.cmp-stories-card {
+  background-color: var(--color-base-white);
+  grid-column: col-start 1 / span 6;
+}
+
+@media (min-width: 900px) {
+  .cmp-stories__inner-wrap .story-feed {
+    grid-template-columns: repeat(12, [col-start] 1fr);
+  }
+
+  .cmp-stories-card:nth-of-type(odd) {
+    grid-column: col-start 1 / span 6;
+  }
+
+  .cmp-stories-card:nth-of-type(even) {
+    grid-column: col-start 7 / span 6;
+  }
+}
+
+.cmp-stories-card__body {
+  padding: 2.25rem 3.5rem;
+}
+
+.cmp-stories-card__tag {
+  color: var(--color-base-navy);
+  display: inline-block;
+  font-size: var(--font-size-400);
+  padding-bottom: 5px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.cmp-stories-card__tag::after {
+  background-color: var(--color-base-navy);
+  border-radius: 10px;
+  bottom: 0;
+  content: '';
+  left: 0;
+  height: 4px;
+  position: absolute;
+  width: 100%;
+}
+
+.cmp-stories-card__title {
+  --card-title-font-size: var(--font-size-900);
+  
+  color: var(--color-base-navy);
+  font-size: var(--card-title-font-size);
+  font-weight: var(--font-weight-black);
+  margin: 1rem 0 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .cmp-stories-card__title {
+    --card-title-font-size: var(--font-size-1000);
+    
+    line-height: 1;
+  }
+}
+
+.cmp-stories-card__title a,
+.cmp-stories-card__title a:hover,
+.cmp-stories-card__title a:focus {
+  color: var(--color-base-navy);
+}
+
+.cmp-stories-card__intro {
+  --card-intro-font-size: var(--font-size-400);
+  
+  font-family: var(--font-stack-serif);
+  font-size: var(--card-intro-font-size);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .cmp-stories-card__intro {
+    --card-intro-font-size: var(--font-size-650);
+  }
+}
+
+.cmp-stories-card__author {
+  --card-author-font-size: var(--font-size-200);
+  
+  font-size: var(--card-author-font-size);
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 0;
+}
+
+.cmp-stories-card__author-title {
+  --card-author-title-font-size: var(--font-size-100);
+  
+  font-size: var(--card-author-title-font-size);
+  line-height: 1.3;
+  margin-bottom: 0;
+}

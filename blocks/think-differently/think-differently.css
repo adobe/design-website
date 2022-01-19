@@ -1,0 +1,38 @@
+.cmp-stats {
+  background-color: var(--color-base-dark-blue);
+  color: var(--color-base-white);
+  padding: var(--padding-block-default) 0;
+}
+
+.cmp-stats__inner-wrap {
+  margin: 0 auto;
+  width: var(--layout-width);
+}
+
+@media (min-width: 900px) {
+  .cmp-stats__inner-wrap {
+    --layout-width: 90%;   
+    
+    max-width: var(--layout-max-width-desktop);
+    width: var(--layout-width);
+  }
+}
+
+.cmp-stats__heading {
+  --stats-heading-font-size: var(--font-size-800);
+  
+  font-size: var(--stats-heading-font-size);
+  font-weight: var(--font-weight-black);
+}
+
+@media (min-width: 900px) {
+  .cmp-stats__heading {
+    --stats-heading-font-size: var(--font-size-1000);
+  }
+}
+
+@media (min-width: 1300px) {
+  .cmp-stats__heading {
+    --stats-heading-font-size: var(--font-size-2000);
+  }
+}

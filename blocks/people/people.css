@@ -1,16 +1,64 @@
-main .people-person {
-    display: flex;
-    align-items: center;
+.home .people {
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: repeat(6, [col-start] 1fr);
+  column-gap: 12px;
+  row-gap: 12px;
+  margin: 12px auto;
+  width: 95%;
+  max-width: var(--layout-max-width-desktop);
 }
 
-main .people-person img {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 2rem;
-    object-fit: cover;
-    margin: 1rem;
+.home .cmp-person {
+  background-color: var(--color-base-white);
+  color: var(--color-base-dark-slate-secondary);
+  grid-column: 1 / 7;
 }
 
-main .people-person h2 {
-    margin: 0;
+.home .cmp-person__body {
+  padding: 0.5rem 1.5rem 2rem;
+}
+
+.home .cmp-person__tag {
+  color: var(--color-base-dark-slate-secondary);
+  display: inline-block;
+  font-size: var(--font-size-400);
+  margin-bottom: 2rem;
+  padding-bottom: 5px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.home .cmp-person__tag::after {
+  background-color: var(--color-base-dark-slate-secondary);
+  border-radius: 10px;
+  bottom: 0;
+  content: '';
+  left: 0;
+  height: 4px;
+  position: absolute;
+  width: 100%;
+}
+
+.home .cmp-person__name a,
+.home .cmp-person__name a:hover,
+.home .cmp-person__name a:focus {
+  color: var(--color-base-dark-slate-secondary);
+}
+
+.home .cmp-person__name {
+  font-size: var(--font-size-950);
+  font-weight: var(--font-weight-black);
+}
+
+@media (min-width: 900px) {
+  .home .people {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 12px;
+    row-gap: 12px;
+  }
+
+  .home .cmp-person {
+    grid-column: unset;
+  }
 }

@@ -1,0 +1,115 @@
+.cmp-stats {
+  background-color: var(--color-base-lighter-black);
+  color: var(--color-base-light-rose);
+  margin: 0 auto;
+  max-width: var(--layout-max-width-desktop);
+  padding: 2rem 4rem;
+  width: 95%;
+}
+
+@media (min-width: 900px) {
+  .cmp-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: end;
+  }
+}
+
+.cmp-stats__item {
+  margin-bottom: 5em;
+}
+
+.cmp-stats__item-number {
+  --stats-number-font-size: var(--font-size-4000);
+
+  font-family: var(--font-stack-serif);
+  font-size: var(--stats-number-font-size);
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.cmp-stats__item-description {
+  --stats-description-font-size: var(--font-size-650);
+
+  font-family: var(--font-stack-serif);
+  font-size: var(--stats-description-font-size);
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 900px) {
+  .cmp-stats__item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .cmp-stats__item::after {
+    justify-self: center;
+    content: '/';
+    font-size: var(--font-size-4000);
+    grid-column: 3;
+    grid-row: 1 / 3;
+    line-height: 0.75;
+  }
+
+  .cmp-stats__item:last-of-type::after {
+    display: none;
+  }
+
+  .cmp-stats__item-number {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
+
+  .cmp-stats__item-description {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+  }
+}
+
+/* HOMEPAGE */
+.home .cmp-stats {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .home .cmp-stats {
+    background-color: var(--color-base-tan);
+    color: var(--color-base-dark-slate);
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.home .cmp-stats__item {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.home .cmp-stats__item-number {
+  margin: 5rem 2rem 2rem;
+}
+
+.home .cmp-stats__item-description {
+  margin: 0 8rem 5rem;
+}
+
+.home .cmp-stats__item:nth-of-type(even) {
+  background-color: var(--color-base-light-slate);
+}
+
+.home .cmp-stats__item::after {
+  display: none;
+}
+
+.home .cmp-stats__item-tag {
+  display: none;
+}
