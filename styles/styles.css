@@ -45,6 +45,10 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
+header {
+  height: 64px;
+}
+
 /* above the fold CSS goes here to squash CLS */
 main .section-wrapper[data-section-status='loading'],
 main .section-wrapper[data-section-status='initialized'] {
