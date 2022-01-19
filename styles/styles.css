@@ -25,6 +25,11 @@ html, body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  opacity: 0;
+}
+
+body.appear {
+  opacity: 1;
 }
 
 img, picture, video, canvas, svg {
@@ -38,6 +43,12 @@ input, button, textarea, select {
 
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
+}
+
+/* above the fold CSS goes here to squash CLS */
+main .section-wrapper[data-section-status='loading'],
+main .section-wrapper[data-section-status='initialized'] {
+  display: none;
 }
 
 /* stylelint-disable */
@@ -223,12 +234,4 @@ main img {
       margin: auto;
   }    
 }
-*/
-
-/* above the fold CSS goes here to squash CLS */
-
-/*
-main .section-wrapper[data-section-status='loading'], main .section-wrapper[data-section-status='initialized'] {
-    display: none;
-  }
 */
