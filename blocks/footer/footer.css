@@ -21,6 +21,7 @@
 }
 
 .cmp-footer__logo svg {
+  fill: var(--color-base-white);
   max-width: 120px;
   width: 100%;
 }

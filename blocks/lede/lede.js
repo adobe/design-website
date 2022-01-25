@@ -90,7 +90,4 @@ export default async function decorate(block) {
     parentEl.append(content);
     el.remove();
   });
-
-  const pageBgColor = document.head.querySelector('meta[name="color"]').content;
-  document.body.style.backgroundColor = pageBgColor;
 }
