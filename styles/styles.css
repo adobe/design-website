@@ -40,6 +40,8 @@
   --color-base-dark-slate-secondary: #3E3E3E;
   --color-base-dark-slate-tertiary: #4A4545;
   --color-base-light-rose: #FAE7E3;
+  --dark-text-color: var(--color-base-dark-slate);
+  --light-text-color: var(--color-base-white);
   --font-size-100: 1rem; /* 16px */
   --font-size-200: 1.0625rem; /* 17px */
   --font-size-300: 1.125rem; /* 18px */
@@ -139,6 +141,24 @@ a:focus {
 strong,
 b {
   font-weight: var(--font-weight-bold);
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+
+.dark-text {
+  --reactive-text-color: var(--dark-text-color);
+}
+
+.light-text {
+  --reactive-text-color: var(--light-text-color);
 }
 
 /* .section-wrapper {
