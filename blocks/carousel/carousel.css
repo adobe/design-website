@@ -1,3 +1,48 @@
-main .carousel li {
+
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slides {
+    background: green;
+    height: 100vh;
+}
+
+.carousel-slide {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     min-height: 300px;
+    left: 0;
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.carousel-slide-content{
+ display: flex;
+}
+
+.carousel-slide img{
+    width: 33vw;
+}
+
+.carousel-btn{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: white;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.carousel-btn-right{
+    right: 0px;
 }
