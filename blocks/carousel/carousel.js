@@ -1,18 +1,27 @@
-import * as gsap from '../../scripts/gsap.js';
+import { gsap, Draggable } from '../../scripts/gsap/all.js';
 import { createOptimizedPicture, lookupPages } from '../../scripts/scripts.js';
 
 class Carousel {
-  slideDelay = 1.5;
+  proxy;
+
+  timer;
+
+  animation;
+
+  slideDelay = 3.5;
 
   slideDuration = 0.3;
 
   snapX;
 
-  constructor(block) {
-    this.block = block;
-  }
+  backgroundContianer;
 
-  init() {
+  constructor(block) {
+    gsap.registerPlugin(Draggable);
+    this.block = block;
+
+    this.backgroundContianer = document.querySelector('.carousel-slides');
+
     const prevButton = document.createElement('div');
     prevButton.classList.add('carousel-btn');
     prevButton.classList.add('carousel-btn-prev');
@@ -24,11 +33,13 @@ class Carousel {
     this.block.appendChild(nextButton);
 
     nextButton.addEventListener('click', () => {
-
+      this.animateSlides(-1);
+      this.timer.kill();
     });
 
     prevButton.addEventListener('click', () => {
-
+      this.animateSlides(1);
+      this.timer.kill();
     });
 
     this.slides = document.querySelectorAll('.carousel-slide');
@@ -36,19 +47,22 @@ class Carousel {
     this.numSlides = this.slides.length;
 
     gsap.set(this.slides, {
-      backgroundColor: 'random([red, blue, green, purple, orange, yellow, lime, pink])',
+      // backgroundColor: 'random([red, blue, green, purple, orange, yellow, lime, pink])',
       xPercent: (i) => i * 100,
     });
 
     this.wrap = gsap.utils.wrap(-100, (this.numSlides - 1) * 100);
-    this.timer = gsap.delayedCall(this.slideDelay, this.autoPlay);
+    this.timer = gsap.delayedCall(this.slideDelay, () => this.autoPlay());
 
-    this.animation = gsap.to(this.slides, {
-      xPercent: `+=${this.numSlides * 100}`,
-      duration: 1,
-      ease: 'none',
+    this.animation = gsap.timeline({
       paused: true,
       repeat: -1,
+    });
+
+    this.animation.to(this.slides, {
+      duration: 1,
+      xPercent: `+=${this.numSlides * 100}`,
+      ease: 'none',
       modifiers: {
         xPercent: this.wrap,
       },
@@ -58,11 +72,16 @@ class Carousel {
     this.slideAnimation = gsap.to({}, {});
     this.slideWidth = 0;
     this.wrapWidth = 0;
+  }
+
+  init() {
     this.resize();
   }
 
   updateProgress() {
-    this.animation.progress(this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth));
+    const time = this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth);
+    console.log(time);
+    this.animation.progress(time);
   }
 
   animateSlides(direction) {
@@ -74,7 +93,14 @@ class Carousel {
     this.slideAnimation = gsap.to(this.proxy, {
       x,
       duration: this.slideDuration,
-      onUpdate: this.updateProgress,
+      onUpdate: () => this.updateProgress(),
+      onComplete: () => {
+        const time = this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth);
+        const slideIndex = Math.floor(time * this.slides.length);
+        const slide = this.slides[slideIndex];
+        const { color } = slide.dataset;
+        this.backgroundContianer.style.backgroundColor = color;
+      },
     });
   }
 
@@ -105,11 +131,11 @@ export default async function decorate(block) {
   ul.classList.add('carousel-slides');
   ul.style.width = `${stories.length * 100}%`;
   stories.forEach((row, i) => {
-    console.log(row);
+    // console.log(row);
 
     const li = document.createElement('li');
+    li.dataset.color = row.color;
     li.classList.add('carousel-slide');
-    // li.style.left = `${i * 100}%`;
 
     const rowContent = document.createElement('div');
     rowContent.classList.add('carousel-slide-content');
@@ -122,5 +148,7 @@ export default async function decorate(block) {
   block.append(ul);
 
   const carousel = new Carousel(block);
-  carousel.init();
+  setTimeout(() => {
+    carousel.init();
+  }, 100);
 }
