@@ -1,4 +1,101 @@
+import * as gsap from '../../scripts/gsap.js';
 import { createOptimizedPicture, lookupPages } from '../../scripts/scripts.js';
+
+class Carousel {
+  slideDelay = 1.5;
+
+  slideDuration = 0.3;
+
+  snapX;
+
+  constructor(block) {
+    this.block = block;
+  }
+
+  init() {
+    const prevButton = document.createElement('div');
+    prevButton.classList.add('carousel-btn');
+    prevButton.classList.add('carousel-btn-prev');
+    this.block.appendChild(prevButton);
+
+    const nextButton = document.createElement('div');
+    nextButton.classList.add('carousel-btn');
+    nextButton.classList.add('carousel-btn-next');
+    this.block.appendChild(nextButton);
+
+    nextButton.addEventListener('click', () => {
+
+    });
+
+    prevButton.addEventListener('click', () => {
+
+    });
+
+    this.slides = document.querySelectorAll('.carousel-slide');
+    this.progressWrap = gsap.utils.wrap(0, 1);
+    this.numSlides = this.slides.length;
+
+    gsap.set(this.slides, {
+      backgroundColor: 'random([red, blue, green, purple, orange, yellow, lime, pink])',
+      xPercent: (i) => i * 100,
+    });
+
+    this.wrap = gsap.utils.wrap(-100, (this.numSlides - 1) * 100);
+    this.timer = gsap.delayedCall(this.slideDelay, this.autoPlay);
+
+    this.animation = gsap.to(this.slides, {
+      xPercent: `+=${this.numSlides * 100}`,
+      duration: 1,
+      ease: 'none',
+      paused: true,
+      repeat: -1,
+      modifiers: {
+        xPercent: this.wrap,
+      },
+    });
+
+    this.proxy = document.createElement('div');
+    this.slideAnimation = gsap.to({}, {});
+    this.slideWidth = 0;
+    this.wrapWidth = 0;
+    this.resize();
+  }
+
+  updateProgress() {
+    this.animation.progress(this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth));
+  }
+
+  animateSlides(direction) {
+    const x = this.snapX(gsap.getProperty(this.proxy, 'x') + direction * this.slideWidth);
+
+    this.timer.restart(true);
+    this.slideAnimation.kill();
+
+    this.slideAnimation = gsap.to(this.proxy, {
+      x,
+      duration: this.slideDuration,
+      onUpdate: this.updateProgress,
+    });
+  }
+
+  autoPlay() {
+    this.animateSlides(-1);
+  }
+
+  resize() {
+    const norm = (gsap.getProperty(this.proxy, 'x') / this.wrapWidth) || 0;
+    this.slideWidth = this.slides[0].offsetWidth;
+    this.wrapWidth = this.slideWidth * this.numSlides;
+    this.snapX = gsap.utils.snap(this.slideWidth);
+
+    gsap.set(this.proxy, {
+      x: norm * this.wrapWidth,
+    });
+
+    this.animateSlides(0);
+    this.slideAnimation.progress(1);
+  }
+}
 
 export default async function decorate(block) {
   const pathnames = [...block.querySelectorAll('a')].map((a) => new URL(a.href).pathname);
@@ -24,57 +121,6 @@ export default async function decorate(block) {
   });
   block.append(ul);
 
-  // nav buttons
-  const leftBtn = document.createElement('div');
-  leftBtn.classList.add('carousel-btn');
-  leftBtn.classList.add('carousel-btn-left');
-  block.appendChild(leftBtn);
-
-  const rightBtn = document.createElement('div');
-  rightBtn.classList.add('carousel-btn');
-  rightBtn.classList.add('carousel-btn-right');
-  block.appendChild(rightBtn);
-
-  let carouselState = 0;
-
-  function updateCarousel() {
-    console.log(carouselState);
-
-    const slides = document.querySelectorAll('.carousel-slide');
-    slides.forEach((slide) => {
-      slide.classList.remove('active', 'next', 'prev', 'transition');
-    });
-
-    setTimeout(() => {
-      for (let i = 0; i < slides.length; i += 1) {
-        if (i === carouselState) {
-          slides[i].classList.add('active');
-        } else if (i === carouselState + 1) {
-          slides[i].classList.add('next');
-        } else if (i === carouselState - 1) {
-          slides[i].classList.add('prev');
-        }
-      }
-
-      if (carouselState === 0) {
-        slides[slides.length - 1].classList.add('prev');
-      }
-
-      if (carouselState === slides.length - 1) {
-        slides[0].classList.add('next');
-      }
-    }, 10);
-  }
-
-  updateCarousel();
-
-  rightBtn.addEventListener('click', () => {
-    carouselState = carouselState < stories.length - 1 ? carouselState + 1 : 0;
-    updateCarousel();
-  });
-
-  leftBtn.addEventListener('click', () => {
-    carouselState = carouselState > 0 ? carouselState - 1 : stories.length - 1;
-    updateCarousel();
-  });
+  const carousel = new Carousel(block);
+  carousel.init();
 }
