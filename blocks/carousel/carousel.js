@@ -12,7 +12,7 @@ export default async function decorate(block) {
 
     const li = document.createElement('li');
     li.classList.add('carousel-slide');
-    li.style.left = `${i * 100}%`;
+    // li.style.left = `${i * 100}%`;
 
     const rowContent = document.createElement('div');
     rowContent.classList.add('carousel-slide-content');
@@ -35,10 +35,46 @@ export default async function decorate(block) {
   rightBtn.classList.add('carousel-btn-right');
   block.appendChild(rightBtn);
 
+  let carouselState = 0;
+
+  function updateCarousel() {
+    console.log(carouselState);
+
+    const slides = document.querySelectorAll('.carousel-slide');
+    slides.forEach((slide) => {
+      slide.classList.remove('active', 'next', 'prev', 'transition');
+    });
+
+    setTimeout(() => {
+      for (let i = 0; i < slides.length; i += 1) {
+        if (i === carouselState) {
+          slides[i].classList.add('active');
+        } else if (i === carouselState + 1) {
+          slides[i].classList.add('next');
+        } else if (i === carouselState - 1) {
+          slides[i].classList.add('prev');
+        }
+      }
+
+      if (carouselState === 0) {
+        slides[slides.length - 1].classList.add('prev');
+      }
+
+      if (carouselState === slides.length - 1) {
+        slides[0].classList.add('next');
+      }
+    }, 10);
+  }
+
+  updateCarousel();
+
   rightBtn.addEventListener('click', () => {
-
+    carouselState = carouselState < stories.length - 1 ? carouselState + 1 : 0;
+    updateCarousel();
   });
-  leftBtn.addEventListener('click', () => {
 
+  leftBtn.addEventListener('click', () => {
+    carouselState = carouselState > 0 ? carouselState - 1 : stories.length - 1;
+    updateCarousel();
   });
 }

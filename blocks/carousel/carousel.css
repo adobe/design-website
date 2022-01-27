@@ -25,12 +25,30 @@
     height: 100%;
 }
 
-.carousel-slide-content{
- display: flex;
+.carousel-slide.active{
+    transform: translate(0);
+}
+
+.carousel-slide.next{
+    transform: translate(100%);
+}
+
+.carousel-slide.prev{
+    transform: translate(-100%);
+}
+
+.carousel-slide.transition{
+    transition: transform 1s linear;
+}
+
+.carousel-slide-content {
+    display: flex;
 }
 
 .carousel-slide img{
-    width: 33vw;
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
 }
 
 .carousel-btn{
