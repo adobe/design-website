@@ -1,5 +1,10 @@
 /* header and nav layout */
 
+header {
+  position: fixed;
+  z-index: 100;
+}
+
 header .nav {
   display: grid;
   grid-template-areas: 'hamburger brand' 'sections sections';

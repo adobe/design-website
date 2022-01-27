@@ -20,7 +20,7 @@ class Carousel {
     gsap.registerPlugin(Draggable);
     this.block = block;
 
-    this.backgroundContianer = document.querySelector('.carousel-slides');
+    this.backgroundContianer = document.querySelector('.carousel');
 
     const prevButton = document.createElement('div');
     prevButton.classList.add('carousel-btn');
@@ -80,7 +80,6 @@ class Carousel {
 
   updateProgress() {
     const time = this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth);
-    console.log(time);
     this.animation.progress(time);
   }
 
@@ -96,7 +95,7 @@ class Carousel {
       onUpdate: () => this.updateProgress(),
       onComplete: () => {
         const time = this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth);
-        const slideIndex = Math.floor(time * this.slides.length);
+        const slideIndex = Math.round(time * this.slides.length);
         const slide = this.slides[slideIndex];
         const { color } = slide.dataset;
         this.backgroundContianer.style.backgroundColor = color;
@@ -148,6 +147,8 @@ export default async function decorate(block) {
   block.append(ul);
 
   const carousel = new Carousel(block);
+
+  // after appended..
   setTimeout(() => {
     carousel.init();
   }, 100);
