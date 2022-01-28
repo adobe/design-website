@@ -71,6 +71,7 @@
     grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 1;
+    padding-left: 3.5rem;
 }
 
 .carousel-slide img {
