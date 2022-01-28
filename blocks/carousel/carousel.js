@@ -1,4 +1,6 @@
-import { gsap, Draggable } from '../../scripts/gsap/all.js';
+import { gsap } from '../../scripts/gsap/gsap-core.js';
+import '../../scripts/gsap/CSSPlugin.js';
+
 import { createOptimizedPicture, lookupPages } from '../../scripts/scripts.js';
 
 class Carousel {
@@ -16,10 +18,7 @@ class Carousel {
 
   backgroundContianer;
 
-  constructor(block, ui) {
-    gsap.registerPlugin(Draggable);
-    this.block = block;
-
+  constructor(ui) {
     this.backgroundContianer = document.querySelector('.carousel');
 
     const prevButton = document.createElement('div');
@@ -161,7 +160,10 @@ export default async function decorate(block) {
 
     ul.append(li);
   });
-  block.append(ul);
+
+  const container = document.createElement('div');
+  container.classList.add('carousel-group');
+  container.append(ul);
 
   const ui = document.createElement('div');
   ui.classList.add('carousel-ui');
@@ -170,9 +172,15 @@ export default async function decorate(block) {
   uiInner.classList.add('carousel-ui-inner');
   ui.append(uiInner);
 
-  block.append(ui);
+  container.append(ui);
 
-  const carousel = new Carousel(block, uiInner);
+  block.append(container);
+
+  const gradient = document.createElement('div');
+  gradient.classList.add('carousel-gradient');
+  block.append(gradient);
+
+  const carousel = new Carousel(uiInner);
 
   // after appended..
   setTimeout(() => {
