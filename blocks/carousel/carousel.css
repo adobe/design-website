@@ -8,7 +8,6 @@
     overflow-y: visible;
     display: flex;
     flex: 1;
-    background-color: green;
     transition: background-color 0.3s linear;
 }
 
@@ -30,22 +29,28 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    
-    width: calc(100% / 3);
     width: 100%;
 }
 
+.carousel-slide-container {
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    margin: 0 auto;
+    width: 95%;
+    column-gap: 12px;
+    row-gap: 12px;
+    max-width: var(--layout-max-width-desktop);
+}
+
 .carousel-slide-content {
-    width: 75%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row-reverse;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: col-start 1 / span 12;
 }
 
 .carousel-slide-content h2{
-    font-size: --font-size-2000;
-    font-weight: --font-weight-black;
+    font-size: var(--font-size-1000);
+    font-weight: var(--font-weight-black);
 }
 
 .carousel-slide-content a{
@@ -56,6 +61,7 @@
 .carousel-slide img{
     width: 698px;
     height: 698px;
+    object-fit: contain;
 }
 
 .carousel-btn{
@@ -67,8 +73,30 @@
     top: 50%;
     cursor: pointer;
     transform: translateY(-50%);
+    background-image: url("../../assets/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(180deg);
+    transform-origin: center;
 }
 
 .carousel-btn-next{
     right: 0px;
+    transform: rotate(0deg);
+}
+
+.carousel-ui{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-ui-inner{
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    width: 95%;
+    max-width: var(--layout-max-width-desktop);
 }

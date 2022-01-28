@@ -16,7 +16,7 @@ class Carousel {
 
   backgroundContianer;
 
-  constructor(block) {
+  constructor(block, ui) {
     gsap.registerPlugin(Draggable);
     this.block = block;
 
@@ -25,12 +25,12 @@ class Carousel {
     const prevButton = document.createElement('div');
     prevButton.classList.add('carousel-btn');
     prevButton.classList.add('carousel-btn-prev');
-    this.block.appendChild(prevButton);
+    ui.appendChild(prevButton);
 
     const nextButton = document.createElement('div');
     nextButton.classList.add('carousel-btn');
     nextButton.classList.add('carousel-btn-next');
-    this.block.appendChild(nextButton);
+    ui.appendChild(nextButton);
 
     nextButton.addEventListener('click', () => {
       this.animateSlides(-1);
@@ -97,8 +97,11 @@ class Carousel {
         const time = this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth);
         const slideIndex = Math.round(time * this.slides.length);
         const slide = this.slides[slideIndex];
-        const { color } = slide.dataset;
-        this.backgroundContianer.style.backgroundColor = color;
+        console.log(slideIndex, slide);
+        if (slide) {
+          const { color } = slide.dataset;
+          this.backgroundContianer.style.backgroundColor = color;
+        }
       },
     });
   }
@@ -129,24 +132,46 @@ export default async function decorate(block) {
   const ul = document.createElement('ul');
   ul.classList.add('carousel-slides');
   ul.style.width = `${stories.length * 100}%`;
+
   stories.forEach((row, i) => {
-    // console.log(row);
+    console.log(row);
 
     const li = document.createElement('li');
     li.dataset.color = row.color;
     li.classList.add('carousel-slide');
 
-    const rowContent = document.createElement('div');
-    rowContent.classList.add('carousel-slide-content');
-    rowContent.innerHTML = `<h2><a href="${row.path}">${row.title}</h2>`;
-    rowContent.append(createOptimizedPicture(row.image, row.title, !i));
-    li.append(rowContent);
+    const slideContainer = document.createElement('div');
+    slideContainer.classList.add('carousel-slide-container');
+
+    const slideContent = document.createElement('div');
+    slideContent.classList.add('carousel-slide-content');
+
+    const slideCopy = document.createElement('div');
+    slideCopy.innerHTML = `<h2><a href="${row.path}">${row.title}</a></h2>
+    <div>${row.subtitle}</div>
+    <div>${row.author}</div>`;
+
+    slideContent.append(slideCopy);
+
+    slideContent.append(createOptimizedPicture(row.image, row.title, !i));
+
+    slideContainer.append(slideContent);
+    li.append(slideContainer);
 
     ul.append(li);
   });
   block.append(ul);
 
-  const carousel = new Carousel(block);
+  const ui = document.createElement('div');
+  ui.classList.add('carousel-ui');
+
+  const uiInner = document.createElement('div');
+  uiInner.classList.add('carousel-ui-inner');
+  ui.append(uiInner);
+
+  block.append(ui);
+
+  const carousel = new Carousel(block, uiInner);
 
   // after appended..
   setTimeout(() => {
