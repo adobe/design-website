@@ -9,6 +9,10 @@
   max-width: var(--layout-max-width-desktop);
 }
 
+.home .stories:nth-child(3){
+  margin-top: -600px;
+}
+
 .home .cmp-stories-card {
   background-color: #FFE255;
   color: var(--color-base-dark-slate-secondary);

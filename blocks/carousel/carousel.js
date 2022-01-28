@@ -19,7 +19,7 @@ class Carousel {
   backgroundContianer;
 
   constructor(ui) {
-    this.backgroundContianer = document.querySelector('.carousel');
+    // this.backgroundContianer = document.querySelector('.carousel-group');
 
     const prevButton = document.createElement('div');
     prevButton.classList.add('carousel-btn');
@@ -96,10 +96,9 @@ class Carousel {
         const time = this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth);
         const slideIndex = Math.round(time * this.slides.length);
         const slide = this.slides[slideIndex];
-        console.log(slideIndex, slide);
         if (slide) {
           const { color } = slide.dataset;
-          this.backgroundContianer.style.backgroundColor = color;
+          document.documentElement.style.setProperty('--header-color', color);
         }
       },
     });
@@ -133,7 +132,7 @@ export default async function decorate(block) {
   ul.style.width = `${stories.length * 100}%`;
 
   stories.forEach((row, i) => {
-    console.log(row);
+    // console.log(row);
 
     const li = document.createElement('li');
     li.dataset.color = row.color;
@@ -179,6 +178,19 @@ export default async function decorate(block) {
   const gradient = document.createElement('div');
   gradient.classList.add('carousel-gradient');
   block.append(gradient);
+
+  gradient.innerHTML = `<svg class="carousel-gradient-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+  <defs>
+      <linearGradient id="Gradient" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="white"/>
+        <stop offset="100%" stop-color="black"/>
+      </linearGradient>
+      <mask id="mask">
+        <rect x="0" y="0" width="100" height="100" fill="url(#Gradient)"/>
+      </mask>
+  </defs>
+  <rect class="svg-bg" x="0" y="0" width="100" height="100" fill="red" mask="url(#mask)"/>
+</svg>`;
 
   const carousel = new Carousel(uiInner);
 
