@@ -147,6 +147,7 @@ export default async function decorate(block) {
     slideContent.classList.add('carousel-slide-content');
 
     const slideCopy = document.createElement('div');
+    slideCopy.classList.add('carousel-slide-copy');
     slideCopy.innerHTML = `<h2><a href="${row.path}">${row.title}</a></h2>
     <div>${row.subtitle}</div>
     <div>${row.author}</div>`;
