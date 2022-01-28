@@ -1,26 +1,105 @@
 .cmp-footer {
+  --footer-block-padding: var(--padding-block-default);
   background-color: var(--color-base-red);
   color: var(--color-base-white);
-  padding: var(--padding-block-default) 0;
+  padding: var(--footer-block-padding) 0;
 }
 
 .cmp-footer__inner-wrap {
+  display: grid;
+  grid-template-columns: repeat(6, [col-start] 1fr);
+  column-gap: 12px;
   margin: 0 auto;
-  width: var(--layout-width);
+  width: 95%;
+  max-width: var(--layout-max-width-desktop);
 }
 
-@media (min-width: 900px) {
-  .cmp-footer__inner-wrap {
-    --layout-width: 90%;   
-    max-width: var(--layout-max-width-desktop);
-    width: var(--layout-width);
-  }
+.cmp-footer__logo {
+  grid-column: col-start 2 / span 2;
+  grid-row-start: 1;
+  margin-bottom: 4rem;
+}
+
+.cmp-footer__logo svg {
+  max-width: 120px;
+  width: 100%;
 }
 
 .cmp-footer__nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-bottom: 2em;
+  grid-column: col-start 2 / span 4;
+  grid-row-start: 2;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 3rem;
+}
+
+.cmp-footer__nav p {
+  flex: 1 1 50%;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.cmp-footer__copyright {
+  grid-column: col-start 2 / span 4;
+  grid-row-start: 3;
+}
+
+@media (min-width: 900px) {
+  .cmp-footer {
+    --footer-block-padding: 6rem;
+  }
+
+  .cmp-footer__inner-wrap {
+    grid-template-columns: repeat(12, [col-start] 1fr); 
+  }
+
+  .cmp-footer__logo {
+    grid-column: col-start 2 / span 2;
+  }
+
+  .cmp-footer__logo svg {
+    max-width: none;
+  }
+
+  .cmp-footer__nav {
+    grid-column: col-start 6 / span 6;
+    grid-row-start: 1;
+  }
+
+  .cmp-footer__copyright {
+    grid-column: col-start 6 / span 6;
+    grid-row-start: 2;
+  }
+}
+
+@media (min-width: 1300px) {
+  .cmp-footer__inner-wrap {
+    grid-template-columns: repeat(16, [col-start] 1fr); 
+  }
+
+  .cmp-footer__logo {
+    grid-column: col-start 1 / span 2;
+  }
+
+  .cmp-footer__nav {
+    grid-column: col-start 7 / span 8;
+  }
+
+  .cmp-footer__copyright {
+    grid-column: col-start 7 / span 10;
+  }
+
+  /* the copyright and the links are on one line at large sizes */
+  .cmp-footer__copyright p {
+    display: inline;
+  }
+
+  /* the copyright statement itself */
+  .cmp-footer__copyright p:first-of-type::after {
+    content: '/';
+    margin-right: 5px;
+    margin-left: 7px;
+  }
 }
 
 .cmp-footer__link,
