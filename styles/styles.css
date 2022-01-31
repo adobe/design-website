@@ -67,7 +67,7 @@
   --layout-max-width-desktop: 102.6875em; /* 1643px */
   --link-default-state-text: none;
   --link-hover-state-text: underline;
-  --padding-block-default: 2em;
+  --padding-block-default: 4rem;
   --carousel-transition-time: 0.2s;
   --carousel-transition-ease: linear;
 }

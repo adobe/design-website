@@ -14,7 +14,6 @@
 }
 
 .home .cmp-stories-card {
-  background-color: #FFE255;
   color: var(--color-base-dark-slate-secondary);
   grid-column: col-start 1 / span 6;
 }
@@ -25,10 +24,12 @@
 
 .home .cmp-stories-card__tag {
   color: var(--color-base-dark-slate-secondary);
+  display: inline-block;
   font-size: var(--font-size-400);
   padding-bottom: 5px;
   position: relative;
   text-transform: uppercase;
+  width: auto;
 }
 
 .home .cmp-stories-card__tag::after {
@@ -62,6 +63,11 @@
     --home-card-title-font-size: var(--font-size-1000);
     
     line-height: 1;
+    margin-top: 20%;
+  }
+
+  .home .cmp-stories-card__attribution {
+    margin-bottom: 5rem;
   }
 }
 
@@ -127,24 +133,10 @@
     grid-column-start: 2;
     grid-row-start: 1;
   }
-}
 
-/* TODO: these sizes look very large - ask design */
-/*
-@media (min-width: 1300px) {
-  .home .cmp-stories-card__title {
-    --home-card-title-font-size: var(--font-size-2000);
-  }
-
-  .home .cmp-stories-card__intro {
-    --home-card-intro-font-size: var(--font-size-950);
-  }
-} */
-
-/*
-main .stories .stories-card img {
-    height: 150px;
+  .home .cmp-stories-card__media img {
+    height: 100%;
     width: 100%;
-    border-radius: 3px 3px 0 0;
     object-fit: cover;
-} */
+  }
+}
