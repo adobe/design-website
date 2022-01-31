@@ -51,7 +51,6 @@ class Carousel {
     slideHolder.classList.remove('hidden');
 
     this.slides = document.querySelectorAll('.carousel-slide');
-    console.log(this.slides[0].offsetWidth);
     this.progressWrap = gsap.utils.wrap(0, 1);
     this.numSlides = this.slides.length;
 
@@ -159,8 +158,6 @@ export default async function decorate(block) {
   const carousel = new Carousel(uiInner);
 
   stories.forEach((row, i) => {
-    // console.log(row);
-
     const li = document.createElement('li');
     li.dataset.color = row.color;
     li.classList.add('carousel-slide');
