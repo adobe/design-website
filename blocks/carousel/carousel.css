@@ -8,17 +8,23 @@
     display: flex;
     flex: 1;
     background-color: var(--header-color);
-    transition: background-color 0.3s linear;
+    transition: background-color var(--carousel-transition-time) var(--carousel-transition-ease);
+}
+
+.carousel-group.hidden .carousel-slide{
+    visibility: hidden;
+}
+
+.carousel-group.hidden .carousel-slide:first-child{
+    visibility: visible;
+}
+
+.carousel-group.hidden .carousel-ui {
+    display: none;
 }
 
 .carousel-gradient{
     height: 600px;
-    /*
-    background-color: var(--header-color);
-    -webkit-mask: linear-gradient(180deg, var(--header-color) 0%, rgba(0,0,0,0) 100%);
-    mask: linear-gradient(180deg, var(--header-color) 0%, rgba(0,0,0,0) 100%);
-    transition: background-color 0.3s linear;
-    */
 }
 
 .carousel-gradient-svg{
@@ -28,7 +34,7 @@
 
 .carousel-gradient-svg .svg-bg{
     fill: var(--header-color);
-    transition: fill 0.3s linear;
+    transition: fill var(--carousel-transition-time) var(--carousel-transition-ease);
 }
 
 .carousel-slides {
@@ -53,19 +59,21 @@
 }
 
 .carousel-slide-container {
-    display: grid;
-    grid-template-columns: repeat(12, [col-start] 1fr);
     margin: 0 auto;
     width: 95%;
-    column-gap: 12px;
-    row-gap: 12px;
     max-width: var(--layout-max-width-desktop);
 }
 
 .carousel-slide-content {
     display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    column-gap: 12px;
+    row-gap: 12px;
+    /*
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column: col-start 1 / span 12;
+    */
 }
 
 .carousel-slide-content h2 {
@@ -79,25 +87,20 @@
 }
 
 .carousel-slide-copy {
-    padding: 2.25rem 3.5rem;
-    grid-column-start: 2;
-    grid-column-end: 2;
+    grid-column-start: 8;
+    grid-column-end: 12;
     grid-row-start: 1;
     grid-row-end: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .carousel-slide picture {
-    grid-column-start: 1;
-    grid-column-end: 1;
+    grid-column-start: 2;
+    grid-column-end: 7;
     grid-row-start: 1;
     grid-row-end: 1;
-    padding-left: 3.5rem;
-}
-
-.carousel-slide img {
-    width: 698px;
-    height: 698px;
-    object-fit: contain;
 }
 
 .carousel-btn {

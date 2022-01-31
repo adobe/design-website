@@ -4,6 +4,8 @@ import '../../scripts/gsap/CSSPlugin.js';
 import { createOptimizedPicture, lookupPages } from '../../scripts/scripts.js';
 
 class Carousel {
+  initialized = false;
+
   proxy;
 
   timer;
@@ -19,8 +21,6 @@ class Carousel {
   backgroundContianer;
 
   constructor(ui) {
-    // this.backgroundContianer = document.querySelector('.carousel-group');
-
     const prevButton = document.createElement('div');
     prevButton.classList.add('carousel-btn');
     prevButton.classList.add('carousel-btn-prev');
@@ -40,8 +40,18 @@ class Carousel {
       this.animateSlides(1);
       this.timer.kill();
     });
+  }
+
+  init() {
+    if (this.initialized) {
+      return;
+    }
+
+    const slideHolder = document.querySelector('.carousel-group');
+    slideHolder.classList.remove('hidden');
 
     this.slides = document.querySelectorAll('.carousel-slide');
+    console.log(this.slides[0].offsetWidth);
     this.progressWrap = gsap.utils.wrap(0, 1);
     this.numSlides = this.slides.length;
 
@@ -71,9 +81,9 @@ class Carousel {
     this.slideAnimation = gsap.to({}, {});
     this.slideWidth = 0;
     this.wrapWidth = 0;
-  }
 
-  init() {
+    this.initialized = true;
+
     this.resize();
   }
 
@@ -126,10 +136,27 @@ class Carousel {
 export default async function decorate(block) {
   const pathnames = [...block.querySelectorAll('a')].map((a) => new URL(a.href).pathname);
   block.textContent = '';
+
   const stories = await lookupPages(pathnames);
+
+  const container = document.createElement('div');
+  container.classList.add('carousel-group', 'hidden');
+  block.append(container);
+
   const ul = document.createElement('ul');
   ul.classList.add('carousel-slides');
   ul.style.width = `${stories.length * 100}%`;
+  container.append(ul);
+
+  const ui = document.createElement('div');
+  ui.classList.add('carousel-ui');
+  container.append(ui);
+
+  const uiInner = document.createElement('div');
+  uiInner.classList.add('carousel-ui-inner');
+  ui.append(uiInner);
+
+  const carousel = new Carousel(uiInner);
 
   stories.forEach((row, i) => {
     // console.log(row);
@@ -137,6 +164,10 @@ export default async function decorate(block) {
     const li = document.createElement('li');
     li.dataset.color = row.color;
     li.classList.add('carousel-slide');
+
+    if (i === 0) {
+      document.documentElement.style.setProperty('--header-color', row.color);
+    }
 
     const slideContainer = document.createElement('div');
     slideContainer.classList.add('carousel-slide-container');
@@ -160,21 +191,6 @@ export default async function decorate(block) {
     ul.append(li);
   });
 
-  const container = document.createElement('div');
-  container.classList.add('carousel-group');
-  container.append(ul);
-
-  const ui = document.createElement('div');
-  ui.classList.add('carousel-ui');
-
-  const uiInner = document.createElement('div');
-  uiInner.classList.add('carousel-ui-inner');
-  ui.append(uiInner);
-
-  container.append(ui);
-
-  block.append(container);
-
   const gradient = document.createElement('div');
   gradient.classList.add('carousel-gradient');
   block.append(gradient);
@@ -192,10 +208,11 @@ export default async function decorate(block) {
   <rect class="svg-bg" x="0" y="0" width="100" height="100" fill="red" mask="url(#mask)"/>
 </svg>`;
 
-  const carousel = new Carousel(uiInner);
-
-  // after appended..
-  setTimeout(() => {
-    carousel.init();
-  }, 100);
+  const slides = document.querySelectorAll('.carousel-slide');
+  const interval = setInterval(() => {
+    if (slides[0].offsetWidth > 0) {
+      clearInterval(interval);
+      carousel.init();
+    }
+  }, 10);
 }
