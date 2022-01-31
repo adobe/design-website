@@ -69,11 +69,6 @@
     grid-template-columns: repeat(12, [col-start] 1fr);
     column-gap: 12px;
     row-gap: 12px;
-    /*
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column: col-start 1 / span 12;
-    */
 }
 
 .carousel-slide-content h2 {
