@@ -114,6 +114,7 @@
     background-position: center;
     transform: rotate(180deg);
     transform-origin: center;
+    pointer-events: visible;
 }
 
 .carousel-btn-next {
@@ -127,6 +128,7 @@
     left: 0;
     height: 100%;
     width: 100%;
+    pointer-events: none;
 }
 
 .carousel-ui-inner{
