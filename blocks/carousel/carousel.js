@@ -1,6 +1,8 @@
 import { gsap } from '../../scripts/gsap/gsap-core.js';
 import '../../scripts/gsap/CSSPlugin.js';
 
+import colormap from '../../scripts/colormap.js';
+
 import { createOptimizedPicture, lookupPages } from '../../scripts/scripts.js';
 
 class Carousel {
@@ -107,6 +109,13 @@ class Carousel {
         const slide = this.slides[slideIndex];
         if (slide) {
           const { color } = slide.dataset;
+          if (colormap[color] === 'black') {
+            document.body.classList.remove('light-text');
+            document.body.classList.add('dark-text');
+          } else {
+            document.body.classList.remove('dark-text');
+            document.body.classList.add('light-text');
+          }
           document.documentElement.style.setProperty('--header-color', color);
         }
       },
