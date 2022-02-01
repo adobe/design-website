@@ -1,3 +1,12 @@
+.dark-text .carousel-slide-content, 
+.dark-text .carousel-slide-content a {
+    color: var(--color-base-dark-slate);
+}
+
+.light-text .carousel-slide-content, 
+.light-text .carousel-slide-content a {
+    color: var(--color-base-white);
+}
 
 .carousel-group {
     width: 100%;
@@ -76,11 +85,6 @@
 .carousel-slide-content h2 {
     font-size: var(--font-size-1000);
     font-weight: var(--font-weight-black);
-}
-
-.carousel-slide-content a {
-    /* text is either base-dark-slate or white*/
-    color: white;
 }
 
 .carousel-slide-copy {

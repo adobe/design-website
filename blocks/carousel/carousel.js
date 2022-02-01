@@ -1,7 +1,19 @@
 import { gsap } from '../../scripts/gsap/gsap-core.js';
 import '../../scripts/gsap/CSSPlugin.js';
 
+import colormap from '../../scripts/colormap.js';
+
 import { createOptimizedPicture, lookupPages } from '../../scripts/scripts.js';
+
+function setBodyColor(color) {
+  if (colormap[color] === 'black') {
+    document.body.classList.remove('light-text');
+    document.body.classList.add('dark-text');
+  } else {
+    document.body.classList.remove('dark-text');
+    document.body.classList.add('light-text');
+  }
+}
 
 class Carousel {
   initialized = false;
@@ -107,6 +119,7 @@ class Carousel {
         const slide = this.slides[slideIndex];
         if (slide) {
           const { color } = slide.dataset;
+          setBodyColor(color);
           document.documentElement.style.setProperty('--header-color', color);
         }
       },
@@ -159,11 +172,14 @@ export default async function decorate(block) {
 
   stories.forEach((row, i) => {
     const li = document.createElement('li');
-    li.dataset.color = row.color;
+    const bgColor = row.color !== '' ? row.color : '#fff';
+
+    li.dataset.color = bgColor;
     li.classList.add('carousel-slide');
 
     if (i === 0) {
-      document.documentElement.style.setProperty('--header-color', row.color);
+      setBodyColor(bgColor);
+      document.documentElement.style.setProperty('--header-color', bgColor);
     }
 
     const slideContainer = document.createElement('div');

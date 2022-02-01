@@ -5,6 +5,17 @@ header {
   z-index: 100;
 }
 
+.dark-text header, 
+.dark-text header a {
+    color: var(--color-base-dark-slate);
+}
+
+.light-text header, 
+.light-text header a {
+    color: var(--color-base-white);
+}
+
+
 header .nav {
   display: grid;
   grid-template-areas: 'hamburger brand' 'sections sections';
