@@ -34,6 +34,7 @@
   --color-base-linen: #F0E8DD;
   --color-base-white: #FFF;
   --color-base-black: #000;
+  --color-base-black-secondary: #030404;
   --color-base-lighter-black: #171717;
   --color-base-dark-slate: #3A3A3A;
   --color-base-dark-slate-secondary: #3E3E3E;
@@ -54,6 +55,7 @@
   --font-size-1000: 3.125rem; /* 50px */
   --font-size-1050: 3.4375rem; /* 55px */
   --font-size-1075: 3.8125rem; /* 61px */
+  --font-size-1090: 4.375rem; /* 70px - weird naming convention. sorry! */
   --font-size-2000: 5rem; /* 80px */
   --font-size-2500: 5.625rem; /* 90px */
   --font-size-4000: 7.5rem; /* 120px */
@@ -70,6 +72,8 @@
   --padding-block-default: 4rem;
   --carousel-transition-time: 0.4s;
   --carousel-transition-ease: linear;
+  --title-line-height: 1;
+  --subtitle-line-height: 1.1;
 }
 
 *, *::before, *::after {
