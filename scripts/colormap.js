@@ -1,4 +1,5 @@
 const COLORMAP = {
+  '#fff': 'black',
   '#12358F': 'white',
   '#FFE255': 'black',
   '#E91D25': 'white',
