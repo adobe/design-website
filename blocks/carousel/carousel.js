@@ -1,6 +1,3 @@
-import { gsap } from '../../scripts/gsap/gsap-core.js';
-import '../../scripts/gsap/CSSPlugin.js';
-
 import colormap from '../../scripts/colormap.js';
 
 import { createOptimizedPicture, lookupPages } from '../../scripts/scripts.js';
@@ -32,6 +29,8 @@ class Carousel {
 
   backgroundContianer;
 
+  gsap;
+
   constructor(ui) {
     const prevButton = document.createElement('div');
     prevButton.classList.add('carousel-btn');
@@ -54,7 +53,8 @@ class Carousel {
     });
   }
 
-  init() {
+  init(gsap) {
+    this.gsap = gsap;
     if (this.initialized) {
       return;
     }
@@ -99,11 +99,13 @@ class Carousel {
   }
 
   updateProgress() {
+    const { gsap } = this;
     const time = this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth);
     this.animation.progress(time);
   }
 
   animateSlides(direction) {
+    const { gsap } = this;
     const x = this.snapX(gsap.getProperty(this.proxy, 'x') + direction * this.slideWidth);
 
     this.timer.restart(true);
@@ -131,6 +133,7 @@ class Carousel {
   }
 
   resize() {
+    const { gsap } = this;
     const norm = (gsap.getProperty(this.proxy, 'x') / this.wrapWidth) || 0;
     this.slideWidth = this.slides[0].offsetWidth;
     this.wrapWidth = this.slideWidth * this.numSlides;
@@ -143,6 +146,18 @@ class Carousel {
     this.animateSlides(0);
     this.slideAnimation.progress(1);
   }
+}
+
+async function loadCarousel(carousel) {
+  const { gsap } = await import('../../scripts/gsap/gsap-core.js');
+  await import('../../scripts/gsap/CSSPlugin.js');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const interval = setInterval(() => {
+    if (slides[0].offsetWidth > 0) {
+      clearInterval(interval);
+      carousel.init(gsap);
+    }
+  }, 10);
 }
 
 export default async function decorate(block) {
@@ -221,11 +236,7 @@ export default async function decorate(block) {
   <rect class="svg-bg" x="0" y="0" width="100" height="100" fill="red" mask="url(#mask)"/>
 </svg>`;
 
-  const slides = document.querySelectorAll('.carousel-slide');
-  const interval = setInterval(() => {
-    if (slides[0].offsetWidth > 0) {
-      clearInterval(interval);
-      carousel.init();
-    }
-  }, 10);
+  setTimeout(() => {
+    loadCarousel(carousel);
+  }, 2000);
 }
