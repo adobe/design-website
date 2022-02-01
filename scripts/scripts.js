@@ -370,6 +370,28 @@ function removeStylingFromImages(main) {
 }
 
 /**
+ * Turns absolute links within the domain into relative links.
+ * @param {Element} main The container element
+ */
+export function makeLinksRelative(main) {
+  main.querySelectorAll('a').forEach((a) => {
+    // eslint-disable-next-line no-use-before-define
+    const hosts = ['hlx3.page', 'hlx.page', 'hlx.live', ...PRODUCTION_DOMAINS];
+    if (a.href) {
+      try {
+        const url = new URL(a.href);
+        const relative = hosts.some((host) => url.hostname.includes(host));
+        if (relative) a.href = `${url.pathname}${url.search}${url.hash}`;
+      } catch (e) {
+        // something went wrong
+        // eslint-disable-next-line no-console
+        console.log(e);
+      }
+    }
+  });
+}
+
+/**
  * Normalizes all headings within a container element.
  * @param {Element} $elem The container element
  * @param {[string]]} allowedHeadings The list of allowed headings (h1 ... h6)
@@ -486,6 +508,7 @@ initHlx();
 
 const LCP_BLOCKS = ['hero', 'carousel']; // add your LCP blocks to the list
 const RUM_GENERATION = 'design-website-1'; // add your RUM generation information here
+const PRODUCTION_DOMAINS = ['adobe.design'];
 
 sampleRUM('top');
 window.addEventListener('load', () => sampleRUM('load'));
@@ -521,18 +544,20 @@ function buildHeroBlock(main) {
   }
 }
 
-function loadHeader(header) {
+async function loadHeader(header) {
   const headerBlock = buildBlock('header', '');
   header.append(headerBlock);
   decorateBlock(headerBlock);
-  loadBlock(headerBlock);
+  await loadBlock(headerBlock);
+  makeLinksRelative(headerBlock);
 }
 
-function loadFooter(footer) {
+async function loadFooter(footer) {
   const footerBlock = buildBlock('footer', '');
   footer.append(footerBlock);
   decorateBlock(footerBlock);
-  loadBlock(footerBlock);
+  await loadBlock(footerBlock);
+  makeLinksRelative(footerBlock);
 }
 
 /**
@@ -556,6 +581,7 @@ export function decorateMain(main) {
   // forward compatible pictures redecoration
   decoratePictures(main);
   removeStylingFromImages(main);
+  makeLinksRelative(main);
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
