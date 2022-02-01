@@ -238,5 +238,5 @@ export default async function decorate(block) {
 
   setTimeout(() => {
     loadCarousel(carousel);
-  }, 2000);
+  }, 4000);
 }
