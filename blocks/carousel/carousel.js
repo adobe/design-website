@@ -12,18 +12,6 @@ function setBodyColor(color) {
   }
 }
 
-async function loadCarousel(carousel) {
-  const { gsap } = await import('../../scripts/gsap/gsap-core.js');
-  await import('../../scripts/gsap/CSSPlugin.js');
-  const slides = document.querySelectorAll('.carousel-slide');
-  const interval = setInterval(() => {
-    if (slides[0].offsetWidth > 0) {
-      clearInterval(interval);
-      carousel.init(gsap);
-    }
-  }, 10);
-}
-
 class Carousel {
   initialized = false;
 
@@ -162,6 +150,18 @@ class Carousel {
     this.animateSlides(0);
     this.slideAnimation.progress(1);
   }
+}
+
+async function loadCarousel(carousel) {
+  const { gsap } = await import('../../scripts/gsap/gsap-core.js');
+  await import('../../scripts/gsap/CSSPlugin.js');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const interval = setInterval(() => {
+    if (slides[0].offsetWidth > 0) {
+      clearInterval(interval);
+      carousel.init(gsap);
+    }
+  }, 10);
 }
 
 export default async function decorate(block) {
