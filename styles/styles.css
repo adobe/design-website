@@ -68,7 +68,7 @@
   --link-default-state-text: none;
   --link-hover-state-text: underline;
   --padding-block-default: 4rem;
-  --carousel-transition-time: 0.2s;
+  --carousel-transition-time: 0.4s;
   --carousel-transition-ease: linear;
 }
 

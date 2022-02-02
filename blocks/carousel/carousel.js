@@ -12,6 +12,18 @@ function setBodyColor(color) {
   }
 }
 
+async function loadCarousel(carousel) {
+  const { gsap } = await import('../../scripts/gsap/gsap-core.js');
+  await import('../../scripts/gsap/CSSPlugin.js');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const interval = setInterval(() => {
+    if (slides[0].offsetWidth > 0) {
+      clearInterval(interval);
+      carousel.init(gsap);
+    }
+  }, 10);
+}
+
 class Carousel {
   initialized = false;
 
@@ -90,6 +102,7 @@ class Carousel {
 
     this.proxy = document.createElement('div');
     this.slideAnimation = gsap.to({}, {});
+    this.colorAnimation = gsap.to({}, {});
     this.slideWidth = 0;
     this.wrapWidth = 0;
 
@@ -109,23 +122,26 @@ class Carousel {
     const x = this.snapX(gsap.getProperty(this.proxy, 'x') + direction * this.slideWidth);
 
     this.timer.restart(true);
-    this.slideAnimation.kill();
 
+    this.slideAnimation.kill();
     this.slideAnimation = gsap.to(this.proxy, {
       x,
       duration: this.slideDuration,
       ease: 'power2.out',
       onUpdate: () => this.updateProgress(),
-      onComplete: () => {
-        const time = this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth);
-        const slideIndex = Math.round(time * this.slides.length);
-        const slide = this.slides[slideIndex];
-        if (slide) {
-          const { color } = slide.dataset;
-          setBodyColor(color);
-          document.documentElement.style.setProperty('--header-color', color);
-        }
-      },
+    });
+
+    this.colorAnimation.kill();
+    this.colorAnimation = gsap.delayedCall(this.slideDuration / 2, () => {
+      console.log('color animate');
+      const time = this.progressWrap(x / this.wrapWidth);
+      const slideIndex = Math.round(time * this.slides.length);
+      const slide = this.slides[slideIndex];
+      if (slide) {
+        const { color } = slide.dataset;
+        setBodyColor(color);
+        document.documentElement.style.setProperty('--header-color', color);
+      }
     });
   }
 
@@ -147,18 +163,6 @@ class Carousel {
     this.animateSlides(0);
     this.slideAnimation.progress(1);
   }
-}
-
-async function loadCarousel(carousel) {
-  const { gsap } = await import('../../scripts/gsap/gsap-core.js');
-  await import('../../scripts/gsap/CSSPlugin.js');
-  const slides = document.querySelectorAll('.carousel-slide');
-  const interval = setInterval(() => {
-    if (slides[0].offsetWidth > 0) {
-      clearInterval(interval);
-      carousel.init(gsap);
-    }
-  }, 10);
 }
 
 export default async function decorate(block) {
