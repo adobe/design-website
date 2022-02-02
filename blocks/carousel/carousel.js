@@ -133,7 +133,6 @@ class Carousel {
 
     this.colorAnimation.kill();
     this.colorAnimation = gsap.delayedCall(this.slideDuration / 2, () => {
-      console.log('color animate');
       const time = this.progressWrap(x / this.wrapWidth);
       const slideIndex = Math.round(time * this.slides.length);
       const slide = this.slides[slideIndex];
