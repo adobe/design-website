@@ -68,6 +68,8 @@
   --link-default-state-text: none;
   --link-hover-state-text: underline;
   --padding-block-default: 4rem;
+  --carousel-transition-time: 0.4s;
+  --carousel-transition-ease: linear;
 }
 
 *, *::before, *::after {
@@ -87,6 +89,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   opacity: 0;
+  background-size: 100%;
 }
 
 body.appear {
@@ -105,10 +108,6 @@ input, button, textarea, select {
 
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
-}
-
-header {
-  height: 64px;
 }
 
 /* above the fold CSS goes here to squash CLS */
@@ -161,6 +160,10 @@ a:focus {
 
 .grid-container * {
   grid-column: col-start 2 / span 4;
+}
+
+#adobe-design{
+  display: none;
 }
 
 @media (min-width: 900px) {
