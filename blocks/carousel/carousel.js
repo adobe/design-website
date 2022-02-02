@@ -23,7 +23,7 @@ class Carousel {
 
   slideDelay = 3.5;
 
-  slideDuration = 0.3;
+  slideDuration = 1;
 
   snapX;
 
@@ -114,6 +114,7 @@ class Carousel {
     this.slideAnimation = gsap.to(this.proxy, {
       x,
       duration: this.slideDuration,
+      ease: 'power2.out',
       onUpdate: () => this.updateProgress(),
       onComplete: () => {
         const time = this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth);

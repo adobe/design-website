@@ -102,6 +102,12 @@
     grid-column-end: 7;
     grid-row-start: 1;
     grid-row-end: 1;
+    aspect-ratio: 1;
+}
+
+.carousel-slide img {
+    aspect-ratio: 1;
+    object-fit: cover;
 }
 
 .carousel-btn {
