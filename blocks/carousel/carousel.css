@@ -144,7 +144,7 @@
 }
 
 /* adjust margin*/
-.home .stories:nth-child(3){
+.home .stories-container{
     margin-top: -600px;
 }
   
@@ -225,7 +225,7 @@
         height: 300px;
     }
 
-    .home .stories:nth-child(3){
+    .home .stories-container{
         margin-top: -300px;
     }
       
