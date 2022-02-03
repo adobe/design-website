@@ -16,6 +16,7 @@
   --color-base-fire-brick: #CE4026;
   --color-base-orange: #FF502A;
   --color-base-orange-lt: #FFCDBA;
+  --color-base-peach: #E59275;
   --color-base-light-pink: #FFBAC4;
   --color-base-navy: #0B1C40;
   --color-base-royal-blue: #2C3290;
@@ -73,39 +74,6 @@
   --carousel-transition-time: 0.4s;
   --carousel-transition-ease: linear;
 }
-
-/*
-font-family: "adobe-clean-serif";
-font-style: italic;
-font-weight: 400;
-
-font-family: "adobe-clean-serif";
-font-weight: 400;
-
-font-family: "adobe-clean-serif";
-font-style: italic;
-font-weight: 700;
-
-font-family: "adobe-clean-serif";
-font-weight: 700;
-
-font-family: "adobe-clean";
-font-weight: 400;
-
-font-family: "adobe-clean";
-font-style: italic;
-font-weight: 400;
-
-font-family: "adobe-clean";
-font-weight: 700;
-
-font-family: "adobe-clean";
-font-style: italic;
-font-weight: 700;
-
-font-family: "adobe-clean"
-font-weight: 900;
-*/
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -166,6 +134,11 @@ a {
 a:hover,
 a:focus {
   text-decoration: underline;
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-bold);
 }
 
 /* .section-wrapper {
