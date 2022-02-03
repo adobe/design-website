@@ -1,17 +1,19 @@
 .dark-text .carousel-slide-content, 
-.dark-text .carousel-slide-content a {
+.dark-text .carousel-slide-content a,
+.light-text .carousel-ui {
     color: var(--color-base-dark-slate);
 }
 
 .light-text .carousel-slide-content, 
-.light-text .carousel-slide-content a {
+.light-text .carousel-slide-content a,
+.light-text .carousel-ui {
     color: var(--color-base-white);
 }
 
 .carousel-group {
     width: 100%;
     height: 100vh;
-    max-height: 900px;
+    max-height: 1040px;
     min-height: 600px;
     position: relative;
     overflow-x: hidden;
@@ -46,6 +48,18 @@
 .carousel-gradient-svg .svg-bg{
     fill: var(--header-color);
     transition: fill var(--carousel-transition-time) var(--carousel-transition-ease);
+}
+
+.carousel-indicator-scroll{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 20px;
+}
+
+.carousel-indicator-scroll svg{
+    display: inline;
+    margin-left: 25px;
 }
 
 .carousel-slides {
@@ -234,5 +248,10 @@
     .home .stories-container{
         margin-top: -300px;
     }
-      
+}
+
+@media (min-height:1000px) {
+    .carousel-indicator-scroll{
+        display: none;
+    }
 }

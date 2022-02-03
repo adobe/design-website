@@ -32,6 +32,18 @@ class Carousel {
   gsap;
 
   constructor(ui) {
+    const scrollDown = document.createElement('div');
+    scrollDown.classList.add('carousel-indicator-scroll');
+    scrollDown.innerHTML = `Scroll Down
+    <svg xmlns="http://www.w3.org/2000/svg" width="20.702" height="12.413" viewBox="0 0 20.702 12.413">
+    <g id="Chevron" transform="translate(-154.009 -37.009)">
+      <rect id="Frame" width="20" height="12" transform="translate(154.219 37.331)" fill="currentColor" opacity="0"/>
+      <path id="Shape" d="M20.708,2.087A2.074,2.074,0,0,0,17.168.615L10.361,7.429,3.553.615A2.078,2.078,0,1,0,.615,3.553l8.28,8.259a2.074,2.074,0,0,0,2.932,0l8.28-8.259A2.074,2.074,0,0,0,20.708,2.087Z" transform="translate(154.003 37.003)" fill="currentColor"/>
+    </g>
+  </svg>
+  `;
+    ui.appendChild(scrollDown);
+
     const prevButton = document.createElement('div');
     prevButton.classList.add('carousel-btn');
     prevButton.classList.add('carousel-btn-prev');
@@ -120,7 +132,7 @@ class Carousel {
     });
 
     this.colorAnimation.kill();
-    this.colorAnimation = gsap.delayedCall(this.slideDuration / 2, () => {
+    this.colorAnimation = gsap.delayedCall(0, () => {
       const time = this.progressWrap(x / this.wrapWidth);
       const slideIndex = Math.round(time * this.slides.length);
       const slide = this.slides[slideIndex];
