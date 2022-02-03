@@ -1,5 +1,9 @@
 import { getMetadata } from '../../scripts/scripts.js';
 
+function cardClick() {
+
+}
+
 function initAccodion() {
   const container = document.body.querySelector('.cmp-accordion__group');
   const cards = document.body.querySelectorAll('.cmp-accordion-card');
@@ -13,6 +17,8 @@ function initAccodion() {
     if (i === cards.length - 1) {
       size += rect.height;
     }
+
+    card.addEventListener('click', () => cardClick());
   }
 
   size += 200 * (cards.length - 1);
