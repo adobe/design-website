@@ -23,7 +23,7 @@ header .nav {
   grid-template-rows: 64px 1fr;
   align-items: center;
   padding: 0 2rem;
-  position: fixed;
+  /* position: fixed; */
   z-index: 1;
   background-color: rgba(var(--background-color),.92);
   width: 100vw;

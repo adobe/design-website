@@ -1,3 +1,6 @@
+import { getMetadata } from '../../scripts/scripts.js';
+import colormap from '../../scripts/colormap.js';
+
 export default async function decorate(block) {
   const ledeBlock = block;
   const articleComponent = ledeBlock.parentNode.parentNode;
@@ -91,6 +94,25 @@ export default async function decorate(block) {
     el.remove();
   });
 
-  const pageBgColor = document.head.querySelector('meta[name="color"]').content;
-  document.body.style.backgroundColor = pageBgColor;
+  function setBodyColor(color) {
+    if (colormap[color] === 'black') {
+      document.body.classList.remove('light-text');
+      document.body.classList.add('dark-text');
+    } else {
+      document.body.classList.remove('dark-text');
+      document.body.classList.add('light-text');
+    }
+  }
+
+  const pageBgColor = getMetadata('color') !== '' ? getMetadata('color') : '#fff';
+  setBodyColor(pageBgColor);
+
+  const hackGround = document.createElement('div');
+  hackGround.classList.add('page-hackground');
+  hackGround.style.setProperty('--hackground-color', pageBgColor);
+
+  document.body.append(hackGround);
+
+  // articleComponent.style.backgroundColor = pageBgColor;
+  document.documentElement.style.setProperty('--header-color', pageBgColor);
 }

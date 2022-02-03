@@ -95,6 +95,13 @@ body {
   background-size: 100%;
 }
 
+main,
+header,
+footer {
+  position: relative;
+  z-index: 100;
+}
+
 body.appear {
   font-family: var(--font-stack-sans);
   font-weight: var(--font-weight-normal);
