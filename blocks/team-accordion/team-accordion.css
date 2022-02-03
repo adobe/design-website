@@ -159,11 +159,13 @@
   display: grid;
   grid-template-columns: repeat(6, [col-start] 1fr);
   column-gap: 12px;
+  position: relative;
 }
 
 .cmp-accordion-card {
   grid-column: 1 / -1;
   padding: 3rem;
+  width: 100%;
 }
 
 .cmp-accordion-card h3 {

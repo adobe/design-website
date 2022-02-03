@@ -1,5 +1,24 @@
 import { getMetadata } from '../../scripts/scripts.js';
 
+function initAccodion() {
+  const container = document.body.querySelector('.cmp-accordion__group');
+  const cards = document.body.querySelectorAll('.cmp-accordion-card');
+
+  let size = 0;
+  for (let i = 0; i < cards.length; i += 1) {
+    const card = cards[i];
+    const rect = card.getBoundingClientRect();
+    card.style.position = 'absolute';
+    card.style.top = `${i * 200}px`;
+    if (i === cards.length - 1) {
+      size += rect.height;
+    }
+  }
+
+  size += 200 * (cards.length - 1);
+  container.style.height = `${size}px`;
+}
+
 export default async function decorate(block) {
   const accordionContainer = document.querySelector('.team-accordion-container');
   accordionContainer.firstChild.classList.add('cmp-accordion-container__inner');
@@ -20,6 +39,8 @@ export default async function decorate(block) {
   const accordionCards = accordionGroup.querySelectorAll(':scope > div');
   accordionCards.forEach((card, index) => {
     card.classList.add('cmp-accordion-card');
+    // calculate height...
+
     const cardTitleAndMedia = card.children[0].children;
     const cardBodyText = card.children[1].textContent;
     const cardBodyContent = document.createElement('p');
@@ -51,4 +72,6 @@ export default async function decorate(block) {
   orgContainer.append(orgHeadline);
   orgContainer.append(...orgTextElems);
   document.querySelector('.cmp-accordion-container__inner').append(orgContainer);
+
+  setTimeout(() => initAccodion(), 1000);
 }
