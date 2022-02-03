@@ -6,7 +6,6 @@
 .cmp-image-with-caption__caption {
   --caption-font-size: var(--font-size-100);
   
-  font-family: var(--font-stack-sans);
   font-size: var(--caption-font-size);
   font-style: italic;
   margin: 0 0 2rem;

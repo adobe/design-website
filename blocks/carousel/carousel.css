@@ -99,6 +99,7 @@
 .carousel-slide-content h2 {
     font-size: var(--font-size-1000);
     font-weight: var(--font-weight-black);
+    line-height: 1;
 }
 
 .carousel-slide-copy {
