@@ -16,6 +16,7 @@
   --color-base-fire-brick: #CE4026;
   --color-base-orange: #FF502A;
   --color-base-orange-lt: #FFCDBA;
+  --color-base-peach: #E59275;
   --color-base-light-pink: #FFBAC4;
   --color-base-navy: #0B1C40;
   --color-base-royal-blue: #2C3290;
@@ -62,7 +63,9 @@
   --font-stack-serif: "adobe-clean-serif", adobe-clean-serif, georgia, serif;
   --font-stack-sans: "adobe-clean", adobe-clean, helvetica, arial, sans-serif;
   --font-stack-fallback: helvetica, arial, sans-serif;
-  --font-weight-black: 700;
+  --font-weight-black: 900; /* Adobe Clean Black only | no italic | no serif face */
+  --font-weight-bold: 700; /* Adobe Clean & Adobe Clean Serif | italic & bold */
+  --font-weight-normal: 400; /* Adobe Clean & Adobe Clean Serif | normal & italic */
   --layout-width: 75%;
   --layout-max-width-desktop: 102.6875em; /* 1643px */
   --link-default-state-text: none;
@@ -94,6 +97,7 @@ body {
 
 body.appear {
   font-family: var(--font-stack-sans);
+  font-weight: var(--font-weight-normal);
   opacity: 1;
 }
 
@@ -110,6 +114,13 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
+h1 {
+  /* h1s are Adobe Clean Black */
+  font-family: var(--font-stack-sans);
+  font-weight: var(--font-weight-black);
+  line-height: 1;
+}
+
 /* above the fold CSS goes here to squash CLS */
 main .section-wrapper[data-section-status='loading'],
 main .section-wrapper[data-section-status='initialized'] {
@@ -123,6 +134,11 @@ a {
 a:hover,
 a:focus {
   text-decoration: underline;
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-bold);
 }
 
 /* .section-wrapper {
