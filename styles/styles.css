@@ -62,7 +62,9 @@
   --font-stack-serif: "adobe-clean-serif", adobe-clean-serif, georgia, serif;
   --font-stack-sans: "adobe-clean", adobe-clean, helvetica, arial, sans-serif;
   --font-stack-fallback: helvetica, arial, sans-serif;
-  --font-weight-black: 700;
+  --font-weight-black: 900; /* Adobe Clean Black only | no italic | no serif face */
+  --font-weight-bold: 700; /* Adobe Clean & Adobe Clean Serif | italic & bold */
+  --font-weight-normal: 400; /* Adobe Clean & Adobe Clean Serif | normal & italic */
   --layout-width: 75%;
   --layout-max-width-desktop: 102.6875em; /* 1643px */
   --link-default-state-text: none;
@@ -71,6 +73,39 @@
   --carousel-transition-time: 0.4s;
   --carousel-transition-ease: linear;
 }
+
+/*
+font-family: "adobe-clean-serif";
+font-style: italic;
+font-weight: 400;
+
+font-family: "adobe-clean-serif";
+font-weight: 400;
+
+font-family: "adobe-clean-serif";
+font-style: italic;
+font-weight: 700;
+
+font-family: "adobe-clean-serif";
+font-weight: 700;
+
+font-family: "adobe-clean";
+font-weight: 400;
+
+font-family: "adobe-clean";
+font-style: italic;
+font-weight: 400;
+
+font-family: "adobe-clean";
+font-weight: 700;
+
+font-family: "adobe-clean";
+font-style: italic;
+font-weight: 700;
+
+font-family: "adobe-clean"
+font-weight: 900;
+*/
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -94,6 +129,7 @@ body {
 
 body.appear {
   font-family: var(--font-stack-sans);
+  font-weight: var(--font-weight-normal);
   opacity: 1;
 }
 
@@ -108,6 +144,13 @@ input, button, textarea, select {
 
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
+}
+
+h1 {
+  /* h1s are Adobe Clean Black */
+  font-family: var(--font-stack-sans);
+  font-weight: var(--font-weight-black);
+  line-height: 1;
 }
 
 /* above the fold CSS goes here to squash CLS */

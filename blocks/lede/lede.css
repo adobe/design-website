@@ -214,9 +214,7 @@
 .cmp-lede__title {
   --lede-title-font-size: var(--font-size-900);
   
-  font-family: var(--font-stack-sans);
   font-size: var(--lede-title-font-size);
-  font-weight: var(--font-weight-black);
   line-height: 1;
   margin-bottom: 2rem;
 }
