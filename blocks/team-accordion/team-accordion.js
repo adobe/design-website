@@ -1,7 +1,86 @@
-import { getMetadata } from '../../scripts/scripts.js';
+import { getMetadata, loadScript } from '../../scripts/scripts.js';
 
 const visibleCardArea = 250;
 
+class Accordion {
+  container;
+
+  cars;
+
+  gsap;
+
+  init() {
+    this.container = document.body.querySelector('.cmp-accordion__group');
+    this.cards = document.body.querySelectorAll('.cmp-accordion-card');
+
+    let size = 0;
+
+    for (let i = 0; i < this.cards.length; i += 1) {
+      const card = this.cards[i];
+      const rect = card.getBoundingClientRect();
+      card.dataset.index = i;
+      card.style.position = 'absolute';
+      card.style.top = `${i * visibleCardArea}px`;
+      if (i === this.cards.length - 1) {
+        size += rect.height;
+      }
+
+      card.addEventListener('click', () => this.cardClick(i));
+    }
+
+    size += visibleCardArea * (this.cards.length - 1);
+    this.container.style.height = `${size}px`;
+  }
+
+  cardClick(i) {
+    const { gsap } = window;
+
+    const card = this.cards[i];
+    const rect = card.getBoundingClientRect();
+
+    const newCardHeight = rect.height - visibleCardArea - 1;
+    const lastCardRect = this.cards[this.cards.length - 1].getBoundingClientRect();
+    const lastCardHeight = lastCardRect.height;
+
+    for (let j = 0; j < this.cards.length; j += 1) {
+      if (j > i) {
+        gsap.to(this.cards[j], {
+          duration: 1,
+          y: newCardHeight,
+        });
+      } else {
+        gsap.to(this.cards[j], {
+          duration: 1,
+          y: 0,
+        });
+      }
+    }
+
+    console.log(this.container.style.height);
+
+    console.log(lastCardHeight, newCardHeight, visibleCardArea * (this.cards.length - 1));
+    const newHeight = (visibleCardArea * (this.cards.length - 1)) + newCardHeight + lastCardHeight;
+    console.log(newHeight);
+
+    gsap.to(this.container, {
+      duration: 1,
+      height: newHeight,
+    });
+  }
+}
+
+async function loadAccordion(accordion) {
+  const GSAP_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js';
+  const GSAP_CSS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/CSSRulePlugin.min.js';
+
+  loadScript(GSAP_URL, () => {
+    loadScript(GSAP_CSS_URL, () => {
+      accordion.init();
+    });
+  });
+}
+
+/*
 async function initAccodion() {
   const { gsap } = await import('../../scripts/gsap/gsap-core.js');
   await import('../../scripts/gsap/CSSPlugin.js');
@@ -56,6 +135,7 @@ async function initAccodion() {
   size += visibleCardArea * (cards.length - 1);
   container.style.height = `${size}px`;
 }
+  */
 
 export default async function decorate(block) {
   const accordionContainer = document.querySelector('.team-accordion-container');
@@ -111,5 +191,6 @@ export default async function decorate(block) {
   orgContainer.append(...orgTextElems);
   document.querySelector('.cmp-accordion-container__inner').append(orgContainer);
 
-  setTimeout(() => initAccodion(), 1000);
+  const accordion = new Accordion();
+  setTimeout(() => loadAccordion(accordion), 1000);
 }
