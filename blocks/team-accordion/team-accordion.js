@@ -1,10 +1,11 @@
 import { getMetadata } from '../../scripts/scripts.js';
 
-function cardClick() {
+const visibleCardArea = 250;
 
-}
+async function initAccodion() {
+  const { gsap } = await import('../../scripts/gsap/gsap-core.js');
+  await import('../../scripts/gsap/CSSPlugin.js');
 
-function initAccodion() {
   const container = document.body.querySelector('.cmp-accordion__group');
   const cards = document.body.querySelectorAll('.cmp-accordion-card');
 
@@ -12,16 +13,47 @@ function initAccodion() {
   for (let i = 0; i < cards.length; i += 1) {
     const card = cards[i];
     const rect = card.getBoundingClientRect();
+    card.dataset.index = i;
     card.style.position = 'absolute';
-    card.style.top = `${i * 200}px`;
+    card.style.top = `${i * visibleCardArea}px`;
     if (i === cards.length - 1) {
       size += rect.height;
     }
 
-    card.addEventListener('click', () => cardClick());
+    card.addEventListener('click', () => {
+      const newCardHeight = rect.height - visibleCardArea - 1;
+
+      const lastCardRect = cards[cards.length - 1].getBoundingClientRect();
+      const lastCardHeight = lastCardRect.height;
+
+      for (let j = 0; j < cards.length; j += 1) {
+        if (j > i) {
+          gsap.to(cards[j], {
+            duration: 1,
+            y: newCardHeight,
+          });
+        } else {
+          gsap.to(cards[j], {
+            duration: 1,
+            y: 0,
+          });
+        }
+      }
+
+      console.log(container.style.height);
+
+      console.log(lastCardHeight, newCardHeight, visibleCardArea * (cards.length - 1));
+      const newHeight = (visibleCardArea * (cards.length - 1)) + newCardHeight + lastCardHeight;
+      console.log(newHeight);
+
+      gsap.to(container, {
+        duration: 1,
+        height: newHeight,
+      });
+    });
   }
 
-  size += 200 * (cards.length - 1);
+  size += visibleCardArea * (cards.length - 1);
   container.style.height = `${size}px`;
 }
 
