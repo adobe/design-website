@@ -65,11 +65,12 @@ class Carousel {
     });
   }
 
-  init(gsap) {
-    this.gsap = gsap;
+  init() {
     if (this.initialized) {
       return;
     }
+
+    const { gsap } = window;
 
     const slideHolder = document.querySelector('.carousel-group');
     slideHolder.classList.remove('hidden');
@@ -112,13 +113,13 @@ class Carousel {
   }
 
   updateProgress() {
-    const { gsap } = this;
+    const { gsap } = window;
     const time = this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth);
     this.animation.progress(time);
   }
 
   animateSlides(direction) {
-    const { gsap } = this;
+    const { gsap } = window;
     const x = this.snapX(gsap.getProperty(this.proxy, 'x') + direction * this.slideWidth);
 
     this.timer.restart(true);
@@ -149,7 +150,7 @@ class Carousel {
   }
 
   resize() {
-    const { gsap } = this;
+    const { gsap } = window;
     const norm = (gsap.getProperty(this.proxy, 'x') / this.wrapWidth) || 0;
     this.slideWidth = this.slides[0].offsetWidth;
     this.wrapWidth = this.slideWidth * this.numSlides;
@@ -165,13 +166,22 @@ class Carousel {
 }
 
 async function loadCarousel(carousel) {
-  const { gsap } = await import('../../scripts/gsap/gsap-core.js');
-  await import('../../scripts/gsap/CSSPlugin.js');
+  const GSAP_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js';
+  const GSAP_CSS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/CSSRulePlugin.min.js';
+
+  const scriptGsap = document.createElement('script');
+  scriptGsap.src = GSAP_URL;
+  document.body.appendChild(scriptGsap);
+
+  const scriptGsapCSSPlugin = document.createElement('script');
+  scriptGsapCSSPlugin.src = GSAP_CSS_URL;
+  document.body.appendChild(scriptGsapCSSPlugin);
+
   const slides = document.querySelectorAll('.carousel-slide');
   const interval = setInterval(() => {
     if (slides[0].offsetWidth > 0) {
       clearInterval(interval);
-      carousel.init(gsap);
+      carousel.init();
     }
   }, 10);
 }
