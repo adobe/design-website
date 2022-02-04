@@ -1,6 +1,6 @@
 import colormap from '../../scripts/colormap.js';
 
-import { createOptimizedPicture, lookupPages } from '../../scripts/scripts.js';
+import { createOptimizedPicture, lookupPages, loadScript } from '../../scripts/scripts.js';
 
 function setBodyColor(color) {
   if (colormap[color] === 'black') {
@@ -169,21 +169,17 @@ async function loadCarousel(carousel) {
   const GSAP_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js';
   const GSAP_CSS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/CSSRulePlugin.min.js';
 
-  const scriptGsap = document.createElement('script');
-  scriptGsap.src = GSAP_URL;
-  document.body.appendChild(scriptGsap);
-
-  const scriptGsapCSSPlugin = document.createElement('script');
-  scriptGsapCSSPlugin.src = GSAP_CSS_URL;
-  document.body.appendChild(scriptGsapCSSPlugin);
-
-  const slides = document.querySelectorAll('.carousel-slide');
-  const interval = setInterval(() => {
-    if (slides[0].offsetWidth > 0) {
-      clearInterval(interval);
-      carousel.init();
-    }
-  }, 10);
+  loadScript(GSAP_URL, () => {
+    loadScript(GSAP_CSS_URL, () => {
+      const slides = document.querySelectorAll('.carousel-slide');
+      const interval = setInterval(() => {
+        if (slides[0].offsetWidth > 0) {
+          clearInterval(interval);
+          carousel.init();
+        }
+      }, 10);
+    });
+  });
 }
 
 export default async function decorate(block) {
