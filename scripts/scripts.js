@@ -666,3 +666,23 @@ function registerPerformanceLogger() {
 }
 
 if (window.name.includes('performance')) registerPerformanceLogger();
+
+/**
+ * loads a script by adding a script tag to the head.
+ * @param {string} url URL of the js file
+ * @param {Function} callback callback on load
+ * @param {string} type type attribute of script tag
+ * @returns {Element} script element
+ */
+
+export function loadScript(url, callback, type) {
+  const head = document.querySelector('head');
+  const script = document.createElement('script');
+  script.setAttribute('src', url);
+  if (type) {
+    script.setAttribute('type', type);
+  }
+  head.append(script);
+  script.onload = callback;
+  return script;
+}

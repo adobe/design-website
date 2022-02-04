@@ -71,8 +71,8 @@
   --link-default-state-text: none;
   --link-hover-state-text: underline;
   --padding-block-default: 4rem;
-  --carousel-transition-time: 0.4s;
-  --carousel-transition-ease: linear;
+  --carousel-transition-time: 1s;
+  --carousel-transition-ease: ease-out;
 }
 
 *, *::before, *::after {
