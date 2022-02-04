@@ -1,6 +1,6 @@
 import colormap from '../../scripts/colormap.js';
 
-import { createOptimizedPicture, lookupPages } from '../../scripts/scripts.js';
+import { createOptimizedPicture, lookupPages, loadScript } from '../../scripts/scripts.js';
 
 function setBodyColor(color) {
   if (colormap[color] === 'black') {
@@ -32,6 +32,18 @@ class Carousel {
   gsap;
 
   constructor(ui) {
+    const scrollDown = document.createElement('div');
+    scrollDown.classList.add('carousel-indicator-scroll');
+    scrollDown.innerHTML = `Scroll Down
+    <svg xmlns="http://www.w3.org/2000/svg" width="20.702" height="12.413" viewBox="0 0 20.702 12.413">
+    <g id="Chevron" transform="translate(-154.009 -37.009)">
+      <rect id="Frame" width="20" height="12" transform="translate(154.219 37.331)" fill="currentColor" opacity="0"/>
+      <path id="Shape" d="M20.708,2.087A2.074,2.074,0,0,0,17.168.615L10.361,7.429,3.553.615A2.078,2.078,0,1,0,.615,3.553l8.28,8.259a2.074,2.074,0,0,0,2.932,0l8.28-8.259A2.074,2.074,0,0,0,20.708,2.087Z" transform="translate(154.003 37.003)" fill="currentColor"/>
+    </g>
+  </svg>
+  `;
+    ui.appendChild(scrollDown);
+
     const prevButton = document.createElement('div');
     prevButton.classList.add('carousel-btn');
     prevButton.classList.add('carousel-btn-prev');
@@ -53,11 +65,12 @@ class Carousel {
     });
   }
 
-  init(gsap) {
-    this.gsap = gsap;
+  init() {
     if (this.initialized) {
       return;
     }
+
+    const { gsap } = window;
 
     const slideHolder = document.querySelector('.carousel-group');
     slideHolder.classList.remove('hidden');
@@ -100,13 +113,13 @@ class Carousel {
   }
 
   updateProgress() {
-    const { gsap } = this;
+    const { gsap } = window;
     const time = this.progressWrap(gsap.getProperty(this.proxy, 'x') / this.wrapWidth);
     this.animation.progress(time);
   }
 
   animateSlides(direction) {
-    const { gsap } = this;
+    const { gsap } = window;
     const x = this.snapX(gsap.getProperty(this.proxy, 'x') + direction * this.slideWidth);
 
     this.timer.restart(true);
@@ -120,7 +133,7 @@ class Carousel {
     });
 
     this.colorAnimation.kill();
-    this.colorAnimation = gsap.delayedCall(this.slideDuration / 2, () => {
+    this.colorAnimation = gsap.delayedCall(0, () => {
       const time = this.progressWrap(x / this.wrapWidth);
       const slideIndex = Math.round(time * this.slides.length);
       const slide = this.slides[slideIndex];
@@ -137,7 +150,7 @@ class Carousel {
   }
 
   resize() {
-    const { gsap } = this;
+    const { gsap } = window;
     const norm = (gsap.getProperty(this.proxy, 'x') / this.wrapWidth) || 0;
     this.slideWidth = this.slides[0].offsetWidth;
     this.wrapWidth = this.slideWidth * this.numSlides;
@@ -153,15 +166,20 @@ class Carousel {
 }
 
 async function loadCarousel(carousel) {
-  const { gsap } = await import('../../scripts/gsap/gsap-core.js');
-  await import('../../scripts/gsap/CSSPlugin.js');
-  const slides = document.querySelectorAll('.carousel-slide');
-  const interval = setInterval(() => {
-    if (slides[0].offsetWidth > 0) {
-      clearInterval(interval);
-      carousel.init(gsap);
-    }
-  }, 10);
+  const GSAP_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js';
+  const GSAP_CSS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/CSSRulePlugin.min.js';
+
+  loadScript(GSAP_URL, () => {
+    loadScript(GSAP_CSS_URL, () => {
+      const slides = document.querySelectorAll('.carousel-slide');
+      const interval = setInterval(() => {
+        if (slides[0].offsetWidth > 0) {
+          clearInterval(interval);
+          carousel.init();
+        }
+      }, 10);
+    });
+  });
 }
 
 export default async function decorate(block) {
