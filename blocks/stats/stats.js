@@ -12,4 +12,10 @@ export default async function decorate(block) {
       if (children[i]) children[i].classList.add(className);
     });
   });
+
+  // on the homepage only, if there's a "stats" heading, attempt to remove it
+  const headingToRemove = statsComponent.previousElementSibling;
+  if (headingToRemove && window.location.pathname === '/') {
+    headingToRemove.remove();
+  }
 }

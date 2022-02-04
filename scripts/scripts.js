@@ -686,3 +686,14 @@ export function loadScript(url, callback, type) {
   script.onload = callback;
   return script;
 }
+
+function addPathsAsClassNames() {
+  if (window.location.pathname === '/') {
+    document.body.classList.add('home');
+  } else {
+    const pathNames = window.location.pathname.split('/').filter((item) => item !== '').slice(0, 2);
+    document.body.classList.add(...pathNames);
+  }
+}
+
+addPathsAsClassNames();

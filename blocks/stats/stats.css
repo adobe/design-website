@@ -99,6 +99,7 @@
 }
 
 .home .cmp-stats__item-description {
+  text-align: center;
   margin: 0 8rem 5rem;
 }
 
