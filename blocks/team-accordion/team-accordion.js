@@ -9,6 +9,8 @@ class Accordion {
 
   gsap;
 
+  selected = 0;
+
   init() {
     this.container = document.body.querySelector('.cmp-accordion__group');
     this.cards = document.body.querySelectorAll('.cmp-accordion-card');
@@ -35,6 +37,8 @@ class Accordion {
   cardClick(i) {
     const { gsap } = window;
 
+    this.selected = i;
+
     const card = this.cards[i];
     const rect = card.getBoundingClientRect();
 
@@ -56,11 +60,10 @@ class Accordion {
       }
     }
 
-    console.log(this.container.style.height);
-
-    console.log(lastCardHeight, newCardHeight, visibleCardArea * (this.cards.length - 1));
-    const newHeight = (visibleCardArea * (this.cards.length - 1)) + newCardHeight + lastCardHeight;
-    console.log(newHeight);
+    let newHeight = (visibleCardArea * (this.cards.length - 1)) + newCardHeight + lastCardHeight;
+    if (i === this.cards.length - 1) {
+      newHeight = (visibleCardArea * (this.cards.length - 1)) + lastCardHeight;
+    }
 
     gsap.to(this.container, {
       duration: 1,
@@ -79,63 +82,6 @@ async function loadAccordion(accordion) {
     });
   });
 }
-
-/*
-async function initAccodion() {
-  const { gsap } = await import('../../scripts/gsap/gsap-core.js');
-  await import('../../scripts/gsap/CSSPlugin.js');
-
-  const container = document.body.querySelector('.cmp-accordion__group');
-  const cards = document.body.querySelectorAll('.cmp-accordion-card');
-
-  let size = 0;
-  for (let i = 0; i < cards.length; i += 1) {
-    const card = cards[i];
-    const rect = card.getBoundingClientRect();
-    card.dataset.index = i;
-    card.style.position = 'absolute';
-    card.style.top = `${i * visibleCardArea}px`;
-    if (i === cards.length - 1) {
-      size += rect.height;
-    }
-
-    card.addEventListener('click', () => {
-      const newCardHeight = rect.height - visibleCardArea - 1;
-
-      const lastCardRect = cards[cards.length - 1].getBoundingClientRect();
-      const lastCardHeight = lastCardRect.height;
-
-      for (let j = 0; j < cards.length; j += 1) {
-        if (j > i) {
-          gsap.to(cards[j], {
-            duration: 1,
-            y: newCardHeight,
-          });
-        } else {
-          gsap.to(cards[j], {
-            duration: 1,
-            y: 0,
-          });
-        }
-      }
-
-      console.log(container.style.height);
-
-      console.log(lastCardHeight, newCardHeight, visibleCardArea * (cards.length - 1));
-      const newHeight = (visibleCardArea * (cards.length - 1)) + newCardHeight + lastCardHeight;
-      console.log(newHeight);
-
-      gsap.to(container, {
-        duration: 1,
-        height: newHeight,
-      });
-    });
-  }
-
-  size += visibleCardArea * (cards.length - 1);
-  container.style.height = `${size}px`;
-}
-  */
 
 export default async function decorate(block) {
   const accordionContainer = document.querySelector('.team-accordion-container');
