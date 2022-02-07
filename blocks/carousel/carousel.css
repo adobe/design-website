@@ -12,6 +12,7 @@
 
 .carousel-group {
     width: 100%;
+    padding-top: 100px;
     height: 100vh;
     max-height: 1040px;
     min-height: 600px;
@@ -175,6 +176,7 @@
     .carousel-group {
         height: 80vh;
         overflow-y: hidden;
+        min-height: 700px;
     }
 
     .carousel-slide picture {
@@ -201,9 +203,17 @@
         height: 80%;
         align-items: flex-end;
     }
+
+    .carousel-indicator-scroll{
+        display: none;
+    }
 }
 
 @media (max-width: 900px) {
+
+    .carousel-group {
+        padding-top: 0;
+    }
 
     .carousel-slide-container{
         box-sizing: border-box;
@@ -239,7 +249,8 @@
     .carousel-ui-inner{
         grid-column-start: 1;
         grid-column-end: 7;
-        height: 220px;
+        height: 52vw;
+        padding-top: 100px;
     }
 
     .carousel-gradient{
@@ -248,6 +259,17 @@
 
     .home .stories-container{
         margin-top: -300px;
+    }
+
+    .carousel-indicator-scroll{
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .carousel-ui-inner{
+        height: 62vw;
+        padding-top: 100px;
     }
 }
 

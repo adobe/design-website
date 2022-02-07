@@ -8,8 +8,9 @@ header a {
 }
 
 header {
-  background-color: var(--header-color);
-  transition: background-color var(--carousel-transition-time) var(--carousel-transition-ease);
+  position: absolute;
+  z-index: 200;
+  width: 100%;
 }
 
 .header.block {
