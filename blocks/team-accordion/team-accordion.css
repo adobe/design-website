@@ -167,6 +167,11 @@
   grid-column: 1 / -1;
   padding: 3rem;
   width: 100%;
+  cursor: pointer;
+}
+
+.cmp-accordion-card *{
+  pointer-events: none;
 }
 
 .cmp-accordion-card h3 {

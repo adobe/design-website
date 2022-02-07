@@ -20,6 +20,7 @@ class Accordion {
     for (let i = 0; i < this.cards.length; i += 1) {
       const card = this.cards[i];
       const rect = card.getBoundingClientRect();
+      console.log(rect);
       card.dataset.index = i;
       card.style.position = 'absolute';
       card.style.top = `${i * visibleCardArea}px`;
@@ -27,11 +28,31 @@ class Accordion {
         size += rect.height;
       }
 
+      //card.addEventListener('mouseout', () => this.cardMouseOut(i));
+      //card.addEventListener('mouseover', () => this.cardMouseOver(i));
       card.addEventListener('click', () => this.cardClick(i));
     }
 
     size += visibleCardArea * (this.cards.length - 1);
     this.container.style.height = `${size}px`;
+  }
+
+  cardMouseOver(i) {
+    const { gsap } = window;
+    gsap.to(this.cards[i], {
+      duration: 0.2,
+      y: -50,
+      ease: 'quad.out',
+    });
+  }
+
+  cardMouseOut(i) {
+    const { gsap } = window;
+    gsap.to(this.cards[i], {
+      duration: 0.2,
+      y: 0,
+      ease: 'quad.out',
+    });
   }
 
   cardClick(i) {
@@ -69,16 +90,27 @@ class Accordion {
       duration: 1,
       height: newHeight,
     });
+
+    console.log(rect.top);
+    const newTop = rect.top + (i * visibleCardArea);
+
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: newTop,
+    });
   }
 }
 
 async function loadAccordion(accordion) {
   const GSAP_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js';
   const GSAP_CSS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/CSSRulePlugin.min.js';
+  const GSAP_SCROLL_URL = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollToPlugin.min.js';
 
   loadScript(GSAP_URL, () => {
-    loadScript(GSAP_CSS_URL, () => {
-      accordion.init();
+    loadScript(GSAP_SCROLL_URL, () => {
+      loadScript(GSAP_CSS_URL, () => {
+        accordion.init();
+      });
     });
   });
 }
