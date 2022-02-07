@@ -9,7 +9,9 @@ class Accordion {
 
   gsap;
 
-  selected = 0;
+  selected = -1;
+
+  scrolling = false;
 
   init() {
     this.container = document.body.querySelector('.cmp-accordion__group');
@@ -28,29 +30,56 @@ class Accordion {
         size += rect.height;
       }
 
-      //card.addEventListener('mouseout', () => this.cardMouseOut(i));
-      //card.addEventListener('mouseover', () => this.cardMouseOver(i));
+      card.addEventListener('mouseout', () => this.cardMouseOut(i));
+      card.addEventListener('mouseover', () => this.cardMouseOver(i));
       card.addEventListener('click', () => this.cardClick(i));
     }
 
     size += visibleCardArea * (this.cards.length - 1);
     this.container.style.height = `${size}px`;
+
+    window.addEventListener('mousewheel', (e) => this.handleMousewheel(e));
+  }
+
+  handleMousewheel(e) {
+    if (this.scrolling) {
+      return;
+    }
+    if (this.selected !== -1) {
+      if (e.deltaY > 0 && this.selected < this.cards.length - 1) {
+        this.cardClick(this.selected + 1);
+      } else if (e.deltaY < 0 && this.selected > 0) {
+        this.cardClick(this.selected - 1);
+      }
+    }
+
+    this.scrolling = true;
+
+    setTimeout(() => {
+      this.scrolling = false;
+    }, 1000);
   }
 
   cardMouseOver(i) {
     const { gsap } = window;
+    if (this.selected === i || gsap.isTweening(this.cards[i])) {
+      return;
+    }
     gsap.to(this.cards[i], {
       duration: 0.2,
-      y: -50,
+      y: '-=50',
       ease: 'quad.out',
     });
   }
 
   cardMouseOut(i) {
     const { gsap } = window;
+    if (this.selected === i || gsap.isTweening(this.cards[i])) {
+      return;
+    }
     gsap.to(this.cards[i], {
       duration: 0.2,
-      y: 0,
+      y: '+=50',
       ease: 'quad.out',
     });
   }
@@ -58,6 +87,7 @@ class Accordion {
   cardClick(i) {
     const { gsap } = window;
 
+    console.log(i);
     this.selected = i;
 
     const card = this.cards[i];
@@ -68,6 +98,7 @@ class Accordion {
     const lastCardHeight = lastCardRect.height;
 
     for (let j = 0; j < this.cards.length; j += 1) {
+      gsap.killTweensOf(this.cards[j]);
       if (j > i) {
         gsap.to(this.cards[j], {
           duration: 1,
@@ -86,14 +117,17 @@ class Accordion {
       newHeight = (visibleCardArea * (this.cards.length - 1)) + lastCardHeight;
     }
 
+    gsap.killTweensOf(this.container);
     gsap.to(this.container, {
       duration: 1,
       height: newHeight,
     });
 
-    console.log(rect.top);
-    const newTop = rect.top + (i * visibleCardArea);
+    const { container } = this;
+    const containerRect = container.getBoundingClientRect();
+    const newTop = document.documentElement.scrollTop + containerRect.top + (i * visibleCardArea);
 
+    gsap.killTweensOf(window);
     gsap.to(window, {
       duration: 1,
       scrollTo: newTop,
