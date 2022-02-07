@@ -38,18 +38,29 @@ class Accordion {
     size += visibleCardArea * (this.cards.length - 1);
     this.container.style.height = `${size}px`;
 
-    window.addEventListener('mousewheel', (e) => this.handleMousewheel(e));
+    window.addEventListener('wheel', (e) => this.handleMousewheel(e));
   }
 
   handleMousewheel(e) {
-    if (this.scrolling) {
-      return;
+    if (this.selected > 0 || this.selected < this.cards.length - 1) {
+      console.log('stopp');
+      e.preventDefault();
+      e.stopPropagation();
     }
+
+    if (this.scrolling) {
+      return false;
+    }
+
     if (this.selected !== -1) {
       if (e.deltaY > 0 && this.selected < this.cards.length - 1) {
         this.cardClick(this.selected + 1);
-      } else if (e.deltaY < 0 && this.selected > 0) {
-        this.cardClick(this.selected - 1);
+      } else if (e.deltaY < 0 && this.selected > -1) {
+        if (this.selected === 0) {
+          this.selected = -1;
+        } else {
+          this.cardClick(this.selected - 1);
+        }
       }
     }
 
@@ -58,6 +69,8 @@ class Accordion {
     setTimeout(() => {
       this.scrolling = false;
     }, 1000);
+
+    return false;
   }
 
   cardMouseOver(i) {
