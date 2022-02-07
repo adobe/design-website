@@ -44,6 +44,3 @@ export default async function decorate(block) {
   const storyFeedContainerInner = document.querySelector('.story-feed-container').firstChild;
   storyFeedContainerInner.classList.add('cmp-stories__inner-wrap');
 }
-
-const pageBgColor = document.head.querySelector('meta[name="color"]').content;
-document.body.style.backgroundColor = `var(--color-base-${pageBgColor})`;
