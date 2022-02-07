@@ -1,16 +1,5 @@
-import colormap from '../../scripts/colormap.js';
-
+import setBodyColor from '../../scripts/body-color.js';
 import { createOptimizedPicture, lookupPages, loadScript } from '../../scripts/scripts.js';
-
-function setBodyColor(color) {
-  if (colormap[color] === 'black') {
-    document.body.classList.remove('light-text');
-    document.body.classList.add('dark-text');
-  } else {
-    document.body.classList.remove('dark-text');
-    document.body.classList.add('light-text');
-  }
-}
 
 class Carousel {
   initialized = false;
