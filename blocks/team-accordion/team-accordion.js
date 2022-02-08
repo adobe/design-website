@@ -19,8 +19,8 @@ class Accordion {
 
     for (let i = 0; i < this.cards.length; i += 1) {
       const card = this.cards[i];
-      card.addEventListener('mouseout', () => this.cardMouseOut(i));
-      card.addEventListener('mouseover', () => this.cardMouseOver(i));
+      card.addEventListener('mouseleave', () => this.cardMouseOut(i));
+      card.addEventListener('mouseenter', () => this.cardMouseOver(i));
       card.addEventListener('click', () => this.cardClick(i));
     }
 
@@ -44,6 +44,7 @@ class Accordion {
       card.dataset.index = i;
       card.style.position = 'absolute';
       card.style.top = `${i * visibleCardArea}px`;
+      card.dataset.y = 0;
       if (i === this.cards.length - 1) {
         size += rect.height;
       }
@@ -85,7 +86,9 @@ class Accordion {
 
   cardMouseOver(i) {
     const { gsap } = window;
-    if (this.selected === i || gsap.isTweening(this.cards[i])) {
+    if (this.selected === i
+      || gsap.isTweening(this.cards[i])
+      || i === this.cards.length - 1) {
       return;
     }
     gsap.to(this.cards[i], {
@@ -100,16 +103,15 @@ class Accordion {
     if (this.selected === i || gsap.isTweening(this.cards[i])) {
       return;
     }
+
     gsap.to(this.cards[i], {
       duration: 0.2,
-      y: '+=50',
+      y: this.cards[i].dataset.y,
       ease: 'quad.out',
     });
   }
 
   cardClick(i) {
-    console.log(i);
-
     const { gsap } = window;
     this.selected = i;
 
@@ -119,6 +121,7 @@ class Accordion {
     if (i === -1) {
       // close cards
       for (let j = 0; j < this.cards.length; j += 1) {
+        this.cards[j].dataset.y = 0;
         gsap.killTweensOf(this.cards[j]);
         gsap.to(this.cards[j], {
           duration: 1,
@@ -143,11 +146,13 @@ class Accordion {
     for (let j = 0; j < this.cards.length; j += 1) {
       gsap.killTweensOf(this.cards[j]);
       if (j > i) {
+        this.cards[j].dataset.y = newCardHeight;
         gsap.to(this.cards[j], {
           duration: 1,
           y: newCardHeight,
         });
       } else {
+        this.cards[j].dataset.y = 0;
         gsap.to(this.cards[j], {
           duration: 1,
           y: 0,
