@@ -4,7 +4,7 @@ function createCard(row) {
   const card = document.createElement('article');
   card.classList.add('cmp-stories-card');
 
-  const cardIntro = `${row.description ? `<p class="cmp-stories-card__intro">${row.description}</p>` : ''}`;
+  const cardIntro = `${row.subtitle ? `<p class="cmp-stories-card__intro">${row.subtitle}</p>` : ''}`;
   const cardAuthor = `${row.author ? `<p class="cmp-stories-card__author">${row.author}</p>` : ''}`;
   const cardAuthorTitle = `${row.authorTitle ? `<p class="cmp-stories-card__author-title">${row.authorTitle}</p>` : ''}`;
 
