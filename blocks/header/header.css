@@ -7,7 +7,7 @@ header a {
   color: var(--reactive-text-color);
 }
 
-header {
+.home header {
   position: absolute;
   z-index: 200;
   width: 100%;

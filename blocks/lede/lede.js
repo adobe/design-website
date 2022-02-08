@@ -1,11 +1,14 @@
+import { getMetadata } from '../../scripts/scripts.js';
+
 export default async function decorate(block) {
   const ledeBlock = block;
   const articleComponent = ledeBlock.parentNode.parentNode;
   const articleInnerWrap = articleComponent.firstChild;
   const articleTitle = articleComponent.querySelector('h1');
   const articleSubTitle = articleTitle.nextElementSibling;
-  const articleTagData = document.head.querySelector('meta[name="tag"]').content;
-  const articleAuthorData = document.head.querySelector('meta[name="author"]').content;
+  const articleTagData = getMetadata('tag');
+  const articleAuthorData = getMetadata('author');
+  const isProfile = getMetadata('theme') === 'profile';
 
   // before anything else, try to wrap most of the DOM elements in a div
   // to provide a solid white background appearance & stay true to the design
@@ -34,9 +37,6 @@ export default async function decorate(block) {
   articleTag.classList.add('cmp-lede__tag');
   articleTitle.parentNode.insertBefore(articleTag, articleTitle.parentNode.firstChild);
 
-  // TODO:
-  // 1. Does the articleTag include a link? If so, we need that data & need to inject it
-
   articleComponent.classList.add('cmp-lede');
   articleInnerWrap.classList.add('cmp-lede__inner-wrap');
   articleTitle.classList.add('cmp-lede__title');
@@ -61,6 +61,22 @@ export default async function decorate(block) {
     heroCaption.classList.add('cmp-lede__hero-caption');
   }
 
+  // give unique DOM order to profile pages only!
+  // this moves the profile "hero" image in the DOM so that it is a sibling of
+  // the title-wrap and the article-bg
+  //
+  // <div class="cmp-lede__inner-wrap">
+  //   <div class="cmp-lede__article-title-wrap"></div>
+  //   <p class="cmp-lede__media-parent cmp-lede__hero-parent"></p> **** NEW POSIITON ****
+  //   <div class="cmp-lede__article-bg"></div>
+  // </div>
+  //
+  if (isProfile) {
+    const heroClone = heroImageContainer.cloneNode(true);
+    articleInnerWrap.insertBefore(heroClone, articleBackground);
+    heroImageContainer.remove();
+  }
+
   const articleAttributionContainer = document.createElement('div');
   articleAttributionContainer.classList.add('cmp-lede__attribution');
 
@@ -76,9 +92,11 @@ export default async function decorate(block) {
 
   // insert the article attribution after the hero image and its caption (if it has one)
   // but place it before the intro paragraph
-  heroImageContainer.parentNode.insertBefore(
-    articleAttributionContainer, ledeBlock,
-  );
+  if (!isProfile) {
+    heroImageContainer.parentNode.insertBefore(
+      articleAttributionContainer, ledeBlock,
+    );
+  }
 
   // sanitize link markup
   // some links had data that included an underline tag

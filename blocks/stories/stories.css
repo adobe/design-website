@@ -106,6 +106,17 @@
   margin-bottom: 0;
 }
 
+.home .cmp-stories-card__media {
+  aspect-ratio: 1 / 1;
+}
+
+.home .cmp-stories-card__media img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 @media (min-width: 900px) {
   .home .stories {
     grid-template-columns: repeat(12, [col-start] 1fr);
@@ -137,9 +148,7 @@
     grid-row-start: 1;
   }
 
-  .home .cmp-stories-card__media img {
+  .home .cmp-stories-card__media {
     height: 100%;
-    width: 100%;
-    object-fit: cover;
   }
 }
