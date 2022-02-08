@@ -249,5 +249,5 @@ export default async function decorate(block) {
   document.querySelector('.cmp-accordion-container__inner').append(orgContainer);
 
   const accordion = new Accordion();
-  setTimeout(() => loadAccordion(accordion), 1000);
+  setTimeout(() => loadAccordion(accordion), 4000);
 }
