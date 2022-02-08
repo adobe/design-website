@@ -87,20 +87,25 @@ class Accordion {
   cardMouseOver(i) {
     const { gsap } = window;
     if (this.selected === i
-      || gsap.isTweening(this.cards[i])
-      || i === this.cards.length - 1) {
+      // || this.scrolling
+      // || gsap.isTweening(this.cards[i])
+      || i === this.cards.length - 1
+    ) {
       return;
     }
     gsap.to(this.cards[i], {
       duration: 0.2,
-      y: '-=50',
+      y: parseFloat(this.cards[i].dataset.y) - 50,
       ease: 'quad.out',
     });
   }
 
   cardMouseOut(i) {
     const { gsap } = window;
-    if (this.selected === i || gsap.isTweening(this.cards[i])) {
+    if (this.selected === i
+    // || this.scrolling
+    // || gsap.isTweening(this.cards[i])
+    ) {
       return;
     }
 
@@ -124,7 +129,7 @@ class Accordion {
         this.cards[j].dataset.y = 0;
         gsap.killTweensOf(this.cards[j]);
         gsap.to(this.cards[j], {
-          duration: 1,
+          duration: 0.4,
           y: 0,
         });
       }
@@ -148,13 +153,13 @@ class Accordion {
       if (j > i) {
         this.cards[j].dataset.y = newCardHeight;
         gsap.to(this.cards[j], {
-          duration: 1,
+          duration: 0.4,
           y: newCardHeight,
         });
       } else {
         this.cards[j].dataset.y = 0;
         gsap.to(this.cards[j], {
-          duration: 1,
+          duration: 0.4,
           y: 0,
         });
       }
