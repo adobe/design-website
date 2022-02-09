@@ -691,9 +691,73 @@ function addPathsAsClassNames() {
   if (window.location.pathname === '/') {
     document.body.classList.add('home');
   } else {
-    const pathNames = window.location.pathname.split('/').filter((item) => item !== '').slice(0, 2);
+    const pathNames = window.location.pathname.toLowerCase().split('/').filter((item) => item !== '').slice(0, 2);
     document.body.classList.add(...pathNames);
   }
 }
 
 addPathsAsClassNames();
+
+function decorateJobsPage() {
+  const pageTitle = document.querySelector('h1');
+  pageTitle.classList.add('cmp-page__title');
+  const pageIntro = pageTitle.nextElementSibling;
+  pageIntro.classList.add('cmp-page__intro');
+  const pageSubIntro = pageIntro.nextElementSibling;
+  pageSubIntro.classList.add('cmp-page__sub-intro');
+
+  const jobListingsBackground = document.createElement('div');
+  jobListingsBackground.classList.add('cmp-jobs-list__bg');
+
+  const jobListingsInnerWrap = document.querySelector('.section-wrapper > div:first-of-type');
+  jobListingsInnerWrap.classList.add('cmp-jobs-list__inner-wrap');
+
+  const childrenToWrap = [...jobListingsInnerWrap.children].slice(3);
+
+  jobListingsInnerWrap.innerHTML = '';
+
+  jobListingsInnerWrap.append(pageTitle);
+  jobListingsInnerWrap.append(pageIntro);
+  jobListingsInnerWrap.append(pageSubIntro);
+  jobListingsInnerWrap.append(jobListingsBackground);
+  jobListingsBackground.append(...childrenToWrap);
+}
+
+if (window.location.pathname === '/jobs/') {
+  decorateJobsPage();
+}
+
+function decorateJobPost() {
+  const jobLocation = getMetadata('location');
+  const jobReqNumber = getMetadata('req-number');
+  const jobPositionType = getMetadata('position-type');
+  const applyLink = getMetadata('job-listing');
+  const jobTitle = getMetadata('job-title');
+
+  const jobPostInnerWrap = document.querySelector('.section-wrapper > div:first-of-type');
+  jobPostInnerWrap.classList.add('cmp-job-post__inner-wrap');
+
+  const childrenToWrap = [...jobPostInnerWrap.children].slice(1);
+
+  jobPostInnerWrap.innerHTML = `
+    <div class="cmp-job-post__full">
+      <h1>${jobTitle}</h1>
+      <a href="${applyLink}">Apply now</a>
+      <aside class="cmp-job-post__meta">
+        <h6>Location</h6>
+        <p>${jobLocation}</p>
+        <h6>Position Type</h6>
+        <p>${jobPositionType}</p>
+        <h6>Req Number</h6>
+        <p>${jobReqNumber}</p>
+      </aside>
+      <div class="cmp-job-post__details"></div>
+    </div>
+  `;
+  const jobDetailsContainer = document.querySelector('.cmp-job-post__details');
+  jobDetailsContainer.append(...childrenToWrap);
+}
+
+if (window.location.pathname.toLowerCase().split('/')[2] === 'job-posts') {
+  decorateJobPost();
+}
