@@ -127,6 +127,7 @@
 .cmp-lede__title {
   --lede-title-font-size: var(--font-size-900);
   
+  color: var(--reactive-text-color);
   font-size: var(--lede-title-font-size);
   line-height: 1;
   margin-bottom: 2rem;
@@ -135,6 +136,7 @@
 .cmp-lede__sub-title {
   --lede-sub-title-font-size: var(--font-size-400);
   
+  color: var(--reactive-text-color);
   font-family: var(--font-stack-serif);
   font-size: var(--lede-sub-title-font-size);
   font-weight: var(--font-weight-normal);
@@ -145,7 +147,7 @@
 .cmp-lede__tag span {
   --lede-tag-font-size: var(--font-size-100);
 
-  color: var(--color-base-dark-slate-tertiary);
+  color: var(--reactive-text-color);
   display: inline-block;
   font-size: var(--lede-tag-font-size);
   margin-bottom: 2rem;
@@ -155,7 +157,7 @@
 }
 
 .cmp-lede__tag span::after {
-  background-color: var(--color-base-dark-slate-tertiary);
+  background-color: var(--reactive-text-color);
   border-radius: 10px;
   bottom: 0;
   content: '';
@@ -195,7 +197,7 @@ p.cmp-lede__hero-parent {
     --lede-title-font-size: var(--font-size-2500);
 
     grid-column: col-start 2 / span 8;
-    line-height: 0.85;
+    line-height: 0.95;
   }
   
   .cmp-lede__intro {
