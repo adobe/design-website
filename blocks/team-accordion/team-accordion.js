@@ -47,57 +47,28 @@ class Accordion {
       card.style.position = 'absolute';
       card.style.top = `${this.paddingTop + i * visibleCardArea}px`;
       card.dataset.y = 0;
-      /*
-      if (i === this.cards.length - 1) {
-        size += rect.height;
-      }
-      */
     }
 
     size += visibleCardArea * this.cards.length;
     this.container.style.height = `${size}px`;
   }
 
-  handleMousewheel(e) {
-    // IF CURRENT IS OUTSIDE OF VIEWPORT THEN CLOSE.
-
-    /*
-    if (this.scrolling) {
-      return false;
+  handleMousewheel() {
+    if (this.selected === -1) {
+      return;
     }
+    const card = this.cards[this.selected];
+    const rect = card.getBoundingClientRect();
 
-    if (this.selected !== -1) {
-      if (e.deltaY > 0 && this.selected < this.cards.length) {
-        if (this.selected === this.cards.length - 1) {
-          this.cardClick(-1);
-        } else {
-          this.cardClick(this.selected + 1);
-        }
-      } else if (e.deltaY < 0 && this.selected > -1) {
-        if (this.selected === 0) {
-          this.cardClick(-1);
-        } else {
-          this.cardClick(this.selected - 1);
-        }
-      }
+    console.log(rect.top, rect.bottom);
+    if (rect.bottom < 0 || rect.top > window.innerHeight) {
+      this.closeCards();
     }
-
-    this.scrolling = true;
-
-    setTimeout(() => {
-      this.scrolling = false;
-    }, 1000);
-
-    return false;
-    */
   }
 
   cardMouseOver(i) {
     const { gsap } = window;
-    if (this.selected === i
-      // || this.scrolling
-      // || gsap.isTweening(this.cards[i])
-    ) {
+    if (this.selected === i) {
       return;
     }
     gsap.to(this.cards[i], {
@@ -109,10 +80,7 @@ class Accordion {
 
   cardMouseOut(i) {
     const { gsap } = window;
-    if (this.selected === i
-    // || this.scrolling
-    // || gsap.isTweening(this.cards[i])
-    ) {
+    if (this.selected === i) {
       return;
     }
 
@@ -124,6 +92,8 @@ class Accordion {
   }
 
   closeCards() {
+    this.selected = -1;
+
     const { gsap } = window;
     for (let j = 0; j < this.cards.length; j += 1) {
       this.cards[j].dataset.y = 0;
@@ -138,7 +108,7 @@ class Accordion {
     gsap.killTweensOf(this.container);
     gsap.to(this.container, {
       duration: 1,
-      height: ((this.cards.length - 1) * visibleCardArea),
+      height: this.paddingTop + this.cards.length * visibleCardArea,
     });
   }
 
