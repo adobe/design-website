@@ -13,6 +13,8 @@ class Accordion {
 
   scrolling = false;
 
+  paddingTop = 100;
+
   init() {
     this.container = document.body.querySelector('.cmp-accordion__group');
     this.cards = document.body.querySelectorAll('.cmp-accordion-card');
@@ -36,25 +38,30 @@ class Accordion {
   }
 
   desktopSize() {
-    let size = 0;
+    let size = this.paddingTop;
 
     for (let i = 0; i < this.cards.length; i += 1) {
       const card = this.cards[i];
-      const rect = card.getBoundingClientRect();
+      // const rect = card.getBoundingClientRect();
       card.dataset.index = i;
       card.style.position = 'absolute';
-      card.style.top = `${i * visibleCardArea}px`;
+      card.style.top = `${this.paddingTop + i * visibleCardArea}px`;
       card.dataset.y = 0;
+      /*
       if (i === this.cards.length - 1) {
         size += rect.height;
       }
+      */
     }
 
-    size += visibleCardArea * (this.cards.length - 1);
+    size += visibleCardArea * this.cards.length;
     this.container.style.height = `${size}px`;
   }
 
   handleMousewheel(e) {
+    // IF CURRENT IS OUTSIDE OF VIEWPORT THEN CLOSE.
+
+    /*
     if (this.scrolling) {
       return false;
     }
@@ -82,6 +89,7 @@ class Accordion {
     }, 1000);
 
     return false;
+    */
   }
 
   cardMouseOver(i) {
@@ -89,7 +97,6 @@ class Accordion {
     if (this.selected === i
       // || this.scrolling
       // || gsap.isTweening(this.cards[i])
-      || i === this.cards.length - 1
     ) {
       return;
     }
@@ -116,32 +123,28 @@ class Accordion {
     });
   }
 
+  closeCards() {
+    const { gsap } = window;
+    for (let j = 0; j < this.cards.length; j += 1) {
+      this.cards[j].dataset.y = 0;
+      gsap.killTweensOf(this.cards[j]);
+      gsap.to(this.cards[j], {
+        duration: 0.4,
+        y: 0,
+      });
+    }
+
+    // reset container height
+    gsap.killTweensOf(this.container);
+    gsap.to(this.container, {
+      duration: 1,
+      height: ((this.cards.length - 1) * visibleCardArea),
+    });
+  }
+
   cardClick(i) {
     const { gsap } = window;
     this.selected = i;
-
-    const lastCardRect = this.cards[this.cards.length - 1].getBoundingClientRect();
-    const lastCardHeight = lastCardRect.height;
-
-    if (i === -1) {
-      // close cards
-      for (let j = 0; j < this.cards.length; j += 1) {
-        this.cards[j].dataset.y = 0;
-        gsap.killTweensOf(this.cards[j]);
-        gsap.to(this.cards[j], {
-          duration: 0.4,
-          y: 0,
-        });
-      }
-
-      // reset container height
-      gsap.killTweensOf(this.container);
-      gsap.to(this.container, {
-        duration: 1,
-        height: ((this.cards.length - 1) * visibleCardArea) + lastCardHeight,
-      });
-      return;
-    }
 
     // open card
     const card = this.cards[i];
@@ -166,10 +169,12 @@ class Accordion {
     }
 
     // adjust container height
-    let newHeight = (visibleCardArea * (this.cards.length - 1)) + newCardHeight + lastCardHeight;
+    const newHeight = (this.paddingTop + visibleCardArea * (this.cards.length)) + newCardHeight;
+    /*
     if (i === this.cards.length - 1) {
-      newHeight = (visibleCardArea * (this.cards.length - 1)) + lastCardHeight;
+      newHeight = (this.paddingTop + visibleCardArea * (this.cards.length));
     }
+    */
 
     gsap.killTweensOf(this.container);
     gsap.to(this.container, {
@@ -180,7 +185,9 @@ class Accordion {
     // scroll window
     const { container } = this;
     const containerRect = container.getBoundingClientRect();
-    const newTop = document.documentElement.scrollTop + containerRect.top + (i * visibleCardArea);
+    const newTop = this.paddingTop
+      + document.documentElement.scrollTop
+      + containerRect.top + (i * visibleCardArea);
 
     gsap.killTweensOf(window);
     gsap.to(window, {
