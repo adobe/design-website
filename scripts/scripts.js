@@ -740,19 +740,19 @@ function decorateJobPost() {
   const childrenToWrap = [...jobPostInnerWrap.children].slice(1);
 
   jobPostInnerWrap.innerHTML = `
-    <div class="cmp-job-post__full">
-      <h1>${jobTitle}</h1>
+    <h1>${jobTitle}</h1>
+    <aside class="cmp-job-post__meta">
       <a href="${applyLink}">Apply now</a>
-      <aside class="cmp-job-post__meta">
-        <h6>Location</h6>
-        <p>${jobLocation}</p>
-        <h6>Position Type</h6>
-        <p>${jobPositionType}</p>
-        <h6>Req Number</h6>
-        <p>${jobReqNumber}</p>
-      </aside>
-      <div class="cmp-job-post__details"></div>
-    </div>
+      <dl>
+        <dt>Location</dt>
+        <dd>${jobLocation}</dd>
+        <dt>Position Type</dt>
+        <dd>${jobPositionType}</dd>
+        <dt>Req Number</dt>
+        <dd>${jobReqNumber}</dd>
+      </dl>
+    </aside>
+    <div class="cmp-job-post__details"></div>
   `;
   const jobDetailsContainer = document.querySelector('.cmp-job-post__details');
   jobDetailsContainer.append(...childrenToWrap);
