@@ -13,6 +13,8 @@ class Accordion {
 
   scrolling = false;
 
+  animating = false;
+
   paddingTop = 100;
 
   init() {
@@ -57,18 +59,12 @@ class Accordion {
     if (this.selected === -1) {
       return;
     }
-    const card = this.cards[this.selected];
-    const rect = card.getBoundingClientRect();
-
-    console.log(rect.top, rect.bottom);
-    if (rect.bottom < 0 || rect.top > window.innerHeight) {
-      this.closeCards();
-    }
+    this.closeCards();
   }
 
   cardMouseOver(i) {
     const { gsap } = window;
-    if (this.selected === i) {
+    if (this.selected === i && !this.animating) {
       return;
     }
     gsap.to(this.cards[i], {
@@ -80,7 +76,7 @@ class Accordion {
 
   cardMouseOut(i) {
     const { gsap } = window;
-    if (this.selected === i) {
+    if (this.selected === i && !this.animating) {
       return;
     }
 
@@ -92,6 +88,7 @@ class Accordion {
   }
 
   closeCards() {
+    this.animating = true;
     this.selected = -1;
 
     const { gsap } = window;
@@ -101,6 +98,9 @@ class Accordion {
       gsap.to(this.cards[j], {
         duration: 0.4,
         y: 0,
+        onComplete: () => {
+          this.animating = false;
+        },
       });
     }
 
@@ -140,15 +140,10 @@ class Accordion {
 
     // adjust container height
     const newHeight = (this.paddingTop + visibleCardArea * (this.cards.length)) + newCardHeight;
-    /*
-    if (i === this.cards.length - 1) {
-      newHeight = (this.paddingTop + visibleCardArea * (this.cards.length));
-    }
-    */
 
     gsap.killTweensOf(this.container);
     gsap.to(this.container, {
-      duration: 1,
+      duration: 0.4,
       height: newHeight,
     });
 
@@ -161,7 +156,7 @@ class Accordion {
 
     gsap.killTweensOf(window);
     gsap.to(window, {
-      duration: 1,
+      duration: 0.4,
       scrollTo: newTop,
     });
   }
