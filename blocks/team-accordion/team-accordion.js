@@ -80,6 +80,7 @@ class Accordion {
       return;
     }
 
+    gsap.killTweensOf(this.cards[i]);
     gsap.to(this.cards[i], {
       duration: 0.2,
       y: this.cards[i].dataset.y,
