@@ -44,7 +44,6 @@ class Accordion {
 
     for (let i = 0; i < this.cards.length; i += 1) {
       const card = this.cards[i];
-      // const rect = card.getBoundingClientRect();
       card.dataset.index = i;
       card.style.position = 'absolute';
       card.style.top = `${this.paddingTop + i * visibleCardArea}px`;
@@ -197,7 +196,6 @@ export default async function decorate(block) {
   const accordionCards = accordionGroup.querySelectorAll(':scope > div');
   accordionCards.forEach((card, index) => {
     card.classList.add('cmp-accordion-card');
-    // calculate height...
 
     const cardTitleAndMedia = card.children[0].children;
     const cardBodyText = card.children[1].textContent;
