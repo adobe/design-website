@@ -1,4 +1,4 @@
-import { getMetadata } from '../../scripts/scripts.js';
+import { getMetadata, toClassName } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
   const ledeBlock = block;
@@ -61,6 +61,27 @@ export default async function decorate(block) {
     heroCaption.classList.add('cmp-lede__hero-caption');
   }
 
+  const resp = await fetch(`/authors/${(toClassName(articleAuthorData))}.plain.html`);
+  const html = await resp.text();
+  const articleAttributionContainer = document.createElement('div');
+  articleAttributionContainer.classList.add('cmp-lede__attribution');
+  articleAttributionContainer.innerHTML = html;
+
+  const authorName = (articleAttributionContainer.querySelector('h1') !== null)
+    ? `<p class="cmp-lede__author">${articleAttributionContainer.querySelector('h1').textContent}</p>` : '';
+
+  const authorTitle = (articleAttributionContainer.querySelector('h2') !== null)
+    ? `<p class="cmp-lede__author-title">${articleAttributionContainer.querySelector('h2').textContent}</p>` : '';
+
+  const authorPhoto = (articleAttributionContainer.querySelector('picture') !== null)
+    ? articleAttributionContainer.querySelector('picture').outerHTML : '';
+
+  articleAttributionContainer.innerHTML = `
+    ${authorName}
+    ${authorTitle}
+    ${authorPhoto}
+  `;
+
   // give unique DOM order to profile pages only!
   // this moves the profile "hero" image in the DOM so that it is a sibling of
   // the title-wrap and the article-bg
@@ -75,20 +96,8 @@ export default async function decorate(block) {
     const heroClone = heroImageContainer.cloneNode(true);
     articleInnerWrap.insertBefore(heroClone, articleBackground);
     heroImageContainer.remove();
+    articleBackground.insertBefore(articleAttributionContainer, articleBackground.firstChild);
   }
-
-  const articleAttributionContainer = document.createElement('div');
-  articleAttributionContainer.classList.add('cmp-lede__attribution');
-
-  const articleAuthor = (articleAuthorData !== '') ? `<p class="cmp-lede__author">Author: ${articleAuthorData}</p>` : null;
-  articleAttributionContainer.innerHTML = `
-    ${articleAuthor}
-  `;
-
-  // TODO:
-  // 1. Get author's title & inject it
-  // 2. Get author's photo & inject it
-  // 3. Remove placeholder "author" text before author's name
 
   // insert the article attribution after the hero image and its caption (if it has one)
   // but place it before the intro paragraph
