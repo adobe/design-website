@@ -113,6 +113,11 @@ class Accordion {
   }
 
   cardClick(i) {
+    if (this.selected === i) {
+      this.closeCards();
+      return;
+    }
+
     const { gsap } = window;
     this.selected = i;
 
