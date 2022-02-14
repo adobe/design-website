@@ -54,3 +54,8 @@ indices:
         select: head > meta[name="color"]
         value: |
           attribute(el, 'content')
+      tag:
+        select: head > meta[name="tag"]
+        value: |
+          attribute(el, 'content')
+
