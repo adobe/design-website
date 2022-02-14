@@ -740,10 +740,10 @@ function decorateJobPost() {
   const childrenToWrap = [...jobPostInnerWrap.children].slice(1);
 
   jobPostInnerWrap.innerHTML = `
-    <h1>${jobTitle}</h1>
+    <h1 class="cmp-job-post__title">${jobTitle}</h1>
     <aside class="cmp-job-post__meta">
-      <a href="${applyLink}">Apply now</a>
-      <dl>
+      <a class="cmp-job-post__meta-link" href="${applyLink}">Apply now</a>
+      <dl class="cmp-job-post__meta-list">
         <dt>Location</dt>
         <dd>${jobLocation}</dd>
         <dt>Position Type</dt>
