@@ -1,4 +1,6 @@
-import { createOptimizedPicture, lookupPages } from '../../scripts/scripts.js';
+import {
+  createOptimizedPicture, lookupPages,
+} from '../../scripts/scripts.js';
 import colormap from '../../scripts/colormap.js';
 
 function createCard(row) {
@@ -10,6 +12,7 @@ function createCard(row) {
   const cardAuthorTitle = `${row.authorTitle ? `<p class="cmp-stories-card__author-title">${row.authorTitle}</p>` : ''}`;
   const cardBGColor = row.color !== '' ? row.color : '#fff';
   const textColor = colormap[cardBGColor];
+  const cardTag = row.tag !== '' ? `#${row.tag}` : '';
 
   if (textColor === 'black') {
     card.classList.add('dark-text');
@@ -19,7 +22,7 @@ function createCard(row) {
 
   card.innerHTML = `
     <div class="cmp-stories-card__body">
-      <span class="cmp-stories-card__tag">#Process</span>
+      <span class="cmp-stories-card__tag">${cardTag}</span>
       <h2 class="cmp-stories-card__title">
         <a href="${row.path}">${row.title}</a>
       </h2>

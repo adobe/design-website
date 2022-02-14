@@ -7,10 +7,11 @@ function createCard(row) {
   const cardIntro = `${row.subtitle ? `<p class="cmp-stories-card__intro">${row.subtitle}</p>` : ''}`;
   const cardAuthor = `${row.author ? `<p class="cmp-stories-card__author">${row.author}</p>` : ''}`;
   const cardAuthorTitle = `${row.authorTitle ? `<p class="cmp-stories-card__author-title">${row.authorTitle}</p>` : ''}`;
+  const cardTag = row.tag !== '' ? `#${row.tag}` : '';
 
   card.innerHTML = `
     <div class="cmp-stories-card__body">
-      <span class="cmp-stories-card__tag">#Process</span>
+      <span class="cmp-stories-card__tag">${cardTag}</span>
       <h2 class="cmp-stories-card__title">
         <a href="${row.path}">${row.title}</a>
       </h2>
