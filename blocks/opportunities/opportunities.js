@@ -1,4 +1,14 @@
 export default async function decorate(block) {
+  const pageTitle = document.querySelector('h1');
+  pageTitle.classList.add('cmp-page__title');
+
+  const pageIntro = pageTitle.nextElementSibling;
+  pageIntro.classList.add('cmp-page__intro');
+  const pageSubIntro = pageIntro.nextElementSibling;
+  pageSubIntro.classList.add('cmp-page__sub-intro');
+
+  block.classList.add('cmp-jobs-list__inner-wrap');
+
   const resp = await fetch('/query-index.json');
   const json = await resp.json();
   const allJobs = json.jobs.data;
@@ -13,31 +23,32 @@ export default async function decorate(block) {
   });
 
   const jobsContainer = document.createElement('div');
-  jobsContainer.classList.add('jobs-container');
-  block.append(jobsContainer);
+  jobsContainer.classList.add('cmp-all-jobs');
+  block.firstChild.firstChild.append(jobsContainer);
 
   Object.keys(groupedJobs).forEach((key) => {
     const departmentJobs = groupedJobs[key].jobs;
-    // create the headings for each group
-    const heading = document.createElement('h4');
+    const jobGroup = document.createElement('div');
+    jobGroup.classList.add('cmp-job__group');
     const transformedKey = key.split('-').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
-    heading.innerText = transformedKey;
-    jobsContainer.append(heading);
+    const listMarkup = departmentJobs.length > 0 ? '<ul class="cmp-jobs-list"></ul>' : '<p class="cmp-jobs-none">There are no openings right now.</p>';
+    jobGroup.innerHTML = `
+      <h4 class="cmp-job__group-title">${transformedKey}</h4>
+      ${listMarkup}
+    `;
+    jobsContainer.append(jobGroup);
 
-    // get the rest of the jobs data
-    departmentJobs.forEach((job) => {
-      const list = document.createElement('ul');
-      list.classList.add('jobs-ul');
-
-      const listItem = document.createElement('li');
-      listItem.classList.add('jobs-list-item');
-      listItem.innerHTML = `
-        <h5><a href="${job.path}">${job.title}</a></h5>
-        <p>Department: ${job.department}</p>
-        <p>Location: ${job.location}</p>
-      `;
-      jobsContainer.append(list);
-      list.append(listItem);
-    });
+    if (departmentJobs.length > 0) {
+      departmentJobs.forEach((job) => {
+        const listItem = document.createElement('li');
+        listItem.classList.add('cmp-jobs-list__item');
+        listItem.innerHTML = `
+          <a class="cmp-job__link" href="${job.path}">${job.title}</a>
+          <p class="cmp-job__department">${job.department}</p>
+          <p class="cmp-job__location">${job.location}</p>
+        `;
+        jobGroup.querySelector('.cmp-jobs-list').append(listItem);
+      });
+    }
   });
 }
