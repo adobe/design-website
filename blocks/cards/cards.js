@@ -23,9 +23,7 @@ function createCard(row) {
       <h2 class="cmp-cards-card__title">
         <a href="${row.path}">${row.title}</a>
       </h2>
-
       ${cardDescription}
-
     </div>
   `;
 
