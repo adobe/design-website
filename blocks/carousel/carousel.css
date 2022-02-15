@@ -234,6 +234,7 @@
         grid-column-end: 7;
         height: 52vw;
         padding-top: 100px;
+        width: 60%;
     }
 
     .carousel-gradient{
@@ -252,7 +253,6 @@
 @media (max-width: 500px) {
     .carousel-ui-inner{
         height: 62vw;
-        padding-top: 100px;
     }
 }
 
