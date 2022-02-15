@@ -1,0 +1,102 @@
+
+
+.cmp-cards__inner-wrap h1 {
+    --stories-page-title-font-size: var(--font-size-900);
+  
+    color: var(--reactive-text-color);
+    font-size: var(--stories-page-title-font-size);
+    margin: 2rem auto;
+    padding-right: 3.5rem;
+    padding-left: 3.5rem;
+    width: 95%;
+    max-width: 102.6875rem;
+}
+
+.cmp-cards__inner-wrap h2 {  
+    color: var(--reactive-text-color);
+    font-size: var(--stories-page-title-font-size);
+    margin: 2rem auto;
+    padding-right: 3.5rem;
+    padding-left: 3.5rem;
+    width: 95%;
+    max-width: 102.6875rem;
+}
+
+.cards.block {
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: repeat(6, [col-start] 1fr);
+    column-gap: 12px;
+    row-gap: 12px;
+    margin: 0 auto;
+    width: 95%;
+    max-width: var(--layout-max-width-desktop);
+}
+
+.cards .cmp-cards-card.dark-text{
+    --text-color: var(--color-base-dark-slate);
+}
+
+.cards .cmp-cards-card.light-text{
+    --text-color: var(--color-base-white);
+}
+
+.cards .cmp-cards-card {
+    grid-column: col-start 1 / span 6;
+    color: var(--text-color);
+}
+
+.cards .cmp-cards-card__body {
+    padding: 2.25rem 3.5rem;
+}
+
+@media (min-width: 900px) {
+    .cmp-cards__inner-wrap h1 {
+        --stories-page-title-font-size: var(--font-size-2500);
+
+        margin-top: 6rem;
+        margin-bottom: 6rem;
+    }
+
+    .cards {
+        grid-template-columns: repeat(12, [col-start] 1fr);
+    }
+    
+    .cards .cmp-cards-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column: col-start 1 / span 12;
+    }
+    
+    .cards .cmp-cards-card:nth-of-type(even) picture {
+        grid-column-start: 2;
+        grid-row-start: 1;
+    }
+    
+    .cards .cmp-cards-card:nth-of-type(odd) picture {
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+    
+    .cards .cmp-cards-card:nth-of-type(even) > div {
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+    
+    .cards .cmp-cards-card:nth-of-type(odd) > div {
+        grid-column-start: 2;
+        grid-row-start: 1;
+    }
+    
+    .cards .cmp-cards-card__media {
+        height: 100%;
+    }
+      
+}
+
+@media (min-width: 1300px) {
+    .cmp-cards__inner-wrap h1 {
+        --stories-page-title-font-size: var(--font-size-4000);
+    }
+}
+  
