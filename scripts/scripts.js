@@ -721,11 +721,42 @@ function decorateJobsPage() {
   jobListingsInnerWrap.append(pageSubIntro);
   jobListingsInnerWrap.append(jobListingsBackground);
   jobListingsBackground.append(...childrenToWrap);
+
+  const fakeJobsList = document.createElement('ul');
+  fakeJobsList.classList.add('cmp-jobs-list');
+  jobListingsBackground.insertBefore(fakeJobsList, jobListingsBackground.firstChild.nextElementSibling.nextElementSibling);
+  fakeJobsList.innerHTML = `
+    <li class="cmp-jobs-list__item">
+      <a class="cmp-job__link" href="#">User Experience Designer (Contractor)</a>
+      <p class="cmp-job__department">Adobe Spark</p>
+      <p class="cmp-job__location">San Francisco, San Jose, or Seattle</p>
+    </li>
+    <li class="cmp-jobs-list__item">
+      <a class="cmp-job__link" href="#">User Experience Designer (Contractor)</a>
+      <p class="cmp-job__department">Adobe Spark</p>
+      <p class="cmp-job__location">San Francisco, San Jose, or Seattle</p>
+    </li>
+    <li class="cmp-jobs-list__item">
+      <a class="cmp-job__link" href="#">User Experience Designer (Contractor)</a>
+      <p class="cmp-job__department">Adobe Spark</p>
+      <p class="cmp-job__location">San Francisco, San Jose, or Seattle</p>
+    </li>
+    <li class="cmp-jobs-list__item">
+      <a class="cmp-job__link" href="#">User Experience Designer (Contractor)</a>
+      <p class="cmp-job__department">Adobe Spark</p>
+      <p class="cmp-job__location">San Francisco, San Jose, or Seattle</p>
+    </li>
+    <li class="cmp-jobs-list__item">
+      <a class="cmp-job__link" href="#">User Experience Designer (Contractor)</a>
+      <p class="cmp-job__department">Adobe Spark</p>
+      <p class="cmp-job__location">San Francisco, San Jose, or Seattle</p>
+    </li>
+  `;
 }
 
-if (window.location.pathname === '/jobs/') {
-  decorateJobsPage();
-}
+// if (window.location.pathname === '/jobs/') {
+//   decorateJobsPage();
+// }
 
 function decorateJobPost() {
   const jobLocation = getMetadata('location');
@@ -758,6 +789,6 @@ function decorateJobPost() {
   jobDetailsContainer.append(...childrenToWrap);
 }
 
-if (window.location.pathname.toLowerCase().split('/')[2] === 'job-posts') {
-  decorateJobPost();
-}
+// if (window.location.pathname.toLowerCase().split('/')[2] === 'job-posts') {
+//   decorateJobPost();
+// }

@@ -226,7 +226,7 @@ footer {
   display: none;
 }
 
-.jobs .section-wrapper {
+/* .jobs .section-wrapper {
   background-color: transparent;
   margin: 0 auto;
   padding-top: 4rem;
@@ -285,7 +285,39 @@ footer {
 
 .jobs .cmp-jobs-list__bg > * {
   grid-column: 2 / -2;
+} */
+
+/* list of job postings per category */
+/* .jobs .cmp-jobs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
+
+.jobs .cmp-jobs-list__item {
+  margin-bottom: 3rem;
+}
+
+.jobs .cmp-job__link {
+  color: var(--color-base-white);
+  font-size: var(--font-size-650);
+  text-decoration: none;
+}
+
+.jobs .cmp-job__link:hover,
+.jobs .cmp-job__link:focus {
+  color: var(--color-base-white);
+  text-decoration: underline;
+}
+
+.jobs .cmp-job__department {
+  margin-top: 0.75rem;
+}
+
+.jobs .cmp-job__department,
+.jobs .cmp-job__location {
+  font-size: var(--font-size-100);
+} */
 
 body.jobs.jobs.job-posts {
   background-image: none;
