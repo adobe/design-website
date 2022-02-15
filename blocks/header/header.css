@@ -17,7 +17,7 @@ header a {
   display: flex;
   flex-flow: row nowrap;
   margin: 0 auto;
-  width: 95%;
+  width: var(--content-width);
   max-width: var(--layout-max-width-desktop);
   justify-content: space-between;
   align-items: center;

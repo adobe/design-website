@@ -6,7 +6,7 @@
   margin: 2rem auto;
   padding-right: 3.5rem;
   padding-left: 3.5rem;
-  width: 95%;
+  width: var(--content-width);
   max-width: 102.6875rem;
 }
 
@@ -17,7 +17,7 @@
   column-gap: 12px;
   row-gap: 12px;
   margin: 0 auto;
-  width: 95%;
+  width: var(--content-width);
   max-width: var(--layout-max-width-desktop);
 }
 
