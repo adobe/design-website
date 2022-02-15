@@ -1,31 +1,55 @@
 
 
-.cmp-cards__inner-wrap h1 {
-    --stories-page-title-font-size: var(--font-size-900);
-  
-    color: var(--reactive-text-color);
-    font-size: var(--stories-page-title-font-size);
-    margin: 2rem auto;
-    padding-right: 3.5rem;
-    padding-left: 3.5rem;
-    width: 95%;
-    max-width: 102.6875rem;
+.cmp-cards__inner-wrap{
+    --cards-page-title-font-size: var(--font-size-4000);
 }
 
-.cmp-cards__inner-wrap > h2 {  
+.cmp-cards__inner-wrap h1 {
     color: var(--reactive-text-color);
-    font-size: var(--stories-page-title-font-size);
+    font-size: var(--cards-page-title-font-size);
     margin: 2rem auto;
     padding-right: 3.5rem;
     padding-left: 3.5rem;
+    width: 70%;
+    max-width: var(--layout-max-width-desktop);
+}
+
+.cmp-cards__inner-wrap > h2 { 
+    --cards-page-subhead-font-size: var(--font-size-900);
+
+    color: var(--reactive-text-color);
+    font-size: var(--cards-page-subhead-font-size);
+    font-weight: 100;
+    margin: 2rem auto;
+    padding-right: 3.5rem;
+    padding-left: 3.5rem;
+    width: 70%;
+    max-width: var(--layout-max-width-desktop);
+    margin-bottom: 4em;
+}
+
+.callout{
     width: 95%;
-    max-width: 102.6875rem;
+    background: var(--color-base-white);
+    margin: auto;
+    max-width: var(--layout-max-width-desktop);
+    color: var(--color-base-red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.callout>div{
+    font-size: var(--font-size-2500);
+    font-weight: var(--font-weight-black);
+    line-height: 1.2em;
+    margin: 4.2em 15%;
 }
 
 .cards.block {
     background-color: transparent;
     display: grid;
-    grid-template-columns: repeat(6, [col-start] 1fr);
+    grid-template-columns: repeat(12, [col-start] 1fr);
     column-gap: 12px;
     row-gap: 12px;
     margin: 0 auto;
@@ -61,16 +85,15 @@
 
 .cards .cmp-cards-card__title {
     --home-card-title-font-size: var(--font-size-900);
-    
+
     font-size: var(--home-card-title-font-size);
     font-weight: var(--font-weight-black);
-    margin: 1rem 0 1.5rem;
+    margin: 1rem 0 4.5rem;
 }
 
 .cards .cmp-cards-card__description {
     --home-card-intro-font-size: var(--font-size-400);
     
-    font-family: var(--font-stack-serif);
     font-size: var(--home-card-intro-font-size);
     line-height: 1.3;
     margin-bottom: 1.5rem;
@@ -116,6 +139,13 @@
     
     .cards .cmp-cards-card__media {
         height: 100%;
+    }
+
+    .cards .cmp-cards-card__title {
+        --home-card-title-font-size: var(--font-size-1000); 
+
+        line-height: 1;
+        margin-top: 20%;
     }
 }
 
