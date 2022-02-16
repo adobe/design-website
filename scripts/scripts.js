@@ -698,66 +698,6 @@ function addPathsAsClassNames() {
 
 addPathsAsClassNames();
 
-function decorateJobsPage() {
-  const pageTitle = document.querySelector('h1');
-  pageTitle.classList.add('cmp-page__title');
-  const pageIntro = pageTitle.nextElementSibling;
-  pageIntro.classList.add('cmp-page__intro');
-  const pageSubIntro = pageIntro.nextElementSibling;
-  pageSubIntro.classList.add('cmp-page__sub-intro');
-
-  const jobListingsBackground = document.createElement('div');
-  jobListingsBackground.classList.add('cmp-jobs-list__bg');
-
-  const jobListingsInnerWrap = document.querySelector('.section-wrapper > div:first-of-type');
-  jobListingsInnerWrap.classList.add('cmp-jobs-list__inner-wrap');
-
-  const childrenToWrap = [...jobListingsInnerWrap.children].slice(3);
-
-  jobListingsInnerWrap.innerHTML = '';
-
-  jobListingsInnerWrap.append(pageTitle);
-  jobListingsInnerWrap.append(pageIntro);
-  jobListingsInnerWrap.append(pageSubIntro);
-  jobListingsInnerWrap.append(jobListingsBackground);
-  jobListingsBackground.append(...childrenToWrap);
-
-  const fakeJobsList = document.createElement('ul');
-  fakeJobsList.classList.add('cmp-jobs-list');
-  jobListingsBackground.insertBefore(fakeJobsList, jobListingsBackground.firstChild.nextElementSibling.nextElementSibling);
-  fakeJobsList.innerHTML = `
-    <li class="cmp-jobs-list__item">
-      <a class="cmp-job__link" href="#">User Experience Designer (Contractor)</a>
-      <p class="cmp-job__department">Adobe Spark</p>
-      <p class="cmp-job__location">San Francisco, San Jose, or Seattle</p>
-    </li>
-    <li class="cmp-jobs-list__item">
-      <a class="cmp-job__link" href="#">User Experience Designer (Contractor)</a>
-      <p class="cmp-job__department">Adobe Spark</p>
-      <p class="cmp-job__location">San Francisco, San Jose, or Seattle</p>
-    </li>
-    <li class="cmp-jobs-list__item">
-      <a class="cmp-job__link" href="#">User Experience Designer (Contractor)</a>
-      <p class="cmp-job__department">Adobe Spark</p>
-      <p class="cmp-job__location">San Francisco, San Jose, or Seattle</p>
-    </li>
-    <li class="cmp-jobs-list__item">
-      <a class="cmp-job__link" href="#">User Experience Designer (Contractor)</a>
-      <p class="cmp-job__department">Adobe Spark</p>
-      <p class="cmp-job__location">San Francisco, San Jose, or Seattle</p>
-    </li>
-    <li class="cmp-jobs-list__item">
-      <a class="cmp-job__link" href="#">User Experience Designer (Contractor)</a>
-      <p class="cmp-job__department">Adobe Spark</p>
-      <p class="cmp-job__location">San Francisco, San Jose, or Seattle</p>
-    </li>
-  `;
-}
-
-// if (window.location.pathname === '/jobs/') {
-//   decorateJobsPage();
-// }
-
 function decorateJobPost() {
   const jobLocation = getMetadata('location');
   const jobReqNumber = getMetadata('req-number');
