@@ -149,14 +149,13 @@
     margin: 5rem auto 0;
   }
   
-  .stories .stats-horizontal-container h2,
-  .cards-container .stats-horizontal-container h2  {
+.stats-horizontal-container h2 {
     --stats-title-font-size: var(--font-size-1000);
   }
 }
 
 @media (min-width: 1300px) {
-  .stories .stats-horizontal-container h2 {
+  .stats-horizontal-container h2 {
     --stats-title-font-size: 4.375rem;
   }
 }
