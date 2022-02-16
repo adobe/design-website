@@ -2,12 +2,14 @@ export default async function decorate(block) {
   const pageTitle = document.querySelector('h1');
   pageTitle.classList.add('cmp-page__title');
 
+  block.parentNode.classList.add('cmp-jobs-list__inner-wrap');
+
   const pageIntro = pageTitle.nextElementSibling;
   pageIntro.classList.add('cmp-page__intro');
   const pageSubIntro = pageIntro.nextElementSibling;
   pageSubIntro.classList.add('cmp-page__sub-intro');
 
-  block.classList.add('cmp-jobs-list__inner-wrap');
+  block.classList.add('cmp-jobs-list__bg');
 
   const resp = await fetch('/query-index.json');
   const json = await resp.json();
