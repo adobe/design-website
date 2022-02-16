@@ -213,26 +213,26 @@ export default async function decorate(block) {
     card.classList.add(`color-pair-${index + 1}`);
   });
 
-  const orgHeadline = accordionGroup.nextElementSibling;
-  if (orgHeadline.tagName === 'H2') {
-    orgHeadline.classList.add('cmp-org__headline');
-  }
+  // const orgHeadline = accordionGroup.nextElementSibling;
+  // if (orgHeadline.tagName === 'H2') {
+  //   orgHeadline.classList.add('cmp-org__headline');
+  // }
 
-  const nextSiblings = (elem) => {
-    const siblings = [];
-    // eslint-disable-next-line no-cond-assign, no-param-reassign
-    while (elem = elem.nextElementSibling) {
-      siblings.push(elem);
-    }
-    return siblings;
-  };
+  // const nextSiblings = (elem) => {
+  //   const siblings = [];
+  //   // eslint-disable-next-line no-cond-assign, no-param-reassign
+  //   while (elem = elem.nextElementSibling) {
+  //     siblings.push(elem);
+  //   }
+  //   return siblings;
+  // };
 
-  const orgTextElems = nextSiblings(orgHeadline);
-  const orgContainer = document.createElement('div');
-  orgContainer.classList.add('cmp-org__container');
-  orgContainer.append(orgHeadline);
-  orgContainer.append(...orgTextElems);
-  document.querySelector('.cmp-accordion-container__inner').append(orgContainer);
+  // const orgTextElems = nextSiblings(orgHeadline);
+  // const orgContainer = document.createElement('div');
+  // orgContainer.classList.add('cmp-org__container');
+  // orgContainer.append(orgHeadline);
+  // orgContainer.append(...orgTextElems);
+  // document.querySelector('.cmp-accordion-container__inner').append(orgContainer);
 
   const accordion = new Accordion();
   setTimeout(() => loadAccordion(accordion), 4000);

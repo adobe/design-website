@@ -27,17 +27,6 @@
   margin-bottom: 4rem;
 }
 
-.cmp-org__container {
-  display: grid;
-  grid-template-columns: repeat(6, [col-start] 1fr);
-  column-gap: 12px;
-}
-
-.cmp-org__container > h2,
-.cmp-org__container > p {
-  grid-column: 1 / -1;
-}
-
 /* the actual accordions */
 .cmp-accordion__group {
   display: grid;
@@ -80,8 +69,7 @@
   margin-bottom: 2rem;
 }
 
-.cmp-accordion-container__inner .cmp-accordion__group,
-.cmp-accordion-container__inner .cmp-org__container {
+.cmp-accordion-container__inner .cmp-accordion__group {
   grid-column: 1 / -1;
 }
 
@@ -148,22 +136,6 @@
     --intro-font-size: var(--font-size-1090);
 
     grid-column: 3 / -3;
-  }
-}
-
-
-
-@media (min-width: 900px) {
-  .cmp-org__container {
-  grid-template-columns: repeat(12, [col-start] 1fr);
-}
-
-  .cmp-org__container > h2 {
-    grid-column: 1 / -1;
-  }
-
-  .cmp-org__container > p {
-    grid-column: span 4;
   }
 }
 
