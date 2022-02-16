@@ -729,6 +729,6 @@ function decorateJobPost() {
   jobDetailsContainer.append(...childrenToWrap);
 }
 
-// if (window.location.pathname.toLowerCase().split('/')[2] === 'job-posts') {
-//   decorateJobPost();
-// }
+if (getMetadata('theme') === 'job-post') {
+  decorateJobPost();
+}
