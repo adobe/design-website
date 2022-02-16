@@ -18,5 +18,4 @@ export default async function decorate(block) {
   if (headingToRemove && window.location.pathname === '/') {
     headingToRemove.remove();
   }
-  console.log('stats');
 }

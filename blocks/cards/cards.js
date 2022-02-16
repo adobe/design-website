@@ -4,7 +4,6 @@ import {
 import colormap from '../../scripts/colormap.js';
 
 function createCard(row) {
-  console.log(row);
   const card = document.createElement('article');
   card.classList.add('cmp-cards-card');
 
