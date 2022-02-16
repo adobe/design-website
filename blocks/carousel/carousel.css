@@ -11,8 +11,9 @@
 }
 
 .carousel-group {
+    --padding-top: 100px;
     width: 100%;
-    padding-top: 100px;
+    padding-top: var(--padding-top);
     height: 100vh;
     max-height: 1040px;
     min-height: 600px;
@@ -86,7 +87,7 @@
 
 .carousel-slide-container {
     margin: 0 auto;
-    width: 95%;
+    width: var(--content-width);
     max-width: var(--layout-max-width-desktop);
 }
 
@@ -114,7 +115,7 @@
 }
 
 .carousel-slide picture {
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 1;
     grid-row-end: 1;
@@ -132,17 +133,16 @@
     background: white;
     border-radius: 50%;
     cursor: pointer;
-    transform: translateY(-50%);
+    transform: translate(-130%, calc(var(--padding-top) / 2)) rotate(180deg) ;
     background-image: url("../../assets/arrow.svg");
     background-repeat: no-repeat;
     background-position: center;
-    transform: rotate(180deg);
     transform-origin: center;
     pointer-events: visible;
 }
 
 .carousel-btn-next {
-    transform: rotate(0deg);
+    transform: translate(130%, calc(var(--padding-top) / 2)) rotate(0deg) ;
 }
 
 .carousel-ui {
@@ -158,7 +158,7 @@
     position: relative;
     height: 100%;
     margin: 0 auto;
-    width: 95%;
+    width: var(--content-width);
     max-width: var(--layout-max-width-desktop);
     display: flex;
     justify-content: space-between;
@@ -185,23 +185,6 @@
 
     .carousel-slide-copy {
         grid-column-end: 13;
-    }
-
-    .carousel-ui{
-        width: 95%;
-        margin: 0 2.5%;
-        display: grid;
-        grid-template-columns: repeat(12, [col-start] 1fr);
-        column-gap: 12px;
-        row-gap: 12px;
-    }
-
-    .carousel-ui-inner{
-        grid-column-start: 8;
-        grid-column-end: 13;
-        width: 100%;
-        height: 80%;
-        align-items: flex-end;
     }
 
     .carousel-indicator-scroll{
@@ -251,6 +234,7 @@
         grid-column-end: 7;
         height: 52vw;
         padding-top: 100px;
+        width: 60%;
     }
 
     .carousel-gradient{
@@ -269,7 +253,6 @@
 @media (max-width: 500px) {
     .carousel-ui-inner{
         height: 62vw;
-        padding-top: 100px;
     }
 }
 
