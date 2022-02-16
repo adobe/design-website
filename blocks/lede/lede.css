@@ -1,7 +1,7 @@
 .cmp-lede__inner-wrap {
   margin: 0 auto;
   padding: 0;
-  width: 95%;
+  width: var(--content-width);
   max-width: var(--layout-max-width-desktop); 
 }
 

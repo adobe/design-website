@@ -66,7 +66,7 @@
   margin: 0 auto;
   max-width: var(--layout-max-width-desktop);
   padding: 2rem 4rem;
-  width: 95%;
+  width: var(--content-width);
 }
 
 .stories .cmp-stats {
