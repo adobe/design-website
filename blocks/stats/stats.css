@@ -106,6 +106,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: end;
+    margin: 5rem auto 0;
   }
 
   .cmp-stats__item {
@@ -144,12 +145,8 @@
     padding: 0;
     margin: 0;
   }
-
-  .cmp-stats {
-    margin: 5rem auto 0;
-  }
   
-.stats-horizontal-container h2 {
+  .stats-horizontal-container h2 {
     --stats-title-font-size: var(--font-size-1000);
   }
 }
