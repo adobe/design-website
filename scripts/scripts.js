@@ -691,9 +691,44 @@ function addPathsAsClassNames() {
   if (window.location.pathname === '/') {
     document.body.classList.add('home');
   } else {
-    const pathNames = window.location.pathname.split('/').filter((item) => item !== '').slice(0, 2);
+    const pathNames = window.location.pathname.toLowerCase().split('/').filter((item) => item !== '').slice(0, 2);
     document.body.classList.add(...pathNames);
   }
 }
 
 addPathsAsClassNames();
+
+function decorateJobPost() {
+  const jobLocation = getMetadata('location');
+  const jobReqNumber = getMetadata('req-number');
+  const jobPositionType = getMetadata('position-type');
+  const applyLink = getMetadata('job-listing');
+  const jobTitle = getMetadata('job-title');
+
+  const jobPostInnerWrap = document.querySelector('.section-wrapper > div:first-of-type');
+  jobPostInnerWrap.classList.add('cmp-job-post__inner-wrap');
+
+  const childrenToWrap = [...jobPostInnerWrap.children].slice(1);
+
+  jobPostInnerWrap.innerHTML = `
+    <h1 class="cmp-job-post__title">${jobTitle}</h1>
+    <aside class="cmp-job-post__meta">
+      <a class="cmp-job-post__meta-link" href="${applyLink}">Apply now</a>
+      <dl class="cmp-job-post__meta-list">
+        <dt>Location</dt>
+        <dd>${jobLocation}</dd>
+        <dt>Position Type</dt>
+        <dd>${jobPositionType}</dd>
+        <dt>Req Number</dt>
+        <dd>${jobReqNumber}</dd>
+      </dl>
+    </aside>
+    <div class="cmp-job-post__details"></div>
+  `;
+  const jobDetailsContainer = document.querySelector('.cmp-job-post__details');
+  jobDetailsContainer.append(...childrenToWrap);
+}
+
+if (getMetadata('theme') === 'job-post') {
+  decorateJobPost();
+}
