@@ -231,6 +231,12 @@ body.job-posts {
   background-image: none;
 }
 
+.job-posts .section-wrapper {
+  margin: 0 auto;
+  width: 95%;
+  max-width: var(--layout-max-width-desktop);
+}
+
 .job-posts .cmp-job-post__inner-wrap {
   display: grid;
   grid-template-columns: repeat(6, [col-start] 1fr);
@@ -247,9 +253,9 @@ body.job-posts {
 .job-posts .cmp-job-post__inner-wrap h1 {
   --page-title-font-size: var(--font-size-900);
 
-  color: var(--dark-text-color);
+  color: var(--reactive-text-color);
   font-size: var(--page-title-font-size);
-  margin: 2rem 0 3rem;
+  margin: 6rem 0 3rem;
 }
 
 .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h2 {
@@ -329,6 +335,7 @@ body.job-posts {
     --page-title-font-size: var(--font-size-2500);
 
     grid-column: 6 / -2;
+    margin-top: 6rem;
     margin-bottom: 4rem;
   }
 
