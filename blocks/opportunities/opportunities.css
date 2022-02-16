@@ -2,7 +2,7 @@
   background-color: transparent;
   margin: 0 auto;
   padding-top: 4rem;
-  width: 95%;
+  width: var(--content-width);
   max-width: var(--layout-max-width-desktop); 
 }
 

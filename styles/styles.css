@@ -233,7 +233,7 @@ body.job-posts {
 
 .job-posts .section-wrapper {
   margin: 0 auto;
-  width: 95%;
+  width: var(--content-width);
   max-width: var(--layout-max-width-desktop);
 }
 
