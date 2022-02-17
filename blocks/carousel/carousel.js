@@ -197,6 +197,7 @@ export default async function decorate(block) {
   const carousel = new Carousel(uiInner);
 
   stories.forEach((row, i) => {
+    console.log(row);
     const li = document.createElement('li');
     const bgColor = row.color !== '' ? row.color : '#fff';
 
@@ -214,11 +215,16 @@ export default async function decorate(block) {
     const slideContent = document.createElement('div');
     slideContent.classList.add('carousel-slide-content');
 
+    const tag = row.tag ? `#${row.tag}` : '';
+
     const slideCopy = document.createElement('div');
     slideCopy.classList.add('carousel-slide-copy');
-    slideCopy.innerHTML = `<h2><a href="${row.path}">${row.title}</a></h2>
+    slideCopy.innerHTML = `
+    <div class="cmp-stories-card__tag">${tag}</div>
+    <h2><a href="${row.path}">${row.title}</a></h2>
     <div>${row.subtitle}</div>
-    <div>${row.author}</div>`;
+    <div class="cmp-stories-card__author">${row.author}</div>
+    <div>${row.authorTitle}</div>`;
 
     slideContent.append(slideCopy);
 
