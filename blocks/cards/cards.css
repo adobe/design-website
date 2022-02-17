@@ -99,6 +99,17 @@
     margin-bottom: 1.5rem;
 }
 
+.cards .cmp-cards-card__media {
+    aspect-ratio: 1 / 1;
+}
+  
+.cards .cmp-cards-card__media img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
 @media (min-width: 900px) {
     .cmp-cards__inner-wrap h1 {
         --stories-page-title-font-size: var(--font-size-2500);
