@@ -49,7 +49,7 @@
 .cards.block {
     background-color: transparent;
     display: grid;
-    grid-template-columns: repeat(12, [col-start] 1fr);
+    grid-template-columns: repeat(6, [col-start] 1fr);
     column-gap: 12px;
     row-gap: 12px;
     margin: 0 auto;
@@ -97,6 +97,17 @@
     font-size: var(--home-card-intro-font-size);
     line-height: 1.3;
     margin-bottom: 1.5rem;
+}
+
+.cards .cmp-cards-card__media {
+    aspect-ratio: 1 / 1;
+}
+  
+.cards .cmp-cards-card__media img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 @media (min-width: 900px) {

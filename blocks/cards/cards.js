@@ -28,7 +28,11 @@ function createCard(row) {
 
   card.style.backgroundColor = cardBGColor;
   card.prepend(createOptimizedPicture(row.image, row.title));
+<<<<<<< HEAD
   card.querySelector('picture').classList.add('cmp-stories-card__media');
+=======
+  card.querySelector('picture').classList.add('cmp-cards-card__media');
+>>>>>>> main
   return (card);
 }
 
