@@ -258,6 +258,12 @@ body.job-posts {
   margin: 6rem 0 3rem;
 }
 
+.job-posts .cmp-about-ad-container h2 {
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-650);
+  margin-bottom: 2rem;
+}
+
 .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h2 {
   --post-sub-headline-font-size: var(--font-size-650);
 
@@ -277,6 +283,15 @@ body.job-posts {
   font-size: var(--post-sub-headline-font-size);
   font-weight: var(--font-weight-normal);
   line-height: 1.2;
+}
+
+.job-posts .cmp-about-ad-container p {
+  font-size: var(--font-size-200);
+}
+
+.job-posts .cmp-eoe-container p {
+  font-size: var(--font-size-200);
+  margin-bottom: 2rem;
 }
 
 .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details p,
@@ -326,6 +341,41 @@ body.job-posts {
   margin-bottom: 1.5rem;
 }
 
+.job-posts .cmp-about-ad-container {
+  background-color: var(--color-base-red);
+  color: var(--color-base-white);
+  font-family: var(--font-stack-serif);
+}
+
+.job-posts .cmp-about-ad-container,
+.job-posts .cmp-eoe-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.job-posts .cmp-about-ad-container div,
+.job-posts .cmp-eoe-container div {
+  display: grid;
+  grid-template-columns: repeat(6, [col-start] 1fr);
+  column-gap: 12px;
+  row-gap: 12px;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  font-family: var(--font-stack-serif);
+  margin: 0 auto;
+  width: var(--content-width);
+  max-width: var(--layout-max-width-desktop); 
+}
+
+.job-posts .cmp-about-ad-container div > *,
+.job-posts .cmp-eoe-container div > * {
+  grid-column: 2 / -2;
+}
+
 @media (min-width: 900px) {
   .job-posts .cmp-job-post__inner-wrap {
     grid-template-columns: repeat(12, [col-start] 1fr);
@@ -340,6 +390,15 @@ body.job-posts {
     grid-column: 6 / -2;
     margin-top: 6rem;
     margin-bottom: 4rem;
+  }
+
+  .job-posts .cmp-about-ad-container h2 {
+    margin-bottom: 3rem;
+  }
+
+  .job-posts .cmp-about-ad-container h2,
+  .job-posts .cmp-about-ad-container p {
+    font-size: var(--font-size-950);
   }
 
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h2 {
@@ -376,6 +435,11 @@ body.job-posts {
   
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details {
     grid-column: 6 / -2;
+  }
+
+  .job-posts .cmp-about-ad-container div,
+  .job-posts .cmp-eoe-container div {
+    grid-template-columns: repeat(12, [col-start] 1fr);
   }
 }
 
@@ -423,6 +487,16 @@ body.job-posts {
   
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details {
     grid-column: 7 / -2;
+  }
+
+  .job-posts .cmp-about-ad-container div,
+  .job-posts .cmp-eoe-container div {
+    grid-template-columns: repeat(16, [col-start] 1fr);
+  }
+
+  .job-posts .cmp-about-ad-container div > *,
+  .job-posts .cmp-eoe-container div > * {
+    grid-column: 1 / -1;
   }
 }
 

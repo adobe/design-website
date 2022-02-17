@@ -698,7 +698,7 @@ function addPathsAsClassNames() {
 
 addPathsAsClassNames();
 
-function decorateJobPost() {
+async function decorateJobPost() {
   const jobLocation = getMetadata('location');
   const jobReqNumber = getMetadata('req-number');
   const jobPositionType = getMetadata('position-type');
@@ -727,6 +727,26 @@ function decorateJobPost() {
   `;
   const jobDetailsContainer = document.querySelector('.cmp-job-post__details');
   jobDetailsContainer.append(...childrenToWrap);
+
+  const aboutADResp = await fetch('/jobs/about-adobe-design.plain.html');
+  const aboutADHtml = await aboutADResp.text();
+
+  if (aboutADHtml !== '') {
+    const aboutADContainer = document.createElement('div');
+    aboutADContainer.classList.add('cmp-about-ad-container');
+    aboutADContainer.innerHTML = aboutADHtml;
+    jobPostInnerWrap.parentNode.append(aboutADContainer);
+  }
+
+  const EOEResp = await fetch('/jobs/equal-opportunity-policy-stmnt.plain.html');
+  const EOEHtml = await EOEResp.text();
+
+  if (EOEHtml !== '') {
+    const EOEContainer = document.createElement('div');
+    EOEContainer.classList.add('cmp-eoe-container');
+    EOEContainer.innerHTML = EOEHtml;
+    jobPostInnerWrap.parentNode.append(EOEContainer);
+  }
 }
 
 if (getMetadata('theme') === 'job-post') {
