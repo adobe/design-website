@@ -49,7 +49,7 @@
 .cards.block {
     background-color: transparent;
     display: grid;
-    grid-template-columns: repeat(12, [col-start] 1fr);
+    grid-template-columns: repeat(6, [col-start] 1fr);
     column-gap: 12px;
     row-gap: 12px;
     margin: 0 auto;
