@@ -329,6 +329,9 @@ body.job-posts {
 @media (min-width: 900px) {
   .job-posts .cmp-job-post__inner-wrap {
     grid-template-columns: repeat(12, [col-start] 1fr);
+
+    /* align-items needs to be declared so that position: sticky works properly on .cmp-job-post__meta */
+    align-items: start;
   }
 
   .job-posts .cmp-job-post__inner-wrap h1 {
@@ -367,6 +370,8 @@ body.job-posts {
   
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__meta {
     grid-column: 2 / span 2;
+    position: sticky;
+    top: 2rem;
   }
   
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details {
