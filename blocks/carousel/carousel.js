@@ -197,7 +197,6 @@ export default async function decorate(block) {
   const carousel = new Carousel(uiInner);
 
   stories.forEach((row, i) => {
-    console.log(row);
     const li = document.createElement('li');
     const bgColor = row.color !== '' ? row.color : '#fff';
 
