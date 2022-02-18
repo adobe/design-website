@@ -127,8 +127,6 @@
     width: 100%;
 }
 
-
-
 .carousel-slide picture {
     grid-column-start: 1;
     grid-column-end: 7;
@@ -184,7 +182,7 @@
 .home .stories-container{
     margin-top: -600px;
 }
-  
+
 
 @media (max-width: 1300px) {
 
@@ -200,17 +198,23 @@
 
     .carousel-slide-copy {
         grid-column-end: 13;
+        padding-right: 0;
     }
 
     .carousel-indicator-scroll{
         display: none;
     }
+
+    .cmp-stories__inner-wrap h1 {
+        --stories-page-title-font-size: var(--font-size-4000);
+      }
 }
 
 @media (max-width: 900px) {
 
     .carousel-group {
-        padding-top: 0;
+        height: auto;
+        box-sizing:content-box;
     }
 
     .carousel-slide-container{
@@ -231,6 +235,8 @@
         grid-row-start: 2;
         grid-row-end: 2;
         justify-content: flex-start;
+        padding:0;
+        padding-bottom: 12px;
     }
     
     .carousel-slide picture {
