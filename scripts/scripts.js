@@ -591,6 +591,12 @@ export function decorateMain(main) {
  * loads everything needed to get to LCP.
  */
 async function loadEager(doc) {
+  const redirect = getMetadata('redirect');
+  const usp = new URLSearchParams(window.location.search);
+  if (redirect || usp.has('suppress-redirect')) {
+    window.location.href = redirect;
+  }
+
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
