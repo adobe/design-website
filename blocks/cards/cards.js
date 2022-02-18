@@ -10,6 +10,9 @@ function createCard(row) {
   const cardDescription = `${row.description ? `<p class="cmp-cards-card__description">${row.description}</p>` : ''}`;
   const cardBGColor = row.color !== '' ? row.color : '#fff';
   const textColor = colormap[cardBGColor];
+  const url = row.path;
+
+  console.log(row);
 
   if (textColor === 'black') {
     card.classList.add('dark-text');
@@ -20,7 +23,7 @@ function createCard(row) {
   card.innerHTML = `
     <div class="cmp-cards-card__body">
       <h2 class="cmp-cards-card__title">
-        <a href="${row.path}">${row.title}</a>
+        <a href="${url}">${row.title}</a>
       </h2>
       ${cardDescription}
     </div>
