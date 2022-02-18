@@ -20,8 +20,6 @@
   line-height: 1;
   margin: 0;
   padding: 0;
-  text-align: center;
-
 }
 
 .cmp-stats__item-description {
@@ -32,7 +30,6 @@
   line-height: 1;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
 /* HOMEPAGE */
@@ -112,14 +109,11 @@
   padding-right: 3rem;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1200px) {
   .cmp-stats {
     display: flex;
-    margin: 5rem auto 0;
-  }
-
-  .cmp-stats__item {
-    margin: 10px;
+    margin: 5rem auto;
+    justify-content: space-between;
   }
   
   .cmp-stats__slash {
@@ -132,6 +126,15 @@
     height: 100%;
   }
 
+  .cmp-stats__item-number {
+    text-align: center;
+  }
+  
+   .cmp-stats__item-description {
+    text-align: center;
+  }
+
+  
   .home .cmp-stats {
     background-color: var(--color-base-tan);
     color: var(--color-base-dark-slate);
