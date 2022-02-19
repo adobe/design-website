@@ -32,6 +32,14 @@
     background: var(--color-base-white);
 }
 
+.people-container h2 {
+    grid-column: 2 / -2;
+}
+
+.inclusive-card{
+    grid-column: 1 / 17;
+}
+
 @media (min-width: 1300px) {
     .inclusive-card-container,
     .inclusive-card-container__inner {
