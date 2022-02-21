@@ -1,0 +1,578 @@
+<html>
+    <head>
+
+        <style>
+            @import url('https://use.typekit.net/jdq5hay.css');
+
+            body {
+                margin: 0;
+                background-image: url("./assets/gradient.jpg");
+                background-size: 100%;
+                font-family: adobe-clean, helvetica, sans-serif;
+                color: white;
+            }
+
+            h1 {
+                font-size: 120px;
+                font-weight: 900;
+                line-height: 1;
+            }
+
+            .container{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .copy{
+                width: 600px;
+            }
+
+            canvas{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="copy">
+                <h1>Design The Future of Design.</h1>
+            </div>
+        </div>
+        <script>
+
+/**
+ * tween class
+ */
+ class Tween {
+
+EasingFunctions = {
+    linear: (t) => t,
+    // accelerating from zero velocity
+    easeInQuad: (t) => t*t,
+    // decelerating to zero velocity
+    easeOutQuad: (t) => t*(2-t),
+    // acceleration until halfway, then deceleration
+    easeInOutQuad: (t) => t<.5 ? 2*t*t : -1+(4-2*t)*t,
+    // accelerating from zero velocity 
+    easeInCubic: (t) => t*t*t,
+    // decelerating to zero velocity 
+    easeOutCubic: (t) => (--t)*t*t+1,
+    // acceleration until halfway, then deceleration 
+    easeInOutCubic: (t) => t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1,
+    // accelerating from zero velocity 
+    easeInQuart: (t) => t*t*t*t,
+    // decelerating to zero velocity 
+    easeOutQuart: (t) => 1-(--t)*t*t*t,
+    // acceleration until halfway, then deceleration
+    easeInOutQuart: (t) => t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t,
+    // accelerating from zero velocity
+    easeInQuint: (t) => t*t*t*t*t,
+    // decelerating to zero velocity
+    easeOutQuint: (t) => 1+(--t)*t*t*t*t,
+    // acceleration until halfway, then deceleration 
+    easeInOutQuint: (t) => t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t,
+    // bounce out
+    bounceOut: (t) => {
+        if (t < (1/2.75)) {
+            return (7.5625*t*t) ;
+        } else if (t < (2/2.75)) {
+            return (7.5625*(t-=(1.5/2.75))*t + .75);
+        } else if (t < (2.5/2.75)) {
+            return (7.5625*(t-=(2.25/2.75))*t + .9375);
+        } else {
+            return (7.5625*(t-=(2.625/2.75))*t + .984375);
+        }
+    }
+}
+
+_id = Math.floor(Math.random() * 1000);
+_startTime = Date.now();
+_target = null;
+_duration = 0;
+_delay = 0;
+_easingFunction = this.EasingFunctions.linear;
+_startVars = {};
+_endVars = {};
+_hasSetStartVars = false;
+completed = false;
+
+constructor(target, vars) {
+    this._target = target;
+    this._delay = vars.delay ? vars.delay * 1000 : 0; //to milli
+    this._duration = vars.duration * 1000; //to milli
+    this._startTime = Date.now() + this._delay;
+    if (vars.ease && this.EasingFunctions[vars.ease]) {
+        this._easingFunction = this.EasingFunctions[vars.ease];
+    }
+
+    for (let i in vars) {
+        if (target.hasOwnProperty(i)) {
+            this._startVars[i] = target[i];
+            this._endVars[i] = vars[i];
+        }
+    }
+}
+
+//set start vars from current value.
+setStartVars() {
+    if (this._hasSetStartVars) {
+        return;
+    }
+
+    this._hasSetStartVars = true;
+    for (let i in this._endVars) {
+        if (this._target.hasOwnProperty(i)) {
+            this._startVars[i] = this._target[i];
+        }
+    }
+}
+
+update() {
+    if (Date.now() - this._startTime < 0) { //if delay now may be less than start time
+        return;
+    }
+
+    this.setStartVars();
+
+    let elapsed = (Date.now() - this._startTime) / this._duration;
+    elapsed = this._duration === 0 || elapsed > 1 ? 1 : elapsed;
+
+    let easeTime = this._easingFunction(elapsed);
+
+    for (let i in this._endVars) {
+        this._target[i] = this.lerp(this._startVars[i], this._endVars[i], easeTime);
+    }
+
+    if (elapsed == 1) {
+        this.completed = true;
+    }
+}
+
+/**
+ * Linear interpolation
+ * @param v0 start value
+ * @param v1 end value
+ * @param t time 
+ * @returns number
+ */
+lerp = (v0, v1, t) => {
+    return v0 * (1 - t) + v1 * t;
+};
+}
+
+/**
+* Tween Manager class
+*/
+class Tw {
+
+static tweens = [];
+
+static to(target, vars) {
+    let tw = new Tween(target, vars);
+    this.tweens.push(tw);
+}
+
+static set(target, vars) {
+    for (let i in vars) {
+        if (target.hasOwnProperty(i)) {
+            target[i] = vars[i];
+        }
+    }
+}
+
+static fromTo(target, fromVars, toVars) {
+    this.set(target, fromVars);
+    this.to(target, toVars);
+}
+
+static update() {
+    let i = this.tweens.length;
+    while (i-- ) {
+        const tween = this.tweens[i];
+        if (tween.completed) {
+            this.tweens.splice(i, 1);
+        } else {
+            tween.update();
+        }
+    }
+}
+}
+
+let colors = [
+    [221, 13, 0],
+    [255, 153, 0],
+    [48, 143, 255],
+    [74, 222, 82],
+    [255, 209, 31],
+    [255, 82, 245]
+];
+
+
+const WINDOW_WIDTH = window.innerWidth;// * devicePixelRatio;
+const WINDOW_HEIGHT = window.innerHeight; // * devicePixelRatio;
+
+const WINDOW_HALF_WIDTH = WINDOW_WIDTH / 2;
+const WINDOW_HALF_HEIGHT = WINDOW_HEIGHT / 2;
+
+
+const ballCanvas = document.createElement('canvas');
+ballCanvas.width = WINDOW_WIDTH;
+ballCanvas.height = WINDOW_HEIGHT;
+
+const bctx = ballCanvas.getContext('2d');
+
+const playCanvas = document.createElement('canvas');
+playCanvas.width = WINDOW_WIDTH;
+playCanvas.height = WINDOW_HEIGHT;
+playCanvas.style.width = '100%';
+playCanvas.style.height = '100%';
+playCanvas.style.position = 'fixed';
+playCanvas.style.zIndex = '100';
+document.body.appendChild(playCanvas);
+
+const ctx = playCanvas.getContext('2d');
+
+const GOAL_RADIUS = 40;
+const COLOR = colors[Math.floor(Math.random() * colors.length)];
+
+let hole = {
+    x: WINDOW_HALF_WIDTH,
+    y: WINDOW_HALF_HEIGHT,
+    r: 0
+}
+
+let ball = {
+    x: WINDOW_HALF_WIDTH + 50,
+    y: WINDOW_HALF_HEIGHT + 100,
+    r: GOAL_RADIUS
+}
+
+let mask = true;
+let isAnimating = false;
+
+let isMousedown = false;
+let isDragging = false;
+
+let old = {x: 0, y: 0};
+let velocity = {x: 0, y: 0};
+
+let friction = 0.99;
+let gravity = 0.8;
+let bounce = -0.24;
+
+setup();
+
+function setup() {
+    window.addEventListener("mousemove", mousemove);
+    window.addEventListener("mousedown", mousedown);
+    window.addEventListener("mouseup", mouseup);
+
+    holeIn();
+
+    update();
+}
+
+function holeIn() {
+    hole.x = WINDOW_HALF_WIDTH;
+    hole.y = WINDOW_HALF_HEIGHT;
+    mask = true;
+    Tw.to(hole, {
+        r: GOAL_RADIUS + 3, 
+        duration: 0.4, 
+        delay: 1, 
+        ease: 'easeOutQuad'
+    });
+    Tw.to(hole, {
+        r: 0, 
+        duration: 0.4, 
+        delay: 1.6, 
+        ease: 'easeInQuad'
+    });
+
+    setTimeout(() => {
+        mask = false;
+    }, 1600);
+
+    Tw.to(ball, {
+        x: WINDOW_HALF_WIDTH, 
+        y: WINDOW_HALF_HEIGHT, 
+        duration: 0.4, 
+        delay: 1.2, 
+        ease: 'easeOutQuad'
+    });
+    Tw.to(ball, {
+        y: WINDOW_HEIGHT - GOAL_RADIUS, 
+        duration: 1, 
+        delay: 1.6, 
+        ease: 'bounceOut'
+    });
+
+    setTimeout(() => {
+        isAnimating = true;
+        newHole();
+    }, 2600);
+}
+
+function newHole() {
+    hole.x = (WINDOW_HALF_WIDTH / 2) + Math.random() * WINDOW_HALF_WIDTH;
+    hole.y = (WINDOW_HALF_HEIGHT / 2) + Math.random() * WINDOW_HALF_HEIGHT;
+    
+    Tw.to(hole, {
+        r: GOAL_RADIUS + 3, 
+        duration: 0.4, 
+        ease: 'easeOutQuad'
+    });
+}
+
+function mousedown(e) {
+    if (!isAnimating) {
+        return;
+    }
+
+    isMousedown = true;
+
+    if (e.x > ball.x - ball.r &&
+        e.x < ball.x + ball.r &&
+        e.y > ball.y - ball.r &&
+        e.y < ball.y + ball.r) {
+            isDragging = true;
+            old = {x: ball.x, y: ball.y};
+        }
+}
+
+function mouseup(e) {
+    isMousedown = false;
+    isDragging = false;
+}
+
+function mousemove(e) {
+
+    if (isDragging) {
+        ball.x = e.x;
+        ball.y = e.y;
+    }
+
+    if (e.x > ball.x - ball.r &&
+        e.x < ball.x + ball.r &&
+        e.y > ball.y - ball.r &&
+        e.y < ball.y + ball.r) {
+            if (isDragging) {
+                playCanvas.style.cursor = 'grabbing';
+            } else {
+                playCanvas.style.cursor = 'grab';
+            }
+        } else {
+            playCanvas.style.cursor = 'default';
+        }
+}
+
+function update() {
+    Tw.update();
+    animate();
+    draw();
+    requestAnimationFrame(update);
+}
+
+function checkHitHole() {
+    if (ball.x < hole.x + hole.r &&
+        ball.x > hole.x - hole.r &&
+        ball.y < hole.y + hole.r &&
+        ball.y > hole.y - hole.r) 
+    {
+        isDragging = false;
+        isAnimating = false;
+        old = {x: 0, y: 0};
+        velocity = {x: 0, y: 0};
+        
+        Tw.to(ball, {
+            x: hole.x, 
+            y: hole.y, 
+            duration: 0.1, 
+            ease: 'easeOutQuad'
+        });
+        setTimeout(() => {
+            mask = true;
+            Tw.to(ball, {
+                y: hole.y + 100, 
+                duration: 0.4, 
+                ease: 'easeInQuad'
+            });
+            Tw.to(hole, {
+                r: 0, 
+                duration: 0.4, 
+                delay: 0.4, 
+                ease: 'easeInQuad'
+            });
+
+            setTimeout(() => {
+                holeIn();
+            }, 1000)
+        }, 300);
+    }
+}
+
+function animate() {
+
+    if (!isAnimating) {
+        return;
+    }
+
+    checkHitHole();
+
+    let left = 0;
+    let right = WINDOW_WIDTH;
+    let top = 0;
+    let bottom = WINDOW_HEIGHT;
+
+    if (isDragging) {
+
+        if (ball.x + ball.r > right) {
+            ball.x = right - ball.r;
+        } else if (ball.x - ball.r < left) {
+            ball.x = left + ball.r;
+        }
+
+        if (ball.y + ball.r > bottom) {
+            ball.y = bottom - ball.r;
+        } else if (ball.y - ball.r < top) {
+            ball.y = top + ball.r;
+        }
+
+        velocity.x = ball.x - old.x;
+        velocity.y = ball.y - old.y;
+        old.x = ball.x;
+        old.y = ball.y;
+    } else {
+
+        velocity.y += gravity;
+        ball.x += velocity.x;
+        ball.y += velocity.y;
+
+        if (ball.x + ball.r > right) {
+            ball.x = right - ball.r;
+            velocity.x *= bounce;
+        } else if (ball.x - ball.r < left) {
+            ball.x = left + ball.r;
+            velocity.x *= bounce;
+        }
+
+        if (ball.y + ball.r > bottom) {
+            ball.y = bottom - ball.r;
+            velocity.y *= bounce;
+            velocity.x *= friction;
+        } else if (ball.y - ball.r < top) {
+            ball.y = top + ball.r;
+            velocity.y *= bounce;
+        }
+    }
+}
+
+function draw() {
+
+    ctx.clearRect(0, 0, playCanvas.width, playCanvas.height);
+    ctx.globalCompositeOperation = 'source-over';
+
+    // draw hole
+    ctx.globalAlpha = 0.8;
+    ctx.fillStyle = '#333333';
+    ctx.beginPath();
+    ctx.arc(hole.x, hole.y, hole.r, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    drawBall();
+
+    if (mask) {
+        ctx.globalCompositeOperation = 'destination-in';
+
+        // draw mask
+        ctx.beginPath();
+        ctx.arc(hole.x, hole.y, hole.r, 0, 2 * Math.PI);
+        ctx.fill();
+    }
+}
+
+function drawBall() {
+    bctx.clearRect(0, 0, playCanvas.width, playCanvas.height);
+
+    bctx.fillStyle = 'white';
+    bctx.fillRect(0, 0, playCanvas.width, playCanvas.height);
+
+    bctx.globalCompositeOperation = 'source-over';
+    drawGradient();
+
+    bctx.globalCompositeOperation = 'destination-in';
+    bctx.fillStyle = 'black';
+
+    bctx.beginPath();
+    bctx.arc(ball.x, ball.y, ball.r, 0, 2 * Math.PI);
+    bctx.fill();
+
+    // shading
+    bctx.globalCompositeOperation = 'source-over';
+
+    let grX = ball.x - (ball.r / 4);
+    let grY = ball.y - (ball.r / 4);
+    var shadingGrd = bctx.createRadialGradient(grX, grY, ball.r / 3, ball.x, ball.y, ball.r * 1.5);
+    shadingGrd.addColorStop(0, 'rgba(0, 0, 0, 0)');
+    shadingGrd.addColorStop(1, 'rgba(0, 0, 0, 0.2)');
+    bctx.fillStyle = shadingGrd;
+
+    bctx.beginPath();
+    bctx.arc(ball.x, ball.y, ball.r, 0, 2 * Math.PI);
+    bctx.fill();
+
+    ctx.drawImage(ballCanvas, 0, 0);
+}
+
+function drawGradient() {
+
+    for (let i = 0; i < colors.length; i++) {
+        let c = colors[i];
+        let colorA = `rgb(${c[0]}, ${c[1]}, ${c[2]})`;
+        let colorB = `rgba(${c[0]}, ${c[1]}, ${c[2]}, 0)`;
+    
+        let x0;
+        let y0;
+        let x1;
+        let y1;
+
+        if (i > 0) {
+            let angle = (2 * Math.PI * i) / (colors.length - 1);
+
+            x0 = playCanvas.width / 2 + Math.sin(angle) * (playCanvas.width / 2);
+            y0 = playCanvas.height / 2 + Math.cos(angle) * (playCanvas.height / 2);
+            x1 = playCanvas.width / 2 + Math.sin(angle) * (playCanvas.width / 2);
+            y1 = playCanvas.height / 2 + Math.cos(angle) * (playCanvas.height / 2);
+        } else {
+            x0 = playCanvas.width / 2;
+            y0 = playCanvas.height / 2;
+            x1 = playCanvas.width / 2;
+            y1 = playCanvas.height / 2;
+        }
+
+        var grd = bctx.createRadialGradient(x0, y0, 100, x1, y1, (playCanvas.height / 2));
+        grd.addColorStop(0, colorA);
+        grd.addColorStop(1, colorB);
+    
+        bctx.fillStyle = grd;
+        bctx.save();
+
+        bctx.fillRect(0, 0, playCanvas.width, playCanvas.height);
+
+        bctx.restore();
+    }
+
+
+    //return grd;
+}
+        </script>
+    </body>
+</html>
