@@ -6,10 +6,8 @@
 
             body {
                 margin: 0;
-                background-image: url("./assets/gradient.jpg");
-                background-size: 100%;
                 font-family: adobe-clean, helvetica, sans-serif;
-                color: white;
+                color: black;
             }
 
             h1 {
@@ -24,6 +22,8 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                position: relative;
+                z-index: 2;
             }
 
             .copy{
@@ -36,184 +36,48 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
+                z-index: 1;
             }
         </style>
     </head>
     <body>
+        <canvas id="workareaCanvas"></canvas>
         <div class="container">
             <div class="copy">
                 <h1>Design The Future of Design.</h1>
             </div>
         </div>
         <script>
+const HALF_PI = Math.PI / 2;
 
-/**
- * tween class
- */
- class Tween {
-
-EasingFunctions = {
-    linear: (t) => t,
+const EasingFunctions = {
+    // no easing, no acceleration
+    linear: t => t,
     // accelerating from zero velocity
-    easeInQuad: (t) => t*t,
+    easeInQuad: t => t*t,
     // decelerating to zero velocity
-    easeOutQuad: (t) => t*(2-t),
+    easeOutQuad: t => t*(2-t),
     // acceleration until halfway, then deceleration
-    easeInOutQuad: (t) => t<.5 ? 2*t*t : -1+(4-2*t)*t,
+    easeInOutQuad: t => t<.5 ? 2*t*t : -1+(4-2*t)*t,
     // accelerating from zero velocity 
-    easeInCubic: (t) => t*t*t,
+    easeInCubic: t => t*t*t,
     // decelerating to zero velocity 
-    easeOutCubic: (t) => (--t)*t*t+1,
+    easeOutCubic: t => (--t)*t*t+1,
     // acceleration until halfway, then deceleration 
-    easeInOutCubic: (t) => t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1,
+    easeInOutCubic: t => t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1,
     // accelerating from zero velocity 
-    easeInQuart: (t) => t*t*t*t,
+    easeInQuart: t => t*t*t*t,
     // decelerating to zero velocity 
-    easeOutQuart: (t) => 1-(--t)*t*t*t,
+    easeOutQuart: t => 1-(--t)*t*t*t,
     // acceleration until halfway, then deceleration
-    easeInOutQuart: (t) => t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t,
+    easeInOutQuart: t => t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t,
     // accelerating from zero velocity
-    easeInQuint: (t) => t*t*t*t*t,
+    easeInQuint: t => t*t*t*t*t,
     // decelerating to zero velocity
-    easeOutQuint: (t) => 1+(--t)*t*t*t*t,
+    easeOutQuint: t => 1+(--t)*t*t*t*t,
     // acceleration until halfway, then deceleration 
-    easeInOutQuint: (t) => t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t,
-    // bounce out
-    bounceOut: (t) => {
-        if (t < (1/2.75)) {
-            return (7.5625*t*t) ;
-        } else if (t < (2/2.75)) {
-            return (7.5625*(t-=(1.5/2.75))*t + .75);
-        } else if (t < (2.5/2.75)) {
-            return (7.5625*(t-=(2.25/2.75))*t + .9375);
-        } else {
-            return (7.5625*(t-=(2.625/2.75))*t + .984375);
-        }
-    }
+    easeInOutQuint: t => t<.5 ? 16*t*t*t*t*t : 1+16*(--t)*t*t*t*t
 }
-
-_id = Math.floor(Math.random() * 1000);
-_startTime = Date.now();
-_target = null;
-_duration = 0;
-_delay = 0;
-_easingFunction = this.EasingFunctions.linear;
-_startVars = {};
-_endVars = {};
-_hasSetStartVars = false;
-completed = false;
-
-constructor(target, vars) {
-    this._target = target;
-    this._delay = vars.delay ? vars.delay * 1000 : 0; //to milli
-    this._duration = vars.duration * 1000; //to milli
-    this._startTime = Date.now() + this._delay;
-    if (vars.ease && this.EasingFunctions[vars.ease]) {
-        this._easingFunction = this.EasingFunctions[vars.ease];
-    }
-
-    for (let i in vars) {
-        if (target.hasOwnProperty(i)) {
-            this._startVars[i] = target[i];
-            this._endVars[i] = vars[i];
-        }
-    }
-}
-
-//set start vars from current value.
-setStartVars() {
-    if (this._hasSetStartVars) {
-        return;
-    }
-
-    this._hasSetStartVars = true;
-    for (let i in this._endVars) {
-        if (this._target.hasOwnProperty(i)) {
-            this._startVars[i] = this._target[i];
-        }
-    }
-}
-
-update() {
-    if (Date.now() - this._startTime < 0) { //if delay now may be less than start time
-        return;
-    }
-
-    this.setStartVars();
-
-    let elapsed = (Date.now() - this._startTime) / this._duration;
-    elapsed = this._duration === 0 || elapsed > 1 ? 1 : elapsed;
-
-    let easeTime = this._easingFunction(elapsed);
-
-    for (let i in this._endVars) {
-        this._target[i] = this.lerp(this._startVars[i], this._endVars[i], easeTime);
-    }
-
-    if (elapsed == 1) {
-        this.completed = true;
-    }
-}
-
-/**
- * Linear interpolation
- * @param v0 start value
- * @param v1 end value
- * @param t time 
- * @returns number
- */
-lerp = (v0, v1, t) => {
-    return v0 * (1 - t) + v1 * t;
-};
-}
-
-/**
-* Tween Manager class
-*/
-class Tw {
-
-static tweens = [];
-
-static to(target, vars) {
-    let tw = new Tween(target, vars);
-    this.tweens.push(tw);
-}
-
-static set(target, vars) {
-    for (let i in vars) {
-        if (target.hasOwnProperty(i)) {
-            target[i] = vars[i];
-        }
-    }
-}
-
-static fromTo(target, fromVars, toVars) {
-    this.set(target, fromVars);
-    this.to(target, toVars);
-}
-
-static update() {
-    let i = this.tweens.length;
-    while (i-- ) {
-        const tween = this.tweens[i];
-        if (tween.completed) {
-            this.tweens.splice(i, 1);
-        } else {
-            tween.update();
-        }
-    }
-}
-}
-
-let colors = [
-    [221, 13, 0],
-    [255, 153, 0],
-    [48, 143, 255],
-    [74, 222, 82],
-    [255, 209, 31],
-    [255, 82, 245]
-];
-
 
 const WINDOW_WIDTH = window.innerWidth;// * devicePixelRatio;
 const WINDOW_HEIGHT = window.innerHeight; // * devicePixelRatio;
@@ -221,358 +85,370 @@ const WINDOW_HEIGHT = window.innerHeight; // * devicePixelRatio;
 const WINDOW_HALF_WIDTH = WINDOW_WIDTH / 2;
 const WINDOW_HALF_HEIGHT = WINDOW_HEIGHT / 2;
 
+const WC = document.getElementById('workareaCanvas');
+const WCTX = WC.getContext('2d');
 
-const ballCanvas = document.createElement('canvas');
-ballCanvas.width = WINDOW_WIDTH;
-ballCanvas.height = WINDOW_HEIGHT;
+const MC = document.createElement('canvas');
+MC.width = WINDOW_WIDTH;
+MC.height = WINDOW_HEIGHT;
 
-const bctx = ballCanvas.getContext('2d');
+const MCX = MC.getContext('2d');
 
-const playCanvas = document.createElement('canvas');
-playCanvas.width = WINDOW_WIDTH;
-playCanvas.height = WINDOW_HEIGHT;
-playCanvas.style.width = '100%';
-playCanvas.style.height = '100%';
-playCanvas.style.position = 'fixed';
-playCanvas.style.zIndex = '100';
-document.body.appendChild(playCanvas);
+const GC = document.createElement('canvas');
+GC.width = WINDOW_WIDTH;
+GC.height = WINDOW_HEIGHT;
+GC.style.width = '100%';
+GC.style.height = '100%';
+GC.style.position = 'fixed';
+document.body.appendChild(GC);
 
-const ctx = playCanvas.getContext('2d');
+const GCX = GC.getContext('2d');
 
-const GOAL_RADIUS = 40;
-const COLOR = colors[Math.floor(Math.random() * colors.length)];
+const circles = [
+{ x: 0, y: 0, r: 0, sr: 120, maxr: 50, color: [221, 13, 0] },
+    { x: 0, y: 0, r: 0, sr: 90, maxr: 50, startdist: 150, maxdist: 70, v: 0.4, color: [255, 153, 0] },
+    { x: 0, y: 0, r: 0, sr: 80, maxr: 20, startdist: 180, maxdist: 30, v: 0.2, color: [255, 82, 245] },
+    { x: 0, y: 0, r: 0, sr: 50, maxr: 40, startdist: 180, maxdist: 130, v: 0.6, color: [48, 143, 255] },
+    { x: 0, y: 0, r: 0, sr: 20, maxr: 20, startdist: 210, maxdist: 160, v: 0.5, color: [74, 222, 82] },
+    { x: 0, y: 0, r: 0, sr: 90, maxr: 20, startdist: 170, maxdist: 90, v: 0.5, color: [255, 209, 31] },
+    { x: 0, y: 0, r: 0, sr: 70, maxr: 10, startdist: 190, maxdist: 120, v: 0.7, color: [48, 143, 255] },
+    { x: 0, y: 0, r: 0, sr: 30, maxr: 10, startdist: 150, maxdist: 100, v: 0.45, color: [255, 209, 31] },
+    { x: 0, y: 0, r: 0, sr: 30, maxr: 20, startdist: 180, maxdist: 30, v: 0.4, color: [255, 82, 245] },
+    { x: 0, y: 0, r: 0, sr: 50, maxr: 20, startdist: 170, maxdist: 110, v: 0.3, color: [74, 222, 82] }
+];
 
-let hole = {
-    x: WINDOW_HALF_WIDTH,
-    y: WINDOW_HALF_HEIGHT,
-    r: 0
-}
+let offsetX = WINDOW_HALF_WIDTH;
+let offsetY = WINDOW_HALF_HEIGHT;
 
-let ball = {
-    x: WINDOW_HALF_WIDTH + 50,
-    y: WINDOW_HALF_HEIGHT + 100,
-    r: GOAL_RADIUS
-}
+let lastTime = Date.now();
+let delta = 0;
+let animating = true;
 
-let mask = true;
-let isAnimating = false;
+//mouse vars
+let mouse = { x: 0, y: 0 };
+let mouseStart = { x: WINDOW_HALF_WIDTH, y: WINDOW_HALF_HEIGHT };
+let mouseCircStart = { x: 0, y: 0 };
+let mouseCacheCirc = { x: 0, y: 0 };
+let mousedown = true;
+let mousemove = false;
+let mousetimer = 0;
+let mouseduration = 3;
+let mouseEase = 0.1;
 
-let isMousedown = false;
-let isDragging = false;
+let blobX = 0;
+let blobY = 0;
+let blobScale = 1;
 
-let old = {x: 0, y: 0};
-let velocity = {x: 0, y: 0};
-
-let friction = 0.99;
-let gravity = 0.8;
-let bounce = -0.24;
-
-setup();
-
-function setup() {
-    window.addEventListener("mousemove", mousemove);
-    window.addEventListener("mousedown", mousedown);
-    window.addEventListener("mouseup", mouseup);
-
-    holeIn();
-
-    update();
-}
-
-function holeIn() {
-    hole.x = WINDOW_HALF_WIDTH;
-    hole.y = WINDOW_HALF_HEIGHT;
-    mask = true;
-    Tw.to(hole, {
-        r: GOAL_RADIUS + 3, 
-        duration: 0.4, 
-        delay: 1, 
-        ease: 'easeOutQuad'
-    });
-    Tw.to(hole, {
-        r: 0, 
-        duration: 0.4, 
-        delay: 1.6, 
-        ease: 'easeInQuad'
-    });
-
-    setTimeout(() => {
-        mask = false;
-    }, 1600);
-
-    Tw.to(ball, {
-        x: WINDOW_HALF_WIDTH, 
-        y: WINDOW_HALF_HEIGHT, 
-        duration: 0.4, 
-        delay: 1.2, 
-        ease: 'easeOutQuad'
-    });
-    Tw.to(ball, {
-        y: WINDOW_HEIGHT - GOAL_RADIUS, 
-        duration: 1, 
-        delay: 1.6, 
-        ease: 'bounceOut'
-    });
-
-    setTimeout(() => {
-        isAnimating = true;
-        newHole();
-    }, 2600);
-}
-
-function newHole() {
-    hole.x = (WINDOW_HALF_WIDTH / 2) + Math.random() * WINDOW_HALF_WIDTH;
-    hole.y = (WINDOW_HALF_HEIGHT / 2) + Math.random() * WINDOW_HALF_HEIGHT;
-    
-    Tw.to(hole, {
-        r: GOAL_RADIUS + 3, 
-        duration: 0.4, 
-        ease: 'easeOutQuad'
-    });
-}
-
-function mousedown(e) {
-    if (!isAnimating) {
-        return;
-    }
-
-    isMousedown = true;
-
-    if (e.x > ball.x - ball.r &&
-        e.x < ball.x + ball.r &&
-        e.y > ball.y - ball.r &&
-        e.y < ball.y + ball.r) {
-            isDragging = true;
-            old = {x: ball.x, y: ball.y};
-        }
-}
-
-function mouseup(e) {
-    isMousedown = false;
-    isDragging = false;
-}
-
-function mousemove(e) {
-
-    if (isDragging) {
-        ball.x = e.x;
-        ball.y = e.y;
-    }
-
-    if (e.x > ball.x - ball.r &&
-        e.x < ball.x + ball.r &&
-        e.y > ball.y - ball.r &&
-        e.y < ball.y + ball.r) {
-            if (isDragging) {
-                playCanvas.style.cursor = 'grabbing';
-            } else {
-                playCanvas.style.cursor = 'grab';
-            }
-        } else {
-            playCanvas.style.cursor = 'default';
-        }
-}
+update();
 
 function update() {
-    Tw.update();
-    animate();
+
+    timeline();
     draw();
+
     requestAnimationFrame(update);
 }
 
-function checkHitHole() {
-    if (ball.x < hole.x + hole.r &&
-        ball.x > hole.x - hole.r &&
-        ball.y < hole.y + hole.r &&
-        ball.y > hole.y - hole.r) 
-    {
-        isDragging = false;
-        isAnimating = false;
-        old = {x: 0, y: 0};
-        velocity = {x: 0, y: 0};
-        
-        Tw.to(ball, {
-            x: hole.x, 
-            y: hole.y, 
-            duration: 0.1, 
-            ease: 'easeOutQuad'
-        });
-        setTimeout(() => {
-            mask = true;
-            Tw.to(ball, {
-                y: hole.y + 100, 
-                duration: 0.4, 
-                ease: 'easeInQuad'
-            });
-            Tw.to(hole, {
-                r: 0, 
-                duration: 0.4, 
-                delay: 0.4, 
-                ease: 'easeInQuad'
-            });
+//canvas to draw content on..
+let canvas = document.getElementById('workareaCanvas');
+let rect = canvas.getBoundingClientRect();
+canvas.width = rect.width;
+canvas.height = rect.height;
+canvas.style.width = '100%';
+canvas.style.height = '100%';
 
-            setTimeout(() => {
-                holeIn();
-            }, 1000)
-        }, 300);
+let ctx = canvas.getContext('2d');
+let img = document.createElement('img');
+
+let drewImage = false;
+
+img.src = './images/example.png';
+
+window.addEventListener('mousemove', (e) => {
+    mousemove = true;
+    if (mousedown) {
+        mouse.x = e.pageX;
+        mouse.y = e.pageY;
     }
-}
+});
 
-function animate() {
+function timeline() {
 
-    if (!isAnimating) {
+    if (!animating) {
         return;
     }
 
-    checkHitHole();
+    let now = Date.now();
+    let timeDiff = (now - lastTime) / 1000;
+    delta += timeDiff;
+    lastTime = now;
 
-    let left = 0;
-    let right = WINDOW_WIDTH;
-    let top = 0;
-    let bottom = WINDOW_HEIGHT;
+    mousetimer += timeDiff;
 
-    if (isDragging) {
+    circles[0].r = circles[0].sr + Math.sin(delta / 10) * circles[0].maxr;
 
-        if (ball.x + ball.r > right) {
-            ball.x = right - ball.r;
-        } else if (ball.x - ball.r < left) {
-            ball.x = left + ball.r;
+    if (mousedown * mousemove) {
+        let maxRadius = 150;
+        diffX = (mouse.x - mouseStart.x);
+        diffY = (mouse.y - mouseStart.y);
+
+        let radius = Math.sqrt(diffX * diffX + diffY * diffY);
+        let angle = Math.atan2(mouseStart.y - mouse.y, mouseStart.x - mouse.x);
+        if (radius > maxRadius) {
+            diffX = Math.sin(-angle - HALF_PI) * maxRadius;
+            diffY = Math.cos(-angle - HALF_PI) * maxRadius;
         }
 
-        if (ball.y + ball.r > bottom) {
-            ball.y = bottom - ball.r;
-        } else if (ball.y - ball.r < top) {
-            ball.y = top + ball.r;
+        diffX /= 10;
+        diffY /= 10;
+
+        let goalX = diffX;
+        let goalY = diffY;
+
+        let vx = goalX - circles[0].x * mouseEase;
+        let vy = goalY - circles[0].y * mouseEase;
+        circles[0].x += vx;
+        circles[0].y += vy;
+        mouseCacheCirc.x = circles[0].x;
+        mouseCacheCirc.y = circles[0].y;
+    }
+
+    for (let i = 1; i < circles.length; i++) {
+        let angle = (2 * Math.PI * i) / (circles.length - 1);
+        let v = circles[i].v;
+        let maxdist = circles[i].maxdist;
+        let startdist = circles[i].startdist;
+        circles[i].x = Math.sin(angle + delta * v / 2) * (startdist + Math.sin(delta * v) * maxdist);
+        circles[i].y = Math.cos(angle + delta * v / 2) * (startdist + Math.sin(delta * v) * maxdist);
+
+        circles[i].r = circles[i].sr + Math.sin(delta * v / 10) * circles[i].maxr;
+    }
+    
+    t = delta;
+
+    // animin
+    let duration = 2;
+    if (t < duration) {
+        //blobX = lerp(0, 0, EasingFunctions.easeOutQuad(t / duration));
+        blobY = lerp(WINDOW_HALF_HEIGHT + 500, 0, EasingFunctions.easeOutQuad(t / duration));
+        blobScale = lerp(0.8, 1, EasingFunctions.easeInOutQuad(t / duration));
+    }
+    /*
+
+    //animout
+    let loadTime = 8;
+    let animOutDuration = 3;
+    if (t > loadTime) {
+        mousedown = false;
+        let startTime = t - loadTime;
+
+        let centerDuration = 1;
+        if (startTime < centerDuration) {
+            circles[0].x = lerp(mouseCacheCirc.x, 0, EasingFunctions.easeOutQuad(startTime / centerDuration));
+            circles[0].y = lerp(mouseCacheCirc.y, 0, EasingFunctions.easeOutQuad(startTime / centerDuration));
         }
 
-        velocity.x = ball.x - old.x;
-        velocity.y = ball.y - old.y;
-        old.x = ball.x;
-        old.y = ball.y;
-    } else {
-
-        velocity.y += gravity;
-        ball.x += velocity.x;
-        ball.y += velocity.y;
-
-        if (ball.x + ball.r > right) {
-            ball.x = right - ball.r;
-            velocity.x *= bounce;
-        } else if (ball.x - ball.r < left) {
-            ball.x = left + ball.r;
-            velocity.x *= bounce;
+        blobX = lerp(0, -WINDOW_HALF_WIDTH - 1000, EasingFunctions.easeInQuad(startTime / animOutDuration));
+        blobY = lerp(0, -WINDOW_HALF_HEIGHT - 1000, EasingFunctions.easeInQuad(startTime / animOutDuration));
+        blobScale = lerp(1, 4, EasingFunctions.easeOutCubic(startTime / animOutDuration));
+        
+        if (startTime > animOutDuration - 2.5) {
+            if (!drewImage) {
+                ctx.drawImage(img, 0, 0);
+                app.style.opacity = '1';
+                drewImage = true;
+            }
         }
 
-        if (ball.y + ball.r > bottom) {
-            ball.y = bottom - ball.r;
-            velocity.y *= bounce;
-            velocity.x *= friction;
-        } else if (ball.y - ball.r < top) {
-            ball.y = top + ball.r;
-            velocity.y *= bounce;
+        if (startTime > animOutDuration) {
+            GC.style.display = 'none';
+            animating = false;
         }
     }
+    */
 }
 
 function draw() {
 
-    ctx.clearRect(0, 0, playCanvas.width, playCanvas.height);
-    ctx.globalCompositeOperation = 'source-over';
+    MCX.clearRect(0, 0, MC.width, MC.height);
 
-    // draw hole
-    ctx.globalAlpha = 0.8;
-    ctx.fillStyle = '#333333';
-    ctx.beginPath();
-    ctx.arc(hole.x, hole.y, hole.r, 0, 2 * Math.PI);
-    ctx.fill();
-    ctx.globalAlpha = 1;
+    MCX.save();
 
-    drawBall();
+    //MCX.translate(-WINDOW_HALF_WIDTH, -WINDOW_HALF_HEIGHT);
+    MCX.translate(offsetX, offsetY);
 
-    if (mask) {
-        ctx.globalCompositeOperation = 'destination-in';
+    MCX.scale(blobScale, blobScale);
+    //MCX.scale(devicePixelRatio, devicePixelRatio);
+    MCX.translate(blobX, blobY);
 
-        // draw mask
-        ctx.beginPath();
-        ctx.arc(hole.x, hole.y, hole.r, 0, 2 * Math.PI);
-        ctx.fill();
-    }
-}
+    MCX.fillStyle = "black";
 
-function drawBall() {
-    bctx.clearRect(0, 0, playCanvas.width, playCanvas.height);
+    for (let i = 0; i < circles.length; i++) {
+        let _c = circles[i];
+        MCX.beginPath();
+        MCX.arc(_c.x, _c.y, _c.r, 0, 2 * Math.PI);
+        MCX.closePath();
+        MCX.fill();
 
-    bctx.fillStyle = 'white';
-    bctx.fillRect(0, 0, playCanvas.width, playCanvas.height);
-
-    bctx.globalCompositeOperation = 'source-over';
-    drawGradient();
-
-    bctx.globalCompositeOperation = 'destination-in';
-    bctx.fillStyle = 'black';
-
-    bctx.beginPath();
-    bctx.arc(ball.x, ball.y, ball.r, 0, 2 * Math.PI);
-    bctx.fill();
-
-    // shading
-    bctx.globalCompositeOperation = 'source-over';
-
-    let grX = ball.x - (ball.r / 4);
-    let grY = ball.y - (ball.r / 4);
-    var shadingGrd = bctx.createRadialGradient(grX, grY, ball.r / 3, ball.x, ball.y, ball.r * 1.5);
-    shadingGrd.addColorStop(0, 'rgba(0, 0, 0, 0)');
-    shadingGrd.addColorStop(1, 'rgba(0, 0, 0, 0.2)');
-    bctx.fillStyle = shadingGrd;
-
-    bctx.beginPath();
-    bctx.arc(ball.x, ball.y, ball.r, 0, 2 * Math.PI);
-    bctx.fill();
-
-    ctx.drawImage(ballCanvas, 0, 0);
-}
-
-function drawGradient() {
-
-    for (let i = 0; i < colors.length; i++) {
-        let c = colors[i];
-        let colorA = `rgb(${c[0]}, ${c[1]}, ${c[2]})`;
-        let colorB = `rgba(${c[0]}, ${c[1]}, ${c[2]}, 0)`;
-    
-        let x0;
-        let y0;
-        let x1;
-        let y1;
-
-        if (i > 0) {
-            let angle = (2 * Math.PI * i) / (colors.length - 1);
-
-            x0 = playCanvas.width / 2 + Math.sin(angle) * (playCanvas.width / 2);
-            y0 = playCanvas.height / 2 + Math.cos(angle) * (playCanvas.height / 2);
-            x1 = playCanvas.width / 2 + Math.sin(angle) * (playCanvas.width / 2);
-            y1 = playCanvas.height / 2 + Math.cos(angle) * (playCanvas.height / 2);
-        } else {
-            x0 = playCanvas.width / 2;
-            y0 = playCanvas.height / 2;
-            x1 = playCanvas.width / 2;
-            y1 = playCanvas.height / 2;
+        for (var ii = i + 1; ii < circles.length; ii++) {
+            metaball(circles[i], circles[ii], 0.45, 2.4, 200);
         }
-
-        var grd = bctx.createRadialGradient(x0, y0, 100, x1, y1, (playCanvas.height / 2));
-        grd.addColorStop(0, colorA);
-        grd.addColorStop(1, colorB);
+        
+        if (i > 0) {
+            metaball(circles[0], circles[i], 0.45, 2.4, 500);
+        }
+    }
     
-        bctx.fillStyle = grd;
-        bctx.save();
+    MCX.restore();
 
-        bctx.fillRect(0, 0, playCanvas.width, playCanvas.height);
+    //GCX.clearRect(0, 0, GC.width, GC.height);
 
-        bctx.restore();
+    for (var j = circles.length - 1; j > -1; j--) {
+        drawGradients(circles[j]);
+    }
+}
+
+function metaball(ball1, ball2, v, handleLenRate, maxDistance) {
+    var handleSize = handleLenRate;
+    const maxDist = maxDistance;
+  
+    var center1 = createVector(ball1.x, ball1.y);
+    var center2 = createVector(ball2.x, ball2.y);
+    var radius1 = ball1.r;
+    var radius2 = ball2.r;
+
+    let d = dist(center1, center2);
+    var u1, u2;
+  
+    if (
+      radius1 === 0 ||
+      radius2 === 0 ||
+      d > maxDist ||
+      d <= Math.abs(radius1 - radius2)
+    ) {
+      return;
+    }
+  
+    if (d < radius1 + radius2) {
+      u1 = Math.acos(
+        (radius1 * radius1 + d * d - radius2 * radius2) / (2 * radius1 * d)
+      );
+      u2 = Math.acos(
+        (radius2 * radius2 + d * d - radius1 * radius1) / (2 * radius2 * d)
+      );
+    } else {
+        return;
+      //u1 = 0;
+      //u2 = 0;
+    }
+  
+    const maxSpread = Math.acos((radius1 - radius2) / d);
+    const angleBetweenCenters = angle(center2, center1);
+  
+    const angle1 = angleBetweenCenters + u1 + (maxSpread - u1) * v;
+    const angle2 = angleBetweenCenters - u1 - (maxSpread - u1) * v;
+    const angle3 =
+      angleBetweenCenters + Math.PI - u2 - (Math.PI - u2 - maxSpread) * v;
+    const angle4 =
+      angleBetweenCenters - Math.PI + u2 + (Math.PI - u2 - maxSpread) * v;
+  
+    const p1 = getVector(center1, angle1, radius1);
+    const p2 = getVector(center1, angle2, radius1);
+    const p3 = getVector(center2, angle3, radius2);
+    const p4 = getVector(center2, angle4, radius2);
+  
+    const totalRadius = radius1 + radius2;
+    const d2Base = Math.min(v * handleSize, dist(p1, p3) / totalRadius);
+  
+    const d2 = d2Base * Math.min(1, (d * 2) / (radius1 + radius2));
+  
+    const r1 = radius1 * d2;
+    const r2 = radius2 * d2;
+  
+    const h1 = getVector(p1, angle1 - HALF_PI, r1);
+    const h2 = getVector(p2, angle2 + HALF_PI, r1);
+    const h3 = getVector(p3, angle3 + HALF_PI, r2);
+    const h4 = getVector(p4, angle4 - HALF_PI, r2);
+  
+    metaballToPath(center1, center2, p1, p2, p3, p4, h1, h2, h3, h4, d > radius1, radius2);
+}
+
+function drawGradients(target) {
+    let radius = 100;
+    if (target != circles[0]) {
+      target.radius = radius / 4;
+    } else {
+      target.radius = radius;
     }
 
+    GCX.save();
+    GCX.globalCompositeOperation = 'source-over';
+  
+    let gradSize_ = target.r * 1.5;
+  
+    //GCX.translate(-WINDOW_HALF_WIDTH, -WINDOW_HALF_HEIGHT);
+    GCX.translate(offsetX, offsetY);
 
-    //return grd;
+    GCX.scale(blobScale, blobScale);
+    //GCX.scale(devicePixelRatio, devicePixelRatio);
+    GCX.translate(blobX, blobY);
+    
+    GCX.translate(target.x - gradSize_, target.y - gradSize_);
+  
+    var radGrad = GCX.createRadialGradient(
+      gradSize_,
+      gradSize_,
+      0,
+      gradSize_,
+      gradSize_,
+      gradSize_
+    );
+  
+    radGrad.addColorStop(0, `rgba(${target.color[0]}, ${target.color[1]}, ${target.color[2]}, 1)`);
+    radGrad.addColorStop(1, `rgba(${target.color[0]}, ${target.color[1]}, ${target.color[2]}, 0)`);
+  
+    GCX.fillStyle = radGrad;
+    GCX.fillRect(0, 0, gradSize_ * 4, gradSize_ * 4);
+  
+    GCX.restore();
+  
+    GCX.globalCompositeOperation = 'destination-in';
+    GCX.drawImage(MC, 0, 0, MC.width, MC.height);
+    
+  }
+
+function metaballToPath(center1, center2, p1, p2, p3, p4, h1, h2, h3, h4, escaped, r) {
+    MCX.beginPath();
+    MCX.moveTo(center1.x, center1.y);
+    MCX.lineTo(p1.x, p1.y);
+    MCX.bezierCurveTo(h1.x, h1.y, h3.x, h3.y, p3.x, p3.y);
+    MCX.lineTo(center2.x, center2.y);
+    MCX.lineTo(p4.x, p4.y);
+    MCX.bezierCurveTo(h4.x, h4.y, h2.x, h2.y, p2.x, p2.y);
+    MCX.closePath();
+    MCX.fill();
 }
+
+function getVector(p, a, r) {
+    return createVector(p.x + r * Math.cos(a), p.y + r * Math.sin(a));
+}
+
+function createVector(x, y) {
+    return {x, y};
+}
+  
+function dist(p1, p2) {
+    return ((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2) ** 0.5;
+}
+
+function angle(p1, p2) {
+    return Math.atan2(p1.y - p2.y, p1.x - p2.x);
+}
+
+function lerp(v0, v1, t) {
+    return v0*(1-t)+v1*t;
+}
+
         </script>
     </body>
 </html>
