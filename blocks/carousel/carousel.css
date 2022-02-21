@@ -34,8 +34,8 @@
     visibility: visible;
 }
 
-.carousel-group.hidden .carousel-ui {
-    display: none;
+.carousel-group.hidden .carousel-btn {
+    opacity: 0;
 }
 
 .carousel-gradient{
@@ -141,6 +141,7 @@
 }
 
 .carousel-btn {
+    opacity: 1;
     width: 46px;
     height: 46px;
     background: white;
@@ -152,6 +153,7 @@
     background-position: center;
     transform-origin: center;
     pointer-events: visible;
+    transition: opacity 0.5s;
 }
 
 .carousel-btn-next {
