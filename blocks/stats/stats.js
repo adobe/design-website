@@ -22,8 +22,8 @@ export default async function decorate(block) {
   const classNames = ['cmp-stats__item-number', 'cmp-stats__item-description', 'cmp-stats__item-tag'];
   statItems.forEach((item) => {
     const children = item.querySelectorAll(':scope > div');
-    classNames.forEach((className, i) => {
-      if (children[i]) children[i].classList.add(className);
+    classNames.forEach((className, j) => {
+      if (children[j]) children[j].classList.add(className);
     });
   });
 
