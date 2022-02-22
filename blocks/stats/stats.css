@@ -33,6 +33,11 @@
 }
 
 /* HOMEPAGE */
+
+.home .cmp-stats-parent{
+  display: none;
+}
+
 .home .cmp-stats {
   display: none;
 }
@@ -110,6 +115,11 @@
 }
 
 @media (min-width: 1200px) {
+
+  .home .cmp-stats-parent{
+    display: block;
+  }  
+
   .cmp-stats {
     display: flex;
     margin: 5rem auto;
