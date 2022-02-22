@@ -21,14 +21,16 @@ class Accordion {
     this.container = document.body.querySelector('.cmp-accordion__group');
     this.cards = document.body.querySelectorAll('.cmp-accordion-card');
 
+    this.resize();
+  }
+
+  load() {
     for (let i = 0; i < this.cards.length; i += 1) {
       const card = this.cards[i];
       card.addEventListener('mouseleave', () => this.cardMouseOut(i));
       card.addEventListener('mouseenter', () => this.cardMouseOver(i));
       card.addEventListener('click', () => this.cardClick(i));
     }
-
-    this.resize();
 
     window.addEventListener('wheel', (e) => this.handleMousewheel(e));
     window.addEventListener('resize', () => this.resize());
@@ -175,7 +177,7 @@ async function loadAccordion(accordion) {
   loadScript(GSAP_URL, () => {
     loadScript(GSAP_SCROLL_URL, () => {
       loadScript(GSAP_CSS_URL, () => {
-        accordion.init();
+        accordion.load();
       });
     });
   });
@@ -235,5 +237,6 @@ export default async function decorate(block) {
   // document.querySelector('.cmp-accordion-container__inner').append(orgContainer);
 
   const accordion = new Accordion();
+  accordion.init();
   setTimeout(() => loadAccordion(accordion), 4000);
 }
