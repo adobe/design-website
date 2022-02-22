@@ -593,7 +593,7 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   const redirect = getMetadata('redirect');
   const usp = new URLSearchParams(window.location.search);
-  if (redirect || usp.has('suppress-redirect')) {
+  if (redirect && !usp.has('suppress-redirect')) {
     window.location.href = redirect;
   }
 
