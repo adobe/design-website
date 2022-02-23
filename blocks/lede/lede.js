@@ -61,8 +61,13 @@ export default async function decorate(block) {
     heroCaption.classList.add('cmp-lede__hero-caption');
   }
 
+  // use the author data for two separate features:
+  // 1. the "attribution" shown at the top of each story
+  // 2. the "author details" block shown below each story
   const resp = await fetch(`/authors/${(toClassName(articleAuthorData))}.plain.html`);
   const html = await resp.text();
+
+  // create & decorate "attribution" piece first
   const articleAttributionContainer = document.createElement('div');
   articleAttributionContainer.classList.add('cmp-lede__attribution');
   articleAttributionContainer.innerHTML = html;
@@ -81,6 +86,38 @@ export default async function decorate(block) {
     ${authorTitle}
     ${authorPhoto}
   `;
+
+  // only create & decorate "author details" block if the author IS NOT 'adobe design'
+  const authorDetailsName = getMetadata('author');
+  if (authorDetailsName !== null && authorDetailsName.toLowerCase() !== 'adobe design') {
+    const authorDetailsBlock = document.createElement('div');
+    authorDetailsBlock.classList.add('cmp-author-details');
+    authorDetailsBlock.innerHTML = html;
+
+    const bioParagraphs = [...authorDetailsBlock.querySelectorAll('div > p')].filter((graph) => graph.firstChild.tagName !== 'PICTURE');
+
+    const authorDetailsTitle = (authorDetailsBlock.querySelector('h2') !== null)
+      ? `<p class="cmp-author-details__title">${authorDetailsBlock.querySelector('h2').textContent}</p>` : '';
+
+    const authorDetailsPhoto = (authorDetailsBlock.querySelector('picture') !== null)
+      ? authorDetailsBlock.querySelector('picture').outerHTML : '';
+
+    const publishedDate = document.createElement('p');
+    publishedDate.classList.add('cmp-author-details__pub-date');
+    publishedDate.innerHTML = getMetadata('publication-date');
+
+    authorDetailsBlock.innerHTML = `
+      <div class="cmp-author-details__meta">
+        ${authorDetailsPhoto}
+        <p class="cmp-author-details__name">${authorDetailsName}</p>
+        ${authorDetailsTitle}
+      </div>
+    `;
+
+    bioParagraphs.forEach((paragraph) => authorDetailsBlock.append(paragraph));
+    authorDetailsBlock.append(publishedDate);
+    articleBackground.append(authorDetailsBlock);
+  }
 
   // give unique DOM order to profile pages only!
   // this moves the profile "hero" image in the DOM so that it is a sibling of
