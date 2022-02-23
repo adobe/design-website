@@ -1,0 +1,17 @@
+.callout{
+    width: var(--content-width);
+    background: var(--color-base-white);
+    margin: auto;
+    max-width: var(--layout-max-width-desktop);
+    color: var(--color-base-red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.callout>div{
+    font-size: var(--font-size-2500);
+    font-weight: var(--font-weight-black);
+    line-height: 1.2em;
+    margin: 4.2em 15%;
+}

@@ -1,0 +1,17 @@
+.collaborators-container {
+  margin: 0 auto;
+  width: var(--content-width);
+  max-width: var(--layout-max-width-desktop);
+}
+
+.collaborators-container .cmp-cards__inner-wrap {
+  background-color: var(--color-base-white);
+}
+
+.collaborators {
+  background-color: var(--color-base-light-rose);
+  display: grid;
+  grid-template-columns: repeat(6, [col-start] 1fr);
+  column-gap: 12px;
+  row-gap: 12px;
+}

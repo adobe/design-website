@@ -12,8 +12,6 @@ function createCard(row) {
   const textColor = colormap[cardBGColor];
   const url = row.path;
 
-  console.log(row);
-
   if (textColor === 'black') {
     card.classList.add('dark-text');
   } else {
@@ -39,6 +37,7 @@ export default async function decorate(block) {
   const pathnames = [...block.querySelectorAll('a')].map((a) => new URL(a.href).pathname);
   block.textContent = '';
   const cards = await lookupPages(pathnames);
+  console.log(cards);
   cards.forEach((row) => {
     block.append(createCard(row));
   });
