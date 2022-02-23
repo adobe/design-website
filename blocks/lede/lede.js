@@ -112,10 +112,11 @@ export default async function decorate(block) {
         <p class="cmp-author-details__name">${authorDetailsName}</p>
         ${authorDetailsTitle}
       </div>
+      <div class="cmp-author-details__bio"></div>
     `;
-
-    bioParagraphs.forEach((paragraph) => authorDetailsBlock.append(paragraph));
-    authorDetailsBlock.append(publishedDate);
+    const bioContainer = authorDetailsBlock.querySelector('.cmp-author-details__bio');
+    bioParagraphs.forEach((paragraph) => bioContainer.append(paragraph));
+    bioContainer.append(publishedDate);
     articleBackground.append(authorDetailsBlock);
   }
 
