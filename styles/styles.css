@@ -175,14 +175,18 @@ b {
   left: 0;
   height: 3000px;
   width: 100%;
-  z-index: 99;
+  z-index: 98;
+}
+
+header {
+  position: relative;
+  z-index: 200;
 }
 
 main,
-header,
 footer {
   position: relative;
-  z-index: 100;
+  z-index: 99;
 }
 
 .grid-container {
