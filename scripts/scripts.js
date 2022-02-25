@@ -704,6 +704,27 @@ function addPathsAsClassNames() {
 
 addPathsAsClassNames();
 
+function decorateHomeJobsStats() {
+  const mainEl = document.querySelector('main');
+  const itemsToWrap = document.querySelectorAll('.jobs-container, .stats-container');
+  const jobsStatsContainer = document.createElement('div');
+  const jobsStatsInner = document.createElement('div');
+  jobsStatsContainer.classList.add('cmp-jobs-stats-container');
+  jobsStatsInner.classList.add('cmp-jobs-stats-container__inner-wrap');
+  jobsStatsContainer.append(jobsStatsInner);
+  jobsStatsInner.append(...itemsToWrap);
+  mainEl.append(jobsStatsContainer);
+
+  const sectionHeadline = document.querySelector('.jobs-container > div > h2');
+  jobsStatsInner.prepend(sectionHeadline);
+}
+
+if (window.location.pathname === '/') {
+  setTimeout(() => {
+    decorateHomeJobsStats();
+  }, 4000);
+}
+
 async function decorateJobPost() {
   const jobLocation = getMetadata('location');
   const jobReqNumber = getMetadata('req-number');

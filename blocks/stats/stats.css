@@ -34,7 +34,7 @@
 
 /* HOMEPAGE */
 
-.home .cmp-stats-parent{
+/* .home .cmp-stats-parent{
   display: none;
 }
 
@@ -72,7 +72,7 @@
 
 .home .cmp-stats__slash {
   display: none;
-}
+} */
 
 .stats-horizontal-container {
   background-color: var(--color-base-lighter-black);
