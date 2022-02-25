@@ -33,44 +33,6 @@ function createCard(row) {
   return (card);
 }
 
-/*!
- * Get all following siblings of each element up to but not including the element matched by the selector
- * (c) 2017 Chris Ferdinandi, MIT License, https://gomakethings.com
- * @param  {Node}   elem     The element
- * @param  {String} selector The selector to stop at
- * @param  {String} filter   The selector to match siblings against [optional]
- * @return {Array}           The siblings
- */
-/* eslint-disable */
-const nextUntil = function (elem, selector, filter) {
-  // Setup siblings array
-  const siblings = [];
-
-  // Get the next sibling element
-  elem = elem.nextElementSibling;
-
-  // As long as a sibling exists
-  while (elem) {
-    // If we've reached our match, bail
-    if (elem.matches(selector)) break;
-
-    // If filtering by a selector, check if the sibling matches
-    if (filter && !elem.matches(filter)) {
-      elem = elem.nextElementSibling;
-      continue;
-    }
-
-    // Otherwise, push it to the siblings array
-    siblings.push(elem);
-
-    // Get the next sibling element
-    elem = elem.nextElementSibling;
-  }
-
-  return siblings;
-};
-/* eslint-enable */
-
 function decorateInclusiveDesignPage(block) {
   const cardsParent = block.parentNode;
   cardsParent.classList.add('cmp-inclusive__inner-wrap');
@@ -81,14 +43,7 @@ function decorateInclusiveDesignPage(block) {
   const pageTitleClone = pageTitle.cloneNode(true);
   pageTitleClone.classList.add('page-title');
 
-  // const topGroup = nextUntil(pageTitle, '.cards.block');
-  // const topGroupClone = topGroup.slice(0);
-
   pageTitleWrap.append(pageTitleClone);
-  // cardsParent.prepend(pageTitleWrap);
-
-  // const overallContainer = document.querySelector('.section-wrapper');
-  // overallContainer.prepend(pageTitleClone);
   pageTitle.remove();
 
   const childrenToWrap = [...cardsParent.children];
@@ -110,17 +65,6 @@ function decorateInclusiveDesignPage(block) {
 
   const tertiaryHeadline = block.previousSibling;
   tertiaryHeadline.classList.add('cmp-inclusive__headline--tertiary');
-
-  // const topStart = document.querySelector('h1');
-  // const topGroupContainer = document.createElement('div');
-  // topGroupContainer.classList.add('top-group-container');
-
-  // topGroupContainer.append(...topGroup);
-  // block.append(topGroupContainer);
-  // topGroup.forEach((elem) => elem.remove());
-
-  // const collaboratorsStart = document.querySelector('.cards.block').nextElementSibling;
-  // const collabGroup = nextUntil(collaboratorsStart, '');
 }
 
 export default async function decorate(block) {
