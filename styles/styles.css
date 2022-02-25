@@ -241,6 +241,21 @@ body.job-posts {
   margin: 6rem 0 3rem;
 }
 
+.cmp-jobs-stats-container__inner-wrap > h2,
+.home .jobs-container {
+  grid-column: 1 / -1;
+}
+
+.cmp-jobs-stats-container__inner-wrap > h2 {
+  --join-us-title-font-size: var(--font-size-4500);
+  
+  color: var(--color-base-red);
+  font-size: var(--join-us-title-font-size);
+  font-weight: var(--font-weight-black);
+  line-height: 0.85;
+  padding: 3rem 6rem;
+}
+
 .job-posts .cmp-about-ad-container h2 {
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-650);
@@ -369,21 +384,6 @@ body.job-posts {
   margin: 0 auto;
   width: var(--content-width);
   max-width: var(--layout-max-width-desktop);
-}
-
-.cmp-jobs-stats-container__inner-wrap > h2,
-.home .jobs-container {
-  grid-column: 1 / -1;
-}
-
-.cmp-jobs-stats-container__inner-wrap > h2 {
-  --join-us-title-font-size: var(--font-size-4500);
-  
-  color: var(--color-base-red);
-  font-size: var(--join-us-title-font-size);
-  font-weight: var(--font-weight-black);
-  line-height: 0.85;
-  padding: 3rem 6rem;
 }
 
 .home .stats-container[data-section-status='loaded'] {
