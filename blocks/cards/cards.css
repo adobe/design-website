@@ -1,5 +1,19 @@
+.toolkit .cards-container {
+  background-color: transparent;
+  margin: 0 auto;
+  padding-top: 4rem;
+  width: var(--content-width);
+  max-width: var(--layout-max-width-desktop);   
+}
+
 .cmp-cards__inner-wrap {
-  --cards-page-title-font-size: var(--font-size-4000);
+  display: grid;
+  grid-template-columns: repeat(6, [col-start] 1fr);
+  column-gap: 12px;
+}
+
+.cmp-cards__inner-wrap > * {
+  grid-column: 1 / -1;
 }
 
 .cmp-inclusive__inner-wrap {
@@ -38,7 +52,7 @@
 }
 
 .cmp-inclusive__bg .cmp-inclusive__hero-parent {
-  grid-column: 1/ -1;
+  grid-column: 1 / -1;
   margin-bottom: 3rem;
 }
 
@@ -47,28 +61,24 @@
 }
 
 .cmp-cards__inner-wrap h1 {
+  --page-title-font-size: var(--font-size-900);
+
   color: var(--reactive-text-color);
-  font-size: var(--cards-page-title-font-size);
-  margin: 2rem auto;
-  padding-right: 3.5rem;
-  padding-left: 3.5rem;
-  width: 70%;
-  max-width: var(--layout-max-width-desktop);
+  grid-column: 2 / -2;
+  font-size: var(--page-title-font-size);
+  margin: 2rem 0;
 }
 
 .cmp-cards__inner-wrap > h2 { 
-  --cards-page-subhead-font-size: var(--font-size-900);
+  --page-subhead-font-size: var(--font-size-400);
 
   color: var(--reactive-text-color);
   font-family: var(--font-stack-serif);
-  font-size: var(--cards-page-subhead-font-size);
+  font-size: var(--page-subhead-font-size);
   font-weight: 100;
-  margin: 2rem auto;
-  padding-right: 3.5rem;
-  padding-left: 3.5rem;
-  width: 70%;
-  max-width: var(--layout-max-width-desktop);
-  margin-bottom: 4em;
+  grid-column: 2 / -2;
+  margin-bottom: 4rem;
+  line-height: 1.2;
 }
 
 h2.cmp-inclusive__headline--secondary {
@@ -106,9 +116,6 @@ p.cmp-inclusive__intro {
   grid-template-columns: repeat(6, [col-start] 1fr);
   column-gap: 12px;
   row-gap: 12px;
-  margin: 0 auto;
-  width: var(--content-width);
-  max-width: var(--layout-max-width-desktop);
 }
 
 .cmp-inclusive__bg .cards.block {
@@ -149,12 +156,13 @@ p.cmp-inclusive__intro {
 
   font-size: var(--home-card-title-font-size);
   font-weight: var(--font-weight-black);
-  margin: 1rem 0 4.5rem;
+  margin: 1rem 0;
 }
 
 .cards .cmp-cards-card__description {
   --home-card-intro-font-size: var(--font-size-400);
   
+  font-family: var(--font-stack-serif);
   font-size: var(--home-card-intro-font-size);
   line-height: 1.3;
   margin-bottom: 1.5rem;
@@ -172,6 +180,10 @@ p.cmp-inclusive__intro {
 }
 
 @media (min-width: 900px) {
+  .cmp-cards__inner-wrap {
+    grid-template-columns: repeat(12, [col-start] 1fr);
+  }
+
   .cmp-inclusive__title-wrap {
     grid-template-columns: repeat(12, [col-start] 1fr);
     padding-top: 5rem;
@@ -182,10 +194,20 @@ p.cmp-inclusive__intro {
     padding: 0;
   }
 
+  .cards.block {
+    grid-template-columns: repeat(12, [col-start] 1fr);
+  }
+
   .cmp-inclusive__title-wrap > *,
   .cmp-inclusive__bg > *,
   .cmp-inclusive__bg .cmp-inclusive__hero-parent {
     grid-column: col-start 2 / -2;
+  }
+
+  .cmp-cards__inner-wrap > h2 { 
+    --page-subhead-font-size: var(--font-size-850);
+
+    margin-bottom: 6rem;
   }
 
   .cmp-inclusive__bg .cmp-inclusive__hero-parent {
@@ -206,10 +228,10 @@ p.cmp-inclusive__intro {
   }
 
   .cmp-cards__inner-wrap h1 {
-    --stories-page-title-font-size: var(--font-size-2500);
+    --page-title-font-size: var(--font-size-2500);
 
     margin-top: 6rem;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
   }
 
   h2.cmp-inclusive__headline--secondary {
@@ -227,7 +249,7 @@ p.cmp-inclusive__intro {
   .cards .cmp-cards-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column: col-start 1 / span 12;
+    grid-column: 1 / -1;
   }
   
   .cards .cmp-cards-card:nth-of-type(even) picture {
@@ -257,19 +279,37 @@ p.cmp-inclusive__intro {
   .cards .cmp-cards-card__title {
     --home-card-title-font-size: var(--font-size-1000); 
 
-    line-height: 1;
-    margin-top: 20%;
+    line-height: 1.1;
+    margin-bottom: 2rem;
   }
 }
 
 @media (min-width: 1300px) {
+  .cmp-cards__inner-wrap {
+    grid-template-columns: repeat(16, [col-start] 1fr);
+  }
+
+  .cards .cmp-cards-card__title {
+    margin-bottom: 4rem;
+  }
+
   .cmp-inclusive__title-wrap,
   .cmp-inclusive__bg {
     grid-template-columns: repeat(16, [col-start] 1fr);
   }
 
+  .cards.block {
+    grid-template-columns: repeat(16, [col-start] 1fr);
+  }
+  
   .cmp-cards__inner-wrap h1 {
-    --stories-page-title-font-size: var(--font-size-4000);
+    --page-title-font-size: var(--font-size-4000);
+  }
+  
+  .cmp-cards__inner-wrap > h2 { 
+    --page-subhead-font-size: var(--font-size-950);
+
+    grid-column: 2 / span 10;
   }
 
   .cmp-inclusive__title-wrap h1 {
