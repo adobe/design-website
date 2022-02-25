@@ -210,6 +210,10 @@ body.job-posts {
   background-image: none;
 }
 
+.job-posts .blended-background {
+  display: none;
+}
+
 .job-posts .section-wrapper {
   margin: 0 auto;
   width: var(--content-width);
