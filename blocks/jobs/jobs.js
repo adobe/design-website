@@ -27,7 +27,7 @@ export default async function decorate(block) {
   viewAllContainer.classList.add('cmp-jobs-view-all');
   const viewAllLink = document.createElement('a');
   viewAllLink.href = '/jobs/';
-  viewAllLink.textContent = 'View our job openings';
+  viewAllLink.textContent = 'View all job openings';
   viewAllLink.classList.add('cmp-jobs-view-all__link');
   viewAllContainer.append(viewAllLink);
 
