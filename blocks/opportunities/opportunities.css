@@ -105,17 +105,17 @@
 .jobs .cmp-job__link {
   color: var(--color-base-white);
   font-size: var(--font-size-650);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .jobs .cmp-job__link:hover,
 .jobs .cmp-job__link:focus {
   color: var(--color-base-white);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .jobs .cmp-job__department {
-  margin-top: 0.75rem;
+  /* margin-top: 0.15rem; */
 }
 
 .jobs .cmp-job__department,
