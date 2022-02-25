@@ -10,7 +10,11 @@
 }
 
 .home .cmp-jobs-list__item {
-  margin: 0 0 2rem;
+  margin: 0 0 3rem;
+}
+
+.home .cmp-jobs-list__item p {
+  line-height: 1.3;
 }
 
 .home .cmp-job__link {
@@ -26,7 +30,7 @@
 }
 
 .home .cmp-job__department {
-  margin-top: 0.5rem;
+  margin: 0.5rem 0 0.15rem;
 }
 
 .home .cmp-job__department,
@@ -60,11 +64,34 @@
     --job-link-font-size: var(--font-size-800);
     --details-font-size: var(--font-size-300);
 
-    padding: 0;
+    margin-top: 5.25rem;
+    padding: 0 3rem;
   }
 
   .home .cmp-jobs-view-all {
-    margin-right: 0;
-    margin-left: 0;
+    margin-right: 3rem;
+    margin-left: 3rem;
+  }
+}
+
+
+@media (min-width: 1300px) {
+  .home .cmp-jobs-list {
+    padding: 0 4rem;
+  }
+
+  .home .cmp-jobs-list__item {
+    margin: 0 0 4rem;
+  }
+
+  .home .cmp-jobs-view-all {
+    margin-right: 4rem;
+    margin-left: 4rem;
+  }
+}
+
+@media (min-width: 1500px) {
+  .home .cmp-jobs-list__item {
+    margin: 0 0 4.5rem;
   }
 }
