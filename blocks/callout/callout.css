@@ -1,0 +1,32 @@
+.callout {
+  background: var(--color-base-white);
+  color: var(--color-base-red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.callout > div {
+  --callout-font-size: var(--font-size-800);
+
+  font-size: var(--callout-font-size);
+  font-weight: var(--font-weight-black);
+  line-height: 1.2;
+  padding: 6rem 5rem;
+}
+
+@media (min-width: 900px) {
+  .callout > div {
+    --callout-font-size: var(--font-size-1075);
+
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .callout > div {
+    --callout-font-size: 6.25rem;
+
+    padding: 8rem;
+  }
+}

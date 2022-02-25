@@ -1,0 +1,123 @@
+.collaborators {
+  background-color: var(--color-base-light-rose);
+  grid-column: 1 / -1;
+}
+
+.cmp-collaborators__inner-wrap {
+  display: grid;
+  grid-template-columns: repeat(6, [col-start] 1fr);
+  column-gap: 12px;
+  row-gap: 12px;
+  padding-top: 4rem;
+}
+
+.cmp-collaborator {
+  grid-column: 1 / -1;
+  margin-bottom: 4rem;
+}
+
+.cmp-collaborator picture {
+  aspect-ratio: 1 / 1;
+}
+
+.cmp-collaborator img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.cmp-collaborator .cmp-collaborators__media-parent {
+  margin-bottom: 1rem;
+}
+
+.cmp-collaborator h2 {
+  color: #574B77;
+  font-family: var(--font-stack-sans);
+  font-size: var(--font-size-800);
+  font-weight: var(--font-weight-black);
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.cmp-collaborator h3 {
+  color: #574B77;
+  font-family: var(--font-stack-sans);
+  font-size: var(--font-size-300);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.cmp-collaborator p {
+  color: #917496;
+  font-family: var(--font-stack-serif);
+  font-size: var(--font-size-400);
+  font-style: italic;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.cmp-collaborator.cmp-collaborator--intro h2 {
+  color: var(--color-base-dark-slate-secondary);
+  font-family: var(--font-stack-sans);
+  font-size: var(--font-size-800);
+  font-weight: var(--font-weight-black);
+  line-height: 1.1;
+}
+
+.cmp-collaborator.cmp-collaborator--intro p {
+  color: var(--color-base-dark-slate-secondary);
+  font-family: var(--font-stack-serif);
+  font-size: var(--font-size-400);
+  font-style: normal;
+}
+
+@media (min-width: 900px) {
+  .collaborators {
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+  }
+  
+  .cmp-collaborators__inner-wrap {
+    grid-column: 2 / -2;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .cmp-collaborator {
+    grid-column: auto / auto;
+  }
+
+  .cmp-collaborator.cmp-collaborator--intro {
+    grid-column: 1 / -1;
+    margin-bottom: 4rem;
+  }
+
+  .cmp-collaborator h2 {
+    font-size: var(--font-size-900);
+  }
+
+  .cmp-collaborator h3 {
+    font-size: var(--font-size-400);
+  }
+
+  .cmp-collaborator p {
+    font-size: var(--font-size-650);
+  }
+
+  .cmp-collaborator.cmp-collaborator--intro h2 {
+    font-size: var(--font-size-900);
+    margin-bottom: 2rem;
+  }
+
+  .cmp-collaborator.cmp-collaborator--intro p {
+    font-size: var(--font-size-2500);
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1300px) {
+  .collaborators {
+    grid-template-columns: repeat(16, [col-start] 1fr);
+  }
+}
