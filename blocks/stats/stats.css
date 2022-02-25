@@ -32,48 +32,6 @@
   padding: 0;
 }
 
-/* HOMEPAGE */
-
-/* .home .cmp-stats-parent{
-  display: none;
-}
-
-.home .cmp-stats {
-  display: none;
-}
-
-.home .cmp-stats__item {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  margin-bottom: 0;
-}
-
-.home .cmp-stats__item-number {
-  margin: 5rem 2rem 2rem;
-}
-
-.home .cmp-stats__item-description {
-  text-align: center;
-  margin: 0 8rem 5rem;
-}
-
-.home .cmp-stats__item:nth-of-type(even) {
-  background-color: var(--color-base-light-slate);
-}
-
-.home .cmp-stats__item::after {
-  display: none;
-}
-
-.home .cmp-stats__item-tag {
-  display: none;
-}
-
-.home .cmp-stats__slash {
-  display: none;
-} */
-
 .stats-horizontal-container {
   background-color: var(--color-base-lighter-black);
   margin: 0 auto;
