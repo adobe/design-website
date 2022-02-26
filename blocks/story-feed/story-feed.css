@@ -83,18 +83,14 @@
 }
 
 .cmp-stories-card__title {
-  --card-title-font-size: var(--font-size-900);
-  
   color: var(--color-base-navy);
-  font-size: var(--card-title-font-size);
+  font-size: min(max(var(--font-size-800), 4vw), var(--font-size-1000));
   font-weight: var(--font-weight-black);
   margin: 1rem 0 1.5rem;
 }
 
 @media (min-width: 900px) {
   .cmp-stories-card__title {
-    --card-title-font-size: var(--font-size-1000);
-    
     line-height: 1;
   }
 }
