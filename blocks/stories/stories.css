@@ -106,6 +106,7 @@
 
 .home .cmp-stories-card__media {
   aspect-ratio: 1 / 1;
+  overflow: hidden;
 }
 
 .home .cmp-stories-card__media img {
@@ -123,7 +124,7 @@
   .home .cmp-stories-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column: col-start 1 / span 12;
+    grid-column: 1 / -1;
   }
 
   .home .cmp-stories-card:nth-of-type(odd) picture {
