@@ -130,18 +130,18 @@ export default async function decorate(block) {
   }
 
   // give unique DOM order to profile pages only!
-  // this moves the profile "hero" image in the DOM so that it is a sibling of
-  // the title-wrap and the article-bg
-  //
-  // <div class="cmp-lede__inner-wrap">
-  //   <div class="cmp-lede__article-title-wrap"></div>
-  //   <p class="cmp-lede__media-parent cmp-lede__hero-parent"></p> **** NEW POSIITON ****
-  //   <div class="cmp-lede__article-bg"></div>
-  // </div>
-  //
   if (isProfile) {
+    const profileTitleHeroContainer = document.createElement('div');
+    profileTitleHeroContainer.classList.add('profile-title-hero-container');
+
+    // if there's a hero caption, shift its DOM position so that it's tied to the hero image
+    const heroCap = document.querySelector('.cmp-lede__hero-caption');
+    if (heroCap !== null) heroImageContainer.append(heroCap);
     const heroClone = heroImageContainer.cloneNode(true);
-    articleInnerWrap.insertBefore(heroClone, articleBackground);
+
+    profileTitleHeroContainer.append(articleTitleWrap);
+    profileTitleHeroContainer.append(heroClone);
+    articleInnerWrap.insertBefore(profileTitleHeroContainer, articleBackground);
     heroImageContainer.remove();
     articleBackground.insertBefore(articleAttributionContainer, articleBackground.firstChild);
   }
