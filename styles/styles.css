@@ -325,6 +325,11 @@ body.job-posts {
   text-transform: uppercase;
 }
 
+.job-posts .cmp-job-post__meta-link:hover,
+.job-posts .cmp-job-post__meta-link:focus {
+  background-color: #126fe1;
+}
+
 .job-posts .cmp-job-post__meta-list dt {
   color: var(--color-base-slate);
   font-size: var(--font-size-100);
@@ -514,6 +519,10 @@ body.job-posts {
     grid-column: 2 / span 2;
     position: sticky;
     top: 2rem;
+  }
+
+  .job-posts .cmp-job-post__details .cmp-job-post__meta-link {
+    display: none;
   }
   
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details {

@@ -751,10 +751,12 @@ async function decorateJobPost() {
         <dd>${jobReqNumber}</dd>
       </dl>
     </aside>
-    <div class="cmp-job-post__details"></div>
+    <div class="cmp-job-post__details">
+      <a class="cmp-job-post__meta-link" href="${applyLink}">Apply now</a>
+    </div>
   `;
   const jobDetailsContainer = document.querySelector('.cmp-job-post__details');
-  jobDetailsContainer.append(...childrenToWrap);
+  jobDetailsContainer.prepend(...childrenToWrap);
 
   const aboutADResp = await fetch('/jobs/about-adobe-design.plain.html');
   const aboutADHtml = await aboutADResp.text();
