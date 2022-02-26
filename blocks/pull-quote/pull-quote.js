@@ -3,10 +3,6 @@ export default async function decorate(block) {
   const pullQuoteContentItems = pullQuoteContainer.querySelectorAll(':scope > div:first-of-type');
   const pullQuoteAttributionItems = pullQuoteContainer.querySelectorAll(':scope > div:last-of-type');
 
-  // TODO:
-  // 1. does this fail if there are links in the pull quote?
-  // 2. how does the color data come through?
-  //    Is it assigned in the CMS or programatically determined?
   [...pullQuoteContentItems].forEach((pullQuote) => {
     pullQuote.classList.add('cmp-pullquote__text');
     const childGraphs = pullQuote.childNodes;
