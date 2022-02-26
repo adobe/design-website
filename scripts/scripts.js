@@ -698,6 +698,7 @@ function addPathsAsClassNames() {
     document.body.classList.add('home');
   } else {
     const pathNames = window.location.pathname.toLowerCase().split('/').filter((item) => item !== '').slice(0, 2);
+    if (getMetadata('theme') !== null && getMetadata('theme') === 'profile') pathNames.push('profile');
     document.body.classList.add(...pathNames);
   }
 }
