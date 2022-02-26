@@ -1,7 +1,7 @@
 .cmp-pullquote__text p {
   --pq-font-size: var(--font-size-400);
 
-  color: var(--color-base-peach);
+  color: var(--color-base-brown);
   font-family: var(--font-stack-serif);
   font-size: var(--pq-font-size);
   line-height: 1.3;
