@@ -1,7 +1,6 @@
 .jobs .section-wrapper {
   background-color: transparent;
   margin: 0 auto;
-  padding-top: 4rem;
   width: var(--content-width);
   max-width: var(--layout-max-width-desktop); 
 }
@@ -13,11 +12,8 @@
   row-gap: 12px;
 }
 
-.jobs .cmp-page__title {
-  --jobs-page-title-font-size: var(--font-size-900);
-
-  font-size: var(--jobs-page-title-font-size);
-  margin-bottom: 2rem;
+.jobs .page-title {
+  margin: var(--page-title-top-space) 0;
 }
 
 .jobs .cmp-page__intro {
@@ -114,10 +110,6 @@
   text-decoration: none;
 }
 
-.jobs .cmp-job__department {
-  /* margin-top: 0.15rem; */
-}
-
 .jobs .cmp-job__department,
 .jobs .cmp-job__location {
   font-size: var(--font-size-100);
@@ -128,10 +120,7 @@
     grid-template-columns: repeat(12, [col-start] 1fr);
   }
 
-  .jobs .cmp-page__title {
-    --jobs-page-title-font-size: var(--font-size-2500);
-    
-    margin-bottom: 4rem;
+  .jobs .page-title {
     grid-column: 2 / -2;
   }
   
@@ -175,10 +164,6 @@
 @media (min-width: 1300px) {
   .jobs .cmp-jobs-list__inner-wrap {
     grid-template-columns: repeat(16, [col-start] 1fr);
-  }
-
-  .jobs .cmp-page__title {
-    --jobs-page-title-font-size: var(--font-size-4000);
   }
 
   .jobs .cmp-page__intro {

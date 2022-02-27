@@ -1,6 +1,6 @@
 export default async function decorate(block) {
   const pageTitle = document.querySelector('h1');
-  pageTitle.classList.add('cmp-page__title');
+  pageTitle.classList.add('page-title');
 
   block.parentNode.classList.add('cmp-jobs-list__inner-wrap');
 
