@@ -84,8 +84,9 @@
   --title-line-height: 1;
   --subtitle-line-height: 1.1;
   --page-title-font-size: var(--font-size-900);
-  --page-title-line-height: 1.2;
+  --page-title-line-height: 1.1;
   --page-title-top-space: 5rem;
+  --page-title-bottom-space: var(--page-title-top-space);
 }
 
 @media (min-width: 900px) {
@@ -142,8 +143,11 @@ h1 {
 }
 
 .page-title {
+  color: var(--reactive-text-color);
   font-size: var(--page-title-font-size);
   line-height: var(--page-title-line-height);
+  /* handle margin on a case-by-case-basis in blocks */
+  /* --page-title-top-space is available for spacing */
 }
 
 h1,
