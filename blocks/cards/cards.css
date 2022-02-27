@@ -1,7 +1,6 @@
 .toolkit .cards-container {
   background-color: transparent;
   margin: 0 auto;
-  padding-top: 4rem;
   width: var(--content-width);
   max-width: var(--layout-max-width-desktop);   
 }
@@ -27,15 +26,10 @@
   display: grid;
   grid-template-columns: repeat(6, [col-start] 1fr);
   column-gap: 12px;
-  margin-bottom: 4rem;
-  padding-top: 5rem;
 }
 
-.cmp-inclusive__title-wrap h1 {
-  --page-title-font-size: var(--font-size-900);
-
-  font-size: var(--page-title-font-size);
-  margin-bottom: 2rem;
+.cmp-inclusive__title-wrap .page-title {
+  margin: var(--page-title-top-space) 0;
 }
 
 .cmp-inclusive__bg {
@@ -60,13 +54,9 @@
   width: 100%;
 }
 
-.cmp-cards__inner-wrap h1 {
-  --page-title-font-size: var(--font-size-900);
-
-  color: var(--reactive-text-color);
+.cmp-cards__inner-wrap .page-title {
   grid-column: 2 / -2;
-  font-size: var(--page-title-font-size);
-  margin: 2rem 0;
+  margin: var(--page-title-top-space) 0;
 }
 
 .cmp-cards__inner-wrap > h2 { 
@@ -75,10 +65,14 @@
   color: var(--reactive-text-color);
   font-family: var(--font-stack-serif);
   font-size: var(--page-subhead-font-size);
-  font-weight: 100;
+  font-weight: var(--font-weight-normal);
   grid-column: 2 / -2;
   margin-bottom: 4rem;
   line-height: 1.2;
+}
+
+.cmp-cards__inner-wrap .page-title + h2 {
+  margin-top: calc(var(--page-title-space-between-sub-title) / 2 * -1);
 }
 
 h2.cmp-inclusive__headline--secondary {
@@ -186,7 +180,6 @@ p.cmp-inclusive__intro {
 
   .cmp-inclusive__title-wrap {
     grid-template-columns: repeat(12, [col-start] 1fr);
-    padding-top: 5rem;
   }
 
   .cmp-inclusive__bg {
@@ -216,21 +209,12 @@ p.cmp-inclusive__intro {
   }
 
   .cmp-inclusive__title-wrap h1 {
-    --page-title-font-size: var(--font-size-2500);
-
-    padding: 10rem 0 25rem;
+    padding: 0 0 20rem;
   }
 
   p.cmp-inclusive__intro {
     --intro-font-size: var(--font-size-800);
 
-    margin-bottom: 4rem;
-  }
-
-  .cmp-cards__inner-wrap h1 {
-    --page-title-font-size: var(--font-size-2500);
-
-    margin-top: 6rem;
     margin-bottom: 4rem;
   }
 
@@ -301,20 +285,14 @@ p.cmp-inclusive__intro {
   .cards.block {
     grid-template-columns: repeat(16, [col-start] 1fr);
   }
-  
-  .cmp-cards__inner-wrap h1 {
-    --page-title-font-size: var(--font-size-4000);
-  }
-  
+
   .cmp-cards__inner-wrap > h2 { 
     --page-subhead-font-size: var(--font-size-950);
 
     grid-column: 2 / span 10;
   }
 
-  .cmp-inclusive__title-wrap h1 {
-    --page-title-font-size: var(--font-size-4000);
-
+  .cmp-inclusive__title-wrap .page-title {
     padding-right: 7rem;
     padding-left: 7rem;
   }
