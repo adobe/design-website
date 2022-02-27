@@ -80,7 +80,7 @@
   .cmp-stats {
     display: flex;
     margin: 5rem auto;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
   
   .cmp-stats__slash {
