@@ -739,7 +739,7 @@ async function decorateJobPost() {
   const childrenToWrap = [...jobPostInnerWrap.children].slice(1);
 
   jobPostInnerWrap.innerHTML = `
-    <h1 class="cmp-job-post__title">${jobTitle}</h1>
+    <h1 class="page-title">${jobTitle}</h1>
     <aside class="cmp-job-post__meta">
       <a class="cmp-job-post__meta-link" href="${applyLink}">Apply now</a>
       <dl class="cmp-job-post__meta-list">
