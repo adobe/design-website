@@ -3,7 +3,6 @@
 }
 
 .team-accordion-container {
-  padding: 5rem 0;
   margin: 0 auto;
   width: var(--content-width);
   max-width: var(--layout-max-width-desktop); 
@@ -17,14 +16,10 @@
   row-gap: 12px;
 }
 
-.team-accordion-container > h1 {
-  --title-font-size: var(--font-size-900);
-
+.team-accordion-container .page-title {
   grid-column: 2 / -2;
   color: var(--color-base-white);
-  font-size: var(--title-font-size);
-  line-height: var(--title-line-height);
-  margin-bottom: 4rem;
+  margin: var(--page-title-top-space) 0;
 }
 
 /* the actual accordions */
@@ -79,10 +74,8 @@
     grid-template-columns: repeat(12, [col-start] 1fr);
   }
 
-  .team-accordion-container > h1 {
-    --title-font-size: var(--font-size-2500);
-
-    grid-column: 2 / span 7;
+  .team-accordion-container .page-title {
+    grid-column: 2 / -2;
   }
 
   .cmp-accordion-container__inner > h2 {
@@ -113,10 +106,8 @@
     grid-template-columns: repeat(16, [col-start] 1fr);
   }
 
-  .team-accordion-container > h1 {
-    --title-font-size: var(--font-size-4000);
-
-    grid-column: 3 / span 9;
+  .team-accordion-container .page-title {
+    grid-column: 3 / -3;
   }
 
   .cmp-accordion-container__inner > h2 {
