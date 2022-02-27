@@ -28,6 +28,7 @@ function createCard(row) {
 }
 
 export default async function decorate(block) {
+  document.querySelector('h1').classList.add('page-title');
   const config = readBlockConfig(block);
   const pathnames = config.featured ? config.featured.map((link) => new URL(link).pathname) : [];
   block.textContent = '';
