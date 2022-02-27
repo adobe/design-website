@@ -40,7 +40,9 @@
   width: var(--content-width);
 }
 
-.stories .cmp-stats, 
+.team .cmp-stats,
+.stories .cmp-stats,
+.toolkit .cmp-stats,
 .cards-container .cmp-stats {
   margin: 5rem 0;
 }
@@ -68,6 +70,7 @@
   font-family: var(--font-stack-sans);
   font-size: var(--stats-title-font-size);
   font-weight: var(--font-weight-black);
+  line-height: var(--subtitle-line-height);
   margin-bottom: 2rem;
   padding-right: 3rem;
 }
