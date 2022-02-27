@@ -83,6 +83,22 @@
   --carousel-transition-ease: ease-out;
   --title-line-height: 1;
   --subtitle-line-height: 1.1;
+  --page-title-font-size: var(--font-size-900);
+  --page-title-line-height: 1.2;
+  --page-title-top-space: 5rem;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --page-title-font-size: var(--font-size-2500);
+    --page-title-top-space: 10rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  :root {
+    --page-title-font-size: var(--font-size-4000);
+  }
 }
 
 *, *::before, *::after {
@@ -122,9 +138,18 @@ input, button, textarea, select {
 
 h1 {
   /* h1s are Adobe Clean Black */
+  line-height: 1;
+}
+
+.page-title {
+  font-size: var(--page-title-font-size);
+  line-height: var(--page-title-line-height);
+}
+
+h1,
+.page-title {
   font-family: var(--font-stack-sans);
   font-weight: var(--font-weight-black);
-  line-height: 1;
 }
 
 /* above the fold CSS goes here to squash CLS */
