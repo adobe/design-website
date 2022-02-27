@@ -23,13 +23,17 @@ function createCard(row) {
   card.innerHTML = `
     <div class="cmp-stories-card__body">
       <span class="cmp-stories-card__tag">${cardTag}</span>
-      <h2 class="cmp-stories-card__title">
-        <a href="${row.path}">${row.title}</a>
-      </h2>
-      ${cardSubTitle}
-      <div class="cmp-stories-card__attribution">
-        ${cardAuthor}
-        ${cardAuthorTitle}
+      <div class="card-flex">
+        <div class="card-flex-inner">
+          <h2 class="cmp-stories-card__title">
+            <a href="${row.path}">${row.title}</a>
+          </h2>
+          ${cardSubTitle}
+          <div class="cmp-stories-card__attribution">
+            ${cardAuthor}
+            ${cardAuthorTitle}
+          </div>
+        </div>
       </div>
     </div>
   `;
