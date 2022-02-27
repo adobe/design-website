@@ -68,6 +68,7 @@ function decorateInclusiveDesignPage(block) {
 }
 
 export default async function decorate(block) {
+  document.querySelector('h1').classList.add('page-title');
   const pathnames = [...block.querySelectorAll('a')].map((a) => new URL(a.href).pathname);
   block.textContent = '';
   const cards = await lookupPages(pathnames);

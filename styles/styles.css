@@ -87,12 +87,14 @@
   --page-title-line-height: 1.1;
   --page-title-top-space: 5rem;
   --page-title-bottom-space: var(--page-title-top-space);
+  --page-title-space-between-sub-title: 4rem;
 }
 
 @media (min-width: 900px) {
   :root {
     --page-title-font-size: var(--font-size-2500);
     --page-title-top-space: 10rem;
+    --page-title-space-between-sub-title: 6rem;
   }
 }
 
