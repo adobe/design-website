@@ -39,7 +39,7 @@ export default async function decorate(block) {
 
   articleComponent.classList.add('cmp-lede');
   articleInnerWrap.classList.add('cmp-lede__inner-wrap');
-  articleTitle.classList.add('cmp-lede__title');
+  articleTitle.classList.add('page-title');
 
   if (articleSubTitle.tagName === 'H2') {
     articleSubTitle.classList.add('cmp-lede__sub-title');
