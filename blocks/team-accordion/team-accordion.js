@@ -188,6 +188,7 @@ export default async function decorate(block) {
   accordionContainer.firstChild.classList.add('cmp-accordion-container__inner');
   const pageTitle = accordionContainer.querySelector('h1');
   const pageTitleClone = pageTitle.cloneNode(true);
+  pageTitleClone.classList.add('page-title');
   accordionContainer.insertBefore(pageTitleClone, accordionContainer.firstChild);
   pageTitle.remove();
 
