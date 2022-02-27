@@ -63,12 +63,7 @@
 
 @media (min-width: 900px) {
   .home .cmp-stories-card__title {
-    line-height: 1;
-    margin-top: 20%;
-  }
-
-  .home .cmp-stories-card__attribution {
-    margin-bottom: 5rem;
+    line-height: 1.1;
   }
 }
 
@@ -149,5 +144,25 @@
 
   .home .cmp-stories-card__media {
     height: 100%;
+  }
+
+  .home .cmp-stories-card__title {
+    margin-top: 0;
+  }
+
+  .home .card-flex {
+    display: flex;
+    height: calc(100% - 1.25rem);
+  }
+
+  .home .card-flex-inner {
+    align-self: center;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .home .card-flex {
+    height: calc(100% - 2.25rem);
   }
 }
