@@ -5,6 +5,13 @@
   max-width: var(--layout-max-width-desktop);   
 }
 
+.toolkit.inclusive-design .cards-container {
+  background-color: transparent;
+  margin: auto;
+  width: auto;
+  max-width: none;   
+}
+
 .cmp-cards__inner-wrap {
   display: grid;
   grid-template-columns: repeat(6, [col-start] 1fr);
@@ -146,11 +153,9 @@ p.cmp-inclusive__intro {
 }
 
 .cards .cmp-cards-card__title {
-  --home-card-title-font-size: var(--font-size-900);
-
-  font-size: var(--home-card-title-font-size);
+  font-size: min(max(var(--font-size-800), 4vw), var(--font-size-1000));
   font-weight: var(--font-weight-black);
-  margin: 1rem 0;
+  margin: 1rem 0 1.5rem;
 }
 
 .cards .cmp-cards-card__description {
@@ -164,6 +169,7 @@ p.cmp-inclusive__intro {
 
 .cards .cmp-cards-card__media {
   aspect-ratio: 1 / 1;
+  overflow: hidden;
 }
   
 .cards .cmp-cards-card__media img {
@@ -261,10 +267,7 @@ p.cmp-inclusive__intro {
   }
 
   .cards .cmp-cards-card__title {
-    --home-card-title-font-size: var(--font-size-1000); 
-
     line-height: 1.1;
-    margin-bottom: 2rem;
   }
 }
 
