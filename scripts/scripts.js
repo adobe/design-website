@@ -593,8 +593,26 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   const redirect = getMetadata('redirect');
   const usp = new URLSearchParams(window.location.search);
-  if (redirect && !usp.has('suppress-redirect')) {
-    window.location.href = redirect;
+  if (redirect) {
+    if (!usp.get('redirect') && (window.location.hostname.endsWith('localhost') || window.location.hostname.endsWith('.page') || window.location.hostname.endsWith('.live'))) {
+      const redirectBanner = document.createElement('div');
+      redirectBanner.innerHTML = `Redirect set to <a href="${redirect}">${redirect}</a>`;
+      redirectBanner.setAttribute('style', `
+      background-color: #ddd;
+      color: #222;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      display: block;
+      `);
+      document.querySelector('main').prepend(redirectBanner);
+    } else {
+      window.location.href = redirect;
+      return;
+    }
   }
 
   const main = doc.querySelector('main');
