@@ -74,7 +74,8 @@
   --font-weight-bold: 700; /* Adobe Clean & Adobe Clean Serif | italic & bold */
   --font-weight-normal: 400; /* Adobe Clean & Adobe Clean Serif | normal & italic */
   --layout-width: 75%;
-  --content-width: 80%;
+  --carousel-width: 80%;
+  --content-width: 90%;
   --layout-max-width-desktop: 102.6875em; /* 1643px */
   --link-default-state-text: none;
   --link-hover-state-text: underline;
