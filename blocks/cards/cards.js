@@ -3,6 +3,8 @@ import {
 } from '../../scripts/scripts.js';
 import colormap from '../../scripts/colormap.js';
 
+export const isInclusiveDesignPage = getMetadata('theme') === 'inclusive-design';
+
 function createCard(row) {
   const card = document.createElement('article');
   card.classList.add('cmp-cards-card');
@@ -11,6 +13,7 @@ function createCard(row) {
   const cardBGColor = row.color !== '' ? row.color : '#fff';
   const textColor = colormap[cardBGColor];
   const url = row.path;
+  const cardTitle = !isInclusiveDesignPage ? `<a href="${url}">${row.title}</a>` : row.title;
 
   if (textColor === 'black') {
     card.classList.add('dark-text');
@@ -20,9 +23,7 @@ function createCard(row) {
 
   card.innerHTML = `
     <div class="cmp-cards-card__body">
-      <h2 class="cmp-cards-card__title">
-        <a href="${url}">${row.title}</a>
-      </h2>
+      <h2 class="cmp-cards-card__title">${cardTitle}</h2>
       ${cardDescription}
     </div>
   `;
@@ -75,8 +76,6 @@ export default async function decorate(block) {
   cards.forEach((row) => {
     block.append(createCard(row));
   });
-
-  const isInclusiveDesignPage = getMetadata('theme') === 'inclusive-design';
 
   if (!isInclusiveDesignPage) {
     const cardsContainerInner = document.querySelector('.cards-container').firstChild;
