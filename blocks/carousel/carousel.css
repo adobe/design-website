@@ -113,6 +113,7 @@
 .carousel-stories-card__title a:hover,
 .carousel-stories-card__title a:focus {
   color: var(--text-color);
+  text-decoration-thickness: 0.05em;
 }
 
 .carousel-stories-card__title {
@@ -300,7 +301,7 @@
     }
 }
 
-@media (min-height:1000px) {
+@media (min-height:1040px) {
     .carousel-indicator-scroll{
         display: none;
     }
