@@ -11,24 +11,38 @@ export default async function decorate(block) {
 
   block.classList.add('cmp-jobs-list__bg');
 
+  const jobsContainer = document.createElement('div');
+  jobsContainer.classList.add('cmp-all-jobs');
+  block.firstChild.firstChild.append(jobsContainer);
+
+  const blockHeadline = document.querySelector('h2');
+  block.firstChild.firstChild.prepend(blockHeadline);
+
   const resp = await fetch('/query-index.json');
   const json = await resp.json();
   const allJobs = json.jobs.data;
 
   const groupedJobs = {};
+  // get the departments
+  const departmentNodes = block.querySelectorAll('h3');
 
-  allJobs.forEach((job) => {
-    const department = job.path.split('/')[3];
-    if (!department) return;
+  // prepare the department groups to receive their jobs
+  departmentNodes.forEach((node) => {
+    const department = node.textContent.toLowerCase().replaceAll(' ', '-');
     if (!groupedJobs[department]) groupedJobs[department] = { jobs: [] };
-    if (job.path.endsWith('/')) groupedJobs[department].title = job.title;
-    else groupedJobs[department].jobs.push(job);
+    node.remove();
   });
 
-  const jobsContainer = document.createElement('div');
-  jobsContainer.classList.add('cmp-all-jobs');
-  block.firstChild.firstChild.append(jobsContainer);
+  // look at each job & match it with a department based on its path
+  // after it is matched with the department, push it into that department's jobs array
+  allJobs.forEach((job) => {
+    const dept = job.path.split('/')[3];
+    if (!dept) return;
+    Object.keys(groupedJobs).find((key) => ((key === dept && !job.path.endsWith('/')) ? groupedJobs[key].jobs.push(job) : false));
+  });
 
+  // now that the jobs are grouped by department
+  // render them into the DOM
   Object.keys(groupedJobs).forEach((key) => {
     const departmentJobs = groupedJobs[key].jobs;
     const jobGroup = document.createElement('div');
