@@ -16,10 +16,10 @@
     padding-top: var(--padding-top);
     height: 100vh;
     max-height: 1040px;
-    min-height: 600px;
+    min-height: 50vw;
     position: relative;
     overflow-x: hidden;
-    overflow-y: visible;
+    overflow-y: hidden;
     display: flex;
     flex: 1;
     background-color: var(--header-color);
@@ -98,14 +98,6 @@
     row-gap: 12px;
 }
 
-.carousel-slide-content h2 {
-    font-size: var(--font-size-1000);
-    font-weight: var(--font-weight-black);
-    line-height: 1;
-    margin: 1rem 0 1.5rem;
-    margin-top: 20%;
-}
-
 .carousel-slide-copy {
     grid-column-start: 8;
     grid-column-end: 13;
@@ -114,6 +106,31 @@
     padding: 2.25rem 3.5rem;
     padding-left: 0;
     box-sizing: border-box;
+}
+
+
+.carousel-stories-card__title a,
+.carousel-stories-card__title a:hover,
+.carousel-stories-card__title a:focus {
+  color: var(--text-color);
+}
+
+.carousel-stories-card__title {
+  font-size: min(max(var(--font-size-800), 4vw), var(--font-size-2000));
+  font-weight: var(--font-weight-black);
+  margin: 4rem 0 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .carousel-stories-card__title {
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 900px) {
+    .carousel-stories-card__title {
+      margin: 2rem 0 1.5rem;
+    }
 }
 
 .home .carousel .cmp-stories-card__tag::after {
@@ -147,7 +164,7 @@
     background: white;
     border-radius: 50%;
     cursor: pointer;
-    transform: translate(-130%, calc(var(--padding-top) / 2)) rotate(180deg) ;
+    transform: translate(-170%, calc(var(--padding-top) / 2)) rotate(180deg) ;
     background-image: url("../../assets/arrow.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -157,7 +174,7 @@
 }
 
 .carousel-btn-next {
-    transform: translate(130%, calc(var(--padding-top) / 2)) rotate(0deg) ;
+    transform: translate(170%, calc(var(--padding-top) / 2)) rotate(0deg) ;
 }
 
 .carousel-ui {
@@ -215,7 +232,7 @@
 @media (max-width: 900px) {
 
     .carousel-group {
-        height: auto;
+        height: 130vw;
         box-sizing:content-box;
     }
 
@@ -255,7 +272,7 @@
     .carousel-ui-inner{
         grid-column-start: 1;
         grid-column-end: 7;
-        height: 52vw;
+        height: 75vw;
         padding-top: 100px;
         width: 60%;
     }
@@ -273,9 +290,13 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
+    .carousel-group {
+        height: 150vw;
+    }
+
     .carousel-ui-inner{
-        height: 62vw;
+        height: 90vw;
     }
 }
 
