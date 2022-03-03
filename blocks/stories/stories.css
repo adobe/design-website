@@ -22,16 +22,16 @@
 }
 
 .home .cmp-stories-card  {
-    color: var(--text-color);
+  color: var(--text-color);
 }
 
 .home .cmp-stories-card__body {
-  padding: 2.25rem 3.5rem;
+  padding: 2.25rem 2.5rem;
 }
 
 .home .cmp-stories-card__tag {
   display: inline-block;
-  font-size: var(--font-size-400);
+  font-size: var(--font-size-200);
   padding-bottom: 5px;
   position: relative;
   text-transform: uppercase;
@@ -82,10 +82,8 @@
   }
 }
 
-.home .cmp-stories-card__author {
-  --home-card-author-font-size: var(--font-size-200);
-  
-  font-size: var(--home-card-author-font-size);
+.home .cmp-stories-card__author {  
+  font-size: var(--font-size-200);
   font-weight: var(--font-weight-bold);
   line-height: 1.3;
   margin-bottom: 0;
@@ -147,22 +145,22 @@
   }
 
   .home .cmp-stories-card__title {
-    margin-top: 0;
+    margin-top: 4rem;
   }
 
-  .home .card-flex {
+  /* .home .card-flex {
     display: flex;
     height: calc(100% - 1.25rem);
-  }
+  } */
 
-  .home .card-flex-inner {
+  /* .home .card-flex-inner {
     align-self: center;
     width: 100%;
-  }
+  } */
 }
 
-@media (min-width: 1100px) {
+/* @media (min-width: 1100px) {
   .home .card-flex {
     height: calc(100% - 2.25rem);
   }
-}
+} */
