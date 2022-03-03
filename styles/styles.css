@@ -84,8 +84,9 @@
   --carousel-transition-ease: ease-out;
   --title-line-height: 1;
   --subtitle-line-height: 1.1;
+  --article-copy-line-height: 1.7;
   --page-title-font-size: var(--font-size-900);
-  --page-title-line-height: 1.1;
+  --page-title-line-height: 0.95;
   --page-title-top-space: 5rem;
   --page-title-bottom-space: var(--page-title-top-space);
   --page-title-space-between-sub-title: 4rem;
