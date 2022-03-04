@@ -4,7 +4,7 @@ function createJob(job) {
   const jobItem = document.createElement('li');
   jobItem.classList.add('cmp-jobs-list__item');
   jobItem.innerHTML = `
-    <a class="cmp-job__link" href="${job.path}">${job.title} (${job.positionType})</a>
+    <a class="cmp-job__link" href="${job.path}">${job.title}</a>
     <p class="cmp-job__department">${job.department}</p>
     <p class="cmp-job__location">${job.location}</p>
   `;
