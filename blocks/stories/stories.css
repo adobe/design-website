@@ -56,15 +56,10 @@
 }
 
 .home .cmp-stories-card__title {
-  font-size: min(max(var(--font-size-800), 4vw), var(--font-size-1000));
+  font-size: min(max(var(--font-size-800), 4vw), var(--font-size-1075));
   font-weight: var(--font-weight-black);
   margin: 1rem 0 1.5rem;
-}
-
-@media (min-width: 900px) {
-  .home .cmp-stories-card__title {
-    line-height: 1.1;
-  }
+  line-height: 1;
 }
 
 .home .cmp-stories-card__intro {
