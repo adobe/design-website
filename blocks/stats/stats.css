@@ -70,7 +70,7 @@
   font-family: var(--font-stack-sans);
   font-size: var(--stats-title-font-size);
   font-weight: var(--font-weight-black);
-  line-height: var(--subtitle-line-height);
+  line-height: 1.1;
   margin-bottom: 2rem;
   padding-right: 3rem;
 }

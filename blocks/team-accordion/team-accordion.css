@@ -33,7 +33,7 @@
 .cmp-accordion-container__inner {
   background-color: var(--color-base-white);
   grid-column: 1 / -1;
-  padding-top: 3rem;
+  padding-top: 5rem;
 }
 
 .cmp-accordion-container__inner > h2,
@@ -46,21 +46,17 @@
 
   color: var(--color-base-red);
   font-size: var(--team-of-font-size);
-  margin: 1rem 0 2.5rem;
+  font-weight: var(--font-weight-black);
+  margin: 2.5rem 0;
 }
 
-.cmp-accordion-container__inner > p {
-  --paragraph-font-size: var(--font-size-100);
-
+.cmp-accordion-container__inner > p:not(.page-intro) {
   font-family: var(--font-stack-serif);
-  font-size: var(--paragraph-font-size);
+  font-size: var(--font-size-100);
   margin-bottom: 1rem;
 }
 
-.cmp-accordion-container__inner > p:first-of-type {
-  --intro-font-size: var(--font-size-400);
-
-  font-size: var(--intro-font-size);
+.cmp-accordion-container__inner > p.page-intro {
   margin-bottom: 2rem;
 }
 
@@ -84,18 +80,15 @@
     grid-column: 2 / -2;
   }
 
-  .cmp-accordion-container__inner > p {
-    --paragraph-font-size: var(--font-size-650);
-
+  .cmp-accordion-container__inner > p:not(.page-intro) {
+    font-size: var(--font-size-650);
     grid-column: 3 / -3;
     margin-bottom: 1.25rem;
   }
 
-  .cmp-accordion-container__inner > p:first-of-type {
-    --intro-font-size: var(--font-size-1000);
-
+  .cmp-accordion-container__inner > p.page-intro {
     grid-column: 2 / -2;
-    line-height: var(--subtitle-line-height);
+    margin-bottom: 4.5rem;
   }
 }
 
@@ -104,6 +97,10 @@
   .team-accordion-container,
   .cmp-accordion-container__inner {
     grid-template-columns: repeat(16, [col-start] 1fr);
+  }
+
+  .cmp-accordion-container__inner {
+    padding-top: 7rem;
   }
 
   .team-accordion-container .page-title {
@@ -116,16 +113,13 @@
     grid-column: 3 / -3;
   }
 
-  .cmp-accordion-container__inner > p {
-    --paragraph-font-size: var(--font-size-850);
-
+  .cmp-accordion-container__inner > p:not(.page-intro) {
+    font-size: var(--font-size-850);
     grid-column: 4 / -4;
     margin-bottom: 1.5rem;
   }
 
-  .cmp-accordion-container__inner > p:first-of-type {
-    --intro-font-size: var(--font-size-1090);
-
+  .cmp-accordion-container__inner > p.page-intro {
     grid-column: 3 / -3;
   }
 }

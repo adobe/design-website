@@ -83,13 +83,14 @@
   --carousel-transition-time: 1s;
   --carousel-transition-ease: ease-out;
   --title-line-height: 1;
-  --subtitle-line-height: 1.1;
+  --subtitle-line-height: 1.4;
   --article-copy-line-height: 1.7;
   --page-title-font-size: var(--font-size-900);
   --page-title-line-height: 0.95;
   --page-title-top-space: 5rem;
   --page-title-bottom-space: var(--page-title-top-space);
   --page-title-space-between-sub-title: 4rem;
+  --new-intro-font-size: var(--font-size-400);
 }
 
 @media (min-width: 900px) {
@@ -97,6 +98,7 @@
     --page-title-font-size: var(--font-size-2500);
     --page-title-top-space: 10rem;
     --page-title-space-between-sub-title: 6rem;
+    --new-intro-font-size: var(--font-size-950);
   }
 }
 
@@ -153,6 +155,12 @@ h1 {
 
   /* handle margin on a case-by-case-basis in blocks
   --page-title-top-space is available for spacing */
+}
+
+.page-intro {
+  font-family: var(--font-stack-serif);
+  font-size: var(--new-intro-font-size);
+  line-height: var(--subtitle-line-height);
 }
 
 h1,
