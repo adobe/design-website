@@ -53,6 +53,10 @@
   grid-column: 2 / -2;
 }
 
+.image-with-caption {
+  margin: 5.25rem 0;
+}
+
 .cmp-lede__media-parent img,
 .cmp-image-with-caption__image img {
   margin-right: auto;
@@ -431,6 +435,7 @@ p.cmp-lede__hero-parent {
   
   .cmp-lede__article-bg .cmp-lede__media-parent {
     grid-column: col-start 3 / span 8;
+    margin: 5.25rem 0;
   }
 
   /* extra specificity added to target the hero image */

@@ -20,22 +20,18 @@
   .cmp-pullquote__text p {
     --pq-font-size: var(--font-size-900);
 
-    margin: 3rem 0 1rem;
+    margin: 3.75rem 0 1rem;
   }
 
   .cmp-pullquote__attribution p {
-    --pq-attribution-font-size: var(--font-size-700);
+    --pq-attribution-font-size: var(--font-size-400);
 
-    margin-bottom: 4rem;
+    margin-bottom: 5.25rem;
   }
 }
 
 @media (min-width: 1300px) {
   .cmp-pullquote__text p {
     --pq-font-size: var(--font-size-950);
-  }
-
-  .cmp-pullquote__attribution p {
-    --pq-attribution-font-size: var(--font-size-800);
   }
 }
