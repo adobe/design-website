@@ -133,6 +133,14 @@
     grid-row-start: 1;
   }
 
+  .home .cmp-stories-card__tag {
+    margin-top: 15%;
+  }
+
+  .cmp-stories-card__attribution {
+    margin-bottom: 15%;
+  }
+
   .home .cmp-stories-card__media {
     height: 100%;
   }
