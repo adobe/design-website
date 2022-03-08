@@ -13,9 +13,6 @@
 
 .cmp-lede__article-bg {
   background-color: var(--color-base-white);
-  /* display: grid; */
-  grid-template-columns: repeat(6, [col-start] 1fr);
-  column-gap: 12px;
   padding: 0 1.875rem;
 }
 
@@ -23,26 +20,24 @@
   grid-column: col-start 1 / -2;
 }
 
-.cmp-lede__article-bg > * {
-  grid-column: col-start 2 / span 4;
-}
-
 .cmp-lede__article-bg > *:last-child:not(.cmp-author-details) {
   margin-bottom: 10rem;
 }
 
-.cmp-lede__article-bg .cmp-lede__media-parent {
-  grid-column: col-start 1 / span 6;
-}
-
 .cmp-lede__article-bg .cmp-author-details {
   background-color: #f5f5f5;
-  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(6, [col-start] 1fr);
   margin-top: 8rem;
   padding-top: 6rem;
   padding-bottom: 6rem;
+
+  width: 90vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -45vw;
+  margin-right: -45vw;
 }
 
 .cmp-lede__article-bg .cmp-author-details__meta {
@@ -243,10 +238,20 @@
 }
 
 p.cmp-lede__hero-parent {
-  margin: 0;
+  width: 90vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin: 0 -45vw;
 }
 
 @media (min-width: 900px) {
+  .cmp-lede__article-bg {
+    display: grid;
+    column-gap: 12px;
+    padding: 0;
+  }
+
   .cmp-lede__article-title-wrap,
   .cmp-lede__article-bg {
     grid-template-columns: repeat(12, [col-start] 1fr); 
@@ -282,6 +287,13 @@ p.cmp-lede__hero-parent {
   .cmp-lede__article-bg .cmp-lede__media-parent.cmp-lede__hero-parent,
   .cmp-lede__article-bg .cmp-lede__intro {
     grid-column: col-start 2 / span 10;
+  }
+
+  p.cmp-lede__hero-parent {
+    width: auto;
+    left: auto;
+    right: auto;
+    margin: auto;
   }
 
   .cmp-lede__article-bg .cmp-lede__media-parent.cmp-lede__hero-parent {
@@ -330,9 +342,17 @@ p.cmp-lede__hero-parent {
   }
 
   .cmp-lede__article-bg .cmp-author-details {
+    grid-column: 1 / -1;
     grid-template-columns: repeat(12, [col-start] 1fr);
     column-gap: 12px;
     row-gap: 12px;
+    
+    width: auto;
+    position: relative;
+    left: auto;
+    right: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cmp-lede__article-bg .cmp-author-details__meta {
