@@ -114,12 +114,12 @@
   }
   
   .stats-horizontal-container h2 {
-    --stats-title-font-size: var(--font-size-1000);
+    --stats-title-font-size: var(--font-size-1075);
   }
 }
 
 @media (min-width: 1300px) {
   .stats-horizontal-container h2 {
-    --stats-title-font-size: 4.375rem;
+    --stats-title-font-size: 6.25rem;
   }
 }

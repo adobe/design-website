@@ -296,7 +296,7 @@ body.job-posts {
 .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h2 {
   --post-sub-headline-font-size: var(--font-size-650);
 
-  color: var(--color-base-slate);
+  color: var(--dark-text-color);
   font-family: var(--font-stack-serif);
   font-size: var(--post-sub-headline-font-size);
   font-weight: var(--font-weight-normal);
@@ -307,7 +307,7 @@ body.job-posts {
 .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h3 {
   --post-sub-headline-font-size: var(--font-size-500);
 
-  color: var(--color-base-slate);
+  color: var(--dark-text-color);
   font-family: var(--font-stack-serif);
   font-size: var(--post-sub-headline-font-size);
   font-weight: var(--font-weight-normal);

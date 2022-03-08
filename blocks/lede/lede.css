@@ -13,10 +13,10 @@
 
 .cmp-lede__article-bg {
   background-color: var(--color-base-white);
-  display: grid;
+  /* display: grid; */
   grid-template-columns: repeat(6, [col-start] 1fr);
   column-gap: 12px;
-  padding: 0;
+  padding: 0 1.875rem;
 }
 
 .cmp-lede__article-title-wrap > * {
@@ -178,7 +178,7 @@
   font-size: var(--body-copy-h2-font-size);
   font-weight: var(--font-weight-normal);
   line-height: 1.1;
-  margin-bottom: 2.3rem;
+  margin-bottom: 1.875rem;
 }
 
 .cmp-lede__article-bg h3 {
@@ -192,7 +192,7 @@
 
 .cmp-lede__article-bg p + h2,
 .cmp-lede__article-bg p + h3 {
-  margin-top: 2rem;
+  margin-top: 4.375rem;
 }
 
 .page-title {
