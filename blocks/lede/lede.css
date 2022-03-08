@@ -477,11 +477,11 @@ p.cmp-lede__hero-parent {
   .cmp-lede__article-bg p,
   .cmp-lede__article-bg ul,
   .cmp-lede__article-bg ol {
-    --body-copy-font-size: 1.6875rem; /* 27px */
+    --body-copy-font-size: var(--font-size-400); /* was previously 27px */
   }
 
   .cmp-lede__article-bg p.cmp-lede__author {
-    --lede-author-font-size: 1.6875rem; /* 27px */
+    --lede-author-font-size: var(--font-size-400); /* was previously 27px */
 
     align-self: start;
   }
