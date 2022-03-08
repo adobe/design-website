@@ -21,7 +21,8 @@
 }
 
 .cmp-lede__article-bg > *:last-child:not(.cmp-author-details) {
-  margin-bottom: 10rem;
+  margin-bottom: 0;
+  padding-bottom: 10rem;
 }
 
 .cmp-lede__article-bg .cmp-author-details {
