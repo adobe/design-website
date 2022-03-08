@@ -1,3 +1,7 @@
+.pull-quote.block {
+  margin-bottom: 3rem;
+}
+
 .cmp-pullquote__text p {
   --pq-font-size: var(--font-size-400);
 
@@ -13,10 +17,13 @@
 
   font-size: var(--pq-attribution-font-size);
   font-family: var(--font-stack-sans);
-  margin-bottom: 3rem;
 } 
 
 @media (min-width: 900px) {
+  .pull-quote.block {
+    margin-bottom: 5.25rem;
+  }
+
   .cmp-pullquote__text p {
     --pq-font-size: var(--font-size-900);
 
@@ -25,8 +32,6 @@
 
   .cmp-pullquote__attribution p {
     --pq-attribution-font-size: var(--font-size-400);
-
-    margin-bottom: 5.25rem;
   }
 }
 
