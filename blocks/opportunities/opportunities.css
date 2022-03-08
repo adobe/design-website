@@ -173,11 +173,11 @@
   }
 
   .jobs .cmp-page__intro {
-    --jobs-page-intro-font-size: 4.375rem;
+    --jobs-page-intro-font-size: var(--font-size-950);
   }
 
   .jobs .cmp-page__sub-intro {
-    --jobs-page-sub-intro-font-size: var(--font-size-900);
+    --jobs-page-sub-intro-font-size: 1.6875rem;
 
     margin-bottom: 8rem;
   }

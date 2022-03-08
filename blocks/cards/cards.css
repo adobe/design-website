@@ -315,7 +315,7 @@ p.cmp-inclusive__intro {
   }
 
   p.cmp-inclusive__intro {
-    --intro-font-size: var(--font-size-1090);
+    --intro-font-size: var(--font-size-950);
 
     line-height: 1.2;
     margin-bottom: 6rem;
