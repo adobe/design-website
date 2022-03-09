@@ -163,9 +163,9 @@
     width: 46px;
     height: 46px;
     background: white;
-    border-radius: 50%;
+    border-radius: 75%;
     cursor: pointer;
-    transform: translate(-50%, calc(var(--padding-top) / 2)) rotate(180deg) ;
+    transform: translate(-75%, calc(var(--padding-top) / 2)) rotate(180deg) ;
     background-image: url("../../assets/arrow.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -175,7 +175,7 @@
 }
 
 .carousel-btn-next {
-    transform: translate(50%, calc(var(--padding-top) / 2)) rotate(0deg) ;
+    transform: translate(75%, calc(var(--padding-top) / 2)) rotate(0deg) ;
 }
 
 .carousel-ui {
@@ -282,6 +282,14 @@
 
     .carousel-indicator-scroll{
         display: none;
+    }
+
+    .carousel-btn {
+        transform: translate(-130%, calc(var(--padding-top) / 2)) rotate(180deg) ;
+    }
+    
+    .carousel-btn-next {
+        transform: translate(130%, calc(var(--padding-top) / 2)) rotate(0deg) ;
     }
 }
 
