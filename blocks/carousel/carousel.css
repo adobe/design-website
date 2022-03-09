@@ -145,7 +145,7 @@
     width: 100%;
 }
 
-.carousel-slide picture {
+.caoursel-picture-holder{
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 1;
@@ -212,10 +212,6 @@
         min-height: 700px;
     }
 
-    .carousel-slide picture {
-        grid-column-start: 1;
-    }
-
     .carousel-slide-copy {
         grid-column-end: 13;
         padding-right: 0;
@@ -259,8 +255,8 @@
         padding-bottom: 12px;
     }
     
-    .carousel-slide picture {
-        grid-column-start: 1;
+    .caoursel-picture-holder {
+        grid-column-start: 2;
         grid-column-end: 6;
         grid-row-start: 1;
         grid-row-end: 1;
@@ -271,8 +267,6 @@
     }
 
     .carousel-ui-inner{
-        grid-column-start: 1;
-        grid-column-end: 7;
         height: 75vw;
         padding-top: 100px;
         width: 60%;

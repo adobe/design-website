@@ -227,7 +227,10 @@ export default async function decorate(block) {
 
     slideContent.append(slideCopy);
 
-    slideContent.append(createOptimizedPicture(row.image, row.title, !i));
+    const pictureHolder = document.createElement('div');
+    pictureHolder.classList.add('caoursel-picture-holder');
+    slideContent.append(pictureHolder);
+    pictureHolder.append(createOptimizedPicture(row.image, row.title, !i));
 
     slideContainer.append(slideContent);
     li.append(slideContainer);
