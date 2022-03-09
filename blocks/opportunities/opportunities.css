@@ -134,7 +134,7 @@
   .jobs .cmp-page__sub-intro {
     --jobs-page-sub-intro-font-size: var(--font-size-650);
     
-    grid-column: 4 / -2;
+    grid-column: 2 / -2;
     margin-bottom: 6rem;
   }
   
@@ -189,7 +189,7 @@
 
   .jobs .cmp-page__intro,
   .jobs .cmp-page__sub-intro {
-    grid-column: 4 / -3;
+    grid-column: 3 / -3;
   }
 
   .jobs .cmp-jobs-list__bg h2 {
