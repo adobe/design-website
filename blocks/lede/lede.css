@@ -264,7 +264,7 @@ p.cmp-lede__hero-parent {
   }
   
   .cmp-lede__intro {
-    --lede-intro-font-size: var(--font-size-1000);
+    --lede-intro-font-size: 2.125rem; /* 34px */
   }
 
   .cmp-lede__tag,
@@ -324,7 +324,7 @@ p.cmp-lede__hero-parent {
   }
 
   .cmp-lede__article-bg h2 {
-    --body-copy-h2-font-size: var(--font-size-1000);
+    --body-copy-h2-font-size: 2.5625rem;
   }
 
   .cmp-lede__inner-wrap h3 {
@@ -424,10 +424,6 @@ p.cmp-lede__hero-parent {
   .page-title {
     grid-column: col-start 2 / span 12;
   }
-
-  .cmp-lede__intro {
-    --lede-intro-font-size: var(--font-size-950);
-  }
   
   .cmp-lede__tag,
   .page-subtitle {
@@ -476,14 +472,6 @@ p.cmp-lede__hero-parent {
 
   .cmp-lede__article-bg p.cmp-lede__author-title {
     align-self: start;
-  }
-
-  .cmp-lede__article-bg h2 {
-    --body-copy-h2-font-size: var(--font-size-1050);
-  }
-
-  .cmp-lede__article-bg h3 {
-    --body-copy-h3-font-size: var(--font-size-900);
   }
 
   .cmp-lede__article-bg .cmp-author-details {
