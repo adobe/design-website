@@ -125,13 +125,12 @@
 @media (min-width: 900px) {
   .carousel-stories-card__title {
     line-height: 1.1;
-    margin: 1rem 0 1.5rem;
   }
 }
 
 @media (max-width: 900px) {
     .carousel-stories-card__title {
-      margin: 2rem 0 1.5rem;
+      margin: 1rem 0 1.5rem;
     }
 }
 
