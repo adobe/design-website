@@ -102,12 +102,6 @@
   }
 }
 
-@media (min-width: 1300px) {
-  :root {
-    --page-title-font-size: var(--font-size-4000);
-  }
-}
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
