@@ -423,7 +423,7 @@ p.cmp-lede__hero-parent {
   }
 
   .cmp-lede__article-bg > * {
-    grid-column: 4 / span 10;
+    grid-column: 5 / span 8;
   }
 
   .page-title {
@@ -445,7 +445,7 @@ p.cmp-lede__hero-parent {
   
   .cmp-lede__article-bg .image-with-caption,
   .cmp-lede__article-bg .cmp-lede__media-parent {
-    grid-column: 4 / span 10;
+    grid-column: 5 / span 8;
   }
 
   .cmp-lede__article-bg .cmp-lede__media-parent {
