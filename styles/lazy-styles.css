@@ -7,7 +7,7 @@ body {
     linear-gradient(180deg, rgba(250 203 177 / 0%) 0%, rgba(250 203 177 / 0%) 30%, rgba(250 203 177 / 25%) 40%, rgba(250 203 177 / 60%) 50%, rgba(250 203 177 / 60%) 60%, rgba(250 203 177 / 25%) 70%, rgba(250 203 177 / 0%) 80%, rgba(250 203 177 / 0%) 100%), /*white*/
     radial-gradient(circle at 90% 50%, rgba(251 59 34 / 100%) 0%, rgba(251 59 34 / 100%) 20%, rgba(251 59 34 / 0%) 60%), /*red*/
     radial-gradient(circle at right 20%, rgba(71 187 106 / 100%) 0%, rgba(71 187 106 / 100%) 10%, rgba(71 187 106 / 0%) 40%), /*green*/
-    radial-gradient(circle at -10% 50%, rgba(255 187 11 / 100%) 0%, rgba(255 187 11 / 50%) 50%, rgba(255 187 11 / 0%) 50%), /*yellow*/
+    radial-gradient(circle at -10% 50%, rgba(255 187 11 / 100%) 0%, rgba(255 187 11 / 50%) 5%, rgba(255 187 11 / 0%) 50%), /*yellow*/
     radial-gradient(circle at 5% top, rgba(39 11 156 / 100%) 0%, rgba(39 11 156 / 100%) 10%, rgba(39 11 156 / 50%) 25%, rgba(39 11 156 / 0%) 50%), /*blue*/
     radial-gradient(circle at 0% 40%, rgba(255 187 11 / 100%) 0%, rgba(255 187 11 / 100%) 5%, rgba(255 187 11 / 50%) 20%, rgba(255 187 11 / 0%) 30%), /*yellow*/
     radial-gradient(circle at right 70%, rgba(71 187 106 / 100%) 0%, rgba(71 187 106 / 100%) 10%, rgba(71 187 106 / 0%) 30%), /*green*/
@@ -15,4 +15,5 @@ body {
     radial-gradient(circle at right bottom, rgba(0 169 188 / 100%) 0%, rgba(0 169 188 / 100%) 20%, rgba(0 169 188 / 0%) 40%), /*cyan*/
     radial-gradient(circle at right top, rgba(0 169 188 / 100%) 0%, rgba(0 169 188 / 100%) 20%, rgba(0 169 188 / 0%) 40%),  /*cyan*/
     linear-gradient(#ffb90b, #ffb90b);
+    background-size: cover;
 };
