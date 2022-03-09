@@ -91,6 +91,7 @@
   --page-title-bottom-space: var(--page-title-top-space);
   --page-title-space-between-sub-title: 4rem;
   --new-intro-font-size: var(--font-size-400);
+  --page-subtitle-font-size: var(--font-size-400);
 }
 
 @media (min-width: 900px) {
@@ -99,6 +100,7 @@
     --page-title-top-space: 10rem;
     --page-title-space-between-sub-title: 6rem;
     --new-intro-font-size: var(--font-size-950);
+    --page-subtitle-font-size: 2.125rem; /* 34px */
   }
 }
 
@@ -157,6 +159,13 @@ h1,
 .page-title {
   font-family: var(--font-stack-sans);
   font-weight: var(--font-weight-black);
+}
+
+.page-subtitle {
+  font-family: var(--font-stack-serif);
+  font-size: var(--page-subtitle-font-size);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.3;
 }
 
 /* above the fold CSS goes here to squash CLS */
