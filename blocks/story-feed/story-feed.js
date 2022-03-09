@@ -28,10 +28,10 @@ function createCard(row) {
 }
 
 export default async function decorate(block) {
-  document.querySelector('h1').classList.add('page-title');
   const config = readBlockConfig(block);
   const pathnames = config.featured ? config.featured.map((link) => new URL(link).pathname) : [];
   block.textContent = '';
+
   const stories = await lookupPages(pathnames);
   stories.forEach((row) => {
     block.append(createCard(row));
@@ -44,6 +44,15 @@ export default async function decorate(block) {
     block.append(createCard(row));
   }
 
+  const pageTitle = document.querySelector('h1');
+  pageTitle.classList.add('page-title');
+
   const storyFeedContainerInner = document.querySelector('.story-feed-container').firstChild;
   storyFeedContainerInner.classList.add('cmp-stories__inner-wrap');
+
+  const pageTitleWrap = document.createElement('div');
+  pageTitleWrap.classList.add('cmp-page__title-wrap');
+
+  pageTitleWrap.append(pageTitle);
+  storyFeedContainerInner.prepend(pageTitleWrap);
 }
