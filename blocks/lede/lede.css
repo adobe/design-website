@@ -423,7 +423,7 @@ p.cmp-lede__hero-parent {
   }
 
   .cmp-lede__article-bg > * {
-    grid-column: col-start 5 / span 10;
+    grid-column: 4 / span 10;
   }
 
   .page-title {
@@ -443,9 +443,17 @@ p.cmp-lede__hero-parent {
     max-width: 68px;
   }
   
+  .cmp-lede__article-bg .image-with-caption,
   .cmp-lede__article-bg .cmp-lede__media-parent {
-    grid-column: col-start 3 / span 8;
+    grid-column: 4 / span 10;
+  }
+
+  .cmp-lede__article-bg .cmp-lede__media-parent {
     margin: 5.25rem 0;
+  }
+
+  .cmp-lede__article-bg .cmp-lede__media-parent.cmp-lede__hero-parent {
+    margin-bottom: 0;
   }
 
   /* extra specificity added to target the hero image */
@@ -456,11 +464,6 @@ p.cmp-lede__hero-parent {
 
   .cmp-lede__article-bg p.cmp-lede__hero-caption {
     grid-column: col-start 10 / span 6;
-  }
-
-  .cmp-lede__article-bg .image-with-caption,
-  .cmp-lede__article-bg .cmp-lede__media-parent {
-    grid-column: col-start 3 / span 12;
   }
 
   .cmp-lede__article-bg p,
