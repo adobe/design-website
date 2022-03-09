@@ -183,10 +183,13 @@
     grid-column: 1 / -1;
   }
 
-  .jobs .cmp-page__title,
+  .jobs .page-title {
+    grid-column: 3 / -3;
+  }
+
   .jobs .cmp-page__intro,
   .jobs .cmp-page__sub-intro {
-    grid-column: 3 / -3;
+    grid-column: 4 / -3;
   }
 
   .jobs .cmp-jobs-list__bg h2 {

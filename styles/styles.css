@@ -333,6 +333,7 @@ body.job-posts {
   font-family: var(--font-stack-serif);
   font-size: var(--font-size-200);
   margin-bottom: 1rem;
+  line-height: var(--article-copy-line-height);
 }
 
 .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul + h2,

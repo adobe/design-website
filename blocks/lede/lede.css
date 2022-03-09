@@ -18,6 +18,7 @@
 
 .cmp-lede__article-title-wrap > * {
   grid-column: col-start 1 / -2;
+  padding-left: 1.875rem;
 }
 
 .cmp-lede__article-bg > *:last-child:not(.cmp-author-details) {
@@ -255,6 +256,10 @@ p.cmp-lede__hero-parent {
     padding: 5rem 0 25rem;
   }
 
+  .cmp-lede__article-title-wrap > * {
+    padding-left: 0;
+  }
+
   .cmp-lede__article-bg > * {
     grid-column: col-start 3 / span 8;
   }
@@ -422,12 +427,12 @@ p.cmp-lede__hero-parent {
   }
 
   .page-title {
-    grid-column: col-start 2 / span 12;
+    grid-column: 3 / span 12;
   }
   
   .cmp-lede__tag,
   .page-subtitle {
-    grid-column: col-start 2 / span 9;
+    grid-column: 3 / span 9;
   }
   
   .cmp-lede__article-bg .cmp-lede__attribution {
