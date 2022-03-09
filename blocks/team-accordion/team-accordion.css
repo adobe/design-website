@@ -209,7 +209,7 @@
   }
 
   .cmp-accordion-card .cmp-accordion-card__body {
-    --card-body-font-size: var(--font-size-800);
+    --card-body-font-size: var(--font-size-400);
 
     grid-column: 7 / -2;
     grid-row-start: 2;
@@ -252,7 +252,7 @@
 
 @media (min-width: 1300px) {
   .cmp-accordion-card .cmp-accordion-card__body {
-    --card-body-font-size: var(--font-size-950);
+    --card-body-font-size: var(--font-size-800);
 
     grid-column: 10 / -2;
     grid-row-start: 2;
