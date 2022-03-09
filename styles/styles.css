@@ -116,10 +116,6 @@
   margin: 0;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   font-family: var(--font-stack-fallback);
   line-height: 1.5;
