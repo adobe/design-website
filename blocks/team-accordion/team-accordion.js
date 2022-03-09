@@ -95,6 +95,7 @@ class Accordion {
 
     const { gsap } = window;
     for (let j = 0; j < this.cards.length; j += 1) {
+      this.cards[j].classList.remove('open');
       this.cards[j].dataset.y = 0;
       gsap.killTweensOf(this.cards[j]);
       gsap.to(this.cards[j], {
@@ -128,6 +129,7 @@ class Accordion {
     const rect = card.getBoundingClientRect();
     const newCardHeight = rect.height - visibleCardArea - 1;
 
+    this.cards[i].classList.add('open');
     for (let j = 0; j < this.cards.length; j += 1) {
       gsap.killTweensOf(this.cards[j]);
       if (j > i) {
