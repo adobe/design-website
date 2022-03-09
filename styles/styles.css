@@ -315,6 +315,7 @@ body.job-posts {
   font-size: var(--post-sub-headline-font-size);
   font-weight: var(--font-weight-normal);
   line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 .job-posts .cmp-about-ad-container p {
@@ -529,7 +530,7 @@ body.job-posts {
   }
 
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h2 {
-    --post-sub-headline-font-size: var(--font-size-850);
+    --post-sub-headline-font-size: 2.5625rem;
   }
 
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h3 {
@@ -539,14 +540,18 @@ body.job-posts {
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details p,
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul,
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ol {
-    font-size: var(--font-size-650);
+    font-size: var(--font-size-400);
     margin-bottom: 2rem;
   }
 
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul + h2,
-  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ol + h2
+  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ol + h2,
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details p + h2 {
-    margin-top: 3rem;
+    margin-top: 5.25rem;
+  }
+
+  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h2 + h3 {
+    margin-top: 2rem;
   }
 
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul,
@@ -598,10 +603,6 @@ body.job-posts {
     grid-template-columns: repeat(16, [col-start] 1fr);
   }
 
-  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h2 {
-    --post-sub-headline-font-size: var(--font-size-950);
-  }
-
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h3 {
     --post-sub-headline-font-size: var(--font-size-800);
   }
@@ -609,14 +610,7 @@ body.job-posts {
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details p,
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul,
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ol {
-    font-size: 1.6875rem; /* 27px */
     margin-bottom: 2.5rem;
-  }
-
-  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul + h2,
-  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ol + h2
-  .cmp-job-post__inner-wrap .cmp-job-post__details p + h2 {
-    margin-top: 3.5rem;
   }
 
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul,

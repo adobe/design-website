@@ -125,7 +125,7 @@
   }
   
   .jobs .cmp-page__intro {
-    --jobs-page-intro-font-size: var(--font-size-1000);
+    --jobs-page-intro-font-size: 2.125rem;
     
     margin-bottom: 4rem;
     grid-column: 2 / -2;
@@ -170,10 +170,6 @@
 @media (min-width: 1300px) {
   .jobs .cmp-jobs-list__inner-wrap {
     grid-template-columns: repeat(16, [col-start] 1fr);
-  }
-
-  .jobs .cmp-page__intro {
-    --jobs-page-intro-font-size: var(--font-size-950);
   }
 
   .jobs .cmp-page__sub-intro {
