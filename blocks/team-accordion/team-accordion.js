@@ -192,6 +192,9 @@ export default async function decorate(block) {
   accordionContainer.insertBefore(pageTitleClone, accordionContainer.firstChild);
   pageTitle.remove();
 
+  const introParagraph = document.querySelector('.cmp-accordion-container__inner').firstElementChild;
+  if (introParagraph.tagName === 'P') introParagraph.classList.add('page-intro');
+
   const accordionGroup = block;
   accordionGroup.classList.add('cmp-accordion__group');
 

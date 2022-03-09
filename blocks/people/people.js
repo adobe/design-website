@@ -10,10 +10,11 @@ export default async function decorate(block) {
     person.classList.add('cmp-person');
 
     const personTitle = `${row.subtitle ? `<p class="cmp-person__title">${row.subtitle}</p>` : ''}`;
+    const tag = `${row.tag ? `<span class="cmp-person__tag">#${row.tag}</span>` : ''}`;
 
     person.innerHTML = `
       <div class="cmp-person__body">
-        <span class="cmp-person__tag">#Our People</span>
+        ${tag}
         <h2 class="cmp-person__name">
           <a href="${row.path}">${row.title}</a>
         </h2>

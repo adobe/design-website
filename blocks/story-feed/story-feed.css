@@ -24,6 +24,7 @@
 
 .cmp-stories-card__media {
   aspect-ratio: 1 / 1;
+  overflow: hidden;
 }
 
 .cmp-stories-card__media img {
@@ -34,13 +35,13 @@
 }
 
 .cmp-stories-card__body {
-  padding: 2.25rem 3.5rem;
+  padding: 2.25rem 2.5rem;
 }
 
 .cmp-stories-card__tag {
   color: var(--color-base-navy);
   display: inline-block;
-  font-size: var(--font-size-400);
+  font-size: var(--font-size-200);
   padding-bottom: 5px;
   position: relative;
   text-transform: uppercase;
@@ -59,9 +60,10 @@
 
 .cmp-stories-card__title {
   color: var(--color-base-navy);
-  font-size: min(max(var(--font-size-800), 4vw), var(--font-size-1000));
+  font-size: min(max(var(--font-size-800), 4vw), var(--font-size-1075));
   font-weight: var(--font-weight-black);
   margin: 1rem 0 1.5rem;
+  line-height: 1;
 }
 
 .cmp-stories-card__title a,
@@ -71,7 +73,7 @@
 }
 
 .cmp-stories-card__intro {
-  --card-intro-font-size: var(--font-size-650);
+  --card-intro-font-size: var(--font-size-400);
   
   font-family: var(--font-stack-serif);
   font-size: var(--card-intro-font-size);
@@ -97,10 +99,6 @@
 }
 
 @media (min-width: 900px) {
-  .cmp-stories-card__title {
-    line-height: 1;
-  }
-
   .cmp-stories__inner-wrap .story-feed {
     grid-template-columns: repeat(12, [col-start] 1fr);
   }

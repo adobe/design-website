@@ -147,13 +147,19 @@
   }
 
   .cmp-all-jobs {
-    columns: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     column-gap: 200px;
+    row-gap: 0;
   }
 
-  .cmp-job__group {
-    display: inline-block;
-    width: 100%;
+  .cmp-job__group:first-of-type {
+    /*
+      this is a hack to get the "experience design" column to always show first
+      and to take up its own column *without* resorting to some kind of js solution.
+    */
+
+    grid-row: 1 / 50;
   }
 
   .cmp-job__group-title {
