@@ -1,6 +1,6 @@
 import { getMetadata, loadScript } from '../../scripts/scripts.js';
 
-const visibleCardArea = 250;
+let visibleCardArea = 250;
 
 class Accordion {
   container;
@@ -37,12 +37,16 @@ class Accordion {
   }
 
   resize() {
+    console.log('resize');
     this.selected = -1;
     this.desktopSize();
   }
 
   desktopSize() {
     let size = this.paddingTop;
+    console.log(this.paddingTop);
+
+    visibleCardArea = window.innerWidth < 900 ? 150 : 250;
 
     for (let i = 0; i < this.cards.length; i += 1) {
       const card = this.cards[i];
