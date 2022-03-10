@@ -72,11 +72,13 @@ class Accordion {
     if (this.selected === i && !this.animating) {
       return;
     }
-    gsap.to(this.cards[i], {
-      duration: 0.2,
-      y: parseFloat(this.cards[i].dataset.y) - 50,
-      ease: 'quad.out',
-    });
+    if (!gsap.isTweening(this.cards[i])) {
+      gsap.to(this.cards[i], {
+        duration: 0.2,
+        y: parseFloat(this.cards[i].dataset.y) - 50,
+        ease: 'quad.out',
+      });
+    }
   }
 
   cardMouseOut(i) {
