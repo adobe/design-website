@@ -91,6 +91,7 @@
   --page-title-bottom-space: var(--page-title-top-space);
   --page-title-space-between-sub-title: 4rem;
   --new-intro-font-size: var(--font-size-400);
+  --page-subtitle-font-size: var(--font-size-400);
 }
 
 @media (min-width: 900px) {
@@ -99,12 +100,7 @@
     --page-title-top-space: 10rem;
     --page-title-space-between-sub-title: 6rem;
     --new-intro-font-size: var(--font-size-950);
-  }
-}
-
-@media (min-width: 1300px) {
-  :root {
-    --page-title-font-size: var(--font-size-4000);
+    --page-subtitle-font-size: 2.125rem; /* 34px */
   }
 }
 
@@ -163,6 +159,13 @@ h1,
 .page-title {
   font-family: var(--font-stack-sans);
   font-weight: var(--font-weight-black);
+}
+
+.page-subtitle {
+  font-family: var(--font-stack-serif);
+  font-size: var(--page-subtitle-font-size);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.3;
 }
 
 /* above the fold CSS goes here to squash CLS */
@@ -296,7 +299,7 @@ body.job-posts {
 .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h2 {
   --post-sub-headline-font-size: var(--font-size-650);
 
-  color: var(--color-base-slate);
+  color: var(--dark-text-color);
   font-family: var(--font-stack-serif);
   font-size: var(--post-sub-headline-font-size);
   font-weight: var(--font-weight-normal);
@@ -307,11 +310,12 @@ body.job-posts {
 .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h3 {
   --post-sub-headline-font-size: var(--font-size-500);
 
-  color: var(--color-base-slate);
+  color: var(--dark-text-color);
   font-family: var(--font-stack-serif);
   font-size: var(--post-sub-headline-font-size);
   font-weight: var(--font-weight-normal);
   line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 .job-posts .cmp-about-ad-container p {
@@ -329,6 +333,7 @@ body.job-posts {
   font-family: var(--font-stack-serif);
   font-size: var(--font-size-200);
   margin-bottom: 1rem;
+  line-height: var(--article-copy-line-height);
 }
 
 .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul + h2,
@@ -379,6 +384,7 @@ body.job-posts {
   background-color: var(--color-base-red);
   color: var(--color-base-white);
   font-family: var(--font-stack-serif);
+  margin: 5.25rem 0;
 }
 
 .job-posts .cmp-about-ad-container,
@@ -397,12 +403,17 @@ body.job-posts {
   grid-template-columns: repeat(6, [col-start] 1fr);
   column-gap: 12px;
   row-gap: 12px;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 5.25rem;
+  padding-bottom: 5.25rem;
   font-family: var(--font-stack-serif);
   margin: 0 auto;
   width: var(--content-width);
   max-width: var(--layout-max-width-desktop); 
+}
+
+.job-posts .cmp-eoe-container div {
+  padding-top: 0;
+  padding-bottom: 2rem;
 }
 
 .job-posts .cmp-about-ad-container div > *,
@@ -507,7 +518,7 @@ body.job-posts {
   }
 
   .job-posts .cmp-job-post__inner-wrap h1 {
-    grid-column: 6 / -2;
+    grid-column: 5 / -1;
   }
 
   .job-posts .cmp-about-ad-container h2 {
@@ -516,11 +527,11 @@ body.job-posts {
 
   .job-posts .cmp-about-ad-container h2,
   .job-posts .cmp-about-ad-container p {
-    font-size: var(--font-size-950);
+    font-size: var(--font-size-800);
   }
 
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h2 {
-    --post-sub-headline-font-size: var(--font-size-850);
+    --post-sub-headline-font-size: 2.5625rem;
   }
 
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h3 {
@@ -530,14 +541,18 @@ body.job-posts {
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details p,
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul,
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ol {
-    font-size: var(--font-size-650);
+    font-size: var(--font-size-400);
     margin-bottom: 2rem;
   }
 
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul + h2,
-  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ol + h2
+  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ol + h2,
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details p + h2 {
-    margin-top: 3rem;
+    margin-top: 5.25rem;
+  }
+
+  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h2 + h3 {
+    margin-top: 2rem;
   }
 
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul,
@@ -556,7 +571,7 @@ body.job-posts {
   }
   
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details {
-    grid-column: 6 / -2;
+    grid-column: 5 / -3;
   }
 
   .job-posts .cmp-about-ad-container div,
@@ -589,14 +604,6 @@ body.job-posts {
     grid-template-columns: repeat(16, [col-start] 1fr);
   }
 
-  .job-posts .cmp-job-post__inner-wrap h1 {
-    grid-column: 7 / -2;
-  }
-
-  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h2 {
-    --post-sub-headline-font-size: var(--font-size-950);
-  }
-
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h3 {
     --post-sub-headline-font-size: var(--font-size-800);
   }
@@ -604,14 +611,7 @@ body.job-posts {
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details p,
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul,
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ol {
-    font-size: var(--font-size-800);
     margin-bottom: 2.5rem;
-  }
-
-  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul + h2,
-  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ol + h2
-  .cmp-job-post__inner-wrap .cmp-job-post__details p + h2 {
-    margin-top: 3.5rem;
   }
 
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details ul,
@@ -621,10 +621,6 @@ body.job-posts {
   
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__meta {
     grid-column: 2 / span 3;
-  }
-  
-  .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details {
-    grid-column: 7 / -2;
   }
 
   .job-posts .cmp-about-ad-container div,

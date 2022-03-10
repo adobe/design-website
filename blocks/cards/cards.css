@@ -36,6 +36,7 @@
 }
 
 .cmp-inclusive__title-wrap .page-title {
+  grid-column: 1 / -2;
   margin: var(--page-title-top-space) 0;
 }
 
@@ -66,20 +67,10 @@
   margin: var(--page-title-top-space) 0;
 }
 
-.cmp-cards__inner-wrap > h2 { 
-  --page-subhead-font-size: var(--font-size-400);
-
+.cmp-cards__inner-wrap .page-subtitle {
   color: var(--reactive-text-color);
-  font-family: var(--font-stack-serif);
-  font-size: var(--page-subhead-font-size);
-  font-weight: var(--font-weight-normal);
-  grid-column: 2 / -2;
+  grid-column: 1 / -2;
   margin-bottom: 4rem;
-  line-height: 1.2;
-}
-
-.cmp-cards__inner-wrap .page-title + h2 {
-  margin-top: calc(var(--page-title-space-between-sub-title) / 2 * -1);
 }
 
 h2.cmp-inclusive__headline--secondary {
@@ -203,19 +194,23 @@ p.cmp-inclusive__intro {
     grid-column: col-start 2 / -2;
   }
 
-  .cmp-cards__inner-wrap > h2 { 
-    --page-subhead-font-size: var(--font-size-850);
+  .cmp-cards__inner-wrap .page-title {
+    grid-column: 2 / span 8;
+  }
 
+  .cmp-inclusive__title-wrap .page-title {
+    grid-column: 2 / span 8;
+    padding: 0 0 20rem;
+  }
+
+  .cmp-cards__inner-wrap .page-subtitle {
+    grid-column: 2 / span 8;
     margin-bottom: 6rem;
   }
 
   .cmp-inclusive__bg .cmp-inclusive__hero-parent {
     margin-top: -20rem;
     margin-bottom: 8rem;
-  }
-
-  .cmp-inclusive__title-wrap h1 {
-    padding: 0 0 20rem;
   }
 
   p.cmp-inclusive__intro {
@@ -289,13 +284,13 @@ p.cmp-inclusive__intro {
     grid-template-columns: repeat(16, [col-start] 1fr);
   }
 
-  .cmp-cards__inner-wrap > h2 { 
-    --page-subhead-font-size: var(--font-size-950);
-
-    grid-column: 2 / span 10;
+  .cmp-cards__inner-wrap .page-title,
+  .cmp-cards__inner-wrap .page-subtitle { 
+    grid-column: 3 / span 10;
   }
 
   .cmp-inclusive__title-wrap .page-title {
+    grid-column: 2 / span 10;
     padding-right: 7rem;
     padding-left: 7rem;
   }
@@ -315,7 +310,7 @@ p.cmp-inclusive__intro {
   }
 
   p.cmp-inclusive__intro {
-    --intro-font-size: var(--font-size-1090);
+    --intro-font-size: var(--font-size-950);
 
     line-height: 1.2;
     margin-bottom: 6rem;

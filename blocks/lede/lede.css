@@ -13,36 +13,32 @@
 
 .cmp-lede__article-bg {
   background-color: var(--color-base-white);
-  display: grid;
-  grid-template-columns: repeat(6, [col-start] 1fr);
-  column-gap: 12px;
-  padding: 0;
+  padding: 0 1.875rem;
 }
 
 .cmp-lede__article-title-wrap > * {
   grid-column: col-start 1 / -2;
-}
-
-.cmp-lede__article-bg > * {
-  grid-column: col-start 2 / span 4;
+  padding-left: 1.875rem;
 }
 
 .cmp-lede__article-bg > *:last-child:not(.cmp-author-details) {
-  margin-bottom: 10rem;
-}
-
-.cmp-lede__article-bg .cmp-lede__media-parent {
-  grid-column: col-start 1 / span 6;
+  margin-bottom: 0;
+  padding-bottom: 10rem;
 }
 
 .cmp-lede__article-bg .cmp-author-details {
   background-color: #f5f5f5;
-  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(6, [col-start] 1fr);
+  left: 50%;
+  margin-left: -45vw;
+  margin-right: -45vw;
   margin-top: 8rem;
-  padding-top: 6rem;
   padding-bottom: 6rem;
+  padding-top: 6rem;
+  position: relative;
+  right: 50%;
+  width: 90vw;
 }
 
 .cmp-lede__article-bg .cmp-author-details__meta {
@@ -51,6 +47,10 @@
 
 .cmp-lede__article-bg .cmp-author-details__bio {
   grid-column: 2 / -2;
+}
+
+.image-with-caption {
+  margin: 5.25rem 0;
 }
 
 .cmp-lede__media-parent img,
@@ -174,7 +174,7 @@
   font-size: var(--body-copy-h2-font-size);
   font-weight: var(--font-weight-normal);
   line-height: 1.1;
-  margin-bottom: 2.3rem;
+  margin-bottom: 1.875rem;
 }
 
 .cmp-lede__article-bg h3 {
@@ -188,21 +188,15 @@
 
 .cmp-lede__article-bg p + h2,
 .cmp-lede__article-bg p + h3 {
-  margin-top: 2rem;
+  margin-top: 4.375rem;
 }
 
 .page-title {
   margin-bottom: 2rem;
 }
 
-.cmp-lede__sub-title {
-  --lede-sub-title-font-size: var(--font-size-400);
-  
+.page-subtitle {
   color: var(--reactive-text-color);
-  font-family: var(--font-stack-serif);
-  font-size: var(--lede-sub-title-font-size);
-  font-weight: var(--font-weight-normal);
-  line-height: 1.3;
   margin-bottom: 4rem;
 }
 
@@ -239,10 +233,20 @@
 }
 
 p.cmp-lede__hero-parent {
-  margin: 0;
+  width: 90vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin: 0 -45vw;
 }
 
 @media (min-width: 900px) {
+  .cmp-lede__article-bg {
+    display: grid;
+    column-gap: 12px;
+    padding: 0;
+  }
+
   .cmp-lede__article-title-wrap,
   .cmp-lede__article-bg {
     grid-template-columns: repeat(12, [col-start] 1fr); 
@@ -250,6 +254,10 @@ p.cmp-lede__hero-parent {
 
   .cmp-lede__article-title-wrap {
     padding: 5rem 0 25rem;
+  }
+
+  .cmp-lede__article-title-wrap > * {
+    padding-left: 0;
   }
 
   .cmp-lede__article-bg > * {
@@ -261,11 +269,11 @@ p.cmp-lede__hero-parent {
   }
   
   .cmp-lede__intro {
-    --lede-intro-font-size: var(--font-size-1000);
+    --lede-intro-font-size: 2.125rem; /* 34px */
   }
 
   .cmp-lede__tag,
-  .cmp-lede__sub-title,
+  .page-subtitle,
   .cmp-lede__article-bg .cmp-lede__attribution {
     grid-column: col-start 2 / span 6;
   }
@@ -278,6 +286,13 @@ p.cmp-lede__hero-parent {
   .cmp-lede__article-bg .cmp-lede__media-parent.cmp-lede__hero-parent,
   .cmp-lede__article-bg .cmp-lede__intro {
     grid-column: col-start 2 / span 10;
+  }
+
+  p.cmp-lede__hero-parent {
+    width: auto;
+    left: auto;
+    right: auto;
+    margin: auto;
   }
 
   .cmp-lede__article-bg .cmp-lede__media-parent.cmp-lede__hero-parent {
@@ -314,21 +329,24 @@ p.cmp-lede__hero-parent {
   }
 
   .cmp-lede__article-bg h2 {
-    --body-copy-h2-font-size: var(--font-size-1000);
+    --body-copy-h2-font-size: 2.5625rem;
   }
 
   .cmp-lede__inner-wrap h3 {
     --body-copy-h3-font-size: var(--font-size-800);
   }
 
-  .cmp-lede__sub-title {
-    --lede-sub-title-font-size: var(--font-size-850);
-  }
-
   .cmp-lede__article-bg .cmp-author-details {
+    grid-column: 1 / -1;
     grid-template-columns: repeat(12, [col-start] 1fr);
     column-gap: 12px;
     row-gap: 12px;
+    width: auto;
+    position: relative;
+    left: auto;
+    right: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cmp-lede__article-bg .cmp-author-details__meta {
@@ -405,20 +423,16 @@ p.cmp-lede__hero-parent {
   }
 
   .cmp-lede__article-bg > * {
-    grid-column: col-start 4 / span 10;
+    grid-column: 5 / span 8;
   }
 
   .page-title {
-    grid-column: col-start 2 / span 12;
-  }
-
-  .cmp-lede__intro {
-    --lede-intro-font-size: var(--font-size-950);
+    grid-column: 3 / span 12;
   }
   
   .cmp-lede__tag,
-  .cmp-lede__sub-title {
-    grid-column: col-start 2 / span 9;
+  .page-subtitle {
+    grid-column: 3 / span 9;
   }
   
   .cmp-lede__article-bg .cmp-lede__attribution {
@@ -429,8 +443,17 @@ p.cmp-lede__hero-parent {
     max-width: 68px;
   }
   
+  .cmp-lede__article-bg .image-with-caption,
   .cmp-lede__article-bg .cmp-lede__media-parent {
-    grid-column: col-start 3 / span 8;
+    grid-column: 5 / span 8;
+  }
+
+  .cmp-lede__article-bg .cmp-lede__media-parent {
+    margin: 5.25rem 0;
+  }
+
+  .cmp-lede__article-bg .cmp-lede__media-parent.cmp-lede__hero-parent {
+    margin-bottom: 0;
   }
 
   /* extra specificity added to target the hero image */
@@ -443,37 +466,20 @@ p.cmp-lede__hero-parent {
     grid-column: col-start 10 / span 6;
   }
 
-  .cmp-lede__article-bg .image-with-caption,
-  .cmp-lede__article-bg .cmp-lede__media-parent {
-    grid-column: col-start 3 / span 11;
-  }
-
   .cmp-lede__article-bg p,
   .cmp-lede__article-bg ul,
   .cmp-lede__article-bg ol {
-    --body-copy-font-size: 1.6875rem; /* 27px */
+    --body-copy-font-size: var(--font-size-400); /* was previously 27px */
   }
 
   .cmp-lede__article-bg p.cmp-lede__author {
-    --lede-author-font-size: 1.6875rem; /* 27px */
+    --lede-author-font-size: var(--font-size-400); /* was previously 27px */
 
     align-self: start;
   }
 
   .cmp-lede__article-bg p.cmp-lede__author-title {
     align-self: start;
-  }
-
-  .cmp-lede__article-bg h2 {
-    --body-copy-h2-font-size: var(--font-size-1050);
-  }
-
-  .cmp-lede__article-bg h3 {
-    --body-copy-h3-font-size: var(--font-size-900);
-  }
-
-  .cmp-lede__sub-title {
-    --lede-sub-title-font-size: var(--font-size-950);
   }
 
   .cmp-lede__article-bg .cmp-author-details {

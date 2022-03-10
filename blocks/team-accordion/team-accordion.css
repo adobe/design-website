@@ -104,7 +104,7 @@
   }
 
   .team-accordion-container .page-title {
-    grid-column: 3 / -3;
+    grid-column: 3 / span 10;
   }
 
   .cmp-accordion-container__inner > h2 {
