@@ -34,7 +34,7 @@
 .home .cmp-person__tag {
   color: var(--color-base-dark-slate-secondary);
   display: inline-block;
-  font-size: var(--font-size-400);
+  font-size: var(--font-size-200);
   margin-bottom: 2rem;
   padding-bottom: 5px;
   position: relative;
