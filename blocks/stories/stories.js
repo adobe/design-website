@@ -7,6 +7,10 @@ function createCard(row) {
   const card = document.createElement('article');
   card.classList.add('cmp-stories-card');
 
+  const imageLink = document.createElement('a');
+  imageLink.href = row.path;
+  imageLink.append(createOptimizedPicture(row.image, row.title));
+
   const cardSubTitle = `${row.subtitle ? `<p class="cmp-stories-card__intro">${row.subtitle}</p>` : ''}`;
   const cardAuthor = `${row.author ? `<p class="cmp-stories-card__author">${row.author}</p>` : ''}`;
   const cardAuthorTitle = `${row.authorTitle ? `<p class="cmp-stories-card__author-title">${row.authorTitle}</p>` : ''}`;
@@ -35,7 +39,7 @@ function createCard(row) {
   `;
 
   card.style.backgroundColor = cardBGColor;
-  card.prepend(createOptimizedPicture(row.image, row.title));
+  card.prepend(imageLink);
   card.querySelector('picture').classList.add('cmp-stories-card__media');
   return (card);
 }
