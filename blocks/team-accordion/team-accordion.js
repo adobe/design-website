@@ -37,14 +37,12 @@ class Accordion {
   }
 
   resize() {
-    console.log('resize');
     this.selected = -1;
     this.desktopSize();
   }
 
   desktopSize() {
     let size = this.paddingTop;
-    console.log(this.paddingTop);
 
     visibleCardArea = window.innerWidth < 900 ? 150 : 250;
 
