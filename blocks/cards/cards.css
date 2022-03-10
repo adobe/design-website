@@ -117,6 +117,10 @@ p.cmp-inclusive__intro {
   row-gap: 0;
 }
 
+.toolkit:not(.inclusive-design) .cards.block {
+  margin-bottom: 12px;
+}
+
 .cards .cmp-cards-card.dark-text{
   --text-color: var(--color-base-dark-slate);
 }

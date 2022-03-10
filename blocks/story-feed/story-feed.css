@@ -17,7 +17,7 @@
   grid-template-columns: repeat(6, [col-start] 1fr);
   column-gap: 12px;
   row-gap: 12px;
-  margin: 0 auto;
+  margin: 0 auto 12px;
   width: var(--content-width);
   max-width: var(--layout-max-width-desktop);
 }
