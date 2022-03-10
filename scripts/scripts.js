@@ -800,3 +800,13 @@ async function decorateJobPost() {
 if (getMetadata('theme') === 'job-post') {
   decorateJobPost();
 }
+
+export function setTargetOnExternalLinks() {
+  [...document.querySelectorAll('a')].forEach((link) => (
+    window.location.hostname === link.hostname || !link.hostname.length ? false : link.setAttribute('target', '_blank')
+  ));
+}
+
+setTimeout(() => {
+  setTargetOnExternalLinks();
+}, 2500);
