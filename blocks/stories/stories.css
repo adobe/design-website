@@ -9,9 +9,9 @@
   max-width: var(--layout-max-width-desktop);
 }
 
-/* .home .stories:last-of-type {
+.home .stories-container {
   margin-bottom: 12px;
-} */
+}
 
 .home .cmp-stories-card {
   grid-column: col-start 1 / span 6;
