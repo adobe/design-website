@@ -148,7 +148,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding-right: 50%;
+  padding-right: 0;
 }
 
 .cmp-accordion-card h3::before {
@@ -160,6 +160,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: rotate(-90deg);
+  transition: transform .4s;
+  flex-shrink: 0;
+}
+
+.cmp-accordion-card.open h3::before {
+  transform: rotate(0deg);
 }
 
 .cmp-accordion-card h3::after {
@@ -193,6 +200,8 @@
     --card-title-font-size: var(--font-size-400);
 
     grid-column: 2 / -2;
+    padding-right: 70%;
+
   }
 
   .cmp-accordion-card h3::before {
@@ -200,7 +209,7 @@
   }
 
   .cmp-accordion-card .cmp-accordion-card__body {
-    --card-body-font-size: var(--font-size-800);
+    --card-body-font-size: var(--font-size-400);
 
     grid-column: 7 / -2;
     grid-row-start: 2;
@@ -243,7 +252,7 @@
 
 @media (min-width: 1300px) {
   .cmp-accordion-card .cmp-accordion-card__body {
-    --card-body-font-size: var(--font-size-950);
+    --card-body-font-size: var(--font-size-800);
 
     grid-column: 10 / -2;
     grid-row-start: 2;
@@ -253,6 +262,7 @@
     --card-title-font-size: var(--font-size-950);
 
     grid-column: 2 / -2;
+    padding-right: 50%;
   }
 
   .cmp-accordion__group {

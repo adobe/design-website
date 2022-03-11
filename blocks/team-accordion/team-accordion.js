@@ -1,6 +1,6 @@
 import { getMetadata, loadScript } from '../../scripts/scripts.js';
 
-const visibleCardArea = 250;
+let visibleCardArea = 250;
 
 class Accordion {
   container;
@@ -44,6 +44,8 @@ class Accordion {
   desktopSize() {
     let size = this.paddingTop;
 
+    visibleCardArea = window.innerWidth < 900 ? 150 : 250;
+
     for (let i = 0; i < this.cards.length; i += 1) {
       const card = this.cards[i];
       card.dataset.index = i;
@@ -68,11 +70,13 @@ class Accordion {
     if (this.selected === i && !this.animating) {
       return;
     }
-    gsap.to(this.cards[i], {
-      duration: 0.2,
-      y: parseFloat(this.cards[i].dataset.y) - 50,
-      ease: 'quad.out',
-    });
+    if (!gsap.isTweening(this.cards[i])) {
+      gsap.to(this.cards[i], {
+        duration: 0.2,
+        y: parseFloat(this.cards[i].dataset.y) - 50,
+        ease: 'quad.out',
+      });
+    }
   }
 
   cardMouseOut(i) {
@@ -95,6 +99,7 @@ class Accordion {
 
     const { gsap } = window;
     for (let j = 0; j < this.cards.length; j += 1) {
+      this.cards[j].classList.remove('open');
       this.cards[j].dataset.y = 0;
       gsap.killTweensOf(this.cards[j]);
       gsap.to(this.cards[j], {
@@ -128,6 +133,7 @@ class Accordion {
     const rect = card.getBoundingClientRect();
     const newCardHeight = rect.height - visibleCardArea - 1;
 
+    this.cards[i].classList.add('open');
     for (let j = 0; j < this.cards.length; j += 1) {
       gsap.killTweensOf(this.cards[j]);
       if (j > i) {
