@@ -16,10 +16,10 @@
     padding-top: var(--padding-top);
     height: 100vh;
     max-height: 1040px;
-    min-height: 600px;
+    min-height: 50vw;
     position: relative;
     overflow-x: hidden;
-    overflow-y: visible;
+    overflow-y: hidden;
     display: flex;
     flex: 1;
     background-color: var(--header-color);
@@ -98,12 +98,8 @@
     row-gap: 12px;
 }
 
-.carousel-slide-content h2 {
-    font-size: var(--font-size-1000);
-    font-weight: var(--font-weight-black);
-    line-height: 1;
-    margin: 1rem 0 1.5rem;
-    margin-top: 20%;
+.home .cmp-stories-card__tag.carousel-stories-card__tag{
+    margin-top: 0;
 }
 
 .carousel-slide-copy {
@@ -114,6 +110,32 @@
     padding: 2.25rem 3.5rem;
     padding-left: 0;
     box-sizing: border-box;
+}
+
+
+.carousel-stories-card__title a,
+.carousel-stories-card__title a:hover,
+.carousel-stories-card__title a:focus {
+  color: var(--text-color);
+  text-decoration-thickness: 0.05em;
+}
+
+.carousel-stories-card__title {
+  font-size: min(max(var(--font-size-800), 4vw), var(--font-size-2000));
+  font-weight: var(--font-weight-black);
+  margin: 3rem 0 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .carousel-stories-card__title {
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 900px) {
+    .carousel-stories-card__title {
+      margin: 1rem 0 1.5rem;
+    }
 }
 
 .home .carousel .cmp-stories-card__tag::after {
@@ -127,7 +149,7 @@
     width: 100%;
 }
 
-.carousel-slide picture {
+.caoursel-picture-holder{
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 1;
@@ -145,9 +167,9 @@
     width: 46px;
     height: 46px;
     background: white;
-    border-radius: 50%;
+    border-radius: 75%;
     cursor: pointer;
-    transform: translate(-130%, calc(var(--padding-top) / 2)) rotate(180deg) ;
+    transform: translate(-75%, calc(var(--padding-top) / 2)) rotate(180deg) ;
     background-image: url("../../assets/arrow.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -157,7 +179,7 @@
 }
 
 .carousel-btn-next {
-    transform: translate(130%, calc(var(--padding-top) / 2)) rotate(0deg) ;
+    transform: translate(75%, calc(var(--padding-top) / 2)) rotate(0deg) ;
 }
 
 .carousel-ui {
@@ -182,7 +204,7 @@
 
 /* adjust margin*/
 .home .stories-container{
-    margin-top: -600px;
+    margin-top: -550px;
 }
 
 
@@ -192,10 +214,6 @@
         height: 80vh;
         overflow-y: hidden;
         min-height: 700px;
-    }
-
-    .carousel-slide picture {
-        grid-column-start: 1;
     }
 
     .carousel-slide-copy {
@@ -215,14 +233,14 @@
 @media (max-width: 900px) {
 
     .carousel-group {
-        height: auto;
+        max-height: 2000px;
+        height: calc(100vw + 200px);
         box-sizing:content-box;
     }
 
     .carousel-slide-container{
         box-sizing: border-box;
         height: 100%;
-        padding-top: 100px;
     }
 
     .carousel-slide-content{
@@ -232,18 +250,18 @@
     }
 
     .carousel-slide-copy {
-        grid-column-start: 2;
-        grid-column-end: 6;
+        grid-column-start: 1;
+        grid-column-end: 7;
         grid-row-start: 2;
         grid-row-end: 2;
         justify-content: flex-start;
-        padding:0;
+        padding: 2.25rem 2.5rem;
         padding-bottom: 12px;
     }
     
-    .carousel-slide picture {
-        grid-column-start: 2;
-        grid-column-end: 6;
+    .caoursel-picture-holder {
+        grid-column-start: 1;
+        grid-column-end: 7;
         grid-row-start: 1;
         grid-row-end: 1;
     }
@@ -253,11 +271,8 @@
     }
 
     .carousel-ui-inner{
-        grid-column-start: 1;
-        grid-column-end: 7;
-        height: 52vw;
+        height: 100vw;
         padding-top: 100px;
-        width: 60%;
     }
 
     .carousel-gradient{
@@ -271,15 +286,28 @@
     .carousel-indicator-scroll{
         display: none;
     }
-}
 
-@media (max-width: 500px) {
-    .carousel-ui-inner{
-        height: 62vw;
+    .carousel-btn {
+        transform: translate(-50%, calc(var(--padding-top) / 2)) rotate(180deg) ;
+    }
+    
+    .carousel-btn-next {
+        transform: translate(50%, calc(var(--padding-top) / 2)) rotate(0deg) ;
     }
 }
 
-@media (min-height:1000px) {
+@media (max-width: 700px) {
+
+    .carousel-group {
+        height: calc(100vw + 350px);
+    }
+
+    .carousel-ui-inner{
+        height: 90vw;
+    }
+}
+
+@media (min-height:1090px) {
     .carousel-indicator-scroll{
         display: none;
     }
