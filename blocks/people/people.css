@@ -15,9 +15,12 @@
   grid-column: 1 / 7;
 }
 
+.home .cmp-person a {
+  overflow: hidden;
+}
+
 .home .cmp-person picture {
   aspect-ratio: 1 / 1;
-  overflow: hidden;
 }
 
 .home .cmp-person img {
