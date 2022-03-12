@@ -72,7 +72,9 @@ export default async function decorate(block) {
   articleAttributionContainer.classList.add('cmp-lede__attribution');
   articleAttributionContainer.innerHTML = html;
 
-  const authorName = (articleAttributionContainer.querySelector('h1') !== null)
+  const authorTextContent = articleAttributionContainer.querySelector('h1').textContent;
+
+  const authorName = (authorTextContent !== null && authorTextContent !== '')
     ? `<p class="cmp-lede__author">${articleAttributionContainer.querySelector('h1').textContent}</p>` : '';
 
   const authorTitle = (articleAttributionContainer.querySelector('h2') !== null)
@@ -106,10 +108,13 @@ export default async function decorate(block) {
     publishedDate.classList.add('cmp-author-details__pub-date');
     publishedDate.innerHTML = getMetadata('publication-date');
 
+    // need to use authorTextContent below because
+    // getMetadata('author') returns a sanitized string
+    // and some authors have special characters in their names
     authorDetailsBlock.innerHTML = `
       <div class="cmp-author-details__meta">
         ${authorDetailsPhoto}
-        <p class="cmp-author-details__name">${authorDetailsName}</p>
+        <p class="cmp-author-details__name">${authorTextContent}</p>
         ${authorDetailsTitle}
       </div>
       <div class="cmp-author-details__bio"></div>
