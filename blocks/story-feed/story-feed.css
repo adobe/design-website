@@ -27,9 +27,12 @@
   grid-column: col-start 1 / span 6;
 }
 
+.cmp-stories-card a {
+  overflow: hidden;
+}
+
 .cmp-stories-card__media {
   aspect-ratio: 1 / 1;
-  overflow: hidden;
 }
 
 .cmp-stories-card__media img {
