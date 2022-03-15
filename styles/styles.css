@@ -290,6 +290,20 @@ body.job-posts {
   padding: 3rem 6rem;
 }
 
+.job-posts .cmp-eoe-container,
+.job-posts .cmp-eoe-container a {
+  color: var(--dark-text-color);
+}
+
+.job-posts .cmp-eoe-container a {
+  text-decoration: underline;
+}
+
+.job-posts .cmp-eoe-container a:hover,
+.job-posts .cmp-eoe-container a:focus {
+  text-decoration: none;
+}
+
 .job-posts .cmp-about-ad-container h2 {
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-650);
