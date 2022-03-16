@@ -594,7 +594,7 @@ async function loadEager(doc) {
   const redirect = getMetadata('redirect');
   const usp = new URLSearchParams(window.location.search);
   if (redirect) {
-    if (!usp.get('redirect') && (window.location.hostname.endsWith('localhost') || window.location.hostname.endsWith('.page') || window.location.hostname.endsWith('.live'))) {
+    if (!usp.get('redirect') && (window.location.hostname.endsWith('localhost') || window.location.hostname.endsWith('.page'))) {
       const redirectBanner = document.createElement('div');
       redirectBanner.innerHTML = `Redirect set to <a href="${redirect}">${redirect}</a>`;
       redirectBanner.setAttribute('style', `
