@@ -49,7 +49,7 @@
 .cmp-stories-card__tag {
   color: var(--color-base-navy);
   display: inline-block;
-  font-size: var(--font-size-200);
+  font-size: var(--font-size-100);
   padding-bottom: 5px;
   position: relative;
   text-transform: uppercase;
