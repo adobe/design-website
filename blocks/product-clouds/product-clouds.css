@@ -90,7 +90,7 @@
   .product-clouds h2 {
     --cloud-callout-font-size: var(--font-size-2000);
 
-    padding: 10rem;
+    padding: 10rem 12.5%;
   }
 
   .product-clouds h3 {
