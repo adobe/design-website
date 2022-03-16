@@ -8,7 +8,11 @@
   margin-bottom: 5em;
 }
 
-.cmp-stats__slash{
+.cmp-stats__item:last-of-type {
+  margin-bottom: 0;
+}
+
+.cmp-stats__slash {
   display: none;
 }
 
@@ -36,7 +40,7 @@
   background-color: var(--color-base-lighter-black);
   margin: 0 auto;
   max-width: var(--layout-max-width-desktop);
-  padding: 2rem 4rem;
+  padding: 7.125rem 4rem;
   width: var(--content-width);
 }
 
@@ -44,7 +48,7 @@
 .stories .cmp-stats,
 .toolkit .cmp-stats,
 .cards-container .cmp-stats {
-  margin: 5rem 0;
+  padding: 7.125rem 0 0;
 }
 
 .stats-horizontal-container a {
@@ -82,8 +86,11 @@
 
   .cmp-stats {
     display: flex;
-    margin: 5rem auto;
     justify-content: space-evenly;
+  }
+
+  .cmp-stats__item {
+    margin-bottom: 0;
   }
   
   .cmp-stats__slash {
