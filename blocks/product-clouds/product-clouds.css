@@ -28,7 +28,7 @@
   font-size: var(--cloud-callout-font-size);
   font-weight: var(--font-weight-black);
   line-height: 1.2;
-  padding: 3rem;
+  padding: 3rem 15% 3rem 17%;
 }
 
 .product-clouds h3 {
@@ -38,13 +38,13 @@
   font-size: var(--cloud-callout-font-size);
   font-weight: var(--font-weight-black);
   line-height: 1.2;
-  padding: 2rem 2rem 1rem;
+  padding: 2rem 15% 1rem 17%;
 }
 
 .product-clouds a {
   color: var(--color-base-white);
   display: inline-block;
-  margin: 0 2rem;
+  margin: 0 15% 0 17%;
   text-decoration: underline;
   text-transform: uppercase;
 }
@@ -74,7 +74,7 @@
     --cloud-callout-font-size: var(--font-size-1075);
 
     line-height: 1.1;
-    padding: 8rem 6rem;
+    padding: 8rem 4rem;
   }
 
   .product-clouds h3 {

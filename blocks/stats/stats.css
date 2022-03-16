@@ -44,6 +44,10 @@
   width: var(--content-width);
 }
 
+.team .stats-horizontal-container {
+  padding: 7.125rem 15% 7.125rem 17%;
+}
+
 .team .cmp-stats,
 .stories .cmp-stats,
 .toolkit .cmp-stats,
@@ -79,6 +83,12 @@
   padding-right: 3rem;
 }
 
+@media (min-width: 900px) {
+  .stats-horizontal-container {
+    padding: 7.125rem 4rem;
+  }
+}
+
 @media (min-width: 1200px) {
   .home .cmp-stats-parent{
     display: block;
@@ -111,7 +121,6 @@
     text-align: center;
   }
 
-  
   .home .cmp-stats {
     background-color: var(--color-base-tan);
     color: var(--color-base-dark-slate);
