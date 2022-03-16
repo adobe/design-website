@@ -437,6 +437,7 @@ p.cmp-lede__hero-parent {
   
   .cmp-lede__article-bg .cmp-lede__attribution {
     grid-column: col-start 2 / span 6;
+    margin-bottom: 5.625rem;
   }
 
   .cmp-lede__attribution picture {
