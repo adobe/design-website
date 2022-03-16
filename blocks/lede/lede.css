@@ -272,7 +272,7 @@ p.cmp-lede__hero-parent {
   }
   
   .cmp-lede__intro {
-    --lede-intro-font-size: 2.125rem; /* 34px */
+    --lede-intro-font-size: var(--font-size-800);
   }
 
   .cmp-lede__tag,
