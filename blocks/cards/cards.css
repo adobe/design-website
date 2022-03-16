@@ -141,7 +141,6 @@ p.cmp-inclusive__intro {
   padding: 2.25rem 2.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .cards .cmp-cards-card__title a,
@@ -243,6 +242,7 @@ p.cmp-inclusive__intro {
     grid-template-columns: 1fr 1fr;
     grid-column: 1 / -1;
   }
+
   
   .cards .cmp-cards-card:nth-of-type(even) picture {
     grid-column-start: 2;
@@ -263,9 +263,19 @@ p.cmp-inclusive__intro {
     grid-column-start: 2;
     grid-row-start: 1;
   }
+
+  .cards .cmp-cards-card__body {
+    padding: 20% 2.5rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+  }
   
   .cards .cmp-cards-card__media {
     height: 100%;
+  }
+
+  .cards .cmp-cards-card__description {
+    --home-card-intro-font-size: var(--font-size-650);
   }
 
   .cards .cmp-cards-card__title {
