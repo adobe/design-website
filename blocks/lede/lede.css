@@ -178,7 +178,7 @@
 }
 
 .cmp-lede__article-bg h3 {
-  --body-copy-h3-font-size: var(--font-size-400);
+  --body-copy-h3-font-size: var(--font-size-300);
 
   font-family: var(--font-stack-serif);
   font-size: var(--body-copy-h3-font-size);
@@ -336,7 +336,7 @@ p.cmp-lede__hero-parent {
   }
 
   .cmp-lede__inner-wrap h3 {
-    --body-copy-h3-font-size: var(--font-size-800);
+    --body-copy-h3-font-size: var(--font-size-650);
   }
 
   .cmp-lede__article-bg .cmp-author-details {
