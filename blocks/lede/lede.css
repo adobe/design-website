@@ -324,7 +324,7 @@ p.cmp-lede__hero-parent {
   .cmp-lede__article-bg p,
   .cmp-lede__article-bg ul,
   .cmp-lede__article-bg ol {
-    --body-copy-font-size: var(--font-size-650);
+    --body-copy-font-size: var(--font-size-400);
   }
 
   .cmp-lede__article-bg p.cmp-lede__author {
@@ -470,14 +470,8 @@ p.cmp-lede__hero-parent {
     grid-column: col-start 10 / span 6;
   }
 
-  .cmp-lede__article-bg p,
-  .cmp-lede__article-bg ul,
-  .cmp-lede__article-bg ol {
-    --body-copy-font-size: var(--font-size-400); /* was previously 27px */
-  }
-
   .cmp-lede__article-bg p.cmp-lede__author {
-    --lede-author-font-size: var(--font-size-400); /* was previously 27px */
+    --lede-author-font-size: var(--font-size-400);
 
     align-self: start;
   }
