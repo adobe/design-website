@@ -452,8 +452,28 @@ p.cmp-lede__hero-parent {
     grid-column: 5 / span 8;
   }
 
+  .cmp-lede__article-bg .image-with-caption {
+    margin-top: 3.625rem;
+    margin-bottom: 3.625rem;
+  }
+
+  .cmp-lede__article-bg p + .image-with-caption,
+  .cmp-lede__article-bg ul + .image-with-caption,
+  .cmp-lede__article-bg ol + .image-with-caption {
+    margin-top: 2.125rem;
+  }
+
+  .cmp-lede__article-bg .image-with-caption + .image-with-caption {
+    margin-top: 0;
+  }
+
   .cmp-lede__article-bg .cmp-lede__media-parent {
-    margin: 5.25rem 0;
+    margin-top: 3.625rem;
+    margin-bottom: 3.625rem;
+  }
+
+  .cmp-lede__article-bg .cmp-lede__intro + .cmp-lede__media-parent {
+    margin-top: 0.875rem;
   }
 
   .cmp-lede__article-bg .cmp-lede__media-parent.cmp-lede__hero-parent {
