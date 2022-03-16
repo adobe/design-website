@@ -229,7 +229,7 @@
   
   font-family: var(--font-stack-serif);
   font-size: var(--lede-intro-font-size);
-  margin-bottom: 4rem;
+  margin-bottom: 2.75rem;
 }
 
 p.cmp-lede__hero-parent {
