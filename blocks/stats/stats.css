@@ -84,7 +84,8 @@
 }
 
 @media (min-width: 900px) {
-  .stats-horizontal-container {
+  .stats-horizontal-container,
+  .team .stats-horizontal-container {
     padding: 7.125rem 4rem;
   }
 }
