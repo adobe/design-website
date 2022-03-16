@@ -88,7 +88,7 @@
 
 @media (min-width: 1300px) {
   .product-clouds h2 {
-    --cloud-callout-font-size: 6.25rem;
+    --cloud-callout-font-size: var(--font-size-2000);
 
     padding: 10rem;
   }
