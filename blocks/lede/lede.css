@@ -174,7 +174,7 @@
   font-size: var(--body-copy-h2-font-size);
   font-weight: var(--font-weight-normal);
   line-height: 1.1;
-  margin-bottom: 1.875rem;
+  margin-bottom: 1.25rem;
 }
 
 .cmp-lede__article-bg h3 {
@@ -188,7 +188,7 @@
 
 .cmp-lede__article-bg p + h2,
 .cmp-lede__article-bg p + h3 {
-  margin-top: 4.375rem;
+  margin-top: 2.5625rem;
 }
 
 .page-title {
