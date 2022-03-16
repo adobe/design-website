@@ -186,9 +186,12 @@
   margin-bottom: 0.5rem;
 }
 
-.cmp-lede__article-bg p + h2,
-.cmp-lede__article-bg p + h3 {
+.cmp-lede__article-bg p + h2 {
   margin-top: 2.5625rem;
+}
+
+.cmp-lede__article-bg p + h3 {
+  margin-top: 1.625rem;
 }
 
 .page-title {
