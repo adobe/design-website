@@ -269,6 +269,8 @@ p.cmp-lede__hero-parent {
 
   .cmp-lede__article-bg > .pull-quote.block {
     grid-column: 2 / -2;
+    margin-right: 2rem;
+    margin-left: 2rem;
   }
 
   .page-title {
