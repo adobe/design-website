@@ -312,7 +312,7 @@ p.cmp-lede__hero-parent {
     display: block;
     font-style: italic;
     font-size: var(--font-size-100);
-    grid-column: col-start 9 / span 3;
+    grid-column: 2 / -2;
     margin-bottom: 0;
     text-align: right;
   }
