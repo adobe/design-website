@@ -222,7 +222,7 @@ export default async function decorate(block) {
     <span class="cmp-stories-card__tag carousel-stories-card__tag">${tag}</span>
     <h2 class="carousel-stories-card__title"><a href="${row.path}">${row.title}</a></h2>
     <div class="cmp-stories-card__intro">${row.subtitle}</div>
-    <div class="cmp-stories-card__author">${row.author}</div>
+    <div class="cmp-stories-card__author">by ${row.author}</div>
     <div>${row.authorTitle}</div>`;
 
     slideContent.append(slideCopy);
