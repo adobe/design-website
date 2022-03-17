@@ -100,7 +100,7 @@
     --page-title-top-space: 10rem;
     --page-title-space-between-sub-title: 6rem;
     --new-intro-font-size: var(--font-size-950);
-    --page-subtitle-font-size: 2.125rem; /* 34px */
+    --page-subtitle-font-size: var(--font-size-800);
   }
 }
 
