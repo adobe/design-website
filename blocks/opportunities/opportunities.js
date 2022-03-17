@@ -51,7 +51,7 @@ export default async function decorate(block) {
     const casedKey = transformedKey.replace('And', 'and');
     const listMarkup = departmentJobs.length > 0 ? '<ul class="cmp-jobs-list"></ul>' : '<p class="cmp-jobs-none">There are no openings right now.</p>';
     jobGroup.innerHTML = `
-      <h4 class="cmp-job__group-title">${casedKey}</h4>
+      <h4 id="${key}" class="cmp-job__group-title">${casedKey}</h4>
       ${listMarkup}
     `;
     jobsContainer.append(jobGroup);
