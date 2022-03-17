@@ -5,9 +5,9 @@ export default async function decorate(block) {
   block.parentNode.classList.add('cmp-jobs-list__inner-wrap');
 
   const pageIntro = pageTitle.nextElementSibling;
-  pageIntro.classList.add('cmp-page__intro');
+  pageIntro.classList.add('page-subtitle');
   const pageSubIntro = pageIntro.nextElementSibling;
-  pageSubIntro.classList.add('cmp-page__sub-intro');
+  pageSubIntro.classList.add('page-subtitle');
 
   block.classList.add('cmp-jobs-list__bg');
 
