@@ -67,13 +67,13 @@
 
 .home .cmp-jobs-view-all__link:hover,
 .home .cmp-jobs-view-all__link:focus {
-  background-color: rgb(225, 225, 225);
-  border-color: rgb(44, 44, 44);
-  color: rgb(44, 44, 44);
+  background-color: rgb(225 225 225);
+  border-color: rgb(44 44 44);
+  color: rgb(44 44 44);
 }
 
 .home .cmp-jobs-view-all__link:active {
-  background-color: rgba(202, 202, 202, 0.8);
+  background-color: rgba(202 202 202 / 80%);
 }
 
 .home .cmp-jobs-view-all__link span {
@@ -94,8 +94,8 @@
   }
 
   .home .cmp-jobs-view-all {
-    margin-right: 3rem;
-    margin-left: 3rem;
+    margin-right: 2.5rem;
+    margin-left: 2.5rem;
   }
 
   .home .cmp-jobs-view-all__link {
@@ -115,11 +115,6 @@
 @media (min-width: 1300px) {
   .home .cmp-jobs-list__item {
     margin: 0 0 4rem;
-  }
-
-  .home .cmp-jobs-view-all {
-    margin-right: 4rem;
-    margin-left: 4rem;
   }
 }
 
