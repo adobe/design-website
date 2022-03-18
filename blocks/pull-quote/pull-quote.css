@@ -13,7 +13,7 @@
 }
 
 .cmp-pullquote__attribution p {
-  --pq-attribution-font-size: var(--font-size-300);
+  --pq-attribution-font-size: var(--font-size-100);
 
   font-size: var(--pq-attribution-font-size);
   font-family: var(--font-stack-sans);
@@ -27,7 +27,7 @@
   }
 
   .cmp-pullquote__text p {
-    --pq-font-size: 2.125rem;
+    --pq-font-size: var(--font-size-800);
 
     margin-bottom: 1rem;
   }
