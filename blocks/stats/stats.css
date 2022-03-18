@@ -86,14 +86,30 @@
 @media (min-width: 900px) {
   .stats-horizontal-container,
   .team .stats-horizontal-container {
-    padding: 7.125rem 4rem;
+    padding: 7.125rem 0;
+  }
+
+  .stats-horizontal-container > div {
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    column-gap: 12px;
+  }
+
+  .stats-horizontal-container > div > h2,
+  .stats-horizontal-container > div > p {
+    grid-column: 2 / -2;
+  }
+
+  .stats-horizontal-container > div > div {
+    grid-column: 2 / -2;
+    width: 100%;
   }
 }
 
 @media (min-width: 1200px) {
-  .home .cmp-stats-parent{
+  .home .cmp-stats-parent {
     display: block;
-  }  
+  }
 
   .cmp-stats {
     display: flex;
@@ -110,7 +126,7 @@
     height: 6.5em;
   }
 
-  .cmp-stats__slash svg{
+  .cmp-stats__slash svg {
     height: 100%;
   }
 
@@ -136,7 +152,17 @@
 }
 
 @media (min-width: 1300px) {
+  .stats-horizontal-container > div {
+    grid-template-columns: repeat(16, [col-start] 1fr);
+  }
+
   .stats-horizontal-container h2 {
     --stats-title-font-size: 6.25rem;
   }
+
+  .stats-horizontal-container > div > h2,
+  .stats-horizontal-container > div > p {
+    grid-column: 3 / -3;
+  }
+
 }
