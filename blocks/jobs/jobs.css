@@ -8,7 +8,7 @@
   font-family: var(--font-stack-serif);
   list-style: none;
   margin: 0;
-  padding: 0 6rem;
+  padding: 0 2.5rem;
 }
 
 .home .cmp-jobs-list__item {
@@ -43,7 +43,7 @@
 .home .cmp-jobs-view-all {
   display: flex;
   justify-content: flex-start;
-  margin: 4rem 6rem;
+  margin: 4rem 2.5rem;
 }
 
 .home .cmp-jobs-view-all__link {
@@ -91,7 +91,6 @@
 
   .home .cmp-jobs-list {
     margin-top: 5.25rem;
-    padding: 0 3rem;
   }
 
   .home .cmp-jobs-view-all {
@@ -114,10 +113,6 @@
 }
 
 @media (min-width: 1300px) {
-  .home .cmp-jobs-list {
-    padding: 0 4rem;
-  }
-
   .home .cmp-jobs-list__item {
     margin: 0 0 4rem;
   }
