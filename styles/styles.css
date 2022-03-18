@@ -287,7 +287,7 @@ body.job-posts {
   font-size: var(--join-us-title-font-size);
   font-weight: var(--font-weight-black);
   line-height: 0.85;
-  padding: 3rem 6rem;
+  padding: 3rem 2.5rem;
 }
 
 .job-posts .cmp-eoe-container,
@@ -466,7 +466,7 @@ body.job-posts {
   .cmp-jobs-stats-container__inner-wrap > h2 {
     --join-us-title-font-size: 200px;
 
-    padding: 5rem 3rem;
+    padding: 5rem 2.5rem;
   }
 
   .home .stats-container[data-section-status='loaded'],
@@ -602,8 +602,8 @@ body.job-posts {
   .cmp-jobs-stats-container__inner-wrap > h2 {
     --join-us-title-font-size: var(--font-size-6000);
 
-    padding-right: 4rem;
-    padding-left: 4rem;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
   }
 
   .home .jobs-container {
