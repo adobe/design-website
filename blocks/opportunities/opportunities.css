@@ -154,10 +154,6 @@
     grid-template-columns: repeat(16, [col-start] 1fr);
   }
 
-  .jobs .page-subtitle:last-of-type {
-    margin-bottom: 8rem;
-  }
-
   .jobs .cmp-jobs-list__bg {
     grid-template-columns: repeat(16, [col-start] 1fr);
     grid-column: 1 / -1;
@@ -166,6 +162,10 @@
   .jobs .page-title,
   .jobs .page-subtitle {
     grid-column: 3 / -3;
+  }
+
+  .jobs .page-subtitle:last-of-type {
+    margin-bottom: 8rem;
   }
 
   .jobs .cmp-jobs-list__bg h2 {
