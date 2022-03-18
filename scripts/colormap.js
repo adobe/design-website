@@ -17,6 +17,10 @@ const COLORMAP = {
   '#D2FA48': 'black',
   '#F0E8DD': 'black',
   '#C9E3F6': 'black',
+  '#ffe055': 'black',
+  '#171f44': 'white',
+  '#e7af94': 'black',
+  '#2b2b2b': 'white',
 };
 
 export default COLORMAP;
