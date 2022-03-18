@@ -91,7 +91,11 @@ export default async function decorate(block) {
 
   // only create & decorate "author details" block if the author IS NOT 'adobe design'
   const authorDetailsName = getMetadata('author');
-  if (authorDetailsName !== null && authorDetailsName.toLowerCase() !== 'adobe design') {
+  if (
+    authorDetailsName !== null
+    && authorDetailsName.toLowerCase() !== 'adobe design team'
+    && authorDetailsName.toLowerCase() !== 'adobe design'
+  ) {
     const authorDetailsBlock = document.createElement('div');
     authorDetailsBlock.classList.add('cmp-author-details');
     authorDetailsBlock.innerHTML = html;
