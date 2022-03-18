@@ -63,7 +63,7 @@
   display: grid;
   grid-template-columns: auto 2fr;
   column-gap: 8px;
-  row-gap: 8px;
+  row-gap: 0;
   margin: 2rem 0 3rem;
 }
 
@@ -82,7 +82,7 @@
   margin: 0;
   padding: 0;
   line-height: 1;
-  align-self: start;
+  align-self: end;
 }
 
 .cmp-lede__attribution p.cmp-lede__author-title {
@@ -94,7 +94,7 @@
   margin: 0;
   padding: 0;
   line-height: 1;
-  align-self: start;
+  align-self: end;
 }
 
 .profile .cmp-lede__hero {
@@ -319,7 +319,7 @@ p.cmp-lede__hero-parent {
 
   .cmp-lede__article-bg .cmp-lede__attribution {
     column-gap: 15px;
-    row-gap: 10px;
+    row-gap: 0;
     margin-bottom: 9.5rem;
   }
 
@@ -454,7 +454,7 @@ p.cmp-lede__hero-parent {
   }
 
   .cmp-lede__attribution picture {
-    max-width: 68px;
+    max-width: 58px;
   }
   
   .cmp-lede__article-bg .image-with-caption,
@@ -503,11 +503,11 @@ p.cmp-lede__hero-parent {
   .cmp-lede__article-bg p.cmp-lede__author {
     --lede-author-font-size: var(--font-size-400);
 
-    align-self: start;
+    align-self: end;
   }
 
   .cmp-lede__article-bg p.cmp-lede__author-title {
-    align-self: start;
+    align-self: end;
   }
 
   .cmp-lede__article-bg .cmp-author-details {
