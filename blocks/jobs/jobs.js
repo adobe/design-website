@@ -25,10 +25,12 @@ export default async function decorate(block) {
 
   const viewAllContainer = document.createElement('div');
   viewAllContainer.classList.add('cmp-jobs-view-all');
+  const viewAllSpan = document.createElement('span');
   const viewAllLink = document.createElement('a');
-  viewAllLink.href = '/jobs/';
-  viewAllLink.textContent = 'View all job openings';
   viewAllLink.classList.add('cmp-jobs-view-all__link');
+  viewAllLink.href = '/jobs/';
+  viewAllLink.append(viewAllSpan);
+  viewAllSpan.textContent = 'View all job openings';
   viewAllContainer.append(viewAllLink);
 
   block.append(viewAllContainer);
