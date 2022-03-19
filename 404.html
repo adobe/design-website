@@ -21,6 +21,7 @@
                 radial-gradient(circle at right top, rgba(0 169 188 / 100%) 0%, rgba(0 169 188 / 100%) 20%, rgba(0 169 188 / 0%) 40%),  /*cyan*/
                 linear-gradient(#ffb90b, #ffb90b);
                 background-size: 100% 300%;
+                user-select: none;
             }
 
             canvas{
@@ -29,6 +30,11 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
+                pointer-events: none;
+            }
+
+            a{
+                color: white;
             }
 
             .wrapper{
@@ -91,7 +97,7 @@
         <div class="wrapper">
             <div class="container">
                 <h1>Looks like we dropped the ball...</h1>
-                <h2>Because that page doesn’t exist. Play ball or bounce on over to our home page.</h2>
+                <h2>Because that page doesn’t exist. Play ball or bounce on over to <a href=".">our home page</a>.</h2>
             </div> 
         </div>
 
@@ -317,7 +323,8 @@ let friction = 0.99;
 let gravity = 0.8;
 let bounce = -0.24;
 
-setup();
+
+setTimeout(() => setup(), 1000);
 
 function setup() {
     window.addEventListener("pointermove", mousemove);
@@ -429,12 +436,12 @@ function mousemove(e) {
         e.y > ball.y - ball.r &&
         e.y < ball.y + ball.r) {
             if (isDragging) {
-                playCanvas.style.cursor = 'grabbing';
+                document.body.style.cursor = 'grabbing';
             } else {
-                playCanvas.style.cursor = 'grab';
+                document.body.style.cursor = 'grab';
             }
         } else {
-            playCanvas.style.cursor = 'default';
+            document.body.style.cursor = 'default';
         }
 }
 
