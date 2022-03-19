@@ -1,5 +1,6 @@
 .cmp-footer {
   --footer-block-padding: var(--padding-block-default);
+
   background-color: var(--color-base-red);
   color: var(--color-base-white);
   padding: var(--footer-block-padding) 0;
@@ -15,7 +16,7 @@
 }
 
 .cmp-footer__logo {
-  grid-column: col-start 2 / span 2;
+  grid-column: 2 / -2;
   grid-row-start: 1;
   margin-bottom: 4rem;
 }
@@ -27,7 +28,7 @@
 }
 
 .cmp-footer__nav {
-  grid-column: col-start 2 / span 4;
+  grid-column: 2 / span 4;
   grid-row-start: 2;
   display: flex;
   flex-flow: row wrap;
@@ -41,7 +42,7 @@
 }
 
 .cmp-footer__copyright {
-  grid-column: col-start 2 / span 4;
+  grid-column: 2 / span 4;
   grid-row-start: 3;
 }
 
@@ -55,20 +56,23 @@
   }
 
   .cmp-footer__logo {
-    grid-column: col-start 2 / span 2;
+    grid-column: 1 / span 2;
   }
 
   .cmp-footer__logo svg {
     max-width: none;
   }
 
+  .cmp-footer__nav,
+  .cmp-footer__copyright {
+    grid-column: 6 / -2;
+  }
+
   .cmp-footer__nav {
-    grid-column: col-start 6 / span 6;
     grid-row-start: 1;
   }
 
   .cmp-footer__copyright {
-    grid-column: col-start 6 / span 6;
     grid-row-start: 2;
   }
 }
@@ -79,15 +83,15 @@
   }
 
   .cmp-footer__logo {
-    grid-column: col-start 1 / span 2;
+    grid-column: 1 / span 2;
   }
 
   .cmp-footer__nav {
-    grid-column: col-start 7 / span 8;
+    grid-column: 7 / span 8;
   }
 
   .cmp-footer__copyright {
-    grid-column: col-start 7 / span 10;
+    grid-column: 7 / span 10;
   }
 
   /* the copyright and the links are on one line at large sizes */

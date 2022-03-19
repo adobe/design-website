@@ -1,6 +1,6 @@
 import { getMetadata, loadScript } from '../../scripts/scripts.js';
 
-const visibleCardArea = 250;
+let visibleCardArea = 250;
 
 class Accordion {
   container;
@@ -21,14 +21,16 @@ class Accordion {
     this.container = document.body.querySelector('.cmp-accordion__group');
     this.cards = document.body.querySelectorAll('.cmp-accordion-card');
 
+    this.resize();
+  }
+
+  load() {
     for (let i = 0; i < this.cards.length; i += 1) {
       const card = this.cards[i];
       card.addEventListener('mouseleave', () => this.cardMouseOut(i));
       card.addEventListener('mouseenter', () => this.cardMouseOver(i));
       card.addEventListener('click', () => this.cardClick(i));
     }
-
-    this.resize();
 
     window.addEventListener('wheel', (e) => this.handleMousewheel(e));
     window.addEventListener('resize', () => this.resize());
@@ -41,6 +43,8 @@ class Accordion {
 
   desktopSize() {
     let size = this.paddingTop;
+
+    visibleCardArea = window.innerWidth < 900 ? 150 : 250;
 
     for (let i = 0; i < this.cards.length; i += 1) {
       const card = this.cards[i];
@@ -66,11 +70,13 @@ class Accordion {
     if (this.selected === i && !this.animating) {
       return;
     }
-    gsap.to(this.cards[i], {
-      duration: 0.2,
-      y: parseFloat(this.cards[i].dataset.y) - 50,
-      ease: 'quad.out',
-    });
+    if (!gsap.isTweening(this.cards[i])) {
+      gsap.to(this.cards[i], {
+        duration: 0.2,
+        y: parseFloat(this.cards[i].dataset.y) - 50,
+        ease: 'quad.out',
+      });
+    }
   }
 
   cardMouseOut(i) {
@@ -93,6 +99,7 @@ class Accordion {
 
     const { gsap } = window;
     for (let j = 0; j < this.cards.length; j += 1) {
+      this.cards[j].classList.remove('open');
       this.cards[j].dataset.y = 0;
       gsap.killTweensOf(this.cards[j]);
       gsap.to(this.cards[j], {
@@ -126,6 +133,7 @@ class Accordion {
     const rect = card.getBoundingClientRect();
     const newCardHeight = rect.height - visibleCardArea - 1;
 
+    this.cards[i].classList.add('open');
     for (let j = 0; j < this.cards.length; j += 1) {
       gsap.killTweensOf(this.cards[j]);
       if (j > i) {
@@ -175,7 +183,7 @@ async function loadAccordion(accordion) {
   loadScript(GSAP_URL, () => {
     loadScript(GSAP_SCROLL_URL, () => {
       loadScript(GSAP_CSS_URL, () => {
-        accordion.init();
+        accordion.load();
       });
     });
   });
@@ -186,8 +194,11 @@ export default async function decorate(block) {
   accordionContainer.firstChild.classList.add('cmp-accordion-container__inner');
   const pageTitle = accordionContainer.querySelector('h1');
   const pageTitleClone = pageTitle.cloneNode(true);
+  pageTitleClone.classList.add('page-title');
   accordionContainer.insertBefore(pageTitleClone, accordionContainer.firstChild);
   pageTitle.remove();
+
+  [...document.querySelectorAll('.cmp-accordion-container__inner > p')].forEach((p) => p.classList.add('page-subtitle'));
 
   const accordionGroup = block;
   accordionGroup.classList.add('cmp-accordion__group');
@@ -213,27 +224,7 @@ export default async function decorate(block) {
     card.classList.add(`color-pair-${index + 1}`);
   });
 
-  // const orgHeadline = accordionGroup.nextElementSibling;
-  // if (orgHeadline.tagName === 'H2') {
-  //   orgHeadline.classList.add('cmp-org__headline');
-  // }
-
-  // const nextSiblings = (elem) => {
-  //   const siblings = [];
-  //   // eslint-disable-next-line no-cond-assign, no-param-reassign
-  //   while (elem = elem.nextElementSibling) {
-  //     siblings.push(elem);
-  //   }
-  //   return siblings;
-  // };
-
-  // const orgTextElems = nextSiblings(orgHeadline);
-  // const orgContainer = document.createElement('div');
-  // orgContainer.classList.add('cmp-org__container');
-  // orgContainer.append(orgHeadline);
-  // orgContainer.append(...orgTextElems);
-  // document.querySelector('.cmp-accordion-container__inner').append(orgContainer);
-
   const accordion = new Accordion();
+  accordion.init();
   setTimeout(() => loadAccordion(accordion), 4000);
 }

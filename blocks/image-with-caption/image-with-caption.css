@@ -10,15 +10,3 @@
   font-style: italic;
   margin: 0 0 2rem;
 }
-
-@media (min-width: 900px) {
-  .cmp-image-with-caption__caption {
-    --caption-font-size: var(--font-size-100);
-  }
-}
-
-@media (min-width: 1300px) {
-  .cmp-image-with-caption__caption {
-    --caption-font-size: var(--font-size-400);
-  }
-}

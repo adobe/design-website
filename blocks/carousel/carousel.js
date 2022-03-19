@@ -10,7 +10,7 @@ class Carousel {
 
   animation;
 
-  slideDelay = 3.5;
+  slideDelay = 8.5;
 
   slideDuration = 1;
 
@@ -214,15 +214,23 @@ export default async function decorate(block) {
     const slideContent = document.createElement('div');
     slideContent.classList.add('carousel-slide-content');
 
+    const tag = row.tag ? `#${row.tag}` : '';
+
     const slideCopy = document.createElement('div');
     slideCopy.classList.add('carousel-slide-copy');
-    slideCopy.innerHTML = `<h2><a href="${row.path}">${row.title}</a></h2>
-    <div>${row.subtitle}</div>
-    <div>${row.author}</div>`;
+    slideCopy.innerHTML = `
+    <span class="cmp-stories-card__tag carousel-stories-card__tag">${tag}</span>
+    <h2 class="carousel-stories-card__title"><a href="${row.path}">${row.title}</a></h2>
+    <div class="cmp-stories-card__intro">${row.subtitle}</div>
+    <div class="cmp-stories-card__author">by ${row.author}</div>
+    <div>${row.authorTitle}</div>`;
 
     slideContent.append(slideCopy);
 
-    slideContent.append(createOptimizedPicture(row.image, row.title, !i));
+    const pictureHolder = document.createElement('div');
+    pictureHolder.classList.add('caoursel-picture-holder');
+    slideContent.append(pictureHolder);
+    pictureHolder.append(createOptimizedPicture(row.image, row.title, !i));
 
     slideContainer.append(slideContent);
     li.append(slideContainer);

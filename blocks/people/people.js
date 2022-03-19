@@ -6,14 +6,18 @@ export default async function decorate(block) {
   const people = await lookupPages(pathnames);
   people.forEach((row) => {
     const person = document.createElement('article');
-    person.href = row.path;
     person.classList.add('cmp-person');
 
+    const imageLink = document.createElement('a');
+    imageLink.href = row.path;
+    imageLink.append(createOptimizedPicture(row.image, row.title));
+
     const personTitle = `${row.subtitle ? `<p class="cmp-person__title">${row.subtitle}</p>` : ''}`;
+    const tag = `${row.tag ? `<span class="cmp-person__tag">#${row.tag}</span>` : ''}`;
 
     person.innerHTML = `
       <div class="cmp-person__body">
-        <span class="cmp-person__tag">#Our People</span>
+        ${tag}
         <h2 class="cmp-person__name">
           <a href="${row.path}">${row.title}</a>
         </h2>
@@ -21,7 +25,7 @@ export default async function decorate(block) {
       </div>
     `;
 
-    person.prepend(createOptimizedPicture(row.image, row.title));
+    person.prepend(imageLink);
     block.append(person);
   });
 }

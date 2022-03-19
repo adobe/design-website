@@ -4,7 +4,7 @@ function createJob(job) {
   const jobItem = document.createElement('li');
   jobItem.classList.add('cmp-jobs-list__item');
   jobItem.innerHTML = `
-    <a class="cmp-job__link" href="${job.path}">${job.title} (${job.positionType})</a>
+    <a class="cmp-job__link" href="${job.path}">${job.title}</a>
     <p class="cmp-job__department">${job.department}</p>
     <p class="cmp-job__location">${job.location}</p>
   `;
@@ -25,10 +25,12 @@ export default async function decorate(block) {
 
   const viewAllContainer = document.createElement('div');
   viewAllContainer.classList.add('cmp-jobs-view-all');
+  const viewAllSpan = document.createElement('span');
   const viewAllLink = document.createElement('a');
-  viewAllLink.href = '/jobs/';
-  viewAllLink.textContent = 'View our job openings';
   viewAllLink.classList.add('cmp-jobs-view-all__link');
+  viewAllLink.href = '/jobs/';
+  viewAllLink.append(viewAllSpan);
+  viewAllSpan.textContent = 'View all job openings';
   viewAllContainer.append(viewAllLink);
 
   block.append(viewAllContainer);

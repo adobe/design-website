@@ -591,6 +591,30 @@ export function decorateMain(main) {
  * loads everything needed to get to LCP.
  */
 async function loadEager(doc) {
+  const redirect = getMetadata('redirect');
+  const usp = new URLSearchParams(window.location.search);
+  if (redirect) {
+    if (!usp.get('redirect') && (window.location.hostname.endsWith('localhost') || window.location.hostname.endsWith('.page'))) {
+      const redirectBanner = document.createElement('div');
+      redirectBanner.innerHTML = `Redirect set to <a href="${redirect}">${redirect}</a>`;
+      redirectBanner.setAttribute('style', `
+      background-color: #ddd;
+      color: #222;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      display: block;
+      `);
+      document.querySelector('main').prepend(redirectBanner);
+    } else {
+      window.location.href = redirect;
+      return;
+    }
+  }
+
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
@@ -609,7 +633,7 @@ async function loadLazy(doc) {
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
-  addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.svg`);
+  addFavIcon(`${window.hlx.codeBasePath}/icon.svg`);
 }
 
 /**
@@ -692,13 +716,35 @@ function addPathsAsClassNames() {
     document.body.classList.add('home');
   } else {
     const pathNames = window.location.pathname.toLowerCase().split('/').filter((item) => item !== '').slice(0, 2);
+    if (getMetadata('theme') !== null && getMetadata('theme') === 'profile') pathNames.push('profile');
     document.body.classList.add(...pathNames);
   }
 }
 
 addPathsAsClassNames();
 
-function decorateJobPost() {
+function decorateHomeJobsStats() {
+  const mainEl = document.querySelector('main');
+  const itemsToWrap = document.querySelectorAll('.jobs-container, .stats-container');
+  const jobsStatsContainer = document.createElement('div');
+  const jobsStatsInner = document.createElement('div');
+  jobsStatsContainer.classList.add('cmp-jobs-stats-container');
+  jobsStatsInner.classList.add('cmp-jobs-stats-container__inner-wrap');
+  jobsStatsContainer.append(jobsStatsInner);
+  jobsStatsInner.append(...itemsToWrap);
+  mainEl.append(jobsStatsContainer);
+
+  const sectionHeadline = document.querySelector('.jobs-container > div > h2');
+  jobsStatsInner.prepend(sectionHeadline);
+}
+
+if (window.location.pathname === '/') {
+  setTimeout(() => {
+    decorateHomeJobsStats();
+  }, 4000);
+}
+
+async function decorateJobPost() {
   const jobLocation = getMetadata('location');
   const jobReqNumber = getMetadata('req-number');
   const jobPositionType = getMetadata('position-type');
@@ -711,7 +757,7 @@ function decorateJobPost() {
   const childrenToWrap = [...jobPostInnerWrap.children].slice(1);
 
   jobPostInnerWrap.innerHTML = `
-    <h1 class="cmp-job-post__title">${jobTitle}</h1>
+    <h1 class="page-title">${jobTitle}</h1>
     <aside class="cmp-job-post__meta">
       <a class="cmp-job-post__meta-link" href="${applyLink}">Apply now</a>
       <dl class="cmp-job-post__meta-list">
@@ -723,12 +769,44 @@ function decorateJobPost() {
         <dd>${jobReqNumber}</dd>
       </dl>
     </aside>
-    <div class="cmp-job-post__details"></div>
+    <div class="cmp-job-post__details">
+      <a class="cmp-job-post__meta-link" href="${applyLink}">Apply now</a>
+    </div>
   `;
   const jobDetailsContainer = document.querySelector('.cmp-job-post__details');
-  jobDetailsContainer.append(...childrenToWrap);
+  jobDetailsContainer.prepend(...childrenToWrap);
+
+  const aboutADResp = await fetch('/jobs/about-adobe-design.plain.html');
+  const aboutADHtml = await aboutADResp.text();
+
+  if (aboutADHtml !== '') {
+    const aboutADContainer = document.createElement('div');
+    aboutADContainer.classList.add('cmp-about-ad-container');
+    aboutADContainer.innerHTML = aboutADHtml;
+    jobPostInnerWrap.parentNode.append(aboutADContainer);
+  }
+
+  const EOEResp = await fetch('/jobs/equal-opportunity-policy-stmnt.plain.html');
+  const EOEHtml = await EOEResp.text();
+
+  if (EOEHtml !== '') {
+    const EOEContainer = document.createElement('div');
+    EOEContainer.classList.add('cmp-eoe-container');
+    EOEContainer.innerHTML = EOEHtml;
+    jobPostInnerWrap.parentNode.append(EOEContainer);
+  }
 }
 
 if (getMetadata('theme') === 'job-post') {
   decorateJobPost();
 }
+
+export function setTargetOnExternalLinks() {
+  [...document.querySelectorAll('a')].forEach((link) => (
+    window.location.hostname === link.hostname || !link.hostname.length ? false : link.setAttribute('target', '_blank')
+  ));
+}
+
+setTimeout(() => {
+  setTargetOnExternalLinks();
+}, 2500);
