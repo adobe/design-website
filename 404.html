@@ -6,28 +6,21 @@
 
             body {
                 margin: 0;
-                background-image: url("./assets/gradient.jpg");
-                background-size: 100%;
                 font-family: adobe-clean, helvetica, sans-serif;
                 color: white;
-            }
-
-            h1 {
-                font-size: 120px;
-                font-weight: 900;
-                line-height: 1;
-            }
-
-            .container{
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .copy{
-                width: 600px;
+                background-image: 
+                linear-gradient(180deg, rgba(250 203 177 / 0%) 0%, rgba(250 203 177 / 0%) 30%, rgba(250 203 177 / 25%) 40%, rgba(250 203 177 / 60%) 50%, rgba(250 203 177 / 60%) 60%, rgba(250 203 177 / 25%) 70%, rgba(250 203 177 / 0%) 80%, rgba(250 203 177 / 0%) 100%), /*white*/
+                radial-gradient(circle at 90% 50%, rgba(251 59 34 / 100%) 0%, rgba(251 59 34 / 100%) 20%, rgba(251 59 34 / 0%) 60%), /*red*/
+                radial-gradient(circle at right 20%, rgba(71 187 106 / 100%) 0%, rgba(71 187 106 / 100%) 10%, rgba(71 187 106 / 0%) 40%), /*green*/
+                radial-gradient(circle at -10% 50%, rgba(255 187 11 / 100%) 0%, rgba(255 187 11 / 50%) 5%, rgba(255 187 11 / 0%) 50%), /*yellow*/
+                radial-gradient(circle at 5% top, rgba(39 11 156 / 100%) 0%, rgba(39 11 156 / 100%) 10%, rgba(39 11 156 / 50%) 25%, rgba(39 11 156 / 0%) 50%), /*blue*/
+                radial-gradient(circle at 0% 40%, rgba(255 187 11 / 100%) 0%, rgba(255 187 11 / 100%) 5%, rgba(255 187 11 / 50%) 20%, rgba(255 187 11 / 0%) 30%), /*yellow*/
+                radial-gradient(circle at right 70%, rgba(71 187 106 / 100%) 0%, rgba(71 187 106 / 100%) 10%, rgba(71 187 106 / 0%) 30%), /*green*/
+                radial-gradient(circle at 20% bottom, rgba(39 11 156 / 100%) 10%, rgba(39 11 156 / 50%) 25%, rgba(39 11 156 / 0%) 50%), /*blue*/
+                radial-gradient(circle at right bottom, rgba(0 169 188 / 100%) 0%, rgba(0 169 188 / 100%) 20%, rgba(0 169 188 / 0%) 40%), /*cyan*/
+                radial-gradient(circle at right top, rgba(0 169 188 / 100%) 0%, rgba(0 169 188 / 100%) 20%, rgba(0 169 188 / 0%) 40%),  /*cyan*/
+                linear-gradient(#ffb90b, #ffb90b);
+                background-size: 100% 300%;
             }
 
             canvas{
@@ -37,15 +30,72 @@
                 width: 100%;
                 height: 100%;
             }
+
+            .wrapper{
+                --content-width: 90%;
+                --layout-max-width-desktop: 102.6875em;
+                margin: 0 auto;
+                padding: 0;
+                width: var(--content-width);
+                max-width: var(--layout-max-width-desktop);
+            }
+
+            .container {
+                display: grid;
+                grid-template-columns: repeat(6, [col-start] 1fr);
+                column-gap: 12px;
+            }
+                    
+            h1{
+                grid-column: col-start 1 / -2;
+                padding-left: 1.875rem;
+                margin-bottom: 2rem;
+
+                font-family: "adobe-clean", adobe-clean, helvetica, arial, sans-serif;
+                font-weight: 900;
+                font-size: 2.5rem;
+                line-height: 0.95;
+            }
+
+            h2{
+                font-family: "adobe-clean-serif", adobe-clean-serif, georgia, serif;
+                font-weight: 400;
+                font-size: 1.25rem;
+                line-height: 1.3;
+                
+                grid-column: col-start 1 / -2;
+                padding-left: 1.875rem;
+            }
+
+            @media (min-width: 900px){
+
+                .container{
+                    padding: 5rem 0 0;
+                    grid-template-columns: repeat(12, [col-start] 1fr);
+                }
+
+                h1{
+                    font-size: 5.625rem;
+                    grid-column: col-start 2 / span 8;
+                }
+
+                h2{
+                    font-size: 1.875rem;
+                    grid-column: col-start 2 / span 6;
+                }
+            }
+
         </style>
     </head>
     <body>
-        <div class="container">
-            <div class="copy">
-                <h1>Design The Future of Design.</h1>
-            </div>
+        <div class="wrapper">
+            <div class="container">
+                <h1>Looks like we dropped the ball...</h1>
+                <h2>because that page doesn’t exist. Play ball or bounce on over to our home page.</h2>
+            </div> 
         </div>
-        <script>
+
+<script>
 
 /**
  * tween class
@@ -215,11 +265,11 @@ let colors = [
 ];
 
 
-const WINDOW_WIDTH = window.innerWidth;// * devicePixelRatio;
-const WINDOW_HEIGHT = window.innerHeight; // * devicePixelRatio;
+let WINDOW_WIDTH = window.innerWidth;// * devicePixelRatio;
+let WINDOW_HEIGHT = window.innerHeight; // * devicePixelRatio;
 
-const WINDOW_HALF_WIDTH = WINDOW_WIDTH / 2;
-const WINDOW_HALF_HEIGHT = WINDOW_HEIGHT / 2;
+let WINDOW_HALF_WIDTH = WINDOW_WIDTH / 2;
+let WINDOW_HALF_HEIGHT = WINDOW_HEIGHT / 2;
 
 
 const ballCanvas = document.createElement('canvas');
@@ -270,13 +320,28 @@ let bounce = -0.24;
 setup();
 
 function setup() {
-    window.addEventListener("mousemove", mousemove);
-    window.addEventListener("mousedown", mousedown);
-    window.addEventListener("mouseup", mouseup);
+    window.addEventListener("pointermove", mousemove);
+    window.addEventListener("pointerdown", mousedown);
+    window.addEventListener("pointerup", mouseup);
+
+    window.addEventListener('resize', resize);
 
     holeIn();
 
     update();
+}
+
+function resize() {
+    WINDOW_WIDTH = window.innerWidth;// * devicePixelRatio;
+    WINDOW_HEIGHT = window.innerHeight; // * devicePixelRatio;
+
+    WINDOW_HALF_WIDTH = WINDOW_WIDTH / 2;
+    WINDOW_HALF_HEIGHT = WINDOW_HEIGHT / 2;
+
+    ballCanvas.width = WINDOW_WIDTH;
+    ballCanvas.height = WINDOW_HEIGHT;
+    playCanvas.width = WINDOW_WIDTH;
+    playCanvas.height = WINDOW_HEIGHT;
 }
 
 function holeIn() {
