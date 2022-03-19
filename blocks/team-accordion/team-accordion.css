@@ -76,7 +76,7 @@
   color: var(--card-title-color);
   font-family: var(--font-stack-serif);
   font-size: var(--card-title-font-size);
-  font-weight: 100;
+  font-weight: normal;
   line-height: var(--title-line-height);
   margin-bottom: 2rem;
   padding-bottom: 1rem;
