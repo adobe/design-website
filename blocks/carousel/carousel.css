@@ -103,12 +103,11 @@
 }
 
 .carousel-slide-copy {
-    grid-column-start: 8;
+    grid-column-start: 7;
     grid-column-end: 13;
     grid-row-start: 1;
     grid-row-end: 1;
-    padding: 2.25rem 3.5rem;
-    padding-left: 0;
+    padding: 2.25rem 2.5rem;
     box-sizing: border-box;
 }
 
@@ -124,12 +123,7 @@
   font-size: min(max(var(--font-size-800), 4vw), var(--font-size-2000));
   font-weight: var(--font-weight-black);
   margin: 3rem 0 1.5rem;
-}
-
-@media (min-width: 900px) {
-  .carousel-stories-card__title {
-    line-height: 1.1;
-  }
+  line-height: 1;
 }
 
 @media (max-width: 900px) {
@@ -226,7 +220,6 @@
 
     .carousel-slide-copy {
         grid-column-end: 13;
-        padding-right: 0;
     }
 
     .cmp-stories__inner-wrap h1 {
@@ -251,6 +244,7 @@
         height: 100%;
         grid-template-columns: repeat(6, [col-start] 1fr);
         grid-template-rows: min-content;
+        row-gap: 0;
     }
 
     .carousel-slide-copy {
