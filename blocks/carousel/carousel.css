@@ -202,6 +202,14 @@
     align-items: center;
 }
 
+.carousel-indicator-scroll{
+    display: none;
+}
+
+.carousel-indicator-scroll.show{
+    display: block;
+}
+
 /* adjust margin*/
 .home .stories-container{
     margin-top: -550px;
@@ -219,10 +227,6 @@
     .carousel-slide-copy {
         grid-column-end: 13;
         padding-right: 0;
-    }
-
-    .carousel-indicator-scroll{
-        display: none;
     }
 
     .cmp-stories__inner-wrap h1 {
@@ -283,16 +287,16 @@
         margin-top: -300px;
     }
 
-    .carousel-indicator-scroll{
-        display: none;
-    }
-
     .carousel-btn {
         transform: translate(-50%, calc(var(--padding-top) / 2)) rotate(180deg) ;
     }
     
     .carousel-btn-next {
         transform: translate(50%, calc(var(--padding-top) / 2)) rotate(0deg) ;
+    }
+
+    .carousel-indicator-scroll{
+        display: none !important;
     }
 }
 
@@ -305,10 +309,7 @@
     .carousel-ui-inner{
         height: 90vw;
     }
+
+
 }
 
-@media (min-height:1090px) {
-    .carousel-indicator-scroll{
-        display: none;
-    }
-}

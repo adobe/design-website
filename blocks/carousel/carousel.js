@@ -184,7 +184,7 @@ export default async function decorate(block) {
 
   const scrollDown = document.createElement('div');
   scrollDown.classList.add('carousel-indicator-scroll');
-  scrollDown.innerHTML = `Scroll Down
+  scrollDown.innerHTML = `
   <svg xmlns="http://www.w3.org/2000/svg" width="20.702" height="12.413" viewBox="0 0 20.702 12.413">
   <g id="Chevron" transform="translate(-154.009 -37.009)">
     <rect id="Frame" width="20" height="12" transform="translate(154.219 37.331)" fill="currentColor" opacity="0"/>
@@ -255,7 +255,38 @@ export default async function decorate(block) {
   <rect class="svg-bg" x="0" y="0" width="100" height="100" fill="red" mask="url(#mask)"/>
 </svg>`;
 
+  let didScroll = false;
+
+  function checkScrollIndicator() {
+    if (didScroll) {
+      return;
+    }
+
+    const contianer = document.querySelector('.stories-container');
+    const rect = contianer.getBoundingClientRect();
+    const indicator = document.querySelector('.carousel-indicator-scroll');
+
+    if (rect.top < window.innerHeight) {
+      indicator.classList.remove('show');
+    } else {
+      indicator.classList.add('show');
+    }
+  }
+
+  function hideScrollIndicator() {
+    if (!didScroll) {
+      const indicator = document.querySelector('.carousel-indicator-scroll');
+      indicator.classList.remove('show');
+    }
+
+    didScroll = true;
+  }
+
+  window.addEventListener('resize', checkScrollIndicator);
+  window.addEventListener('scroll', hideScrollIndicator);
+
   setTimeout(() => {
     loadCarousel(carousel);
+    checkScrollIndicator();
   }, 4000);
 }
