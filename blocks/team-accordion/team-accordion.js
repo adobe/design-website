@@ -44,7 +44,13 @@ class Accordion {
   desktopSize() {
     let size = this.paddingTop;
 
-    visibleCardArea = window.innerWidth < 900 ? 150 : 250;
+    if (window.innerWidth < 900) {
+      visibleCardArea = 150;
+    } else if (window.innerWidth < 1300) {
+      visibleCardArea = 170;
+    } else {
+      visibleCardArea = 250;
+    }
 
     for (let i = 0; i < this.cards.length; i += 1) {
       const card = this.cards[i];
@@ -62,7 +68,16 @@ class Accordion {
     if (this.selected === -1) {
       return;
     }
-    this.closeCards();
+
+    const cards = document.querySelectorAll('.cmp-accordion-card');
+    const card = cards[this.selected];
+    const rect = card.getBoundingClientRect();
+
+    const { top } = rect;
+    const bottom = rect.top + rect.height;
+    if (bottom < 0 || top > window.innerHeight) {
+      this.closeCards();
+    }
   }
 
   cardMouseOver(i) {
