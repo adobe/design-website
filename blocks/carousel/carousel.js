@@ -214,7 +214,7 @@ export default async function decorate(block) {
     const slideContent = document.createElement('div');
     slideContent.classList.add('carousel-slide-content');
 
-    const tag = row.tag ? `#${row.tag}` : '';
+    const tag = row.tag ? `${row.tag}` : '';
 
     const slideCopy = document.createElement('div');
     slideCopy.classList.add('carousel-slide-copy');

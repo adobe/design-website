@@ -32,7 +32,7 @@ export default async function decorate(block) {
 
   const articleTag = document.createElement('p');
   articleTag.innerHTML = `
-    <span>#${articleTagData}</span>
+    <span>${articleTagData}</span>
   `;
   articleTag.classList.add('cmp-lede__tag');
   articleTitle.parentNode.insertBefore(articleTag, articleTitle.parentNode.firstChild);
