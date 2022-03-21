@@ -18,7 +18,8 @@ export default async function decorate(block) {
 
   const footerLogoContainer = footerInnerWrap.firstElementChild;
   footerLogoContainer.classList.add('cmp-footer__logo');
-  footerLogoContainer.innerHTML = '';
+  const footerLinkValue = footerLogoContainer.querySelector('a').href;
+  footerLogoContainer.innerHTML = `<a href="${footerLinkValue}"></a>`;
 
   const footerLogoSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   footerLogoSVG.setAttribute('viewBox', '0 0 144.541 48.257');
@@ -46,7 +47,7 @@ export default async function decorate(block) {
     </g>
   `;
 
-  footerLogoContainer.append(footerLogoSVG);
+  footerLogoContainer.firstElementChild.append(footerLogoSVG);
 
   const footerNavigation = footerInnerWrap.querySelectorAll('.cmp-footer__inner-wrap div')[1];
   footerNavigation.classList.add('cmp-footer__nav');
