@@ -16,7 +16,7 @@ function createCard(row) {
   const cardAuthorTitle = `${row.authorTitle ? `<p class="cmp-stories-card__author-title">${row.authorTitle}</p>` : ''}`;
   const cardBGColor = row.color !== '' ? row.color : '#fff';
   const textColor = colormap[cardBGColor];
-  const cardTag = row.tag !== '' ? `#${row.tag}` : '';
+  const cardTag = row.tag !== '' ? `${row.tag}` : '';
 
   if (textColor === 'black') {
     card.classList.add('dark-text');

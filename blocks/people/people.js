@@ -13,7 +13,7 @@ export default async function decorate(block) {
     imageLink.append(createOptimizedPicture(row.image, row.title));
 
     const personTitle = `${row.subtitle ? `<p class="cmp-person__title">${row.subtitle}</p>` : ''}`;
-    const tag = `${row.tag ? `<span class="cmp-person__tag">#${row.tag}</span>` : ''}`;
+    const tag = `${row.tag ? `<span class="cmp-person__tag">${row.tag}</span>` : ''}`;
 
     person.innerHTML = `
       <div class="cmp-person__body">
