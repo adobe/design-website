@@ -143,17 +143,26 @@
     width: 100%;
 }
 
-.caoursel-picture-holder{
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 1;
-    grid-row-end: 1;
-    aspect-ratio: 1;
+.carousel-picture-holder{
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.carousel-picture-holder a {
+  overflow: hidden;
+}
+
+.carousel-picture-holder a picture {
+  aspect-ratio: 1 / 1;
 }
 
 .carousel-slide img {
-    aspect-ratio: 1;
-    object-fit: cover;
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .carousel-btn {
@@ -257,7 +266,7 @@
         padding-bottom: 12px;
     }
     
-    .caoursel-picture-holder {
+    .carousel-picture-holder {
         grid-column-start: 1;
         grid-column-end: 7;
         grid-row-start: 1;
