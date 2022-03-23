@@ -14,15 +14,17 @@
 
 .jobs .page-title,
 .jobs .page-subtitle {
-  grid-column: 2 / -2;
+  grid-column: 1 / -1;
 }
 
 .jobs .page-title {
-  margin: var(--page-title-top-space) 0;
+  margin: var(--page-title-top-space) 1.875rem;
 }
 
 .jobs .page-subtitle {
+  margin-right: 1.875rem;
   margin-bottom: 2rem;
+  margin-left: 1.875rem;
 }
 
 .jobs .page-subtitle:last-of-type {
@@ -114,6 +116,8 @@
   .jobs .page-title,
   .jobs .page-subtitle {
     grid-column: 2 / -2;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .jobs .page-subtitle {
