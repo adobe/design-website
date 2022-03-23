@@ -57,7 +57,7 @@
 
 .cmp-accordion-card {
   grid-column: 1 / -1;
-  padding: 3rem;
+  padding: 3.625rem;
   width: 100%;
   cursor: pointer;
 }
@@ -75,7 +75,7 @@
   font-size: var(--card-title-font-size);
   font-weight: normal;
   line-height: var(--title-line-height);
-  margin-bottom: 2rem;
+  margin-bottom: 3.0625rem;
   padding-bottom: 1rem;
   position: relative;
   display: flex;
