@@ -92,6 +92,7 @@
   --page-title-space-between-sub-title: 4rem;
   --new-intro-font-size: var(--font-size-400);
   --page-subtitle-font-size: var(--font-size-400);
+  --page-inline-padding: 1.875rem;
 }
 
 @media (min-width: 900px) {

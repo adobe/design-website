@@ -8,16 +8,7 @@
   max-width: var(--layout-max-width-desktop); 
 }
 
-.team-accordion-container,
-.cmp-accordion-container__inner {
-  display: grid;
-  grid-template-columns: repeat(6, [col-start] 1fr);
-  column-gap: 12px;
-  row-gap: 12px;
-}
-
 .team-accordion-container .page-title {
-  grid-column: 1 / -1;
   color: var(--color-base-white);
   margin: var(--page-title-top-space) 1.875rem;
 }
@@ -29,13 +20,7 @@
 
 .cmp-accordion-container__inner {
   background-color: var(--color-base-white);
-  grid-column: 1 / -1;
   padding-top: 5rem;
-}
-
-.cmp-accordion-container__inner > h2,
-.cmp-accordion-container__inner > .page-subtitle {
-  grid-column: 2 / -2;
 }
 
 .cmp-accordion-container__inner > h2 {
@@ -45,18 +30,15 @@
   font-size: var(--team-of-font-size);
   font-weight: var(--font-weight-black);
   margin: 2.5rem 0;
+  padding: 0 var(--page-inline-padding);
 }
 
 .cmp-accordion-container__inner > .page-subtitle {
   margin-bottom: 1rem;
-}
-
-.cmp-accordion-container__inner .cmp-accordion__group {
-  grid-column: 1 / -1;
+  padding: 0 var(--page-inline-padding);
 }
 
 .cmp-accordion-card {
-  grid-column: 1 / -1;
   padding: 3.625rem;
   width: 100%;
   cursor: pointer;
@@ -152,9 +134,19 @@
 }
 
 @media (min-width: 900px) {
-  .team-accordion-container,
-  .cmp-accordion-container__inner {
+  .team-accordion-container {
+    display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr);
+    column-gap: 12px;
+    row-gap: 12px;
+  }
+
+  .cmp-accordion-container__inner {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    column-gap: 12px;
+    row-gap: 12px;
   }
 
   .team-accordion-container .page-title {
@@ -167,10 +159,15 @@
     --team-of-font-size: var(--font-size-1075);
 
     grid-column: 2 / -2;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .cmp-accordion-container__inner > .page-subtitle {
+    grid-column: 2 / -2;
     margin-bottom: 1.25rem;
+    padding-right: 0;
+    padding-left: 0;
   }
 
   .cmp-accordion-card h3 {
@@ -197,6 +194,8 @@
     --first-color-stop: 40%;
     --second-color-stop: 40%;
     --third-color-stop: 100%;
+
+    grid-column: 1 / -1;
   }
 
   .cmp-accordion-card {

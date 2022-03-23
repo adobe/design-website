@@ -28,7 +28,7 @@
   font-size: var(--cloud-callout-font-size);
   font-weight: var(--font-weight-black);
   line-height: 1.2;
-  padding: 3rem 15% 3rem 17%;
+  padding: 3rem var(--page-inline-padding);
 }
 
 .product-clouds h3 {
