@@ -161,6 +161,10 @@ header a {
     margin-left: 0;
   }
 
+  .cmp-nav__list-item--home {
+    display: none;
+  }
+
   .cmp-nav__list-item a {
     --nav-link-font-size: var(--font-size-400);
 
