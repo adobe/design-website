@@ -63,9 +63,6 @@ function decorateInclusiveDesignPage(block) {
 
   const introParagraph = secondaryHeadline.nextElementSibling;
   introParagraph.classList.add('cmp-inclusive__intro');
-
-  const tertiaryHeadline = block.previousSibling;
-  tertiaryHeadline.classList.add('cmp-inclusive__headline--tertiary');
 }
 
 export default async function decorate(block) {
