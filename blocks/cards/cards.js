@@ -13,7 +13,7 @@ function createCard(row) {
   const cardBGColor = row.color !== '' ? row.color : '#fff';
   const textColor = colormap[cardBGColor];
   const url = row.path;
-  const cardTitle = !isInclusiveDesignPage ? `<a href="${url}">${row.title}</a>` : row.title;
+  const cardTitle = `<a href="${url}">${row.title}</a>`;
 
   if (textColor === 'black') {
     card.classList.add('dark-text');
