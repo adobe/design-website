@@ -24,9 +24,6 @@
 
 /* the actual accordions */
 .cmp-accordion__group {
-  display: grid;
-  grid-template-columns: repeat(6, [col-start] 1fr);
-  column-gap: 12px;
   position: relative;
 }
 
@@ -200,8 +197,6 @@
     --first-color-stop: 40%;
     --second-color-stop: 40%;
     --third-color-stop: 100%;
-
-    grid-template-columns: repeat(12, [col-start] 1fr);
   }
 
   .cmp-accordion-card {
@@ -299,8 +294,6 @@
     --first-color-stop: 50%;
     --second-color-stop: 50%;
     --third-color-stop: 100%;
-
-    grid-template-columns: repeat(16, [col-start] 1fr);
   }
 
   .cmp-accordion-card {
