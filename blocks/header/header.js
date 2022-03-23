@@ -36,6 +36,14 @@ export default async function decorate(block) {
     navList.append(navListItem);
   });
 
+  const homeNavListItem = document.createElement('li');
+  homeNavListItem.classList.add('cmp-nav__list-item', 'cmp-nav__list-item--home');
+  const homeNavLink = document.createElement('a');
+  homeNavLink.href = brandLink.href;
+  homeNavLink.textContent = 'Home';
+  homeNavListItem.append(homeNavLink);
+  navList.prepend(homeNavListItem);
+
   headerEl.innerHTML = '';
   headerEl.append(brandComponent);
 
