@@ -17,9 +17,9 @@
 }
 
 .team-accordion-container .page-title {
-  grid-column: 2 / -2;
+  grid-column: 1 / -1;
   color: var(--color-base-white);
-  margin: var(--page-title-top-space) 0;
+  margin: var(--page-title-top-space) 1.875rem;
 }
 
 /* the actual accordions */
@@ -162,6 +162,8 @@
 
   .team-accordion-container .page-title {
     grid-column: 2 / -2;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .cmp-accordion-container__inner > h2 {

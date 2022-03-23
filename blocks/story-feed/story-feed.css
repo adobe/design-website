@@ -7,8 +7,8 @@
 }
 
 .cmp-stories__inner-wrap .page-title {
-  grid-column: 2 / span 3;
-  margin: var(--page-title-top-space) 0;
+  grid-column: 1 / -1;
+  margin: var(--page-title-top-space) 1.875rem;
 }
 
 .cmp-stories__inner-wrap .story-feed {
@@ -113,7 +113,9 @@
   }
 
   .cmp-stories__inner-wrap .page-title {
-    grid-column: 3 / span 10;
+    grid-column: 2 / span 10;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .cmp-stories-card:nth-of-type(odd) {
