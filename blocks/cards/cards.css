@@ -77,12 +77,12 @@
 }
 
 h2.cmp-inclusive__headline--secondary {
-  --tertiary-headline-font-size: var(--font-size-600);
+  --secondary-headline-font-size: var(--font-size-600);
 
-  font-size: var(--tertiary-headline-font-size);
+  font-size: var(--secondary-headline-font-size);
   font-weight: var(--font-weight-black);
   line-height: 1.2;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 h2.cmp-inclusive__headline--tertiary {
@@ -97,10 +97,9 @@ h2.cmp-inclusive__headline--tertiary {
 }
 
 p.cmp-inclusive__intro {
-  --intro-font-size: var(--font-size-400);
-
-  font-size: var(--intro-font-size);
   font-family: var(--font-stack-serif);
+  font-size: var(--page-subtitle-font-size);
+  font-weight: var(--font-weight-normal);
   line-height: 1.3;
   margin-bottom: 2rem; 
 }
@@ -220,13 +219,11 @@ p.cmp-inclusive__intro {
   }
 
   p.cmp-inclusive__intro {
-    --intro-font-size: var(--font-size-800);
-
     margin-bottom: 4rem;
   }
 
   h2.cmp-inclusive__headline--secondary {
-    --tertiary-headline-font-size: var(--font-size-600);
+    --secondary-headline-font-size: var(--font-size-600);
   }
 
   h2.cmp-inclusive__headline--tertiary {
@@ -313,9 +310,9 @@ p.cmp-inclusive__intro {
   }
 
   h2.cmp-inclusive__headline--secondary {
-    --tertiary-headline-font-size: var(--font-size-1000);
+    --secondary-headline-font-size: var(--font-size-1000);
 
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
   }
 
   h2.cmp-inclusive__headline--tertiary {
@@ -327,9 +324,6 @@ p.cmp-inclusive__intro {
   }
 
   p.cmp-inclusive__intro {
-    --intro-font-size: var(--font-size-950);
-
-    line-height: 1.2;
     margin-bottom: 6rem;
   }
 }
