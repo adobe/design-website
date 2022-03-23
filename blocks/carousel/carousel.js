@@ -228,7 +228,7 @@ export default async function decorate(block) {
     slideContent.append(slideCopy);
 
     const pictureHolder = document.createElement('div');
-    pictureHolder.classList.add('caoursel-picture-holder');
+    pictureHolder.classList.add('carousel-picture-holder');
     slideContent.append(pictureHolder);
 
     const pictureLink = document.createElement('a');
