@@ -43,7 +43,7 @@
 .home .cmp-jobs-view-all {
   display: flex;
   justify-content: flex-start;
-  margin: 4rem 2.5rem;
+  padding: 4rem 2.5rem;
 }
 
 .home .cmp-jobs-view-all__link {
@@ -96,6 +96,7 @@
   .home .cmp-jobs-view-all {
     margin-right: 2.5rem;
     margin-left: 2.5rem;
+    padding: 0;
   }
 
   .home .cmp-jobs-view-all__link {

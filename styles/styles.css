@@ -252,6 +252,11 @@ body.job-posts {
   margin: var(--page-title-top-space) 0;
 }
 
+.cmp-jobs-stats-container__inner-wrap > h2,
+.home .jobs-container {
+  grid-column: 1 / -1;
+}
+
 .cmp-jobs-stats-container__inner-wrap > h2 {
   --join-us-title-font-size: var(--font-size-4500);
   
