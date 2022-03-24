@@ -152,9 +152,12 @@ p.cmp-inclusive__intro {
   margin-bottom: 1.5rem;
 }
 
+.cards .cmp-cards-card a {
+  overflow: hidden;
+}
+
 .cards .cmp-cards-card__media {
   aspect-ratio: 1 / 1;
-  overflow: hidden;
 }
   
 .cards .cmp-cards-card__media img {
