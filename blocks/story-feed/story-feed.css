@@ -131,4 +131,8 @@
   .cmp-page__title-wrap {
     grid-template-columns: repeat(16, [col-start] 1fr);
   }
+  
+  .cmp-stories__inner-wrap .page-title {
+    grid-column: 3 / span 10;
+  }
 }
