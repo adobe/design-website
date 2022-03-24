@@ -140,6 +140,7 @@ p.cmp-inclusive__intro {
   font-size: min(max(var(--font-size-800), 4vw), var(--font-size-1000));
   font-weight: var(--font-weight-black);
   margin: 1rem 0 1.5rem;
+  line-height: 1;
 }
 
 .cards .cmp-cards-card__description {
