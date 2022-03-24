@@ -307,9 +307,7 @@ p.cmp-inclusive__intro {
   }
 
   .cmp-inclusive__title-wrap .page-title {
-    grid-column: 2 / span 10;
-    padding-right: 7rem;
-    padding-left: 7rem;
+    grid-column: 3 / span 10;
   }
 
   h2.cmp-inclusive__headline--secondary {
