@@ -39,7 +39,7 @@
 }
 
 .cmp-accordion-card {
-  padding: 3.625rem;
+  padding: 3.625rem var(--page-inline-padding);
   width: 100%;
   cursor: pointer;
 }
