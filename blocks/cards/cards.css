@@ -130,6 +130,10 @@ p.cmp-inclusive__intro {
   flex-direction: column;
 }
 
+.cards .cmp-cards-card a {
+  overflow: hidden;
+}
+
 .cards .cmp-cards-card__title a,
 .cards .cmp-cards-card__title a:hover,
 .cards .cmp-cards-card__title a:focus {
@@ -150,10 +154,6 @@ p.cmp-inclusive__intro {
   font-size: var(--home-card-intro-font-size);
   line-height: 1.3;
   margin-bottom: 1.5rem;
-}
-
-.cards .cmp-cards-card a {
-  overflow: hidden;
 }
 
 .cards .cmp-cards-card__media {
