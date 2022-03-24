@@ -15,6 +15,10 @@ function createCard(row) {
   const url = row.path;
   const cardTitle = `<a href="${url}">${row.title}</a>`;
 
+  const imageLink = document.createElement('a');
+  imageLink.href = url;
+  imageLink.append(createOptimizedPicture(row.image, row.title));
+
   if (textColor === 'black') {
     card.classList.add('dark-text');
   } else {
@@ -29,7 +33,7 @@ function createCard(row) {
   `;
 
   card.style.backgroundColor = cardBGColor;
-  card.prepend(createOptimizedPicture(row.image, row.title));
+  card.prepend(imageLink);
   card.querySelector('picture').classList.add('cmp-cards-card__media');
   return (card);
 }
