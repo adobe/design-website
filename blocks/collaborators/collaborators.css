@@ -1,13 +1,7 @@
 .collaborators {
   background-color: var(--color-base-light-rose);
   grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(6, [col-start] 1fr);
-  padding-top: 5.25rem;
-}
-
-.cmp-collaborators__inner-wrap {
-  grid-column: 2 / -2;
+  padding: 5.25rem var(--page-inline-padding) 0;
 }
 
 .collaborators:last-of-type {
@@ -16,8 +10,12 @@
 }
 
 .cmp-collaborator {
-  grid-column: 1 / -1;
   margin-bottom: 4rem;
+}
+
+.cmp-collaborator:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 4rem;
 }
 
 .cmp-collaborator picture {
@@ -84,6 +82,8 @@
   .collaborators {
     display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr);
+    padding-right: 0;
+    padding-left: 0;
   }
 
   .collaborators:last-of-type {
