@@ -228,18 +228,6 @@ footer {
   z-index: 99;
 }
 
-.grid-container {
-  /* background-color: var(--color-base-white); */
-  background-color: transparent;
-  display: grid;
-  grid-template-columns: repeat(6, [col-start] 1fr);
-  column-gap: 12px;
-}
-
-.grid-container * {
-  grid-column: col-start 2 / span 4;
-}
-
 #adobe-design {
   display: none;
 }
@@ -247,6 +235,7 @@ footer {
 /* job post detail page background is completely white - remove the gradient */
 body.job-posts {
   background-image: none;
+  overflow-x: hidden;
 }
 
 .job-posts .blended-background {
@@ -259,26 +248,8 @@ body.job-posts {
   max-width: var(--layout-max-width-desktop);
 }
 
-.job-posts .cmp-job-post__inner-wrap {
-  display: grid;
-  grid-template-columns: repeat(6, [col-start] 1fr);
-  column-gap: 12px;
-  row-gap: 12px;
-}
-
-.job-posts .cmp-job-post__inner-wrap h1,
-.job-posts .cmp-job-post__inner-wrap .cmp-job-post__meta,
-.job-posts .cmp-job-post__inner-wrap .cmp-job-post__details {
-  grid-column: 2 / -2;
-}
-
 .job-posts .cmp-job-post__inner-wrap .page-title {
   margin: var(--page-title-top-space) 0;
-}
-
-.cmp-jobs-stats-container__inner-wrap > h2,
-.home .jobs-container {
-  grid-column: 1 / -1;
 }
 
 .cmp-jobs-stats-container__inner-wrap > h2 {
@@ -414,10 +385,6 @@ body.job-posts {
 
 .job-posts .cmp-about-ad-container div,
 .job-posts .cmp-eoe-container div {
-  display: grid;
-  grid-template-columns: repeat(6, [col-start] 1fr);
-  column-gap: 12px;
-  row-gap: 12px;
   padding-top: 5.25rem;
   padding-bottom: 5.25rem;
   font-family: var(--font-stack-serif);
@@ -431,18 +398,9 @@ body.job-posts {
   padding-bottom: 2rem;
 }
 
-.job-posts .cmp-about-ad-container div > *,
-.job-posts .cmp-eoe-container div > * {
-  grid-column: 2 / -2;
-}
-
 /* homepage jobs & stats column */
 .cmp-jobs-stats-container__inner-wrap {
   background-color: var(--color-base-white);
-  display: grid;
-  grid-template-columns: repeat(6, [col-start] 1fr);
-  column-gap: 12px;
-  row-gap: 12px;
   margin: 0 auto;
   width: var(--content-width);
   max-width: var(--layout-max-width-desktop);
@@ -526,7 +484,10 @@ body.job-posts {
   }
 
   .job-posts .cmp-job-post__inner-wrap {
+    display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr);
+    column-gap: 12px;
+    row-gap: 12px;
 
     /* align-items needs to be declared so that position: sticky works properly on .cmp-job-post__meta */
     align-items: start;
@@ -579,6 +540,7 @@ body.job-posts {
     grid-column: 2 / span 3;
     position: sticky;
     top: 2rem;
+    padding-right: 1.5rem;
   }
 
   .job-posts .cmp-job-post__details .cmp-job-post__meta-link {
@@ -591,7 +553,15 @@ body.job-posts {
 
   .job-posts .cmp-about-ad-container div,
   .job-posts .cmp-eoe-container div {
+    display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr);
+    column-gap: 12px;
+    row-gap: 12px;
+  }
+
+  .job-posts .cmp-about-ad-container div > *,
+  .job-posts .cmp-eoe-container div > * {
+    grid-column: 2 / -2;
   }
 }
 
@@ -652,5 +622,6 @@ body.job-posts {
 @media (min-width: 1400px) {
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__meta {
     grid-column: 2 / span 2;
+    padding-right: 0;
   }
 }
