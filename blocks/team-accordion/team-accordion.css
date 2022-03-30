@@ -42,6 +42,7 @@
   padding: 3.625rem var(--page-inline-padding);
   width: 100%;
   cursor: pointer;
+  will-change: transform;
 }
 
 .cmp-accordion-card * {
