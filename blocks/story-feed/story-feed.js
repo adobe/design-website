@@ -42,6 +42,7 @@ export default async function decorate(block) {
   });
   const allStories = window.pageIndex.data.stories.data;
   const remaining = allStories.filter((e) => !pathnames.includes(e.path) && e.path !== '/stories/');
+  remaining.sort((a, b) => b.date - a.date);
 
   for (let i = 0; i < Math.min(+config.limit - stories.length, remaining.length); i += 1) {
     const row = remaining[i];
