@@ -35,7 +35,7 @@
       radial-gradient(circle at right bottom, rgba(0 169 188 / 100%) 0%, rgba(0 169 188 / 100%) 20%, rgba(0 169 188 / 0%) 40%), /*cyan*/
       radial-gradient(circle at right top, rgba(0 169 188 / 100%) 0%, rgba(0 169 188 / 100%) 20%, rgba(0 169 188 / 0%) 40%),  /*cyan*/
       linear-gradient(#ffb90b, #ffb90b);
-      background-size: 100% 300%;
+      background-size: 100% 300% !important; /*needed to override cover*/
       background-attachment: fixed;
       user-select: none;
     }
@@ -44,14 +44,19 @@
       grid-row-start: 3;
       grid-row-end: 4;
     }
+
+    #playCanvas{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+    }
     
     canvas {
-      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
     }
     
     a {
@@ -83,6 +88,7 @@
       font-weight: 900;
       font-size: 2.5rem;
       line-height: 0.95;
+      z-index: 101;
     }
 
     h2 {
@@ -93,6 +99,7 @@
       
       grid-column: col-start 1 / -2;
       padding-left: 1.875rem;
+      z-index: 101;
     }
 
     @media (min-width: 900px) {
@@ -116,6 +123,7 @@
 <body>
   <header></header>
   <main>
+    <canvas id="playCanvas"></canvas>
     <div class="wrapper">
       <section class="container">
         <h1>Looks like we dropped the ball...</h1>
@@ -294,8 +302,11 @@
   ];
 
 
-  let WINDOW_WIDTH = window.innerWidth;// * devicePixelRatio;
-  let WINDOW_HEIGHT = window.innerHeight; // * devicePixelRatio;
+  const playCanvas = document.getElementById('playCanvas');
+  let rect = playCanvas.getBoundingClientRect();
+
+  let WINDOW_WIDTH = rect.width;// * devicePixelRatio;
+  let WINDOW_HEIGHT = rect.height; // * devicePixelRatio;
 
   let WINDOW_HALF_WIDTH = WINDOW_WIDTH / 2;
   let WINDOW_HALF_HEIGHT = WINDOW_HEIGHT / 2;
@@ -307,14 +318,8 @@
 
   const bctx = ballCanvas.getContext('2d');
 
-  const playCanvas = document.createElement('canvas');
   playCanvas.width = WINDOW_WIDTH;
   playCanvas.height = WINDOW_HEIGHT;
-  playCanvas.style.width = '100%';
-  playCanvas.style.height = '100%';
-  playCanvas.style.position = 'fixed';
-  playCanvas.style.zIndex = '100';
-  document.body.appendChild(playCanvas);
 
   const ctx = playCanvas.getContext('2d');
 
@@ -348,13 +353,20 @@
 
 
   window.addEventListener('load', (event) => {
-      setTimeout(() => setup(), 1000);
+      setup();
   });
 
   function setup() {
-      window.addEventListener("pointermove", mousemove);
-      window.addEventListener("pointerdown", mousedown);
-      window.addEventListener("pointerup", mouseup);
+
+    resize();
+
+        playCanvas.addEventListener("touchmove", (e) => {
+            e.preventDefault()
+        });
+
+      playCanvas.addEventListener("pointermove", mousemove);
+      playCanvas.addEventListener("pointerdown", mousedown);
+      playCanvas.addEventListener("pointerup", mouseup);
 
       window.addEventListener('resize', resize);
 
@@ -364,8 +376,10 @@
   }
 
   function resize() {
-      WINDOW_WIDTH = window.innerWidth;// * devicePixelRatio;
-      WINDOW_HEIGHT = window.innerHeight; // * devicePixelRatio;
+    rect = playCanvas.getBoundingClientRect();
+
+    WINDOW_WIDTH = rect.width;// * devicePixelRatio;
+    WINDOW_HEIGHT = rect.height; // * devicePixelRatio;
 
       WINDOW_HALF_WIDTH = WINDOW_WIDTH / 2;
       WINDOW_HALF_HEIGHT = WINDOW_HEIGHT / 2;
@@ -429,37 +443,48 @@
   }
 
   function mousedown(e) {
+      e.preventDefault();
+
       if (!isAnimating) {
           return;
       }
 
       isMousedown = true;
 
-      if (e.x > ball.x - ball.r &&
-          e.x < ball.x + ball.r &&
-          e.y > ball.y - ball.r &&
-          e.y < ball.y + ball.r) {
+      let x = e.offsetX;
+      let y = e.offsetY;
+
+      if (x > ball.x - ball.r &&
+          x < ball.x + ball.r &&
+          y > ball.y - ball.r &&
+          y < ball.y + ball.r) {
               isDragging = true;
               old = {x: ball.x, y: ball.y};
           }
   }
 
   function mouseup(e) {
+      e.preventDefault();
+
       isMousedown = false;
       isDragging = false;
   }
 
   function mousemove(e) {
+        e.preventDefault();
+
+      let x = e.offsetX;
+      let y = e.offsetY;
 
       if (isDragging) {
-          ball.x = e.x;
-          ball.y = e.y;
+          ball.x = x;
+          ball.y = y;
       }
 
-      if (e.x > ball.x - ball.r &&
-          e.x < ball.x + ball.r &&
-          e.y > ball.y - ball.r &&
-          e.y < ball.y + ball.r) {
+      if (x > ball.x - ball.r &&
+          x < ball.x + ball.r &&
+          y > ball.y - ball.r &&
+          y < ball.y + ball.r) {
               if (isDragging) {
                   document.body.style.cursor = 'grabbing';
               } else {
