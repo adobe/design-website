@@ -717,7 +717,7 @@ if (window.name.includes('performance')) registerPerformanceLogger();
 function addPathsAsClassNames() {
   if (window.location.pathname === '/') {
     document.body.classList.add('home');
-  } else if (window.location.pathname === '/404.html') {
+  } else if (document.title === 'Page Not Found') {
     document.body.classList.add('page-not-found', 'light-text');
   } else {
     const pathNames = window.location.pathname.toLowerCase().split('/').filter((item) => item !== '').slice(0, 2);
