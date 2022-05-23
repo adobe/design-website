@@ -132,6 +132,11 @@ img, picture, video, canvas, svg {
   max-width: 100%;
 }
 
+img {
+  height: auto;
+  width: auto;
+}
+
 input, button, textarea, select {
   font: inherit;
 }
