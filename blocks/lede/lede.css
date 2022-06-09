@@ -203,7 +203,7 @@ p.cmp-lede__hero-caption {
   margin-bottom: 4rem;
 }
 
-.cmp-lede__tag span {
+.cmp-lede__tag-link {
   --lede-tag-font-size: var(--font-size-100);
 
   color: var(--reactive-text-color);
@@ -216,7 +216,11 @@ p.cmp-lede__hero-caption {
   text-transform: uppercase;
 }
 
-.cmp-lede__tag span::after {
+.cmp-lede__tag-link:hover {
+  text-decoration: none;
+}
+
+.cmp-lede__tag-link::after {
   background-color: var(--reactive-text-color);
   border-radius: 10px;
   bottom: 0;

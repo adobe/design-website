@@ -55,6 +55,10 @@
   text-transform: uppercase;
 }
 
+.cmp-stories-card__tag:hover {
+  text-decoration: none;
+}
+
 .cmp-stories-card__tag::after {
   background-color: var(--color-base-navy);
   border-radius: 10px;

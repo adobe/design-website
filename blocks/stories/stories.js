@@ -2,6 +2,7 @@ import {
   createOptimizedPicture, lookupPages,
 } from '../../scripts/scripts.js';
 import colormap from '../../scripts/colormap.js';
+import tagLink from '../../scripts/tag-link.js';
 
 function createCard(row) {
   const card = document.createElement('article');
@@ -26,7 +27,7 @@ function createCard(row) {
 
   card.innerHTML = `
     <div class="cmp-stories-card__body">
-      <span class="cmp-stories-card__tag">${cardTag}</span>
+      <a href="${tagLink(row.path)}" class="cmp-stories-card__tag">${cardTag}</a>
       <h2 class="cmp-stories-card__title">
         <a href="${row.path}">${row.title}</a>
       </h2>

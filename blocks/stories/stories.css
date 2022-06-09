@@ -40,6 +40,11 @@
   position: relative;
   text-transform: uppercase;
   width: auto;
+  color: inherit;
+}
+
+.home .cmp-stories-card__tag:hover {
+  text-decoration: none;
 }
 
 .home .cmp-stories-card__tag::after {

@@ -99,7 +99,12 @@
 }
 
 .home .cmp-stories-card__tag.carousel-stories-card__tag{
+    color: inherit;
     margin-top: 0;
+}
+
+.home .cmp-stories-card__tag.carousel-stories-card__tag:hover {
+  text-decoration: none;
 }
 
 .carousel-slide-copy {
