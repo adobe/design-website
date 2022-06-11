@@ -13,7 +13,7 @@ indices:
       subtitle:
         select: main h1 + h2
         value: |
-          innerHTML(el)
+          textContent(el)
       author:
         select: head > meta[name="author"]
         value: |
