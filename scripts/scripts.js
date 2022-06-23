@@ -790,6 +790,18 @@ if (getMetadata('theme') === 'job-post') {
   decorateJobPost();
 }
 
+async function jobNotFound() {
+  const main = document.querySelector('main > *:first-child');
+  const message = document.createElement('div');
+  message.className = 'cmp-jobs-message';
+  message.innerText = 'The job page you were looking for no longer exists.';
+  main.parentNode.insertBefore(message, main);
+}
+
+if (window.location.pathname.includes('/jobs/') && window.location.hash === '#not-found') {
+  jobNotFound();
+}
+
 export function setTargetOnExternalLinks() {
   [...document.querySelectorAll('a')].forEach((link) => {
     // Set external links to open in window or tab
