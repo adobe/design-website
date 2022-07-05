@@ -416,36 +416,6 @@ body.job-posts {
   display: none;
 }
 
-/* Jobs 404 Message */
-@keyframes cmp-jobs-message {
-  to {
-    opacity: 1;
-    transform: translate(-50%, 1rem);
-  }
-}
-
-.cmp-jobs-message {
-  position: absolute;
-  left: 50%;
-  width: 80%;
-  max-width: max-content;
-  margin: 0 auto;
-  background-color: var(--reactive-text-color);
-  color: var(--color-base-white);
-  font-size: var(--font-size-300);
-  font-family: var(--font-stack-sans);
-  font-weight: var(--font-weight-bold);
-  padding: 0.5em 1em;
-  border-radius: 2px;
-  opacity: 0;
-  transform: translate(-50%, 2rem);
-}
-
-.appear .cmp-jobs-message {
-  animation: cmp-jobs-message 250ms 750ms ease-in-out forwards;
-}
-
-
 @media (min-width: 900px) {
   .cmp-jobs-stats-container__inner-wrap {
     background-color: var(--color-base-white);
@@ -648,5 +618,98 @@ body.job-posts {
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__meta {
     grid-column: 2 / span 2;
     padding-right: 0;
+  }
+}
+
+
+/* 404 Jobs Messaging */
+@keyframes cmp-jobs-message {
+  to {
+    opacity: 1;
+  }
+}
+
+.jobs.active-message header {
+  background-color: var(--color-base-white);
+}
+
+.cmp-jobs-message {
+  position: absolute;
+  width: 100vw;
+  left: calc(50% - 50vw);
+  top: 0;
+  bottom: 0;
+  height: var(--job-message-height);
+  color: var(--dark-text-color);
+  background-color: var(--color-base-white);
+  font-size: var(--font-size-300);
+  font-family: var(--font-stack-sans);
+  font-weight: var(--font-weight-bold);
+ }
+
+.jobs:not(.active-message) .cmp-jobs-message {
+  display: none;
+}
+
+.cmp-jobs-message__wrapper {
+  margin: 0 auto;
+  width: var(--content-width);
+  max-width: var(--layout-max-width-desktop);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: cmp-jobs-message 500ms 500ms ease-in forwards;
+}
+
+.jobs.active .cmp-jobs-message__wrapper {
+  animation-delay: 150ms;
+}
+
+.cmp-jobs-message__title {
+  --opportunities-title-font-size: var(--font-size-900);
+
+  font-family: var(--font-stack-serif);
+  font-size: var(--opportunities-title-font-size);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.2;
+  margin-bottom: 6rem;
+}
+
+.cmp-jobs-message__button {
+  padding: 0.5em 1.5em;
+  border-radius: 1.5em;
+  border: 2px solid var(--dark-text-color);
+  color: var(--dark-text-color);
+  background-color: var(--color-base-white);
+  text-transform: uppercase;
+  font-size: var(--font-size-100);
+  transition: background-color 150ms ease-in-out;
+}
+
+.cmp-jobs-message__button:hover {
+  text-decoration: none;
+  background-color: var(--color-base-light-slate);
+}
+
+@media (min-width: 900px) {
+  .cmp-jobs-message__wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    column-gap: 12px;
+  }
+
+  .cmp-jobs-message__layout {
+    grid-column: 2 / span 6;
+  }
+
+  .cmp-jobs-message__title {
+    --opportunities-title-font-size: var(--font-size-1050);
+  }
+}
+
+@media (min-width: 1300px) {
+  .cmp-jobs-message__title {
+    --opportunities-title-font-size: var(--font-size-1090);
   }
 }

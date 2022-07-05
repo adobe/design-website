@@ -791,10 +791,24 @@ if (getMetadata('theme') === 'job-post') {
 }
 
 async function jobNotFound() {
+  document.body.classList.add('active-message');
   const main = document.querySelector('main > *:first-child');
   const message = document.createElement('div');
+  const messageText = getMetadata('job-404-message');
+  const messageButtonText = getMetadata('job-404-button-text');
   message.className = 'cmp-jobs-message';
-  message.innerHTML = '<h2 class="cmp-jobs-message__title">The job page you were looking for no longer exists.</h2><a href="#jobs" class="cmp-jobs-message__button">View Our Job Openings</a>';
+  message.innerHTML = `
+    <div class="cmp-jobs-message__wrapper">
+      <div class="cmp-jobs-message__layout">
+        <h2 class="cmp-jobs-message__title">
+          ${messageText}
+        </h2>
+        <a href="#opportunities" class="cmp-jobs-message__button">
+          ${messageButtonText}
+        </a>
+      </div>
+    </div>
+  `;
   main.parentNode.insertBefore(message, main);
 }
 

@@ -19,7 +19,11 @@
   margin-bottom: 4rem;
 }
 
-.jobs .cmp-jobs-list__bg {
+.cmp-jobs-list__intro {
+  position: relative;
+}
+
+.cmp-jobs {
   background-color: var(--color-base-lighter-black);
   color: var(--color-base-white);
   font-family: var(--font-stack-serif);
@@ -27,7 +31,7 @@
   padding: 6rem var(--page-inline-padding);
 }
 
-.jobs .cmp-jobs-list__bg h2 {
+.cmp-jobs__headline {
   --opportunities-title-font-size: var(--font-size-900);
 
   font-size: var(--opportunities-title-font-size);
@@ -35,15 +39,15 @@
   margin-bottom: 6rem;
 }
 
-.jobs .cmp-job__group {
+.cmp-jobs__group {
   margin-bottom: 6rem;
 }
 
-.jobs .cmp-job__group:last-of-type {
+.cmp-jobs__group:last-of-type {
   margin-bottom: 0;
 }
 
-.jobs .cmp-job__group-title {
+.cmp-jobs__group-title {
   font-size: 2rem;
   font-family: var(--font-stack-sans);
   font-weight: var(--font-weight-black);
@@ -51,52 +55,51 @@
   margin-bottom: 3rem;
 }
 
+
 /* list of job postings per category */
-.jobs .cmp-jobs-list {
+.cmp-jobs__list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.jobs .cmp-jobs-list__item {
+.cmp-jobs__item {
   margin-bottom: 3rem;
 }
 
-.jobs .cmp-jobs-list__item:last-of-type {
+.cmp-jobs__item:last-of-type {
   margin-bottom: 0;
 }
 
-.jobs .cmp-jobs-none {
+.cmp-jobs__none {
   font-size: var(--font-size-650);
 }
 
-.jobs .cmp-job__link {
+.cmp-jobs__link {
   color: var(--color-base-white);
   font-size: var(--font-size-650);
   text-decoration: underline;
 }
 
-.jobs .cmp-job__link:hover,
-.jobs .cmp-job__link:focus {
+.cmp-jobs__link:hover,
+.cmp-jobs__link:focus {
   color: var(--color-base-white);
   text-decoration: none;
 }
 
-.jobs .cmp-job__department,
-.jobs .cmp-job__location {
+.cmp-jobs__department,
+.cmp-jobs__location {
   font-size: var(--font-size-100);
 }
 
 @media (min-width: 900px) {
-  .jobs .cmp-jobs-list__inner-wrap {
+  .cmp-jobs-list {
     display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr);
     column-gap: 12px;
-    row-gap: 12px;
   }
 
-  .jobs .page-title,
-  .jobs .page-subtitle {
+  .cmp-jobs-list__intro {
     grid-column: 2 / -2;
     margin-right: 0;
     margin-left: 0;
@@ -109,8 +112,8 @@
   .jobs .page-subtitle:last-of-type {
     margin-bottom: 6rem;
   }
-  
-  .jobs .cmp-jobs-list__bg {
+
+  .cmp-jobs {
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr);
@@ -118,11 +121,11 @@
     row-gap: 12px;
   }
 
-  .jobs .cmp-jobs-list__bg > * {
+  .cmp-jobs > div {
     grid-column: 2 / -2;
   }
 
-  .jobs .cmp-jobs-list__bg h2 {
+  .cmp-jobs__headline {
     --opportunities-title-font-size: var(--font-size-1050);
   }
 
@@ -133,7 +136,7 @@
     row-gap: 0;
   }
 
-  .cmp-job__group:first-of-type {
+  .cmp-jobs__group:first-of-type {
     /*
       this is a hack to get the "experience design" column to always show first
       and to take up its own column *without* resorting to some kind of js solution.
@@ -144,11 +147,11 @@
 }
 
 @media (min-width: 1300px) {
-  .jobs .cmp-jobs-list__inner-wrap {
+  .cmp-jobs-list {
     grid-template-columns: repeat(16, [col-start] 1fr);
   }
 
-  .jobs .cmp-jobs-list__bg {
+  .cmp-jobs {
     grid-template-columns: repeat(16, [col-start] 1fr);
     grid-column: 1 / -1;
   }
@@ -162,7 +165,7 @@
     margin-bottom: 8rem;
   }
 
-  .jobs .cmp-jobs-list__bg h2 {
+  .cmp-jobs__headline {
     --opportunities-title-font-size: var(--font-size-1090);
   }
 }
