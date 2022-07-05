@@ -794,11 +794,11 @@ async function jobNotFound() {
   const main = document.querySelector('main > *:first-child');
   const message = document.createElement('div');
   message.className = 'cmp-jobs-message';
-  message.innerText = 'The job page you were looking for no longer exists.';
+  message.innerHTML = '<h2 class="cmp-jobs-message__title">The job page you were looking for no longer exists.</h2><a href="#jobs" class="cmp-jobs-message__button">View Our Job Openings</a>';
   main.parentNode.insertBefore(message, main);
 }
 
-if (window.location.pathname.includes('/jobs/') && window.location.hash === '#not-found') {
+if (window.location.pathname.includes('/jobs/') && window.location.search === '?job=404') {
   jobNotFound();
 }
 
