@@ -110,18 +110,27 @@
   margin: 0;
 }
 
+// Fades in the content if JS fails.
+@keyframes body-appear {
+  to {
+    opacity: 1;
+  }
+}
+
 body {
   font-family: var(--font-stack-fallback);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   opacity: 0;
   background-size: 100%;
+  animation: body-appear 500ms 2000ms forwards;
 }
 
 body.appear {
   font-family: var(--font-stack-sans);
   font-weight: var(--font-weight-normal);
   opacity: 1;
+  animation: unset;
 }
 
 /*  No gradient on homepage */
