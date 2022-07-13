@@ -1,0 +1,27 @@
+main {
+  margin: 0 auto;
+  padding: 0;
+  width: var(--content-width);
+  max-width: var(--layout-max-width-desktop); 
+}
+
+
+.page-header > div {
+  display: grid;
+  grid-template-columns: repeat(6, [col-start] 1fr);
+  column-gap: 12px;
+}
+
+.page-header > div > div {
+  grid-column: col-start 1 / -2;
+}
+
+@media (min-width: 900px) {
+  .page-header > div {
+    grid-template-columns: repeat(12, [col-start] 1fr);
+  }
+
+  .page-header > div > div {
+    grid-column: col-start 2 / -2;
+  }
+}
