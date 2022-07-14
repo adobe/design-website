@@ -110,7 +110,7 @@
   margin: 0;
 }
 
-// Fades in the content if JS fails.
+/* Fades in the content if JS fails. */
 @keyframes body-appear {
   to {
     opacity: 1;
