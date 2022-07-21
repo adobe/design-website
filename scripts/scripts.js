@@ -806,6 +806,32 @@ if (getMetadata('theme') === 'job-post') {
   decorateJobPost();
 }
 
+async function jobNotFound() {
+  document.body.classList.add('active-message');
+  const main = document.querySelector('main > *:first-child');
+  const message = document.createElement('div');
+  const messageText = getMetadata('job-404-message');
+  const messageButtonText = getMetadata('job-404-button-text');
+  message.className = 'cmp-jobs-message';
+  message.innerHTML = `
+    <div class="cmp-jobs-message__wrapper">
+      <div class="cmp-jobs-message__layout">
+        <h2 class="cmp-jobs-message__title">
+          ${messageText}
+        </h2>
+        <a href="#opportunities" class="cmp-jobs-message__button">
+          ${messageButtonText}
+        </a>
+      </div>
+    </div>
+  `;
+  main.parentNode.insertBefore(message, main);
+}
+
+if (window.location.pathname.includes('/jobs/') && window.location.search === '?job=404') {
+  jobNotFound();
+}
+
 export function setTargetOnExternalLinks() {
   [...document.querySelectorAll('a')].forEach((link) => (
     window.location.hostname === link.hostname || !link.hostname.length ? false : link.setAttribute('target', '_blank')
