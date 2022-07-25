@@ -1,0 +1,47 @@
+.cmp-embed {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.cmp-embed--instagram {
+  display: grid;
+  justify-content: unset;
+  margin: 0 0 2rem;
+}
+
+.cmp-embed--instagram figure {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cmp-embed--instagram .instagram-media {
+  width: 75%;
+}
+
+.cmp-embed--twitter {
+  margin: 2rem 0;
+}
+
+@media (min-width: 600px) {
+  .cmp-embed--instagram {
+    margin-bottom: 4rem;
+  }
+
+  .cmp-embed--twitter {
+    margin: 2.625rem 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .cmp-embed--twitter {
+    margin: 5.1875rem 0;
+  }
+}
+
+@media (min-width: 1300px) {
+  .cmp-embed--twitter {
+    margin: 10.375rem 0;
+  }
+}
