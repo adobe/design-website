@@ -1,0 +1,35 @@
+.content {
+	padding: var(--page-inline-padding) var(--page-inline-padding);
+	background-color: var(--color-base-white);
+}
+
+.content h2 {
+	color: var(--color-base-dark-slate-secondary);
+	font-family: var(--font-stack-sans);
+	font-size: var(--font-size-800);
+	font-weight: var(--font-weight-black);
+	line-height: 1.1;
+}
+
+@media (min-width: 900px) {
+	.content {
+		display: grid;
+		grid-template-columns: repeat(12, [col-start] 1fr);
+		padding: 1.5rem 0;
+	}
+	
+	.content > div {
+		grid-column: 3 / -3;
+	}
+}
+
+
+@media (min-width: 1300px) {
+	.content {
+		grid-template-columns: repeat(16, [col-start] 1fr);
+	}
+
+	.content > div {
+		grid-column: 5 / -5;
+	}
+}
