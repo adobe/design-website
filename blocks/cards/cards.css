@@ -100,6 +100,7 @@ p.cmp-inclusive__intro {
   row-gap: 12px;
 }
 
+.design-circle .cards.block,
 .cmp-inclusive__bg .cards.block {
   width: 100%;
   max-width: none;

@@ -73,7 +73,7 @@ export default async function decorate(block) {
   const pageTitle = document.querySelector('h1');
   pageTitle.classList.add('page-title');
 
-  const pageSubTitle = pageTitle.nextElementSibling;
+  const pageSubTitle = pageTitle.nextElementSibling ? pageTitle.nextElementSibling : '';
   if (pageSubTitle.tagName === 'H2') pageSubTitle.classList.add('page-subtitle');
 
   const pathnames = [...block.querySelectorAll('a')].map((a) => new URL(a.href).pathname);
