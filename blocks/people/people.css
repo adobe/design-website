@@ -55,6 +55,10 @@
   width: 100%;
 }
 
+.cmp-person__tag:hover {
+  text-decoration: none;
+}
+
 .cmp-person__name a,
 .cmp-person__name a:hover,
 .cmp-person__name a:focus {
