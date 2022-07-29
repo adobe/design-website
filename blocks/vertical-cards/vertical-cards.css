@@ -1,0 +1,97 @@
+.vertical-cards {
+  display: grid;
+  grid-template-columns: repeat(6, [col-start] 1fr);
+  column-gap: 12px;
+  row-gap: 12px;
+  margin: 0 auto 12px;
+  width: var(--content-width);
+  max-width: var(--layout-max-width-desktop);
+}
+
+.cmp-vertical-card {
+  background-color: var(--color-base-white);
+  grid-column: col-start 1 / span 6;
+}
+
+.cmp-vertical-card__media {
+  aspect-ratio: 1 / 1;
+}
+
+.cmp-vertical-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;  
+  object-fit: cover;
+}
+
+.cmp-vertical-card__body {
+  padding: 2.25rem 2.5rem;
+}
+
+.cmp-vertical-card__title {
+  color: var(--color-base-navy);
+  font-size: min(max(var(--font-size-800), 4vw), var(--font-size-1075));
+  font-weight: var(--font-weight-black);
+  margin: 1rem 0 1.5rem;
+  line-height: 1;
+}
+
+.cmp-vertical-card__title a,
+.cmp-vertical-card__title a:hover,
+.cmp-vertical-card__title a:focus {
+  color: var(--color-base-navy);
+}
+
+.cmp-vertical-card__description {
+  --card-intro-font-size: var(--font-size-400);
+  
+  font-family: var(--font-stack-serif);
+  font-size: var(--card-intro-font-size);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+.cmp-vertical-card__author {
+  --card-author-font-size: var(--font-size-200);
+  
+  font-size: var(--card-author-font-size);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.3;
+  margin-bottom: 0;
+}
+
+.cmp-vertical-card__author-title {
+  --card-author-title-font-size: var(--font-size-100);
+  
+  font-size: var(--card-author-title-font-size);
+  line-height: 1.3;
+  margin-bottom: 0;
+}
+
+@media (min-width: 900px) {
+  .vertical-cards {
+    grid-template-columns: repeat(12, [col-start] 1fr);
+  }
+  
+  .cmp-vertical-card:nth-of-type(odd) {
+    grid-column: col-start 1 / span 6;
+  }
+  
+  .cmp-vertical-card:nth-of-type(even) {
+    grid-column: col-start 7 / span 6;
+  }
+}
+
+@media (min-width: 1300px) {
+  .vertical-cards {
+    grid-template-columns: repeat(16, [col-start] 1fr);
+  }
+  
+  .cmp-vertical-card:nth-of-type(odd) {
+    grid-column: col-start 1 / span 8;
+  }
+  
+  .cmp-vertical-card:nth-of-type(even) {
+    grid-column: col-start 9 / span 8;
+  }
+}
