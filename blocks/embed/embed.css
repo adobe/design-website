@@ -1,47 +1,26 @@
 .cmp-embed {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  margin: 5.25rem 0;
 }
 
-.cmp-embed--instagram {
-  display: grid;
-  justify-content: unset;
-  margin: 0 0 2rem;
-}
-
-.cmp-embed--instagram figure {
+.cmp-embed__container {
   display: flex;
   justify-content: center;
-  overflow: hidden;
 }
 
 .cmp-embed--instagram .instagram-media {
-  width: 75%;
+  width: 80%;
 }
 
-.cmp-embed--twitter {
-  margin: 2rem 0;
+.cmp-embed--instagram .cmp-embed__container {
+  justify-content: center;
 }
 
-@media (min-width: 600px) {
-  .cmp-embed--instagram {
-    margin-bottom: 4rem;
-  }
-
-  .cmp-embed--twitter {
-    margin: 2.625rem 0;
-  }
+.cmp-embed--twitter .twitter-tweet {
+  justify-content: center;
 }
 
 @media (min-width: 900px) {
-  .cmp-embed--twitter {
-    margin: 5.1875rem 0;
-  }
-}
-
-@media (min-width: 1300px) {
-  .cmp-embed--twitter {
-    margin: 10.375rem 0;
+  .cmp-embed--instagram .instagram-media {
+    width: 100%;
   }
 }
