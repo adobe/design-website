@@ -4,8 +4,6 @@
   row-gap: 12px;
   margin: 12px auto;
   padding: 0 var(--page-inline-padding);
-  /* width: var(--content-width);
-  max-width: var(--layout-max-width-desktop); */
 }
 
 .cmp-vertical-card {

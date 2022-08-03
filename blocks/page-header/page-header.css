@@ -15,13 +15,13 @@ main > div > div > *:not(div) {
   column-gap: 12px;
 }
 
+.page-header > div > div {
+  grid-column: col-start 1 / span 6;
+}
+
 .page-header > div:last-child {
   background: linear-gradient(180deg, var(--header-color) 20rem, var(--color-base-white) 20rem);
   padding-bottom: 3rem;
-}
-
-.page-header > div > div {
-  grid-column: col-start 1 / span 6;
 }
 
 .page-header > div:last-child img {
@@ -45,14 +45,14 @@ main > div > div > *:not(div) {
   .page-header > div > div {
     grid-column: col-start 2 / -2;
   }
-  
+
+  .page-header > div:last-child {
+    padding-bottom: 8rem;
+  }
+
   .page-header > div:first-child > div {
     grid-column: col-start 3 / span 10;
     margin: var(--page-title-top-space) 0;
-  }
-  
-  .page-header > div:last-child {
-    padding-bottom: 8rem;
   }
 }
 

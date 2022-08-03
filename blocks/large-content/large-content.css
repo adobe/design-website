@@ -5,6 +5,7 @@
 
 .large-content h2 {
   --secondary-headline-font-size: var(--font-size-600);
+
   font-size: var(--secondary-headline-font-size);
   font-weight: var(--font-weight-black);
   line-height: 1.2;

@@ -9,6 +9,7 @@
  * browsers that don’t support :has() will
  * ignore all selectors when used.
  */
+
 .two-up-content > div > .has-picture {
   display: flex;
 }
@@ -24,6 +25,7 @@
 .two-up-content > div > div:not(:has(picture:only-child)) {
   padding: var(--page-inline-padding) 0;
 }
+
 /* END :HAS() DUPLICATE SELECTOR BLOCKS */
 
 .two-up-content picture:only-child img {
@@ -91,6 +93,7 @@
    * browsers that don’t support :has() will
    * ignore all selectors when used.
    */
+
   .two-up-content > div > .has-picture {
     margin-bottom: unset;
   }
@@ -106,6 +109,7 @@
   .two-up-content > div > div:not(:has(picture:only-child)) {
     padding: var(--page-inline-padding);
   }
+
   /* END :HAS() DUPLICATE SELECTOR BLOCKS */
 
   .two-up-content h2 {

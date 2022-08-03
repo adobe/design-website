@@ -1,5 +1,5 @@
 import {
-  createOptimizedPicture, lookupPages, getMetadata,
+  createOptimizedPicture, lookupPages,
 } from '../../scripts/scripts.js';
 
 function createCard(row) {
@@ -24,37 +24,6 @@ function createCard(row) {
   card.prepend(imageLink);
   card.querySelector('picture').classList.add('cmp-vertical-card__media');
   return (card);
-}
-
-function decorateInclusiveDesignPage(block) {
-  const cardsParent = block.parentNode;
-  cardsParent.classList.add('cmp-inclusive__inner-wrap');
-  const pageTitleWrap = document.createElement('div');
-  pageTitleWrap.classList.add('cmp-inclusive__title-wrap');
-
-  const pageTitle = document.querySelector('h1');
-  const pageTitleClone = pageTitle.cloneNode(true);
-  pageTitleClone.classList.add('page-title');
-
-  pageTitleWrap.append(pageTitleClone);
-  pageTitle.remove();
-
-  const childrenToWrap = [...cardsParent.children];
-  cardsParent.innerHTML = '';
-  cardsParent.append(pageTitleWrap);
-  const containerBG = document.createElement('div');
-  containerBG.classList.add('cmp-inclusive__bg');
-  cardsParent.append(containerBG);
-  containerBG.append(...childrenToWrap);
-
-  const heroImage = containerBG.querySelector('p > picture');
-  heroImage.parentElement.classList.add('cmp-inclusive__hero-parent');
-
-  const secondaryHeadline = document.querySelector('.cmp-inclusive__hero-parent').nextElementSibling;
-  secondaryHeadline.classList.add('cmp-inclusive__headline--secondary');
-
-  const introParagraph = secondaryHeadline.nextElementSibling;
-  introParagraph.classList.add('cmp-inclusive__intro');
 }
 
 export default async function decorate(block) {
