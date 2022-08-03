@@ -1,16 +1,15 @@
 .vertical-cards {
   display: grid;
-  grid-template-columns: repeat(6, [col-start] 1fr);
   column-gap: 12px;
   row-gap: 12px;
-  margin: 0 auto 12px;
-  width: var(--content-width);
-  max-width: var(--layout-max-width-desktop);
+  margin: 12px auto;
+  padding: 0 var(--page-inline-padding);
+  /* width: var(--content-width);
+  max-width: var(--layout-max-width-desktop); */
 }
 
 .cmp-vertical-card {
   background-color: var(--color-base-white);
-  grid-column: col-start 1 / span 6;
 }
 
 .cmp-vertical-card__media {
@@ -70,7 +69,12 @@
 
 @media (min-width: 900px) {
   .vertical-cards {
+    padding: 0;
     grid-template-columns: repeat(12, [col-start] 1fr);
+  }
+  
+  .vertical-cards > div {
+    grid-column: 2 / -2;
   }
   
   .cmp-vertical-card:nth-of-type(odd) {

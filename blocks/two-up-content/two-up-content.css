@@ -1,11 +1,30 @@
 .two-up-content {
   padding: var(--page-inline-padding) var(--page-inline-padding);
   background-color: var(--color-base-white);
+  color: var(--color-base-dark-slate-tertiary);
+}
+
+/* BEGIN :HAS() DUPLICATE SELECTOR BLOCKS
+ * The selectors here are duplicated because
+ * browsers that don’t support :has() will
+ * ignore all selectors when used.
+ */
+.two-up-content > div > .has-picture {
+  display: flex;
 }
 
 .two-up-content > div > div:has(picture:only-child) {
   display: flex;
 }
+
+.two-up-content > div > div:not(.has-picture) {
+  padding: var(--page-inline-padding) 0;
+}
+
+.two-up-content > div > div:not(:has(picture:only-child)) {
+  padding: var(--page-inline-padding) 0;
+}
+/* END :HAS() DUPLICATE SELECTOR BLOCKS */
 
 .two-up-content picture:only-child img {
   height: 100%;
@@ -15,52 +34,42 @@
 }
 
 .two-up-content h2 {
-  color: var(--color-base-dark-slate-secondary);
-  font-family: var(--font-stack-sans);
-  font-size: var(--font-size-800);
-  font-weight: var(--font-weight-black);
+  --body-copy-h2-font-size: var(--font-size-400);
+
+  font-family: var(--font-stack-serif);
+  font-size: var(--body-copy-h2-font-size);
+  font-weight: var(--font-weight-normal);
   line-height: 1.1;
+  margin-bottom: 1.25rem;
 }
 
-[id*="hidden-title"] {
-  display: none;
+.two-up-content h3 {
+  --body-copy-h3-font-size: var(--font-size-300);
+
+  font-family: var(--font-stack-serif);
+  font-size: var(--body-copy-h3-font-size);
+  line-height: 1;
+  margin-bottom: 0.5rem;
 }
 
-[id*="buttons"] + ul:not([class]) {
-  display: flex;
-  gap: 12px;
-  list-style: none;
-  margin: 2rem 0;
-  padding: 0;
+.two-up-content p + h2 {
+  margin-top: 2.5625rem;
 }
 
-[id*="buttons"] + ul:not([class]) a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: #4b4b4b;
-  border-radius: 2em;
-  border: 2px solid currentColor;
-  font-size: var(--details-font-size);
-  font-weight: 600;
-  line-height: 1.25;
-  padding: 0.5rem 1.25rem;
-  transition: 
-    background 130ms ease-out,
-    border-color 130ms ease-out,
-    color 130ms ease-out;
+.two-up-content p + h3 {
+  margin-top: 1.625rem;
 }
 
-[id*="buttons"] + ul:not([class]) a:hover,
-[id*="buttons"] + ul:not([class]) a:focus {
-  background-color: hsl(0, 0%, 88%);
-  border-color: currentColor;
-  color: hsl(0, 0%, 17%);
-}
 
-[id*="buttons"] + ul:not([class]) a:active {
-  background-color: hsla(0, 0%, 79%, 0.8);
+.two-up-content p,
+.two-up-content ul,
+.two-up-content ol {
+  --body-copy-font-size: var(--font-size-100);
+  
+  font-family: var(--font-stack-sans);
+  font-size: var(--body-copy-font-size);
+  line-height: var(--article-copy-line-height);
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 900px) {
@@ -74,12 +83,39 @@
     grid-column: 2 / -2;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
+    gap: 12px;
   }
-  
+
+  /* BEGIN :HAS() DUPLICATE SELECTOR BLOCKS
+   * The selectors here are duplicated because
+   * browsers that don’t support :has() will
+   * ignore all selectors when used.
+   */
+  .two-up-content > div > .has-picture {
+    margin-bottom: unset;
+  }
+
   .two-up-content > div > div:has(picture:only-child) {
     margin-bottom: unset;
   }
+
+  .two-up-content > div > div:not(.has-picture) {
+    padding: var(--page-inline-padding);
+  }
+
+  .two-up-content > div > div:not(:has(picture:only-child)) {
+    padding: var(--page-inline-padding);
+  }
+  /* END :HAS() DUPLICATE SELECTOR BLOCKS */
+
+  .two-up-content h2 {
+    --body-copy-h2-font-size: var(--font-size-800);
+  }
+  
+  .two-up-content h3 {
+    --body-copy-h3-font-size: var(--font-size-650);
+  }
+
 }
 
 

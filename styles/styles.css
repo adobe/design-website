@@ -365,6 +365,53 @@ footer {
   display: none;
 }
 
+/* Hidden Headings */
+[id*="hidden-title"] {
+  display: none;
+}
+
+/* Button Group */
+[id*="buttons"] + ul:not([class]) {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  margin: 2rem 0;
+  padding: 0;
+}
+
+[id*="buttons"] + ul:not([class]) a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--button-color, #4b4b4b);
+  border-radius: 2em;
+  border: 2px solid var(--button-border-color, currentColor);
+  background: var(--button-background, transparent);
+  font-size: var(--details-font-size);
+  font-weight: 600;
+  line-height: 1.25;
+  padding: 0.5rem 1.25rem;
+  transition: 
+    background 130ms ease-out,
+    border-color 130ms ease-out,
+    color 130ms ease-out;
+}
+
+[id*="buttons"] + ul:not([class]) a:hover,
+[id*="buttons"] + ul:not([class]) a:focus {
+  background-color: var(--button-background, hsl(0, 0%, 88%));
+  border-color: var(--button-border-color, currentColor);
+  color: var(--button-color, hsl(0, 0%, 17%));
+}
+
+[id*="buttons"] + ul:not([class]) a:active {
+  background-color: var(--button-background, hsla(0, 0%, 88%, 0.7));
+  border-color: var(--button-border-color, currentColor);
+  color: var(--button-color, hsl(0, 0%, 17%));
+}
+
+
 /* job post detail page background is completely white - remove the gradient */
 body.job-posts {
   background-image: none;

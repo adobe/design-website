@@ -12,6 +12,21 @@
 	margin-bottom: 0;
 }
 
+.collaborators-content [id*="buttons"] + ul:not([class]) a {
+	--button-color: #4b4b4b;
+}
+
+.collaborators-content [id*="buttons"] + ul:not([class]) a:hover,
+.collaborators-content [id*="buttons"] + ul:not([class]) a:focus {
+	background-color: var(--color-base-orange-lt);
+	border-color: currentColor;
+	color: hsl(0, 0%, 17%);
+}
+
+.collaborators-content [id*="buttons"] + ul:not([class]) a:active {
+	background-color: hsla(0, 0%, 79%, 0.8);
+}
+
 @media (min-width: 900px) {
 	.collaborators-content {
 		display: grid;

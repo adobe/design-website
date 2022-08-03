@@ -1,0 +1,85 @@
+.prefooter {
+	--buffer: 1;
+	background-color: var(--color-base-lighter-black);
+	color: var(--color-base-white);
+	padding: calc(var(--buffer) * var(--page-inline-padding)) var(--page-inline-padding);
+}
+
+.prefooter h2 {
+	--secondary-headline-font-size: var(--font-size-600);
+	font-size: var(--secondary-headline-font-size);
+	font-weight: var(--font-weight-black);
+	line-height: 1.2;
+	margin: 1em 0;
+}
+
+.prefooter p {
+	font-family: var(--font-stack-serif);
+	font-size: var(--page-subtitle-font-size);
+	font-weight: var(--font-weight-normal);
+	line-height: 1.3;
+	margin: 1em 0;
+}
+
+.prefooter h1:first-child,
+.prefooter h2:first-child,
+.prefooter h3:first-child,
+.prefooter h4:first-child,
+.prefooter h5:first-child,
+.prefooter h6:first-child,
+.prefooter p:first-child {
+	margin-top: 0;
+}
+
+.prefooter h1:last-child,
+.prefooter h2:last-child,
+.prefooter h3:last-child,
+.prefooter h4:last-child,
+.prefooter h5:last-child,
+.prefooter h6:last-child,
+.prefooter p:last-child {
+	margin-bottom: 0;
+}
+
+.prefooter [id*="buttons"] + ul:not([class]) a {
+	--button-color: currentColor;
+}
+
+.prefooter [id*="buttons"] + ul:not([class]) a:hover,
+.prefooter [id*="buttons"] + ul:not([class]) a:focus {
+	--button-background: hsla(0, 100%, 100%, 0.2);
+	--button-border-color: currentColor;
+	--button-color: currentColor;
+}
+
+.prefooter [id*="buttons"] + ul:not([class]) a:active {
+	--button-background: hsla(0, 100%, 100%, 0.1);
+}
+
+@media (min-width: 900px) {
+	.prefooter {
+		display: grid;
+		grid-template-columns: repeat(12, [col-start] 1fr);
+		padding: 2rem 0;
+	}
+
+	.prefooter > div {
+		grid-column: 2 / -2;
+	}
+
+	.prefooter h2 {
+		--secondary-headline-font-size: var(--font-size-600);
+	}
+}
+
+
+@media (min-width: 1300px) {
+	.prefooter {
+		grid-template-columns: repeat(16, [col-start] 1fr);
+		padding: 3rem 0 6rem;
+	}
+
+	.prefooter h2 {
+		--secondary-headline-font-size: var(--font-size-1000);
+	}
+}
