@@ -5,6 +5,11 @@
   margin: 12px 0;
 }
 
+/* BEGIN :HAS() DUPLICATE SELECTOR BLOCKS
+ * The selectors here are duplicated because
+ * browsers that don’t support :has() will
+ * ignore all selectors when used.
+ */
 
 
 @supports not selector(:has(div)) {
@@ -26,6 +31,8 @@
     padding: 0;
   }
 }
+
+/* END :HAS() DUPLICATE SELECTOR BLOCKS */
 
 .two-up-content picture:only-child img {
   height: 100%;
@@ -107,6 +114,16 @@
     grid-template-columns: 1fr 1fr;
     gap: 0.75rem 2.25rem;
   }
+
+  /* BEGIN :HAS() DUPLICATE SELECTOR BLOCKS
+   * The selectors here are duplicated because
+   * browsers that don’t support :has() will
+   * ignore all selectors when used.
+   */
+
+  .two-up-content > div > .has-picture {
+    margin-bottom: unset;
+  }
   
   .two-up-content > div:not(:first-child) + div {
     margin-top: 12px;
@@ -124,6 +141,12 @@
     }
   }
 
+  /* END :HAS() DUPLICATE SELECTOR BLOCKS */
+
+  .two-up-content h2 {
+    --body-copy-h2-font-size: var(--font-size-800);
+  }
+  
   .two-up-content h3 {
     --body-copy-h3-font-size: var(--font-size-650);
   }

@@ -604,6 +604,8 @@ body.job-posts {
   .cmp-nav__trigger {
     display: none;
   }
+  padding: 0;
+}
 
   .cmp-nav__list {
     background-color: transparent;

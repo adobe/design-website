@@ -7,7 +7,8 @@
 }
 
 .prefooter h2 {
-  font-size: clamp(var(--font-size-800), 4vw, var(--font-size-1000));  font-weight: var(--font-weight-black);
+  font-size: clamp(var(--font-size-800), 4vw, var(--font-size-1000));
+  font-weight: var(--font-weight-black);
   line-height: 1.2;
   margin: 1em 0;
 }
