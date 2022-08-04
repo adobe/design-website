@@ -1,9 +1,4 @@
-.quote-header {
-  margin: 3rem 0;
-}
-
-.quote-header__content,
-.quote-header__citation {
+.h2-with-attribution {
   --body-copy-h2-font-size: var(--font-size-400);
 
   color: var(--color-base-dark-slate-tertiary);
@@ -11,16 +6,16 @@
   font-size: var(--body-copy-h2-font-size);
   font-weight: var(--font-weight-normal);
   line-height: 1.1;
+  margin: 3rem 0;
 }
 
-.quote-header__content {
+.h2-with-attribution div:first-child {
   font-weight: var(--font-weight-bold);
   margin-bottom: 0.5rem;
 }
 
 @media (min-width: 900px) {
-  .quote-header__content,
-  .quote-header__citation {
+  .h2-with-attribution {
     --body-copy-h2-font-size: var(--font-size-800);
   }
 }
