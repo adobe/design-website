@@ -1,4 +1,5 @@
-.h2-with-attribution {
+.h2-with-attribution,
+.cmp-lede__article-bg .h2-with-attribution {
   --body-copy-h2-font-size: var(--font-size-400);
 
   color: var(--color-base-dark-slate-tertiary);
@@ -6,16 +7,22 @@
   font-size: var(--body-copy-h2-font-size);
   font-weight: var(--font-weight-normal);
   line-height: 1.1;
-  margin: 3rem 0;
+  margin: 2.5625rem 0 1.25rem;
 }
 
-.h2-with-attribution div:first-child {
+.h2-with-attribution div:first-child,
+.cmp-lede__article-bg .h2-with-attribution div:first-child {
   font-weight: var(--font-weight-bold);
-  margin-bottom: 0.5rem;
+}
+
+.h2-with-attribution div:first-child:not(:last-child),
+.cmp-lede__article-bg .h2-with-attribution div:first-child:not(:last-child) {
+  margin-bottom: 1.25rem;
 }
 
 @media (min-width: 900px) {
-  .h2-with-attribution {
+  .h2-with-attribution,
+  .cmp-lede__article-bg .h2-with-attribution {
     --body-copy-h2-font-size: var(--font-size-800);
   }
 }
