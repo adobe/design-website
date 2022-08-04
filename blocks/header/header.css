@@ -7,12 +7,6 @@ header a {
   color: var(--reactive-text-color);
 }
 
-.home header {
-  position: absolute;
-  z-index: 200;
-  width: 100%;
-}
-
 .header.block {
   display: flex;
   flex-flow: row nowrap;
@@ -21,7 +15,7 @@ header a {
   max-width: var(--layout-max-width-desktop);
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 0 4rem;
 }
 
 .cmp-logo__image {

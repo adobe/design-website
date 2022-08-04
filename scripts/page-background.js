@@ -13,6 +13,4 @@ function setPageBackgroundColor() {
   document.documentElement.style.setProperty('--header-color', pageBgColor);
 }
 
-if (window.location.pathname !== '/') {
-  setPageBackgroundColor();
-}
+setPageBackgroundColor();
