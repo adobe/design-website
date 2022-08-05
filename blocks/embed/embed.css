@@ -8,19 +8,11 @@
 }
 
 .cmp-embed--instagram .instagram-media {
-  width: 80%;
-}
-
-.cmp-embed--instagram .cmp-embed__container {
-  justify-content: center;
+  width: 100%;
+  min-width: unset !important;
 }
 
 .cmp-embed--twitter .twitter-tweet {
   justify-content: center;
-}
-
-@media (min-width: 900px) {
-  .cmp-embed--instagram .instagram-media {
-    width: 100%;
-  }
+  margin: 0 !important;
 }

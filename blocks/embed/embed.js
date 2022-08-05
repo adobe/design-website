@@ -6,6 +6,7 @@ const EMBEDS_CONFIG = {
       const trailingSlash = url.endsWith('/') ? '' : '/';
       const src = `${url}${trailingSlash}embed/`;
 
+      // Embed script replaces nested blockquote
       return `
         <figure class="cmp-embed__container">
           <blockquote
@@ -21,6 +22,7 @@ const EMBEDS_CONFIG = {
   twitter: {
     type: 'twitter',
     url: 'https://platform.twitter.com/widgets.js',
+    // Embed script replaces nested blockquote
     createEmbed: (url) => `
       <blockquote class="cmp-embed__container">
         <blockquote class="twitter-tweet">
