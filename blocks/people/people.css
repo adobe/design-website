@@ -1,4 +1,4 @@
-.home .people {
+.people {
   background-color: transparent;
   display: grid;
   grid-template-columns: repeat(6, [col-start] 1fr);
@@ -9,32 +9,32 @@
   max-width: var(--layout-max-width-desktop);
 }
 
-.home .cmp-person {
+.cmp-person {
   background-color: var(--color-base-white);
   color: var(--color-base-dark-slate-secondary);
   grid-column: 1 / 7;
 }
 
-.home .cmp-person a {
+.cmp-person a {
   overflow: hidden;
 }
 
-.home .cmp-person picture {
+.cmp-person picture {
   aspect-ratio: 1 / 1;
 }
 
-.home .cmp-person img {
+.cmp-person img {
   display: block;
   width: 100%;
   height: 100%;  
   object-fit: cover;
 }
 
-.home .cmp-person__body {
+.cmp-person__body {
   padding: 2.25rem 2.5rem;
 }
 
-.home .cmp-person__tag {
+.cmp-person__tag {
   color: var(--color-base-dark-slate-secondary);
   display: inline-block;
   font-size: var(--font-size-100);
@@ -44,7 +44,7 @@
   text-transform: uppercase;
 }
 
-.home .cmp-person__tag::after {
+.cmp-person__tag::after {
   background-color: var(--color-base-dark-slate-secondary);
   border-radius: 10px;
   bottom: 0;
@@ -55,20 +55,20 @@
   width: 100%;
 }
 
-.home .cmp-person__name a,
-.home .cmp-person__name a:hover,
-.home .cmp-person__name a:focus {
+.cmp-person__name a,
+.cmp-person__name a:hover,
+.cmp-person__name a:focus {
   color: var(--color-base-dark-slate-secondary);
 }
 
-.home .cmp-person__name {
+.cmp-person__name {
   font-size: min(max(var(--font-size-800), 4vw), var(--font-size-1075));
   font-weight: var(--font-weight-black);
   line-height: 1;
   margin-bottom: 0.75rem;
 }
 
-.home .cmp-person__title {
+.cmp-person__title {
   --person-title-font-size: var(--font-size-400);
   
   font-family: var(--font-stack-serif);
@@ -78,17 +78,17 @@
 }
 
 @media (min-width: 900px) {
-  .home .people {
+  .people {
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 12px;
     row-gap: 12px;
   }
 
-  .home .cmp-person {
+  .cmp-person {
     grid-column: unset;
   }
 
-  .home .cmp-person__title {
+  .cmp-person__title {
     --person-title-font-size: var(--font-size-650);
   }
 }
