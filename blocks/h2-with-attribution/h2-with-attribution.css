@@ -7,17 +7,15 @@
   font-size: var(--body-copy-h2-font-size);
   font-weight: var(--font-weight-normal);
   line-height: 1.1;
-  margin: 2.5625rem 0 1.25rem;
+  margin: 2.5rem 0 1.25rem;
 }
 
-.h2-with-attribution div:first-child,
-.cmp-lede__article-bg .h2-with-attribution div:first-child {
+.h2-with-attribution div + div {
+  margin-top: 0.75rem;
+}
+
+.h2-with-attribution div:first-child {
   font-weight: var(--font-weight-bold);
-}
-
-.h2-with-attribution div:first-child:not(:last-child),
-.cmp-lede__article-bg .h2-with-attribution div:first-child:not(:last-child) {
-  margin-bottom: 1.25rem;
 }
 
 @media (min-width: 900px) {

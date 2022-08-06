@@ -1,35 +1,27 @@
-function returnTHMLWithRetainedLink(node) {
-  let nodeHTML = node.innerText;
-  const nodeLink = node.querySelector('a');
-
-  if (nodeLink) {
-    // Capture anchor tag within innerHTML
-    const linkHTML = node.innerHTML.match(/<a href=.*>.*<\/a>/)[0];
-    // Capture link text within anchor tag
-    const linkText = linkHTML.match(/(?<=<a href=.*>).*(?=<\/a>)/)[0];
-    nodeHTML = nodeHTML.replace(linkText, linkHTML);
-  }
-
-  return nodeHTML;
-}
-
 export default async function decorate(block) {
+  // Get the block’s children elements
+  const childern = block.childNodes;
+
+  // Modified version of https://stackoverflow.com/questions/31259295/javascript-allow-only-specific-html-tags
+  const stripTags = (content) => {
+    const foundTags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi;
+    // Only links, bold, and italic tags allowed
+    const allowedTags = '<a><strong><em>';
+    const newContent = ($0, $1) => (allowedTags.indexOf(`<${$1}>`) > -1 ? $0 : '');
+    return content.replace(foundTags, newContent);
+  };
+
+  // iterate over all child nodes
+  childern.forEach((element) => {
+    element.innerHTML = stripTags(element.innerHTML.toString());
+  });
+
+  // Create the new h2 element
   const attributedHeadingContainer = document.createElement('h2');
   block.parentNode.insertBefore(attributedHeadingContainer, block);
-  attributedHeadingContainer.classList.add('h2-with-attribution');
-
-  const headingContent = block.querySelector('div:first-child');
-  const headingCitation = block.querySelector('div:last-child:not(:first-child)') ? block.querySelector('div:last-child:not(:first-child)') : null;
-
-  const contentHTML = returnTHMLWithRetainedLink(headingContent);
-  headingContent.innerHTML = contentHTML;
-
-  if (headingCitation) {
-    const citationHTML = returnTHMLWithRetainedLink(headingCitation);
-    headingCitation.innerHTML = citationHTML;
-  }
-
+  attributedHeadingContainer.className = block.className;
   attributedHeadingContainer.innerHTML = block.innerHTML;
-  // Removes extra <div>
+
+  // Remove the original block
   block.remove();
 }
