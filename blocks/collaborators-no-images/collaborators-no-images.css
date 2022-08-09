@@ -1,0 +1,87 @@
+.collaborators-no-images {
+  background-color: var(--color-base-light-rose);
+  grid-column: 1 / -1;
+  padding: 5.25rem var(--page-inline-padding) 0;
+}
+
+.collaborators-no-images:last-of-type {
+  padding-top: 0;
+  padding-bottom: 5.25rem;
+}
+
+.cmp-collaborator-no-images:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 4rem;
+}
+
+.cmp-collaborator-no-images h2,
+.cmp-collaborator-no-images h3 {
+  color: var(--color-base-dark-slate-secondary);
+  font-family: var(--font-stack-sans);
+  font-size: var(--font-size-300);
+  line-height: 1.1;
+}
+
+.cmp-collaborator-no-images h2 {
+  margin-bottom: 0.25rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.cmp-collaborator-no-images h3 {
+  margin-bottom: 1rem;
+  font-weight: var(--font-weight-normal);
+}
+
+.cmp-collaborator-no-images.cmp-collaborator-no-images--intro h2 {
+  color: var(--color-base-dark-slate-secondary);
+  font-family: var(--font-stack-sans);
+  font-size: var(--font-size-800);
+  font-weight: var(--font-weight-black);
+  line-height: 1.1;
+}
+
+@media (min-width: 900px) {
+  .collaborators-no-images {
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .collaborators-no-images:last-of-type {
+    padding-top: 5.25rem;
+  }
+  
+  .cmp-collaborators-no-images__inner-wrap {
+    grid-column: 2 / -2;
+    column-gap: 12px;
+    row-gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .cmp-collaborator-no-images {
+    grid-column: auto / auto;
+  }
+
+  .cmp-collaborator-no-images.cmp-collaborator-no-images--intro {
+    grid-column: 1 / -1;
+    margin-bottom: 4rem;
+  }
+
+  .cmp-collaborator-no-images h2,
+  .cmp-collaborator-no-images h3 {
+    font-size: var(--font-size-400);
+  }
+
+  .cmp-collaborator-no-images.cmp-collaborator--intro-no-images h2 {
+    font-size: var(--font-size-900);
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .collaborators-no-images {
+    grid-template-columns: repeat(16, [col-start] 1fr);
+  }
+}

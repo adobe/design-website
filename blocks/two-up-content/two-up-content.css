@@ -2,31 +2,36 @@
   padding: var(--page-inline-padding) var(--page-inline-padding);
   background-color: var(--color-base-white);
   color: var(--color-base-dark-slate-tertiary);
+  margin: 12px 0;
 }
 
-/* BEGIN :HAS() DUPLICATE SELECTOR BLOCKS
- * The selectors here are duplicated because
- * browsers that don’t support :has() will
- * ignore all selectors when used.
- */
-
-.two-up-content > div > .has-picture {
-  display: flex;
+@supports not selector(:has(div)) {
+  .two-up-content > div > .has-picture {
+    display: flex;
+  }
+  
+  .two-up-content > div > div:not(.has-picture):only-child {
+    padding: 0;
+  }
+  
+  .two-up-content > div > div:not(.has-picture) {
+    padding: var(--page-inline-padding) 0;
+  }
 }
 
-.two-up-content > div > div:has(picture:only-child) {
-  display: flex;
-}
+@supports selector(:has(div)) {
+  .two-up-content > div > div:not(:has(picture:only-child)):only-child {
+    padding: 0;
+  }
 
-.two-up-content > div > div:not(.has-picture) {
-  padding: var(--page-inline-padding) 0;
-}
+  .two-up-content > div > div:has(picture:only-child) {
+    display: flex;
+  }
 
-.two-up-content > div > div:not(:has(picture:only-child)) {
-  padding: var(--page-inline-padding) 0;
+  .two-up-content > div > div:not(:has(picture:only-child)) {
+    padding: var(--page-inline-padding) 0;
+  }
 }
-
-/* END :HAS() DUPLICATE SELECTOR BLOCKS */
 
 .two-up-content picture:only-child img {
   height: 100%;
@@ -36,12 +41,10 @@
 }
 
 .two-up-content h2 {
-  --body-copy-h2-font-size: var(--font-size-400);
-
-  font-family: var(--font-stack-serif);
-  font-size: var(--body-copy-h2-font-size);
-  font-weight: var(--font-weight-normal);
-  line-height: 1.1;
+  color: var(--color-base-dark-slate-secondary);
+  font-family: var(--font-stack-sans);
+  font-size: var(--font-size-300);
+  font-weight: var(--font-weight-black);
   margin-bottom: 1.25rem;
 }
 
@@ -87,41 +90,40 @@
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
-
-  /* BEGIN :HAS() DUPLICATE SELECTOR BLOCKS
-   * The selectors here are duplicated because
-   * browsers that don’t support :has() will
-   * ignore all selectors when used.
-   */
-
-  .two-up-content > div > .has-picture {
-    margin-bottom: unset;
+  
+  .two-up-content > div:not(:first-child) + div {
+    margin-top: 12px;
   }
 
-  .two-up-content > div > div:has(picture:only-child) {
-    margin-bottom: unset;
+  @supports not selector(:has(div)) {
+    .two-up-content > div > .has-picture {
+      margin-bottom: unset;
+    }
+
+    .two-up-content > div > div:not(.has-picture) {
+      padding: var(--page-inline-padding);
+    }
   }
 
-  .two-up-content > div > div:not(.has-picture) {
-    padding: var(--page-inline-padding);
-  }
+  @supports selector(:has(div)) {
+    .two-up-content > div > div:has(picture:only-child) {
+      margin-bottom: unset;
+    }
 
-  .two-up-content > div > div:not(:has(picture:only-child)) {
-    padding: var(--page-inline-padding);
-  }
-
-  /* END :HAS() DUPLICATE SELECTOR BLOCKS */
-
-  .two-up-content h2 {
-    --body-copy-h2-font-size: var(--font-size-800);
+    .two-up-content > div > div:not(:has(picture:only-child)) {
+      padding: var(--page-inline-padding);
+    }
   }
   
+  .two-up-content h2 {
+    font-size: var(--font-size-800);
+  }
+
   .two-up-content h3 {
     --body-copy-h3-font-size: var(--font-size-650);
   }
 
 }
-
 
 @media (min-width: 1300px) {
   .two-up-content {

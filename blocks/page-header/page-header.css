@@ -47,7 +47,7 @@ main > div > div > *:not(div) {
   }
 
   .page-header > div:last-child {
-    padding-bottom: 8rem;
+    padding-bottom: 5rem;
   }
 
   .page-header > div:first-child > div {
