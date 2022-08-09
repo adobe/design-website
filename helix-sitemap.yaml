@@ -2,7 +2,7 @@ version: 1
 
 sitemaps:
   website:
-    origin: https://adobe.design/
+    origin: https://adobe.design
     lastmod: YYYY-MM-DD
     languages:
       default:
