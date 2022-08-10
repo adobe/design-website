@@ -807,11 +807,20 @@ if (getMetadata('theme') === 'job-post') {
 }
 
 export function setTargetOnExternalLinks() {
-  [...document.querySelectorAll('a')].forEach((link) => (
-    window.location.hostname === link.hostname || !link.hostname.length ? false : link.setAttribute('target', '_blank')
-  ));
+  [...document.querySelectorAll('a')].forEach((link) => {
+    // Set external links to open in window or tab
+
+    if (window.location.hostname !== link.hostname || !link.hostname.length) {
+      link.setAttribute('target', '_blank');
+    }
+
+    // Set all links in a stories article contents to open in a new window or tab
+    if (link.closest('.lede-container') && window.location.href.toString().includes('/stories/')) {
+      link.setAttribute('target', '_blank');
+    }
+  });
 }
 
 setTimeout(() => {
   setTargetOnExternalLinks();
-}, 2500);
+}, 1500);

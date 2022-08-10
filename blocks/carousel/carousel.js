@@ -1,5 +1,6 @@
 import setBodyColor from '../../scripts/body-color.js';
 import { createOptimizedPicture, lookupPages, loadScript } from '../../scripts/scripts.js';
+import tagLink from '../../scripts/tag-link.js';
 
 class Carousel {
   initialized = false;
@@ -219,7 +220,7 @@ export default async function decorate(block) {
     const slideCopy = document.createElement('div');
     slideCopy.classList.add('carousel-slide-copy');
     slideCopy.innerHTML = `
-    <span class="cmp-stories-card__tag">${tag}</span>
+    <a href="${tagLink(row.path)}" class="cmp-stories-card__tag">${tag}</a>
     <h2 class="carousel-stories-card__title"><a href="${row.path}">${row.title}</a></h2>
     <div class="cmp-stories-card__intro">${row.subtitle}</div>
     <div class="cmp-stories-card__author">by ${row.author}</div>

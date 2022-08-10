@@ -1,0 +1,18 @@
+.cmp-embed {
+  margin: 5.25rem 0;
+}
+
+.cmp-embed__container {
+  display: flex;
+  justify-content: center;
+}
+
+.cmp-embed--instagram .instagram-media {
+  width: 100%;
+  min-width: unset !important;
+}
+
+.cmp-embed--twitter .twitter-tweet {
+  justify-content: center;
+  margin: 0 !important;
+}

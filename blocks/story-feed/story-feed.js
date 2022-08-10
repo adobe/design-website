@@ -1,4 +1,5 @@
 import { createOptimizedPicture, lookupPages, readBlockConfig } from '../../scripts/scripts.js';
+import tagLink from '../../scripts/tag-link.js';
 
 function createCard(row) {
   const card = document.createElement('article');
@@ -15,7 +16,7 @@ function createCard(row) {
 
   card.innerHTML = `
     <div class="cmp-stories-card__body">
-      <span class="cmp-stories-card__tag">${cardTag}</span>
+      <a href="${tagLink(row.path)}" class="cmp-stories-card__tag">${cardTag}</a>
       <h2 class="cmp-stories-card__title">
         <a href="${row.path}">${row.title}</a>
       </h2>
@@ -36,12 +37,33 @@ export default async function decorate(block) {
   const pathnames = config.featured ? config.featured.map((link) => new URL(link).pathname) : [];
   block.textContent = '';
 
+  // Gets the current page url and finds the last directory in the path
+  const storiesURL = window.location.href;
+  const storiesURLArray = storiesURL.split('/');
+  const storiesURLCount = storiesURLArray.length;
+  // Since we’re splitting with the “/” there’s
+  // an empty string at the end of the array.
+  // Hence the `[storiesURLCount - 2]`:
+  const storiesTagPath = storiesURLArray[storiesURLCount - 2];
+
   const stories = await lookupPages(pathnames);
   stories.forEach((row) => {
     block.append(createCard(row));
   });
   const allStories = window.pageIndex.data.stories.data;
-  const remaining = allStories.filter((e) => !pathnames.includes(e.path) && e.path !== '/stories/');
+  /* eslint-disable */
+  // There is a lot happening with the following `remaining` const
+  // It is filtering the stories available to see if they match a
+  // tag URL or if this is the root level of `stories` to display all
+  const remaining = allStories.filter((e) =>
+    /* 1) Check the path exists */!
+    pathnames.includes(e.path) &&
+    /* 2) Make sure it’s not the root */
+    e.path !== '/stories/' &&
+    /* 3) If not the root then check if it has the tag */
+    e.path.includes((e.path !== '/stories/') ? `/${storiesTagPath}/` : '' )
+  );
+  /* eslint-enable */
   remaining.sort((a, b) => b.date - a.date);
 
   for (let i = 0; i < Math.min(+config.limit - stories.length, remaining.length); i += 1) {

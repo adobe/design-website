@@ -1,4 +1,5 @@
 import { getMetadata, toClassName } from '../../scripts/scripts.js';
+import tagLink from '../../scripts/tag-link.js';
 
 export default async function decorate(block) {
   const ledeBlock = block;
@@ -32,7 +33,7 @@ export default async function decorate(block) {
 
   const articleTag = document.createElement('p');
   articleTag.innerHTML = `
-    <span>${articleTagData}</span>
+    <a class="cmp-lede__tag-link" href="${tagLink(window.location.pathname)}">${articleTagData}</a>
   `;
   articleTag.classList.add('cmp-lede__tag');
   articleTitle.parentNode.insertBefore(articleTag, articleTitle.parentNode.firstChild);
