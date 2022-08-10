@@ -32,4 +32,5 @@ export default async function decorate(block) {
   if (headingToRemove && window.location.pathname === '/') {
     headingToRemove.remove();
   }
+  if (block.classList.contains('horizontal')) block.closest('.section-wrapper').classList.add('stats-horizontal-container');
 }

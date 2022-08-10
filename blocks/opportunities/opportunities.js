@@ -13,10 +13,10 @@ export default async function decorate(block) {
 
   const jobsContainer = document.createElement('div');
   jobsContainer.classList.add('cmp-all-jobs');
-  block.firstChild.firstChild.append(jobsContainer);
+  block.firstElementChild.firstElementChild.append(jobsContainer);
 
   const blockHeadline = document.querySelector('h2');
-  block.firstChild.firstChild.prepend(blockHeadline);
+  block.firstElementChild.firstElementChild.prepend(blockHeadline);
 
   const resp = await fetch('/query-index.json');
   const json = await resp.json();

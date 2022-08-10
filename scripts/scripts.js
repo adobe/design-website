@@ -498,6 +498,32 @@ function initHlx() {
   }
 }
 
+/**
+ * Replace icons with inline SVG and prefix with codeBasePath.
+ * @param {Element} element
+ */
+ export function decorateIcons(element = document) {
+  element.querySelectorAll('span.icon').forEach(async (span) => {
+    if (span.classList.length < 2 || !span.classList[1].startsWith('icon-')) {
+      return;
+    }
+    const icon = span.classList[1].substring(5);
+    console.log(icon);
+    // eslint-disable-next-line no-use-before-define
+    const resp = await fetch(`${window.hlx.codeBasePath}${ICON_ROOT}/${icon}.svg`);
+    if (resp.ok) {
+      const iconHTML = await resp.text();
+      if (iconHTML.match(/<style/i)) {
+        const img = document.createElement('img');
+        img.src = `data:image/svg+xml,${encodeURIComponent(iconHTML)}`;
+        span.appendChild(img);
+      } else {
+        span.innerHTML = iconHTML;
+      }
+    }
+  });
+}
+
 initHlx();
 
 /*
@@ -509,6 +535,7 @@ initHlx();
 const LCP_BLOCKS = ['hero', 'carousel']; // add your LCP blocks to the list
 const RUM_GENERATION = 'design-website-1'; // add your RUM generation information here
 const PRODUCTION_DOMAINS = ['adobe.design'];
+const ICON_ROOT = '/icons';
 
 sampleRUM('top');
 window.addEventListener('load', () => sampleRUM('load'));
@@ -578,8 +605,6 @@ function buildAutoBlocks(main) {
  * @param {Element} main The main element
  */
 export function decorateMain(main) {
-  // forward compatible pictures redecoration
-  decoratePictures(main);
   removeStylingFromImages(main);
   makeLinksRelative(main);
   buildAutoBlocks(main);
@@ -649,11 +674,14 @@ async function loadLazy(doc) {
   const main = doc.querySelector('main');
   await loadBlocks(main);
 
+  decorateIcons(main);
+
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   addFavIcon(`${window.hlx.codeBasePath}/icon.svg`);
+
 }
 
 /**

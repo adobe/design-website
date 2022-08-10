@@ -235,7 +235,7 @@ export default async function decorate(block) {
     cardBodyContent.innerHTML = cardBodyText;
     card.innerHTML = '';
     card.append(...cardTitleAndMedia, cardBodyContent);
-    card.querySelectorAll('img').forEach((cardImg) => cardImg.parentNode.classList.add('cmp-accordion-card__media-parent'));
+    card.querySelectorAll('span.icon').forEach((cardImg) => cardImg.parentNode.classList.add('cmp-accordion-card__media-parent'));
     card.classList.add(`color-pair-${index + 1}`);
   });
 
