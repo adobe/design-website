@@ -639,7 +639,6 @@ body.job-posts {
   left: calc(50% - 50vw);
   top: 0;
   bottom: 0;
-  height: var(--job-message-height);
   color: var(--dark-text-color);
   background-color: var(--color-base-white);
   font-size: var(--font-size-300);
@@ -673,7 +672,7 @@ body.job-posts {
   font-size: var(--opportunities-title-font-size);
   font-weight: var(--font-weight-normal);
   line-height: 1.2;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
 }
 
 .cmp-jobs-message__button {
@@ -697,10 +696,11 @@ body.job-posts {
     display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr);
     column-gap: 12px;
+    height: 75%;
   }
 
   .cmp-jobs-message__layout {
-    grid-column: 2 / span 6;
+    grid-column: 2 / span 8;
   }
 
   .cmp-jobs-message__title {
@@ -709,6 +709,10 @@ body.job-posts {
 }
 
 @media (min-width: 1300px) {
+  .cmp-jobs-message__layout {
+    grid-column: 2 / span 9;
+  }
+
   .cmp-jobs-message__title {
     --opportunities-title-font-size: var(--font-size-1090);
   }
