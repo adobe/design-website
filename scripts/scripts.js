@@ -508,7 +508,6 @@ function initHlx() {
       return;
     }
     const icon = span.classList[1].substring(5);
-    console.log(icon);
     // eslint-disable-next-line no-use-before-define
     const resp = await fetch(`${window.hlx.codeBasePath}${ICON_ROOT}/${icon}.svg`);
     if (resp.ok) {
