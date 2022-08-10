@@ -11,7 +11,7 @@ export default async function decorate(block) {
   const resp = await fetch('/nav.plain.html');
   const html = await resp.text();
   headerEl.innerHTML = html;
-  const brandComponent = headerEl.firstChild;
+  const brandComponent = headerEl.firstElementChild;
   brandComponent.classList.add('cmp-logo');
   const brandLink = brandComponent.querySelector('a');
   const siteName = brandLink.textContent;
