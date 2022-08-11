@@ -624,7 +624,11 @@ body.job-posts {
 
 /* 404 Jobs Messaging */
 @keyframes cmp-jobs-message {
-  to {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
     opacity: 1;
   }
 }
