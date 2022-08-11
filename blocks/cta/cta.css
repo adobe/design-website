@@ -1,0 +1,108 @@
+.cmp-cta {
+  --cta-min-height: 60vh;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: var(--cta-min-height);
+  margin: 0 auto;
+  padding: 9rem 3rem;
+  max-width: var(--layout-max-width-desktop);
+  background-color: var(--color-base-white);
+  color: var(--color-base-black);
+}
+
+/* CTA on Stories pages only as wide as article */
+.lede-container + .cmp-cta {
+  width: var(--content-width);
+}
+
+.cmp-cta__content {
+  --cta-content-font-size: var(--font-size-900);
+
+  max-width: 14ch;
+  margin-bottom: 3rem;
+  font-family: var(--font-stack-sans);
+  font-size: var(--cta-content-font-size);
+  font-weight: var(--font-weight-black);
+  text-align: center;
+  line-height: 1.15;
+}
+
+.cmp-cta__jobs {
+  margin-bottom: 3rem;
+}
+
+.cmp-cta__job {
+  max-width: 45ch;
+  margin-bottom: 20px;
+}
+
+.cmp-cta__job:last-child {
+  margin-bottom: 0;
+}
+
+.cmp-cta__job-title {
+  --cta-job-font-size: var(--font-size-500);
+
+  color: var(--color-base-black);
+  font-family: var(--font-stack-serif);
+  font-size: var(--cta-job-font-size);
+  text-decoration: none;
+}
+
+.cmp-cta__job-title:hover {
+  text-decoration: underline;
+}
+
+.cmp-cta__job-location {
+  color: var(--color-base-dark-slate);
+}
+
+.cmp-cta__btn {
+  display: inline-block;
+  border-radius: 1.5rem;
+  padding: 0.75rem 3rem;
+  background-color: #2f2f2f;
+  color: var(--light-text-color);
+  text-align: center;
+  transition: background-color 125ms ease-out;
+}
+
+.cmp-cta__btn:hover,
+.cmp-cta__btn:focus {
+  background-color: #3e3e3e;
+  text-decoration: none;
+}
+
+.cmp-cta__btn:active {
+  background-color: #5a5a5a;
+}
+
+@media (min-width: 600px) {
+  .cmp-cta__content {
+    --cta-content-font-size: var(--font-size-1075);
+  }
+
+  .cmp-cta__jobs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
+  .cmp-cta__job {
+    margin-bottom: unset;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1300px) {
+  .cmp-cta__content {
+    --cta-content-font-size: var(--font-size-2000);
+  }
+}
