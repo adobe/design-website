@@ -6,6 +6,10 @@
   padding: var(--footer-block-padding) 0;
 }
 
+.cmp-footer p:not([class]) + p:not([class]) {
+  margin-top: 0;
+}
+
 .cmp-footer__inner-wrap {
   margin: 0 auto;
   padding: 0 var(--page-inline-padding);
@@ -31,6 +35,7 @@
 
 .cmp-footer__nav p {
   flex: 1 1 50%;
+  margin-top: 0;
   margin-bottom: 1rem;
   padding: 0;
 }

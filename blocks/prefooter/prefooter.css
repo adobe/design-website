@@ -68,7 +68,6 @@
   }
 }
 
-
 @media (min-width: 1300px) {
   .prefooter {
     grid-template-columns: repeat(16, [col-start] 1fr);
