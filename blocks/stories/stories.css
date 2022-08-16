@@ -95,6 +95,14 @@
   margin-bottom: 0;
 }
 
+.cmp-stories-card__author-title + .cmp-stories-card__author {
+  margin-top: 12px;
+}
+
+.cmp-stories-card__author + .cmp-stories-card__author {
+  margin-top: 12px;
+}
+
 .cmp-stories-card a {
   overflow: hidden;
 }
