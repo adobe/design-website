@@ -28,12 +28,30 @@ main > div > div > *:not(div) {
   width: 100%;
 }
 
+.design-circle-scholars .page-header > div:last-child {
+  background: transparent;
+  padding-bottom: 0;
+}
+
 .page-header h1:not([class]) {
   color: var(--reactive-text-color);
   font-size: var(--page-title-font-size);
   line-height: var(--page-title-line-height);
   font-family: var(--font-stack-sans);
   font-weight: var(--font-weight-black);
+  margin-bottom: 2rem;
+}
+
+.design-circle-scholars .page-header h1 {
+  margin: var(--page-title-top-space) 0;
+}
+
+.page-header p {
+  font-family: var(--font-stack-serif);
+  font-size: var(--page-subtitle-font-size);
+  font-weight: var(--font-weight-normal);
+  color: var(--reactive-text-color);
+  line-height: 1.3;
   margin-bottom: 2rem;
 }
 
@@ -53,6 +71,14 @@ main > div > div > *:not(div) {
   .page-header > div:first-child > div {
     grid-column: col-start 3 / span 10;
     margin: var(--page-title-top-space) 0;
+  }
+
+  .design-circle-scholars .page-header h1 {
+    margin: 0 0 var(--page-title-top-space);
+  }
+
+  .page-header p {
+    margin-bottom: 0;
   }
 }
 
