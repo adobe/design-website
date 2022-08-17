@@ -1,4 +1,5 @@
 import { createOptimizedPicture, lookupPages, readBlockConfig } from '../../scripts/scripts.js';
+import formatCardByline from '../../scripts/format-card-byline.js';
 import tagLink from '../../scripts/tag-link.js';
 
 function createCard(row) {
@@ -10,17 +11,7 @@ function createCard(row) {
   imageLink.append(createOptimizedPicture(row.image, row.title));
 
   const cardIntro = `${row.subtitle ? `<p class="cmp-stories-card__intro">${row.subtitle}</p>` : ''}`;
-
-  const authors = row.author.split(', ');
-  const authorTitles = row.authorTitle.split('; ');
-  let cardByline = '';
-  authors.forEach((author, idx) => {
-    cardByline += `
-      ${author ? `<p class="cmp-stories-card__author">${author}</p>` : ''}
-      ${authorTitles[idx] ? `<p class="cmp-stories-card__author-title">${authorTitles[idx]}</p>` : ''}
-    `;
-  });
-
+  const cardByline = formatCardByline(row);
   const cardTag = row.tag !== '' ? `${row.tag}` : '';
 
   card.innerHTML = `
