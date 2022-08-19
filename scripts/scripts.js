@@ -607,6 +607,29 @@ export function loadScript(url, callback, type) {
   return script;
 }
 
+export function setMetadata(name, content) {
+  const head = document.querySelector('head');
+  const meta = document.createElement('meta');
+  meta.setAttribute('name', name);
+  meta.setAttribute('content', content);
+  head.append(meta);
+  return meta;
+}
+
+// async function setOGMetaData() {
+//   const ogImage = getMetadata('og:image');
+//   const imageEl = document.createElement('img');
+//   imageEl.src = img;
+// 
+//   imageEl.addEventListener('load', () => {
+//     setMetadata('og:image:width', imageEl.width);
+//     setMetadata('og:image:height', imageEl.height);
+//     imageEl.remove();
+//   });
+// }
+// 
+// setOGMetaData();
+
 /**
  * loads everything needed to get to LCP.
  */
@@ -748,6 +771,8 @@ if (window.location.pathname === '/') {
     decorateHomeJobsStats();
   }, 4000);
 }
+
+
 
 async function decorateJobPost() {
   const jobLocation = getMetadata('location');
