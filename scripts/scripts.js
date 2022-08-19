@@ -544,7 +544,7 @@ loadPage(document);
 
 export async function lookupPages(pathnames) {
   if (!window.pageIndex) {
-    const resp = await fetch('/query-index.json');
+    const resp = await fetch('/query-index.json?sheet=jobs&sheet=stories&sheet=toolkit');
     const json = await resp.json();
     const lookup = {};
     const sheets = Object.keys(json).filter((e) => !e.startsWith(':'));

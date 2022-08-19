@@ -60,7 +60,9 @@ export default async function decorate(block) {
     pathnames.includes(e.path) &&
     /* 2) Make sure it’s not the root */
     e.path !== '/stories/' &&
-    /* 3) If not the root then check if it has the tag */
+    /* 3) Make sure it's not the tag path */
+    e.tag !== '' && 
+    /* 4) If not the root then check if it has the tag */
     e.path.includes((e.path !== '/stories/') ? `/${storiesTagPath}/` : '' )
   );
   /* eslint-enable */
