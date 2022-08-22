@@ -1,4 +1,5 @@
 .collaborators-no-images {
+  color: var(--color-base-dark-slate-secondary);
   background-color: var(--color-base-light-rose);
   grid-column: 1 / -1;
   padding: 5.25rem var(--page-inline-padding) 0;
@@ -16,7 +17,6 @@
 
 .cmp-collaborator-no-images h2,
 .cmp-collaborator-no-images h3 {
-  color: var(--color-base-dark-slate-secondary);
   font-family: var(--font-stack-sans);
   font-size: var(--font-size-300);
   line-height: 1.1;
@@ -33,11 +33,18 @@
 }
 
 .cmp-collaborator-no-images.cmp-collaborator-no-images--intro h2 {
-  color: var(--color-base-dark-slate-secondary);
   font-family: var(--font-stack-sans);
   font-size: var(--font-size-800);
   font-weight: var(--font-weight-black);
   line-height: 1.1;
+}
+
+.cmp-collaborator-no-images.cmp-collaborator-no-images--intro p {
+  font-family: var(--font-stack-serif);
+  font-size: var(--page-subtitle-font-size);
+  font-style: normal;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.3;
 }
 
 @media (min-width: 900px) {
@@ -72,6 +79,11 @@
   .cmp-collaborator-no-images h2,
   .cmp-collaborator-no-images h3 {
     font-size: var(--font-size-400);
+  }
+  
+  .cmp-collaborator-no-images.cmp-collaborator-no-images--intro h2 {
+    font-size: var(--font-size-900);
+    margin-bottom: 2rem;
   }
 
   .cmp-collaborator-no-images.cmp-collaborator--intro-no-images h2 {

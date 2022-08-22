@@ -44,6 +44,7 @@
 
 .cmp-vertical-card__body {
   padding: 2.25rem 2.5rem;
+  color: var(--text-color);
 }
 
 .cmp-vertical-card__title {

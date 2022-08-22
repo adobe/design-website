@@ -6,10 +6,14 @@ import colormap from '../../scripts/colormap.js';
 function createCard(row) {
   const card = document.createElement('article');
   card.classList.add('cmp-vertical-card');
+  
+  console.log(row);
 
   const cardDescription = `${row.description ? `<p class="cmp-vertical-card__description">${row.description}</p>` : ''}`;
   const url = row.path;
   const cardTitle = `<a href="${url}">${row.title}</a>`;
+  const cardAuthor = `${row.author ? `<p class="cmp-vertical-card__author">by ${row.author}</p>` : ''}`;
+  const cardAuthorTitle = `${row.authorTitle ? `<p class="cmp-vertical-card__author-title">${row.authorTitle}</p>` : ''}`;
   const cardBGColor = row.color !== '' ? row.color : '#fff';
   const textColor = colormap[cardBGColor];
 
@@ -27,6 +31,11 @@ function createCard(row) {
     <div class="cmp-vertical-card__body">
       <h2 class="cmp-vertical-card__title">${cardTitle}</h2>
       ${cardDescription}
+      
+      <div class="cmp-vertical-card__attribution">
+        ${cardAuthor}
+        ${cardAuthorTitle}
+      </div>
     </div>
   `;
 

@@ -5,6 +5,8 @@
   margin: 12px 0;
 }
 
+
+
 @supports not selector(:has(div)) {
   .two-up-content > div > .has-picture {
     display: flex;
@@ -12,10 +14,6 @@
   
   .two-up-content > div > div:not(.has-picture):only-child {
     padding: 0;
-  }
-  
-  .two-up-content > div > div:not(.has-picture) {
-    padding: var(--page-inline-padding) 0;
   }
 }
 
@@ -26,10 +24,6 @@
 
   .two-up-content > div > div:has(picture:only-child) {
     display: flex;
-  }
-
-  .two-up-content > div > div:not(:has(picture:only-child)) {
-    padding: var(--page-inline-padding) 0;
   }
 }
 
@@ -43,9 +37,15 @@
 .two-up-content h2 {
   color: var(--color-base-dark-slate-secondary);
   font-family: var(--font-stack-sans);
-  font-size: var(--font-size-300);
+  font-size: clamp(var(--font-size-800), 4vw, var(--font-size-1000));
   font-weight: var(--font-weight-black);
   margin-bottom: 1.25rem;
+}
+
+@supports selector(:has(div)) {
+  .two-up-content h2:not(:has(+ *)) {
+    margin-bottom: 0;
+  }
 }
 
 .two-up-content h3 {
@@ -57,6 +57,11 @@
   margin-bottom: 0.5rem;
 }
 
+.two-up-content p {
+  font-family: var(--font-stack-serif);
+  font-size: var(--font-size-400);
+}
+
 .two-up-content p + h2 {
   margin-top: 2.5625rem;
 }
@@ -65,8 +70,6 @@
   margin-top: 1.625rem;
 }
 
-
-.two-up-content p,
 .two-up-content ul,
 .two-up-content ol {
   --body-copy-font-size: var(--font-size-100);
@@ -88,7 +91,7 @@
     grid-column: 2 / -2;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 0.75rem 2.25rem;
   }
   
   .two-up-content > div:not(:first-child) + div {
@@ -99,24 +102,12 @@
     .two-up-content > div > .has-picture {
       margin-bottom: unset;
     }
-
-    .two-up-content > div > div:not(.has-picture) {
-      padding: var(--page-inline-padding);
-    }
   }
 
   @supports selector(:has(div)) {
     .two-up-content > div > div:has(picture:only-child) {
       margin-bottom: unset;
     }
-
-    .two-up-content > div > div:not(:has(picture:only-child)) {
-      padding: var(--page-inline-padding);
-    }
-  }
-  
-  .two-up-content h2 {
-    font-size: var(--font-size-800);
   }
 
   .two-up-content h3 {
