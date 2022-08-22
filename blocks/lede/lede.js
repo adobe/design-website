@@ -101,7 +101,7 @@ export default async function decorate(block) {
     authorDetailsBlock.classList.add('cmp-author-details');
     authorDetailsBlock.innerHTML = html;
 
-    const bioParagraphs = [...authorDetailsBlock.querySelectorAll('div > p')].filter((graph) => graph.firstChild.tagName !== 'PICTURE');
+    const bioParagraphs = [...authorDetailsBlock.querySelectorAll('div > p')].filter((graph) => !graph.querySelector('picture'));
 
     const authorDetailsTitle = (authorDetailsBlock.querySelector('h2') !== null)
       ? `<p class="cmp-author-details__title">${authorDetailsBlock.querySelector('h2').textContent}</p>` : '';
