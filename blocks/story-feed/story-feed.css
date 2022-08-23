@@ -114,6 +114,10 @@
   margin-top: 12px;
 }
 
+.cmp-stories-card__author + .cmp-stories-card__author {
+  margin-top: 12px;
+}
+
 @media (min-width: 900px) {
   .cmp-page__title-wrap,
   .cmp-stories__inner-wrap .story-feed {

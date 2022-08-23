@@ -1,5 +1,6 @@
 import { createOptimizedPicture, lookupPages, readBlockConfig } from '../../scripts/scripts.js';
 import formatCardByline from '../../scripts/format-card-byline.js';
+import getAuthorTitles from '../../scripts/get-author-titles.js';
 import tagLink from '../../scripts/tag-link.js';
 
 function createCard(row) {
@@ -66,11 +67,12 @@ export default async function decorate(block) {
   );
   /* eslint-enable */
   remaining.sort((a, b) => b.date - a.date);
+  remaining.length = Math.min(+config.limit - stories.length, remaining.length);
 
-  for (let i = 0; i < Math.min(+config.limit - stories.length, remaining.length); i += 1) {
-    const row = remaining[i];
+  remaining.forEach(async (row) => {
+    row.authorTitle = await getAuthorTitles(row);
     block.append(createCard(row));
-  }
+  });
 
   const pageTitle = document.querySelector('h1');
   pageTitle.classList.add('page-title');

@@ -3,6 +3,7 @@ import {
 } from '../../scripts/scripts.js';
 import colormap from '../../scripts/colormap.js';
 import formatCardByline from '../../scripts/format-card-byline.js';
+import getAuthorTitles from '../../scripts/get-author-titles.js';
 import tagLink from '../../scripts/tag-link.js';
 
 function createCard(row) {
@@ -48,7 +49,8 @@ export default async function decorate(block) {
   const pathnames = [...block.querySelectorAll('a')].map((a) => new URL(a.href).pathname);
   block.textContent = '';
   const stories = await lookupPages(pathnames);
-  stories.forEach((row) => {
+  stories.forEach(async (row) => {
+    row.authorTitle = await getAuthorTitles(row);
     block.append(createCard(row));
   });
 }
