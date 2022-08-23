@@ -18,12 +18,12 @@
 }
 
 @supports selector(:has(div)) {
-  .two-up-content > div > div:not(:has(picture:only-child)):only-child {
-    padding: 0;
-  }
-
   .two-up-content > div > div:has(picture:only-child) {
     display: flex;
+  }
+
+  .two-up-content > div > div:not(:has(picture:only-child)):only-child {
+    padding: 0;
   }
 }
 

@@ -19,7 +19,7 @@ main > div > div > *:not(div) {
   grid-column: col-start 1 / span 6;
 }
 
-.page-header > div:last-child {
+.page-header > div:last-child:not(:only-child) {
   background: linear-gradient(180deg, var(--header-color) 20rem, var(--color-base-white) 20rem);
   padding-bottom: 3rem;
 }

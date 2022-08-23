@@ -6,8 +6,6 @@ import colormap from '../../scripts/colormap.js';
 function createCard(row) {
   const card = document.createElement('article');
   card.classList.add('cmp-vertical-card');
-  
-  console.log(row);
 
   const cardDescription = `${row.description ? `<p class="cmp-vertical-card__description">${row.description}</p>` : ''}`;
   const url = row.path;
@@ -47,11 +45,11 @@ function createCard(row) {
 
 export default async function decorate(block) {
   const pathnames = [...block.querySelectorAll('a')].map((a) => new URL(a.href).pathname);
-  [...block.querySelectorAll('div')].forEach(container => {
+  [...block.querySelectorAll('div')].forEach((container) => {
     if (container.querySelectorAll('a').length) {
       container.remove();
     }
-  })
+  });
 
   const cards = await lookupPages(pathnames);
 
