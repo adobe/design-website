@@ -817,16 +817,6 @@ async function decorateJobPost() {
     aboutADContainer.innerHTML = aboutADHtml;
     jobPostInnerWrap.parentNode.append(aboutADContainer);
   }
-
-  const EOEResp = await fetch('/jobs/equal-opportunity-policy-stmnt.plain.html');
-  const EOEHtml = await EOEResp.text();
-
-  if (EOEHtml !== '') {
-    const EOEContainer = document.createElement('div');
-    EOEContainer.classList.add('cmp-eoe-container');
-    EOEContainer.innerHTML = EOEHtml;
-    jobPostInnerWrap.parentNode.append(EOEContainer);
-  }
 }
 
 if (getMetadata('theme') === 'job-post') {
