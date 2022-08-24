@@ -124,6 +124,12 @@ body.appear {
   opacity: 1;
 }
 
+/*  No gradient on homepage */
+body.home {
+  background-image: none;
+  background-size: unset;
+}
+
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
@@ -217,6 +223,11 @@ b {
   height: 3000px;
   width: 100%;
   z-index: 98;
+}
+
+/* No gradient on homepage */
+.home .blended-background {
+  display: none;
 }
 
 header {
