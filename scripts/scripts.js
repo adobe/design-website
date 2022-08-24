@@ -420,18 +420,6 @@ export function normalizeHeadings($elem, allowedHeadings) {
 }
 
 /**
- * Decorates the picture elements.
- * @param {Element} main The container element
- */
-function decoratePictures(main) {
-  main.querySelectorAll('img[src*="/media_"').forEach((img, i) => {
-    const newPicture = createOptimizedPicture(img.src, img.alt, !i);
-    const picture = img.closest('picture');
-    if (picture) picture.parentElement.replaceChild(newPicture, picture);
-  });
-}
-
-/**
  * Adds the favicon.
  * @param {string} href The favicon URL
  */
@@ -502,7 +490,7 @@ function initHlx() {
  * Replace icons with inline SVG and prefix with codeBasePath.
  * @param {Element} element
  */
- export function decorateIcons(element = document) {
+export function decorateIcons(element = document) {
   element.querySelectorAll('span.icon').forEach(async (span) => {
     if (span.classList.length < 2 || !span.classList[1].startsWith('icon-')) {
       return;
@@ -680,7 +668,6 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   addFavIcon(`${window.hlx.codeBasePath}/icon.svg`);
-
 }
 
 /**
