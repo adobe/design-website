@@ -621,7 +621,6 @@ body.job-posts {
   }
 }
 
-
 /* 404 Jobs Messaging */
 @keyframes cmp-jobs-message {
   0% {
@@ -641,8 +640,8 @@ body.job-posts {
   position: absolute;
   width: 100vw;
   left: calc(50% - 50vw);
-  top: 0;
-  bottom: 0;
+  top: -5rem;
+  bottom: -5rem;
   color: var(--dark-text-color);
   background-color: var(--color-base-white);
   font-size: var(--font-size-300);
@@ -655,18 +654,25 @@ body.job-posts {
 }
 
 .cmp-jobs-message__wrapper {
-  margin: 0 auto;
-  width: var(--content-width);
+  display: flex;
+  flex-direction: column;
+  width: calc(var(--content-width) - 10%);
   max-width: var(--layout-max-width-desktop);
   height: 100%;
-  display: flex;
-  align-items: center;
+  margin: 0 auto;
   opacity: 0;
   animation: cmp-jobs-message 500ms 500ms ease-in forwards;
 }
 
 .jobs.active .cmp-jobs-message__wrapper {
   animation-delay: 150ms;
+}
+
+.cmp-jobs-message__layout {
+  flex: 0 1 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .cmp-jobs-message__title {
@@ -680,6 +686,7 @@ body.job-posts {
 }
 
 .cmp-jobs-message__button {
+  align-self: flex-start;
   padding: 0.5em 1.5em;
   border-radius: 1.5em;
   border: 2px solid var(--dark-text-color);
@@ -696,28 +703,44 @@ body.job-posts {
 }
 
 @media (min-width: 900px) {
+  .cmp-jobs-message {
+    top: 0;
+    bottom: 0;
+  }
+
   .cmp-jobs-message__wrapper {
+    flex-direction: unset;
     display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr);
+    align-items: center;
     column-gap: 12px;
-    height: 75%;
+    height: 60%;
   }
 
   .cmp-jobs-message__layout {
-    grid-column: 2 / span 8;
+    flex: unset;
+    flex-direction: unset;
+    justify-content: unset;
+    display: unset;
+    max-width: unset;
+    grid-column: 3 / span 8;
   }
 
   .cmp-jobs-message__title {
     --opportunities-title-font-size: var(--font-size-1050);
   }
+
+  .cmp-jobs-message__button {
+    align-self: unset;
+  }
 }
 
 @media (min-width: 1300px) {
-  .cmp-jobs-message__layout {
-    grid-column: 2 / span 9;
-  }
-
   .cmp-jobs-message__title {
     --opportunities-title-font-size: var(--font-size-1090);
   }
+}
+
+.util-prevent-breaks {
+  white-space: nowrap;
 }

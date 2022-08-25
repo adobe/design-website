@@ -794,14 +794,20 @@ async function jobNotFound() {
   document.body.classList.add('active-message');
   const main = document.querySelector('main > *:first-child');
   const message = document.createElement('div');
-  const messageText = getMetadata('job-404-message');
+  const fullMessageText = getMetadata('job-404-message');
+  const messageText = fullMessageText.split(' ').slice(0, -2).join(' ');
+  const nonBreakingMessageText = `
+    <span class="util-prevent-breaks">
+      ${fullMessageText.split(' ').slice(-2).join(' ')}
+    </span>
+  `;
   const messageButtonText = getMetadata('job-404-button-text');
   message.className = 'cmp-jobs-message';
   message.innerHTML = `
     <div class="cmp-jobs-message__wrapper">
       <div class="cmp-jobs-message__layout">
         <h2 class="cmp-jobs-message__title">
-          ${messageText}
+          ${messageText}${nonBreakingMessageText}
         </h2>
         <a href="#opportunities" class="cmp-jobs-message__button">
           ${messageButtonText}
