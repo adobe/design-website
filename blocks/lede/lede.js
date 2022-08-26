@@ -65,30 +65,40 @@ export default async function decorate(block) {
   // use the author data for two separate features:
   // 1. the "attribution" shown at the top of each story
   // 2. the "author details" block shown below each story
+  const authorData = articleAuthorData.split(', ');
+
+  const respArray = await Promise.all(authorData.map(async (data) => {
+    const resp = await fetch(`/authors/${(toClassName(data))}.plain.html`);
+    return resp;
+  }));
+  const htmlArray = await Promise.all(respArray.map(async (resp) => resp.text()));
+
   const resp = await fetch(`/authors/${(toClassName(articleAuthorData))}.plain.html`);
   const html = await resp.text();
 
   // create & decorate "attribution" piece first
   const articleAttributionContainer = document.createElement('div');
   articleAttributionContainer.classList.add('cmp-lede__attribution');
-  articleAttributionContainer.innerHTML = html;
 
-  const authorTextContent = articleAttributionContainer.querySelector('h1').textContent;
+  htmlArray.forEach((author) => {
+    const authorContainer = document.createElement('div');
+    authorContainer.innerHTML = author;
 
-  const authorName = (authorTextContent !== null && authorTextContent !== '')
-    ? `<p class="cmp-lede__author">${articleAttributionContainer.querySelector('h1').textContent}</p>` : '';
+    const authorTextContent = authorContainer.querySelector('h1').textContent;
 
-  const authorTitle = (articleAttributionContainer.querySelector('h2') !== null)
-    ? `<p class="cmp-lede__author-title">${articleAttributionContainer.querySelector('h2').textContent}</p>` : '';
+    const authorName = (authorTextContent !== null && authorTextContent !== '')
+      ? `<p class="cmp-lede__author">${authorContainer.querySelector('h1').textContent}</p>` : '';
 
-  const authorPhoto = (articleAttributionContainer.querySelector('picture') !== null)
-    ? articleAttributionContainer.querySelector('picture').outerHTML : '';
+    const authorTitle = (authorContainer.querySelector('h2') !== null)
+      ? `<p class="cmp-lede__author-title">${authorContainer.querySelector('h2').textContent}</p>` : '';
 
-  articleAttributionContainer.innerHTML = `
-    ${authorName}
-    ${authorTitle}
-    ${authorPhoto}
-  `;
+    articleAttributionContainer.innerHTML += `
+    <div>
+      ${authorName}
+      ${authorTitle}
+    </div>
+    `;
+  });
 
   // only create & decorate "author details" block if the author IS NOT 'adobe design'
   const authorDetailsName = getMetadata('author');
@@ -119,7 +129,7 @@ export default async function decorate(block) {
     authorDetailsBlock.innerHTML = `
       <div class="cmp-author-details__meta">
         ${authorDetailsPhoto}
-        <p class="cmp-author-details__name">${authorTextContent}</p>
+        <p class="cmp-author-details__name">${articleAttributionContainer}</p>
         ${authorDetailsTitle}
       </div>
       <div class="cmp-author-details__bio"></div>
