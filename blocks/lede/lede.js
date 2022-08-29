@@ -73,9 +73,6 @@ export default async function decorate(block) {
   }));
   const htmlArray = await Promise.all(respArray.map(async (resp) => resp.text()));
 
-  const resp = await fetch(`/authors/${(toClassName(articleAuthorData))}.plain.html`);
-  const html = await resp.text();
-
   // create & decorate "attribution" piece first
   const articleAttributionContainer = document.createElement('div');
   articleAttributionContainer.classList.add('cmp-lede__attribution');
@@ -107,37 +104,45 @@ export default async function decorate(block) {
     && authorDetailsName.toLowerCase() !== 'adobe design team'
     && authorDetailsName.toLowerCase() !== 'adobe design'
   ) {
-    const authorDetailsBlock = document.createElement('div');
-    authorDetailsBlock.classList.add('cmp-author-details');
-    authorDetailsBlock.innerHTML = html;
-
-    const bioParagraphs = [...authorDetailsBlock.querySelectorAll('div > p')].filter((graph) => !graph.querySelector('picture'));
-
-    const authorDetailsTitle = (authorDetailsBlock.querySelector('h2') !== null)
-      ? `<p class="cmp-author-details__title">${authorDetailsBlock.querySelector('h2').textContent}</p>` : '';
-
-    const authorDetailsPhoto = (authorDetailsBlock.querySelector('picture') !== null)
-      ? authorDetailsBlock.querySelector('picture').outerHTML : '';
-
+    const articleDetailsBlock = document.createElement('div');
+    articleDetailsBlock.classList.add('cmp-author-details');
     const publishedDate = document.createElement('p');
     publishedDate.classList.add('cmp-author-details__pub-date');
     publishedDate.innerHTML = getMetadata('publication-date');
 
-    // need to use authorTextContent below because
-    // getMetadata('author') returns a sanitized string
-    // and some authors have special characters in their names
-    authorDetailsBlock.innerHTML = `
-      <div class="cmp-author-details__meta">
-        ${authorDetailsPhoto}
-        <p class="cmp-author-details__name">${articleAttributionContainer}</p>
-        ${authorDetailsTitle}
-      </div>
-      <div class="cmp-author-details__bio"></div>
-    `;
-    const bioContainer = authorDetailsBlock.querySelector('.cmp-author-details__bio');
-    bioParagraphs.forEach((paragraph) => bioContainer.append(paragraph));
-    bioContainer.append(publishedDate);
-    articleBackground.append(authorDetailsBlock);
+    htmlArray.forEach((author) => {
+      const authorContainer = document.createElement('div');
+      authorContainer.classList.add('cmp-author-details__author');
+      authorContainer.innerHTML = author;
+      const authorTextContent = authorContainer.querySelector('h1').textContent;
+      const bioParagraphs = [...authorContainer.querySelectorAll('div > p')].filter((graph) => !graph.querySelector('picture'));
+
+      const authorName = (authorTextContent !== null && authorTextContent !== '')
+        ? `<p class="cmp-author-details__name">${authorContainer.querySelector('h1').textContent}</p>` : '';
+
+      const authorDetailsTitle = (authorContainer.querySelector('h2') !== null)
+        ? `<p class="cmp-author-details__title">${authorContainer.querySelector('h2').textContent}</p>` : '';
+
+      const authorDetailsPhoto = (authorContainer.querySelector('picture') !== null)
+        ? authorContainer.querySelector('picture').outerHTML : '';
+
+      authorContainer.innerHTML = `
+        <div class="cmp-author-details__meta">
+          ${authorDetailsPhoto}
+          ${authorName}
+          ${authorDetailsTitle.replace(',', ',<br>')}
+        </div>
+        <div class="cmp-author-details__bio"></div>
+      `;
+
+      const bioContainer = authorContainer.querySelector('.cmp-author-details__bio');
+      bioParagraphs.forEach((paragraph) => bioContainer.append(paragraph));
+
+      articleDetailsBlock.append(authorContainer);
+    });
+
+    articleDetailsBlock.append(publishedDate);
+    articleBackground.append(articleDetailsBlock);
   }
 
   // give unique DOM order to profile pages only!
