@@ -1,44 +1,22 @@
 export default async function decorate(block) {
-  const pullQuoteContainer = block;
+  const pullQuoteContainer = document.createElement('figure');
+  block.parentNode.insertBefore(pullQuoteContainer, block);
+  pullQuoteContainer.classList.add('cmp-pull-quote');
 
-  // assume that if the length > 1
-  // the quote has attribution
-  // otherwise, it's just a quote w/o attribution
-  if (pullQuoteContainer.childNodes.length > 1) {
-    const pullQuoteContentItems = pullQuoteContainer.querySelectorAll(':scope > div:first-of-type');
-    const pullQuoteAttributionItems = pullQuoteContainer.querySelectorAll(':scope > div:last-of-type');
+  const contentText = block.querySelector('div:nth-child(1)').textContent.trim();
+  const pullQuoteContent = document.createElement('blockquote');
+  pullQuoteContent.classList.add('cmp-pull-quote__content');
+  pullQuoteContent.textContent = contentText;
+  pullQuoteContainer.append(pullQuoteContent);
 
-    [...pullQuoteContentItems].forEach((pullQuote) => {
-      pullQuote.classList.add('cmp-pullquote__text');
-      const childGraphs = pullQuote.childNodes;
-      const paragraphEl = document.createElement('p');
-      [...childGraphs].forEach((child) => {
-        paragraphEl.innerHTML = child.textContent;
-        pullQuote.append(paragraphEl);
-        child.remove();
-      });
-    });
-
-    [...pullQuoteAttributionItems].forEach((attribution) => {
-      attribution.classList.add('cmp-pullquote__attribution');
-      const children = attribution.childNodes;
-      const paragraphEl = document.createElement('p');
-      [...children].forEach((child) => {
-        paragraphEl.innerHTML = child.textContent;
-        attribution.append(paragraphEl);
-        child.remove();
-      });
-    });
-  } else {
-    const pullQuoteTextContainer = pullQuoteContainer.firstChild;
-    pullQuoteTextContainer.classList.add('cmp-pullquote__text');
-
-    const children = pullQuoteTextContainer.childNodes;
-    const paragraphEl = document.createElement('p');
-    [...children].forEach((child) => {
-      paragraphEl.innerHTML = child.textContent;
-      pullQuoteTextContainer.append(paragraphEl);
-      child.remove();
-    });
+  // Quote attribution optional
+  if (block.querySelector('div:nth-child(2)')) {
+    const attributionText = block.querySelector('div:nth-child(2)').textContent.trim();
+    const pullQuoteAttribution = document.createElement('figcaption');
+    pullQuoteAttribution.classList.add('cmp-pull-quote__attribution');
+    pullQuoteAttribution.textContent = attributionText;
+    pullQuoteContainer.append(pullQuoteAttribution);
   }
+
+  block.remove();
 }
