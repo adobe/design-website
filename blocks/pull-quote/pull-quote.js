@@ -14,7 +14,7 @@ export default async function decorate(block) {
     const attributionText = block.querySelector('div:nth-child(2)').textContent.trim();
     const pullQuoteAttribution = document.createElement('p');
     pullQuoteAttribution.classList.add('cmp-pull-quote__attribution');
-    pullQuoteAttribution.textContent = attributionText;
+    pullQuoteAttribution.innerHTML = `&mdash; ${attributionText}`;
     pullQuoteContainer.append(pullQuoteAttribution);
   }
 
