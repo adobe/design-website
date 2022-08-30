@@ -46,6 +46,20 @@
   .two-up-content h2:not(:has(+ *)) {
     margin-bottom: 0;
   }
+
+  /* This selector is complex so, here is the explanation:
+   * We want to pull up the picture to be aligned with the bottom
+   * side of the block heading, when the heading is on the right side.
+   * To detect this, we want to scope to the `.two-up-content` block
+   * then, if the first `div` child has a child structure that starts
+   * with an empty `div` element followed by another `div`, then there
+   * is space above the image to pull it up `-1rem`. So then we want to target
+   * the `picture` element that is an only child.
+   */
+  .two-up-content > div:first-child:has(div:empty + div) + div > div picture:only-child {
+    transform: translateY(-1rem);
+    height: calc(100% + 1rem);
+  }
 }
 
 .two-up-content h3 {

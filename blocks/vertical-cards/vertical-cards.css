@@ -11,9 +11,7 @@
 }
 
 .vertical-cards div > h2 {
-  --secondary-headline-font-size: var(--font-size-600);
-
-  font-size: var(--secondary-headline-font-size);
+  font-size: clamp(var(--font-size-800), 4vw, var(--font-size-1000));
   font-weight: var(--font-weight-black);
   line-height: 1.2;
   margin: 1em 0;
@@ -93,11 +91,7 @@
     padding: 12px;
     grid-template-columns: repeat(12, [col-start] 1fr);
   }
-  
-  .vertical-cards div > h2 {
-    --secondary-headline-font-size: var(--font-size-600);
-  }
-  
+
   .vertical-cards > div {
     grid-column: 2 / -2;
   }
@@ -114,10 +108,6 @@
 @media (min-width: 1300px) {
   .vertical-cards {
     grid-template-columns: repeat(16, [col-start] 1fr);
-  }
-  
-  .vertical-cards div > h2 {
-    --secondary-headline-font-size: var(--font-size-1000);
   }
   
   .cmp-vertical-card:nth-of-type(odd) {

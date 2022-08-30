@@ -7,10 +7,7 @@
 }
 
 .prefooter h2 {
-  --secondary-headline-font-size: var(--font-size-600);
-
-  font-size: var(--secondary-headline-font-size);
-  font-weight: var(--font-weight-black);
+  font-size: clamp(var(--font-size-800), 4vw, var(--font-size-1000));  font-weight: var(--font-weight-black);
   line-height: 1.2;
   margin: 1em 0;
 }
@@ -68,10 +65,6 @@
   .prefooter > div {
     grid-column: 2 / -2;
   }
-
-  .prefooter h2 {
-    --secondary-headline-font-size: var(--font-size-600);
-  }
 }
 
 
@@ -79,9 +72,5 @@
   .prefooter {
     grid-template-columns: repeat(16, [col-start] 1fr);
     padding: 3rem 0 6rem;
-  }
-
-  .prefooter h2 {
-    --secondary-headline-font-size: var(--font-size-1000);
   }
 }
