@@ -1,38 +1,39 @@
 .cmp-pull-quote {
-  margin: 1.5rem 0 3rem;
+  margin: 3rem 0;
 }
 
-.cmp-pull-quote p {
-  color: var(--color-base-brown);
+.image-with-caption + .cmp-pull-quote {
+  margin: 0 0 3rem;
+}
+
+.cmp-pull-quote blockquote,
+.cmp-pull-quote figcaption {
+  color: var(--pq-text-color);
+  font-family: var(--font-stack-serif);
 }
 
 .cmp-pull-quote .cmp-pull-quote__content {
   --pq-font-size: var(--font-size-400);
 
-  font-family: var(--font-stack-serif);
+  margin: 0;
   font-size: var(--pq-font-size);
   line-height: 1.3;
-  margin-bottom: 1rem;
 }
 
 .cmp-pull-quote .cmp-pull-quote__attribution {
   --pq-attribution-font-size: var(--font-size-100);
 
   font-size: var(--pq-attribution-font-size);
-  font-family: var(--font-stack-sans);
-  font-style: italic;
-  margin-bottom: 0;
+  margin: 1.25rem 0 0;
 } 
 
 @media (min-width: 900px) {
   .cmp-pull-quote {
-    margin: 2.875rem 0 4.375rem;
+    margin: 4.375rem 0;
   }
 
   .cmp-pull-quote .cmp-pull-quote__content {
     --pq-font-size: var(--font-size-800);
-
-    margin-bottom: 1rem;
   }
 
   .cmp-pull-quote .cmp-pull-quote__attribution {

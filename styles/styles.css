@@ -46,6 +46,7 @@
   --color-base-light-rose: #FAE7E3;
   --dark-text-color: var(--color-base-dark-slate);
   --light-text-color: var(--color-base-white);
+  --pq-text-color: #EF6E43;
   --font-size-100: 1rem; /* 16px */
   --font-size-200: 1.0625rem; /* 17px */
   --font-size-300: 1.125rem; /* 18px */
