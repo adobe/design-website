@@ -28,7 +28,7 @@ main > div > div > *:not(div) {
   width: 100%;
 }
 
-.design-circle-scholars .page-header > div:last-child {
+.design-circle .page-header > div:only-child {
   background: transparent;
   padding-bottom: 0;
 }
@@ -42,7 +42,7 @@ main > div > div > *:not(div) {
   margin-bottom: 2rem;
 }
 
-.design-circle-scholars .page-header h1 {
+.design-circle .page-header #design-circle-scholars {
   margin: var(--page-title-top-space) 0;
 }
 
@@ -73,8 +73,12 @@ main > div > div > *:not(div) {
     margin: var(--page-title-top-space) 0;
   }
 
-  .design-circle-scholars .page-header h1 {
-    margin: 0 0 var(--page-title-top-space);
+  .design-circle .page-header > div:first-child > div {
+    margin-bottom: calc(var(--page-title-top-space) - 1.5rem);
+  }
+
+  .design-circle .page-header #design-circle-scholars {
+    margin: 0 0 2rem;
   }
 
   .page-header p {
