@@ -792,7 +792,7 @@ if (getMetadata('theme') === 'job-post') {
 
 async function jobNotFound() {
   document.body.classList.add('active-message');
-  const main = document.querySelector('main > *:first-child');
+  const container = document.querySelector('.cmp-jobs-list__intro');
   const message = document.createElement('div');
   const fullMessageText = getMetadata('job-404-message');
   const messageText = fullMessageText.split(' ').slice(0, -2).join(' ');
@@ -815,11 +815,13 @@ async function jobNotFound() {
       </div>
     </div>
   `;
-  main.parentNode.insertBefore(message, main);
+  container.prepend(message);
 }
 
 if (window.location.pathname.includes('/jobs/') && window.location.search === '?job=404') {
-  jobNotFound();
+  setTimeout(() => {
+    jobNotFound();
+  }, 325);
 }
 
 export function setTargetOnExternalLinks() {

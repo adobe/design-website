@@ -632,6 +632,17 @@ body.job-posts {
   }
 }
 
+/* stylelint-disable-next-line at-rule-no-vendor-prefix */
+@-webkit-keyframes cmp-jobs-message {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .jobs.active-message header {
   background-color: var(--color-base-white);
 }

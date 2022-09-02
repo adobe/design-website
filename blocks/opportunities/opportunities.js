@@ -87,18 +87,20 @@ export default async function decorate(block) {
     }
   });
 
-  if (document.body.classList.contains('active-message')) {
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-              document.body.classList.remove('active-message');
-            }
-          });
-        },
-      );
-      observer.observe(introContainer);
+  setTimeout(() => {
+    if (document.body.classList.contains('active-message')) {
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) {
+                document.body.classList.remove('active-message');
+              }
+            });
+          },
+        );
+        observer.observe(introContainer);
+      }
     }
-  }
+  }, 375);
 }
