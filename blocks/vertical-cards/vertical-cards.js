@@ -2,6 +2,7 @@ import {
   createOptimizedPicture, lookupPages,
 } from '../../scripts/scripts.js';
 import colormap from '../../scripts/colormap.js';
+import tagLink from '../../scripts/tag-link.js';
 
 function createCard(row) {
   const card = document.createElement('article');
@@ -9,6 +10,7 @@ function createCard(row) {
 
   const cardDescription = `${row.description ? `<p class="cmp-vertical-card__description">${row.description}</p>` : ''}`;
   const url = row.path;
+  const cardTag = row.tag !== '' ? `${row.tag}` : '';
   const cardTitle = `<a href="${url}">${row.title}</a>`;
   const cardAuthor = `${row.author ? `<p class="cmp-vertical-card__author">by ${row.author}</p>` : ''}`;
   const cardAuthorTitle = `${row.authorTitle ? `<p class="cmp-vertical-card__author-title">${row.authorTitle}</p>` : ''}`;
@@ -27,6 +29,8 @@ function createCard(row) {
 
   card.innerHTML = `
     <div class="cmp-vertical-card__body">
+      <a href="${tagLink(row.path)}" class="cmp-vertical-card__tag">${cardTag}</a>
+
       <h2 class="cmp-vertical-card__title">${cardTitle}</h2>
       ${cardDescription}
       

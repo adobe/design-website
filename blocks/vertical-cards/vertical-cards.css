@@ -45,6 +45,31 @@
   color: var(--text-color);
 }
 
+.cmp-vertical-card__tag {
+  display: inline-block;
+  font-size: var(--font-size-100);
+  padding-bottom: 5px;
+  position: relative;
+  text-transform: uppercase;
+  width: auto;
+  color: inherit;
+}
+
+.cmp-vertical-card__tag:hover {
+  text-decoration: none;
+}
+
+.cmp-vertical-card__tag::after {
+  background-color: var(--text-color);
+  border-radius: 10px;
+  bottom: 0;
+  content: '';
+  left: 0;
+  height: 4px;
+  position: absolute;
+  width: 100%;
+}
+
 .cmp-vertical-card__title {
   color: var(--text-color);
   font-size: min(max(var(--font-size-800), 4vw), var(--font-size-1075));
