@@ -65,12 +65,17 @@ export default async function decorate(block) {
     /* 4) If not the root then check if it has the tag */
     e.path.includes((e.path !== '/stories/') ? `/${storiesTagPath}/` : '' )
   );
+
   /* eslint-enable */
   remaining.sort((a, b) => b.date - a.date);
   remaining.length = Math.min(+config.limit - stories.length, remaining.length);
 
-  remaining.forEach(async (row) => {
+  const remainingWithTitles = await Promise.all(remaining.map(async (row) => {
     row.authorTitle = await getAuthorTitles(row);
+    return row;
+  }));
+
+  remainingWithTitles.forEach((row) => {
     block.append(createCard(row));
   });
 

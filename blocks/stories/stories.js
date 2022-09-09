@@ -49,8 +49,13 @@ export default async function decorate(block) {
   const pathnames = [...block.querySelectorAll('a')].map((a) => new URL(a.href).pathname);
   block.textContent = '';
   const stories = await lookupPages(pathnames);
-  stories.forEach(async (row) => {
+
+  const storiesWithTitles = await Promise.all(stories.map(async (row) => {
     row.authorTitle = await getAuthorTitles(row);
+    return row;
+  }));
+
+  storiesWithTitles.forEach((row) => {
     block.append(createCard(row));
   });
 }
