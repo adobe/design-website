@@ -149,6 +149,129 @@ h1 {
   line-height: 1;
 }
 
+a {
+  text-decoration: none;
+}
+
+header, 
+header a {
+  color: var(--reactive-text-color);
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-bold);
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.header.block {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0 auto;
+  width: var(--content-width);
+  max-width: var(--layout-max-width-desktop);
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0 4rem;
+}
+
+.cmp-logo__image {
+  max-width: 136px;
+  width: 100%;
+}
+
+.cmp-logo__image,
+.cmp-tagline__image path {
+  fill: var(--reactive-text-color);
+}
+
+.cmp-tagline {
+  display: none;
+}
+
+.cmp-nav__trigger {
+  background: transparent;
+  border: none;
+  text-align: inherit;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -moz-appearance: none;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+
+.cmp-nav__icon--menu,
+.cmp-nav__icon--close {
+  display: block;
+  width: 31px;
+}
+
+.cmp-nav__icon--menu svg {
+  fill: var(--reactive-text-color);
+  width: 100%;
+}
+
+.cmp-nav__icon--close svg {
+  fill: var(--color-base-white);
+  width: 100%;
+}
+
+.cmp-nav__icon--menu[hidden],
+.cmp-nav__icon--close[hidden] {
+  display: none;
+}
+
+.cmp-nav__list[hidden] {
+  display: none;
+}
+
+.cmp-nav__list {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 5rem 0 0;
+  background-color: var(--color-base-lighter-black);
+  color: var(--color-base-white); /* mobile has a dark background and needs white text */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.cmp-nav__list-item {
+  line-height: 1;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.cmp-nav__list-item a {
+  --nav-link-font-size: var(--font-size-950);
+
+  color: var(--color-base-white); /* mobile has a dark background and needs white text */
+  font-size: var(--nav-link-font-size);
+  font-weight: var(--font-weight-black);
+}
+
+.cmp-nav__list-item a:hover,
+.cmp-nav__list-item a:focus {
+  text-decoration: underline;
+}
+
 .page-title {
   color: var(--reactive-text-color);
   font-size: var(--page-title-font-size);
@@ -181,20 +304,6 @@ h1,
 main .section-wrapper[data-section-status='loading'],
 main .section-wrapper[data-section-status='initialized'] {
   display: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover,
-a:focus {
-  text-decoration: underline;
-}
-
-strong,
-b {
-  font-weight: var(--font-weight-bold);
 }
 
 .sr-only:not(:focus):not(:active) {
@@ -232,6 +341,7 @@ b {
 
 header {
   position: relative;
+  min-height: 141px;;
   z-index: 200;
 }
 
@@ -417,6 +527,64 @@ body.job-posts {
 }
 
 @media (min-width: 900px) {
+  .header.block {
+    align-items: flex-start;
+  }
+
+  .cmp-logo {
+    flex: 1 1 15%;
+  }
+
+  .cmp-nav {
+    flex: 1 1 40%;
+  }
+
+  .cmp-tagline__image {
+    max-width: 280px;
+    width: 100%;
+  }
+
+  .cmp-nav__trigger {
+    display: none;
+  }
+
+  .cmp-nav__list {
+    background-color: transparent;
+    color: var(--reactive-text-color);
+    padding: 0;
+    flex-flow: row;
+    justify-content: flex-end;
+    position: relative;
+    height: auto;
+    width: 100%;   
+  }
+
+  .cmp-nav__list[hidden] {
+    display: flex !important;
+  }
+
+  .cmp-nav__list-item {
+    margin: 0 1.25rem;
+  }
+
+  .cmp-nav__list-item:last-of-type {
+    margin-right: 0;
+  }
+
+  .cmp-nav__list-item:first-of-type {
+    margin-left: 0;
+  }
+
+  .cmp-nav__list-item--home {
+    display: none;
+  }
+
+  .cmp-nav__list-item a {
+    --nav-link-font-size: var(--font-size-400);
+
+    color: var(--reactive-text-color);
+  }
+
   .cmp-jobs-stats-container__inner-wrap {
     background-color: var(--color-base-white);
     display: grid;
@@ -562,7 +730,37 @@ body.job-posts {
   }
 }
 
+@media (min-width: 1000px) {
+  .cmp-tagline {
+    margin-top: 2px;
+    display: block;
+    flex: 1 1 35%;
+  }
+}
+
 @media (min-width: 1300px) {
+  .header.block {
+    justify-content: flex-start;
+  }
+
+  .cmp-logo {
+    flex: 1 1 10%;
+  }
+
+  .cmp-tagline {
+    margin-top: 0;
+    display: block;
+    flex: 1 1 35%;
+  }
+
+  .cmp-nav__list-item {
+    margin: 0 1.5rem;
+  }
+
+  .cmp-tagline__image {
+    max-width: 385px;
+  }
+
   .cmp-jobs-stats-container__inner-wrap {
     grid-template-columns: repeat(16, [col-start] 1fr);
   }
