@@ -1,0 +1,99 @@
+.cmp-profiles {
+  --body-copy-font-size: var(--font-size-100);
+
+  font-size: var(--body-copy-font-size);
+}
+
+.cmp-profiles .cmp-profiles__header {
+  --body-copy-h3-font-size: var(--font-size-300);
+
+  font-size: var(--body-copy-h3-font-size);
+  font-weight: var(--font-weight-bold);
+}
+
+.cmp-profiles .cmp-profiles__quote {
+  margin-bottom: 3rem;
+}
+
+.cmp-profiles .cmp-profiles__quote p {
+  --body-copy-quotation-font-size: var(--font-size-200);
+
+  margin: 0;
+  font-family: var(--font-stack-serif);
+  font-size: var(--body-copy-quotation-font-size);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.4;
+}
+
+.cmp-profiles__row {
+  display: flex;
+  flex-direction: column;
+}
+
+.cmp-profiles__row .cmp-profiles__column p {
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.cmp-profiles__row .cmp-profiles__column figure {
+  margin-bottom: 0.75rem;
+}
+
+.cmp-profiles__row .cmp-profiles__column.cmp-profiles__column--copy {
+  order: 2;
+}
+
+.cmp-profiles__row .cmp-profiles__column.cmp-profiles__column--image {
+  order: 1;
+}
+
+@media (min-width: 600px) {
+  .cmp-profiles__row {
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .cmp-profiles__column--align-right {
+    text-align: right;
+  }
+
+  .cmp-profiles__row .cmp-profiles__column figure {
+    margin-bottom: unset;
+  }
+
+  .cmp-profiles__row .cmp-profiles__column.cmp-profiles__column--copy {
+    order: unset;
+    flex: 0 1 50%;
+  }
+
+  .cmp-profiles__row .cmp-profiles__column.cmp-profiles__column--image {
+    order: unset;
+    flex: 0 1 50%;
+  }
+}
+
+@media (min-width: 900px) {
+  .cmp-profiles {
+    --body-copy-font-size: var(--font-size-400);
+  }
+
+  .cmp-profiles .cmp-profiles__header {
+    --body-copy-h3-font-size: var(--font-size-600);
+  }
+  
+  .cmp-profiles .cmp-profiles__quote p {
+    --body-copy-quotation-font-size: var(--font-size-500);
+  }
+}
+
+@media (min-width: 1300px) {
+  .cmp-profiles__row .cmp-profiles__column.cmp-profiles__column--copy {
+    flex: 0 1 66%;
+  }
+
+  .cmp-profiles__row .cmp-profiles__column.cmp-profiles__column--image {
+    min-height: 100%;
+    flex: 1 0 34%;
+  }
+}
