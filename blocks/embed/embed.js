@@ -31,6 +31,19 @@ const EMBEDS_CONFIG = {
       </blockquote>
     `,
   },
+  simplecast: {
+    type: 'simplecast',
+    createEmbed: (url) => `
+      <iframe
+        height="200px"
+        width="100%"
+        frameborder="no"
+        scrolling="no"
+        seamless
+        src="${url}"
+      ></iframe>
+    `,
+  },
 };
 
 const setConfig = (embedCode) => {
@@ -39,6 +52,8 @@ const setConfig = (embedCode) => {
       return EMBEDS_CONFIG.instagram;
     case (embedCode.includes('twitter')):
       return EMBEDS_CONFIG.twitter;
+    case (embedCode.includes('simplecast')):
+      return EMBEDS_CONFIG.simplecast;
     default:
       return null;
   }
@@ -60,7 +75,9 @@ export default async function decorate(block) {
   block.remove();
 
   // Import script into head
-  const createScript = document.createElement('script');
-  createScript.setAttribute('src', config.url);
-  document.querySelector('head').append(createScript);
+  if (config.url) {
+    const createScript = document.createElement('script');
+    createScript.setAttribute('src', config.url);
+    document.querySelector('head').append(createScript);
+  }
 }
