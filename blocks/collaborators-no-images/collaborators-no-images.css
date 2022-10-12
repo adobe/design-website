@@ -34,7 +34,7 @@
 
 .cmp-collaborator-no-images.cmp-collaborator-no-images--intro h2 {
   font-family: var(--font-stack-sans);
-  font-size: var(--font-size-800);
+  font-size: clamp(var(--font-size-800), 4vw, var(--font-size-1000));
   font-weight: var(--font-weight-black);
   line-height: 1.1;
 }
@@ -82,12 +82,6 @@
   }
   
   .cmp-collaborator-no-images.cmp-collaborator-no-images--intro h2 {
-    font-size: var(--font-size-900);
-    margin-bottom: 2rem;
-  }
-
-  .cmp-collaborator-no-images.cmp-collaborator--intro-no-images h2 {
-    font-size: var(--font-size-900);
     margin-bottom: 2rem;
   }
 }
