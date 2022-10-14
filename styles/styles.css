@@ -281,6 +281,12 @@ body.menu-open {
   text-decoration: underline;
 }
 
+h1,
+.page-title {
+  font-family: var(--font-stack-sans);
+  font-weight: var(--font-weight-black);
+}
+
 .page-title,
 .page-header h1 {
   color: var(--reactive-text-color);
@@ -295,12 +301,6 @@ body.menu-open {
   font-family: var(--font-stack-serif);
   font-size: var(--new-intro-font-size);
   line-height: var(--subtitle-line-height);
-}
-
-h1,
-.page-title {
-  font-family: var(--font-stack-sans);
-  font-weight: var(--font-weight-black);
 }
 
 .page-subtitle {
@@ -379,6 +379,11 @@ footer {
   padding: 0;
 }
 
+.job-posts .cmp-about-ad-container a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 [id*="buttons"] + ul:not([class]) a {
   display: inline-flex;
   align-items: center;
@@ -398,19 +403,22 @@ footer {
     color 130ms ease-out;
 }
 
+.job-posts .cmp-about-ad-container a:hover {
+  text-decoration: none;
+}
+
 [id*="buttons"] + ul:not([class]) a:hover,
 [id*="buttons"] + ul:not([class]) a:focus {
-  background-color: var(--button-background, hsl(0, 0%, 88%));
+  background-color: var(--button-background, hsl(0deg 0% 88%));
   border-color: var(--button-border-color, currentColor);
-  color: var(--button-color, hsl(0, 0%, 17%));
+  color: var(--button-color, hsl(0deg 0 17%));
 }
 
 [id*="buttons"] + ul:not([class]) a:active {
-  background-color: var(--button-background, hsla(0, 0%, 88%, 0.7));
+  background-color: var(--button-background, hsla(0deg 0% 88% / 70%));
   border-color: var(--button-border-color, currentColor);
-  color: var(--button-color, hsl(0, 0%, 17%));
+  color: var(--button-color, hsl(0deg 0% 17%));
 }
-
 
 /* job post detail page background is completely white - remove the gradient */
 body.job-posts {
@@ -473,15 +481,6 @@ body.job-posts {
   font-weight: var(--font-weight-normal);
   line-height: 1.2;
   margin-bottom: 1rem;
-}
-
-.job-posts .cmp-about-ad-container a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-.job-posts .cmp-about-ad-container a:hover {
-  text-decoration: none;
 }
 
 .job-posts .cmp-about-ad-container p {
@@ -604,8 +603,6 @@ body.job-posts {
   .cmp-nav__trigger {
     display: none;
   }
-  padding: 0;
-}
 
   .cmp-nav__list {
     background-color: transparent;
