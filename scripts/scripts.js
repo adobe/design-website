@@ -533,11 +533,13 @@ loadPage(document);
 
 export async function lookupPages(pathnames) {
   if (!window.pageIndex) {
-    const file = (window.location.host === 'adobe.design')
-      ? '/query-index.json?sheet=jobs&sheet=stories&sheet=toolkit'
+    const file = window.location.host === (
+      'adobe.design'
+      || 'main--design-website--adobe.hlx.page'
+      || 'main--design-website--adobe.hlx.live'
+    ) ? '/query-index.json?sheet=jobs&sheet=stories&sheet=toolkit'
       : '/query-dev.json?sheet=jobs&sheet=stories&sheet=toolkit';
     const resp = await fetch(file);
-    // const resp = await fetch('/query-index.json?sheet=jobs&sheet=stories&sheet=toolkit');
     const json = await resp.json();
     const lookup = {};
     const sheets = Object.keys(json).filter((e) => !e.startsWith(':'));
