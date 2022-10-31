@@ -62,18 +62,23 @@ export default async function decorate(block) {
   // render them into the DOM
   Object.keys(groupedJobs).forEach((key) => {
     const departmentJobs = groupedJobs[key].jobs;
-    const jobGroup = document.createElement('div');
-    jobGroup.classList.add('cmp-jobs__group');
-    const transformedKey = key.split('-').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
-    const casedKey = transformedKey.replace('And', 'and');
-    const listMarkup = departmentJobs.length > 0 ? '<ul class="cmp-jobs__list"></ul>' : '<p class="cmp-jobs__none">There are no openings right now.</p>';
-    jobGroup.innerHTML = `
-      <h4 id="${key}" class="cmp-jobs__group-title">${casedKey}</h4>
-      ${listMarkup}
-    `;
-    jobsContainer.append(jobGroup);
 
     if (departmentJobs.length > 0) {
+      const jobGroup = document.createElement('div');
+      jobGroup.classList.add('cmp-jobs__group');
+      const casedKey = key.split('-')
+        .map((s) => {
+          if (s !== 'and') return (s.charAt(0).toUpperCase() + s.substring(1));
+          return s;
+        })
+        .join(' ');
+      const listMarkup = '<ul class="cmp-jobs__list"></ul>';
+      jobGroup.innerHTML = `
+        <h4 id="${key}" class="cmp-jobs__group-title">${casedKey}</h4>
+        ${listMarkup}
+      `;
+      jobsContainer.append(jobGroup);
+
       departmentJobs.forEach((job) => {
         const listItem = document.createElement('li');
         listItem.classList.add('cmp-jobs__item');
