@@ -1,6 +1,7 @@
 export default function formatCardByline(row) {
   const authors = row.author.split(', ');
-  const authorTitles = row.authorTitle.split('; ');
+  const semicolonsExcludingHTMLCharacters = /(?<!&#[a-z0-9]{1,});/;
+  const authorTitles = row.authorTitle.split(semicolonsExcludingHTMLCharacters);
   let cardByline = '';
   authors.forEach((author, idx) => {
     cardByline += `
