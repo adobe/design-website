@@ -1,11 +1,16 @@
 .collaborators {
   background-color: var(--color-base-light-rose);
   grid-column: 1 / -1;
+  margin: 12px 0;
   padding: 5.25rem var(--page-inline-padding) 0;
 }
 
 .design-circle .collaborators {
   margin-bottom: 12px;
+}
+
+.inclusive-design .collaborators {
+  margin: 0;
 }
 
 .collaborators:last-of-type {
