@@ -1,13 +1,16 @@
 export default function formatCardByline(row) {
-  const authors = row.author.split(', ');
-  const semicolonsExcludingHTMLCharacters = /(?<!&#[a-z0-9]{1,});/;
-  const authorTitles = row.authorTitle.split(semicolonsExcludingHTMLCharacters);
+  const authorArray = row.author.split(', ');
+  const titleArray = typeof row.authorTitle === 'object'
+    ? row.authorTitle
+    : [row.authorTitle];
   let cardByline = '';
-  authors.forEach((author, idx) => {
+
+  authorArray.forEach((author, idx) => {
     cardByline += `
       ${author ? `<p class="cmp-stories-card__author">${author}</p>` : ''}
-      ${authorTitles[idx] ? `<p class="cmp-stories-card__author-title">${authorTitles[idx]}</p>` : ''}
+      ${titleArray[idx] ? `<p class="cmp-stories-card__author-title">${titleArray[idx]}</p>` : ''}
     `;
   });
+
   return cardByline;
 }

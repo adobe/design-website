@@ -14,7 +14,10 @@ export default async function getAuthorTitles(row) {
       const authorIdx = authorData.map((data) => data.title).indexOf(authorNames[idx]);
       return authorData[authorIdx].subtitle !== '0' ? authorData[authorIdx].subtitle : '';
     });
-    return authorTitles.join('; ');
+    // Return two or more author titles in array
+    return authorTitles;
   }
+
+  // Return single author title, or no title, as string
   return row.authorTitle;
 }
