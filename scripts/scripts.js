@@ -681,6 +681,9 @@ function loadDelayed() {
   setTimeout(() => {
     loadScript('https://assets.adobedtm.com/a7d65461e54e/9ee19a80de10/launch-882c01867cbb.min.js');
   }, 4000);
+
+  // Core Web Vitals RUM collection
+  sampleRUM('cwv');
 }
 
 /*
