@@ -35,7 +35,7 @@ export function sampleRUM(checkpoint, data = {}) {
       const sendPing = () => {
         // eslint-disable-next-line object-curly-newline, max-len, no-use-before-define
         const body = JSON.stringify({ weight, id, referer: window.location.href, generation: RUM_GENERATION, checkpoint, ...data });
-        const url = `https://rum.hlx3.page/.rum/${weight}`;
+        const url = `https://rum.hlx.page/.rum/${weight}`;
         // eslint-disable-next-line no-unused-expressions
         navigator.sendBeacon(url, body);
       };
