@@ -1,4 +1,6 @@
 {
   "project": "Design",
-  "host": "adobe.design"
+  "host": "adobe.design",
+  "previewHost": "main--design-website--adobe.aem.page",
+  "liveHost": "main--design-website--adobe.aem.live"
 }
