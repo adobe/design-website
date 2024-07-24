@@ -668,6 +668,7 @@ export function loadScript(url, callback, type) {
  * loads everything needed to get to LCP.
  */
 async function loadEager(doc) {
+  document.documentElement.lang = 'en';
   const redirect = getMetadata('redirect');
   const usp = new URLSearchParams(window.location.search);
   if (redirect) {
