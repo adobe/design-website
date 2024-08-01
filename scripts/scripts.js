@@ -564,7 +564,6 @@ initHlx();
  */
 
 const LCP_BLOCKS = ['hero']; // add your LCP blocks to the list
-const RUM_GENERATION = 'design-website-1'; // add your RUM generation information here
 const PRODUCTION_DOMAINS = ['adobe.design'];
 const ICON_ROOT = '/icons';
 
