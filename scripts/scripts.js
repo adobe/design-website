@@ -564,7 +564,6 @@ initHlx();
  */
 
 const LCP_BLOCKS = ['hero']; // add your LCP blocks to the list
-const RUM_GENERATION = 'design-website-1'; // add your RUM generation information here
 const PRODUCTION_DOMAINS = ['adobe.design'];
 const ICON_ROOT = '/icons';
 
@@ -668,6 +667,7 @@ export function loadScript(url, callback, type) {
  * loads everything needed to get to LCP.
  */
 async function loadEager(doc) {
+  document.documentElement.lang = 'en';
   const redirect = getMetadata('redirect');
   const usp = new URLSearchParams(window.location.search);
   if (redirect) {
