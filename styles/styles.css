@@ -731,11 +731,6 @@ body.job-posts {
     margin-bottom: 3rem;
   }
 
-  .job-posts .cmp-about-ad-container h2,
-  .job-posts .cmp-about-ad-container p {
-    font-size: var(--font-size-800);
-  }
-
   .job-posts .cmp-job-post__inner-wrap .cmp-job-post__details h2 {
     --post-sub-headline-font-size: 2.5625rem;
   }
